@@ -60,6 +60,12 @@
 		return chip;
 	}
 
+	function renderContent(markdown, content) {
+		if (!window.SongMarkdown?.render?.(markdown ?? '', content)) {
+			content.textContent = markdown ?? '';
+		}
+	}
+
 	function setError(kind = 'load') {
 		const copy = text();
 		const loading = document.getElementById('post-detail-loading');
@@ -129,7 +135,7 @@
 
 		detail.hidden = false;
 		title.textContent = translation.title ?? '';
-		content.textContent = translation.content ?? '';
+		renderContent(translation.content ?? '', content);
 		meta.replaceChildren();
 		taxonomy.replaceChildren();
 
