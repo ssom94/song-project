@@ -1,6 +1,8 @@
 {
   "categoriesPageTitle": "카테고리 관리",
   "categoriesPageDescription": "게시글에서 사용할 카테고리와 계층 구조를 관리합니다.",
+  "taxonomyCategories": "카테고리",
+  "taxonomyTags": "태그",
   "categoryCreateTitle": "카테고리 추가",
   "categoryEditTitle": "카테고리 수정",
   "categoryBothLanguagesRequired": "일본어명과 한국어명을 함께 등록합니다.",
