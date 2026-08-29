@@ -32,6 +32,7 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 	<title>${text.pageTitle}</title>
 	<link rel="stylesheet" href="/assets/css/common.css" />
 	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/markdown.css" />
 	<link rel="stylesheet" href="/assets/css/blog/post-detail.css" />
 </head>
 <body class="blog-page blog-post-page" data-blog-language="${language}">
@@ -74,6 +75,7 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 		</article>
 	</main>
 
+	<script src="/assets/js/markdown.js"></script>
 	<script src="/assets/js/blog/post-detail.js"></script>
 </body>
 </html>`, {
