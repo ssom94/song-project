@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Japanese Categories | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-categories.css" />
+</head>
+<body class="admin-page admin-japanese-categories-page" data-i18n-scope="japanese-categories">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+				</button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
+			</aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading">
+						<h1 data-i18n="learningCategoriesPageTitle">日本語学習・学習分類</h1>
+						<p data-i18n="learningCategoriesPageDescription">単語を学習目的ごとに分類し、将来のクイズ出題範囲にも利用します。</p>
+					</div>
+
+					<nav class="admin-japanese-tabs" aria-label="Japanese learning management">
+						<a class="admin-japanese-tab" href="/admin/japanese/" data-i18n="tabWords">単語</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/parts/" data-i18n="tabParts">品詞</a>
+						<a class="admin-japanese-tab is-active" href="/admin/japanese/categories/" aria-current="page" data-i18n="tabCategories">学習分類</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/quiz/" data-i18n="tabQuiz">クイズ</a>
+					</nav>
+
+					<div class="admin-learning-category-layout">
+						<section class="admin-learning-category-card">
+							<div class="admin-learning-category-card-header">
+								<div>
+									<h2 id="learning-category-form-title" data-i18n="categoryCreateTitle">学習分類を追加</h2>
+									<p data-i18n="categoryFormHint">日本語名・韓国語名と階層を設定します。</p>
+								</div>
+								<button id="learning-category-new" class="admin-learning-category-text-button" type="button" data-i18n="categoryNew">新規</button>
+							</div>
+
+							<form id="learning-category-form" class="admin-learning-category-form">
+								<div class="admin-learning-category-field">
+									<label for="learning-category-name-ja" data-i18n="categoryNameJa">日本語名</label>
+									<input id="learning-category-name-ja" type="text" maxlength="100" autocomplete="off" data-i18n-placeholder="categoryNameJaPlaceholder" />
+								</div>
+								<div class="admin-learning-category-field">
+									<label for="learning-category-name-ko" data-i18n="categoryNameKo">韓国語名</label>
+									<input id="learning-category-name-ko" type="text" maxlength="100" autocomplete="off" data-i18n-placeholder="categoryNameKoPlaceholder" />
+								</div>
+								<div class="admin-learning-category-field">
+									<label for="learning-category-parent" data-i18n="categoryParent">上位分類</label>
+									<select id="learning-category-parent"><option value="" data-i18n="categoryTopLevel">最上位</option></select>
+								</div>
+								<div class="admin-learning-category-field">
+									<label for="learning-category-order" data-i18n="categoryOrder">表示順</label>
+									<input id="learning-category-order" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric" />
+								</div>
+								<div class="admin-learning-category-field">
+									<label for="learning-category-description" data-i18n="categoryDescription">説明</label>
+									<textarea id="learning-category-description" rows="4" maxlength="500" data-i18n-placeholder="categoryDescriptionPlaceholder"></textarea>
+								</div>
+								<p id="learning-category-status" class="admin-learning-category-status" hidden></p>
+								<div class="admin-learning-category-actions">
+									<button id="learning-category-cancel" class="admin-learning-category-button" type="button" hidden data-i18n="categoryCancel">編集をキャンセル</button>
+									<button id="learning-category-save" class="admin-learning-category-button admin-learning-category-button-primary" type="submit" data-i18n="categoryAdd">追加</button>
+								</div>
+							</form>
+						</section>
+
+						<section class="admin-learning-category-card">
+							<div class="admin-learning-category-card-header">
+								<div>
+									<h2 data-i18n="categoryListTitle">学習分類一覧</h2>
+									<p data-i18n="categoryListHint">下位分類は階層表示します。</p>
+								</div>
+								<span id="learning-category-count" class="admin-learning-category-count">0</span>
+							</div>
+							<div id="learning-categories-loading" class="admin-learning-category-empty" data-i18n="categoriesLoading">学習分類を読み込んでいます…</div>
+							<div id="learning-categories-empty" class="admin-learning-category-empty" hidden data-i18n="categoriesEmpty">学習分類はまだありません。</div>
+							<div id="learning-category-table-wrap" class="admin-learning-category-table-wrap" hidden>
+								<table class="admin-learning-category-table">
+									<thead><tr>
+										<th data-i18n="categoryTableName">分類</th>
+										<th data-i18n="categoryTableDescription">説明</th>
+										<th data-i18n="categoryTableWords">単語数</th>
+										<th data-i18n="categoryTableOrder">順序</th>
+										<th data-i18n="tableActions">操作</th>
+									</tr></thead>
+									<tbody id="learning-category-table-body"></tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/japanese-categories.js"></script>
+</body>
+</html>
