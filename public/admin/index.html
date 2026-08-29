@@ -56,15 +56,7 @@
 		<div class="admin-body">
 			<aside class="admin-sidebar">
 				<p class="admin-nav-label" data-i18n="management">管理</p>
-				<nav class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel">
-					<a class="is-active" href="/admin/" data-i18n="dashboard">ダッシュボード</a>
-					<a href="#" data-i18n="posts">投稿管理</a>
-					<a href="#" data-i18n="comments">コメント管理</a>
-					<a href="#" data-i18n="categoriesTags">カテゴリー・タグ</a>
-					<a href="#" data-i18n="japaneseLearning">日本語学習</a>
-					<a href="#" data-i18n="protectedDocuments">スキル・職務経歴書</a>
-					<a href="#" data-i18n="accessCodes">アクセスコード</a>
-				</nav>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
 
 				<div class="admin-sidebar-footer">
 					<a href="/" data-i18n="viewSite">サイトを表示</a>
@@ -110,6 +102,7 @@
 	</div>
 
 	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
 	<script>
 		const loading = document.getElementById('admin-loading');
 		const shell = document.getElementById('admin-shell');
@@ -175,6 +168,11 @@
 					window.location.replace('/admin/login/');
 					return;
 				}
+
+				await Promise.allSettled([
+					window.AdminI18n?.ready,
+					window.AdminMenu?.ready,
+				]);
 
 				const displayName = data.admin.displayName ?? data.admin.username;
 				adminUser.textContent = displayName;
