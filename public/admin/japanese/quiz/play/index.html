@@ -90,13 +90,11 @@
 							<article class="admin-quiz-question-card">
 								<div class="admin-quiz-question-topline">
 									<span id="quiz-play-type-badge" class="admin-quiz-question-badge">READING</span>
-									<span id="quiz-play-level" class="admin-quiz-question-level">N2</span>
+									<span id="quiz-play-level" class="admin-quiz-question-level">—</span>
 								</div>
-
 								<p id="quiz-play-instruction" class="admin-quiz-question-instruction" data-i18n="playReadingInstruction">次の単語の読み方をひらがなで入力してください。</p>
-								<div id="quiz-play-question" class="admin-quiz-question-main">扱う</div>
+								<div id="quiz-play-question" class="admin-quiz-question-main">—</div>
 								<p id="quiz-play-subtext" class="admin-quiz-question-subtext" hidden></p>
-
 								<form id="quiz-play-form" class="admin-quiz-answer-form">
 									<label for="quiz-play-answer" data-i18n="playAnswerLabel">答え</label>
 									<div class="admin-quiz-answer-row">
@@ -104,18 +102,15 @@
 										<button id="quiz-play-submit" type="submit" data-i18n="playCheck">答え合わせ</button>
 									</div>
 								</form>
-
 								<div id="quiz-play-choices" class="admin-quiz-choice-grid" hidden aria-label="Answer choices"></div>
-
 								<div id="quiz-play-feedback" class="admin-quiz-feedback" hidden>
 									<div class="admin-quiz-feedback-icon" aria-hidden="true"></div>
 									<div class="admin-quiz-feedback-copy">
 										<strong id="quiz-play-feedback-title">正解です</strong>
-										<p><span data-i18n="playCorrectAnswer">正解</span>: <b id="quiz-play-correct-answer">あつかう</b></p>
-										<p id="quiz-play-feedback-note">「扱う」には、物や問題などを取り扱うという意味があります。</p>
+										<p><span data-i18n="playCorrectAnswer">正解</span>: <b id="quiz-play-correct-answer">—</b></p>
+										<p id="quiz-play-feedback-note"></p>
 									</div>
 								</div>
-
 								<div class="admin-quiz-question-actions">
 									<button id="quiz-play-skip" class="admin-quiz-secondary-button" type="button" data-i18n="playSkip">わからない / スキップ</button>
 									<button id="quiz-play-next" class="admin-quiz-primary-button" type="button" hidden data-i18n="playNext">次の問題</button>
@@ -133,8 +128,8 @@
 									<div><dt data-i18n="playQuestionCount">問題数</dt><dd id="quiz-play-session-count">20</dd></div>
 								</dl>
 								<div class="admin-quiz-session-note">
-									<strong data-i18n="playPrototypeTitle">画面構成プレビュー</strong>
-									<p data-i18n="playPrototypeNote">現在は画面確認用のサンプル問題です。実データによるランダム出題・採点・成績保存は画面確定後に接続します。</p>
+									<strong>Registered Words</strong>
+									<p>管理画面で登録した単語・読み方・韓国語の意味・例文を基準に出題し、完了した結果は学習履歴に保存します。</p>
 								</div>
 							</aside>
 						</div>
@@ -148,6 +143,7 @@
 	<script src="/assets/js/admin/menu.js"></script>
 	<script src="/assets/js/admin/layout.js"></script>
 	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/japanese/quiz-engine.js"></script>
 	<script src="/assets/js/admin/japanese-quiz-play.js"></script>
 </body>
 </html>
