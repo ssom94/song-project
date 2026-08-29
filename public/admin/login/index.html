@@ -28,7 +28,20 @@
 
 			<div class="login-field">
 				<label class="admin-form-label" for="password">パスワード</label>
-				<input class="admin-input" id="password" name="password" type="password" autocomplete="current-password" required maxlength="1024" />
+				<div class="password-input-wrap">
+					<input class="admin-input password-input" id="password" name="password" type="password" autocomplete="current-password" required maxlength="1024" />
+					<button class="password-toggle" id="password-toggle" type="button" aria-label="パスワードを表示" aria-pressed="false">
+						<svg class="password-icon password-icon-show" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+							<circle cx="12" cy="12" r="3" />
+						</svg>
+						<svg class="password-icon password-icon-hide" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M3 3l18 18" />
+							<path d="M10.6 6.2A10.8 10.8 0 0 1 12 6c6 0 9.5 6 9.5 6a17.4 17.4 0 0 1-3 3.6M6.2 6.2C3.8 8 2.5 12 2.5 12S6 18 12 18a9.8 9.8 0 0 0 3.3-.6" />
+							<path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+						</svg>
+					</button>
+				</div>
 			</div>
 
 			<label class="login-remember" for="remember-me">
@@ -45,6 +58,7 @@
 		const form = document.getElementById('login-form');
 		const usernameInput = document.getElementById('username');
 		const passwordInput = document.getElementById('password');
+		const passwordToggle = document.getElementById('password-toggle');
 		const rememberInput = document.getElementById('remember-me');
 		const submitButton = document.getElementById('submit-button');
 		const status = document.getElementById('status');
@@ -53,6 +67,15 @@
 			status.textContent = message;
 			status.classList.toggle('success', success);
 		}
+
+		passwordToggle.addEventListener('click', () => {
+			const showPassword = passwordInput.type === 'password';
+			passwordInput.type = showPassword ? 'text' : 'password';
+			passwordToggle.classList.toggle('is-visible', showPassword);
+			passwordToggle.setAttribute('aria-pressed', String(showPassword));
+			passwordToggle.setAttribute('aria-label', showPassword ? 'パスワードを非表示' : 'パスワードを表示');
+			passwordInput.focus({ preventScroll: true });
+		});
 
 		async function checkSession() {
 			try {
