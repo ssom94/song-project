@@ -51,6 +51,8 @@
   "postsLoadingDescription": "D1から投稿一覧を取得しています。",
   "postsLoadFailed": "投稿の読み込みに失敗しました",
   "postsLoadFailedDescription": "しばらくしてからページを再読み込みしてください。",
+  "postsFilterEmptyTitle": "検索条件に一致する投稿がありません",
+  "postsFilterEmptyDescription": "検索語またはフィルターを変更してください。",
   "emptyPostsTitle": "投稿はまだありません",
   "emptyPostsDescription": "最初の投稿を作成すると、ここに一覧が表示されます。",
   "postEditorTitle": "新規投稿を作成",
