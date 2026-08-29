@@ -1,4 +1,6 @@
 {
+  "japaneseTabWords": "単語",
+  "japaneseTabParts": "品詞",
   "partsPageTitle": "日本語学習・品詞管理",
   "partsPageDescription": "単語に付ける品詞と階層を管理します。",
   "partsCreateTitle": "品詞を追加",
