@@ -14,6 +14,7 @@
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
+import { handleCreateAdminPost } from './admin/posts/create';
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
@@ -47,6 +48,14 @@ export default {
 					});
 				}
 				return handleAdminSessionStatus(request, env);
+			case '/api/admin/posts':
+				if (request.method !== 'POST') {
+					return new Response('Method Not Allowed', {
+						status: 405,
+						headers: { Allow: 'POST' },
+					});
+				}
+				return handleCreateAdminPost(request, env);
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
