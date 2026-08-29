@@ -98,6 +98,12 @@
 		}
 	}
 
+	function renderContent(markdown, content) {
+		if (!window.SongMarkdown?.render?.(markdown ?? '', content)) {
+			content.textContent = markdown ?? '';
+		}
+	}
+
 	function renderArticle() {
 		if (!previewData || !activeLanguage) return;
 		const translation = previewData.translations[activeLanguage];
@@ -118,7 +124,7 @@
 		}
 		if (category) category.textContent = translation.category || unclassifiedLabel(activeLanguage);
 		if (title) title.textContent = translation.title;
-		if (content) content.textContent = translation.content;
+		if (content) renderContent(translation.content, content);
 
 		document.documentElement.lang = activeLanguage;
 		document.title = `${translation.title || (activeLanguage === 'ko' ? '게시글 미리보기' : '投稿プレビュー')} | SONG`;
