@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Japanese Quiz Play | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-quiz-play.css" />
+</head>
+<body class="admin-page admin-japanese-quiz-play-page" data-i18n-scope="japanese-quiz-play">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+				</button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
+			</aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading admin-quiz-play-page-heading">
+						<div>
+							<h1 data-i18n="playPageTitle">ランダムクイズ</h1>
+							<p data-i18n="playPageDescription">問題を解いて、読み方・意味・文脈を反復練習します。</p>
+						</div>
+						<a class="admin-quiz-play-exit" href="/admin/japanese/quiz/" data-i18n="playExit">クイズを終了</a>
+					</div>
+
+					<nav class="admin-japanese-tabs" aria-label="Japanese learning management">
+						<a class="admin-japanese-tab" href="/admin/japanese/" data-i18n="tabWords">単語</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/parts/" data-i18n="tabParts">品詞</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/categories/" data-i18n="tabCategories">学習分類</a>
+						<a class="admin-japanese-tab is-active" href="/admin/japanese/quiz/" data-i18n="tabQuiz">クイズ</a>
+					</nav>
+
+					<section class="admin-quiz-play-shell">
+						<header class="admin-quiz-play-statusbar">
+							<div class="admin-quiz-play-progress-wrap">
+								<div class="admin-quiz-play-progress-meta">
+									<strong><span id="quiz-play-current">1</span> / <span id="quiz-play-total">20</span></strong>
+									<span id="quiz-play-type-label">単語 → ひらがな</span>
+								</div>
+								<div class="admin-quiz-play-progress" aria-hidden="true"><span id="quiz-play-progress-bar"></span></div>
+							</div>
+							<div class="admin-quiz-play-scoreboard">
+								<div><span data-i18n="playCorrect">正解</span><strong id="quiz-play-correct">0</strong></div>
+								<div><span data-i18n="playWrong">不正解</span><strong id="quiz-play-wrong">0</strong></div>
+							</div>
+						</header>
+
+						<div class="admin-quiz-play-body">
+							<article class="admin-quiz-question-card">
+								<div class="admin-quiz-question-topline">
+									<span id="quiz-play-type-badge" class="admin-quiz-question-badge">READING</span>
+									<span id="quiz-play-level" class="admin-quiz-question-level">N2</span>
+								</div>
+
+								<p id="quiz-play-instruction" class="admin-quiz-question-instruction" data-i18n="playReadingInstruction">次の単語の読み方をひらがなで入力してください。</p>
+								<div id="quiz-play-question" class="admin-quiz-question-main">扱う</div>
+								<p id="quiz-play-subtext" class="admin-quiz-question-subtext" hidden></p>
+
+								<form id="quiz-play-form" class="admin-quiz-answer-form">
+									<label for="quiz-play-answer" data-i18n="playAnswerLabel">答え</label>
+									<div class="admin-quiz-answer-row">
+										<input id="quiz-play-answer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-i18n-placeholder="playAnswerPlaceholder" placeholder="答えを入力" />
+										<button id="quiz-play-submit" type="submit" data-i18n="playCheck">答え合わせ</button>
+									</div>
+								</form>
+
+								<div id="quiz-play-feedback" class="admin-quiz-feedback" hidden>
+									<div class="admin-quiz-feedback-icon" aria-hidden="true"></div>
+									<div class="admin-quiz-feedback-copy">
+										<strong id="quiz-play-feedback-title">正解です</strong>
+										<p><span data-i18n="playCorrectAnswer">正解</span>: <b id="quiz-play-correct-answer">あつかう</b></p>
+										<p id="quiz-play-feedback-note">「扱う」には、物や問題などを取り扱うという意味があります。</p>
+									</div>
+								</div>
+
+								<div class="admin-quiz-question-actions">
+									<button id="quiz-play-skip" class="admin-quiz-secondary-button" type="button" data-i18n="playSkip">わからない / スキップ</button>
+									<button id="quiz-play-next" class="admin-quiz-primary-button" type="button" hidden data-i18n="playNext">次の問題</button>
+								</div>
+							</article>
+
+							<aside class="admin-quiz-session-card">
+								<h2 data-i18n="playSessionTitle">今回の出題条件</h2>
+								<dl>
+									<div><dt data-i18n="playTypes">問題タイプ</dt><dd id="quiz-play-session-types">3</dd></div>
+									<div><dt>JLPT</dt><dd id="quiz-play-session-jlpt" data-i18n="playAll">すべて</dd></div>
+									<div><dt data-i18n="playCategory">学習分類</dt><dd id="quiz-play-session-category" data-i18n="playAll">すべて</dd></div>
+									<div><dt data-i18n="playQuestionCount">問題数</dt><dd id="quiz-play-session-count">20</dd></div>
+								</dl>
+								<div class="admin-quiz-session-note">
+									<strong data-i18n="playPrototypeTitle">画面構成プレビュー</strong>
+									<p data-i18n="playPrototypeNote">現在は画面確認用のサンプル問題です。実データによるランダム出題・採点・成績保存は画面確定後に接続します。</p>
+								</div>
+							</aside>
+						</div>
+					</section>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/japanese-quiz-play.js"></script>
+</body>
+</html>
