@@ -118,7 +118,7 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 	if (sourceLanguageMode !== 'auto' && sourceLanguageMode !== 'ja' && sourceLanguageMode !== 'ko') {
 		return json({ ok: false, error: 'INVALID_SOURCE_LANGUAGE' }, 400);
 	}
-	if (status !== 'draft' && status !== 'published') {
+	if (status !== 'draft' && status !== 'published' && status !== 'private') {
 		return json({ ok: false, error: 'INVALID_STATUS' }, 400);
 	}
 	if (translationMethod !== 'ai' && translationMethod !== 'manual' && translationMethod !== 'later') {
