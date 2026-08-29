@@ -39,6 +39,7 @@
 	let correctCount = 0;
 	let wrongCount = 0;
 	let answered = false;
+	let attempts = [];
 	let setup = {
 		types: ['reading', 'meaning', 'sentence'],
 		jlpt: null,
@@ -50,25 +51,14 @@
 		answerMode: 'input',
 	};
 
-	function byId(id) {
-		return document.getElementById(id);
-	}
-
+	function byId(id) { return document.getElementById(id); }
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
 		return value && value !== key ? value : fallback;
 	}
-
-	function language() {
-		return window.AdminI18n?.getLanguage?.() ?? 'ja';
-	}
-
+	function language() { return window.AdminI18n?.getLanguage?.() ?? 'ja'; }
 	function normalizeAnswer(value) {
-		return String(value ?? '')
-			.normalize('NFKC')
-			.trim()
-			.toLocaleLowerCase()
-			.replace(/[。．.!！?？\s]+$/g, '');
+		return String(value ?? '').normalize('NFKC').trim().toLocaleLowerCase().replace(/[。．.!！?？\s]+$/g, '');
 	}
 
 	function readSetup() {
@@ -77,9 +67,7 @@
 			if (!raw) return;
 			const parsed = JSON.parse(raw);
 			if (!parsed || typeof parsed !== 'object') return;
-			const types = Array.isArray(parsed.types)
-				? parsed.types.filter((value) => ['reading', 'meaning', 'sentence'].includes(value))
-				: [];
+			const types = Array.isArray(parsed.types) ? parsed.types.filter((value) => ['reading', 'meaning', 'sentence'].includes(value)) : [];
 			setup = {
 				...setup,
 				...parsed,
@@ -96,34 +84,20 @@
 		const filtered = sampleQuestions.filter((question) => setup.types.includes(question.type));
 		return filtered.length ? filtered : sampleQuestions;
 	}
-
-	function activeQuestion() {
-		const samples = filteredSamples();
-		return samples[current % samples.length];
-	}
-
+	function activeQuestion() { const samples = filteredSamples(); return samples[current % samples.length]; }
 	function typeText(type) {
 		const korean = language() === 'ko';
 		if (type === 'meaning') return korean ? '단어 → 한국어 뜻' : '単語 → 韓国語の意味';
 		if (type === 'sentence') return korean ? '예문 빈칸 → 단어' : '例文の空欄 → 単語';
 		return korean ? '단어 → 히라가나' : '単語 → ひらがな';
 	}
-
 	function instructionText(type) {
 		if (type === 'meaning') return t('playMeaningInstruction', '単語の韓国語の意味を入力してください。');
 		if (type === 'sentence') return t('playSentenceInstruction', '文脈に合う単語を入力してください。');
 		return t('playReadingInstruction', '次の単語の読み方をひらがなで入力してください。');
 	}
-
-	function answerModeText() {
-		return setup.answerMode === 'choice'
-			? t('playChoiceMode', '4択')
-			: t('playInputMode', '直接入力');
-	}
-
-	function scopeLabel(primary, secondary) {
-		return secondary || primary || t('playAll', 'すべて');
-	}
+	function answerModeText() { return setup.answerMode === 'choice' ? t('playChoiceMode', '4択') : t('playInputMode', '直接入力'); }
+	function scopeLabel(primary, secondary) { return secondary || primary || t('playAll', 'すべて'); }
 
 	function renderSession() {
 		byId('quiz-play-total').textContent = String(setup.count);
@@ -202,9 +176,7 @@
 		const feedback = byId('quiz-play-feedback');
 		feedback.hidden = false;
 		feedback.dataset.result = isCorrect ? 'correct' : 'wrong';
-		byId('quiz-play-feedback-title').textContent = isCorrect
-			? t('playCorrectFeedback', '正解です')
-			: t('playWrongFeedback', 'もう一度確認しましょう');
+		byId('quiz-play-feedback-title').textContent = isCorrect ? t('playCorrectFeedback', '正解です') : t('playWrongFeedback', 'もう一度確認しましょう');
 		byId('quiz-play-correct-answer').textContent = question.correct;
 		byId('quiz-play-feedback-note').textContent = language() === 'ko' ? question.noteKo : question.noteJa;
 		byId('quiz-play-correct').textContent = String(correctCount);
@@ -216,6 +188,17 @@
 		byId('quiz-play-next').hidden = false;
 	}
 
+	function recordAttempt(answer, isCorrect) {
+		const question = activeQuestion();
+		attempts.push({
+			type: question.type,
+			question: question.question,
+			answer: answer ?? '',
+			correct: question.correct,
+			isCorrect,
+		});
+	}
+
 	function grade(answer, selectedButton = null) {
 		if (answered) return;
 		answered = true;
@@ -224,27 +207,22 @@
 		const isCorrect = question.answers.some((value) => normalizeAnswer(value) === normalized);
 		if (isCorrect) correctCount += 1;
 		else wrongCount += 1;
+		recordAttempt(answer, isCorrect);
 		showFeedback(isCorrect, selectedButton);
 	}
 
 	function answerCurrent(event) {
 		event.preventDefault();
 		const answer = normalizeAnswer(byId('quiz-play-answer').value);
-		if (!answer) {
-			byId('quiz-play-answer').focus();
-			return;
-		}
+		if (!answer) { byId('quiz-play-answer').focus(); return; }
 		grade(answer);
 	}
-
-	function answerChoice(value, button) {
-		grade(value, button);
-	}
-
+	function answerChoice(value, button) { grade(value, button); }
 	function skipCurrent() {
 		if (answered) return;
 		answered = true;
 		wrongCount += 1;
+		recordAttempt('', false);
 		showFeedback(false);
 	}
 
@@ -255,8 +233,9 @@
 				wrong: wrongCount,
 				total: setup.count,
 				setup,
+				attempts,
 			}));
-			window.location.href = '/admin/japanese/quiz/';
+			window.location.href = '/admin/japanese/quiz/result/';
 			return;
 		}
 		current += 1;
@@ -268,9 +247,7 @@
 		const question = activeQuestion();
 		byId('quiz-play-type-label').textContent = typeText(question.type);
 		byId('quiz-play-instruction').textContent = instructionText(question.type);
-		if (!byId('quiz-play-feedback').hidden) {
-			byId('quiz-play-feedback-note').textContent = language() === 'ko' ? question.noteKo : question.noteJa;
-		}
+		if (!byId('quiz-play-feedback').hidden) byId('quiz-play-feedback-note').textContent = language() === 'ko' ? question.noteKo : question.noteJa;
 	}
 
 	async function initialize() {
