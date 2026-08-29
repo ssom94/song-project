@@ -65,23 +65,35 @@ export async function handleGetAdminPost(request: Request, env: Env): Promise<Re
 			return json({ ok: false, error: 'POST_NOT_FOUND' }, 404);
 		}
 
-		const translations = await env.song_project_db
-			.prepare(`
-				SELECT
-					language_code,
-					title,
-					slug,
-					content,
-					excerpt,
-					translation_status,
-					created_at,
-					updated_at
-				FROM post_translations
-				WHERE post_id = ?1
-				ORDER BY CASE WHEN language_code = ?2 THEN 0 ELSE 1 END, language_code
-			`)
-			.bind(postId, post.original_language)
-			.all<AdminPostTranslationRow>();
+		const [translations, tagRows] = await Promise.all([
+			env.song_project_db
+				.prepare(`
+					SELECT
+						language_code,
+						title,
+						slug,
+						content,
+						excerpt,
+						translation_status,
+						created_at,
+						updated_at
+					FROM post_translations
+					WHERE post_id = ?1
+					ORDER BY CASE WHEN language_code = ?2 THEN 0 ELSE 1 END, language_code
+				`)
+				.bind(postId, post.original_language)
+				.all<AdminPostTranslationRow>(),
+			env.song_project_db
+				.prepare(`
+					SELECT pt.tag_id AS id
+					FROM post_tags AS pt
+					INNER JOIN tags AS t ON t.id = pt.tag_id
+					WHERE pt.post_id = ?1 AND t.deleted_at IS NULL
+					ORDER BY pt.tag_id ASC
+				`)
+				.bind(postId)
+				.all<{ id: number }>(),
+		]);
 
 		return json({
 			ok: true,
@@ -90,6 +102,7 @@ export async function handleGetAdminPost(request: Request, env: Env): Promise<Re
 				originalLanguage: post.original_language,
 				status: post.status,
 				categoryId: post.category_id,
+				tagIds: tagRows.results.map((row) => row.id),
 				publishedAt: post.published_at,
 				createdAt: post.created_at,
 				updatedAt: post.updated_at,
