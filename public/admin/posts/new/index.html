@@ -15,20 +15,9 @@
 	<div id="admin-shell" class="admin-shell" hidden>
 		<header class="admin-global-header">
 			<div class="admin-header-left">
-				<button
-					id="admin-sidebar-toggle"
-					class="admin-sidebar-toggle"
-					type="button"
-					aria-controls="admin-sidebar"
-					aria-expanded="true"
-					aria-label="管理メニューを閉じる"
-					data-i18n-aria-label="menuCloseLabel"
-				>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
 				</button>
-
 				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
 					<img src="/assets/logo-song-ym.png" alt="Song YM" />
 					<span>SONG Admin</span>
@@ -41,26 +30,14 @@
 					<span class="admin-language-divider" aria-hidden="true">|</span>
 					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
 				</div>
-
 				<div class="admin-user-menu-wrap">
-					<button
-						id="admin-user-toggle"
-						class="admin-user-toggle"
-						type="button"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-controls="admin-user-menu"
-					>
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
 						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
 						<span id="admin-user" class="admin-user"></span>
 						<span class="admin-user-chevron" aria-hidden="true"></span>
 					</button>
-
 					<div id="admin-user-menu" class="admin-user-menu" hidden>
-						<div class="admin-user-menu-info">
-							<strong id="admin-user-menu-name"></strong>
-							<span id="admin-user-menu-email"></span>
-						</div>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
 						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
 					</div>
 				</div>
@@ -68,26 +45,13 @@
 		</header>
 
 		<div class="admin-header-accent" aria-hidden="true"></div>
-
 		<div class="admin-body">
 			<aside id="admin-sidebar" class="admin-sidebar">
 				<p class="admin-nav-label" data-i18n="management">管理</p>
 				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
-
-				<div class="admin-sidebar-footer">
-					<a href="/" data-i18n="viewSite">サイトを表示</a>
-				</div>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
 			</aside>
-
-			<button
-				id="admin-sidebar-backdrop"
-				class="admin-sidebar-backdrop"
-				type="button"
-				tabindex="-1"
-				aria-label="管理メニューを閉じる"
-				data-i18n-aria-label="menuCloseLabel"
-				hidden
-			></button>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
 
 			<main class="admin-main">
 				<section class="admin-content">
@@ -102,9 +66,7 @@
 					<form id="post-editor-form" class="admin-editor-layout">
 						<div class="admin-editor-main">
 							<section class="admin-editor-card">
-								<div class="admin-editor-card-header">
-									<h2 data-i18n="sourceContentSection">原文</h2>
-								</div>
+								<div class="admin-editor-card-header"><h2 data-i18n="sourceContentSection">原文</h2></div>
 								<div class="admin-editor-card-body">
 									<div class="admin-editor-field">
 										<label for="post-title" data-i18n="postTitle">タイトル</label>
@@ -118,9 +80,7 @@
 							</section>
 
 							<section id="manual-translation-panel" class="admin-editor-card admin-editor-manual-panel" hidden>
-								<div class="admin-editor-card-header">
-									<h2 data-i18n="manualTranslationSection">翻訳文を手動入力</h2>
-								</div>
+								<div class="admin-editor-card-header"><h2 data-i18n="manualTranslationSection">翻訳文を手動入力</h2></div>
 								<div class="admin-editor-card-body">
 									<div class="admin-editor-field">
 										<label for="translated-title" data-i18n="translatedTitle">翻訳タイトル</label>
@@ -144,9 +104,7 @@
 
 						<div class="admin-editor-side">
 							<section class="admin-editor-card">
-								<div class="admin-editor-card-header">
-									<h2 data-i18n="editorSettings">投稿設定</h2>
-								</div>
+								<div class="admin-editor-card-header"><h2 data-i18n="editorSettings">投稿設定</h2></div>
 								<div class="admin-editor-card-body">
 									<div class="admin-editor-field">
 										<label for="source-language" data-i18n="sourceLanguage">原文言語</label>
@@ -157,9 +115,7 @@
 									</div>
 									<div class="admin-editor-field">
 										<label for="post-category" data-i18n="postCategory">カテゴリー</label>
-										<select id="post-category" name="category">
-											<option value="" data-i18n="categoryNone">未選択</option>
-										</select>
+										<select id="post-category" name="category"><option value="" data-i18n="categoryNone">未分類</option></select>
 									</div>
 									<div class="admin-editor-field">
 										<label for="post-tags" data-i18n="postTags">タグ</label>
@@ -177,47 +133,30 @@
 							</section>
 
 							<section class="admin-editor-card">
-								<div class="admin-editor-card-header">
-									<h2 data-i18n="translationSettings">翻訳設定</h2>
-								</div>
+								<div class="admin-editor-card-header"><h2 data-i18n="translationSettings">翻訳設定</h2></div>
 								<div class="admin-editor-card-body">
 									<div class="admin-editor-language-row">
-										<div class="admin-editor-field">
-											<span class="admin-editor-field-title" data-i18n="translationMethod">翻訳方法</span>
-										</div>
+										<div class="admin-editor-field"><span class="admin-editor-field-title" data-i18n="translationMethod">翻訳方法</span></div>
 										<div class="admin-editor-target">
 											<span class="admin-editor-field-title" data-i18n="translationTarget">翻訳先</span>
 											<span id="translation-target-language" class="admin-editor-target-badge">日本語</span>
 										</div>
 									</div>
-
 									<div class="admin-editor-radio-list">
 										<label class="admin-editor-radio-card">
 											<input type="radio" name="translation-method" value="ai" />
-											<span class="admin-editor-radio-copy">
-												<strong data-i18n="translationAi">AIで翻訳</strong>
-												<span data-i18n="translationAiDescription">保存時にAI APIで翻訳文を生成します。</span>
-											</span>
+											<span class="admin-editor-radio-copy"><strong data-i18n="translationAi">AIで翻訳</strong><span data-i18n="translationAiDescription">保存時にAI APIで翻訳文を生成します。</span></span>
 										</label>
-
 										<label class="admin-editor-radio-card">
 											<input type="radio" name="translation-method" value="manual" />
-											<span class="admin-editor-radio-copy">
-												<strong data-i18n="translationManual">手動で入力</strong>
-												<span data-i18n="translationManualDescription">翻訳タイトルと本文を直接入力します。</span>
-											</span>
+											<span class="admin-editor-radio-copy"><strong data-i18n="translationManual">手動で入力</strong><span data-i18n="translationManualDescription">翻訳タイトルと本文を直接入力します。</span></span>
 										</label>
-
 										<label class="admin-editor-radio-card">
 											<input type="radio" name="translation-method" value="later" checked />
-											<span class="admin-editor-radio-copy">
-												<strong data-i18n="translationLater">後で翻訳</strong>
-												<span data-i18n="translationLaterDescription">今回は原文だけ保存し、翻訳は後から追加します。</span>
-											</span>
+											<span class="admin-editor-radio-copy"><strong data-i18n="translationLater">後で翻訳</strong><span data-i18n="translationLaterDescription">今回は原文だけ保存し、翻訳は後から追加します。</span></span>
 										</label>
 									</div>
-
-									<p class="admin-editor-api-note" data-i18n="editorApiPending">保存・AI翻訳は次の段階でAPIと接続します。</p>
+									<p class="admin-editor-api-note" data-i18n="editorApiPending">投稿の保存はD1に接続済みです。AI翻訳は次の段階で接続します。</p>
 								</div>
 							</section>
 						</div>
@@ -231,6 +170,7 @@
 	<script src="/assets/js/admin/menu.js"></script>
 	<script src="/assets/js/admin/layout.js"></script>
 	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/post-categories.js"></script>
 	<script src="/assets/js/admin/post-editor.js"></script>
 </body>
 </html>
