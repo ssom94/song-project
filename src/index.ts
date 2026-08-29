@@ -12,6 +12,7 @@
  */
 
 import { handleAdminLogin } from './auth/login';
+import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
 
 export default {
@@ -30,6 +31,14 @@ export default {
 					});
 				}
 				return handleAdminLogin(request, env);
+			case '/api/admin/auth/logout':
+				if (request.method !== 'POST') {
+					return new Response('Method Not Allowed', {
+						status: 405,
+						headers: { Allow: 'POST' },
+					});
+				}
+				return handleAdminLogout(request, env);
 			case '/api/admin/auth/session':
 				if (request.method !== 'GET') {
 					return new Response('Method Not Allowed', {
