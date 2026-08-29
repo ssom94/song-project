@@ -32,6 +32,11 @@ import {
 	handleListAdminJapaneseCategories,
 	handleUpdateAdminJapaneseCategory,
 } from './admin/japanese/categories';
+import {
+	handleCompleteAdminJapaneseQuiz,
+	handleGetAdminJapaneseQuizHistory,
+	handleListAdminJapaneseQuizHistory,
+} from './admin/japanese/quiz-history';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -127,6 +132,12 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminJapaneseCategory(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminJapaneseCategory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
+			case '/api/admin/japanese/quiz/complete':
+				return request.method === 'POST' ? handleCompleteAdminJapaneseQuiz(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/quiz/history':
+				return request.method === 'GET' ? handleListAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/quiz/history/detail':
+				return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
