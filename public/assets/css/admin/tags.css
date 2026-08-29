@@ -1,0 +1,273 @@
+body.admin-tags-page {
+	min-height: 100vh;
+	background: #f3f5f8;
+}
+
+.admin-tag-layout {
+	display: grid;
+	grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+	gap: 18px;
+	align-items: start;
+}
+
+.admin-tag-card {
+	overflow: hidden;
+	border: 1px solid #e1e6ed;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(27, 39, 57, 0.045);
+}
+
+.admin-tag-card-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 18px 20px;
+	border-bottom: 1px solid #edf0f4;
+}
+
+.admin-tag-card-header h2 {
+	margin: 0;
+	color: #223049;
+	font-size: 15px;
+}
+
+.admin-tag-card-header p {
+	margin: 5px 0 0;
+	color: #7a8798;
+	font-size: 11px;
+	line-height: 1.5;
+}
+
+.admin-tag-text-button {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #1f56d8;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 750;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.admin-tag-form {
+	display: grid;
+	gap: 16px;
+	padding: 20px;
+}
+
+.admin-tag-field {
+	display: grid;
+	gap: 7px;
+}
+
+.admin-tag-field label {
+	color: #526176;
+	font-size: 12px;
+	font-weight: 750;
+}
+
+.admin-tag-field input {
+	width: 100%;
+	height: 44px;
+	padding: 0 12px;
+	border: 1px solid #d5dde7;
+	border-radius: 10px;
+	background: #fff;
+	color: #243247;
+	font: inherit;
+	font-size: 13px;
+	outline: none;
+}
+
+.admin-tag-field input:focus {
+	border-color: #2d64e3;
+	box-shadow: 0 0 0 3px rgba(45, 100, 227, 0.11);
+}
+
+.admin-tag-form-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 9px;
+	padding-top: 2px;
+}
+
+.admin-tag-button,
+.admin-tag-action {
+	font: inherit;
+	font-weight: 750;
+	cursor: pointer;
+}
+
+.admin-tag-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 40px;
+	padding: 0 14px;
+	border: 1px solid #d7dfe9;
+	border-radius: 9px;
+	background: #fff;
+	color: #40516a;
+	font-size: 12px;
+}
+
+.admin-tag-button-primary {
+	border-color: #1f56d8;
+	background: #1f56d8;
+	color: #fff;
+}
+
+.admin-tag-button:disabled,
+.admin-tag-text-button:disabled,
+.admin-tag-action:disabled {
+	cursor: not-allowed;
+	opacity: 0.55;
+}
+
+.admin-tag-form-status {
+	margin: 0;
+	padding: 10px 12px;
+	border-radius: 9px;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.admin-tag-form-status[data-type="success"] {
+	background: #eaf8f0;
+	color: #087443;
+}
+
+.admin-tag-form-status[data-type="error"] {
+	background: #fff1f0;
+	color: #b42318;
+}
+
+.admin-tag-count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	height: 30px;
+	padding: 0 9px;
+	border-radius: 999px;
+	background: #f1f4f9;
+	color: #53637a;
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.admin-tag-table-wrap {
+	overflow-x: auto;
+}
+
+.admin-tag-table-wrap[hidden],
+.admin-tag-empty[hidden] {
+	display: none;
+}
+
+.admin-tag-table {
+	width: 100%;
+	min-width: 520px;
+	border-collapse: collapse;
+}
+
+.admin-tag-table th {
+	padding: 12px 15px;
+	border-bottom: 1px solid #e9edf2;
+	background: #fafbfd;
+	color: #7b8799;
+	font-size: 11px;
+	font-weight: 750;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.admin-tag-table td {
+	padding: 14px 15px;
+	border-bottom: 1px solid #edf0f4;
+	color: #344156;
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+.admin-tag-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.admin-tag-table tbody tr:hover {
+	background: #fafcff;
+}
+
+.admin-tag-primary-name {
+	font-weight: 750;
+	color: #223049;
+}
+
+.admin-tag-actions {
+	display: flex;
+	gap: 7px;
+	white-space: nowrap;
+}
+
+.admin-tag-action {
+	min-height: 30px;
+	padding: 0 9px;
+	border: 1px solid #d7dfeb;
+	border-radius: 8px;
+	background: #fff;
+	color: #40516a;
+	font-size: 11px;
+}
+
+.admin-tag-action:hover {
+	border-color: #9db4e8;
+	background: #f6f9ff;
+	color: #1f56d8;
+}
+
+.admin-tag-action-danger:hover {
+	border-color: #efb1ad;
+	background: #fff5f4;
+	color: #b42318;
+}
+
+.admin-tag-empty {
+	display: grid;
+	place-items: center;
+	min-height: 220px;
+	padding: 36px 20px;
+	color: #758398;
+	font-size: 13px;
+	text-align: center;
+}
+
+@media (max-width: 900px) {
+	.admin-tag-layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 520px) {
+	.admin-tag-card-header,
+	.admin-tag-form {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+
+	.admin-tag-form-actions {
+		flex-direction: column-reverse;
+	}
+
+	.admin-tag-button {
+		width: 100%;
+	}
+
+	.admin-tag-table th,
+	.admin-tag-table td {
+		padding-right: 11px;
+		padding-left: 11px;
+	}
+}
