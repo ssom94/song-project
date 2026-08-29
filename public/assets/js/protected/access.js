@@ -38,6 +38,7 @@
 
 	function byId(id) { return document.getElementById(id); }
 	function text(key) { return copy[language]?.[key] ?? key; }
+	function languageButtons() { return document.querySelectorAll('button[data-protected-language]'); }
 
 	function applyLanguage() {
 		document.documentElement.lang = language;
@@ -52,7 +53,7 @@
 		byId('protected-career-label').textContent = text('career');
 		document.querySelectorAll('[data-protected-state]').forEach((node) => { node.textContent = text('protected'); });
 		byId('protected-hint').textContent = text('hint');
-		document.querySelectorAll('[data-protected-language]').forEach((button) => {
+		languageButtons().forEach((button) => {
 			const active = button.dataset.protectedLanguage === language;
 			button.classList.toggle('is-active', active);
 			button.setAttribute('aria-pressed', String(active));
@@ -124,7 +125,7 @@
 			event.target.value = event.target.value.replace(/\D/g, '').slice(0, 4);
 		});
 		byId('protected-code-form')?.addEventListener('submit', submit);
-		document.querySelectorAll('[data-protected-language]').forEach((button) => {
+		languageButtons().forEach((button) => {
 			button.addEventListener('click', () => setLanguage(button.dataset.protectedLanguage));
 		});
 		applyLanguage();
