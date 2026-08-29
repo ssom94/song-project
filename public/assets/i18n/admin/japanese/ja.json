@@ -1,4 +1,6 @@
 {
+  "japaneseTabWords": "単語",
+  "japaneseTabParts": "品詞",
   "japaneseWordsPageTitle": "日本語学習・単語管理",
   "japaneseWordsPageDescription": "単語、読み方、意味、JLPT、品詞、例文を管理します。",
   "japaneseWordCreateTitle": "単語を追加",
