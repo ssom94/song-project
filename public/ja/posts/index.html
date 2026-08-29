@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>投稿 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/posts.css" />
+</head>
+<body class="blog-page blog-posts-page" data-blog-language="ja">
+	<header class="blog-header">
+		<div class="blog-header-inner">
+			<a class="blog-brand" href="/" aria-label="SONG Home">
+				<img src="/assets/logo-song-ym.png" alt="Song YM" />
+			</a>
+			<nav class="blog-nav" aria-label="Main navigation">
+				<a href="/">Home</a>
+				<a class="is-active" href="/ja/posts/">投稿</a>
+			</nav>
+			<div class="blog-language-switch" aria-label="Language">
+				<span class="is-active">日本語</span>
+				<span aria-hidden="true">/</span>
+				<a href="/ko/posts/">한국어</a>
+			</div>
+		</div>
+	</header>
+
+	<main class="blog-main">
+		<section class="blog-posts-hero">
+			<p class="blog-posts-kicker">Blog</p>
+			<h1>投稿</h1>
+			<p>開発、学習、仕事で得た知識や経験を記録しています。</p>
+		</section>
+
+		<div id="public-posts-loading" class="blog-state">投稿を読み込んでいます…</div>
+		<section id="public-posts-list" class="blog-post-list" aria-live="polite"></section>
+		<section id="public-posts-empty" class="blog-state blog-state-card" hidden>
+			<h2>公開中の投稿はまだありません</h2>
+			<p>新しい投稿を公開すると、ここに表示されます。</p>
+		</section>
+		<section id="public-posts-error" class="blog-state blog-state-card" hidden>
+			<h2>投稿を読み込めませんでした</h2>
+			<p>しばらくしてからもう一度お試しください。</p>
+		</section>
+	</main>
+
+	<script src="/assets/js/blog/posts-list.js"></script>
+</body>
+</html>
