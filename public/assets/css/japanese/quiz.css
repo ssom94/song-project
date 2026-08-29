@@ -129,6 +129,7 @@
 }
 
 .jp-result-ring {
+	position: relative;
 	background: conic-gradient(#1f56d8 0 var(--jp-result-deg, 0deg), #e9eef5 var(--jp-result-deg, 0deg) 360deg);
 }
 
@@ -301,6 +302,12 @@
 .jp-mini-button:disabled {
 	opacity: 0.42;
 	cursor: default;
+}
+
+button.jp-primary-button,
+button.jp-secondary-button {
+	font: inherit;
+	cursor: pointer;
 }
 
 .jp-quiz-history-empty {
