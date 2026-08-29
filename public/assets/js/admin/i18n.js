@@ -61,6 +61,11 @@
 			if (key) element.setAttribute('aria-label', t(key));
 		});
 
+		document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+			const key = element.dataset.i18nPlaceholder;
+			if (key) element.setAttribute('placeholder', t(key));
+		});
+
 		document.querySelectorAll('[data-admin-lang]').forEach((button) => {
 			const active = button.dataset.adminLang === currentLanguage;
 			button.classList.toggle('is-active', active);
