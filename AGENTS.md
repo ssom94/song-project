@@ -33,14 +33,15 @@ Current admin JavaScript structure:
 
 ```text
 public/assets/js/admin/
-├─ common.js       # admin session gate, user menu, logout, shared modal behavior
-├─ i18n.js         # admin language switching
-├─ menu.js         # admin navigation rendering
-├─ layout.js       # sidebar and responsive layout behavior
-├─ login.js        # login page only
-├─ posts-list.js   # post list loading, search, filters, edit links
-├─ post-editor.js  # shared post create/edit form behavior and validation
-└─ post-edit.js    # existing post loading and update requests
+├─ common.js           # admin session gate, user menu, logout, shared modal behavior
+├─ i18n.js             # admin language switching
+├─ menu.js             # admin navigation rendering
+├─ layout.js           # sidebar and responsive layout behavior
+├─ login.js            # login page only
+├─ posts-list.js       # post list loading, search, filters, view links
+├─ post-categories.js  # shared category loading for create/view/edit post screens
+├─ post-editor.js      # shared post create/edit form behavior and validation
+└─ post-edit.js        # existing post view/edit state, dirty tracking, update requests
 ```
 
 Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
