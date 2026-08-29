@@ -7,6 +7,7 @@
 	<title>Categories | SONG Admin</title>
 	<link rel="stylesheet" href="/assets/css/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/taxonomy.css" />
 	<link rel="stylesheet" href="/assets/css/admin/categories.css" />
 </head>
 <body class="admin-page admin-categories-page" data-i18n-scope="categories">
@@ -63,6 +64,11 @@
 						<h1 data-i18n="categoriesPageTitle">カテゴリー管理</h1>
 						<p data-i18n="categoriesPageDescription">投稿で使用するカテゴリーと階層を管理します。</p>
 					</div>
+
+					<nav class="admin-taxonomy-tabs" aria-label="カテゴリー・タグ">
+						<a class="admin-taxonomy-tab is-active" href="/admin/categories/" data-i18n="taxonomyCategories" aria-current="page">カテゴリー</a>
+						<a class="admin-taxonomy-tab" href="/admin/categories/tags/" data-i18n="taxonomyTags">タグ</a>
+					</nav>
 
 					<div class="admin-category-layout">
 						<section class="admin-category-card admin-category-form-card">
