@@ -94,8 +94,12 @@
   "draftReturnConfirmMessage": "下書きを保存しました。投稿一覧に戻りますか？",
   "confirmYes": "はい",
   "confirmNo": "いいえ",
+  "modalClose": "閉じる",
+  "validationWarningTitle": "入力内容を確認してください",
   "postSaveFailed": "保存に失敗しました。入力内容を確認してください。",
   "postRequiredFields": "タイトルと本文を入力してください。",
+  "postTitleRequired": "タイトルを入力してください。",
+  "postContentRequired": "本文を入力してください。",
   "postLanguageRequired": "原文言語を判定できません。韓国語または日本語を選択してください。",
   "manualTranslationRequired": "手動翻訳を選択した場合は翻訳タイトルと本文を入力してください。",
   "editorApiPending": "投稿の保存はD1に接続済みです。AI翻訳は次の段階で接続します。"
