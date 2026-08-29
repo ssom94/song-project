@@ -23,7 +23,15 @@
 
 	function isActiveMenuItem(item) {
 		if (!item.href || item.href === '#') return false;
-		return normalizePath(window.location.pathname) === normalizePath(item.href);
+
+		const currentPath = normalizePath(window.location.pathname);
+		const itemPath = normalizePath(item.href);
+
+		if (itemPath === '/admin/') {
+			return currentPath === itemPath;
+		}
+
+		return currentPath === itemPath || currentPath.startsWith(itemPath);
 	}
 
 	async function renderMenu() {
