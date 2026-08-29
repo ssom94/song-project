@@ -82,5 +82,11 @@
   "draftSave": "下書き保存",
   "preview": "プレビュー",
   "savePost": "保存",
-  "editorApiPending": "保存・AI翻訳は次の段階でAPIと接続します。"
+  "savingPost": "保存中…",
+  "postSaved": "D1に保存しました。",
+  "postSaveFailed": "保存に失敗しました。入力内容を確認してください。",
+  "postRequiredFields": "タイトルと本文を入力してください。",
+  "postLanguageRequired": "原文言語を判定できません。韓国語または日本語を選択してください。",
+  "manualTranslationRequired": "手動翻訳を選択した場合は翻訳タイトルと本文を入力してください。",
+  "editorApiPending": "投稿の保存はD1に接続済みです。AI翻訳は次の段階で接続します。"
 }
