@@ -90,7 +90,7 @@ body.admin-post-editor-page {
 	font: inherit;
 	font-size: 14px;
 	outline: none;
-	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .admin-editor-field input[type="text"],
@@ -274,6 +274,7 @@ body.admin-post-editor-page {
 	font-size: 13px;
 	font-weight: 750;
 	cursor: pointer;
+	transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
 
 .admin-editor-button-primary {
@@ -282,9 +283,48 @@ body.admin-post-editor-page {
 	color: #fff;
 }
 
+.admin-editor-button-danger {
+	border-color: #c52a23;
+	background: #c52a23;
+	color: #fff;
+	box-shadow: 0 6px 16px rgba(197, 42, 35, 0.16);
+}
+
+.admin-editor-button-danger:hover:not(:disabled) {
+	border-color: #aa211c;
+	background: #aa211c;
+}
+
 .admin-editor-button:disabled {
 	cursor: not-allowed;
 	opacity: 0.55;
+}
+
+.admin-post-view-mode .admin-editor-field input[readonly],
+.admin-post-view-mode .admin-editor-field textarea[readonly],
+.admin-post-view-mode .admin-editor-field select:disabled {
+	border-color: #e5e9ef;
+	background: #f8f9fb;
+	color: #4e5a6b;
+	box-shadow: none;
+}
+
+.admin-post-view-mode .admin-editor-field textarea[readonly] {
+	resize: none;
+}
+
+.admin-post-view-mode .admin-editor-radio-card {
+	cursor: default;
+}
+
+.admin-post-view-mode .admin-editor-radio-card:hover {
+	border-color: #dfe5ed;
+	background: inherit;
+}
+
+.admin-post-view-mode .admin-editor-radio-card:has(input:checked) {
+	border-color: #dbe3f2;
+	background: #f7f9fd;
 }
 
 @media (max-width: 1000px) {
