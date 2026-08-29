@@ -41,10 +41,11 @@ public/assets/js/admin/
 ├─ layout.js           # sidebar and responsive layout behavior
 ├─ login.js            # login page only
 ├─ posts-list.js       # post list loading, search, filters, view links
-├─ post-categories.js  # shared category loading for create/view/edit post screens
-├─ post-editor.js      # shared post create/edit form behavior and validation
+├─ post-categories.js  # shared category loading + searchable multi-tag selector for post create/view/edit
+├─ post-editor.js      # shared post create/edit form behavior, validation, and taxonomy payloads
 ├─ post-edit.js        # existing post view/edit state, dirty tracking, update requests
-└─ categories.js       # category list/create/edit/delete screen behavior
+├─ categories.js       # category list/create/edit/delete screen behavior
+└─ tags.js             # tag list/create/edit/delete screen behavior
 ```
 
 Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
