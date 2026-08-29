@@ -48,18 +48,27 @@ body.blog-dashboard-page {
 	font-size: 11px;
 }
 
-.blog-dashboard-language button {
+.blog-dashboard-language button,
+.blog-dashboard-language a,
+.blog-dashboard-language > span:not([aria-hidden]) {
 	padding: 0;
 	border: 0;
 	background: transparent;
 	color: #7b8798;
 	font: inherit;
 	font-weight: 750;
+	text-decoration: none;
 }
 
-.blog-dashboard-language button.is-active {
+.blog-dashboard-language button.is-active,
+.blog-dashboard-language a.is-active,
+.blog-dashboard-language > span.is-active {
 	color: #1f56d8;
 	font-weight: 900;
+}
+
+.blog-dashboard-language a:hover {
+	color: #1f56d8;
 }
 
 .blog-dashboard-menu-toggle {
@@ -132,12 +141,14 @@ body.blog-dashboard-page {
 
 .blog-sidebar-link:hover,
 .blog-sidebar-category-link:hover,
-.blog-sidebar-link.is-active {
+.blog-sidebar-link.is-active,
+.blog-sidebar-category-link.is-active {
 	background: #f1f5fd;
 	color: #1f56d8;
 }
 
-.blog-sidebar-link.is-active {
+.blog-sidebar-link.is-active,
+.blog-sidebar-category-link.is-active {
 	font-weight: 900;
 }
 
@@ -153,6 +164,11 @@ body.blog-dashboard-page {
 	color: #8a96a6;
 	font-size: 9px;
 	font-weight: 850;
+}
+
+.blog-sidebar-category-link.is-active .blog-sidebar-count {
+	background: #dfe9ff;
+	color: #315cae;
 }
 
 .blog-sidebar-category-empty {
