@@ -61,8 +61,18 @@
 	}
 
 	function renderContent(markdown, content) {
-		if (!window.SongMarkdown?.render?.(markdown ?? '', content)) {
-			content.textContent = markdown ?? '';
+		if (!window.SongMarkdown?.render?.(markdown ?? '', content)) content.textContent = markdown ?? '';
+	}
+
+	async function loadSidebarPosts(language) {
+		try {
+			const response = await fetch(`/api/public/posts?lang=${language}`, { method: 'GET', cache: 'no-store' });
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok || !Array.isArray(result.posts)) return [];
+			return result.posts;
+		} catch (error) {
+			console.warn('Failed to load public sidebar categories', error);
+			return [];
 		}
 	}
 
@@ -147,22 +157,21 @@
 			meta.appendChild(time);
 		}
 		if (translation.category) taxonomy.appendChild(createChip(translation.category, true));
-		for (const tag of Array.isArray(translation.tags) ? translation.tags : []) {
-			taxonomy.appendChild(createChip(tag));
-		}
+		for (const tag of Array.isArray(translation.tags) ? translation.tags : []) taxonomy.appendChild(createChip(tag));
 
 		document.title = `${translation.title} | SONG`;
-		if (translation.slug && translation.slug !== slug) {
-			history.replaceState(null, '', `/${language}/posts/${encodeURIComponent(translation.slug)}`);
-		}
+		if (translation.slug && translation.slug !== slug) history.replaceState(null, '', `/${language}/posts/${encodeURIComponent(translation.slug)}`);
 		updateAlternateLink(post.translations, language, translation.slug ?? slug);
 	}
 
 	async function initialize() {
 		const language = currentLanguage();
 		const slug = currentSlug();
+		const sidebarPostsPromise = loadSidebarPosts(language);
 		if (!slug) {
 			setError('notFound');
+			const sidebarPosts = await sidebarPostsPromise;
+			window.BlogDashboard?.renderCategories?.(sidebarPosts, language);
 			return;
 		}
 
@@ -174,14 +183,16 @@
 			const result = await response.json().catch(() => null);
 			if (response.status === 404 || result?.error === 'POST_NOT_FOUND') {
 				setError('notFound');
+				const sidebarPosts = await sidebarPostsPromise;
+				window.BlogDashboard?.renderCategories?.(sidebarPosts, language);
 				return;
 			}
-			if (!response.ok || !result?.ok || !result.post?.translations) {
-				throw new Error('Invalid public post detail response');
-			}
+			if (!response.ok || !result?.ok || !result.post?.translations) throw new Error('Invalid public post detail response');
 
 			const post = result.post;
 			const translation = post.translations[language];
+			const sidebarPosts = await sidebarPostsPromise;
+			window.BlogDashboard?.renderCategories?.(sidebarPosts, language, translation?.category ?? '');
 			if (!translation) {
 				renderMissingTranslation(post.translations, slug);
 				return;
@@ -190,12 +201,11 @@
 		} catch (loadError) {
 			console.error('Failed to load public post', loadError);
 			setError('load');
+			const sidebarPosts = await sidebarPostsPromise;
+			window.BlogDashboard?.renderCategories?.(sidebarPosts, language);
 		}
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initialize, { once: true });
-	} else {
-		initialize();
-	}
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
+	else initialize();
 })();
