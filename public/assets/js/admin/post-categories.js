@@ -1,4 +1,5 @@
 (() => {
+	const MAX_TAGS = 30;
 	let categories = [];
 	let tags = [];
 	let selectedTagIds = new Set();
@@ -62,54 +63,120 @@
 		return String(value ?? '').normalize('NFKC').toLocaleLowerCase().trim();
 	}
 
-	function ensureTagUi() {
-		const input = document.getElementById('post-tags');
-		if (!(input instanceof HTMLInputElement)) return null;
-
-		input.removeAttribute('name');
-		input.autocomplete = 'off';
-		input.placeholder = currentLanguage() === 'ko' ? '태그 검색' : 'タグを検索';
-		input.setAttribute('aria-controls', 'post-tag-options');
-
-		let options = document.getElementById('post-tag-options');
-		if (!options) {
-			options = document.createElement('div');
-			options.id = 'post-tag-options';
-			options.className = 'admin-editor-tag-options';
-			options.setAttribute('role', 'group');
-
-			const label = input.closest('.admin-editor-field')?.querySelector('label');
-			if (label) {
-				label.id ||= 'post-tags-label';
-				options.setAttribute('aria-labelledby', label.id);
-			}
-
-			input.insertAdjacentElement('afterend', options);
-			input.addEventListener('input', renderTags);
-		}
-
-		return options;
+	function isViewMode() {
+		return document.body.classList.contains('admin-post-view-mode');
 	}
 
-	function renderTags() {
+	function findTag(tagId) {
+		return tags.find((tag) => tag.id === Number(tagId)) ?? null;
+	}
+
+	function getSelectedTags() {
+		return [...selectedTagIds]
+			.map(findTag)
+			.filter(Boolean)
+			.sort((a, b) => tagLabel(a).localeCompare(tagLabel(b), currentLanguage() === 'ko' ? 'ko' : 'ja'));
+	}
+
+	function notifySelectionChange() {
 		const input = document.getElementById('post-tags');
-		const options = ensureTagUi();
+		input?.dispatchEvent(new Event('change', { bubbles: true }));
+	}
+
+	function removeTag(tagId) {
+		if (isViewMode()) return;
+		selectedTagIds.delete(tagId);
+		renderTagControl();
+		notifySelectionChange();
+	}
+
+	function addTag(tagId) {
+		if (isViewMode() || selectedTagIds.size >= MAX_TAGS) return;
+		selectedTagIds.add(tagId);
+		const input = document.getElementById('post-tags');
+		if (input instanceof HTMLInputElement) input.value = '';
+		renderTagControl();
+		notifySelectionChange();
+		requestAnimationFrame(() => input?.focus({ preventScroll: true }));
+	}
+
+	function renderSelectedTags() {
+		const selected = document.getElementById('post-tag-selected');
+		if (!selected) return;
+		selected.replaceChildren();
+
+		const selectedTags = getSelectedTags();
+		if (selectedTags.length === 0) {
+			const empty = document.createElement('span');
+			empty.className = 'admin-editor-tag-selected-empty';
+			empty.textContent = t('postTagsSelectedNone', currentLanguage() === 'ko' ? '선택된 태그 없음' : '選択中のタグはありません');
+			selected.appendChild(empty);
+			return;
+		}
+
+		for (const tag of selectedTags) {
+			if (isViewMode()) {
+				const chip = document.createElement('span');
+				chip.className = 'admin-editor-tag-chip is-readonly';
+				chip.textContent = tagLabel(tag);
+				selected.appendChild(chip);
+				continue;
+			}
+
+			const chip = document.createElement('button');
+			chip.className = 'admin-editor-tag-chip';
+			chip.type = 'button';
+			chip.setAttribute('aria-label', `${t('postTagRemove', 'タグを解除')}: ${tagLabel(tag)}`);
+
+			const text = document.createElement('span');
+			text.textContent = tagLabel(tag);
+			const remove = document.createElement('span');
+			remove.className = 'admin-editor-tag-chip-remove';
+			remove.textContent = '×';
+			remove.setAttribute('aria-hidden', 'true');
+			chip.append(text, remove);
+			chip.addEventListener('click', () => removeTag(tag.id));
+			selected.appendChild(chip);
+		}
+	}
+
+	function renderTagOptions() {
+		const input = document.getElementById('post-tags');
+		const options = document.getElementById('post-tag-options');
+		const help = document.getElementById('post-tags-help');
 		if (!(input instanceof HTMLInputElement) || !options) return;
 
-		input.placeholder = currentLanguage() === 'ko' ? '태그 검색' : 'タグを検索';
+		const viewMode = isViewMode();
+		input.hidden = viewMode;
+		options.hidden = viewMode;
+		if (help) help.hidden = viewMode;
+		if (viewMode) {
+			options.replaceChildren();
+			return;
+		}
+
 		const query = normalize(input.value);
-		const visibleTags = tags.filter((tag) => {
+		const available = tags.filter((tag) => !selectedTagIds.has(tag.id));
+		const visibleTags = available.filter((tag) => {
 			if (!query) return true;
 			return normalize(tag.names?.ja).includes(query)
 				|| normalize(tag.names?.ko).includes(query)
 				|| normalize(tagLabel(tag)).includes(query);
-		});
+		}).slice(0, 20);
 
 		options.replaceChildren();
 		if (tags.length === 0) {
 			const empty = document.createElement('span');
 			empty.className = 'admin-editor-tag-empty';
-			empty.textContent = '—';
+			empty.textContent = t('postTagsUnavailable', currentLanguage() === 'ko' ? '등록된 태그가 없습니다.' : '登録済みのタグがありません。');
+			options.appendChild(empty);
+			return;
+		}
+
+		if (available.length === 0) {
+			const empty = document.createElement('span');
+			empty.className = 'admin-editor-tag-empty';
+			empty.textContent = t('postTagsAllSelected', currentLanguage() === 'ko' ? '선택 가능한 태그를 모두 추가했습니다.' : '選択可能なタグはすべて追加済みです。');
 			options.appendChild(empty);
 			return;
 		}
@@ -117,34 +184,31 @@
 		if (visibleTags.length === 0) {
 			const empty = document.createElement('span');
 			empty.className = 'admin-editor-tag-empty';
-			empty.textContent = currentLanguage() === 'ko' ? '검색 결과 없음' : '該当するタグなし';
+			empty.textContent = t('postTagsNoResults', currentLanguage() === 'ko' ? '검색 결과가 없습니다.' : '該当するタグがありません。');
 			options.appendChild(empty);
 			return;
 		}
 
-		const viewMode = document.body.classList.contains('admin-post-view-mode');
 		for (const tag of visibleTags) {
-			const label = document.createElement('label');
-			label.className = 'admin-editor-tag-choice';
-
-			const checkbox = document.createElement('input');
-			checkbox.type = 'checkbox';
-			checkbox.value = String(tag.id);
-			checkbox.checked = selectedTagIds.has(tag.id);
-			checkbox.disabled = viewMode;
-			checkbox.setAttribute('aria-label', tagLabel(tag));
-			checkbox.addEventListener('change', () => {
-				if (checkbox.checked) selectedTagIds.add(tag.id);
-				else selectedTagIds.delete(tag.id);
-				label.classList.toggle('is-selected', checkbox.checked);
-			});
-
-			const text = document.createElement('span');
-			text.textContent = tagLabel(tag);
-			label.classList.toggle('is-selected', checkbox.checked);
-			label.append(checkbox, text);
-			options.appendChild(label);
+			const button = document.createElement('button');
+			button.className = 'admin-editor-tag-option';
+			button.type = 'button';
+			button.setAttribute('role', 'option');
+			button.setAttribute('aria-selected', 'false');
+			button.disabled = selectedTagIds.size >= MAX_TAGS;
+			button.textContent = `+ ${tagLabel(tag)}`;
+			button.addEventListener('click', () => addTag(tag.id));
+			options.appendChild(button);
 		}
+	}
+
+	function renderTagControl() {
+		const input = document.getElementById('post-tags');
+		if (input instanceof HTMLInputElement) {
+			input.placeholder = t('postTagsSearchPlaceholder', currentLanguage() === 'ko' ? '태그 검색' : 'タグを検索');
+		}
+		renderSelectedTags();
+		renderTagOptions();
 	}
 
 	async function fetchCollection(url, key) {
@@ -167,6 +231,13 @@
 	}
 
 	async function load() {
+		const input = document.getElementById('post-tags');
+		if (input instanceof HTMLInputElement) {
+			input.removeAttribute('name');
+			input.autocomplete = 'off';
+			input.addEventListener('input', renderTagOptions);
+		}
+
 		try {
 			const [loadedCategories, loadedTags] = await Promise.all([
 				fetchCollection('/api/admin/categories', 'categories'),
@@ -183,7 +254,7 @@
 		}
 
 		renderCategories();
-		renderTags();
+		renderTagControl();
 		resolveReady(true);
 	}
 
@@ -195,17 +266,19 @@
 	}
 
 	function setSelectedTagIds(ids) {
+		const activeIds = new Set(tags.map((tag) => tag.id));
 		selectedTagIds = new Set(
 			(Array.isArray(ids) ? ids : [])
 				.map(Number)
-				.filter((id) => Number.isSafeInteger(id) && id > 0),
+				.filter((id) => Number.isSafeInteger(id) && id > 0 && activeIds.has(id))
+				.slice(0, MAX_TAGS),
 		);
-		renderTags();
+		renderTagControl();
 	}
 
 	document.addEventListener('adminlanguagechange', () => {
 		renderCategories();
-		renderTags();
+		renderTagControl();
 	});
 
 	if (document.readyState === 'loading') {
@@ -219,6 +292,7 @@
 		getAll: () => [...categories],
 		getAllTags: () => [...tags],
 		getSelectedTagIds,
+		refresh: renderTagControl,
 		setSelectedTagIds,
 	};
 })();
