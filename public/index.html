@@ -106,26 +106,29 @@
 
 				<section id="jlpt-progress" class="home-dashboard-card home-jlpt-card">
 					<div class="home-card-heading">
-						<div><span class="home-card-kicker">JLPT N1</span><h2 data-home-text="jlptTitle">2,500語 暗記プロジェクト</h2></div>
-						<span class="home-status-badge" data-home-text="notStarted">未開始</span>
+						<div><span class="home-card-kicker">JLPT N1</span><h2 data-home-text="jlptTitle">語彙学習の進捗</h2></div>
+						<div class="home-card-heading-actions">
+							<span id="home-jlpt-source" class="home-status-badge">自動 · 登録単語基準</span>
+							<span id="home-jlpt-status" class="home-status-badge" data-home-text="waitingData">データ待ち</span>
+						</div>
 					</div>
 
 					<div class="home-jlpt-layout">
 						<div class="home-progress-ring-wrap">
-							<div class="home-progress-ring" aria-label="JLPT word progress"><strong id="home-jlpt-percent">0%</strong><span data-home-text="complete">達成</span></div>
-							<p><strong id="home-jlpt-learned">0</strong> / 2,500 <span data-home-text="wordsUnit">語</span></p>
+							<div id="home-jlpt-ring" class="home-progress-ring" aria-label="JLPT word progress"><strong id="home-jlpt-percent">0%</strong><span data-home-text="complete">達成</span></div>
+							<p><strong id="home-jlpt-learned">0</strong> / <span id="home-jlpt-target">0</span> <span data-home-text="wordsUnit">語</span></p>
 						</div>
 
 						<div class="home-jlpt-stats">
 							<article><span data-home-text="todayWords">今日</span><strong id="home-jlpt-today">0</strong><small data-home-text="wordsUnit">語</small></article>
-							<article><span data-home-text="totalWords">累計</span><strong id="home-jlpt-total">0</strong><small data-home-text="wordsUnit">語</small></article>
-							<article><span data-home-text="remainingWords">残り</span><strong id="home-jlpt-remaining">2,500</strong><small data-home-text="wordsUnit">語</small></article>
+							<article><span data-home-text="registeredWords">登録単語</span><strong id="home-jlpt-total">0</strong><small data-home-text="wordsUnit">語</small></article>
+							<article><span data-home-text="remainingWords">残り</span><strong id="home-jlpt-remaining">0</strong><small data-home-text="wordsUnit">語</small></article>
 							<article><span data-home-text="wrongWords">誤答</span><strong id="home-jlpt-wrong">0</strong><small data-home-text="wordsUnit">語</small></article>
 						</div>
 
 						<div class="home-weekly-chart-wrap">
 							<div class="home-chart-heading"><strong data-home-text="weeklyStudy">今週の学習量</strong><span data-home-text="waitingData">データ待ち</span></div>
-							<div class="home-weekly-chart" aria-label="Weekly JLPT study chart">
+							<div id="home-weekly-chart" class="home-weekly-chart" aria-label="Weekly JLPT study chart">
 								<div><i></i><span>Mon</span></div><div><i></i><span>Tue</span></div><div><i></i><span>Wed</span></div><div><i></i><span>Thu</span></div><div><i></i><span>Fri</span></div><div><i></i><span>Sat</span></div><div><i></i><span>Sun</span></div>
 							</div>
 						</div>
@@ -139,7 +142,7 @@
 					</div>
 
 					<div class="home-goal-list">
-						<article class="home-goal-item"><div class="home-goal-main"><span class="home-goal-icon">N1</span><div><strong>JLPT N1</strong><small data-home-text="goalJlptDetail">2,500語 + 試験合格</small></div></div><div class="home-goal-progress"><div><span data-home-text="progress">進捗</span><b>0%</b></div><progress max="100" value="0"></progress></div><span class="home-goal-state" data-home-text="planned">予定</span></article>
+						<article class="home-goal-item"><div class="home-goal-main"><span class="home-goal-icon">N1</span><div><strong>JLPT N1</strong><small data-home-text="goalJlptDetail">語彙学習 + 試験合格</small></div></div><div class="home-goal-progress"><div><span data-home-text="progress">進捗</span><b id="home-goal-jlpt-percent">0%</b></div><progress id="home-goal-jlpt-progress" max="100" value="0"></progress></div><span class="home-goal-state" data-home-text="planned">予定</span></article>
 						<article class="home-goal-item"><div class="home-goal-main"><span class="home-goal-icon">AP</span><div><strong>AP</strong><small data-home-text="goalApDetail">応用情報技術者試験</small></div></div><div class="home-goal-progress"><div><span data-home-text="progress">進捗</span><b>0%</b></div><progress max="100" value="0"></progress></div><span class="home-goal-state" data-home-text="planned">予定</span></article>
 						<article class="home-goal-item"><div class="home-goal-main"><span class="home-goal-icon">FP</span><div><strong>FP</strong><small data-home-text="goalFpDetail">級・受験日は後で設定</small></div></div><div class="home-goal-progress"><div><span data-home-text="progress">進捗</span><b>0%</b></div><progress max="100" value="0"></progress></div><span class="home-goal-state" data-home-text="planned">予定</span></article>
 						<article class="home-goal-item"><div class="home-goal-main"><span class="home-goal-icon">AWS</span><div><strong>AWS SAA</strong><small>Solutions Architect – Associate</small></div></div><div class="home-goal-progress"><div><span data-home-text="progress">進捗</span><b>0%</b></div><progress max="100" value="0"></progress></div><span class="home-goal-state" data-home-text="planned">予定</span></article>
