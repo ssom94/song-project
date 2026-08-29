@@ -14,10 +14,26 @@
 
 	<div id="admin-shell" class="admin-shell" hidden>
 		<header class="admin-global-header">
-			<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
-				<img src="/assets/logo-song-ym.png" alt="Song YM" />
-				<span>SONG Admin</span>
-			</a>
+			<div class="admin-header-left">
+				<button
+					id="admin-sidebar-toggle"
+					class="admin-sidebar-toggle"
+					type="button"
+					aria-controls="admin-sidebar"
+					aria-expanded="true"
+					aria-label="管理メニューを閉じる"
+					data-i18n-aria-label="menuCloseLabel"
+				>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</button>
+
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
 
 			<div class="admin-header-actions">
 				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
@@ -54,7 +70,7 @@
 		<div class="admin-header-accent" aria-hidden="true"></div>
 
 		<div class="admin-body">
-			<aside class="admin-sidebar">
+			<aside id="admin-sidebar" class="admin-sidebar">
 				<p class="admin-nav-label" data-i18n="management">管理</p>
 				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
 
@@ -62,6 +78,16 @@
 					<a href="/" data-i18n="viewSite">サイトを表示</a>
 				</div>
 			</aside>
+
+			<button
+				id="admin-sidebar-backdrop"
+				class="admin-sidebar-backdrop"
+				type="button"
+				tabindex="-1"
+				aria-label="管理メニューを閉じる"
+				data-i18n-aria-label="menuCloseLabel"
+				hidden
+			></button>
 
 			<main class="admin-main">
 				<section class="admin-content">
@@ -103,6 +129,7 @@
 
 	<script src="/assets/js/admin/i18n.js"></script>
 	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
 	<script>
 		const loading = document.getElementById('admin-loading');
 		const shell = document.getElementById('admin-shell');
