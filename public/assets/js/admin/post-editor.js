@@ -187,6 +187,14 @@
 		saveStatus.hidden = false;
 	}
 
+	function clearSaveError() {
+		if (!saveStatus || saveStatus.dataset.type !== 'error') return;
+		saveStatus.hidden = true;
+		delete saveStatus.dataset.messageKey;
+		delete saveStatus.dataset.type;
+		saveStatus.textContent = '';
+	}
+
 	function setSaving(saving) {
 		if (draftButton) draftButton.disabled = saving || saveCompleted;
 		if (saveButton) saveButton.disabled = saving || saveCompleted;
@@ -197,20 +205,57 @@
 		return document.querySelector('input[name="translation-method"]:checked')?.value ?? 'later';
 	}
 
-	function validateBeforeSave() {
-		if (!titleInput?.value.trim() || !contentInput?.value.trim()) {
-			setSaveMessage('postRequiredFields', 'error');
+	async function showValidationWarning(messageKey, target) {
+		clearSaveError();
+
+		if (window.AdminCommon?.alert) {
+			await window.AdminCommon.alert({
+				titleKey: 'validationWarningTitle',
+				messageKey,
+				titleFallback: '入力内容を確認してください',
+				messageFallback: window.AdminI18n?.t(messageKey) ?? messageKey,
+			});
+		} else {
+			window.alert(window.AdminI18n?.t(messageKey) ?? messageKey);
+		}
+
+		requestAnimationFrame(() => {
+			target?.focus({ preventScroll: false });
+		});
+	}
+
+	async function validateBeforeSave() {
+		const titleMissing = !titleInput?.value.trim();
+		const contentMissing = !contentInput?.value.trim();
+
+		if (titleMissing && contentMissing) {
+			await showValidationWarning('postRequiredFields', titleInput);
+			return false;
+		}
+
+		if (titleMissing) {
+			await showValidationWarning('postTitleRequired', titleInput);
+			return false;
+		}
+
+		if (contentMissing) {
+			await showValidationWarning('postContentRequired', contentInput);
 			return false;
 		}
 
 		if (!getEffectiveSourceLanguage()) {
-			setSaveMessage('postLanguageRequired', 'error');
+			await showValidationWarning('postLanguageRequired', sourceLanguage);
 			return false;
 		}
 
 		if (selectedTranslationMethod() === 'manual') {
-			if (!translatedTitleInput?.value.trim() || !translatedContentInput?.value.trim()) {
-				setSaveMessage('manualTranslationRequired', 'error');
+			const translatedTitleMissing = !translatedTitleInput?.value.trim();
+			const translatedContentMissing = !translatedContentInput?.value.trim();
+			if (translatedTitleMissing || translatedContentMissing) {
+				await showValidationWarning(
+					'manualTranslationRequired',
+					translatedTitleMissing ? translatedTitleInput : translatedContentInput,
+				);
 				return false;
 			}
 		}
@@ -218,8 +263,24 @@
 		return true;
 	}
 
+	async function showDraftSavedConfirm() {
+		if (!window.AdminCommon?.confirm) return false;
+
+		return window.AdminCommon.confirm({
+			titleKey: 'draftReturnConfirmTitle',
+			messageKey: 'draftReturnConfirmMessage',
+			confirmKey: 'confirmYes',
+			cancelKey: 'confirmNo',
+			titleFallback: '下書き保存完了',
+			messageFallback: '下書きを保存しました。投稿一覧に戻りますか？',
+			confirmFallback: 'はい',
+			cancelFallback: 'いいえ',
+		});
+	}
+
 	async function savePost(forceDraft = false) {
-		if (saveCompleted || !validateBeforeSave()) return;
+		if (saveCompleted) return;
+		if (!(await validateBeforeSave())) return;
 
 		setSaving(true);
 
@@ -255,7 +316,17 @@
 			}
 
 			saveCompleted = true;
-			setSaveMessage('postSaved', 'success');
+
+			if (forceDraft) {
+				setSaveMessage('draftSaved', 'success');
+				const returnToList = await showDraftSavedConfirm();
+				if (returnToList) {
+					window.location.assign('/admin/posts/');
+					return;
+				}
+			} else {
+				setSaveMessage('postSaved', 'success');
+			}
 		} catch (error) {
 			console.error('Post save failed', error);
 			setSaveMessage('postSaveFailed', 'error');
@@ -289,12 +360,26 @@
 		if (draftButton) draftButton.disabled = false;
 		if (saveButton) saveButton.disabled = false;
 
-		sourceLanguage.addEventListener('change', updateLanguageState);
-		titleInput?.addEventListener('input', updateLanguageState);
-		contentInput?.addEventListener('input', updateLanguageState);
+		sourceLanguage.addEventListener('change', () => {
+			clearSaveError();
+			updateLanguageState();
+		});
+		titleInput?.addEventListener('input', () => {
+			clearSaveError();
+			updateLanguageState();
+		});
+		contentInput?.addEventListener('input', () => {
+			clearSaveError();
+			updateLanguageState();
+		});
+		translatedTitleInput?.addEventListener('input', clearSaveError);
+		translatedContentInput?.addEventListener('input', clearSaveError);
 
 		document.querySelectorAll('input[name="translation-method"]').forEach((radio) => {
-			radio.addEventListener('change', updateTranslationMethod);
+			radio.addEventListener('change', () => {
+				clearSaveError();
+				updateTranslationMethod();
+			});
 		});
 
 		draftButton?.addEventListener('click', () => savePost(true));
