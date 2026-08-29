@@ -17,6 +17,12 @@ import {
 	handleDeleteAdminCategory,
 	handleUpdateAdminCategory,
 } from './admin/categories/manage';
+import { handleListAdminTags } from './admin/tags/list';
+import {
+	handleCreateAdminTag,
+	handleDeleteAdminTag,
+	handleUpdateAdminTag,
+} from './admin/tags/manage';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -74,6 +80,28 @@ export default {
 				}
 				if (request.method === 'DELETE') {
 					return handleDeleteAdminCategory(request, env);
+				}
+				return new Response('Method Not Allowed', {
+					status: 405,
+					headers: { Allow: 'PATCH, DELETE' },
+				});
+			case '/api/admin/tags':
+				if (request.method === 'GET') {
+					return handleListAdminTags(request, env);
+				}
+				if (request.method === 'POST') {
+					return handleCreateAdminTag(request, env);
+				}
+				return new Response('Method Not Allowed', {
+					status: 405,
+					headers: { Allow: 'GET, POST' },
+				});
+			case '/api/admin/tags/detail':
+				if (request.method === 'PATCH') {
+					return handleUpdateAdminTag(request, env);
+				}
+				if (request.method === 'DELETE') {
+					return handleDeleteAdminTag(request, env);
 				}
 				return new Response('Method Not Allowed', {
 					status: 405,
