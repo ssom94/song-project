@@ -1,0 +1,21 @@
+{
+  "pageTitle":"보호 문서 관리",
+  "pageDescription":"스킬시트·직무경력서 Excel 원본, 변환 상태, 현재 공개 버전을 관리합니다.",
+  "skillSheet":"스킬시트",
+  "careerHistory":"직무경력서",
+  "currentReady":"공개 버전 Ready",
+  "noCurrentVersion":"공개 버전 없음",
+  "uploadExcel":"Excel 업로드",
+  "uploadHint":"새 원본은 덮어쓰지 않고 새로운 버전으로 저장합니다.",
+  "selectFile":"파일 선택",
+  "versionHistory":"버전 이력",
+  "immutableHint":"과거 버전은 변경하지 않습니다",
+  "tableDocument":"문서",
+  "tableVersion":"버전",
+  "tableFile":"원본",
+  "tableConversion":"변환",
+  "tablePages":"페이지",
+  "tableDate":"등록일",
+  "tableAction":"관리",
+  "preview":"미리보기"
+}
