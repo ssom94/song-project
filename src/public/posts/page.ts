@@ -32,8 +32,8 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 	<title>${text.pageTitle}</title>
 	<link rel="stylesheet" href="/assets/css/common.css" />
 	<link rel="stylesheet" href="/assets/css/blog/common.css" />
-	<link rel="stylesheet" href="/assets/css/markdown.css" />
 	<link rel="stylesheet" href="/assets/css/blog/post-detail.css" />
+	<link rel="stylesheet" href="/assets/css/markdown.css" />
 </head>
 <body class="blog-page blog-post-page" data-blog-language="${language}">
 	<header class="blog-header">
