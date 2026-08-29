@@ -102,9 +102,10 @@ export async function handleListAdminJapaneseParts(request: Request, env: Env): 
 	try {
 		const result = await env.song_project_db.prepare(`
 			SELECT p.id, p.parent_id, p.name_ja, p.name_ko, p.display_order,
-				COUNT(wp.word_id) AS word_count
+				COUNT(w.id) AS word_count
 			FROM parts_of_speech AS p
 			LEFT JOIN japanese_word_parts_of_speech AS wp ON wp.part_of_speech_id = p.id
+			LEFT JOIN japanese_words AS w ON w.id = wp.word_id AND w.deleted_at IS NULL
 			WHERE p.deleted_at IS NULL
 			GROUP BY p.id
 			ORDER BY p.display_order ASC, p.id ASC
@@ -188,7 +189,13 @@ export async function handleDeleteAdminJapanesePart(request: Request, env: Env):
 	if (!existing) return json({ ok: false, error: 'PART_NOT_FOUND' }, 404);
 	const child = await env.song_project_db.prepare('SELECT id FROM parts_of_speech WHERE parent_id = ?1 AND deleted_at IS NULL LIMIT 1').bind(id).first();
 	if (child) return json({ ok: false, error: 'PART_HAS_CHILDREN' }, 409);
-	const used = await env.song_project_db.prepare('SELECT word_id FROM japanese_word_parts_of_speech WHERE part_of_speech_id = ?1 LIMIT 1').bind(id).first();
+	const used = await env.song_project_db.prepare(`
+		SELECT wp.word_id
+		FROM japanese_word_parts_of_speech AS wp
+		INNER JOIN japanese_words AS w ON w.id = wp.word_id AND w.deleted_at IS NULL
+		WHERE wp.part_of_speech_id = ?1
+		LIMIT 1
+	`).bind(id).first();
 	if (used) return json({ ok: false, error: 'PART_IN_USE' }, 409);
 	const now = new Date().toISOString();
 	try {
