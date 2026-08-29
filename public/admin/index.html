@@ -13,67 +13,82 @@
 	<div id="admin-loading" class="admin-loading">セッションを確認しています…</div>
 
 	<div id="admin-shell" class="admin-shell" hidden>
-		<aside class="admin-sidebar">
-			<a class="admin-sidebar-brand" href="/" aria-label="Song Project ホームへ">
+		<header class="admin-global-header">
+			<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ">
 				<img src="/assets/logo-song-ym.png" alt="Song YM" />
+				<span>SONG Admin</span>
 			</a>
 
-			<p class="admin-nav-label">Management</p>
-			<nav class="admin-nav" aria-label="管理メニュー">
-				<a class="is-active" href="/admin/">ダッシュボード</a>
-				<a href="#">投稿管理</a>
-				<a href="#">コメント管理</a>
-				<a href="#">カテゴリー・タグ</a>
-				<a href="#">日本語学習</a>
-				<a href="#">スキル・職務経歴書</a>
-				<a href="#">アクセスコード</a>
-			</nav>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語">
+					<button class="is-active" type="button" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" aria-pressed="false">한국어</button>
+				</div>
 
-			<div class="admin-sidebar-footer">
-				<a href="/">サイトを表示</a>
+				<div class="admin-user-block">
+					<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+					<span id="admin-user" class="admin-user"></span>
+				</div>
 			</div>
-		</aside>
+		</header>
 
-		<main class="admin-main">
-			<header class="admin-topbar">
-				<p class="admin-topbar-title">SONG Admin</p>
-				<span id="admin-user" class="admin-user"></span>
-			</header>
+		<div class="admin-header-accent" aria-hidden="true"></div>
 
-			<section class="admin-content">
-				<div class="admin-page-heading">
-					<h1>ダッシュボード</h1>
-					<p>ブログと各モジュールをここから管理します。</p>
+		<div class="admin-body">
+			<aside class="admin-sidebar">
+				<p class="admin-nav-label">Management</p>
+				<nav class="admin-nav" aria-label="管理メニュー">
+					<a class="is-active" href="/admin/">ダッシュボード</a>
+					<a href="#">投稿管理</a>
+					<a href="#">コメント管理</a>
+					<a href="#">カテゴリー・タグ</a>
+					<a href="#">日本語学習</a>
+					<a href="#">スキル・職務経歴書</a>
+					<a href="#">アクセスコード</a>
+				</nav>
+
+				<div class="admin-sidebar-footer">
+					<a href="/">サイトを表示</a>
 				</div>
+			</aside>
 
-				<div class="admin-dashboard-grid">
-					<article class="admin-dashboard-card">
-						<h2>投稿管理</h2>
-						<p>記事の作成・編集・翻訳・公開状態を管理します。</p>
-					</article>
-					<article class="admin-dashboard-card">
-						<h2>コメント管理</h2>
-						<p>公開コメント、返信、非表示・スパム状態を管理します。</p>
-					</article>
-					<article class="admin-dashboard-card">
-						<h2>日本語学習</h2>
-						<p>単語、例文、JLPT分類、AIレビューを管理します。</p>
-					</article>
-					<article class="admin-dashboard-card">
-						<h2>スキル・職務経歴書</h2>
-						<p>Excelのバージョンと公開中のドキュメントを管理します。</p>
-					</article>
-					<article class="admin-dashboard-card">
-						<h2>アクセスコード</h2>
-						<p>保護ページ用コードの発行・期限・失効を管理します。</p>
-					</article>
-					<article class="admin-dashboard-card">
-						<h2>監査・履歴</h2>
-						<p>今後、変更履歴や管理操作を確認できるようにします。</p>
-					</article>
-				</div>
-			</section>
-		</main>
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading">
+						<h1>ダッシュボード</h1>
+						<p>ブログと各モジュールをここから管理します。</p>
+					</div>
+
+					<div class="admin-dashboard-grid">
+						<article class="admin-dashboard-card">
+							<h2>投稿管理</h2>
+							<p>記事の作成・編集・翻訳・公開状態を管理します。</p>
+						</article>
+						<article class="admin-dashboard-card">
+							<h2>コメント管理</h2>
+							<p>公開コメント、返信、非表示・スパム状態を管理します。</p>
+						</article>
+						<article class="admin-dashboard-card">
+							<h2>日本語学習</h2>
+							<p>単語、例文、JLPT分類、AIレビューを管理します。</p>
+						</article>
+						<article class="admin-dashboard-card">
+							<h2>スキル・職務経歴書</h2>
+							<p>Excelのバージョンと公開中のドキュメントを管理します。</p>
+						</article>
+						<article class="admin-dashboard-card">
+							<h2>アクセスコード</h2>
+							<p>保護ページ用コードの発行・期限・失効を管理します。</p>
+						</article>
+						<article class="admin-dashboard-card">
+							<h2>監査・履歴</h2>
+							<p>今後、変更履歴や管理操作を確認できるようにします。</p>
+						</article>
+					</div>
+				</section>
+			</main>
+		</div>
 	</div>
 
 	<script>
