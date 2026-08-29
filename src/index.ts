@@ -11,6 +11,8 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+import { handleAdminSessionStatus } from './auth/session';
+
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
@@ -19,6 +21,14 @@ export default {
 				return new Response('Hello, World!');
 			case '/random':
 				return new Response(crypto.randomUUID());
+			case '/api/admin/auth/session':
+				if (request.method !== 'GET') {
+					return new Response('Method Not Allowed', {
+						status: 405,
+						headers: { Allow: 'GET' },
+					});
+				}
+				return handleAdminSessionStatus(request, env);
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
