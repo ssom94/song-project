@@ -1,15 +1,129 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hello, World!</title>
-	</head>
-	<body>
-		<h1 id="heading"></h1>
-		<p>This page comes from a static asset stored at `public/index.html` as configured in `wrangler.jsonc`.</p>
-		<button id="button" type="button">Fetch a random UUID</button>
-		<output id="random" for="button"></output>
-		<script src="/assets/js/home.js"></script>
-	</body>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index,follow" />
+	<meta name="description" content="Web/Application Engineer SONG のポートフォリオと技術ブログです。" />
+	<title>SONG | Portfolio & Blog</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/posts.css" />
+	<link rel="stylesheet" href="/assets/css/blog/home.css" />
+</head>
+<body class="blog-page blog-home-page" data-blog-language="ja">
+	<header class="blog-header">
+		<div class="blog-header-inner">
+			<a class="blog-brand" href="/" aria-label="SONG Home">
+				<img src="/assets/logo-song-ym.png" alt="Song YM" />
+			</a>
+
+			<nav class="blog-nav home-nav" aria-label="Main navigation">
+				<a class="is-active" href="/" data-home-text="navHome">Home</a>
+				<a id="home-posts-nav" href="/ja/posts/" data-home-text="navPosts">投稿</a>
+				<a href="#japanese" data-home-text="navJapanese">Japanese</a>
+				<a href="#skill-sheet" data-home-text="navSkillSheet">Skill Sheet</a>
+				<a href="#career-history" data-home-text="navCareer">Career History</a>
+			</nav>
+
+			<div class="blog-language-switch home-language-switch" aria-label="Language">
+				<button type="button" class="is-active" data-home-language="ja" aria-pressed="true">日本語</button>
+				<span aria-hidden="true">/</span>
+				<button type="button" data-home-language="ko" aria-pressed="false">한국어</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="home-hero">
+			<div class="home-hero-inner">
+				<div class="home-hero-copy">
+					<p class="home-kicker">Portfolio / Blog</p>
+					<h1 data-home-text="heroTitle">Web Application Engineer</h1>
+					<p class="home-hero-lead" data-home-text="heroLead">Webアプリケーションの設計・実装・運用で得た知識と、学習の記録をまとめています。</p>
+					<div class="home-hero-actions">
+						<a id="home-primary-posts-link" class="home-primary-action" href="/ja/posts/" data-home-text="viewPosts">投稿を見る</a>
+						<a class="home-secondary-action" href="#profile" data-home-text="viewProfile">プロフィール</a>
+					</div>
+				</div>
+
+				<aside class="home-profile-card" aria-label="Engineer summary">
+					<span class="home-profile-status"><span aria-hidden="true"></span><span data-home-text="profileStatus">Web / Application Engineer</span></span>
+					<strong>SONG</strong>
+					<p data-home-text="profileSummary">フロントエンドからバックエンド、DB・運用まで、業務システム開発を中心に経験を積んでいます。</p>
+					<div class="home-skill-list" aria-label="Primary skills">
+						<span>Angular</span><span>TypeScript</span><span>Java</span><span>PostgreSQL</span><span>REST API</span><span>Cloudflare</span>
+					</div>
+				</aside>
+			</div>
+		</section>
+
+		<section id="profile" class="home-section home-about-section">
+			<div class="home-section-heading">
+				<div>
+					<p class="home-section-kicker">About</p>
+					<h2 data-home-text="aboutTitle">作るだけで終わらない開発を。</h2>
+				</div>
+				<p data-home-text="aboutBody">画面実装、API連携、データベース、運用・障害対応までをつなげて考え、使う人と運用する人の両方にとって扱いやすいシステムを目指しています。</p>
+			</div>
+		</section>
+
+		<section class="home-section" aria-labelledby="home-modules-title">
+			<div class="home-section-title-row">
+				<div>
+					<p class="home-section-kicker">Portfolio</p>
+					<h2 id="home-modules-title" data-home-text="portfolioTitle">コンテンツ</h2>
+				</div>
+				<p data-home-text="portfolioDescription">技術・学習・経歴を目的別に整理していきます。</p>
+			</div>
+
+			<div class="home-module-grid">
+				<article id="japanese" class="home-module-card">
+					<span class="home-module-index">01</span>
+					<h3 data-home-text="japaneseTitle">日本語学習</h3>
+					<p data-home-text="japaneseDescription">語彙・例文・JLPT学習記録を整理する学習モジュールです。</p>
+					<span class="home-module-state" data-home-text="comingSoon">準備中</span>
+				</article>
+
+				<article id="skill-sheet" class="home-module-card">
+					<span class="home-module-index">02</span>
+					<h3 data-home-text="skillTitle">Skill Sheet</h3>
+					<p data-home-text="skillDescription">技術スタックと担当工程を見やすくまとめるスキルシートです。</p>
+					<span class="home-module-state" data-home-text="comingSoon">準備中</span>
+				</article>
+
+				<article id="career-history" class="home-module-card">
+					<span class="home-module-index">03</span>
+					<h3 data-home-text="careerTitle">Career History</h3>
+					<p data-home-text="careerDescription">プロジェクト経験と担当内容を時系列で整理する職務経歴ページです。</p>
+					<span class="home-module-state" data-home-text="comingSoon">準備中</span>
+				</article>
+			</div>
+		</section>
+
+		<section class="home-section home-latest-section" aria-labelledby="home-latest-title">
+			<div class="home-section-title-row">
+				<div>
+					<p class="home-section-kicker">Blog</p>
+					<h2 id="home-latest-title" data-home-text="latestTitle">最新の投稿</h2>
+				</div>
+				<a id="home-all-posts-link" class="home-text-link" href="/ja/posts/" data-home-text="allPosts">すべての投稿を見る →</a>
+			</div>
+
+			<div id="home-posts-loading" class="home-post-state" data-home-text="postsLoading">投稿を読み込んでいます…</div>
+			<div id="home-latest-posts" class="blog-post-list home-post-list" aria-live="polite"></div>
+			<div id="home-posts-empty" class="home-post-state home-post-state-card" hidden data-home-text="postsEmpty">公開中の投稿はまだありません。</div>
+			<div id="home-posts-error" class="home-post-state home-post-state-card" hidden data-home-text="postsError">投稿を読み込めませんでした。</div>
+		</section>
+	</main>
+
+	<footer class="home-footer">
+		<div class="home-footer-inner">
+			<a class="blog-brand" href="/" aria-label="SONG Home"><img src="/assets/logo-song-ym.png" alt="Song YM" /></a>
+			<p>Portfolio & Blog</p>
+		</div>
+	</footer>
+
+	<script src="/assets/js/blog/home.js"></script>
+</body>
 </html>
