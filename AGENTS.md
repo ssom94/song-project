@@ -49,41 +49,91 @@ public/assets/js/admin/
 ├─ categories.js             # category list/create/edit/delete screen behavior
 ├─ tags.js                   # tag list/create/edit/delete screen behavior
 ├─ japanese.js               # Japanese word create/edit/delete, search, JLPT and primary part-of-speech selection
-└─ japanese-parts.js         # Japanese part-of-speech hierarchy create/edit/delete and usage checks
+├─ japanese-parts.js         # Japanese part-of-speech hierarchy create/edit/delete and usage checks
+└─ dashboard-goals.js        # goal/dashboard UI preview; D1 persistence is a later integration step
 ```
 
-Japanese learning admin routes:
+Current admin routes:
 
 ```text
-/admin/japanese/        # word management
-/admin/japanese/parts/  # parts-of-speech management
+/admin/                         # dashboard
+/admin/goals/                   # goals / dashboard settings
+/admin/posts/                   # posts
+/admin/posts/new/               # create post
+/admin/posts/edit/              # view/edit post
+/admin/posts/preview/           # authenticated preview
+/admin/comments/                # comment moderation UI
+/admin/categories/              # categories
+/admin/categories/tags/         # tags
+/admin/japanese/                # Japanese word management
+/admin/japanese/parts/          # parts-of-speech management
+/admin/japanese/categories/     # study category management
+/admin/japanese/quiz/           # quiz setup
+/admin/japanese/quiz/play/      # quiz play UI
+/admin/japanese/quiz/result/    # quiz result / wrong answers UI
+/admin/documents/               # protected document/version UI
+/admin/access-codes/            # access-code UI
 ```
 
-The Japanese learning schema in `0004_japanese_learning.sql` is designed so words and examples can later power quizzes such as word-to-reading, word-to-Korean-meaning, and sentence-blank-to-word questions. Quiz attempt/history tables should be added separately when quiz functionality is implemented.
+The Japanese learning schema in `0004_japanese_learning.sql` is designed so words and examples can power quizzes such as word-to-reading, word-to-Korean-meaning, and sentence-blank-to-word questions. Quiz attempt/history tables should be added separately when persistent quiz history is implemented.
 
-Public blog frontend structure:
+Public frontend structure:
 
 ```text
 public/assets/css/
-├─ common.css        # site-wide tokens and base element rules
-├─ markdown.css      # shared safe Markdown presentation for preview/public posts
-└─ blog/
-   ├─ common.css     # shared public header, language switch, chips, common states
-   ├─ home.css       # public portfolio/blog home only
-   ├─ posts.css      # public post list and reusable post-card presentation
-   └─ post-detail.css
+├─ common.css
+├─ markdown.css
+├─ blog/
+│  ├─ common.css
+│  ├─ dashboard-shell.css       # shared public topbar/sidebar/responsive shell
+│  ├─ home.css
+│  ├─ posts.css
+│  ├─ post-detail.css
+│  └─ comments.css
+├─ japanese/
+│  └─ common.css                # public Japanese learning screens
+└─ protected/
+   └─ common.css                # skill/career/protected-access screens
 
 public/assets/js/
-├─ markdown.js       # shared DOM-based Markdown renderer; do not execute raw HTML
-└─ blog/
-   ├─ home.js        # bilingual public home and recent published posts
-   ├─ posts-list.js  # loads published posts for /ja/posts/ and /ko/posts/
-   └─ post-detail.js # renders localized post detail and missing-translation state
+├─ markdown.js
+├─ blog/
+│  ├─ dashboard-shell.js        # public sidebar/mobile/category behavior
+│  ├─ home.js
+│  ├─ posts-list.js
+│  └─ post-detail.js
+└─ japanese/
+   └─ common.js                 # shared public Japanese-module sidebar boards
 ```
 
-Public post routes are `/ja/posts/`, `/ko/posts/`, and `/{lang}/posts/:slug`. Public APIs must never return draft/private posts or translations whose status is `pending`.
+Current public routes:
 
-Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
+```text
+/                               # portfolio/blog/learning dashboard
+/ja/posts/                      # JA post list
+/ko/posts/                      # KO post list
+/{lang}/posts/:slug             # dynamic post detail
+/ja/japanese/                   # JA Japanese-learning dashboard
+/ko/japanese/                   # KO Japanese-learning dashboard
+/{lang}/japanese/words/         # word library UI
+/{lang}/japanese/quiz/          # quiz setup UI
+/{lang}/japanese/quiz/play/     # quiz play UI
+/{lang}/japanese/quiz/result/   # quiz result / wrong-answer UI
+/{lang}/skill-sheet/            # public skill summary
+/{lang}/career/                 # public career summary
+/protected/                     # access-code entry
+```
+
+Public APIs must never return draft/private posts or translations whose status is `pending`. Protected document originals/previews remain private and must only be served after authorization when the access API is implemented.
+
+## Test data and test cases
+
+- Reusable D1 test seed: `seeds/test_data.sql`
+- Consolidated test cases: `document/1.blog-design/09_ui_test_cases_ko-ja.md`
+- Reserved seed IDs start at `900000001`.
+- The seed is designed for repeat execution with fixed IDs and `INSERT OR IGNORE`.
+- Local seed command: `npx wrangler d1 execute song-project-db --local --file=./seeds/test_data.sql`
+- Do not apply test seed to remote production data casually. Use `--remote` only during an intentional integration-test step.
 
 ## Node.js Compatibility
 
