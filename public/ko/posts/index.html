@@ -11,60 +11,10 @@
 	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
 </head>
 <body class="blog-page blog-dashboard-page blog-posts-page" data-blog-language="ko">
-	<header class="blog-dashboard-topbar">
-		<div class="blog-dashboard-top-actions">
-			<button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button>
-			<a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a>
-		</div>
-		<div class="blog-dashboard-language" aria-label="Language"><a href="/ja/posts/">日本語</a><span aria-hidden="true">/</span><span class="is-active">한국어</span></div>
-	</header>
-
+	<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language" aria-label="Language"><a href="/ja/posts/">日本語</a><span>/</span><span class="is-active">한국어</span></div></header>
 	<div class="blog-dashboard-shell">
-		<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
-			<section class="blog-sidebar-section">
-				<p class="blog-sidebar-label">메뉴</p>
-				<nav class="blog-sidebar-nav">
-					<a class="blog-sidebar-link" href="/">홈</a>
-					<a class="blog-sidebar-link is-active" href="/ko/posts/">전체 게시글</a>
-					<a class="blog-sidebar-link" href="/#jlpt-progress">일본어 학습</a>
-					<a class="blog-sidebar-link" href="/#goals">스킬시트</a>
-					<a class="blog-sidebar-link" href="/#goals">경력</a>
-				</nav>
-			</section>
-			<section class="blog-sidebar-section">
-				<p class="blog-sidebar-label">게시판</p>
-				<nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav>
-				<p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p>
-			</section>
-			<section class="blog-sidebar-section">
-				<p class="blog-sidebar-label">바로가기</p>
-				<nav class="blog-sidebar-nav">
-					<a class="blog-sidebar-link" href="/#goals">2029 목표</a>
-					<a class="blog-sidebar-link" href="/#dday">D-Day</a>
-					<a class="blog-sidebar-link" href="/#jlpt-progress">JLPT 진행률</a>
-				</nav>
-			</section>
-			<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
-		</aside>
-		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
-
-		<main class="blog-dashboard-main">
-			<div class="blog-dashboard-content blog-posts-dashboard-content">
-				<section class="blog-posts-hero">
-					<p class="blog-posts-kicker">Blog</p>
-					<h1>게시글</h1>
-					<p>개발, 학습, 업무에서 얻은 지식과 경험을 기록합니다.</p>
-				</section>
-				<div id="public-posts-filter" class="blog-posts-filter" hidden><span id="public-posts-filter-label"></span><a href="/ko/posts/">전체 보기</a></div>
-				<div id="public-posts-loading" class="blog-state">게시글을 불러오는 중…</div>
-				<section id="public-posts-list" class="blog-post-list" aria-live="polite"></section>
-				<section id="public-posts-empty" class="blog-state blog-state-card" hidden><h2>아직 공개된 게시글이 없습니다</h2><p>새 게시글을 공개하면 여기에 표시됩니다.</p></section>
-				<section id="public-posts-error" class="blog-state blog-state-card" hidden><h2>게시글을 불러오지 못했습니다</h2><p>잠시 후 다시 시도해 주세요.</p></section>
-			</div>
-		</main>
+		<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link is-active" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">바로가기</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/#goals">2029 목표</a><a class="blog-sidebar-link" href="/#dday">D-Day</a><a class="blog-sidebar-link" href="/#jlpt-progress">JLPT 진행률</a></nav></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside><button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+		<main class="blog-dashboard-main"><div class="blog-dashboard-content blog-posts-dashboard-content"><section class="blog-posts-hero"><p class="blog-posts-kicker">Blog</p><h1>게시글</h1><p>개발, 학습, 업무에서 얻은 지식과 경험을 기록합니다.</p></section><div id="public-posts-filter" class="blog-posts-filter" hidden><span id="public-posts-filter-label"></span><a href="/ko/posts/">전체 보기</a></div><div id="public-posts-loading" class="blog-state">게시글을 불러오는 중…</div><section id="public-posts-list" class="blog-post-list" aria-live="polite"></section><section id="public-posts-empty" class="blog-state blog-state-card" hidden><h2>아직 공개된 게시글이 없습니다</h2><p>새 게시글을 공개하면 여기에 표시됩니다.</p></section><section id="public-posts-error" class="blog-state blog-state-card" hidden><h2>게시글을 불러오지 못했습니다</h2><p>잠시 후 다시 시도해 주세요.</p></section></div></main>
 	</div>
-
-	<script src="/assets/js/blog/dashboard-shell.js"></script>
-	<script src="/assets/js/blog/posts-list.js"></script>
-</body>
-</html>
+	<script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/blog/posts-list.js"></script>
+</body></html>
