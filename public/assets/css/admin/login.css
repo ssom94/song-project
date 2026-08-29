@@ -5,32 +5,68 @@ body.admin-login-page {
 }
 
 .login-card {
-	width: min(100%, 420px);
+	width: min(100%, 460px);
 	padding: 32px;
 }
 
+.login-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 10px;
+}
+
+.login-brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+}
+
 .login-logo {
-	justify-content: center;
-	margin-bottom: 22px;
+	flex: 0 0 auto;
 }
 
 .login-logo img {
-	width: min(240px, 82%);
+	width: 92px;
 }
 
 .login-title {
 	margin: 0;
-	font-size: 28px;
+	font-size: 25px;
 	line-height: 1.2;
-	text-align: center;
+	white-space: nowrap;
+}
+
+.login-home {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 34px;
+	padding: 0 12px;
+	border: 1px solid var(--color-border);
+	border-radius: 9px;
+	background: rgba(255, 255, 255, 0.78);
+	color: var(--color-muted);
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none;
+	transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.login-home:hover {
+	border-color: var(--color-primary-focus);
+	background: #fff;
+	color: var(--color-primary);
 }
 
 .login-subtitle {
-	margin: 10px 0 28px;
+	margin: 0 0 28px;
 	font-size: 14px;
 	line-height: 1.6;
 	color: var(--color-muted);
-	text-align: center;
 }
 
 .login-field {
@@ -70,7 +106,25 @@ body.admin-login-page {
 		border-radius: var(--radius-md);
 	}
 
+	.login-header {
+		align-items: flex-start;
+	}
+
+	.login-brand {
+		gap: 9px;
+	}
+
 	.login-logo img {
-		width: min(220px, 86%);
+		width: 72px;
+	}
+
+	.login-title {
+		font-size: 21px;
+		white-space: normal;
+	}
+
+	.login-home {
+		height: 32px;
+		padding: 0 10px;
 	}
 }
