@@ -17,6 +17,7 @@ import { handleAdminSessionStatus } from './auth/session';
 import { handleCreateAdminPost } from './admin/posts/create';
 import { handleGetAdminPost } from './admin/posts/detail';
 import { handleListAdminPosts } from './admin/posts/list';
+import { handleUpdateAdminPost } from './admin/posts/update';
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
@@ -62,13 +63,16 @@ export default {
 					headers: { Allow: 'GET, POST' },
 				});
 			case '/api/admin/posts/detail':
-				if (request.method !== 'GET') {
-					return new Response('Method Not Allowed', {
-						status: 405,
-						headers: { Allow: 'GET' },
-					});
+				if (request.method === 'GET') {
+					return handleGetAdminPost(request, env);
 				}
-				return handleGetAdminPost(request, env);
+				if (request.method === 'PATCH') {
+					return handleUpdateAdminPost(request, env);
+				}
+				return new Response('Method Not Allowed', {
+					status: 405,
+					headers: { Allow: 'GET, PATCH' },
+				});
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
