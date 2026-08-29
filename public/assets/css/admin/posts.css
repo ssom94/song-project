@@ -90,10 +90,15 @@ body.admin-posts-page {
 	overflow-x: auto;
 }
 
+.admin-posts-table-wrap[hidden],
+.admin-posts-empty[hidden] {
+	display: none;
+}
+
 .admin-posts-table {
 	width: 100%;
-	border-collapse: collapse;
 	min-width: 720px;
+	border-collapse: collapse;
 }
 
 .admin-posts-table th {
@@ -112,6 +117,63 @@ body.admin-posts-page {
 	border-bottom: 1px solid #edf0f4;
 	color: #344156;
 	font-size: 13px;
+	vertical-align: middle;
+}
+
+.admin-posts-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.admin-posts-table tbody tr:hover {
+	background: #fafcff;
+}
+
+.admin-post-title {
+	display: block;
+	max-width: 420px;
+	overflow: hidden;
+	color: #223049;
+	font-size: 13px;
+	font-weight: 750;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.admin-post-status {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 26px;
+	padding: 0 9px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 750;
+	white-space: nowrap;
+}
+
+.admin-post-status-draft {
+	background: #f1f3f6;
+	color: #667487;
+}
+
+.admin-post-status-published {
+	background: #eaf8f0;
+	color: #087443;
+}
+
+.admin-post-status-private {
+	background: #fff4e8;
+	color: #9a5b08;
+}
+
+.admin-post-updated-at,
+.admin-post-actions-pending {
+	white-space: nowrap;
+}
+
+.admin-post-actions-pending {
+	color: #9aa4b2;
+	text-align: center;
 }
 
 .admin-posts-empty {
@@ -177,8 +239,8 @@ body.admin-posts-page {
 		grid-column: 1 / -1;
 	}
 
-	.admin-posts-table-wrap {
-		display: none;
+	.admin-posts-table {
+		min-width: 640px;
 	}
 }
 
@@ -199,5 +261,11 @@ body.admin-posts-page {
 	.admin-posts-empty {
 		min-height: 260px;
 		padding: 40px 18px;
+	}
+
+	.admin-posts-table th,
+	.admin-posts-table td {
+		padding-right: 12px;
+		padding-left: 12px;
 	}
 }
