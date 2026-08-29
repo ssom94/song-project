@@ -1,6 +1,9 @@
 (() => {
 	let posts = [];
 	let state = 'loading';
+	let searchInput;
+	let statusSelect;
+	let languageSelect;
 
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
@@ -35,24 +38,51 @@
 		}).format(date);
 	}
 
-	function renderState() {
+	function normalizeSearchText(value) {
+		return String(value ?? '')
+			.normalize('NFKC')
+			.toLocaleLowerCase()
+			.trim();
+	}
+
+	function getFilteredPosts() {
+		const search = normalizeSearchText(searchInput?.value);
+		const status = statusSelect?.value ?? '';
+		const language = languageSelect?.value ?? '';
+
+		return posts.filter((post) => {
+			const matchesSearch = !search || normalizeSearchText(post.title).includes(search);
+			const matchesStatus = !status || post.status === status;
+			const matchesLanguage = !language || post.originalLanguage === language;
+			return matchesSearch && matchesStatus && matchesLanguage;
+		});
+	}
+
+	function renderState(mode = 'empty') {
 		const empty = document.querySelector('.admin-posts-empty');
 		const title = empty?.querySelector('h2');
 		const description = empty?.querySelector('p');
 		const icon = empty?.querySelector('.admin-posts-empty-icon');
 		if (!empty || !title || !description || !icon) return;
 
-		if (state === 'loading') {
+		if (mode === 'loading') {
 			icon.textContent = '…';
 			title.textContent = t('postsLoading', '投稿を読み込んでいます…');
 			description.textContent = t('postsLoadingDescription', 'D1から投稿一覧を取得しています。');
 			return;
 		}
 
-		if (state === 'error') {
+		if (mode === 'error') {
 			icon.textContent = '!';
 			title.textContent = t('postsLoadFailed', '投稿の読み込みに失敗しました');
 			description.textContent = t('postsLoadFailedDescription', 'しばらくしてからページを再読み込みしてください。');
+			return;
+		}
+
+		if (mode === 'filtered-empty') {
+			icon.textContent = '⌕';
+			title.textContent = t('postsFilterEmptyTitle', '検索条件に一致する投稿がありません');
+			description.textContent = t('postsFilterEmptyDescription', '検索語またはフィルターを変更してください。');
 			return;
 		}
 
@@ -77,15 +107,40 @@
 
 		tbody.replaceChildren();
 
-		if (state !== 'ready' || posts.length === 0) {
+		if (state === 'loading') {
 			tableWrap.hidden = true;
 			tableWrap.setAttribute('aria-hidden', 'true');
 			empty.hidden = false;
-			renderState();
+			renderState('loading');
 			return;
 		}
 
-		for (const post of posts) {
+		if (state === 'error') {
+			tableWrap.hidden = true;
+			tableWrap.setAttribute('aria-hidden', 'true');
+			empty.hidden = false;
+			renderState('error');
+			return;
+		}
+
+		if (posts.length === 0) {
+			tableWrap.hidden = true;
+			tableWrap.setAttribute('aria-hidden', 'true');
+			empty.hidden = false;
+			renderState('empty');
+			return;
+		}
+
+		const filteredPosts = getFilteredPosts();
+		if (filteredPosts.length === 0) {
+			tableWrap.hidden = true;
+			tableWrap.setAttribute('aria-hidden', 'true');
+			empty.hidden = false;
+			renderState('filtered-empty');
+			return;
+		}
+
+		for (const post of filteredPosts) {
 			const row = document.createElement('tr');
 
 			const titleCell = document.createElement('td');
@@ -115,6 +170,16 @@
 		empty.hidden = true;
 		tableWrap.hidden = false;
 		tableWrap.setAttribute('aria-hidden', 'false');
+	}
+
+	function bindFilters() {
+		searchInput = document.getElementById('post-search');
+		statusSelect = document.getElementById('post-status');
+		languageSelect = document.getElementById('post-language');
+
+		searchInput?.addEventListener('input', renderPosts);
+		statusSelect?.addEventListener('change', renderPosts);
+		languageSelect?.addEventListener('change', renderPosts);
 	}
 
 	async function loadPosts() {
@@ -150,16 +215,14 @@
 	}
 
 	async function initialize() {
+		bindFilters();
 		const session = await window.AdminCommon?.ready;
 		if (!session) return;
 		await window.AdminI18n?.ready;
 		await loadPosts();
 	}
 
-	document.addEventListener('adminlanguagechange', () => {
-		if (state === 'ready' && posts.length > 0) renderPosts();
-		else renderState();
-	});
+	document.addEventListener('adminlanguagechange', renderPosts);
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
