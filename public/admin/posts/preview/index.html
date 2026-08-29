@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Post Preview | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/post-preview.css" />
+</head>
+<body class="admin-post-preview-page">
+	<div id="admin-loading" class="post-preview-loading">プレビューを準備しています…</div>
+
+	<div id="admin-shell" class="post-preview-shell" hidden>
+		<div class="post-preview-admin-bar">
+			<div class="post-preview-admin-bar-inner">
+				<strong id="preview-admin-label">管理者プレビュー</strong>
+				<span id="preview-admin-note">保存前の内容を含む場合があります。</span>
+				<button id="preview-close" type="button">閉じる</button>
+			</div>
+		</div>
+
+		<header class="post-preview-site-header">
+			<div class="post-preview-site-header-inner">
+				<a class="post-preview-brand" href="/" aria-label="Song Project Home">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+				</a>
+				<nav class="post-preview-nav" aria-label="Preview navigation">
+					<span>Home</span>
+					<span>Japanese</span>
+					<span>Skill Sheet</span>
+					<span>Career History</span>
+				</nav>
+			</div>
+		</header>
+
+		<main class="post-preview-main">
+			<div id="preview-waiting" class="post-preview-waiting">投稿データを受信しています…</div>
+
+			<article id="preview-article" class="post-preview-article" hidden>
+				<div class="post-preview-toolbar">
+					<span id="preview-status" class="post-preview-status"></span>
+					<div id="preview-language-switch" class="post-preview-language-switch" hidden></div>
+				</div>
+
+				<div class="post-preview-meta">
+					<span id="preview-category" class="post-preview-category"></span>
+					<div id="preview-tags" class="post-preview-tags"></div>
+				</div>
+
+				<h1 id="preview-title"></h1>
+				<div id="preview-content" class="post-preview-content"></div>
+			</article>
+		</main>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/post-preview.js"></script>
+</body>
+</html>
