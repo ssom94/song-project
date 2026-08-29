@@ -37,7 +37,6 @@
 
 		const koreanScore = hangulCount * 3;
 		const japaneseScore = (kanaCount * 3) + (kanjiCount * 0.35);
-
 		if (Math.abs(koreanScore - japaneseScore) > Math.max(koreanScore, japaneseScore) * 0.15) {
 			return koreanScore > japaneseScore ? 'ko' : 'ja';
 		}
@@ -224,14 +223,33 @@
 	}
 
 	function setSaving(saving) {
-		if (editorMode !== 'create') return;
-		if (draftButton) draftButton.disabled = saving || saveCompleted;
-		if (saveButton) saveButton.disabled = saving || saveCompleted;
+		if (draftButton) draftButton.disabled = saving || (editorMode === 'create' && saveCompleted);
+		if (saveButton) saveButton.disabled = saving || (editorMode === 'create' && saveCompleted);
 		if (saving) setSaveMessage('savingPost', 'info');
+	}
+
+	function setEditControlsEnabled(enabled) {
+		if (editorMode !== 'edit') return;
+		if (draftButton) draftButton.disabled = !enabled;
+		if (saveButton) saveButton.disabled = !enabled;
+		if (sourceLanguage) sourceLanguage.disabled = true;
 	}
 
 	function selectedTranslationMethod() {
 		return document.querySelector('input[name="translation-method"]:checked')?.value ?? 'later';
+	}
+
+	function buildPayload(forceDraft = false) {
+		return {
+			title: titleInput?.value.trim() ?? '',
+			content: contentInput?.value.trim() ?? '',
+			sourceLanguage: sourceLanguage?.value ?? '',
+			status: forceDraft ? 'draft' : statusSelect?.value ?? 'draft',
+			translationMethod: selectedTranslationMethod(),
+			translatedTitle: translatedTitleInput?.value.trim() ?? '',
+			translatedContent: translatedContentInput?.value.trim() ?? '',
+			categoryId: categorySelect?.value || null,
+		};
 	}
 
 	async function showValidationWarning(messageKey, target) {
@@ -306,16 +324,7 @@
 		if (!(await validateBeforeSave())) return;
 
 		setSaving(true);
-		const payload = {
-			title: titleInput.value.trim(),
-			content: contentInput.value.trim(),
-			sourceLanguage: sourceLanguage.value,
-			status: forceDraft ? 'draft' : statusSelect?.value ?? 'draft',
-			translationMethod: selectedTranslationMethod(),
-			translatedTitle: translatedTitleInput?.value.trim() ?? '',
-			translatedContent: translatedContentInput?.value.trim() ?? '',
-			categoryId: categorySelect?.value || null,
-		};
+		const payload = buildPayload(forceDraft);
 
 		try {
 			const response = await fetch('/api/admin/posts', {
@@ -393,6 +402,7 @@
 
 		updateLanguageState();
 		clearSaveError();
+		setEditControlsEnabled(true);
 		return true;
 	}
 
@@ -472,8 +482,13 @@
 	window.AdminPostEditor = {
 		mode: editorMode,
 		ready,
+		buildPayload,
+		clearError: clearSaveError,
 		loadPostData,
+		setBusy: setSaving,
+		setEditControlsEnabled,
 		setMessage: setSaveMessage,
+		validate: validateBeforeSave,
 	};
 
 	if (document.readyState === 'loading') {
