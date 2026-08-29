@@ -31,9 +31,11 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 	const q = (url.searchParams.get('q') ?? '').trim().slice(0, 100);
 	const jlpt = (url.searchParams.get('jlpt') ?? '').trim().toUpperCase();
 	const categoryId = integerParam(url, 'category');
+	const categoryParentId = integerParam(url, 'categoryParent');
 	const partId = integerParam(url, 'part');
+	const partParentId = integerParam(url, 'partParent');
 	const requestedLimit = Number(url.searchParams.get('limit') ?? '100');
-	const limit = Number.isSafeInteger(requestedLimit) ? Math.min(200, Math.max(1, requestedLimit)) : 100;
+	const limit = Number.isSafeInteger(requestedLimit) ? Math.min(500, Math.max(1, requestedLimit)) : 100;
 
 	if (jlpt && !['N1', 'N2', 'N3', 'N4', 'N5'].includes(jlpt)) {
 		return json({ ok: false, error: 'INVALID_JLPT' }, 400);
@@ -83,18 +85,44 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 				WHERE jw.deleted_at IS NULL
 					AND (?1 = '' OR jw.word LIKE '%' || ?1 || '%' OR COALESCE(jw.reading, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ko, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ja, '') LIKE '%' || ?1 || '%')
 					AND (?2 = '' OR jl.code = ?2)
-					AND (?3 = 0 OR EXISTS (SELECT 1 FROM japanese_word_categories AS fwc WHERE fwc.word_id = jw.id AND fwc.category_id = ?3))
-					AND (?4 = 0 OR EXISTS (SELECT 1 FROM japanese_word_parts_of_speech AS fwp WHERE fwp.word_id = jw.id AND fwp.part_of_speech_id = ?4))
+					AND (?3 = 0 OR EXISTS (
+						SELECT 1 FROM japanese_word_categories AS fwc
+						WHERE fwc.word_id = jw.id AND fwc.category_id = ?3
+					))
+					AND (?4 = 0 OR EXISTS (
+						SELECT 1
+						FROM japanese_word_categories AS fwc
+						INNER JOIN japanese_categories AS fc ON fc.id = fwc.category_id AND fc.deleted_at IS NULL
+						WHERE fwc.word_id = jw.id AND (fc.id = ?4 OR fc.parent_id = ?4)
+					))
+					AND (?5 = 0 OR EXISTS (
+						SELECT 1 FROM japanese_word_parts_of_speech AS fwp
+						WHERE fwp.word_id = jw.id AND fwp.part_of_speech_id = ?5
+					))
+					AND (?6 = 0 OR EXISTS (
+						SELECT 1
+						FROM japanese_word_parts_of_speech AS fwp
+						INNER JOIN parts_of_speech AS fp ON fp.id = fwp.part_of_speech_id AND fp.deleted_at IS NULL
+						WHERE fwp.word_id = jw.id AND (fp.id = ?6 OR fp.parent_id = ?6)
+					))
 				ORDER BY COALESCE(jl.display_order, 99) ASC, jw.id DESC
-				LIMIT ?5
+				LIMIT ?7
 			`)
-			.bind(q, jlpt, categoryId, partId, limit)
+			.bind(q, jlpt, categoryId, categoryParentId, partId, partParentId, limit)
 			.all<WordRow>();
 
 		const separator = String.fromCharCode(31);
 		return json({
 			ok: true,
-			filters: { q, jlpt: jlpt || null, categoryId: categoryId || null, partId: partId || null, limit },
+			filters: {
+				q,
+				jlpt: jlpt || null,
+				categoryId: categoryId || null,
+				categoryParentId: categoryParentId || null,
+				partId: partId || null,
+				partParentId: partParentId || null,
+				limit,
+			},
 			words: result.results.map((row) => ({
 				id: row.id,
 				word: row.word,
