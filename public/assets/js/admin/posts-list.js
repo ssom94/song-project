@@ -11,9 +11,7 @@
 	}
 
 	function languageLabel(language) {
-		return language === 'ko'
-			? t('languageKorean', '한국어')
-			: t('languageJapanese', '日本語');
+		return language === 'ko' ? t('languageKorean', '한국어') : t('languageJapanese', '日本語');
 	}
 
 	function statusLabel(status) {
@@ -25,31 +23,21 @@
 	function formatDate(value) {
 		const date = new Date(value);
 		if (Number.isNaN(date.getTime())) return value ?? '';
-
 		const language = window.AdminI18n?.getLanguage?.() ?? 'ja';
 		return new Intl.DateTimeFormat(language === 'ko' ? 'ko-KR' : 'ja-JP', {
-			year: 'numeric',
-			month: '2-digit',
-			day: '2-digit',
-			hour: '2-digit',
-			minute: '2-digit',
-			hour12: false,
-			timeZone: 'Asia/Tokyo',
+			year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
+			hour12: false, timeZone: 'Asia/Tokyo',
 		}).format(date);
 	}
 
 	function normalizeSearchText(value) {
-		return String(value ?? '')
-			.normalize('NFKC')
-			.toLocaleLowerCase()
-			.trim();
+		return String(value ?? '').normalize('NFKC').toLocaleLowerCase().trim();
 	}
 
 	function getFilteredPosts() {
 		const search = normalizeSearchText(searchInput?.value);
 		const status = statusSelect?.value ?? '';
 		const language = languageSelect?.value ?? '';
-
 		return posts.filter((post) => {
 			const matchesSearch = !search || normalizeSearchText(post.title).includes(search);
 			const matchesStatus = !status || post.status === status;
@@ -71,14 +59,12 @@
 			description.textContent = t('postsLoadingDescription', 'D1から投稿一覧を取得しています。');
 			return;
 		}
-
 		if (mode === 'error') {
 			icon.textContent = '!';
 			title.textContent = t('postsLoadFailed', '投稿の読み込みに失敗しました');
 			description.textContent = t('postsLoadFailedDescription', 'しばらくしてからページを再読み込みしてください。');
 			return;
 		}
-
 		if (mode === 'filtered-empty') {
 			icon.textContent = '⌕';
 			title.textContent = t('postsFilterEmptyTitle', '検索条件に一致する投稿がありません');
@@ -98,6 +84,14 @@
 		return badge;
 	}
 
+	function createEditLink(post, className) {
+		const link = document.createElement('a');
+		link.className = className;
+		link.href = `/admin/posts/edit/?id=${encodeURIComponent(String(post.id))}`;
+		link.textContent = className === 'admin-post-title-link' ? post.title : t('editPost', '編集');
+		return link;
+	}
+
 	function renderPosts() {
 		const tableWrap = document.querySelector('.admin-posts-table-wrap');
 		const table = document.querySelector('.admin-posts-table');
@@ -106,28 +100,11 @@
 		if (!tableWrap || !table || !tbody || !empty) return;
 
 		tbody.replaceChildren();
-
-		if (state === 'loading') {
+		if (state === 'loading' || state === 'error' || posts.length === 0) {
 			tableWrap.hidden = true;
 			tableWrap.setAttribute('aria-hidden', 'true');
 			empty.hidden = false;
-			renderState('loading');
-			return;
-		}
-
-		if (state === 'error') {
-			tableWrap.hidden = true;
-			tableWrap.setAttribute('aria-hidden', 'true');
-			empty.hidden = false;
-			renderState('error');
-			return;
-		}
-
-		if (posts.length === 0) {
-			tableWrap.hidden = true;
-			tableWrap.setAttribute('aria-hidden', 'true');
-			empty.hidden = false;
-			renderState('empty');
+			renderState(state === 'loading' ? 'loading' : state === 'error' ? 'error' : 'empty');
 			return;
 		}
 
@@ -142,12 +119,8 @@
 
 		for (const post of filteredPosts) {
 			const row = document.createElement('tr');
-
 			const titleCell = document.createElement('td');
-			const title = document.createElement('strong');
-			title.className = 'admin-post-title';
-			title.textContent = post.title;
-			titleCell.appendChild(title);
+			titleCell.appendChild(createEditLink(post, 'admin-post-title-link'));
 
 			const languageCell = document.createElement('td');
 			languageCell.textContent = languageLabel(post.originalLanguage);
@@ -160,8 +133,7 @@
 			updatedCell.textContent = formatDate(post.updatedAt);
 
 			const actionCell = document.createElement('td');
-			actionCell.className = 'admin-post-actions-pending';
-			actionCell.textContent = '—';
+			actionCell.appendChild(createEditLink(post, 'admin-post-edit-link'));
 
 			row.append(titleCell, languageCell, statusCell, updatedCell, actionCell);
 			tbody.appendChild(row);
@@ -176,7 +148,6 @@
 		searchInput = document.getElementById('post-search');
 		statusSelect = document.getElementById('post-status');
 		languageSelect = document.getElementById('post-language');
-
 		searchInput?.addEventListener('input', renderPosts);
 		statusSelect?.addEventListener('change', renderPosts);
 		languageSelect?.addEventListener('change', renderPosts);
@@ -185,24 +156,14 @@
 	async function loadPosts() {
 		state = 'loading';
 		renderPosts();
-
 		try {
-			const response = await fetch('/api/admin/posts', {
-				method: 'GET',
-				credentials: 'same-origin',
-				cache: 'no-store',
-			});
-
+			const response = await fetch('/api/admin/posts', { method: 'GET', credentials: 'same-origin', cache: 'no-store' });
 			if (response.status === 401) {
 				window.location.replace('/admin/login/');
 				return;
 			}
-
 			const result = await response.json().catch(() => null);
-			if (!response.ok || !result?.ok || !Array.isArray(result.posts)) {
-				throw new Error('Invalid post list response');
-			}
-
+			if (!response.ok || !result?.ok || !Array.isArray(result.posts)) throw new Error('Invalid post list response');
 			posts = result.posts;
 			state = 'ready';
 		} catch (error) {
@@ -210,7 +171,6 @@
 			posts = [];
 			state = 'error';
 		}
-
 		renderPosts();
 	}
 
@@ -223,10 +183,6 @@
 	}
 
 	document.addEventListener('adminlanguagechange', renderPosts);
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initialize, { once: true });
-	} else {
-		initialize();
-	}
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
+	else initialize();
 })();
