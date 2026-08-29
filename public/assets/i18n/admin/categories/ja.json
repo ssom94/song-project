@@ -1,6 +1,8 @@
 {
   "categoriesPageTitle": "カテゴリー管理",
   "categoriesPageDescription": "投稿で使用するカテゴリーと階層を管理します。",
+  "taxonomyCategories": "カテゴリー",
+  "taxonomyTags": "タグ",
   "categoryCreateTitle": "カテゴリーを追加",
   "categoryEditTitle": "カテゴリーを編集",
   "categoryBothLanguagesRequired": "日本語名と韓国語名を登録します。",
