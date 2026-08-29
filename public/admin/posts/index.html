@@ -104,25 +104,25 @@
 						<div class="admin-posts-toolbar">
 							<div class="admin-posts-field">
 								<label for="post-search" data-i18n="searchLabel">投稿を検索</label>
-								<input id="post-search" type="search" placeholder="タイトルを検索" data-i18n-placeholder="searchPostsPlaceholder" disabled />
+								<input id="post-search" type="search" autocomplete="off" placeholder="タイトルを検索" data-i18n-placeholder="searchPostsPlaceholder" />
 							</div>
 
 							<div class="admin-posts-field">
 								<label for="post-status" data-i18n="statusLabel">公開状態</label>
-								<select id="post-status" disabled>
-									<option data-i18n="filterStatusAll">すべての状態</option>
-									<option data-i18n="statusPublished">公開</option>
-									<option data-i18n="statusDraft">下書き</option>
-									<option data-i18n="statusScheduled">予約公開</option>
+								<select id="post-status">
+									<option value="" data-i18n="filterStatusAll">すべての状態</option>
+									<option value="published" data-i18n="statusPublished">公開</option>
+									<option value="draft" data-i18n="statusDraft">下書き</option>
+									<option value="private" data-i18n="statusPrivate">非公開</option>
 								</select>
 							</div>
 
 							<div class="admin-posts-field">
 								<label for="post-language" data-i18n="languageFilterLabel">言語</label>
-								<select id="post-language" disabled>
-									<option data-i18n="filterLanguageAll">すべての言語</option>
-									<option data-i18n="languageJapanese">日本語</option>
-									<option data-i18n="languageKorean">韓国語</option>
+								<select id="post-language">
+									<option value="" data-i18n="filterLanguageAll">すべての言語</option>
+									<option value="ja" data-i18n="languageJapanese">日本語</option>
+									<option value="ko" data-i18n="languageKorean">韓国語</option>
 								</select>
 							</div>
 						</div>
