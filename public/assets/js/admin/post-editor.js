@@ -6,6 +6,14 @@
 	let detectedLanguageRow;
 	let detectedLanguageBadge;
 	let manualPanel;
+	let translatedTitleInput;
+	let translatedContentInput;
+	let categorySelect;
+	let statusSelect;
+	let draftButton;
+	let saveButton;
+	let saveStatus;
+	let saveCompleted = false;
 
 	function countMatches(text, regex) {
 		return (text.match(regex) ?? []).length;
@@ -16,21 +24,10 @@
 		const kanaCount = countMatches(text, /[\u3040-\u30ff\u31f0-\u31ff]/g);
 		const kanjiCount = countMatches(text, /[\u3400-\u4dbf\u4e00-\u9fff]/g);
 
-		if (hangulCount === 0 && kanaCount === 0 && kanjiCount === 0) {
-			return null;
-		}
-
-		if (hangulCount > 0 && kanaCount === 0 && kanjiCount === 0) {
-			return 'ko';
-		}
-
-		if (kanaCount > 0 && hangulCount === 0) {
-			return 'ja';
-		}
-
-		if (hangulCount === 0 && (kanaCount > 0 || kanjiCount > 0)) {
-			return 'ja';
-		}
+		if (hangulCount === 0 && kanaCount === 0 && kanjiCount === 0) return null;
+		if (hangulCount > 0 && kanaCount === 0 && kanjiCount === 0) return 'ko';
+		if (kanaCount > 0 && hangulCount === 0) return 'ja';
+		if (hangulCount === 0 && (kanaCount > 0 || kanjiCount > 0)) return 'ja';
 
 		const koreanScore = hangulCount * 3;
 		const japaneseScore = (kanaCount * 3) + (kanjiCount * 0.35);
@@ -105,12 +102,21 @@
 			rule.textContent = window.AdminI18n?.t('mixedLanguageRule') ?? '混在する対象言語の部分はそのまま残し、必要な部分だけ翻訳します。';
 
 			const apiNote = translationBody.querySelector('.admin-editor-api-note');
-			if (apiNote) {
-				translationBody.insertBefore(rule, apiNote);
-			} else {
-				translationBody.appendChild(rule);
-			}
+			if (apiNote) translationBody.insertBefore(rule, apiNote);
+			else translationBody.appendChild(rule);
 		}
+	}
+
+	function ensureSaveStatusUi() {
+		const actions = document.querySelector('.admin-editor-actions');
+		if (!actions || document.getElementById('post-save-status')) return;
+
+		const status = document.createElement('p');
+		status.id = 'post-save-status';
+		status.className = 'admin-editor-save-status';
+		status.hidden = true;
+		actions.parentElement?.insertBefore(status, actions);
+		saveStatus = status;
 	}
 
 	function refreshDynamicLabels() {
@@ -125,6 +131,10 @@
 
 		const mixedRule = document.getElementById('mixed-language-rule');
 		if (mixedRule) mixedRule.textContent = window.AdminI18n?.t('mixedLanguageRule') ?? '混在する対象言語の部分はそのまま残し、必要な部分だけ翻訳します。';
+
+		if (saveStatus?.dataset.messageKey) {
+			saveStatus.textContent = window.AdminI18n?.t(saveStatus.dataset.messageKey) ?? saveStatus.textContent;
+		}
 	}
 
 	function getDetectedLanguage() {
@@ -169,17 +179,115 @@
 		manualPanel.hidden = selected.value !== 'manual';
 	}
 
+	function setSaveMessage(key, type = 'info') {
+		if (!saveStatus) return;
+		saveStatus.dataset.messageKey = key;
+		saveStatus.dataset.type = type;
+		saveStatus.textContent = window.AdminI18n?.t(key) ?? key;
+		saveStatus.hidden = false;
+	}
+
+	function setSaving(saving) {
+		if (draftButton) draftButton.disabled = saving || saveCompleted;
+		if (saveButton) saveButton.disabled = saving || saveCompleted;
+		if (saving) setSaveMessage('savingPost', 'info');
+	}
+
+	function selectedTranslationMethod() {
+		return document.querySelector('input[name="translation-method"]:checked')?.value ?? 'later';
+	}
+
+	function validateBeforeSave() {
+		if (!titleInput?.value.trim() || !contentInput?.value.trim()) {
+			setSaveMessage('postRequiredFields', 'error');
+			return false;
+		}
+
+		if (!getEffectiveSourceLanguage()) {
+			setSaveMessage('postLanguageRequired', 'error');
+			return false;
+		}
+
+		if (selectedTranslationMethod() === 'manual') {
+			if (!translatedTitleInput?.value.trim() || !translatedContentInput?.value.trim()) {
+				setSaveMessage('manualTranslationRequired', 'error');
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	async function savePost(forceDraft = false) {
+		if (saveCompleted || !validateBeforeSave()) return;
+
+		setSaving(true);
+
+		const payload = {
+			title: titleInput.value.trim(),
+			content: contentInput.value.trim(),
+			sourceLanguage: sourceLanguage.value,
+			status: forceDraft ? 'draft' : statusSelect?.value ?? 'draft',
+			translationMethod: selectedTranslationMethod(),
+			translatedTitle: translatedTitleInput?.value.trim() ?? '',
+			translatedContent: translatedContentInput?.value.trim() ?? '',
+			categoryId: categorySelect?.value || null,
+		};
+
+		try {
+			const response = await fetch('/api/admin/posts', {
+				method: 'POST',
+				credentials: 'same-origin',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
+			});
+
+			if (response.status === 401) {
+				window.location.replace('/admin/login/');
+				return;
+			}
+
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok) {
+				console.error('Post save failed', result);
+				setSaveMessage('postSaveFailed', 'error');
+				return;
+			}
+
+			saveCompleted = true;
+			setSaveMessage('postSaved', 'success');
+		} catch (error) {
+			console.error('Post save failed', error);
+			setSaveMessage('postSaveFailed', 'error');
+		} finally {
+			setSaving(false);
+		}
+	}
+
 	function initialize() {
 		sourceLanguage = document.getElementById('source-language');
 		titleInput = document.getElementById('post-title');
 		contentInput = document.getElementById('post-content');
 		targetLanguageBadge = document.getElementById('translation-target-language');
 		manualPanel = document.getElementById('manual-translation-panel');
+		translatedTitleInput = document.getElementById('translated-title');
+		translatedContentInput = document.getElementById('translated-content');
+		categorySelect = document.getElementById('post-category');
+		statusSelect = document.getElementById('publication-status');
+		draftButton = document.querySelector('button[data-i18n="draftSave"]');
+		saveButton = document.querySelector('button[data-i18n="savePost"]');
 
 		if (!sourceLanguage || !targetLanguageBadge || !manualPanel) return;
 
 		ensureLanguageDetectionUi();
+		ensureSaveStatusUi();
 		refreshDynamicLabels();
+
+		const scheduledOption = statusSelect?.querySelector('option[value="scheduled"]');
+		if (scheduledOption) scheduledOption.disabled = true;
+
+		if (draftButton) draftButton.disabled = false;
+		if (saveButton) saveButton.disabled = false;
 
 		sourceLanguage.addEventListener('change', updateLanguageState);
 		titleInput?.addEventListener('input', updateLanguageState);
@@ -189,13 +297,18 @@
 			radio.addEventListener('change', updateTranslationMethod);
 		});
 
+		draftButton?.addEventListener('click', () => savePost(true));
+
 		document.addEventListener('adminlanguagechange', () => {
 			refreshDynamicLabels();
 			updateLanguageState();
 		});
 
 		const form = document.getElementById('post-editor-form');
-		form?.addEventListener('submit', (event) => event.preventDefault());
+		form?.addEventListener('submit', (event) => {
+			event.preventDefault();
+			savePost(false);
+		});
 
 		updateLanguageState();
 		updateTranslationMethod();
