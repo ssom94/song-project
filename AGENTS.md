@@ -28,20 +28,23 @@ Keep HTML, CSS, and JavaScript separated.
 - Put site-wide shared styles/scripts in common files and area-wide shared files in their area folder.
 - Put screen-specific styles/scripts in files named for that screen or feature.
 - Reuse shared behavior instead of copying the same JavaScript between HTML pages.
+- Keep common admin translations in `public/assets/i18n/admin/{lang}.json`.
+- For screen-specific translations, set `data-i18n-scope="<screen>"` on `<body>` and use `public/assets/i18n/admin/<screen>/{lang}.json`.
 
 Current admin JavaScript structure:
 
 ```text
 public/assets/js/admin/
 ├─ common.js           # admin session gate, user menu, logout, shared modal behavior
-├─ i18n.js             # admin language switching
+├─ i18n.js             # admin language switching + optional screen-scoped translation merging
 ├─ menu.js             # admin navigation rendering
 ├─ layout.js           # sidebar and responsive layout behavior
 ├─ login.js            # login page only
 ├─ posts-list.js       # post list loading, search, filters, view links
 ├─ post-categories.js  # shared category loading for create/view/edit post screens
 ├─ post-editor.js      # shared post create/edit form behavior and validation
-└─ post-edit.js        # existing post view/edit state, dirty tracking, update requests
+├─ post-edit.js        # existing post view/edit state, dirty tracking, update requests
+└─ categories.js       # category list/create/edit/delete screen behavior
 ```
 
 Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
