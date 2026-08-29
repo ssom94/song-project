@@ -1,0 +1,220 @@
+body.admin-japanese-parts-page {
+	min-height: 100vh;
+	background: #f3f5f8;
+}
+
+.admin-parts-layout {
+	display: grid;
+	grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+	gap: 18px;
+	align-items: start;
+}
+
+.admin-parts-card {
+	border: 1px solid #e1e6ed;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(27, 39, 57, 0.045);
+}
+
+.admin-parts-form-card {
+	position: sticky;
+	top: 96px;
+}
+
+.admin-parts-card-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 14px;
+	padding: 17px 18px;
+	border-bottom: 1px solid #edf0f4;
+}
+
+.admin-parts-card-header h2 {
+	margin: 0;
+	color: #223049;
+	font-size: 15px;
+}
+
+.admin-parts-card-header p {
+	margin: 5px 0 0;
+	color: #7a8798;
+	font-size: 11px;
+}
+
+.admin-parts-text-button {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #1f56d8;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.admin-parts-form {
+	display: grid;
+	gap: 14px;
+	padding: 18px;
+}
+
+.admin-parts-field {
+	display: grid;
+	gap: 6px;
+}
+
+.admin-parts-field label {
+	color: #526176;
+	font-size: 11px;
+	font-weight: 800;
+}
+
+.admin-parts-field input,
+.admin-parts-field select {
+	width: 100%;
+	height: 40px;
+	padding: 0 11px;
+	border: 1px solid #d5dde7;
+	border-radius: 9px;
+	background: #fff;
+	color: #243247;
+	font: inherit;
+	font-size: 13px;
+	outline: none;
+}
+
+.admin-parts-field input:focus,
+.admin-parts-field select:focus {
+	border-color: #2d64e3;
+	box-shadow: 0 0 0 3px rgba(45, 100, 227, 0.1);
+}
+
+.admin-parts-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+.admin-parts-button {
+	min-height: 40px;
+	padding: 0 14px;
+	border: 1px solid #d8dfe9;
+	border-radius: 9px;
+	background: #fff;
+	color: #445168;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.admin-parts-button-primary {
+	border-color: #1f56d8;
+	background: #1f56d8;
+	color: #fff;
+}
+
+.admin-parts-status {
+	margin: 0;
+	padding: 9px 10px;
+	border-radius: 8px;
+	background: #f5f7fa;
+	color: #67758a;
+	font-size: 11px;
+}
+
+.admin-parts-status[data-type="success"] {
+	background: #edf8f2;
+	color: #087443;
+}
+
+.admin-parts-status[data-type="error"] {
+	background: #fff1f0;
+	color: #b42318;
+}
+
+.admin-parts-count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 34px;
+	height: 28px;
+	padding: 0 9px;
+	border-radius: 999px;
+	background: #eef3ff;
+	color: #1f56d8;
+	font-size: 11px;
+	font-weight: 800;
+}
+
+.admin-parts-empty {
+	padding: 46px 20px;
+	color: #8390a2;
+	font-size: 12px;
+	text-align: center;
+}
+
+.admin-parts-table-wrap {
+	overflow-x: auto;
+}
+
+.admin-parts-table {
+	width: 100%;
+	min-width: 650px;
+	border-collapse: collapse;
+}
+
+.admin-parts-table th,
+.admin-parts-table td {
+	padding: 12px 13px;
+	border-bottom: 1px solid #edf0f4;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.admin-parts-table th {
+	background: #fafbfd;
+	color: #6d7a8f;
+	font-size: 10px;
+	font-weight: 800;
+}
+
+.admin-parts-table td {
+	color: #435168;
+	font-size: 12px;
+}
+
+.admin-parts-name {
+	font-weight: 800;
+	color: #243247;
+}
+
+.admin-parts-row-actions {
+	display: flex;
+	gap: 6px;
+}
+
+.admin-parts-action {
+	padding: 5px 8px;
+	border: 1px solid #dbe2ec;
+	border-radius: 7px;
+	background: #fff;
+	color: #536176;
+	font: inherit;
+	font-size: 10px;
+	font-weight: 800;
+}
+
+.admin-parts-action-danger:hover {
+	border-color: #e4a19c;
+	color: #b42318;
+}
+
+@media (max-width: 900px) {
+	.admin-parts-layout {
+		grid-template-columns: 1fr;
+	}
+	.admin-parts-form-card {
+		position: static;
+	}
+}
