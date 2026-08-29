@@ -114,13 +114,23 @@
 		});
 	}
 
+	function selectedOptionLabel(id) {
+		const select = document.getElementById(id);
+		if (!select?.value) return null;
+		return select.selectedOptions?.[0]?.textContent?.trim() || null;
+	}
+
 	function collectSetup() {
 		return {
 			types: [...document.querySelectorAll('input[name="quiz-type"]:checked')].map((input) => input.value),
 			categoryParentId: document.getElementById('quiz-category-parent')?.value || null,
+			categoryParentName: selectedOptionLabel('quiz-category-parent'),
 			categoryId: document.getElementById('quiz-category')?.value || null,
+			categoryName: selectedOptionLabel('quiz-category'),
 			partParentId: document.getElementById('quiz-pos-parent')?.value || null,
+			partParentName: selectedOptionLabel('quiz-pos-parent'),
 			partOfSpeechId: document.getElementById('quiz-pos')?.value || null,
+			partOfSpeechName: selectedOptionLabel('quiz-pos'),
 			jlpt: document.getElementById('quiz-jlpt')?.value || null,
 			order: document.getElementById('quiz-order')?.value || 'random',
 			count: Math.max(1, Math.min(200, Number(document.getElementById('quiz-count-custom')?.value) || 20)),
@@ -128,7 +138,7 @@
 		};
 	}
 
-	async function saveSetupPreview() {
+	async function startQuizPreview() {
 		const setup = collectSetup();
 		if (setup.types.length === 0) {
 			if (window.AdminCommon?.alert) {
@@ -142,16 +152,7 @@
 			return;
 		}
 		sessionStorage.setItem('song_japanese_quiz_setup', JSON.stringify(setup));
-		if (window.AdminCommon?.alert) {
-			await window.AdminCommon.alert({
-				titleKey: 'quizSetupSavedTitle',
-				messageKey: 'quizSetupSavedMessage',
-				titleFallback: currentLanguage() === 'ko' ? '퀴즈 설정 준비 완료' : 'クイズ設定を保存しました',
-				messageFallback: currentLanguage() === 'ko'
-					? '이 설정을 다음 퀴즈 플레이 화면에서 사용합니다.'
-					: 'この設定を次のクイズプレイ画面で使用します。',
-			});
-		}
+		window.location.href = '/admin/japanese/quiz/play/';
 	}
 
 	async function initialize() {
@@ -166,7 +167,7 @@
 			button.addEventListener('click', () => setQuestionCount(button.dataset.quizCount));
 		});
 		document.getElementById('quiz-count-custom')?.addEventListener('input', (event) => setQuestionCount(event.target.value));
-		document.getElementById('quiz-start')?.addEventListener('click', saveSetupPreview);
+		document.getElementById('quiz-start')?.addEventListener('click', startQuizPreview);
 		document.addEventListener('adminlanguagechange', renderHierarchies);
 		await loadSetupData();
 		setQuestionCount(20);
