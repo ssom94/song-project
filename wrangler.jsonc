@@ -17,7 +17,20 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "song_project_db",
+			"database_name": "song-project-db",
+			"database_id": "b1fb147b-fd18-46e0-b423-717c34eafbdf"
+		}
+	],
+	"r2_buckets": [
+		{
+			"bucket_name": "song-project-assets",
+			"binding": "song_project_assets"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
