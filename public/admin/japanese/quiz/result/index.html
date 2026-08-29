@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title>Japanese Quiz Result | SONG Admin</title>
+	<title>Japanese Quiz History | SONG Admin</title>
 	<link rel="stylesheet" href="/assets/css/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/japanese-common.css" />
@@ -12,114 +12,55 @@
 </head>
 <body class="admin-page admin-japanese-quiz-result-page" data-i18n-scope="japanese-quiz-result">
 	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
-
 	<div id="admin-shell" class="admin-shell" hidden>
 		<header class="admin-global-header">
 			<div class="admin-header-left">
-				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
-					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-				</button>
-				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
-					<img src="/assets/logo-song-ym.png" alt="Song YM" />
-					<span>SONG Admin</span>
-				</a>
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel"><span></span><span></span><span></span></button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a>
 			</div>
 			<div class="admin-header-actions">
-				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
-					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
-					<span class="admin-language-divider" aria-hidden="true">|</span>
-					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
-				</div>
-				<div class="admin-user-menu-wrap">
-					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
-						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
-						<span id="admin-user" class="admin-user"></span>
-						<span class="admin-user-chevron" aria-hidden="true"></span>
-					</button>
-					<div id="admin-user-menu" class="admin-user-menu" hidden>
-						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
-						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
-					</div>
-				</div>
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel"><button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button></div>
+				<div class="admin-user-menu-wrap"><button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button><div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button></div></div>
 			</div>
 		</header>
-
-		<div class="admin-header-accent" aria-hidden="true"></div>
+		<div class="admin-header-accent"></div>
 		<div class="admin-body">
-			<aside id="admin-sidebar" class="admin-sidebar">
-				<p class="admin-nav-label" data-i18n="management">管理</p>
-				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
-				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
-			</aside>
-			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
-
+			<aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label" data-i18n="management">管理</p><nav id="admin-nav" class="admin-nav" data-i18n-aria-label="navLabel"></nav><div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div></aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
 			<main class="admin-main">
 				<section class="admin-content">
 					<div class="admin-page-heading admin-quiz-result-heading">
-						<div>
-							<h1 data-i18n="resultPageTitle">クイズ結果</h1>
-							<p data-i18n="resultPageDescription">今回の正答率と間違えた問題を確認します。</p>
-						</div>
-						<a class="admin-quiz-result-back" href="/admin/japanese/quiz/" data-i18n="resultBackToSetup">出題条件に戻る</a>
+						<div><h1 id="quiz-history-title">学習履歴</h1><p id="quiz-history-description">過去に解いたクイズ、正解・不正解、出題条件を確認します。</p></div>
+						<a class="admin-quiz-result-back" href="/admin/japanese/quiz/">新しいクイズ</a>
 					</div>
+					<nav class="admin-japanese-tabs" aria-label="Japanese learning management"><a class="admin-japanese-tab" href="/admin/japanese/" data-i18n="tabWords">単語</a><a class="admin-japanese-tab" href="/admin/japanese/parts/" data-i18n="tabParts">品詞</a><a class="admin-japanese-tab" href="/admin/japanese/categories/" data-i18n="tabCategories">学習分類</a><a class="admin-japanese-tab is-active" href="/admin/japanese/quiz/" data-i18n="tabQuiz">クイズ</a></nav>
 
-					<nav class="admin-japanese-tabs" aria-label="Japanese learning management">
-						<a class="admin-japanese-tab" href="/admin/japanese/" data-i18n="tabWords">単語</a>
-						<a class="admin-japanese-tab" href="/admin/japanese/parts/" data-i18n="tabParts">品詞</a>
-						<a class="admin-japanese-tab" href="/admin/japanese/categories/" data-i18n="tabCategories">学習分類</a>
-						<a class="admin-japanese-tab is-active" href="/admin/japanese/quiz/" data-i18n="tabQuiz">クイズ</a>
-					</nav>
-
-					<section class="admin-quiz-result-summary">
-						<div class="admin-quiz-result-score-card">
-							<div class="admin-quiz-result-rate-ring" aria-hidden="true"><strong id="quiz-result-rate">75%</strong></div>
-							<div class="admin-quiz-result-score-copy">
-								<span data-i18n="resultOverallLabel">今回の結果</span>
-								<h2 id="quiz-result-message" data-i18n="resultMessageDefault">おつかれさまでした。</h2>
-								<p><strong id="quiz-result-correct">15</strong> / <span id="quiz-result-total">20</span> <span data-i18n="resultCorrectUnit">問正解</span></p>
-							</div>
-						</div>
-
-						<div class="admin-quiz-result-stat-grid">
-							<article><span data-i18n="resultCorrect">正解</span><strong id="quiz-result-stat-correct">15</strong></article>
-							<article><span data-i18n="resultWrong">不正解</span><strong id="quiz-result-stat-wrong">5</strong></article>
-							<article><span data-i18n="resultAccuracy">正答率</span><strong id="quiz-result-stat-rate">75%</strong></article>
-							<article><span data-i18n="resultAnswered">出題数</span><strong id="quiz-result-stat-total">20</strong></article>
+					<section class="admin-quiz-history-panel">
+						<div class="admin-quiz-history-heading"><div><span>HISTORY</span><h2 id="quiz-history-list-title">クイズ履歴</h2></div><strong id="quiz-history-count">0</strong></div>
+						<div id="quiz-history-loading" class="admin-quiz-history-state">履歴を読み込んでいます…</div>
+						<div id="quiz-history-empty" class="admin-quiz-history-state" hidden>保存されたクイズ履歴はまだありません。</div>
+						<div id="quiz-history-error" class="admin-quiz-history-state is-error" hidden>履歴を読み込めませんでした。</div>
+						<div id="quiz-history-table-wrap" class="admin-quiz-history-table-wrap" hidden>
+							<table class="admin-quiz-history-table">
+								<thead><tr><th id="quiz-history-th-date">日時</th><th id="quiz-history-th-category">出題カテゴリー</th><th id="quiz-history-th-total">全体</th><th id="quiz-history-th-correct">正解</th><th id="quiz-history-th-wrong">不正解</th><th id="quiz-history-th-rate">正答率</th><th id="quiz-history-th-action">操作</th></tr></thead>
+								<tbody id="quiz-history-body"></tbody>
+							</table>
 						</div>
 					</section>
 
-					<section class="admin-quiz-result-panel">
-						<div class="admin-quiz-result-panel-heading">
-							<div>
-								<span class="admin-quiz-result-eyebrow">BREAKDOWN</span>
-								<h2 data-i18n="resultBreakdownTitle">問題タイプ別</h2>
-							</div>
-						</div>
-						<div id="quiz-result-breakdown" class="admin-quiz-result-breakdown"></div>
-					</section>
-
-					<section class="admin-quiz-result-panel admin-quiz-result-wrong-panel">
+					<section id="quiz-history-detail" class="admin-quiz-result-panel admin-quiz-history-detail" hidden>
 						<div class="admin-quiz-result-panel-heading admin-quiz-result-wrong-heading">
-							<div>
-								<span class="admin-quiz-result-eyebrow">REVIEW</span>
-								<h2 data-i18n="resultWrongListTitle">間違えた問題</h2>
-								<p data-i18n="resultWrongListHint">間違えた問題を確認して、あとでもう一度出題できます。</p>
-							</div>
-							<span id="quiz-result-wrong-count" class="admin-quiz-result-wrong-count">5</span>
+							<div><span class="admin-quiz-result-eyebrow">REVIEW</span><h2 id="quiz-history-detail-title">オ答確認</h2><p id="quiz-history-detail-meta"></p></div>
+							<button id="quiz-history-detail-close" class="admin-quiz-result-secondary" type="button">閉じる</button>
 						</div>
-						<div id="quiz-result-wrong-empty" class="admin-quiz-result-empty" hidden data-i18n="resultNoWrong">全問正解です。間違えた問題はありません。</div>
-						<div id="quiz-result-wrong-list" class="admin-quiz-result-wrong-list"></div>
+						<div id="quiz-history-detail-summary" class="admin-quiz-history-detail-summary"></div>
+						<div id="quiz-history-wrong-empty" class="admin-quiz-result-empty" hidden>このクイズは全問正解でした。</div>
+						<div id="quiz-history-wrong-list" class="admin-quiz-result-wrong-list"></div>
 					</section>
-
-					<div class="admin-quiz-result-actions">
-						<a class="admin-quiz-result-secondary" href="/admin/japanese/quiz/" data-i18n="resultNewQuiz">新しいクイズ</a>
-						<button id="quiz-result-retry-wrong" class="admin-quiz-result-primary" type="button" data-i18n="resultRetryWrong">間違えた問題だけ再挑戦</button>
-					</div>
 				</section>
 			</main>
 		</div>
 	</div>
-
 	<script src="/assets/js/admin/i18n.js"></script>
 	<script src="/assets/js/admin/menu.js"></script>
 	<script src="/assets/js/admin/layout.js"></script>
