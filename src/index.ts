@@ -53,6 +53,7 @@ import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
 import { handleListPublicJapaneseWords } from './public/japanese/words';
+import { handleProtectedAccessLogin } from './public/protected/auth';
 import { handleGetPublicPost } from './public/posts/detail';
 import { handleListPublicPosts } from './public/posts/list';
 import { renderPublicPostPage } from './public/posts/page';
@@ -90,6 +91,8 @@ export default {
 				return request.method === 'GET' ? handleListPublicJapaneseWords(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/quiz-pool':
 				return request.method === 'GET' ? handleGetPublicJapaneseQuizPool(request, env) : methodNotAllowed('GET');
+			case '/api/protected/auth':
+				return request.method === 'POST' ? handleProtectedAccessLogin(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/login':
 				return request.method === 'POST' ? handleAdminLogin(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/logout':
