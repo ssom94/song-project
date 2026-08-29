@@ -11,6 +11,7 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+import { handleListAdminCategories } from './admin/categories/list';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -51,6 +52,14 @@ export default {
 					});
 				}
 				return handleAdminSessionStatus(request, env);
+			case '/api/admin/categories':
+				if (request.method !== 'GET') {
+					return new Response('Method Not Allowed', {
+						status: 405,
+						headers: { Allow: 'GET' },
+					});
+				}
+				return handleListAdminCategories(request, env);
 			case '/api/admin/posts':
 				if (request.method === 'GET') {
 					return handleListAdminPosts(request, env);
