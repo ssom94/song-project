@@ -7,7 +7,9 @@
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "test": "vitest",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "seed:test:local": "wrangler d1 execute song-project-db --local --file=./seeds/test_data.sql",
+    "seed:test:remote": "wrangler d1 execute song-project-db --remote --file=./seeds/test_data.sql"
   },
   "devDependencies": {
     "@cloudflare/vitest-plugin": "^1.0.0",
