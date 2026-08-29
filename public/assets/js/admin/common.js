@@ -1,6 +1,7 @@
 (() => {
 	let currentSession = null;
 	let resolveReady;
+	let activeConfirm = null;
 
 	const ready = new Promise((resolve) => {
 		resolveReady = resolve;
@@ -82,6 +83,122 @@
 		return data.authenticated ? data : null;
 	}
 
+	function ensureModalStyles() {
+		if (document.getElementById('admin-modal-stylesheet')) return;
+
+		const link = document.createElement('link');
+		link.id = 'admin-modal-stylesheet';
+		link.rel = 'stylesheet';
+		link.href = '/assets/css/admin/modal.css';
+		document.head.appendChild(link);
+	}
+
+	function translateConfirmElement(element, key, fallback) {
+		element.dataset.i18nKey = key;
+		element.dataset.i18nFallback = fallback;
+		element.textContent = window.AdminI18n?.t(key) ?? fallback;
+	}
+
+	function refreshActiveConfirmLanguage() {
+		if (!activeConfirm) return;
+
+		activeConfirm.root.querySelectorAll('[data-i18n-key]').forEach((element) => {
+			const key = element.dataset.i18nKey;
+			const fallback = element.dataset.i18nFallback ?? '';
+			if (key) element.textContent = window.AdminI18n?.t(key) ?? fallback;
+		});
+	}
+
+	function confirmDialog({
+		titleKey,
+		messageKey,
+		confirmKey = 'confirmYes',
+		cancelKey = 'confirmNo',
+		titleFallback = 'Confirm',
+		messageFallback = '',
+		confirmFallback = 'Yes',
+		cancelFallback = 'No',
+	} = {}) {
+		ensureModalStyles();
+
+		if (activeConfirm) {
+			activeConfirm.finish(false);
+		}
+
+		return new Promise((resolve) => {
+			const previouslyFocused = document.activeElement instanceof HTMLElement
+				? document.activeElement
+				: null;
+
+			const root = document.createElement('div');
+			root.className = 'admin-confirm-modal-backdrop';
+
+			const dialog = document.createElement('section');
+			dialog.className = 'admin-confirm-modal';
+			dialog.setAttribute('role', 'dialog');
+			dialog.setAttribute('aria-modal', 'true');
+
+			const titleId = `admin-confirm-title-${Date.now()}`;
+			const messageId = `admin-confirm-message-${Date.now()}`;
+			dialog.setAttribute('aria-labelledby', titleId);
+			dialog.setAttribute('aria-describedby', messageId);
+
+			const title = document.createElement('h2');
+			title.id = titleId;
+			translateConfirmElement(title, titleKey, titleFallback);
+
+			const message = document.createElement('p');
+			message.id = messageId;
+			translateConfirmElement(message, messageKey, messageFallback);
+
+			const actions = document.createElement('div');
+			actions.className = 'admin-confirm-modal-actions';
+
+			const cancelButton = document.createElement('button');
+			cancelButton.type = 'button';
+			cancelButton.className = 'admin-confirm-modal-button';
+			translateConfirmElement(cancelButton, cancelKey, cancelFallback);
+
+			const confirmButton = document.createElement('button');
+			confirmButton.type = 'button';
+			confirmButton.className = 'admin-confirm-modal-button admin-confirm-modal-button-primary';
+			translateConfirmElement(confirmButton, confirmKey, confirmFallback);
+
+			actions.append(cancelButton, confirmButton);
+			dialog.append(title, message, actions);
+			root.appendChild(dialog);
+			document.body.appendChild(root);
+			document.body.classList.add('admin-modal-open');
+
+			function finish(result) {
+				if (!root.isConnected) return;
+				root.remove();
+				document.body.classList.remove('admin-modal-open');
+				document.removeEventListener('keydown', handleKeydown);
+				if (activeConfirm?.root === root) activeConfirm = null;
+				previouslyFocused?.focus({ preventScroll: true });
+				resolve(result);
+			}
+
+			function handleKeydown(event) {
+				if (event.key === 'Escape') {
+					event.preventDefault();
+					finish(false);
+			}
+		}
+
+			cancelButton.addEventListener('click', () => finish(false));
+			confirmButton.addEventListener('click', () => finish(true));
+			root.addEventListener('click', (event) => {
+				if (event.target === root) finish(false);
+			});
+			document.addEventListener('keydown', handleKeydown);
+
+			activeConfirm = { root, finish };
+			requestAnimationFrame(() => confirmButton.focus());
+		});
+	}
+
 	async function initializeAdmin() {
 		const loading = document.getElementById('admin-loading');
 		const shell = document.getElementById('admin-shell');
@@ -122,6 +239,8 @@
 		initializeAdmin();
 	}
 
+	document.addEventListener('adminlanguagechange', refreshActiveConfirmLanguage);
+
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	} else {
@@ -132,5 +251,6 @@
 		ready,
 		getSession: () => currentSession,
 		setUserMenuOpen,
+		confirm: confirmDialog,
 	};
 })();
