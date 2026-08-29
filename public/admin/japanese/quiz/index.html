@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Japanese Quiz | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-quiz.css" />
+</head>
+<body class="admin-page admin-japanese-quiz-page" data-i18n-scope="japanese-quiz">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+				</button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
+			</aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading">
+						<h1 data-i18n="quizPageTitle">日本語学習・ランダムクイズ</h1>
+						<p data-i18n="quizPageDescription">登録した単語と例文から出題条件を選び、ランダムに練習します。</p>
+					</div>
+
+					<nav class="admin-japanese-tabs" aria-label="Japanese learning management">
+						<a class="admin-japanese-tab" href="/admin/japanese/" data-i18n="tabWords">単語</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/parts/" data-i18n="tabParts">品詞</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/categories/" data-i18n="tabCategories">学習分類</a>
+						<a class="admin-japanese-tab is-active" href="/admin/japanese/quiz/" aria-current="page" data-i18n="tabQuiz">クイズ</a>
+					</nav>
+
+					<div class="admin-quiz-layout">
+						<section class="admin-quiz-panel admin-quiz-settings-panel">
+							<div class="admin-quiz-panel-heading">
+								<div>
+									<span class="admin-quiz-eyebrow" data-i18n="quizSettingsEyebrow">SETUP</span>
+									<h2 data-i18n="quizSettingsTitle">出題条件</h2>
+								</div>
+								<span id="quiz-available-count" class="admin-quiz-count">—</span>
+							</div>
+
+							<div class="admin-quiz-setting-group">
+								<span class="admin-quiz-setting-label" data-i18n="quizTypeLabel">問題タイプ</span>
+								<label class="admin-quiz-type-option">
+									<input type="checkbox" name="quiz-type" value="reading" checked />
+									<span><strong data-i18n="quizTypeReading">単語 → ひらがな</strong><small data-i18n="quizTypeReadingHint">漢字を見て読み方を入力</small></span>
+								</label>
+								<label class="admin-quiz-type-option">
+									<input type="checkbox" name="quiz-type" value="meaning" checked />
+									<span><strong data-i18n="quizTypeMeaning">単語 → 韓国語の意味</strong><small data-i18n="quizTypeMeaningHint">単語を見て韓国語の意味を入力</small></span>
+								</label>
+								<label class="admin-quiz-type-option">
+									<input type="checkbox" name="quiz-type" value="sentence" checked />
+									<span><strong data-i18n="quizTypeSentence">例文の空欄 → 単語</strong><small data-i18n="quizTypeSentenceHint">文脈から空欄に入る単語を入力</small></span>
+								</label>
+							</div>
+
+							<div class="admin-quiz-setting-grid">
+								<label class="admin-quiz-field">
+									<span data-i18n="quizJlptLabel">JLPT</span>
+									<select id="quiz-jlpt"><option value="" data-i18n="quizAllLevels">すべて</option><option>N1</option><option>N2</option><option>N3</option><option>N4</option><option>N5</option></select>
+								</label>
+								<label class="admin-quiz-field">
+									<span data-i18n="quizCategoryLabel">学習分類</span>
+									<select id="quiz-category"><option value="" data-i18n="quizAllCategories">すべて</option></select>
+								</label>
+								<label class="admin-quiz-field">
+									<span data-i18n="quizQuestionCountLabel">問題数</span>
+									<select id="quiz-count"><option value="10">10</option><option value="20" selected>20</option><option value="30">30</option><option value="50">50</option></select>
+								</label>
+								<label class="admin-quiz-field">
+									<span data-i18n="quizOrderLabel">出題順</span>
+									<select id="quiz-order"><option value="random" data-i18n="quizRandomOrder">ランダム</option><option value="weak" data-i18n="quizWeakFirst">苦手優先（予定）</option></select>
+								</label>
+							</div>
+
+							<div class="admin-quiz-start-wrap">
+								<button id="quiz-start" type="button" class="admin-quiz-start-button" data-i18n="quizStart">クイズを開始</button>
+								<p data-i18n="quizStartNote">出題エンジンと成績保存は画面構成確定後に接続します。</p>
+							</div>
+						</section>
+
+						<section class="admin-quiz-panel admin-quiz-preview-panel">
+							<div class="admin-quiz-panel-heading">
+								<div>
+									<span class="admin-quiz-eyebrow" data-i18n="quizPreviewEyebrow">QUESTION UI</span>
+									<h2 data-i18n="quizPreviewTitle">問題画面イメージ</h2>
+								</div>
+							</div>
+
+							<div class="admin-quiz-sample-stack">
+								<article class="admin-quiz-sample-card">
+									<div class="admin-quiz-sample-meta"><span>01</span><strong data-i18n="quizTypeReading">単語 → ひらがな</strong></div>
+									<p class="admin-quiz-sample-question">扱う</p>
+									<div class="admin-quiz-fake-input" data-i18n="quizAnswerPlaceholder">答えを入力</div>
+								</article>
+
+								<article class="admin-quiz-sample-card">
+									<div class="admin-quiz-sample-meta"><span>02</span><strong data-i18n="quizTypeMeaning">単語 → 韓国語の意味</strong></div>
+									<p class="admin-quiz-sample-question">対応</p>
+									<div class="admin-quiz-fake-input" data-i18n="quizAnswerPlaceholder">答えを入力</div>
+								</article>
+
+								<article class="admin-quiz-sample-card admin-quiz-sample-card-sentence">
+									<div class="admin-quiz-sample-meta"><span>03</span><strong data-i18n="quizTypeSentence">例文の空欄 → 単語</strong></div>
+									<p class="admin-quiz-sample-sentence">この道具は丁寧に <mark>＿＿＿＿</mark> ください。</p>
+									<div class="admin-quiz-fake-input" data-i18n="quizAnswerPlaceholder">答えを入力</div>
+								</article>
+							</div>
+						</section>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/japanese-quiz.js"></script>
+</body>
+</html>
