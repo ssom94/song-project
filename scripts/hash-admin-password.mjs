@@ -1,9 +1,11 @@
-import { pbkdf2Sync, randomBytes } from 'node:crypto';
+import { randomBytes, scryptSync } from 'node:crypto';
 
-const ITERATIONS = 600_000;
+const COST = 16_384;
+const BLOCK_SIZE = 8;
+const PARALLELIZATION = 5;
 const KEY_LENGTH = 32;
 const SALT_LENGTH = 16;
-const DIGEST = 'sha256';
+const MAX_MEMORY = 64 * 1024 * 1024;
 
 function toBase64Url(buffer) {
 	return buffer.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
@@ -70,8 +72,13 @@ try {
 	}
 
 	const salt = randomBytes(SALT_LENGTH);
-	const hash = pbkdf2Sync(password, salt, ITERATIONS, KEY_LENGTH, DIGEST);
-	const encoded = `pbkdf2-sha256$${ITERATIONS}$${toBase64Url(salt)}$${toBase64Url(hash)}`;
+	const hash = scryptSync(password, salt, KEY_LENGTH, {
+		N: COST,
+		r: BLOCK_SIZE,
+		p: PARALLELIZATION,
+		maxmem: MAX_MEMORY,
+	});
+	const encoded = `scrypt$${COST}$${BLOCK_SIZE}$${PARALLELIZATION}$${toBase64Url(salt)}$${toBase64Url(hash)}`;
 
 	console.log('\nPassword hash (safe to store in D1):');
 	console.log(encoded);
