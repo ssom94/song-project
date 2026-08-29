@@ -2,6 +2,8 @@
   "loading": "세션을 확인하고 있습니다…",
   "brandHomeLabel": "Song Project 홈으로",
   "languageLabel": "표시 언어",
+  "menuOpenLabel": "관리 메뉴 열기",
+  "menuCloseLabel": "관리 메뉴 닫기",
   "management": "관리",
   "navLabel": "관리 메뉴",
   "dashboard": "대시보드",
