@@ -57,18 +57,23 @@
 				<section class="admin-content">
 					<div class="admin-page-heading">
 						<h1 data-i18n="japaneseWordsPageTitle">日本語学習・単語管理</h1>
-						<p data-i18n="japaneseWordsPageDescription">単語、読み方、意味、JLPT、品詞、例文を管理します。</p>
+						<p data-i18n="japaneseWordsPageDescription">単語、読み方、意味、JLPT、学習分類、品詞、例文を管理します。</p>
 					</div>
 
 					<nav class="admin-japanese-tabs" aria-label="Japanese learning management">
-						<a class="admin-japanese-tab is-active" href="/admin/japanese/" aria-current="page">単語</a>
-						<a class="admin-japanese-tab" href="/admin/japanese/parts/">品詞</a>
+						<a class="admin-japanese-tab is-active" href="/admin/japanese/" aria-current="page" data-i18n="japaneseTabWords">単語</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/parts/" data-i18n="japaneseTabParts">品詞</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/categories/" data-i18n="japaneseTabCategories">学習分類</a>
+						<a class="admin-japanese-tab" href="/admin/japanese/quiz/" data-i18n="japaneseTabQuiz">クイズ</a>
 					</nav>
 
 					<div class="admin-japanese-layout">
 						<section class="admin-japanese-card admin-japanese-form-card">
 							<div class="admin-japanese-card-header">
-								<h2 id="japanese-word-form-title" data-i18n="japaneseWordCreateTitle">単語を追加</h2>
+								<div>
+									<h2 id="japanese-word-form-title" data-i18n="japaneseWordCreateTitle">単語を追加</h2>
+									<p data-i18n="japaneseWordTaxonomyHint">学習分類と品詞は大分類から小分類を選択します。</p>
+								</div>
 								<button id="japanese-word-new" class="admin-japanese-text-button" type="button" data-i18n="japaneseWordNew">新規</button>
 							</div>
 
@@ -90,14 +95,42 @@
 									<textarea id="japanese-meaning-ja" rows="2" maxlength="500" data-i18n-placeholder="japaneseMeaningJaPlaceholder"></textarea>
 								</div>
 
-								<div class="admin-japanese-field-row">
-									<div class="admin-japanese-field">
-										<label for="japanese-jlpt" data-i18n="japaneseJlpt">JLPT</label>
-										<select id="japanese-jlpt"><option value="" data-i18n="japaneseJlptNone">未指定</option></select>
+								<div class="admin-japanese-field">
+									<label for="japanese-jlpt" data-i18n="japaneseJlpt">JLPT</label>
+									<select id="japanese-jlpt"><option value="" data-i18n="japaneseJlptNone">未指定</option></select>
+								</div>
+
+								<div class="admin-japanese-hierarchy-block">
+									<div class="admin-japanese-hierarchy-heading">
+										<strong data-i18n="japaneseLearningCategory">学習分類</strong>
+										<span data-i18n="japaneseLearningCategoryHint">クイズの出題範囲にも使用します。</span>
 									</div>
-									<div class="admin-japanese-field">
-										<label for="japanese-pos" data-i18n="japanesePartOfSpeech">品詞</label>
-										<select id="japanese-pos"><option value="" data-i18n="japanesePartOfSpeechNone">未指定</option></select>
+									<div class="admin-japanese-field-row">
+										<div class="admin-japanese-field">
+											<label for="japanese-category-parent" data-i18n="japaneseCategoryMajor">大分類</label>
+											<select id="japanese-category-parent"><option value="">未指定</option></select>
+										</div>
+										<div class="admin-japanese-field">
+											<label for="japanese-category" data-i18n="japaneseCategorySub">小分類</label>
+											<select id="japanese-category" disabled><option value="">下位分類なし</option></select>
+										</div>
+									</div>
+								</div>
+
+								<div class="admin-japanese-hierarchy-block">
+									<div class="admin-japanese-hierarchy-heading">
+										<strong data-i18n="japanesePartOfSpeech">品詞</strong>
+										<span data-i18n="japanesePartOfSpeechHint">例：動詞 → 五段動詞</span>
+									</div>
+									<div class="admin-japanese-field-row">
+										<div class="admin-japanese-field">
+											<label for="japanese-pos-parent" data-i18n="japanesePartOfSpeechMajor">大分類</label>
+											<select id="japanese-pos-parent"><option value="">未指定</option></select>
+										</div>
+										<div class="admin-japanese-field">
+											<label for="japanese-pos" data-i18n="japanesePartOfSpeechSub">小分類</label>
+											<select id="japanese-pos" disabled><option value="">下位分類なし</option></select>
+										</div>
 									</div>
 								</div>
 
@@ -140,7 +173,7 @@
 								</div>
 								<div class="admin-japanese-field">
 									<label for="japanese-jlpt-filter" data-i18n="japaneseJlpt">JLPT</label>
-									<select id="japanese-jlpt-filter"><option value="" data-i18n="filterStatusAll">すべての状態</option></select>
+									<select id="japanese-jlpt-filter"><option value="">すべて</option></select>
 								</div>
 							</div>
 
@@ -154,6 +187,7 @@
 										<th data-i18n="japaneseWordTableReading">読み方</th>
 										<th data-i18n="japaneseWordTableMeaning">意味</th>
 										<th data-i18n="japaneseWordTableJlpt">JLPT</th>
+										<th data-i18n="japaneseWordTableCategory">学習分類</th>
 										<th data-i18n="japaneseWordTablePos">品詞</th>
 										<th data-i18n="tableActions">操作</th>
 									</tr></thead>
