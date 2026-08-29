@@ -93,7 +93,7 @@
 		document.head.appendChild(link);
 	}
 
-	function translateConfirmElement(element, key, fallback) {
+	function translateModalElement(element, key, fallback) {
 		element.dataset.i18nKey = key;
 		element.dataset.i18nFallback = fallback;
 		element.textContent = window.AdminI18n?.t(key) ?? fallback;
@@ -109,15 +109,16 @@
 		});
 	}
 
-	function confirmDialog({
+	function createModal({
 		titleKey,
 		messageKey,
-		confirmKey = 'confirmYes',
-		cancelKey = 'confirmNo',
 		titleFallback = 'Confirm',
 		messageFallback = '',
+		confirmKey = 'confirmYes',
 		confirmFallback = 'Yes',
+		cancelKey = 'confirmNo',
 		cancelFallback = 'No',
+		showCancel = true,
 	} = {}) {
 		ensureModalStyles();
 
@@ -135,36 +136,41 @@
 
 			const dialog = document.createElement('section');
 			dialog.className = 'admin-confirm-modal';
-			dialog.setAttribute('role', 'dialog');
+			dialog.setAttribute('role', showCancel ? 'dialog' : 'alertdialog');
 			dialog.setAttribute('aria-modal', 'true');
 
-			const titleId = `admin-confirm-title-${Date.now()}`;
-			const messageId = `admin-confirm-message-${Date.now()}`;
+			const uniqueId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+			const titleId = `admin-confirm-title-${uniqueId}`;
+			const messageId = `admin-confirm-message-${uniqueId}`;
 			dialog.setAttribute('aria-labelledby', titleId);
 			dialog.setAttribute('aria-describedby', messageId);
 
 			const title = document.createElement('h2');
 			title.id = titleId;
-			translateConfirmElement(title, titleKey, titleFallback);
+			translateModalElement(title, titleKey, titleFallback);
 
 			const message = document.createElement('p');
 			message.id = messageId;
-			translateConfirmElement(message, messageKey, messageFallback);
+			translateModalElement(message, messageKey, messageFallback);
 
 			const actions = document.createElement('div');
 			actions.className = 'admin-confirm-modal-actions';
 
-			const cancelButton = document.createElement('button');
-			cancelButton.type = 'button';
-			cancelButton.className = 'admin-confirm-modal-button';
-			translateConfirmElement(cancelButton, cancelKey, cancelFallback);
+			let cancelButton = null;
+			if (showCancel) {
+				cancelButton = document.createElement('button');
+				cancelButton.type = 'button';
+				cancelButton.className = 'admin-confirm-modal-button';
+				translateModalElement(cancelButton, cancelKey, cancelFallback);
+				actions.appendChild(cancelButton);
+			}
 
 			const confirmButton = document.createElement('button');
 			confirmButton.type = 'button';
 			confirmButton.className = 'admin-confirm-modal-button admin-confirm-modal-button-primary';
-			translateConfirmElement(confirmButton, confirmKey, confirmFallback);
+			translateModalElement(confirmButton, confirmKey, confirmFallback);
+			actions.appendChild(confirmButton);
 
-			actions.append(cancelButton, confirmButton);
 			dialog.append(title, message, actions);
 			root.appendChild(dialog);
 			document.body.appendChild(root);
@@ -185,9 +191,9 @@
 					event.preventDefault();
 					finish(false);
 			}
-		}
+			}
 
-			cancelButton.addEventListener('click', () => finish(false));
+			cancelButton?.addEventListener('click', () => finish(false));
 			confirmButton.addEventListener('click', () => finish(true));
 			root.addEventListener('click', (event) => {
 				if (event.target === root) finish(false);
@@ -196,6 +202,19 @@
 
 			activeConfirm = { root, finish };
 			requestAnimationFrame(() => confirmButton.focus());
+		});
+	}
+
+	function confirmDialog(options = {}) {
+		return createModal({ ...options, showCancel: true });
+	}
+
+	async function alertDialog(options = {}) {
+		await createModal({
+			confirmKey: 'modalClose',
+			confirmFallback: 'Close',
+			...options,
+			showCancel: false,
 		});
 	}
 
@@ -252,5 +271,6 @@
 		getSession: () => currentSession,
 		setUserMenuOpen,
 		confirm: confirmDialog,
+		alert: alertDialog,
 	};
 })();
