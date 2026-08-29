@@ -3,6 +3,10 @@
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
 	}
 
+	function selectedCategory() {
+		return new URLSearchParams(window.location.search).get('category')?.trim() ?? '';
+	}
+
 	function formatDate(value) {
 		if (!value) return '';
 		const date = new Date(value);
@@ -41,7 +45,6 @@
 		const title = document.createElement('h2');
 		title.className = 'blog-post-card-title';
 		title.textContent = post.title ?? '';
-
 		card.append(meta, title);
 
 		if (post.excerpt) {
@@ -54,12 +57,19 @@
 		const taxonomy = document.createElement('div');
 		taxonomy.className = 'blog-post-card-taxonomy';
 		if (post.category) taxonomy.appendChild(createChip(post.category, true));
-		for (const tag of Array.isArray(post.tags) ? post.tags : []) {
-			taxonomy.appendChild(createChip(tag));
-		}
+		for (const tag of Array.isArray(post.tags) ? post.tags : []) taxonomy.appendChild(createChip(tag));
 		if (taxonomy.childElementCount > 0) card.appendChild(taxonomy);
-
 		return card;
+	}
+
+	function renderFilter(category) {
+		const wrap = document.getElementById('public-posts-filter');
+		const label = document.getElementById('public-posts-filter-label');
+		if (!wrap || !label || !category) return;
+		wrap.hidden = false;
+		label.textContent = currentLanguage() === 'ko'
+			? `게시판: ${category}`
+			: `カテゴリー: ${category}`;
 	}
 
 	async function initialize() {
@@ -70,24 +80,36 @@
 		if (!loading || !list || !empty || !error) return;
 
 		try {
-			const response = await fetch(`/api/public/posts?lang=${currentLanguage()}`, {
+			const language = currentLanguage();
+			const response = await fetch(`/api/public/posts?lang=${language}`, {
 				method: 'GET',
 				cache: 'no-store',
 			});
 			const result = await response.json().catch(() => null);
-			if (!response.ok || !result?.ok || !Array.isArray(result.posts)) {
-				throw new Error('Invalid public post list response');
-			}
+			if (!response.ok || !result?.ok || !Array.isArray(result.posts)) throw new Error('Invalid public post list response');
+
+			window.BlogDashboard?.renderCategories?.(result.posts, language);
+			const category = selectedCategory();
+			const posts = category
+				? result.posts.filter((post) => String(post?.category ?? '').trim() === category)
+				: result.posts;
+			renderFilter(category);
 
 			loading.hidden = true;
 			list.replaceChildren();
-			if (result.posts.length === 0) {
+			if (posts.length === 0) {
 				empty.hidden = false;
+				const heading = empty.querySelector('h2');
+				const message = empty.querySelector('p');
+				if (category && heading && message) {
+					heading.textContent = currentLanguage() === 'ko' ? '이 게시판에는 공개 글이 없습니다' : 'このカテゴリーに公開中の投稿はありません';
+					message.textContent = currentLanguage() === 'ko' ? '다른 게시판을 선택하거나 전체 게시글을 확인해 주세요.' : '別のカテゴリーを選ぶか、すべての投稿をご確認ください。';
+				}
 				return;
 			}
 
 			const fragment = document.createDocumentFragment();
-			for (const post of result.posts) fragment.appendChild(renderPost(post));
+			for (const post of posts) fragment.appendChild(renderPost(post));
 			list.appendChild(fragment);
 		} catch (loadError) {
 			console.error('Failed to load public posts', loadError);
@@ -96,9 +118,6 @@
 		}
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initialize, { once: true });
-	} else {
-		initialize();
-	}
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
+	else initialize();
 })();
