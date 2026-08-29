@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Parts of Speech | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/japanese-parts.css" />
+</head>
+<body class="admin-page admin-japanese-parts-page" data-i18n-scope="japanese-parts">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+				</button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
+			</aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading">
+						<h1 data-i18n="partsPageTitle">日本語学習・品詞管理</h1>
+						<p data-i18n="partsPageDescription">単語に付ける品詞と階層を管理します。</p>
+					</div>
+
+					<nav class="admin-japanese-tabs" aria-label="Japanese learning management">
+						<a class="admin-japanese-tab" href="/admin/japanese/">単語</a>
+						<a class="admin-japanese-tab is-active" href="/admin/japanese/parts/" aria-current="page">品詞</a>
+					</nav>
+
+					<div class="admin-parts-layout">
+						<section class="admin-parts-card admin-parts-form-card">
+							<div class="admin-parts-card-header">
+								<h2 id="parts-form-title" data-i18n="partsCreateTitle">品詞を追加</h2>
+								<button id="parts-new" class="admin-parts-text-button" type="button" data-i18n="partsNew">新規</button>
+							</div>
+							<form id="parts-form" class="admin-parts-form">
+								<div class="admin-parts-field">
+									<label for="parts-name-ja" data-i18n="partsNameJa">日本語名</label>
+									<input id="parts-name-ja" type="text" maxlength="100" autocomplete="off" data-i18n-placeholder="partsNameJaPlaceholder" />
+								</div>
+								<div class="admin-parts-field">
+									<label for="parts-name-ko" data-i18n="partsNameKo">韓国語名</label>
+									<input id="parts-name-ko" type="text" maxlength="100" autocomplete="off" data-i18n-placeholder="partsNameKoPlaceholder" />
+								</div>
+								<div class="admin-parts-field">
+									<label for="parts-parent" data-i18n="partsParent">上位品詞</label>
+									<select id="parts-parent"><option value="" data-i18n="partsTopLevel">最上位</option></select>
+								</div>
+								<div class="admin-parts-field">
+									<label for="parts-order" data-i18n="partsOrder">表示順</label>
+									<input id="parts-order" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric" />
+								</div>
+								<p id="parts-status" class="admin-parts-status" hidden></p>
+								<div class="admin-parts-actions">
+									<button id="parts-cancel" class="admin-parts-button" type="button" hidden data-i18n="partsCancel">編集をキャンセル</button>
+									<button id="parts-save" class="admin-parts-button admin-parts-button-primary" type="submit" data-i18n="partsAdd">追加</button>
+								</div>
+							</form>
+						</section>
+
+						<section class="admin-parts-card">
+							<div class="admin-parts-card-header">
+								<div><h2 data-i18n="partsListTitle">品詞一覧</h2><p data-i18n="partsListHint">下位品詞はインデントして表示します。</p></div>
+								<span id="parts-count" class="admin-parts-count">0</span>
+							</div>
+							<div id="parts-loading" class="admin-parts-empty" data-i18n="partsLoading">品詞を読み込んでいます…</div>
+							<div id="parts-empty" class="admin-parts-empty" hidden data-i18n="partsEmpty">登録済みの品詞はありません。</div>
+							<div id="parts-table-wrap" class="admin-parts-table-wrap" hidden>
+								<table class="admin-parts-table">
+									<thead><tr>
+										<th data-i18n="partsTableName">品詞</th>
+										<th data-i18n="partsTableJa">日本語</th>
+										<th data-i18n="partsTableKo">韓国語</th>
+										<th data-i18n="partsTableWords">使用単語</th>
+										<th data-i18n="partsTableOrder">順序</th>
+										<th data-i18n="tableActions">操作</th>
+									</tr></thead>
+									<tbody id="parts-table-body"></tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/japanese-parts.js"></script>
+</body>
+</html>
