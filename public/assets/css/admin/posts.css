@@ -93,7 +93,7 @@ body.admin-posts-page {
 
 .admin-posts-table {
 	width: 100%;
-	min-width: 720px;
+	min-width: 880px;
 	border-collapse: collapse;
 }
 
@@ -122,6 +122,26 @@ body.admin-posts-page {
 
 .admin-posts-table tbody tr:hover {
 	background: #fafcff;
+}
+
+.admin-post-number-column,
+.admin-post-number {
+	width: 68px;
+	text-align: center !important;
+	white-space: nowrap;
+}
+
+.admin-post-number {
+	color: #7b8799 !important;
+	font-variant-numeric: tabular-nums;
+}
+
+.admin-post-category {
+	max-width: 180px;
+	overflow: hidden;
+	color: #5f6d81 !important;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .admin-post-title-link {
@@ -259,7 +279,7 @@ body.admin-posts-page {
 	}
 
 	.admin-posts-table {
-		min-width: 640px;
+		min-width: 820px;
 	}
 }
 
