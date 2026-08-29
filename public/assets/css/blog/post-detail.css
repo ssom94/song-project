@@ -1,6 +1,15 @@
+.blog-post-detail-dashboard-content {
+	width: min(980px, 100%);
+}
+
 .blog-post-shell {
-	width: min(780px, 100%);
+	width: min(820px, 100%);
 	margin: 0 auto;
+	padding: 28px 32px 38px;
+	border: 1px solid #dfe5ed;
+	border-radius: 16px;
+	background: #fff;
+	box-shadow: 0 9px 28px rgba(31, 48, 78, 0.035);
 }
 
 .blog-back-link {
@@ -59,6 +68,11 @@
 }
 
 @media (max-width: 600px) {
+	.blog-post-shell {
+		padding: 20px 18px 28px;
+		border-radius: 13px;
+	}
+
 	.blog-back-link {
 		margin-bottom: 18px;
 	}
