@@ -47,8 +47,19 @@ public/assets/js/admin/
 ├─ post-preview-launcher.js  # sends the current unsaved editor state to the admin preview tab
 ├─ post-preview.js           # authenticated preview-tab renderer
 ├─ categories.js             # category list/create/edit/delete screen behavior
-└─ tags.js                   # tag list/create/edit/delete screen behavior
+├─ tags.js                   # tag list/create/edit/delete screen behavior
+├─ japanese.js               # Japanese word create/edit/delete, search, JLPT and primary part-of-speech selection
+└─ japanese-parts.js         # Japanese part-of-speech hierarchy create/edit/delete and usage checks
 ```
+
+Japanese learning admin routes:
+
+```text
+/admin/japanese/        # word management
+/admin/japanese/parts/  # parts-of-speech management
+```
+
+The Japanese learning schema in `0004_japanese_learning.sql` is designed so words and examples can later power quizzes such as word-to-reading, word-to-Korean-meaning, and sentence-blank-to-word questions. Quiz attempt/history tables should be added separately when quiz functionality is implemented.
 
 Public blog frontend structure:
 
