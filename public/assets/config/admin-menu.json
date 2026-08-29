@@ -1,5 +1,6 @@
 [
   { "key": "dashboard", "href": "/admin/" },
+  { "key": "dashboardGoals", "href": "/admin/goals/" },
   { "key": "posts", "href": "/admin/posts/" },
   { "key": "comments", "href": "#" },
   { "key": "categoriesTags", "href": "/admin/categories/" },
