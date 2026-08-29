@@ -2,6 +2,8 @@
   "loading": "セッションを確認しています…",
   "brandHomeLabel": "Song Project ホームへ",
   "languageLabel": "表示言語",
+  "menuOpenLabel": "管理メニューを開く",
+  "menuCloseLabel": "管理メニューを閉じる",
   "management": "管理",
   "navLabel": "管理メニュー",
   "dashboard": "ダッシュボード",
