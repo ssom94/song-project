@@ -3,7 +3,7 @@
   { "key": "posts", "href": "/admin/posts/" },
   { "key": "comments", "href": "#" },
   { "key": "categoriesTags", "href": "/admin/categories/" },
-  { "key": "japaneseLearning", "href": "#" },
+  { "key": "japaneseLearning", "href": "/admin/japanese/" },
   { "key": "protectedDocuments", "href": "#" },
   { "key": "accessCodes", "href": "#" }
 ]
