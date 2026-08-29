@@ -46,11 +46,15 @@
 	font-size: 10px;
 	font-weight: 800;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .admin-record-primary { border: 1px solid #1f56d8; background: #1f56d8; color: #fff; }
 .admin-record-secondary { border: 1px solid #dce3ec; background: #fff; color: #5f6d81; }
 .admin-record-danger { border: 1px solid #efd4d7; background: #fff7f8; color: #b14854; }
+.admin-record-primary:disabled,
+.admin-record-secondary:disabled,
+.admin-record-danger:disabled { opacity: .46; cursor: default; }
 
 .admin-record-card {
 	padding: 18px;
@@ -114,6 +118,9 @@
 	font-size: 10px;
 }
 
+.admin-record-table td strong,
+.admin-record-table td small { display: block; }
+.admin-record-table td small { margin-top: 3px; color: #97a2b1; }
 .admin-record-table tr:last-child td { border-bottom: 0; }
 
 .admin-record-status {
@@ -132,7 +139,9 @@
 .admin-record-status.is-ready,
 .admin-record-status.is-active { background: #eef8f1; color: #39714b; }
 .admin-record-status.is-hidden,
-.admin-record-status.is-expired { background: #fff6e8; color: #9a692a; }
+.admin-record-status.is-expired,
+.admin-record-status.is-queued { background: #fff6e8; color: #9a692a; }
+.admin-record-status.is-processing { background: #eef3ff; color: #315cae; }
 .admin-record-status.is-spam,
 .admin-record-status.is-revoked,
 .admin-record-status.is-failed { background: #fff0f2; color: #ad4c58; }
@@ -204,7 +213,7 @@
 .admin-upload-zone {
 	display: grid;
 	place-items: center;
-	min-height: 150px;
+	min-height: 190px;
 	padding: 20px;
 	border: 1px dashed #cfd9e6;
 	border-radius: 12px;
@@ -213,6 +222,17 @@
 	font-size: 10px;
 	text-align: center;
 }
+
+.admin-upload-content { width: min(360px, 100%); }
+.admin-upload-content > strong { display: block; color: #344156; font-size: 12px; }
+.admin-upload-content > p { line-height: 1.6; }
+.admin-upload-language { margin: 14px 0 10px; text-align: left; }
+.admin-upload-language select { width: 100%; }
+.admin-upload-actions { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+.admin-upload-selected { min-height: 18px; margin: 10px 0 0; color: #58677c; font-size: 9px; word-break: break-all; }
+.admin-upload-message { margin: 8px 0 0; padding: 8px 10px; border-radius: 8px; background: #eef8f1; color: #39714b; font-size: 9px; }
+.admin-upload-message.is-error { background: #fff0f2; color: #ad4c58; }
+.admin-record-empty { padding: 26px 12px 8px; color: #98a2b3; font-size: 10px; text-align: center; }
 
 .admin-document-card-title {
 	display: flex;
@@ -243,4 +263,5 @@
 	.admin-record-toolbar { align-items: stretch; flex-direction: column; }
 	.admin-record-filters { display: grid; grid-template-columns: 1fr; }
 	.admin-record-metric-grid { grid-template-columns: 1fr 1fr; }
+	.admin-upload-actions { display: grid; grid-template-columns: 1fr; }
 }
