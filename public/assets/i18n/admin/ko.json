@@ -51,6 +51,8 @@
   "postsLoadingDescription": "D1에서 게시글 목록을 가져오고 있습니다.",
   "postsLoadFailed": "게시글을 불러오지 못했습니다",
   "postsLoadFailedDescription": "잠시 후 페이지를 새로고침해 주세요.",
+  "postsFilterEmptyTitle": "검색 조건에 맞는 게시글이 없습니다",
+  "postsFilterEmptyDescription": "검색어나 필터를 변경해 주세요.",
   "emptyPostsTitle": "아직 등록된 게시글이 없습니다",
   "emptyPostsDescription": "첫 게시글을 작성하면 여기에 목록이 표시됩니다.",
   "postEditorTitle": "새 게시글 작성",
