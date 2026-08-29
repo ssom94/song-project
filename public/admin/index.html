@@ -10,20 +10,20 @@
 	<link rel="stylesheet" href="/assets/css/admin/dashboard.css" />
 </head>
 <body class="admin-page admin-dashboard-page">
-	<div id="admin-loading" class="admin-loading">セッションを確認しています…</div>
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
 
 	<div id="admin-shell" class="admin-shell" hidden>
 		<header class="admin-global-header">
-			<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ">
+			<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
 				<img src="/assets/logo-song-ym.png" alt="Song YM" />
 				<span>SONG Admin</span>
 			</a>
 
 			<div class="admin-header-actions">
-				<div class="admin-language-switch" aria-label="表示言語">
-					<button class="is-active" type="button" aria-pressed="true">日本語</button>
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
 					<span class="admin-language-divider" aria-hidden="true">|</span>
-					<button type="button" aria-pressed="false">한국어</button>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
 				</div>
 
 				<div class="admin-user-menu-wrap">
@@ -45,7 +45,7 @@
 							<strong id="admin-user-menu-name"></strong>
 							<span id="admin-user-menu-email"></span>
 						</div>
-						<button id="admin-logout" class="admin-logout-button" type="button">ログアウト</button>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
 					</div>
 				</div>
 			</div>
@@ -55,53 +55,53 @@
 
 		<div class="admin-body">
 			<aside class="admin-sidebar">
-				<p class="admin-nav-label">Management</p>
-				<nav class="admin-nav" aria-label="管理メニュー">
-					<a class="is-active" href="/admin/">ダッシュボード</a>
-					<a href="#">投稿管理</a>
-					<a href="#">コメント管理</a>
-					<a href="#">カテゴリー・タグ</a>
-					<a href="#">日本語学習</a>
-					<a href="#">スキル・職務経歴書</a>
-					<a href="#">アクセスコード</a>
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel">
+					<a class="is-active" href="/admin/" data-i18n="dashboard">ダッシュボード</a>
+					<a href="#" data-i18n="posts">投稿管理</a>
+					<a href="#" data-i18n="comments">コメント管理</a>
+					<a href="#" data-i18n="categoriesTags">カテゴリー・タグ</a>
+					<a href="#" data-i18n="japaneseLearning">日本語学習</a>
+					<a href="#" data-i18n="protectedDocuments">スキル・職務経歴書</a>
+					<a href="#" data-i18n="accessCodes">アクセスコード</a>
 				</nav>
 
 				<div class="admin-sidebar-footer">
-					<a href="/">サイトを表示</a>
+					<a href="/" data-i18n="viewSite">サイトを表示</a>
 				</div>
 			</aside>
 
 			<main class="admin-main">
 				<section class="admin-content">
 					<div class="admin-page-heading">
-						<h1>ダッシュボード</h1>
-						<p>ブログと各モジュールをここから管理します。</p>
+						<h1 data-i18n="dashboard">ダッシュボード</h1>
+						<p data-i18n="dashboardDescription">ブログと各モジュールをここから管理します。</p>
 					</div>
 
 					<div class="admin-dashboard-grid">
 						<article class="admin-dashboard-card">
-							<h2>投稿管理</h2>
-							<p>記事の作成・編集・翻訳・公開状態を管理します。</p>
+							<h2 data-i18n="posts">投稿管理</h2>
+							<p data-i18n="postsDescription">記事の作成・編集・翻訳・公開状態を管理します。</p>
 						</article>
 						<article class="admin-dashboard-card">
-							<h2>コメント管理</h2>
-							<p>公開コメント、返信、非表示・スパム状態を管理します。</p>
+							<h2 data-i18n="comments">コメント管理</h2>
+							<p data-i18n="commentsDescription">公開コメント、返信、非表示・スパム状態を管理します。</p>
 						</article>
 						<article class="admin-dashboard-card">
-							<h2>日本語学習</h2>
-							<p>単語、例文、JLPT分類、AIレビューを管理します。</p>
+							<h2 data-i18n="japaneseLearning">日本語学習</h2>
+							<p data-i18n="japaneseDescription">単語、例文、JLPT分類、AIレビューを管理します。</p>
 						</article>
 						<article class="admin-dashboard-card">
-							<h2>スキル・職務経歴書</h2>
-							<p>Excelのバージョンと公開中のドキュメントを管理します。</p>
+							<h2 data-i18n="protectedDocuments">スキル・職務経歴書</h2>
+							<p data-i18n="protectedDocumentsDescription">Excelのバージョンと公開中のドキュメントを管理します。</p>
 						</article>
 						<article class="admin-dashboard-card">
-							<h2>アクセスコード</h2>
-							<p>保護ページ用コードの発行・期限・失効を管理します。</p>
+							<h2 data-i18n="accessCodes">アクセスコード</h2>
+							<p data-i18n="accessCodesDescription">保護ページ用コードの発行・期限・失効を管理します。</p>
 						</article>
 						<article class="admin-dashboard-card">
-							<h2>監査・履歴</h2>
-							<p>今後、変更履歴や管理操作を確認できるようにします。</p>
+							<h2 data-i18n="auditHistory">監査・履歴</h2>
+							<p data-i18n="auditHistoryDescription">今後、変更履歴や管理操作を確認できるようにします。</p>
 						</article>
 					</div>
 				</section>
@@ -109,6 +109,7 @@
 		</div>
 	</div>
 
+	<script src="/assets/js/admin/i18n.js"></script>
 	<script>
 		const loading = document.getElementById('admin-loading');
 		const shell = document.getElementById('admin-shell');
@@ -143,7 +144,7 @@
 
 		adminLogout.addEventListener('click', async () => {
 			adminLogout.disabled = true;
-			adminLogout.textContent = 'ログアウト中…';
+			adminLogout.textContent = window.AdminI18n?.t('logoutLoading') ?? 'ログアウト中…';
 
 			try {
 				await fetch('/api/admin/auth/logout', {
