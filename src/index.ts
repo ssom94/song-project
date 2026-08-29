@@ -14,6 +14,12 @@ import {
 	handleDeleteAdminTag,
 	handleUpdateAdminTag,
 } from './admin/tags/manage';
+import {
+	handleCreateAdminJapaneseWord,
+	handleDeleteAdminJapaneseWord,
+	handleListAdminJapaneseWords,
+	handleUpdateAdminJapaneseWord,
+} from './admin/japanese/words';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -86,6 +92,14 @@ export default {
 				if (request.method === 'GET') return handleGetAdminPost(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminPost(request, env);
 				return methodNotAllowed('GET, PATCH');
+			case '/api/admin/japanese/words':
+				if (request.method === 'GET') return handleListAdminJapaneseWords(request, env);
+				if (request.method === 'POST') return handleCreateAdminJapaneseWord(request, env);
+				return methodNotAllowed('GET, POST');
+			case '/api/admin/japanese/words/detail':
+				if (request.method === 'PATCH') return handleUpdateAdminJapaneseWord(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminJapaneseWord(request, env);
+				return methodNotAllowed('PATCH, DELETE');
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
