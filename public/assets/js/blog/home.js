@@ -3,8 +3,6 @@
 	let language = localStorage.getItem(STORAGE_KEY) === 'ko' ? 'ko' : 'ja';
 	let postsRequestId = 0;
 
-	// Screen-stage placeholder. Later this object will be replaced by the public dashboard API
-	// backed by the admin-selected goal mode and Japanese-learning statistics.
 	let learningSnapshot = {
 		goalMode: 'auto',
 		manualTarget: null,
@@ -20,7 +18,7 @@
 			navHome: 'Home', navPosts: '投稿', navJapanese: '日本語学習', navSkillSheet: 'Skill Sheet', navCareer: 'Career History',
 			categoriesEmpty: '公開されたカテゴリーはまだありません。', quickGoals: '2029 Goals', quickDday: 'D-Day', quickJlpt: 'JLPT Progress',
 			dashboardTitle: '学習と開発の記録', dashboardLead: 'ブログ、資格、JLPT、ポートフォリオの進捗を一つの画面で確認します。',
-			roadmapLabel: '2029年までの目標', roadmapHint: '達成状況は今後、管理画面から更新します。',
+			roadmapLabel: '2029年までの目標', roadmapHint: '達成状況は管理画面の設定と学習データから更新します。',
 			latestTitle: '最新の投稿', allPosts: 'すべて見る →', postsLoading: '投稿を読み込んでいます…', postsEmpty: '公開中の投稿はまだありません。', postsError: '投稿を読み込めませんでした。',
 			dateNotSet: '日付未設定', jlptTitle: '語彙学習の進捗', complete: '達成', wordsUnit: '語',
 			todayWords: '今日', registeredWords: '登録単語', remainingWords: '残り', wrongWords: '誤答', weeklyStudy: '今週の学習量', waitingData: 'データ待ち',
@@ -34,7 +32,7 @@
 			navHome: '홈', navPosts: '전체 게시글', navJapanese: '일본어 학습', navSkillSheet: '스킬시트', navCareer: '경력',
 			categoriesEmpty: '아직 공개된 카테고리가 없습니다.', quickGoals: '2029 목표', quickDday: 'D-Day', quickJlpt: 'JLPT 진행률',
 			dashboardTitle: '학습과 개발 기록', dashboardLead: '블로그, 자격증, JLPT, 포트폴리오 진행 상황을 한 화면에서 확인합니다.',
-			roadmapLabel: '2029년까지의 목표', roadmapHint: '달성 현황은 추후 관리자 화면에서 갱신합니다.',
+			roadmapLabel: '2029년까지의 목표', roadmapHint: '달성 현황은 관리자 설정과 학습 데이터에서 갱신합니다.',
 			latestTitle: '최근 게시글', allPosts: '전체 보기 →', postsLoading: '게시글을 불러오는 중…', postsEmpty: '아직 공개된 게시글이 없습니다.', postsError: '게시글을 불러오지 못했습니다.',
 			dateNotSet: '날짜 미설정', jlptTitle: '단어 학습 진행률', complete: '달성', wordsUnit: '단어',
 			todayWords: '오늘', registeredWords: '등록 단어', remainingWords: '남은 단어', wrongWords: '오답', weeklyStudy: '이번 주 학습량', waitingData: '데이터 대기',
@@ -82,7 +80,6 @@
 		const card = document.createElement('a');
 		card.className = 'blog-post-card';
 		card.href = `/${language}/posts/${encodeURIComponent(post.slug)}`;
-
 		const meta = document.createElement('div');
 		meta.className = 'blog-post-card-meta';
 		const formattedDate = formatDate(post.publishedAt ?? post.updatedAt);
@@ -92,19 +89,16 @@
 			time.textContent = formattedDate;
 			meta.appendChild(time);
 		}
-
 		const title = document.createElement('h3');
 		title.className = 'blog-post-card-title';
 		title.textContent = post.title ?? '';
 		card.append(meta, title);
-
 		if (post.excerpt) {
 			const excerpt = document.createElement('p');
 			excerpt.className = 'blog-post-card-excerpt';
 			excerpt.textContent = post.excerpt;
 			card.appendChild(excerpt);
 		}
-
 		const taxonomy = document.createElement('div');
 		taxonomy.className = 'blog-post-card-taxonomy';
 		if (post.category) taxonomy.appendChild(createChip(post.category, true));
@@ -123,16 +117,7 @@
 		const achievedWords = targetWords > 0 ? Math.min(masteredWords, targetWords) : 0;
 		const remainingWords = Math.max(0, targetWords - achievedWords);
 		const percent = targetWords > 0 ? Math.min(100, Math.round((achievedWords / targetWords) * 100)) : 0;
-		return {
-			manualMode,
-			registeredWords,
-			wrongWords,
-			masteredWords,
-			targetWords,
-			achievedWords,
-			remainingWords,
-			percent,
-		};
+		return { manualMode, registeredWords, wrongWords, masteredWords, targetWords, achievedWords, remainingWords, percent };
 	}
 
 	function renderWeeklyChart(values) {
@@ -153,19 +138,15 @@
 		const source = byId('home-jlpt-source');
 		const status = byId('home-jlpt-status');
 		const ring = byId('home-jlpt-ring');
-
 		if (source) {
 			source.textContent = progress.manualMode
 				? `${text('goalSourceManual')} · ${formatNumber(progress.targetWords)} ${text('wordsUnit')}`
 				: text('goalSourceAuto');
 		}
 		if (status) {
-			status.textContent = progress.targetWords === 0
-				? text('waitingData')
-				: progress.percent >= 100 ? text('complete') : text('progressing');
+			status.textContent = progress.targetWords === 0 ? text('waitingData') : progress.percent >= 100 ? text('complete') : text('progressing');
 		}
 		if (ring) ring.style.setProperty('--home-progress-deg', `${progress.percent * 3.6}deg`);
-
 		const values = {
 			'home-jlpt-percent': `${progress.percent}%`,
 			'home-jlpt-learned': formatNumber(progress.achievedWords),
@@ -201,6 +182,7 @@
 			const link = byId(id);
 			if (link instanceof HTMLAnchorElement) link.href = `/${language}/posts/`;
 		}
+		window.BlogDashboard?.syncHomeModuleLinks?.();
 		const description = document.querySelector('meta[name="description"]');
 		if (description) description.setAttribute('content', text('pageDescription'));
 		renderLearningProgress();
@@ -224,7 +206,6 @@
 			const result = await response.json().catch(() => null);
 			if (requestId !== postsRequestId) return;
 			if (!response.ok || !result?.ok || !Array.isArray(result.posts)) throw new Error('Invalid public post list response');
-
 			window.BlogDashboard?.renderCategories?.(result.posts, language);
 			const recent = result.posts.slice(0, 4);
 			if (recent.length === 0) {
@@ -242,6 +223,24 @@
 		}
 	}
 
+	async function loadLearningStats() {
+		try {
+			const response = await fetch('/api/public/japanese/stats', { method: 'GET', cache: 'no-store' });
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok || !result.stats) throw new Error('Invalid Japanese stats response');
+			learningSnapshot = {
+				...learningSnapshot,
+				registeredWords: Number(result.stats.registeredWords ?? 0),
+				wrongWords: Number(result.stats.wrongWords ?? 0),
+				todayWords: Number(result.stats.todayAttempts ?? 0),
+				weekly: Array.isArray(result.stats.weekly) ? result.stats.weekly : learningSnapshot.weekly,
+			};
+			renderLearningProgress();
+		} catch (error) {
+			console.warn('Failed to load home Japanese stats', error);
+		}
+	}
+
 	function setLanguage(nextLanguage) {
 		if (nextLanguage !== 'ja' && nextLanguage !== 'ko') return;
 		language = nextLanguage;
@@ -255,7 +254,7 @@
 			button.addEventListener('click', () => setLanguage(button.dataset.homeLanguage));
 		});
 		applyStaticCopy();
-		loadDashboardPosts();
+		Promise.allSettled([loadDashboardPosts(), loadLearningStats()]);
 	}
 
 	window.HomeDashboard = {
