@@ -1,11 +1,38 @@
 (() => {
 	let previewButton = null;
 	let editorReady = false;
-	let postDataReady = document.body.dataset.editorMode !== 'edit';
 
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
 		return value && value !== key ? value : fallback;
+	}
+
+	function countMatches(text, regex) {
+		return (text.match(regex) ?? []).length;
+	}
+
+	function detectSourceLanguage(text) {
+		const hangulCount = countMatches(text, /[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]/g);
+		const kanaCount = countMatches(text, /[\u3040-\u30ff\u31f0-\u31ff]/g);
+		const kanjiCount = countMatches(text, /[\u3400-\u4dbf\u4e00-\u9fff]/g);
+
+		if (hangulCount === 0 && kanaCount === 0 && kanjiCount === 0) return null;
+		if (hangulCount > 0 && kanaCount === 0 && kanjiCount === 0) return 'ko';
+		if (kanaCount > 0 && hangulCount === 0) return 'ja';
+		if (hangulCount === 0 && (kanaCount > 0 || kanjiCount > 0)) return 'ja';
+
+		const koreanScore = hangulCount * 3;
+		const japaneseScore = (kanaCount * 3) + (kanjiCount * 0.35);
+		if (Math.abs(koreanScore - japaneseScore) > Math.max(koreanScore, japaneseScore) * 0.15) {
+			return koreanScore > japaneseScore ? 'ko' : 'ja';
+		}
+
+		for (const character of text) {
+			if (/[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]/.test(character)) return 'ko';
+			if (/[\u3040-\u30ff\u31f0-\u31ff]/.test(character)) return 'ja';
+		}
+
+		return koreanScore >= japaneseScore ? 'ko' : 'ja';
 	}
 
 	function oppositeLanguage(language) {
@@ -23,8 +50,9 @@
 		const payload = window.AdminPostEditor?.buildPayload?.(false);
 		if (!payload) return null;
 
-		const sourceLanguage = window.AdminPostEditor?.getEffectiveSourceLanguage?.()
-			?? (payload.sourceLanguage === 'ja' || payload.sourceLanguage === 'ko' ? payload.sourceLanguage : null);
+		const sourceLanguage = payload.sourceLanguage === 'ja' || payload.sourceLanguage === 'ko'
+			? payload.sourceLanguage
+			: detectSourceLanguage(`${payload.title ?? ''}\n${payload.content ?? ''}`);
 		if (!sourceLanguage) return null;
 
 		const targetLanguage = oppositeLanguage(sourceLanguage);
@@ -79,14 +107,10 @@
 		window.alert(t('postRequiredFields', 'タイトルと本文を入力してください。'));
 	}
 
-	function refreshButtonState() {
-		if (!previewButton) return;
-		previewButton.disabled = !(editorReady && postDataReady);
-	}
-
 	async function openPreview() {
 		const snapshot = buildPreviewSnapshot();
-		if (!snapshot || !snapshot.translations?.[snapshot.sourceLanguage]?.title || !snapshot.translations?.[snapshot.sourceLanguage]?.content) {
+		const source = snapshot?.translations?.[snapshot.sourceLanguage];
+		if (!snapshot || !source?.title?.trim() || !source?.content?.trim()) {
 			await showPreviewValidation();
 			return;
 		}
@@ -119,15 +143,9 @@
 			window.AdminPostCategories?.ready,
 		]);
 		editorReady = Boolean(editorResult);
-		refreshButtonState();
-
+		previewButton.disabled = !editorReady;
 		previewButton.addEventListener('click', openPreview);
 	}
-
-	document.addEventListener('posteditordataloaded', () => {
-		postDataReady = true;
-		refreshButtonState();
-	});
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
