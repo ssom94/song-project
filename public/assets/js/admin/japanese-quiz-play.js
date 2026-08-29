@@ -7,6 +7,7 @@
 			question: '扱う',
 			answers: ['あつかう'],
 			correct: 'あつかう',
+			choices: ['あつかう', 'あずかる', 'あつまる', 'あたえる'],
 			noteJa: '「扱う」は、物・情報・問題などを取り扱う意味で使います。',
 			noteKo: '「扱う」는 물건·정보·문제 등을 다루다는 뜻으로 사용합니다.',
 		},
@@ -17,6 +18,7 @@
 			question: '対応',
 			answers: ['대응', '대응하다', '대처', '대처하다'],
 			correct: '대응, 대처',
+			choices: ['대응', '확인', '회의', '변경'],
 			noteJa: '状況や相手に合わせて処置・行動することを表します。',
 			noteKo: '상황이나 상대에 맞춰 조치하거나 행동한다는 뜻입니다.',
 		},
@@ -27,6 +29,7 @@
 			question: 'この道具は丁寧に ＿＿＿＿ ください。',
 			answers: ['扱って', 'あつかって'],
 			correct: '扱って',
+			choices: ['扱って', '集めて', '応じて', '選んで'],
 			noteJa: '例文では「扱う」のて形「扱って」が入ります。',
 			noteKo: '예문에서는 「扱う」의 て형인 「扱って」가 들어갑니다.',
 		},
@@ -36,8 +39,16 @@
 	let correctCount = 0;
 	let wrongCount = 0;
 	let answered = false;
-	let selectedTypes = ['reading', 'meaning', 'sentence'];
-	let questionCount = 20;
+	let setup = {
+		types: ['reading', 'meaning', 'sentence'],
+		jlpt: null,
+		categoryParentName: null,
+		categoryName: null,
+		partParentName: null,
+		partOfSpeechName: null,
+		count: 20,
+		answerMode: 'input',
+	};
 
 	function byId(id) {
 		return document.getElementById(id);
@@ -60,8 +71,29 @@
 			.replace(/[。．.!！?？\s]+$/g, '');
 	}
 
+	function readSetup() {
+		try {
+			const raw = sessionStorage.getItem('song_japanese_quiz_setup');
+			if (!raw) return;
+			const parsed = JSON.parse(raw);
+			if (!parsed || typeof parsed !== 'object') return;
+			const types = Array.isArray(parsed.types)
+				? parsed.types.filter((value) => ['reading', 'meaning', 'sentence'].includes(value))
+				: [];
+			setup = {
+				...setup,
+				...parsed,
+				types: types.length ? types : setup.types,
+				count: Number.isInteger(Number(parsed.count)) ? Math.max(1, Math.min(200, Number(parsed.count))) : 20,
+				answerMode: parsed.answerMode === 'choice' ? 'choice' : 'input',
+			};
+		} catch (error) {
+			console.warn('Failed to restore quiz setup', error);
+		}
+	}
+
 	function filteredSamples() {
-		const filtered = sampleQuestions.filter((question) => selectedTypes.includes(question.type));
+		const filtered = sampleQuestions.filter((question) => setup.types.includes(question.type));
 		return filtered.length ? filtered : sampleQuestions;
 	}
 
@@ -83,33 +115,49 @@
 		return t('playReadingInstruction', '次の単語の読み方をひらがなで入力してください。');
 	}
 
+	function answerModeText() {
+		return setup.answerMode === 'choice'
+			? t('playChoiceMode', '4択')
+			: t('playInputMode', '直接入力');
+	}
+
+	function scopeLabel(primary, secondary) {
+		return secondary || primary || t('playAll', 'すべて');
+	}
+
 	function renderSession() {
-		const params = new URLSearchParams(window.location.search);
-		selectedTypes = (params.get('types') ?? 'reading,meaning,sentence').split(',').filter((value) => ['reading', 'meaning', 'sentence'].includes(value));
-		if (!selectedTypes.length) selectedTypes = ['reading', 'meaning', 'sentence'];
+		byId('quiz-play-total').textContent = String(setup.count);
+		byId('quiz-play-session-count').textContent = String(setup.count);
+		byId('quiz-play-session-types').textContent = String(setup.types.length);
+		byId('quiz-play-session-jlpt').textContent = setup.jlpt || t('playAll', 'すべて');
+		byId('quiz-play-session-category').textContent = scopeLabel(setup.categoryParentName, setup.categoryName);
+		byId('quiz-play-session-pos').textContent = scopeLabel(setup.partParentName, setup.partOfSpeechName);
+		byId('quiz-play-session-mode').textContent = answerModeText();
+	}
 
-		const count = Number(params.get('count'));
-		questionCount = Number.isInteger(count) && count > 0 && count <= 100 ? count : 20;
-		byId('quiz-play-total').textContent = String(questionCount);
-		byId('quiz-play-session-count').textContent = String(questionCount);
-		byId('quiz-play-session-types').textContent = String(selectedTypes.length);
-
-		const jlpt = params.get('jlpt');
-		const categoryName = params.get('categoryName');
-		byId('quiz-play-session-jlpt').textContent = jlpt || t('playAll', 'すべて');
-		byId('quiz-play-session-category').textContent = categoryName || t('playAll', 'すべて');
+	function renderChoices(question) {
+		const container = byId('quiz-play-choices');
+		container.replaceChildren();
+		for (const value of question.choices) {
+			const button = document.createElement('button');
+			button.type = 'button';
+			button.className = 'admin-quiz-choice-button';
+			button.textContent = value;
+			button.addEventListener('click', () => answerChoice(value, button));
+			container.appendChild(button);
+		}
 	}
 
 	function renderQuestion() {
 		answered = false;
 		const question = activeQuestion();
 		const number = current + 1;
-		const progress = Math.min(100, (number / questionCount) * 100);
+		const progress = Math.min(100, (number / setup.count) * 100);
 		byId('quiz-play-current').textContent = String(number);
 		byId('quiz-play-progress-bar').style.width = `${progress}%`;
 		byId('quiz-play-type-label').textContent = typeText(question.type);
 		byId('quiz-play-type-badge').textContent = question.badge;
-		byId('quiz-play-level').textContent = question.level;
+		byId('quiz-play-level').textContent = setup.jlpt || question.level;
 		byId('quiz-play-instruction').textContent = instructionText(question.type);
 
 		const questionNode = byId('quiz-play-question');
@@ -125,17 +173,31 @@
 			questionNode.textContent = question.question;
 		}
 
+		const form = byId('quiz-play-form');
+		const choices = byId('quiz-play-choices');
 		const input = byId('quiz-play-answer');
+		form.hidden = setup.answerMode === 'choice';
+		choices.hidden = setup.answerMode !== 'choice';
 		input.value = '';
 		input.disabled = false;
 		byId('quiz-play-submit').disabled = false;
 		byId('quiz-play-feedback').hidden = true;
 		byId('quiz-play-next').hidden = true;
 		byId('quiz-play-skip').hidden = false;
-		input.focus();
+		renderChoices(question);
+		if (setup.answerMode === 'input') input.focus();
 	}
 
-	function showFeedback(isCorrect) {
+	function lockChoices(selectedButton, isCorrect) {
+		byId('quiz-play-choices').querySelectorAll('button').forEach((button) => {
+			button.disabled = true;
+			const isAnswer = activeQuestion().answers.some((answer) => normalizeAnswer(answer) === normalizeAnswer(button.textContent));
+			if (isAnswer) button.classList.add('is-correct');
+		});
+		if (selectedButton && !isCorrect) selectedButton.classList.add('is-wrong');
+	}
+
+	function showFeedback(isCorrect, selectedButton = null) {
 		const question = activeQuestion();
 		const feedback = byId('quiz-play-feedback');
 		feedback.hidden = false;
@@ -149,24 +211,34 @@
 		byId('quiz-play-wrong').textContent = String(wrongCount);
 		byId('quiz-play-answer').disabled = true;
 		byId('quiz-play-submit').disabled = true;
+		if (setup.answerMode === 'choice') lockChoices(selectedButton, isCorrect);
 		byId('quiz-play-skip').hidden = true;
 		byId('quiz-play-next').hidden = false;
 	}
 
+	function grade(answer, selectedButton = null) {
+		if (answered) return;
+		answered = true;
+		const question = activeQuestion();
+		const normalized = normalizeAnswer(answer);
+		const isCorrect = question.answers.some((value) => normalizeAnswer(value) === normalized);
+		if (isCorrect) correctCount += 1;
+		else wrongCount += 1;
+		showFeedback(isCorrect, selectedButton);
+	}
+
 	function answerCurrent(event) {
 		event.preventDefault();
-		if (answered) return;
 		const answer = normalizeAnswer(byId('quiz-play-answer').value);
 		if (!answer) {
 			byId('quiz-play-answer').focus();
 			return;
 		}
-		answered = true;
-		const question = activeQuestion();
-		const isCorrect = question.answers.some((value) => normalizeAnswer(value) === answer);
-		if (isCorrect) correctCount += 1;
-		else wrongCount += 1;
-		showFeedback(isCorrect);
+		grade(answer);
+	}
+
+	function answerChoice(value, button) {
+		grade(value, button);
 	}
 
 	function skipCurrent() {
@@ -177,8 +249,14 @@
 	}
 
 	function nextQuestion() {
-		if (current + 1 >= questionCount) {
-			window.location.href = `/admin/japanese/quiz/?prototypeComplete=1&correct=${correctCount}&wrong=${wrongCount}`;
+		if (current + 1 >= setup.count) {
+			sessionStorage.setItem('song_japanese_quiz_result', JSON.stringify({
+				correct: correctCount,
+				wrong: wrongCount,
+				total: setup.count,
+				setup,
+			}));
+			window.location.href = '/admin/japanese/quiz/';
 			return;
 		}
 		current += 1;
@@ -186,13 +264,18 @@
 	}
 
 	function rerenderLanguage() {
-		byId('quiz-play-session-jlpt').textContent = new URLSearchParams(window.location.search).get('jlpt') || t('playAll', 'すべて');
-		byId('quiz-play-session-category').textContent = new URLSearchParams(window.location.search).get('categoryName') || t('playAll', 'すべて');
-		renderQuestion();
+		renderSession();
+		const question = activeQuestion();
+		byId('quiz-play-type-label').textContent = typeText(question.type);
+		byId('quiz-play-instruction').textContent = instructionText(question.type);
+		if (!byId('quiz-play-feedback').hidden) {
+			byId('quiz-play-feedback-note').textContent = language() === 'ko' ? question.noteKo : question.noteJa;
+		}
 	}
 
 	async function initialize() {
 		await window.AdminCommon?.ready;
+		readSetup();
 		renderSession();
 		byId('quiz-play-form')?.addEventListener('submit', answerCurrent);
 		byId('quiz-play-skip')?.addEventListener('click', skipCurrent);
