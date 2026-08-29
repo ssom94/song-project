@@ -1,0 +1,21 @@
+{
+  "pageTitle":"保護ドキュメント管理",
+  "pageDescription":"スキルシート・職務経歴書のExcel原本、変換状態、公開中バージョンを管理します。",
+  "skillSheet":"スキルシート",
+  "careerHistory":"職務経歴書",
+  "currentReady":"公開版 Ready",
+  "noCurrentVersion":"公開版なし",
+  "uploadExcel":"Excelをアップロード",
+  "uploadHint":"新しい原本は上書きせず、新しいバージョンとして保存します。",
+  "selectFile":"ファイルを選択",
+  "versionHistory":"バージョン履歴",
+  "immutableHint":"過去バージョンは変更しません",
+  "tableDocument":"ドキュメント",
+  "tableVersion":"Version",
+  "tableFile":"原本",
+  "tableConversion":"変換",
+  "tablePages":"Pages",
+  "tableDate":"登録日",
+  "tableAction":"操作",
+  "preview":"Preview"
+}
