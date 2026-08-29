@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Admin | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/dashboard.css" />
+</head>
+<body class="admin-page admin-dashboard-page">
+	<div id="admin-loading" class="admin-loading">セッションを確認しています…</div>
+
+	<div id="admin-shell" class="admin-shell" hidden>
+		<aside class="admin-sidebar">
+			<a class="admin-sidebar-brand" href="/" aria-label="Song Project ホームへ">
+				<img src="/assets/logo-song-ym.png" alt="Song YM" />
+			</a>
+
+			<p class="admin-nav-label">Management</p>
+			<nav class="admin-nav" aria-label="管理メニュー">
+				<a class="is-active" href="/admin/">ダッシュボード</a>
+				<a href="#">投稿管理</a>
+				<a href="#">コメント管理</a>
+				<a href="#">カテゴリー・タグ</a>
+				<a href="#">日本語学習</a>
+				<a href="#">スキル・職務経歴書</a>
+				<a href="#">アクセスコード</a>
+			</nav>
+
+			<div class="admin-sidebar-footer">
+				<a href="/">サイトを表示</a>
+			</div>
+		</aside>
+
+		<main class="admin-main">
+			<header class="admin-topbar">
+				<p class="admin-topbar-title">SONG Admin</p>
+				<span id="admin-user" class="admin-user"></span>
+			</header>
+
+			<section class="admin-content">
+				<div class="admin-page-heading">
+					<h1>ダッシュボード</h1>
+					<p>ブログと各モジュールをここから管理します。</p>
+				</div>
+
+				<div class="admin-dashboard-grid">
+					<article class="admin-dashboard-card">
+						<h2>投稿管理</h2>
+						<p>記事の作成・編集・翻訳・公開状態を管理します。</p>
+					</article>
+					<article class="admin-dashboard-card">
+						<h2>コメント管理</h2>
+						<p>公開コメント、返信、非表示・スパム状態を管理します。</p>
+					</article>
+					<article class="admin-dashboard-card">
+						<h2>日本語学習</h2>
+						<p>単語、例文、JLPT分類、AIレビューを管理します。</p>
+					</article>
+					<article class="admin-dashboard-card">
+						<h2>スキル・職務経歴書</h2>
+						<p>Excelのバージョンと公開中のドキュメントを管理します。</p>
+					</article>
+					<article class="admin-dashboard-card">
+						<h2>アクセスコード</h2>
+						<p>保護ページ用コードの発行・期限・失効を管理します。</p>
+					</article>
+					<article class="admin-dashboard-card">
+						<h2>監査・履歴</h2>
+						<p>今後、変更履歴や管理操作を確認できるようにします。</p>
+					</article>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<script>
+		const loading = document.getElementById('admin-loading');
+		const shell = document.getElementById('admin-shell');
+		const adminUser = document.getElementById('admin-user');
+
+		async function initializeAdmin() {
+			try {
+				const response = await fetch('/api/admin/auth/session', {
+					method: 'GET',
+					credentials: 'same-origin',
+					cache: 'no-store',
+				});
+
+				if (!response.ok) {
+					window.location.replace('/admin/login/');
+					return;
+				}
+
+				const data = await response.json();
+				if (!data.authenticated) {
+					window.location.replace('/admin/login/');
+					return;
+				}
+
+				adminUser.textContent = data.admin.displayName ?? data.admin.username;
+				loading.hidden = true;
+				shell.hidden = false;
+			} catch {
+				window.location.replace('/admin/login/');
+			}
+		}
+
+		initializeAdmin();
+	</script>
+</body>
+</html>
