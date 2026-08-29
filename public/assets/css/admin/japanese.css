@@ -5,7 +5,7 @@ body.admin-japanese-page {
 
 .admin-japanese-layout {
 	display: grid;
-	grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+	grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
 	gap: 18px;
 	align-items: start;
 }
@@ -98,6 +98,12 @@ body.admin-japanese-page {
 	padding: 0 11px;
 }
 
+.admin-japanese-field select:disabled {
+	background: #f5f7fa;
+	color: #98a2b3;
+	cursor: not-allowed;
+}
+
 .admin-japanese-field textarea {
 	padding: 10px 11px;
 	line-height: 1.55;
@@ -109,6 +115,33 @@ body.admin-japanese-page {
 .admin-japanese-field select:focus {
 	border-color: #2d64e3;
 	box-shadow: 0 0 0 3px rgba(45, 100, 227, 0.1);
+}
+
+.admin-japanese-hierarchy-block {
+	display: grid;
+	gap: 11px;
+	padding: 13px;
+	border: 1px solid #e3e8ef;
+	border-radius: 11px;
+	background: #fafbfd;
+}
+
+.admin-japanese-hierarchy-heading {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.admin-japanese-hierarchy-heading strong {
+	color: #2d3b50;
+	font-size: 12px;
+}
+
+.admin-japanese-hierarchy-heading span {
+	color: #8793a4;
+	font-size: 10px;
+	text-align: right;
 }
 
 .admin-japanese-divider {
@@ -202,7 +235,7 @@ body.admin-japanese-page {
 
 .admin-japanese-table {
 	width: 100%;
-	min-width: 720px;
+	min-width: 840px;
 	border-collapse: collapse;
 }
 
@@ -305,6 +338,16 @@ body.admin-japanese-page {
 	.admin-japanese-field-row,
 	.admin-japanese-filters {
 		grid-template-columns: 1fr;
+	}
+
+	.admin-japanese-hierarchy-heading {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 3px;
+	}
+
+	.admin-japanese-hierarchy-heading span {
+		text-align: left;
 	}
 
 	.admin-japanese-card-header,
