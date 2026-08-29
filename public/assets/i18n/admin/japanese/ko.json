@@ -1,4 +1,6 @@
 {
+  "japaneseTabWords": "단어",
+  "japaneseTabParts": "품사",
   "japaneseWordsPageTitle": "일본어 학습·단어 관리",
   "japaneseWordsPageDescription": "단어, 읽는 법, 뜻, JLPT, 품사, 예문을 관리합니다.",
   "japaneseWordCreateTitle": "단어 추가",
