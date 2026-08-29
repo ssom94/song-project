@@ -227,6 +227,55 @@ body.admin-post-editor-page {
 	color: #7a8798;
 }
 
+.admin-editor-tag-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	min-height: 32px;
+}
+
+.admin-editor-tag-choice {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	min-height: 32px;
+	padding: 0 10px;
+	border: 1px solid #dbe2ec;
+	border-radius: 999px;
+	background: #fff;
+	color: #536176;
+	font-size: 11px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.admin-editor-tag-choice:hover {
+	border-color: #9db4e8;
+	background: #f6f9ff;
+}
+
+.admin-editor-tag-choice.is-selected {
+	border-color: #7ca0ef;
+	background: #edf3ff;
+	color: #1f56d8;
+}
+
+.admin-editor-tag-choice input {
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	accent-color: #1f56d8;
+}
+
+.admin-editor-tag-empty {
+	display: inline-flex;
+	align-items: center;
+	min-height: 32px;
+	color: #8a96a7;
+	font-size: 11px;
+}
+
 .admin-editor-manual-panel[hidden] {
 	display: none;
 }
@@ -313,7 +362,8 @@ body.admin-post-editor-page {
 	resize: none;
 }
 
-.admin-post-view-mode .admin-editor-radio-card {
+.admin-post-view-mode .admin-editor-radio-card,
+.admin-post-view-mode .admin-editor-tag-choice {
 	cursor: default;
 }
 
@@ -325,6 +375,18 @@ body.admin-post-editor-page {
 .admin-post-view-mode .admin-editor-radio-card:has(input:checked) {
 	border-color: #dbe3f2;
 	background: #f7f9fd;
+}
+
+.admin-post-view-mode .admin-editor-tag-choice:hover {
+	border-color: #dbe2ec;
+	background: #fff;
+}
+
+.admin-post-view-mode .admin-editor-tag-choice.is-selected,
+.admin-post-view-mode .admin-editor-tag-choice.is-selected:hover {
+	border-color: #d4deef;
+	background: #f3f6fb;
+	color: #50627d;
 }
 
 @media (max-width: 1000px) {
