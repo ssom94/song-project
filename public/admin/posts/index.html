@@ -98,10 +98,10 @@
 							<p data-i18n="postsPageDescription">記事の作成・編集・翻訳・公開状態を管理します。</p>
 						</div>
 
-						<a id="admin-new-post" class="admin-posts-new-button" href="#" aria-disabled="true" data-i18n="newPost">新規投稿</a>
+						<a id="admin-new-post" class="admin-posts-new-button" href="/admin/posts/new/" data-i18n="newPost">新規投稿</a>
 					</div>
 
-					<section class="admin-posts-panel" aria-labelledby="postsPageTitle">
+					<section class="admin-posts-panel">
 						<div class="admin-posts-toolbar">
 							<div class="admin-posts-field">
 								<label for="post-search" data-i18n="searchLabel">投稿を検索</label>
@@ -168,7 +168,6 @@
 		const adminUserMenuName = document.getElementById('admin-user-menu-name');
 		const adminUserMenuEmail = document.getElementById('admin-user-menu-email');
 		const adminLogout = document.getElementById('admin-logout');
-		const adminNewPost = document.getElementById('admin-new-post');
 
 		function setUserMenuOpen(open) {
 			adminUserMenu.hidden = !open;
@@ -190,10 +189,6 @@
 				setUserMenuOpen(false);
 				adminUserToggle.focus();
 			}
-		});
-
-		adminNewPost.addEventListener('click', (event) => {
-			event.preventDefault();
 		});
 
 		adminLogout.addEventListener('click', async () => {
