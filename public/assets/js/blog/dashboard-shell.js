@@ -32,6 +32,43 @@
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
 	}
 
+	function updateAdminAccessLabel() {
+		const link = byId('blog-sidebar-admin-link');
+		if (!(link instanceof HTMLAnchorElement)) return;
+		const korean = currentLanguage() === 'ko';
+		const authenticated = link.dataset.authenticated === 'true';
+		link.textContent = authenticated
+			? (korean ? '관리자 대시보드' : '管理画面')
+			: (korean ? '관리자 로그인' : '管理者ログイン');
+		link.href = authenticated ? '/admin/' : '/admin/login/';
+		link.setAttribute('aria-label', link.textContent);
+	}
+
+	async function mountAdminAccess() {
+		const footer = document.querySelector('.blog-sidebar-footer');
+		if (!footer || byId('blog-sidebar-admin-link')) return;
+
+		const link = document.createElement('a');
+		link.id = 'blog-sidebar-admin-link';
+		link.className = 'blog-sidebar-admin-link';
+		link.dataset.authenticated = 'false';
+		footer.appendChild(link);
+		updateAdminAccessLabel();
+
+		try {
+			const response = await fetch('/api/admin/auth/session', {
+				method: 'GET',
+				credentials: 'same-origin',
+				cache: 'no-store',
+			});
+			const result = await response.json().catch(() => null);
+			link.dataset.authenticated = response.ok && result?.authenticated === true ? 'true' : 'false';
+			updateAdminAccessLabel();
+		} catch (error) {
+			console.warn('Failed to check admin session for public shortcut', error);
+		}
+	}
+
 	function syncHomeModuleLinks() {
 		const language = currentLanguage();
 		const targets = {
@@ -43,6 +80,7 @@
 			const link = document.querySelector(`[data-home-text="${key}"]`);
 			if (link instanceof HTMLAnchorElement) link.href = href;
 		}
+		updateAdminAccessLabel();
 	}
 
 	function renderCategories(posts, language, selectedCategory = '') {
@@ -90,6 +128,7 @@
 			if (event.key === 'Escape') closeSidebar();
 		});
 		syncHomeModuleLinks();
+		mountAdminAccess();
 	}
 
 	window.BlogDashboard = {
