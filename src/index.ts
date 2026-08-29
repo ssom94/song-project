@@ -12,6 +12,11 @@
  */
 
 import { handleListAdminCategories } from './admin/categories/list';
+import {
+	handleCreateAdminCategory,
+	handleDeleteAdminCategory,
+	handleUpdateAdminCategory,
+} from './admin/categories/manage';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -53,13 +58,27 @@ export default {
 				}
 				return handleAdminSessionStatus(request, env);
 			case '/api/admin/categories':
-				if (request.method !== 'GET') {
-					return new Response('Method Not Allowed', {
-						status: 405,
-						headers: { Allow: 'GET' },
-					});
+				if (request.method === 'GET') {
+					return handleListAdminCategories(request, env);
 				}
-				return handleListAdminCategories(request, env);
+				if (request.method === 'POST') {
+					return handleCreateAdminCategory(request, env);
+				}
+				return new Response('Method Not Allowed', {
+					status: 405,
+					headers: { Allow: 'GET, POST' },
+				});
+			case '/api/admin/categories/detail':
+				if (request.method === 'PATCH') {
+					return handleUpdateAdminCategory(request, env);
+				}
+				if (request.method === 'DELETE') {
+					return handleDeleteAdminCategory(request, env);
+				}
+				return new Response('Method Not Allowed', {
+					status: 405,
+					headers: { Allow: 'PATCH, DELETE' },
+				});
 			case '/api/admin/posts':
 				if (request.method === 'GET') {
 					return handleListAdminPosts(request, env);
