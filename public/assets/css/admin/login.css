@@ -2,71 +2,55 @@ body.admin-login-page {
 	display: grid;
 	place-items: center;
 	padding: 24px;
+	position: relative;
+}
+
+.login-page-home {
+	position: fixed;
+	top: 22px;
+	right: 26px;
+	z-index: 10;
+	color: var(--color-text);
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.login-page-home:hover {
+	color: var(--color-primary);
+	opacity: 0.9;
 }
 
 .login-card {
-	width: min(100%, 460px);
+	width: min(100%, 420px);
 	padding: 32px;
 }
 
-.login-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 16px;
-	margin-bottom: 10px;
-}
-
-.login-brand {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	min-width: 0;
-}
-
 .login-logo {
-	flex: 0 0 auto;
+	justify-content: center;
+	margin-bottom: 22px;
+	text-decoration: none;
 }
 
 .login-logo img {
-	width: 92px;
+	width: min(240px, 82%);
 }
 
 .login-title {
 	margin: 0;
-	font-size: 25px;
+	font-size: 28px;
 	line-height: 1.2;
-	white-space: nowrap;
-}
-
-.login-home {
-	flex: 0 0 auto;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	height: 34px;
-	padding: 0 12px;
-	border: 1px solid var(--color-border);
-	border-radius: 9px;
-	background: rgba(255, 255, 255, 0.78);
-	color: var(--color-muted);
-	font-size: 12px;
-	font-weight: 700;
-	text-decoration: none;
-	transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-}
-
-.login-home:hover {
-	border-color: var(--color-primary-focus);
-	background: #fff;
-	color: var(--color-primary);
+	text-align: center;
 }
 
 .login-subtitle {
-	margin: 0 0 28px;
+	margin: 10px 0 28px;
 	font-size: 14px;
 	line-height: 1.6;
 	color: var(--color-muted);
+	text-align: center;
 }
 
 .login-field {
@@ -101,30 +85,22 @@ body.admin-login-page {
 }
 
 @media (max-width: 520px) {
+	body.admin-login-page {
+		padding: 64px 18px 24px;
+	}
+
+	.login-page-home {
+		top: 18px;
+		right: 18px;
+		font-size: 13px;
+	}
+
 	.login-card {
 		padding: 26px 22px;
 		border-radius: var(--radius-md);
 	}
 
-	.login-header {
-		align-items: flex-start;
-	}
-
-	.login-brand {
-		gap: 9px;
-	}
-
 	.login-logo img {
-		width: 72px;
-	}
-
-	.login-title {
-		font-size: 21px;
-		white-space: normal;
-	}
-
-	.login-home {
-		height: 32px;
-		padding: 0 10px;
+		width: min(220px, 86%);
 	}
 }
