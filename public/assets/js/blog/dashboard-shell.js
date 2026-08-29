@@ -28,6 +28,23 @@
 		return new URLSearchParams(window.location.search).get('category')?.trim() ?? '';
 	}
 
+	function currentLanguage() {
+		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
+	}
+
+	function syncHomeModuleLinks() {
+		const language = currentLanguage();
+		const targets = {
+			navJapanese: `/${language}/japanese/`,
+			navSkillSheet: `/${language}/skill-sheet/`,
+			navCareer: `/${language}/career/`,
+		};
+		for (const [key, href] of Object.entries(targets)) {
+			const link = document.querySelector(`[data-home-text="${key}"]`);
+			if (link instanceof HTMLAnchorElement) link.href = href;
+		}
+	}
+
 	function renderCategories(posts, language, selectedCategory = '') {
 		const container = byId('blog-sidebar-categories');
 		const empty = byId('blog-sidebar-categories-empty');
@@ -66,14 +83,19 @@
 		document.querySelector('.blog-dashboard-sidebar')?.addEventListener('click', (event) => {
 			if (event.target instanceof HTMLAnchorElement && window.matchMedia('(max-width: 840px)').matches) closeSidebar();
 		});
+		document.querySelectorAll('[data-home-language]').forEach((button) => {
+			button.addEventListener('click', () => window.setTimeout(syncHomeModuleLinks, 0));
+		});
 		document.addEventListener('keydown', (event) => {
 			if (event.key === 'Escape') closeSidebar();
 		});
+		syncHomeModuleLinks();
 	}
 
 	window.BlogDashboard = {
 		closeSidebar,
 		renderCategories,
+		syncHomeModuleLinks,
 	};
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
