@@ -4,12 +4,12 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title>Edit Post | SONG Admin</title>
+	<title>Post | SONG Admin</title>
 	<link rel="stylesheet" href="/assets/css/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/post-editor.css" />
 </head>
-<body class="admin-page admin-post-editor-page" data-editor-mode="edit">
+<body class="admin-page admin-post-editor-page admin-post-view-mode" data-editor-mode="edit">
 	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
 
 	<div id="admin-shell" class="admin-shell" hidden>
@@ -62,8 +62,8 @@
 				<section class="admin-content">
 					<div class="admin-editor-heading-row">
 						<div class="admin-page-heading">
-							<h1 data-i18n="postEditTitle">投稿を編集</h1>
-							<p data-i18n="postEditDescription">保存済みの原文と翻訳内容を確認・編集します。</p>
+							<h1 id="post-page-title" data-i18n="postViewTitle">投稿を見る</h1>
+							<p id="post-page-description" data-i18n="postViewDescription">保存済みの投稿内容を確認します。</p>
 						</div>
 						<a class="admin-editor-back-link" href="/admin/posts/" data-i18n="backToPosts">投稿一覧へ戻る</a>
 					</div>
@@ -100,9 +100,9 @@
 
 							<section class="admin-editor-card">
 								<div class="admin-editor-actions">
-									<button class="admin-editor-button" type="button" disabled data-i18n="draftSave">下書き保存</button>
+									<button class="admin-editor-button" type="button" hidden disabled data-i18n="draftSave">下書き保存</button>
 									<button class="admin-editor-button" type="button" disabled data-i18n="preview">プレビュー</button>
-									<button class="admin-editor-button admin-editor-button-primary" type="submit" disabled data-i18n="savePost">保存</button>
+									<button class="admin-editor-button admin-editor-button-primary" type="button" data-editor-action="primary" data-i18n="editPost">編集</button>
 								</div>
 							</section>
 						</div>
@@ -120,7 +120,7 @@
 									</div>
 									<div class="admin-editor-field">
 										<label for="post-category" data-i18n="postCategory">カテゴリー</label>
-										<select id="post-category" name="category"><option value="" data-i18n="categoryNone">未選択</option></select>
+										<select id="post-category" name="category"><option value="" data-i18n="categoryNone">未分類</option></select>
 									</div>
 									<div class="admin-editor-field">
 										<label for="post-tags" data-i18n="postTags">タグ</label>
@@ -162,7 +162,8 @@
 											<span class="admin-editor-radio-copy"><strong data-i18n="translationLater">後で翻訳</strong><span data-i18n="translationLaterDescription">今回は原文だけ保存し、翻訳は後から追加します。</span></span>
 										</label>
 									</div>
-									<p class="admin-editor-api-note" data-i18n="postEditSavePending">既存投稿の読み込みは接続済みです。編集保存は次の段階で接続します。</p>
+
+									<p class="admin-editor-api-note" data-i18n="postViewModeNote">閲覧モードです。「編集」を押すと内容を変更できます。</p>
 								</div>
 							</section>
 						</div>
@@ -176,6 +177,7 @@
 	<script src="/assets/js/admin/menu.js"></script>
 	<script src="/assets/js/admin/layout.js"></script>
 	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/post-categories.js"></script>
 	<script src="/assets/js/admin/post-editor.js"></script>
 	<script src="/assets/js/admin/post-edit.js"></script>
 </body>
