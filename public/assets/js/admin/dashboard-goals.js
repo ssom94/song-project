@@ -92,6 +92,12 @@
 	}
 
 	function renderJlptPreview(progress) {
+		const previewCard = document.querySelector('.admin-goals-preview-jlpt');
+		const visibility = byId('jlpt-visible');
+		if (previewCard instanceof HTMLElement && visibility instanceof HTMLInputElement) {
+			previewCard.hidden = !visibility.checked;
+		}
+
 		const values = {
 			'preview-registered': formatNumber(progress.registered),
 			'preview-wrong': formatNumber(progress.wrong),
