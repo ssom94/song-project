@@ -50,6 +50,21 @@ public/assets/js/admin/
 └─ tags.js                   # tag list/create/edit/delete screen behavior
 ```
 
+Public blog frontend structure:
+
+```text
+public/assets/css/blog/
+├─ common.css        # shared public blog header, language switch, chips, common states
+├─ posts.css         # public post list only
+└─ post-detail.css   # public post detail only
+
+public/assets/js/blog/
+├─ posts-list.js     # loads published posts for /ja/posts/ and /ko/posts/
+└─ post-detail.js    # renders localized post detail and missing-translation state
+```
+
+Public post routes are `/ja/posts/`, `/ko/posts/`, and `/{lang}/posts/:slug`. Public APIs must never return draft/private posts or translations whose status is `pending`.
+
 Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
 
 ## Node.js Compatibility
