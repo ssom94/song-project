@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Goals & Dashboard | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/dashboard-goals.css" />
+</head>
+<body class="admin-page admin-dashboard-goals-page" data-i18n-scope="dashboard-goals">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+				</button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
+			</aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading admin-goals-page-heading">
+						<div>
+							<h1 data-i18n="goalsPageTitle">目標・ダッシュボード管理</h1>
+							<p data-i18n="goalsPageDescription">公開ホームに表示する学習進捗、D-Day、資格・ポートフォリオ目標を設定します。</p>
+						</div>
+						<a class="admin-goals-view-home" href="/" target="_blank" rel="noopener" data-i18n="viewPublicHome">公開ホームを見る</a>
+					</div>
+
+					<div class="admin-goals-layout">
+						<div class="admin-goals-settings">
+							<section class="admin-goals-panel">
+								<div class="admin-goals-panel-heading">
+									<div><span class="admin-goals-eyebrow">JLPT</span><h2 data-i18n="jlptSettingsTitle">JLPT 学習進捗</h2></div>
+									<label class="admin-goals-toggle"><input id="jlpt-visible" type="checkbox" checked /><span data-i18n="showOnHome">ホームに表示</span></label>
+								</div>
+
+								<div class="admin-goals-mode-grid">
+									<label class="admin-goals-mode-card">
+										<input type="radio" name="jlpt-goal-mode" value="auto" checked />
+										<span><strong data-i18n="goalModeAuto">自動計算</strong><small data-i18n="goalModeAutoHint">登録単語数を目標にし、登録単語数 − 誤答単語数を達成数として表示します。</small></span>
+									</label>
+									<label class="admin-goals-mode-card">
+										<input type="radio" name="jlpt-goal-mode" value="manual" />
+										<span><strong data-i18n="goalModeManual">目標数を直接設定</strong><small data-i18n="goalModeManualHint">1500、2500、3000など任意の単語数を目標として設定します。</small></span>
+									</label>
+								</div>
+
+								<div class="admin-goals-field-grid">
+									<label class="admin-goals-field">
+										<span data-i18n="manualTargetWords">目標単語数</span>
+										<input id="jlpt-manual-target" type="number" min="1" max="99999" step="1" value="2500" disabled />
+										<small data-i18n="manualTargetWordsHint">直接設定モードの場合のみ使用します。</small>
+									</label>
+									<label class="admin-goals-field">
+										<span data-i18n="jlptExamDate">JLPT 試験日</span>
+										<input id="jlpt-dday" type="date" />
+										<small data-i18n="dateOptional">未設定でも構いません。</small>
+									</label>
+								</div>
+
+								<div class="admin-goals-auto-summary">
+									<div><span data-i18n="registeredWords">登録単語</span><strong id="preview-registered">0</strong></div>
+									<div><span data-i18n="wrongWords">誤答単語</span><strong id="preview-wrong">0</strong></div>
+									<div><span data-i18n="masteredWords">達成単語</span><strong id="preview-mastered">0</strong></div>
+									<div><span data-i18n="targetWords">目標</span><strong id="preview-target">0</strong></div>
+								</div>
+							</section>
+
+							<section class="admin-goals-panel">
+								<div class="admin-goals-panel-heading">
+									<div><span class="admin-goals-eyebrow">ROADMAP</span><h2 data-i18n="roadmapSettingsTitle">2029 目標リスト</h2></div>
+									<button id="goal-add-button" class="admin-goals-small-button" type="button" data-i18n="addGoal">目標を追加</button>
+								</div>
+
+								<div id="goal-editor-list" class="admin-goal-editor-list">
+									<article class="admin-goal-editor-item" data-goal-key="jlpt">
+										<div class="admin-goal-editor-top"><span class="admin-goal-editor-icon">N1</span><input class="admin-goal-name" type="text" value="JLPT N1" /><label class="admin-goals-toggle"><input class="admin-goal-visible" type="checkbox" checked /><span data-i18n="show">表示</span></label></div>
+										<div class="admin-goal-editor-fields"><label><span data-i18n="targetDate">目標日</span><input class="admin-goal-date" type="date" /></label><label><span data-i18n="progressPercent">進捗率</span><input class="admin-goal-progress" type="number" min="0" max="100" value="0" /></label><label><span data-i18n="goalStatus">状態</span><select class="admin-goal-status"><option value="planned" data-i18n="statusPlanned">予定</option><option value="progress" data-i18n="statusProgress">進行中</option><option value="done" data-i18n="statusDone">完了</option></select></label></div>
+									</article>
+
+									<article class="admin-goal-editor-item" data-goal-key="ap">
+										<div class="admin-goal-editor-top"><span class="admin-goal-editor-icon">AP</span><input class="admin-goal-name" type="text" value="AP" /><label class="admin-goals-toggle"><input class="admin-goal-visible" type="checkbox" checked /><span data-i18n="show">表示</span></label></div>
+										<div class="admin-goal-editor-fields"><label><span data-i18n="targetDate">目標日</span><input class="admin-goal-date" type="date" /></label><label><span data-i18n="progressPercent">進捗率</span><input class="admin-goal-progress" type="number" min="0" max="100" value="0" /></label><label><span data-i18n="goalStatus">状態</span><select class="admin-goal-status"><option value="planned" data-i18n="statusPlanned">予定</option><option value="progress" data-i18n="statusProgress">進行中</option><option value="done" data-i18n="statusDone">完了</option></select></label></div>
+									</article>
+
+									<article class="admin-goal-editor-item" data-goal-key="fp">
+										<div class="admin-goal-editor-top"><span class="admin-goal-editor-icon">FP</span><input class="admin-goal-name" type="text" value="FP" /><label class="admin-goals-toggle"><input class="admin-goal-visible" type="checkbox" checked /><span data-i18n="show">表示</span></label></div>
+										<div class="admin-goal-editor-fields"><label><span data-i18n="targetDate">目標日</span><input class="admin-goal-date" type="date" /></label><label><span data-i18n="progressPercent">進捗率</span><input class="admin-goal-progress" type="number" min="0" max="100" value="0" /></label><label><span data-i18n="goalStatus">状態</span><select class="admin-goal-status"><option value="planned" data-i18n="statusPlanned">予定</option><option value="progress" data-i18n="statusProgress">進行中</option><option value="done" data-i18n="statusDone">完了</option></select></label></div>
+									</article>
+
+									<article class="admin-goal-editor-item" data-goal-key="aws">
+										<div class="admin-goal-editor-top"><span class="admin-goal-editor-icon">AWS</span><input class="admin-goal-name" type="text" value="AWS SAA" /><label class="admin-goals-toggle"><input class="admin-goal-visible" type="checkbox" checked /><span data-i18n="show">表示</span></label></div>
+										<div class="admin-goal-editor-fields"><label><span data-i18n="targetDate">目標日</span><input class="admin-goal-date" type="date" /></label><label><span data-i18n="progressPercent">進捗率</span><input class="admin-goal-progress" type="number" min="0" max="100" value="0" /></label><label><span data-i18n="goalStatus">状態</span><select class="admin-goal-status"><option value="planned" data-i18n="statusPlanned">予定</option><option value="progress" data-i18n="statusProgress">進行中</option><option value="done" data-i18n="statusDone">完了</option></select></label></div>
+									</article>
+
+									<article class="admin-goal-editor-item" data-goal-key="portfolio">
+										<div class="admin-goal-editor-top"><span class="admin-goal-editor-icon">PF</span><input class="admin-goal-name" type="text" value="Portfolio × 2" /><label class="admin-goals-toggle"><input class="admin-goal-visible" type="checkbox" checked /><span data-i18n="show">表示</span></label></div>
+										<div class="admin-goal-editor-fields"><label><span data-i18n="targetDate">目標日</span><input class="admin-goal-date" type="date" /></label><label><span data-i18n="portfolioCompleted">完成数</span><div class="admin-goal-portfolio-count"><input id="portfolio-completed" type="number" min="0" value="0" /><span>/</span><input id="portfolio-target" type="number" min="1" value="2" /></div></label><label><span data-i18n="goalStatus">状態</span><select class="admin-goal-status"><option value="planned" data-i18n="statusPlanned">予定</option><option value="progress" data-i18n="statusProgress">進行中</option><option value="done" data-i18n="statusDone">完了</option></select></label></div>
+									</article>
+								</div>
+							</section>
+
+							<section class="admin-goals-panel admin-goals-display-panel">
+								<div class="admin-goals-panel-heading"><div><span class="admin-goals-eyebrow">DISPLAY</span><h2 data-i18n="displaySettingsTitle">ホーム表示設定</h2></div></div>
+								<div class="admin-goals-display-grid">
+									<label class="admin-goals-toggle-row"><span><strong data-i18n="displayLatestPosts">最近の投稿</strong><small data-i18n="displayLatestPostsHint">最新の公開投稿をホーム上部に表示</small></span><input type="checkbox" checked /></label>
+									<label class="admin-goals-toggle-row"><span><strong>D-Day</strong><small data-i18n="displayDdayHint">目標日がある項目をカウントダウン表示</small></span><input type="checkbox" checked /></label>
+									<label class="admin-goals-toggle-row"><span><strong data-i18n="displayJlpt">JLPT 進捗</strong><small data-i18n="displayJlptHint">単語数・誤答・週間グラフを表示</small></span><input type="checkbox" checked /></label>
+									<label class="admin-goals-toggle-row"><span><strong data-i18n="displayGoals">目標リスト</strong><small data-i18n="displayGoalsHint">2029年までの目標一覧を表示</small></span><input type="checkbox" checked /></label>
+								</div>
+							</section>
+						</div>
+
+						<aside class="admin-goals-preview">
+							<div class="admin-goals-preview-sticky">
+								<div class="admin-goals-preview-heading"><div><span class="admin-goals-eyebrow">LIVE PREVIEW</span><h2 data-i18n="previewTitle">ホーム表示プレビュー</h2></div><span data-i18n="screenOnly">画面構成</span></div>
+								<section class="admin-goals-preview-card admin-goals-preview-jlpt">
+									<div class="admin-goals-preview-card-head"><strong>JLPT N1</strong><span id="preview-goal-source" data-i18n="previewAuto">自動</span></div>
+									<div class="admin-goals-preview-progress"><div id="preview-ring"><strong id="preview-percent">0%</strong></div><div><p><span data-i18n="previewAchieved">達成</span><b id="preview-achieved">0</b></p><p><span data-i18n="previewTarget">目標</span><b id="preview-goal-target">0</b></p><p><span data-i18n="previewRemaining">残り</span><b id="preview-remaining">0</b></p></div></div>
+								</section>
+								<section class="admin-goals-preview-card">
+									<div class="admin-goals-preview-card-head"><strong data-i18n="previewRoadmap">2029 Goals</strong><span id="preview-goal-count">5</span></div>
+									<div id="goal-preview-list" class="admin-goal-preview-list"></div>
+								</section>
+								<p class="admin-goals-preview-note" data-i18n="previewNote">現在は画面確認用です。保存と公開ホームへの反映は機能接続時に追加します。</p>
+							</div>
+						</aside>
+					</div>
+
+					<div class="admin-goals-footer-actions">
+						<span data-i18n="savePendingNote">画面構成確定後にD1保存を接続します。</span>
+						<button type="button" disabled data-i18n="saveSettings">設定を保存</button>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/dashboard-goals.js"></script>
+</body>
+</html>
