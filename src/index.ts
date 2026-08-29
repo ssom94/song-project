@@ -1,22 +1,13 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.jsonc`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
-
 import { handleListAdminCategories } from './admin/categories/list';
 import {
 	handleCreateAdminCategory,
 	handleDeleteAdminCategory,
 	handleUpdateAdminCategory,
 } from './admin/categories/manage';
+import { handleCreateAdminPost } from './admin/posts/create';
+import { handleGetAdminPost } from './admin/posts/detail';
+import { handleListAdminPosts } from './admin/posts/list';
+import { handleUpdateAdminPost } from './admin/posts/update';
 import { handleListAdminTags } from './admin/tags/list';
 import {
 	handleCreateAdminTag,
@@ -26,109 +17,75 @@ import {
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
-import { handleCreateAdminPost } from './admin/posts/create';
-import { handleGetAdminPost } from './admin/posts/detail';
-import { handleListAdminPosts } from './admin/posts/list';
-import { handleUpdateAdminPost } from './admin/posts/update';
+import { handleGetPublicPost } from './public/posts/detail';
+import { handleListPublicPosts } from './public/posts/list';
+import { renderPublicPostPage } from './public/posts/page';
+
+function methodNotAllowed(allow: string): Response {
+	return new Response('Method Not Allowed', {
+		status: 405,
+		headers: { Allow: allow },
+	});
+}
 
 export default {
-	async fetch(request, env, ctx): Promise<Response> {
+	async fetch(request, env): Promise<Response> {
 		const url = new URL(request.url);
+		const publicPostPage = url.pathname.match(/^\/(ja|ko)\/posts\/[^/]+\/?$/);
+		if (publicPostPage) {
+			if (request.method !== 'GET' && request.method !== 'HEAD') return methodNotAllowed('GET, HEAD');
+			return renderPublicPostPage(publicPostPage[1] as 'ja' | 'ko');
+		}
+
 		switch (url.pathname) {
 			case '/message':
 				return new Response('Hello, World!');
 			case '/random':
 				return new Response(crypto.randomUUID());
+			case '/api/public/posts':
+				return request.method === 'GET'
+					? handleListPublicPosts(request, env)
+					: methodNotAllowed('GET');
+			case '/api/public/posts/detail':
+				return request.method === 'GET'
+					? handleGetPublicPost(request, env)
+					: methodNotAllowed('GET');
 			case '/api/admin/auth/login':
-				if (request.method !== 'POST') {
-					return new Response('Method Not Allowed', {
-						status: 405,
-						headers: { Allow: 'POST' },
-					});
-				}
-				return handleAdminLogin(request, env);
+				return request.method === 'POST'
+					? handleAdminLogin(request, env)
+					: methodNotAllowed('POST');
 			case '/api/admin/auth/logout':
-				if (request.method !== 'POST') {
-					return new Response('Method Not Allowed', {
-						status: 405,
-						headers: { Allow: 'POST' },
-					});
-				}
-				return handleAdminLogout(request, env);
+				return request.method === 'POST'
+					? handleAdminLogout(request, env)
+					: methodNotAllowed('POST');
 			case '/api/admin/auth/session':
-				if (request.method !== 'GET') {
-					return new Response('Method Not Allowed', {
-						status: 405,
-						headers: { Allow: 'GET' },
-					});
-				}
-				return handleAdminSessionStatus(request, env);
+				return request.method === 'GET'
+					? handleAdminSessionStatus(request, env)
+					: methodNotAllowed('GET');
 			case '/api/admin/categories':
-				if (request.method === 'GET') {
-					return handleListAdminCategories(request, env);
-				}
-				if (request.method === 'POST') {
-					return handleCreateAdminCategory(request, env);
-				}
-				return new Response('Method Not Allowed', {
-					status: 405,
-					headers: { Allow: 'GET, POST' },
-				});
+				if (request.method === 'GET') return handleListAdminCategories(request, env);
+				if (request.method === 'POST') return handleCreateAdminCategory(request, env);
+				return methodNotAllowed('GET, POST');
 			case '/api/admin/categories/detail':
-				if (request.method === 'PATCH') {
-					return handleUpdateAdminCategory(request, env);
-				}
-				if (request.method === 'DELETE') {
-					return handleDeleteAdminCategory(request, env);
-				}
-				return new Response('Method Not Allowed', {
-					status: 405,
-					headers: { Allow: 'PATCH, DELETE' },
-				});
+				if (request.method === 'PATCH') return handleUpdateAdminCategory(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminCategory(request, env);
+				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/tags':
-				if (request.method === 'GET') {
-					return handleListAdminTags(request, env);
-				}
-				if (request.method === 'POST') {
-					return handleCreateAdminTag(request, env);
-				}
-				return new Response('Method Not Allowed', {
-					status: 405,
-					headers: { Allow: 'GET, POST' },
-				});
+				if (request.method === 'GET') return handleListAdminTags(request, env);
+				if (request.method === 'POST') return handleCreateAdminTag(request, env);
+				return methodNotAllowed('GET, POST');
 			case '/api/admin/tags/detail':
-				if (request.method === 'PATCH') {
-					return handleUpdateAdminTag(request, env);
-				}
-				if (request.method === 'DELETE') {
-					return handleDeleteAdminTag(request, env);
-				}
-				return new Response('Method Not Allowed', {
-					status: 405,
-					headers: { Allow: 'PATCH, DELETE' },
-				});
+				if (request.method === 'PATCH') return handleUpdateAdminTag(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminTag(request, env);
+				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/posts':
-				if (request.method === 'GET') {
-					return handleListAdminPosts(request, env);
-				}
-				if (request.method === 'POST') {
-					return handleCreateAdminPost(request, env);
-				}
-				return new Response('Method Not Allowed', {
-					status: 405,
-					headers: { Allow: 'GET, POST' },
-				});
+				if (request.method === 'GET') return handleListAdminPosts(request, env);
+				if (request.method === 'POST') return handleCreateAdminPost(request, env);
+				return methodNotAllowed('GET, POST');
 			case '/api/admin/posts/detail':
-				if (request.method === 'GET') {
-					return handleGetAdminPost(request, env);
-				}
-				if (request.method === 'PATCH') {
-					return handleUpdateAdminPost(request, env);
-				}
-				return new Response('Method Not Allowed', {
-					status: 405,
-					headers: { Allow: 'GET, PATCH' },
-				});
+				if (request.method === 'GET') return handleGetAdminPost(request, env);
+				if (request.method === 'PATCH') return handleUpdateAdminPost(request, env);
+				return methodNotAllowed('GET, PATCH');
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
