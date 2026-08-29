@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Admin Login | SONG</title>
+	<style>
+		:root {
+			color-scheme: light;
+			font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			background: #f5f7fb;
+			color: #18202a;
+		}
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			background:
+				radial-gradient(circle at top left, rgba(30, 95, 255, 0.10), transparent 32rem),
+				#f5f7fb;
+		}
+		.card {
+			width: min(100%, 420px);
+			background: rgba(255, 255, 255, 0.96);
+			border: 1px solid #e6eaf0;
+			border-radius: 20px;
+			padding: 32px;
+			box-shadow: 0 18px 50px rgba(20, 35, 60, 0.09);
+		}
+		.eyebrow {
+			margin: 0 0 8px;
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+			color: #5a6b80;
+		}
+		h1 {
+			margin: 0;
+			font-size: 28px;
+			line-height: 1.2;
+		}
+		.subtitle {
+			margin: 10px 0 28px;
+			font-size: 14px;
+			line-height: 1.6;
+			color: #667487;
+		}
+		.field { margin-bottom: 18px; }
+		label {
+			display: block;
+			margin-bottom: 7px;
+			font-size: 13px;
+			font-weight: 700;
+		}
+		input[type="text"],
+		input[type="password"] {
+			width: 100%;
+			height: 46px;
+			border: 1px solid #ccd4df;
+			border-radius: 11px;
+			padding: 0 13px;
+			font: inherit;
+			background: #fff;
+			outline: none;
+			transition: border-color 0.15s ease, box-shadow 0.15s ease;
+		}
+		input:focus {
+			border-color: #2d64e3;
+			box-shadow: 0 0 0 3px rgba(45, 100, 227, 0.12);
+		}
+		.remember {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin: 2px 0 22px;
+			font-size: 13px;
+			color: #4f5d6d;
+		}
+		button {
+			width: 100%;
+			height: 46px;
+			border: 0;
+			border-radius: 11px;
+			background: #1f56d8;
+			color: #fff;
+			font: inherit;
+			font-weight: 750;
+			cursor: pointer;
+			transition: opacity 0.15s ease, transform 0.15s ease;
+		}
+		button:hover { opacity: 0.94; }
+		button:active { transform: translateY(1px); }
+		button:disabled { cursor: wait; opacity: 0.58; }
+		.status {
+			min-height: 20px;
+			margin: 16px 0 0;
+			font-size: 13px;
+			line-height: 1.5;
+			color: #b42318;
+		}
+		.status.success { color: #087443; }
+		@media (max-width: 520px) {
+			.card { padding: 26px 22px; border-radius: 16px; }
+		}
+	</style>
+</head>
+<body>
+	<main class="card" aria-labelledby="login-title">
+		<p class="eyebrow">SONG PROJECT</p>
+		<h1 id="login-title">管理者ログイン</h1>
+		<p class="subtitle">ブログ管理画面にアクセスするため、管理者アカウントでログインしてください。</p>
+
+		<form id="login-form" novalidate>
+			<div class="field">
+				<label for="username">ユーザー名</label>
+				<input id="username" name="username" type="text" autocomplete="username" required maxlength="100" />
+			</div>
+
+			<div class="field">
+				<label for="password">パスワード</label>
+				<input id="password" name="password" type="password" autocomplete="current-password" required maxlength="1024" />
+			</div>
+
+			<label class="remember" for="remember-me">
+				<input id="remember-me" name="rememberMe" type="checkbox" />
+				ログイン状態を保持する
+			</label>
+
+			<button id="submit-button" type="submit">ログイン</button>
+			<p id="status" class="status" role="status" aria-live="polite"></p>
+		</form>
+	</main>
+
+	<script>
+		const form = document.getElementById('login-form');
+		const usernameInput = document.getElementById('username');
+		const passwordInput = document.getElementById('password');
+		const rememberInput = document.getElementById('remember-me');
+		const submitButton = document.getElementById('submit-button');
+		const status = document.getElementById('status');
+
+		function setStatus(message, success = false) {
+			status.textContent = message;
+			status.classList.toggle('success', success);
+		}
+
+		async function checkSession() {
+			try {
+				const response = await fetch('/api/admin/auth/session', {
+					method: 'GET',
+					credentials: 'same-origin',
+					cache: 'no-store',
+				});
+				if (!response.ok) return;
+				const data = await response.json();
+				if (data.authenticated) {
+					setStatus(`ログイン済みです: ${data.admin.displayName ?? data.admin.username}`, true);
+				}
+			} catch {
+				// The login form remains usable even if the session check fails.
+			}
+		}
+
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			setStatus('');
+
+			const username = usernameInput.value.trim();
+			const password = passwordInput.value;
+			if (!username || !password) {
+				setStatus('ユーザー名とパスワードを入力してください。');
+				return;
+			}
+
+			submitButton.disabled = true;
+			submitButton.textContent = 'ログイン中…';
+
+			try {
+				const response = await fetch('/api/admin/auth/login', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					credentials: 'same-origin',
+					body: JSON.stringify({
+						username,
+						password,
+						rememberMe: rememberInput.checked,
+					}),
+				});
+				const data = await response.json().catch(() => ({}));
+
+				if (response.ok && data.authenticated) {
+					passwordInput.value = '';
+					setStatus('ログインしました。', true);
+					return;
+				}
+
+				if (data.error === 'TWO_FACTOR_REQUIRED') {
+					setStatus('2段階認証が必要です。');
+					return;
+				}
+
+				setStatus('ユーザー名またはパスワードが正しくありません。');
+			} catch {
+				setStatus('通信に失敗しました。しばらくしてから再度お試しください。');
+			} finally {
+				submitButton.disabled = false;
+				submitButton.textContent = 'ログイン';
+			}
+		});
+
+		checkSession();
+	</script>
+</body>
+</html>
