@@ -11,11 +11,16 @@
 </head>
 <body class="admin-page admin-login-page">
 	<main class="admin-card login-card" aria-labelledby="login-title">
-		<div class="admin-logo login-logo">
-			<img src="/assets/logo-song-ym.png" alt="Song YM" />
-		</div>
+		<header class="login-header">
+			<div class="login-brand">
+				<div class="admin-logo login-logo">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+				</div>
+				<h1 id="login-title" class="login-title">管理者ログイン</h1>
+			</div>
+			<a class="login-home" href="/" aria-label="ホームへ戻る">ホーム</a>
+		</header>
 
-		<h1 id="login-title" class="login-title">管理者ログイン</h1>
 		<p class="login-subtitle">ブログ管理画面にアクセスするため、管理者アカウントでログインしてください。</p>
 
 		<form id="login-form" novalidate>
