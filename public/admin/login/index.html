@@ -64,7 +64,7 @@
 				if (!response.ok) return;
 				const data = await response.json();
 				if (data.authenticated) {
-					setStatus(`ログイン済みです: ${data.admin.displayName ?? data.admin.username}`, true);
+					window.location.replace('/admin/');
 				}
 			} catch {
 				// The login form remains usable even if the session check fails.
@@ -100,7 +100,7 @@
 
 				if (response.ok && data.authenticated) {
 					passwordInput.value = '';
-					setStatus('ログインしました。', true);
+					window.location.replace('/admin/');
 					return;
 				}
 
