@@ -37,6 +37,15 @@ import {
 	handleGetAdminJapaneseQuizHistory,
 	handleListAdminJapaneseQuizHistory,
 } from './admin/japanese/quiz-history';
+import {
+	handleIssueAdminAccessCode,
+	handleListAdminAccessCodes,
+	handleRevokeAdminAccessCode,
+} from './admin/access-codes/manage';
+import {
+	handleListAdminProtectedDocuments,
+	handleUploadAdminProtectedDocument,
+} from './admin/documents/manage';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -141,6 +150,16 @@ export default {
 				return request.method === 'GET' ? handleListAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/quiz/history/detail':
 				return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/documents':
+				if (request.method === 'GET') return handleListAdminProtectedDocuments(request, env);
+				if (request.method === 'POST') return handleUploadAdminProtectedDocument(request, env);
+				return methodNotAllowed('GET, POST');
+			case '/api/admin/access-codes':
+				if (request.method === 'GET') return handleListAdminAccessCodes(request, env);
+				if (request.method === 'POST') return handleIssueAdminAccessCode(request, env);
+				return methodNotAllowed('GET, POST');
+			case '/api/admin/access-codes/revoke':
+				return request.method === 'POST' ? handleRevokeAdminAccessCode(request, env) : methodNotAllowed('POST');
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
