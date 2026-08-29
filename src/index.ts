@@ -35,6 +35,9 @@ import {
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
+import { handleGetPublicJapaneseStats } from './public/japanese/stats';
+import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
+import { handleListPublicJapaneseWords } from './public/japanese/words';
 import { handleGetPublicPost } from './public/posts/detail';
 import { handleListPublicPosts } from './public/posts/list';
 import { renderPublicPostPage } from './public/posts/page';
@@ -61,25 +64,21 @@ export default {
 			case '/random':
 				return new Response(crypto.randomUUID());
 			case '/api/public/posts':
-				return request.method === 'GET'
-					? handleListPublicPosts(request, env)
-					: methodNotAllowed('GET');
+				return request.method === 'GET' ? handleListPublicPosts(request, env) : methodNotAllowed('GET');
 			case '/api/public/posts/detail':
-				return request.method === 'GET'
-					? handleGetPublicPost(request, env)
-					: methodNotAllowed('GET');
+				return request.method === 'GET' ? handleGetPublicPost(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/stats':
+				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/taxonomy':
+				return request.method === 'GET' ? handleGetPublicJapaneseTaxonomy(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/words':
+				return request.method === 'GET' ? handleListPublicJapaneseWords(request, env) : methodNotAllowed('GET');
 			case '/api/admin/auth/login':
-				return request.method === 'POST'
-					? handleAdminLogin(request, env)
-					: methodNotAllowed('POST');
+				return request.method === 'POST' ? handleAdminLogin(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/logout':
-				return request.method === 'POST'
-					? handleAdminLogout(request, env)
-					: methodNotAllowed('POST');
+				return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/session':
-				return request.method === 'GET'
-					? handleAdminSessionStatus(request, env)
-					: methodNotAllowed('GET');
+				return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
 			case '/api/admin/categories':
 				if (request.method === 'GET') return handleListAdminCategories(request, env);
 				if (request.method === 'POST') return handleCreateAdminCategory(request, env);
