@@ -98,6 +98,14 @@ body.blog-home-page {
 	margin-bottom: 17px;
 }
 
+.home-card-heading-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
 .home-card-heading h2 {
 	margin: 4px 0 0;
 	color: #263449;
@@ -214,6 +222,11 @@ body.blog-home-page {
 	white-space: nowrap;
 }
 
+#home-jlpt-source {
+	background: #eef3ff;
+	color: #315cae;
+}
+
 .home-jlpt-layout {
 	display: grid;
 	grid-template-columns: 170px minmax(360px, 0.9fr) minmax(280px, 1.1fr);
@@ -227,12 +240,15 @@ body.blog-home-page {
 }
 
 .home-progress-ring {
+	--home-progress-deg: 0deg;
 	display: grid;
 	place-content: center;
 	width: 126px;
 	height: 126px;
 	border-radius: 50%;
-	background: radial-gradient(circle at center, #fff 58%, transparent 59%), conic-gradient(#1f56d8 0deg, #e8edf4 0deg 360deg);
+	background:
+		radial-gradient(circle at center, #fff 58%, transparent 59%),
+		conic-gradient(#1f56d8 0deg var(--home-progress-deg), #e8edf4 var(--home-progress-deg) 360deg);
 	box-shadow: inset 0 0 0 1px rgba(224, 230, 238, 0.6);
 	text-align: center;
 }
@@ -339,12 +355,14 @@ body.blog-home-page {
 }
 
 .home-weekly-chart i {
+	--home-bar-height: 4px;
 	display: block;
 	width: min(22px, 70%);
-	height: 4px;
+	height: var(--home-bar-height);
 	margin: 0 auto 6px;
 	border-radius: 5px 5px 1px 1px;
-	background: #dfe5ee;
+	background: #9cb5eb;
+	transition: height 0.2s ease;
 }
 
 .home-weekly-chart span {
@@ -485,6 +503,14 @@ body.blog-home-page {
 
 	.home-roadmap-summary {
 		min-width: 0;
+	}
+
+	.home-card-heading {
+		flex-direction: column;
+	}
+
+	.home-card-heading-actions {
+		justify-content: flex-start;
 	}
 
 	.home-jlpt-layout {
