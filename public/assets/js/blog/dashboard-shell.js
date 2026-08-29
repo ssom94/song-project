@@ -28,7 +28,7 @@
 		return new URLSearchParams(window.location.search).get('category')?.trim() ?? '';
 	}
 
-	function renderCategories(posts, language) {
+	function renderCategories(posts, language, selectedCategory = '') {
 		const container = byId('blog-sidebar-categories');
 		const empty = byId('blog-sidebar-categories-empty');
 		if (!container) return;
@@ -41,7 +41,7 @@
 		container.replaceChildren();
 		const entries = [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], language === 'ko' ? 'ko' : 'ja'));
 		if (empty) empty.hidden = entries.length > 0;
-		const selected = activeCategory();
+		const selected = selectedCategory || activeCategory();
 		for (const [category, count] of entries) {
 			const link = document.createElement('a');
 			link.className = 'blog-sidebar-category-link';
