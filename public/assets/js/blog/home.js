@@ -3,6 +3,17 @@
 	let language = localStorage.getItem(STORAGE_KEY) === 'ko' ? 'ko' : 'ja';
 	let postsRequestId = 0;
 
+	// Screen-stage placeholder. Later this object will be replaced by the public dashboard API
+	// backed by the admin-selected goal mode and Japanese-learning statistics.
+	let learningSnapshot = {
+		goalMode: 'auto',
+		manualTarget: null,
+		registeredWords: 0,
+		wrongWords: 0,
+		todayWords: 0,
+		weekly: [0, 0, 0, 0, 0, 0, 0],
+	};
+
 	const copy = {
 		ja: {
 			sidebarMenu: 'Menu', sidebarBoards: 'Boards', sidebarQuick: 'Quick',
@@ -11,9 +22,10 @@
 			dashboardTitle: '学習と開発の記録', dashboardLead: 'ブログ、資格、JLPT、ポートフォリオの進捗を一つの画面で確認します。',
 			roadmapLabel: '2029年までの目標', roadmapHint: '達成状況は今後、管理画面から更新します。',
 			latestTitle: '最新の投稿', allPosts: 'すべて見る →', postsLoading: '投稿を読み込んでいます…', postsEmpty: '公開中の投稿はまだありません。', postsError: '投稿を読み込めませんでした。',
-			dateNotSet: '日付未設定', jlptTitle: '2,500語 暗記プロジェクト', notStarted: '未開始', complete: '達成', wordsUnit: '語',
-			todayWords: '今日', totalWords: '累計', remainingWords: '残り', wrongWords: '誤答', weeklyStudy: '今週の学習量', waitingData: 'データ待ち',
-			goalsTitle: '2029年までに達成する目標', goalJlptDetail: '2,500語 + 試験合格', goalApDetail: '応用情報技術者試験', goalFpDetail: '級・受験日は後で設定',
+			dateNotSet: '日付未設定', jlptTitle: '語彙学習の進捗', complete: '達成', wordsUnit: '語',
+			todayWords: '今日', registeredWords: '登録単語', remainingWords: '残り', wrongWords: '誤答', weeklyStudy: '今週の学習量', waitingData: 'データ待ち',
+			goalSourceAuto: '自動 · 登録単語基準', goalSourceManual: '直接設定', progressing: '進行中',
+			goalsTitle: '2029年までに達成する目標', goalJlptDetail: '語彙学習 + 試験合格', goalApDetail: '応用情報技術者試験', goalFpDetail: '級・受験日は後で設定',
 			portfolioGoal: 'Portfolio × 2', goalPortfolioDetail: '2つのポートフォリオを完成', progress: '進捗', planned: '予定', inProgress: '進行予定',
 			pageDescription: 'Web/Application Engineer SONG のポートフォリオ、技術ブログ、学習目標をまとめたダッシュボードです。',
 		},
@@ -24,9 +36,10 @@
 			dashboardTitle: '학습과 개발 기록', dashboardLead: '블로그, 자격증, JLPT, 포트폴리오 진행 상황을 한 화면에서 확인합니다.',
 			roadmapLabel: '2029년까지의 목표', roadmapHint: '달성 현황은 추후 관리자 화면에서 갱신합니다.',
 			latestTitle: '최근 게시글', allPosts: '전체 보기 →', postsLoading: '게시글을 불러오는 중…', postsEmpty: '아직 공개된 게시글이 없습니다.', postsError: '게시글을 불러오지 못했습니다.',
-			dateNotSet: '날짜 미설정', jlptTitle: '2,500단어 암기 프로젝트', notStarted: '시작 전', complete: '달성', wordsUnit: '단어',
-			todayWords: '오늘', totalWords: '누적', remainingWords: '남은 단어', wrongWords: '오답', weeklyStudy: '이번 주 학습량', waitingData: '데이터 대기',
-			goalsTitle: '2029년까지 달성할 목표', goalJlptDetail: '2,500단어 + 시험 합격', goalApDetail: '응용정보기술자시험', goalFpDetail: '급수·시험일은 추후 설정',
+			dateNotSet: '날짜 미설정', jlptTitle: '단어 학습 진행률', complete: '달성', wordsUnit: '단어',
+			todayWords: '오늘', registeredWords: '등록 단어', remainingWords: '남은 단어', wrongWords: '오답', weeklyStudy: '이번 주 학습량', waitingData: '데이터 대기',
+			goalSourceAuto: '자동 · 등록 단어 기준', goalSourceManual: '직접 설정', progressing: '진행 중',
+			goalsTitle: '2029년까지 달성할 목표', goalJlptDetail: '단어 학습 + 시험 합격', goalApDetail: '응용정보기술자시험', goalFpDetail: '급수·시험일은 추후 설정',
 			portfolioGoal: '포트폴리오 × 2', goalPortfolioDetail: '포트폴리오 2개 완성', progress: '진행률', planned: '예정', inProgress: '진행 예정',
 			pageDescription: 'Web/Application Engineer SONG의 포트폴리오, 기술 블로그, 학습 목표를 정리한 대시보드입니다.',
 		},
@@ -34,6 +47,19 @@
 
 	function text(key) {
 		return copy[language]?.[key] ?? copy.ja[key] ?? key;
+	}
+
+	function byId(id) {
+		return document.getElementById(id);
+	}
+
+	function number(value) {
+		const parsed = Number(value);
+		return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : 0;
+	}
+
+	function formatNumber(value) {
+		return new Intl.NumberFormat(language === 'ko' ? 'ko-KR' : 'ja-JP').format(number(value));
 	}
 
 	function formatDate(value) {
@@ -87,6 +113,78 @@
 		return card;
 	}
 
+	function calculateLearningProgress(snapshot) {
+		const registeredWords = number(snapshot.registeredWords);
+		const wrongWords = Math.min(number(snapshot.wrongWords), registeredWords);
+		const masteredWords = Math.max(0, registeredWords - wrongWords);
+		const manualTarget = number(snapshot.manualTarget);
+		const manualMode = snapshot.goalMode === 'manual' && manualTarget > 0;
+		const targetWords = manualMode ? manualTarget : registeredWords;
+		const achievedWords = targetWords > 0 ? Math.min(masteredWords, targetWords) : 0;
+		const remainingWords = Math.max(0, targetWords - achievedWords);
+		const percent = targetWords > 0 ? Math.min(100, Math.round((achievedWords / targetWords) * 100)) : 0;
+		return {
+			manualMode,
+			registeredWords,
+			wrongWords,
+			masteredWords,
+			targetWords,
+			achievedWords,
+			remainingWords,
+			percent,
+		};
+	}
+
+	function renderWeeklyChart(values) {
+		const bars = [...document.querySelectorAll('#home-weekly-chart i')];
+		const normalized = Array.from({ length: 7 }, (_, index) => number(Array.isArray(values) ? values[index] : 0));
+		const max = Math.max(1, ...normalized);
+		bars.forEach((bar, index) => {
+			const value = normalized[index] ?? 0;
+			const height = value > 0 ? Math.max(10, Math.round((value / max) * 82)) : 4;
+			bar.style.setProperty('--home-bar-height', `${height}px`);
+			bar.title = `${formatNumber(value)} ${text('wordsUnit')}`;
+		});
+	}
+
+	function renderLearningProgress() {
+		const progress = calculateLearningProgress(learningSnapshot);
+		const todayWords = number(learningSnapshot.todayWords);
+		const source = byId('home-jlpt-source');
+		const status = byId('home-jlpt-status');
+		const ring = byId('home-jlpt-ring');
+
+		if (source) {
+			source.textContent = progress.manualMode
+				? `${text('goalSourceManual')} · ${formatNumber(progress.targetWords)} ${text('wordsUnit')}`
+				: text('goalSourceAuto');
+		}
+		if (status) {
+			status.textContent = progress.targetWords === 0
+				? text('waitingData')
+				: progress.percent >= 100 ? text('complete') : text('progressing');
+		}
+		if (ring) ring.style.setProperty('--home-progress-deg', `${progress.percent * 3.6}deg`);
+
+		const values = {
+			'home-jlpt-percent': `${progress.percent}%`,
+			'home-jlpt-learned': formatNumber(progress.achievedWords),
+			'home-jlpt-target': formatNumber(progress.targetWords),
+			'home-jlpt-today': formatNumber(todayWords),
+			'home-jlpt-total': formatNumber(progress.registeredWords),
+			'home-jlpt-remaining': formatNumber(progress.remainingWords),
+			'home-jlpt-wrong': formatNumber(progress.wrongWords),
+			'home-goal-jlpt-percent': `${progress.percent}%`,
+		};
+		for (const [id, value] of Object.entries(values)) {
+			const node = byId(id);
+			if (node) node.textContent = value;
+		}
+		const goalProgress = byId('home-goal-jlpt-progress');
+		if (goalProgress instanceof HTMLProgressElement) goalProgress.value = progress.percent;
+		renderWeeklyChart(learningSnapshot.weekly);
+	}
+
 	function applyStaticCopy() {
 		document.documentElement.lang = language;
 		document.body.dataset.blogLanguage = language;
@@ -100,22 +198,23 @@
 			button.setAttribute('aria-pressed', String(active));
 		});
 		for (const id of ['home-posts-nav', 'home-all-posts-link']) {
-			const link = document.getElementById(id);
+			const link = byId(id);
 			if (link instanceof HTMLAnchorElement) link.href = `/${language}/posts/`;
 		}
 		const description = document.querySelector('meta[name="description"]');
 		if (description) description.setAttribute('content', text('pageDescription'));
+		renderLearningProgress();
 	}
 
 	function setPostState(state) {
 		for (const [id, target] of [['home-posts-loading', 'loading'], ['home-posts-empty', 'empty'], ['home-posts-error', 'error']]) {
-			const node = document.getElementById(id);
+			const node = byId(id);
 			if (node) node.hidden = state !== target;
 		}
 	}
 
 	async function loadDashboardPosts() {
-		const list = document.getElementById('home-latest-posts');
+		const list = byId('home-latest-posts');
 		if (!list) return;
 		const requestId = ++postsRequestId;
 		list.replaceChildren();
@@ -158,6 +257,14 @@
 		applyStaticCopy();
 		loadDashboardPosts();
 	}
+
+	window.HomeDashboard = {
+		setLearningSnapshot(nextSnapshot) {
+			if (!nextSnapshot || typeof nextSnapshot !== 'object') return;
+			learningSnapshot = { ...learningSnapshot, ...nextSnapshot };
+			renderLearningProgress();
+		},
+	};
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
