@@ -1,8 +1,6 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
 
 type SupportedLanguage = 'ja' | 'ko';
-type TranslationMethod = 'ai' | 'manual' | 'later';
-type PostStatus = 'draft' | 'published';
 
 interface CreatePostPayload {
 	title?: unknown;
@@ -98,7 +96,7 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 
 	let payload: CreatePostPayload;
 	try {
-		payload = await request.json<CreatePostPayload>();
+		payload = (await request.json()) as CreatePostPayload;
 	} catch {
 		return json({ ok: false, error: 'INVALID_JSON' }, 400);
 	}
