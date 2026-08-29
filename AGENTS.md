@@ -35,17 +35,19 @@ Current admin JavaScript structure:
 
 ```text
 public/assets/js/admin/
-├─ common.js           # admin session gate, user menu, logout, shared modal behavior
-├─ i18n.js             # admin language switching + optional screen-scoped translation merging
-├─ menu.js             # admin navigation rendering
-├─ layout.js           # sidebar and responsive layout behavior
-├─ login.js            # login page only
-├─ posts-list.js       # post list loading, search, filters, view links
-├─ post-categories.js  # shared category loading + searchable multi-tag selector for post create/view/edit
-├─ post-editor.js      # shared post create/edit form behavior, validation, and taxonomy payloads
-├─ post-edit.js        # existing post view/edit state, dirty tracking, update requests
-├─ categories.js       # category list/create/edit/delete screen behavior
-└─ tags.js             # tag list/create/edit/delete screen behavior
+├─ common.js                 # admin session gate, user menu, logout, shared modal behavior
+├─ i18n.js                   # admin language switching + optional screen-scoped translation merging
+├─ menu.js                   # admin navigation rendering
+├─ layout.js                 # sidebar and responsive layout behavior
+├─ login.js                  # login page only
+├─ posts-list.js             # post list loading, search, filters, view links
+├─ post-categories.js        # shared category loading + searchable multi-tag selector for post create/view/edit
+├─ post-editor.js            # shared post create/edit form behavior, validation, and taxonomy payloads
+├─ post-edit.js              # existing post view/edit state, dirty tracking, update requests
+├─ post-preview-launcher.js  # sends the current unsaved editor state to the admin preview tab
+├─ post-preview.js           # authenticated preview-tab renderer
+├─ categories.js             # category list/create/edit/delete screen behavior
+└─ tags.js                   # tag list/create/edit/delete screen behavior
 ```
 
 Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
