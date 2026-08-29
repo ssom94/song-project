@@ -2,6 +2,7 @@
 	let words = [];
 	let levels = [];
 	let partsOfSpeech = [];
+	let learningCategories = [];
 	let editingId = null;
 	let saving = false;
 
@@ -22,7 +23,7 @@
 		return window.AdminI18n?.getLanguage?.() ?? 'ja';
 	}
 
-	function partLabel(row) {
+	function localizedLabel(row) {
 		if (!row) return '';
 		return currentLanguage() === 'ko'
 			? (row.name_ko ?? row.name_ja ?? '')
@@ -47,19 +48,86 @@
 		status.textContent = '';
 	}
 
+	function findItem(items, id) {
+		if (!id) return null;
+		return items.find((item) => String(item.id) === String(id)) ?? null;
+	}
+
+	function rootItems(items) {
+		return items.filter((item) => item.parent_id === null || item.parent_id === undefined);
+	}
+
+	function childItems(items, parentId) {
+		if (!parentId) return [];
+		return items.filter((item) => String(item.parent_id ?? '') === String(parentId));
+	}
+
+	function currentHierarchyValue(parentSelectId, childSelectId) {
+		return byId(childSelectId)?.value || byId(parentSelectId)?.value || '';
+	}
+
+	function populateHierarchyParent(parentSelectId, childSelectId, items, selectedId, noneKey, noneJa, noneKo, childNoneKey) {
+		const parent = byId(parentSelectId);
+		const child = byId(childSelectId);
+		if (!parent || !child) return;
+
+		const selected = findItem(items, selectedId);
+		const parentValue = selected
+			? String(selected.parent_id ?? selected.id)
+			: '';
+
+		parent.replaceChildren();
+		const none = document.createElement('option');
+		none.value = '';
+		none.textContent = t(noneKey, currentLanguage() === 'ko' ? noneKo : noneJa);
+		parent.appendChild(none);
+
+		for (const item of rootItems(items)) {
+			const option = document.createElement('option');
+			option.value = String(item.id);
+			option.textContent = localizedLabel(item);
+			parent.appendChild(option);
+		}
+		parent.value = [...parent.options].some((option) => option.value === parentValue) ? parentValue : '';
+		populateHierarchyChild(parentSelectId, childSelectId, items, selectedId, childNoneKey);
+	}
+
+	function populateHierarchyChild(parentSelectId, childSelectId, items, selectedId = '', childNoneKey = 'japaneseSubcategoryNone') {
+		const parent = byId(parentSelectId);
+		const child = byId(childSelectId);
+		if (!parent || !child) return;
+		const parentId = parent.value;
+		const selected = findItem(items, selectedId);
+		const selectedChildId = selected?.parent_id ? String(selected.id) : '';
+
+		child.replaceChildren();
+		const none = document.createElement('option');
+		none.value = '';
+		none.textContent = t(childNoneKey, currentLanguage() === 'ko' ? '소분류 없음' : '下位分類なし');
+		child.appendChild(none);
+
+		for (const item of childItems(items, parentId)) {
+			const option = document.createElement('option');
+			option.value = String(item.id);
+			option.textContent = localizedLabel(item);
+			child.appendChild(option);
+		}
+		child.disabled = !parentId || child.options.length <= 1;
+		child.value = [...child.options].some((option) => option.value === selectedChildId) ? selectedChildId : '';
+	}
+
 	function fillSelectOptions() {
 		const jlpt = byId('japanese-jlpt');
 		const jlptFilter = byId('japanese-jlpt-filter');
-		const pos = byId('japanese-pos');
-		if (!jlpt || !jlptFilter || !pos) return;
+		if (!jlpt || !jlptFilter) return;
 
 		const jlptValue = jlpt.value;
 		const filterValue = jlptFilter.value;
-		const posValue = pos.value;
+		const posValue = currentHierarchyValue('japanese-pos-parent', 'japanese-pos');
+		const categoryValue = currentHierarchyValue('japanese-category-parent', 'japanese-category');
 
 		jlpt.replaceChildren();
 		jlptFilter.replaceChildren();
-		pos.replaceChildren();
 
 		const jlptNone = document.createElement('option');
 		jlptNone.value = '';
@@ -80,20 +148,33 @@
 			}
 		}
 
-		const posNone = document.createElement('option');
-		posNone.value = '';
-		posNone.textContent = t('japanesePartOfSpeechNone', currentLanguage() === 'ko' ? '미지정' : '未指定');
-		pos.appendChild(posNone);
-		for (const part of partsOfSpeech) {
-			const option = document.createElement('option');
-			option.value = String(part.id);
-			option.textContent = partLabel(part);
-			pos.appendChild(option);
-		}
-
 		if ([...jlpt.options].some((option) => option.value === jlptValue)) jlpt.value = jlptValue;
 		if ([...jlptFilter.options].some((option) => option.value === filterValue)) jlptFilter.value = filterValue;
-		if ([...pos.options].some((option) => option.value === posValue)) pos.value = posValue;
+
+		populateHierarchyParent(
+			'japanese-pos-parent',
+			'japanese-pos',
+			partsOfSpeech,
+			posValue,
+			'japanesePartOfSpeechNone',
+			'未指定',
+			'미지정',
+			'japanesePartOfSpeechSubNone',
+		);
+		populateHierarchyParent(
+			'japanese-category-parent',
+			'japanese-category',
+			learningCategories,
+			categoryValue,
+			'japaneseCategoryNone',
+			'未指定',
+			'미지정',
+			'japaneseCategorySubNone',
+		);
+	}
+
+	function selectedHierarchyId(parentId, childId) {
+		return byId(childId)?.value || byId(parentId)?.value || null;
 	}
 
 	function getPayload() {
@@ -103,12 +184,26 @@
 			meaningKo: byId('japanese-meaning-ko')?.value.trim() ?? '',
 			meaningJa: byId('japanese-meaning-ja')?.value.trim() ?? '',
 			jlptLevelId: byId('japanese-jlpt')?.value || null,
-			partOfSpeechId: byId('japanese-pos')?.value || null,
+			partOfSpeechId: selectedHierarchyId('japanese-pos-parent', 'japanese-pos'),
+			categoryId: selectedHierarchyId('japanese-category-parent', 'japanese-category'),
 			exampleSentence: byId('japanese-example')?.value.trim() ?? '',
 			exampleReading: byId('japanese-example-reading')?.value.trim() ?? '',
 			exampleTranslationKo: byId('japanese-example-ko')?.value.trim() ?? '',
 			note: byId('japanese-note')?.value.trim() ?? '',
 		};
+	}
+
+	function setHierarchyValue(parentId, childId, items, selectedId, noneKey) {
+		populateHierarchyParent(
+			parentId,
+			childId,
+			items,
+			selectedId ? String(selectedId) : '',
+			parentId.includes('pos') ? 'japanesePartOfSpeechNone' : 'japaneseCategoryNone',
+			'未指定',
+			'미지정',
+			noneKey,
+		);
 	}
 
 	function setForm(word = null) {
@@ -118,7 +213,8 @@
 		byId('japanese-meaning-ko').value = word?.meaning_ko ?? '';
 		byId('japanese-meaning-ja').value = word?.meaning_ja ?? '';
 		byId('japanese-jlpt').value = word?.jlpt_level_id ? String(word.jlpt_level_id) : '';
-		byId('japanese-pos').value = word?.part_of_speech_id ? String(word.part_of_speech_id) : '';
+		setHierarchyValue('japanese-pos-parent', 'japanese-pos', partsOfSpeech, word?.part_of_speech_id, 'japanesePartOfSpeechSubNone');
+		setHierarchyValue('japanese-category-parent', 'japanese-category', learningCategories, word?.category_id, 'japaneseCategorySubNone');
 		byId('japanese-example').value = word?.example_sentence ?? '';
 		byId('japanese-example-reading').value = word?.example_reading ?? '';
 		byId('japanese-example-ko').value = word?.example_translation_ko ?? '';
@@ -174,7 +270,6 @@
 
 		for (const word of filtered) {
 			const tr = document.createElement('tr');
-
 			const wordCell = document.createElement('td');
 			const main = document.createElement('div');
 			main.className = 'admin-japanese-word-main';
@@ -187,7 +282,6 @@
 
 			const readingCell = document.createElement('td');
 			readingCell.textContent = word.reading || '—';
-
 			const meaningCell = document.createElement('td');
 			meaningCell.className = 'admin-japanese-table-meaning';
 			meaningCell.textContent = word.meaning_ko || word.meaning_ja || '—';
@@ -199,6 +293,11 @@
 				badge.textContent = word.jlpt_code;
 				jlptCell.appendChild(badge);
 			} else jlptCell.textContent = '—';
+
+			const categoryCell = document.createElement('td');
+			categoryCell.textContent = currentLanguage() === 'ko'
+				? (word.category_ko || word.category_ja || '—')
+				: (word.category_ja || word.category_ko || '—');
 
 			const posCell = document.createElement('td');
 			posCell.textContent = currentLanguage() === 'ko'
@@ -217,7 +316,6 @@
 				byId('japanese-word')?.focus({ preventScroll: false });
 				window.scrollTo({ top: 0, behavior: 'smooth' });
 			});
-
 			const remove = document.createElement('button');
 			remove.type = 'button';
 			remove.className = 'admin-japanese-action admin-japanese-action-danger';
@@ -226,7 +324,7 @@
 			actions.append(edit, remove);
 			actionCell.appendChild(actions);
 
-			tr.append(wordCell, readingCell, meaningCell, jlptCell, posCell, actionCell);
+			tr.append(wordCell, readingCell, meaningCell, jlptCell, categoryCell, posCell, actionCell);
 			tbody.appendChild(tr);
 		}
 		table.hidden = false;
@@ -245,6 +343,7 @@
 			words = result.words;
 			levels = Array.isArray(result.levels) ? result.levels : [];
 			partsOfSpeech = Array.isArray(result.partsOfSpeech) ? result.partsOfSpeech : [];
+			learningCategories = Array.isArray(result.categories) ? result.categories : [];
 			fillSelectOptions();
 			renderRows();
 		} catch (error) {
@@ -325,7 +424,7 @@
 			}
 			const result = await response.json().catch(() => null);
 			if (!response.ok || !result?.ok) throw new Error(result?.error ?? 'DELETE_FAILED');
-			if (editingId === word.id) setForm();
+			if (String(editingId) === String(word.id)) setForm();
 			await loadWords();
 			setStatus('japaneseWordDeleted', 'success');
 		} catch (error) {
@@ -341,20 +440,21 @@
 		byId('japanese-word-cancel')?.addEventListener('click', () => setForm());
 		byId('japanese-word-search')?.addEventListener('input', renderRows);
 		byId('japanese-jlpt-filter')?.addEventListener('change', renderRows);
+		byId('japanese-pos-parent')?.addEventListener('change', () => {
+			populateHierarchyChild('japanese-pos-parent', 'japanese-pos', partsOfSpeech, '', 'japanesePartOfSpeechSubNone');
+		});
+		byId('japanese-category-parent')?.addEventListener('change', () => {
+			populateHierarchyChild('japanese-category-parent', 'japanese-category', learningCategories, '', 'japaneseCategorySubNone');
+		});
 		document.addEventListener('adminlanguagechange', () => {
 			fillSelectOptions();
 			renderRows();
 			const status = byId('japanese-word-form-status');
 			if (status?.dataset.key) status.textContent = t(status.dataset.key, status.dataset.key);
-			setForm(editingId ? words.find((word) => word.id === editingId) : null);
 		});
 		await loadWords();
-		setForm();
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initialize, { once: true });
-	} else {
-		initialize();
-	}
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
+	else initialize();
 })();
