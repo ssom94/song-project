@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>New Post | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/dashboard.css" />
+	<link rel="stylesheet" href="/assets/css/admin/post-editor.css" />
+</head>
+<body class="admin-page admin-post-editor-page">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button
+					id="admin-sidebar-toggle"
+					class="admin-sidebar-toggle"
+					type="button"
+					aria-controls="admin-sidebar"
+					aria-expanded="true"
+					aria-label="管理メニューを閉じる"
+					data-i18n-aria-label="menuCloseLabel"
+				>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</button>
+
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+
+				<div class="admin-user-menu-wrap">
+					<button
+						id="admin-user-toggle"
+						class="admin-user-toggle"
+						type="button"
+						aria-haspopup="true"
+						aria-expanded="false"
+						aria-controls="admin-user-menu"
+					>
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info">
+							<strong id="admin-user-menu-name"></strong>
+							<span id="admin-user-menu-email"></span>
+						</div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+
+				<div class="admin-sidebar-footer">
+					<a href="/" data-i18n="viewSite">サイトを表示</a>
+				</div>
+			</aside>
+
+			<button
+				id="admin-sidebar-backdrop"
+				class="admin-sidebar-backdrop"
+				type="button"
+				tabindex="-1"
+				aria-label="管理メニューを閉じる"
+				data-i18n-aria-label="menuCloseLabel"
+				hidden
+			></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-editor-heading-row">
+						<div class="admin-page-heading">
+							<h1 data-i18n="postEditorTitle">新規投稿を作成</h1>
+							<p data-i18n="postEditorDescription">原文を作成し、必要に応じて翻訳方法を選択します。</p>
+						</div>
+						<a class="admin-editor-back-link" href="/admin/posts/" data-i18n="backToPosts">投稿一覧へ戻る</a>
+					</div>
+
+					<form id="post-editor-form" class="admin-editor-layout">
+						<div class="admin-editor-main">
+							<section class="admin-editor-card">
+								<div class="admin-editor-card-header">
+									<h2 data-i18n="sourceContentSection">原文</h2>
+								</div>
+								<div class="admin-editor-card-body">
+									<div class="admin-editor-field">
+										<label for="post-title" data-i18n="postTitle">タイトル</label>
+										<input id="post-title" name="title" type="text" data-i18n-placeholder="postTitlePlaceholder" placeholder="投稿タイトルを入力" />
+									</div>
+									<div class="admin-editor-field">
+										<label for="post-content" data-i18n="postContent">本文</label>
+										<textarea id="post-content" name="content" data-i18n-placeholder="postContentPlaceholder" placeholder="本文を入力してください。Markdownにも対応予定です。"></textarea>
+									</div>
+								</div>
+							</section>
+
+							<section id="manual-translation-panel" class="admin-editor-card admin-editor-manual-panel" hidden>
+								<div class="admin-editor-card-header">
+									<h2 data-i18n="manualTranslationSection">翻訳文を手動入力</h2>
+								</div>
+								<div class="admin-editor-card-body">
+									<div class="admin-editor-field">
+										<label for="translated-title" data-i18n="translatedTitle">翻訳タイトル</label>
+										<input id="translated-title" name="translated-title" type="text" data-i18n-placeholder="translatedTitlePlaceholder" placeholder="翻訳タイトルを入力" />
+									</div>
+									<div class="admin-editor-field">
+										<label for="translated-content" data-i18n="translatedContent">翻訳本文</label>
+										<textarea id="translated-content" class="admin-editor-translation-content" name="translated-content" data-i18n-placeholder="translatedContentPlaceholder" placeholder="翻訳本文を入力"></textarea>
+									</div>
+								</div>
+							</section>
+
+							<section class="admin-editor-card">
+								<div class="admin-editor-actions">
+									<button class="admin-editor-button" type="button" disabled data-i18n="draftSave">下書き保存</button>
+									<button class="admin-editor-button" type="button" disabled data-i18n="preview">プレビュー</button>
+									<button class="admin-editor-button admin-editor-button-primary" type="submit" disabled data-i18n="savePost">保存</button>
+								</div>
+							</section>
+						</div>
+
+						<div class="admin-editor-side">
+							<section class="admin-editor-card">
+								<div class="admin-editor-card-header">
+									<h2 data-i18n="editorSettings">投稿設定</h2>
+								</div>
+								<div class="admin-editor-card-body">
+									<div class="admin-editor-field">
+										<label for="source-language" data-i18n="sourceLanguage">原文言語</label>
+										<select id="source-language" name="source-language">
+											<option value="ko" data-i18n="languageKorean">韓国語</option>
+											<option value="ja" data-i18n="languageJapanese">日本語</option>
+										</select>
+									</div>
+									<div class="admin-editor-field">
+										<label for="post-category" data-i18n="postCategory">カテゴリー</label>
+										<select id="post-category" name="category">
+											<option value="" data-i18n="categoryNone">未選択</option>
+										</select>
+									</div>
+									<div class="admin-editor-field">
+										<label for="post-tags" data-i18n="postTags">タグ</label>
+										<input id="post-tags" name="tags" type="text" data-i18n-placeholder="postTagsPlaceholder" placeholder="タグをカンマ区切りで入力" />
+									</div>
+									<div class="admin-editor-field">
+										<label for="publication-status" data-i18n="publicationStatus">公開状態</label>
+										<select id="publication-status" name="status">
+											<option value="draft" data-i18n="statusDraft">下書き</option>
+											<option value="published" data-i18n="statusPublished">公開</option>
+											<option value="scheduled" data-i18n="statusScheduled">予約公開</option>
+										</select>
+									</div>
+								</div>
+							</section>
+
+							<section class="admin-editor-card">
+								<div class="admin-editor-card-header">
+									<h2 data-i18n="translationSettings">翻訳設定</h2>
+								</div>
+								<div class="admin-editor-card-body">
+									<div class="admin-editor-language-row">
+										<div class="admin-editor-field">
+											<span class="admin-editor-field-title" data-i18n="translationMethod">翻訳方法</span>
+										</div>
+										<div class="admin-editor-target">
+											<span class="admin-editor-field-title" data-i18n="translationTarget">翻訳先</span>
+											<span id="translation-target-language" class="admin-editor-target-badge">日本語</span>
+										</div>
+									</div>
+
+									<div class="admin-editor-radio-list">
+										<label class="admin-editor-radio-card">
+											<input type="radio" name="translation-method" value="ai" />
+											<span class="admin-editor-radio-copy">
+												<strong data-i18n="translationAi">AIで翻訳</strong>
+												<span data-i18n="translationAiDescription">保存時にAI APIで翻訳文を生成します。</span>
+											</span>
+										</label>
+
+										<label class="admin-editor-radio-card">
+											<input type="radio" name="translation-method" value="manual" />
+											<span class="admin-editor-radio-copy">
+												<strong data-i18n="translationManual">手動で入力</strong>
+												<span data-i18n="translationManualDescription">翻訳タイトルと本文を直接入力します。</span>
+											</span>
+										</label>
+
+										<label class="admin-editor-radio-card">
+											<input type="radio" name="translation-method" value="later" checked />
+											<span class="admin-editor-radio-copy">
+												<strong data-i18n="translationLater">後で翻訳</strong>
+												<span data-i18n="translationLaterDescription">今回は原文だけ保存し、翻訳は後から追加します。</span>
+											</span>
+										</label>
+									</div>
+
+									<p class="admin-editor-api-note" data-i18n="editorApiPending">保存・AI翻訳は次の段階でAPIと接続します。</p>
+								</div>
+							</section>
+						</div>
+					</form>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/post-editor.js"></script>
+	<script>
+		const loading = document.getElementById('admin-loading');
+		const shell = document.getElementById('admin-shell');
+		const adminUser = document.getElementById('admin-user');
+		const adminUserToggle = document.getElementById('admin-user-toggle');
+		const adminUserMenu = document.getElementById('admin-user-menu');
+		const adminUserMenuName = document.getElementById('admin-user-menu-name');
+		const adminUserMenuEmail = document.getElementById('admin-user-menu-email');
+		const adminLogout = document.getElementById('admin-logout');
+
+		function setUserMenuOpen(open) {
+			adminUserMenu.hidden = !open;
+			adminUserToggle.setAttribute('aria-expanded', String(open));
+		}
+
+		adminUserToggle.addEventListener('click', () => {
+			setUserMenuOpen(adminUserMenu.hidden);
+		});
+
+		document.addEventListener('click', (event) => {
+			if (!event.target.closest('.admin-user-menu-wrap')) {
+				setUserMenuOpen(false);
+			}
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && !adminUserMenu.hidden) {
+				setUserMenuOpen(false);
+				adminUserToggle.focus();
+			}
+		});
+
+		adminLogout.addEventListener('click', async () => {
+			adminLogout.disabled = true;
+			adminLogout.textContent = window.AdminI18n?.t('logoutLoading') ?? 'ログアウト中…';
+
+			try {
+				await fetch('/api/admin/auth/logout', {
+					method: 'POST',
+					credentials: 'same-origin',
+					headers: { 'Content-Type': 'application/json' },
+				});
+			} finally {
+				window.location.replace('/admin/login/');
+			}
+		});
+
+		async function initializeAdmin() {
+			try {
+				const response = await fetch('/api/admin/auth/session', {
+					method: 'GET',
+					credentials: 'same-origin',
+					cache: 'no-store',
+				});
+
+				if (!response.ok) {
+					window.location.replace('/admin/login/');
+					return;
+				}
+
+				const data = await response.json();
+				if (!data.authenticated) {
+					window.location.replace('/admin/login/');
+					return;
+				}
+
+				await Promise.allSettled([
+					window.AdminI18n?.ready,
+					window.AdminMenu?.ready,
+				]);
+
+				const displayName = data.admin.displayName ?? data.admin.username;
+				adminUser.textContent = displayName;
+				adminUserMenuName.textContent = displayName;
+				adminUserMenuEmail.textContent = data.admin.email ?? '';
+				loading.hidden = true;
+				shell.hidden = false;
+			} catch {
+				window.location.replace('/admin/login/');
+			}
+		}
+
+		initializeAdmin();
+	</script>
+</body>
+</html>
