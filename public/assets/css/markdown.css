@@ -1,0 +1,180 @@
+.song-markdown {
+	word-break: break-word;
+}
+
+.song-markdown > :first-child {
+	margin-top: 0;
+}
+
+.song-markdown > :last-child {
+	margin-bottom: 0;
+}
+
+.song-markdown p {
+	margin: 1.15em 0;
+}
+
+.song-markdown h1,
+.song-markdown h2,
+.song-markdown h3,
+.song-markdown h4,
+.song-markdown h5,
+.song-markdown h6 {
+	margin: 1.7em 0 0.65em;
+	color: #202c3d;
+	font-weight: 800;
+	line-height: 1.35;
+	letter-spacing: -0.02em;
+}
+
+.song-markdown h1 {
+	font-size: 1.8em;
+}
+
+.song-markdown h2 {
+	padding-bottom: 0.35em;
+	border-bottom: 1px solid #e3e8ef;
+	font-size: 1.5em;
+}
+
+.song-markdown h3 {
+	font-size: 1.28em;
+}
+
+.song-markdown h4 {
+	font-size: 1.12em;
+}
+
+.song-markdown h5,
+.song-markdown h6 {
+	font-size: 1em;
+}
+
+.song-markdown strong {
+	color: #202c3d;
+	font-weight: 800;
+}
+
+.song-markdown a {
+	color: #1f56d8;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+.song-markdown a:hover {
+	color: #1744ad;
+}
+
+.song-markdown code {
+	padding: 0.15em 0.4em;
+	border: 1px solid #e0e6ee;
+	border-radius: 5px;
+	background: #f5f7fa;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+	font-size: 0.88em;
+}
+
+.song-markdown pre {
+	overflow-x: auto;
+	margin: 1.4em 0;
+	padding: 16px 18px;
+	border: 1px solid #dfe5ed;
+	border-radius: 10px;
+	background: #182230;
+	color: #e6edf7;
+	line-height: 1.65;
+	-webkit-overflow-scrolling: touch;
+}
+
+.song-markdown pre code {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font-size: 0.88em;
+	white-space: pre;
+}
+
+.song-markdown blockquote {
+	margin: 1.4em 0;
+	padding: 4px 0 4px 16px;
+	border-left: 4px solid #9db4e8;
+	color: #5d6b80;
+}
+
+.song-markdown blockquote > :first-child {
+	margin-top: 0;
+}
+
+.song-markdown blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+.song-markdown ul,
+.song-markdown ol {
+	margin: 1.05em 0;
+	padding-left: 1.7em;
+}
+
+.song-markdown li {
+	margin: 0.35em 0;
+	padding-left: 0.15em;
+}
+
+.song-markdown hr {
+	margin: 2em 0;
+	border: 0;
+	border-top: 1px solid #dfe5ed;
+}
+
+.song-markdown-table-wrap {
+	overflow-x: auto;
+	margin: 1.4em 0;
+	-webkit-overflow-scrolling: touch;
+}
+
+.song-markdown table {
+	width: 100%;
+	min-width: 520px;
+	border-collapse: collapse;
+	font-size: 0.92em;
+}
+
+.song-markdown th,
+.song-markdown td {
+	padding: 10px 12px;
+	border: 1px solid #dfe5ed;
+	text-align: left;
+	vertical-align: top;
+}
+
+.song-markdown th {
+	background: #f5f7fa;
+	color: #344156;
+	font-weight: 800;
+}
+
+.song-markdown del {
+	color: #7b8798;
+}
+
+@media (max-width: 600px) {
+	.song-markdown h1 {
+		font-size: 1.55em;
+	}
+
+	.song-markdown h2 {
+		font-size: 1.35em;
+	}
+
+	.song-markdown h3 {
+		font-size: 1.18em;
+	}
+
+	.song-markdown pre {
+		margin-right: -4px;
+		margin-left: -4px;
+		padding: 14px;
+		border-radius: 8px;
+	}
+}
