@@ -2,7 +2,7 @@
   { "key": "dashboard", "href": "/admin/" },
   { "key": "posts", "href": "/admin/posts/" },
   { "key": "comments", "href": "#" },
-  { "key": "categoriesTags", "href": "#" },
+  { "key": "categories", "href": "/admin/categories/" },
   { "key": "japaneseLearning", "href": "#" },
   { "key": "protectedDocuments", "href": "#" },
   { "key": "accessCodes", "href": "#" }
