@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Posts | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/dashboard.css" />
+	<link rel="stylesheet" href="/assets/css/admin/posts.css" />
+</head>
+<body class="admin-page admin-posts-page">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button
+					id="admin-sidebar-toggle"
+					class="admin-sidebar-toggle"
+					type="button"
+					aria-controls="admin-sidebar"
+					aria-expanded="true"
+					aria-label="管理メニューを閉じる"
+					data-i18n-aria-label="menuCloseLabel"
+				>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</button>
+
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
+					<img src="/assets/logo-song-ym.png" alt="Song YM" />
+					<span>SONG Admin</span>
+				</a>
+			</div>
+
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
+					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
+					<span class="admin-language-divider" aria-hidden="true">|</span>
+					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
+				</div>
+
+				<div class="admin-user-menu-wrap">
+					<button
+						id="admin-user-toggle"
+						class="admin-user-toggle"
+						type="button"
+						aria-haspopup="true"
+						aria-expanded="false"
+						aria-controls="admin-user-menu"
+					>
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info">
+							<strong id="admin-user-menu-name"></strong>
+							<span id="admin-user-menu-email"></span>
+						</div>
+						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="admin-header-accent" aria-hidden="true"></div>
+
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
+
+				<div class="admin-sidebar-footer">
+					<a href="/" data-i18n="viewSite">サイトを表示</a>
+				</div>
+			</aside>
+
+			<button
+				id="admin-sidebar-backdrop"
+				class="admin-sidebar-backdrop"
+				type="button"
+				tabindex="-1"
+				aria-label="管理メニューを閉じる"
+				data-i18n-aria-label="menuCloseLabel"
+				hidden
+			></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading-row">
+						<div class="admin-page-heading">
+							<h1 data-i18n="postsPageTitle">投稿管理</h1>
+							<p data-i18n="postsPageDescription">記事の作成・編集・翻訳・公開状態を管理します。</p>
+						</div>
+
+						<a id="admin-new-post" class="admin-posts-new-button" href="#" aria-disabled="true" data-i18n="newPost">新規投稿</a>
+					</div>
+
+					<section class="admin-posts-panel" aria-labelledby="postsPageTitle">
+						<div class="admin-posts-toolbar">
+							<div class="admin-posts-field">
+								<label for="post-search" data-i18n="searchLabel">投稿を検索</label>
+								<input id="post-search" type="search" placeholder="タイトルを検索" data-i18n-placeholder="searchPostsPlaceholder" disabled />
+							</div>
+
+							<div class="admin-posts-field">
+								<label for="post-status" data-i18n="statusLabel">公開状態</label>
+								<select id="post-status" disabled>
+									<option data-i18n="filterStatusAll">すべての状態</option>
+									<option data-i18n="statusPublished">公開</option>
+									<option data-i18n="statusDraft">下書き</option>
+									<option data-i18n="statusScheduled">予約公開</option>
+								</select>
+							</div>
+
+							<div class="admin-posts-field">
+								<label for="post-language" data-i18n="languageFilterLabel">言語</label>
+								<select id="post-language" disabled>
+									<option data-i18n="filterLanguageAll">すべての言語</option>
+									<option data-i18n="languageJapanese">日本語</option>
+									<option data-i18n="languageKorean">韓国語</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="admin-posts-table-wrap" aria-hidden="true">
+							<table class="admin-posts-table">
+								<thead>
+									<tr>
+										<th data-i18n="tableTitle">タイトル</th>
+										<th data-i18n="tableLanguage">言語</th>
+										<th data-i18n="tableStatus">状態</th>
+										<th data-i18n="tableUpdatedAt">更新日時</th>
+										<th data-i18n="tableActions">操作</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+
+						<div class="admin-posts-empty">
+							<div class="admin-posts-empty-inner">
+								<div class="admin-posts-empty-icon" aria-hidden="true">✎</div>
+								<h2 data-i18n="emptyPostsTitle">投稿はまだありません</h2>
+								<p data-i18n="emptyPostsDescription">最初の投稿を作成すると、ここに一覧が表示されます。</p>
+							</div>
+						</div>
+					</section>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script>
+		const loading = document.getElementById('admin-loading');
+		const shell = document.getElementById('admin-shell');
+		const adminUser = document.getElementById('admin-user');
+		const adminUserToggle = document.getElementById('admin-user-toggle');
+		const adminUserMenu = document.getElementById('admin-user-menu');
+		const adminUserMenuName = document.getElementById('admin-user-menu-name');
+		const adminUserMenuEmail = document.getElementById('admin-user-menu-email');
+		const adminLogout = document.getElementById('admin-logout');
+		const adminNewPost = document.getElementById('admin-new-post');
+
+		function setUserMenuOpen(open) {
+			adminUserMenu.hidden = !open;
+			adminUserToggle.setAttribute('aria-expanded', String(open));
+		}
+
+		adminUserToggle.addEventListener('click', () => {
+			setUserMenuOpen(adminUserMenu.hidden);
+		});
+
+		document.addEventListener('click', (event) => {
+			if (!event.target.closest('.admin-user-menu-wrap')) {
+				setUserMenuOpen(false);
+			}
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && !adminUserMenu.hidden) {
+				setUserMenuOpen(false);
+				adminUserToggle.focus();
+			}
+		});
+
+		adminNewPost.addEventListener('click', (event) => {
+			event.preventDefault();
+		});
+
+		adminLogout.addEventListener('click', async () => {
+			adminLogout.disabled = true;
+			adminLogout.textContent = window.AdminI18n?.t('logoutLoading') ?? 'ログアウト中…';
+
+			try {
+				await fetch('/api/admin/auth/logout', {
+					method: 'POST',
+					credentials: 'same-origin',
+					headers: { 'Content-Type': 'application/json' },
+				});
+			} finally {
+				window.location.replace('/admin/login/');
+			}
+		});
+
+		async function initializeAdmin() {
+			try {
+				const response = await fetch('/api/admin/auth/session', {
+					method: 'GET',
+					credentials: 'same-origin',
+					cache: 'no-store',
+				});
+
+				if (!response.ok) {
+					window.location.replace('/admin/login/');
+					return;
+				}
+
+				const data = await response.json();
+				if (!data.authenticated) {
+					window.location.replace('/admin/login/');
+					return;
+				}
+
+				await Promise.allSettled([
+					window.AdminI18n?.ready,
+					window.AdminMenu?.ready,
+				]);
+
+				const displayName = data.admin.displayName ?? data.admin.username;
+				adminUser.textContent = displayName;
+				adminUserMenuName.textContent = displayName;
+				adminUserMenuEmail.textContent = data.admin.email ?? '';
+				loading.hidden = true;
+				shell.hidden = false;
+			} catch {
+				window.location.replace('/admin/login/');
+			}
+		}
+
+		initializeAdmin();
+	</script>
+</body>
+</html>
