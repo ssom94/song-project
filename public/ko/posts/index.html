@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>게시글 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/posts.css" />
+</head>
+<body class="blog-page blog-posts-page" data-blog-language="ko">
+	<header class="blog-header">
+		<div class="blog-header-inner">
+			<a class="blog-brand" href="/" aria-label="SONG Home">
+				<img src="/assets/logo-song-ym.png" alt="Song YM" />
+			</a>
+			<nav class="blog-nav" aria-label="Main navigation">
+				<a href="/">Home</a>
+				<a class="is-active" href="/ko/posts/">게시글</a>
+			</nav>
+			<div class="blog-language-switch" aria-label="Language">
+				<a href="/ja/posts/">日本語</a>
+				<span aria-hidden="true">/</span>
+				<span class="is-active">한국어</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="blog-main">
+		<section class="blog-posts-hero">
+			<p class="blog-posts-kicker">Blog</p>
+			<h1>게시글</h1>
+			<p>개발, 학습, 업무에서 얻은 지식과 경험을 기록합니다.</p>
+		</section>
+
+		<div id="public-posts-loading" class="blog-state">게시글을 불러오는 중…</div>
+		<section id="public-posts-list" class="blog-post-list" aria-live="polite"></section>
+		<section id="public-posts-empty" class="blog-state blog-state-card" hidden>
+			<h2>아직 공개된 게시글이 없습니다</h2>
+			<p>새 게시글을 공개하면 여기에 표시됩니다.</p>
+		</section>
+		<section id="public-posts-error" class="blog-state blog-state-card" hidden>
+			<h2>게시글을 불러오지 못했습니다</h2>
+			<p>잠시 후 다시 시도해 주세요.</p>
+		</section>
+	</main>
+
+	<script src="/assets/js/blog/posts-list.js"></script>
+</body>
+</html>
