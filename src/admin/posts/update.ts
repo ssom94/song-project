@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { parseTagIds, prepareInsertPostTagStatements, validateTagIds } from './tag-selection';
 
 type SupportedLanguage = 'ja' | 'ko';
 type PostStatus = 'draft' | 'published' | 'private';
@@ -13,6 +14,7 @@ interface UpdatePostPayload {
 	translatedTitle?: unknown;
 	translatedContent?: unknown;
 	categoryId?: unknown;
+	tagIds?: unknown;
 }
 
 interface ExistingPostRow {
@@ -140,6 +142,7 @@ export async function handleUpdateAdminPost(request: Request, env: Env): Promise
 	const translationMethod = payload.translationMethod;
 	const translatedTitle = typeof payload.translatedTitle === 'string' ? payload.translatedTitle.trim() : '';
 	const translatedContent = typeof payload.translatedContent === 'string' ? payload.translatedContent.trim() : '';
+	const tagIds = parseTagIds(payload.tagIds);
 
 	if (!title || !content) {
 		return json({ ok: false, error: 'TITLE_AND_CONTENT_REQUIRED' }, 400);
@@ -155,6 +158,9 @@ export async function handleUpdateAdminPost(request: Request, env: Env): Promise
 	}
 	if (translationMethod !== 'ai' && translationMethod !== 'manual' && translationMethod !== 'later') {
 		return json({ ok: false, error: 'INVALID_TRANSLATION_METHOD' }, 400);
+	}
+	if (!tagIds) {
+		return json({ ok: false, error: 'INVALID_TAGS' }, 400);
 	}
 	if (translationMethod === 'manual') {
 		if (!translatedTitle || !translatedContent) {
@@ -205,15 +211,26 @@ export async function handleUpdateAdminPost(request: Request, env: Env): Promise
 		categoryId = parsedCategoryId;
 	}
 
-	const translationsResult = await env.song_project_db
-		.prepare(`
-			SELECT language_code, title, slug, content, excerpt, translation_status
-			FROM post_translations
-			WHERE post_id = ?1
-		`)
-		.bind(postId)
-		.all<ExistingTranslationRow>();
+	if (!(await validateTagIds(env.song_project_db, tagIds))) {
+		return json({ ok: false, error: 'INVALID_TAGS' }, 400);
+	}
 
+	const [translationsResult, existingTagRows] = await Promise.all([
+		env.song_project_db
+			.prepare(`
+				SELECT language_code, title, slug, content, excerpt, translation_status
+				FROM post_translations
+				WHERE post_id = ?1
+			`)
+			.bind(postId)
+			.all<ExistingTranslationRow>(),
+		env.song_project_db
+			.prepare('SELECT tag_id FROM post_tags WHERE post_id = ?1 ORDER BY tag_id ASC')
+			.bind(postId)
+			.all<{ tag_id: number }>(),
+	]);
+
+	const existingTagIds = existingTagRows.results.map((row) => row.tag_id);
 	const sourceTranslation = translationsResult.results.find(
 		(translation) => translation.language_code === existingPost.original_language,
 	);
@@ -358,6 +375,13 @@ export async function handleUpdateAdminPost(request: Request, env: Env): Promise
 
 	statements.push(
 		env.song_project_db
+			.prepare('DELETE FROM post_tags WHERE post_id = ?1')
+			.bind(postId),
+		...prepareInsertPostTagStatements(env.song_project_db, postId, tagIds),
+	);
+
+	statements.push(
+		env.song_project_db
 			.prepare(`
 				INSERT INTO audit_logs
 					(admin_id, entity_type, entity_id, action, before_data, after_data, country_code, user_agent)
@@ -369,12 +393,14 @@ export async function handleUpdateAdminPost(request: Request, env: Env): Promise
 				JSON.stringify({
 					status: existingPost.status,
 					categoryId: existingPost.category_id,
+					tagIds: existingTagIds,
 					title: sourceTranslation.title,
 					targetTranslationStatus: targetTranslation?.translation_status ?? null,
 				}),
 				JSON.stringify({
 					status,
 					categoryId,
+					tagIds,
 					title,
 					translationMethod,
 					targetTranslationStatus,
@@ -398,6 +424,7 @@ export async function handleUpdateAdminPost(request: Request, env: Env): Promise
 			originalLanguage: existingPost.original_language,
 			status,
 			categoryId,
+			tagIds,
 			updatedAt: now,
 			sourceRevision,
 		},
