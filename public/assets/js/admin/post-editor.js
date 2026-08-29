@@ -63,13 +63,12 @@
 		if (!sourceLanguage) return;
 
 		if (!sourceLanguage.querySelector('option[value="auto"]')) {
-			const autoOption = document.createElement('option');
-			autoOption.value = 'auto';
-			autoOption.dataset.i18n = 'languageAuto';
-			autoOption.textContent = window.AdminI18n?.t('languageAuto') ?? '自動判定';
-			sourceLanguage.prepend(autoOption);
+			const option = document.createElement('option');
+			option.value = 'auto';
+			option.dataset.i18n = 'languageAuto';
+			option.textContent = window.AdminI18n?.t('languageAuto') ?? '自動判定';
+			sourceLanguage.prepend(option);
 		}
-
 		if (editorMode === 'create') sourceLanguage.value = 'auto';
 
 		if (!document.getElementById('source-language-auto-description')) {
@@ -94,7 +93,6 @@
 			badge.id = 'detected-source-language';
 			badge.className = 'admin-editor-detected-badge is-waiting';
 			badge.textContent = languageLabel(null);
-
 			row.append(label, badge);
 			sourceLanguage.closest('.admin-editor-field')?.appendChild(row);
 		}
@@ -109,7 +107,6 @@
 			rule.className = 'admin-editor-mixed-language-note';
 			rule.dataset.i18n = 'mixedLanguageRule';
 			rule.textContent = window.AdminI18n?.t('mixedLanguageRule') ?? '混在する対象言語の部分はそのまま残し、必要な部分だけ翻訳します。';
-
 			const apiNote = translationBody.querySelector('.admin-editor-api-note');
 			if (apiNote) translationBody.insertBefore(rule, apiNote);
 			else translationBody.appendChild(rule);
@@ -125,15 +122,13 @@
 			option.textContent = window.AdminI18n?.t('statusPrivate') ?? '非公開';
 			statusSelect.appendChild(option);
 		}
-
-		const scheduledOption = statusSelect.querySelector('option[value="scheduled"]');
-		if (scheduledOption) scheduledOption.disabled = true;
+		const scheduled = statusSelect.querySelector('option[value="scheduled"]');
+		if (scheduled) scheduled.disabled = true;
 	}
 
 	function ensureSaveStatusUi() {
 		const actions = document.querySelector('.admin-editor-actions');
 		if (!actions || document.getElementById('post-save-status')) return;
-
 		const status = document.createElement('p');
 		status.id = 'post-save-status';
 		status.className = 'admin-editor-save-status';
@@ -145,27 +140,21 @@
 	function refreshDynamicLabels() {
 		const autoOption = sourceLanguage?.querySelector('option[value="auto"]');
 		if (autoOption) autoOption.textContent = window.AdminI18n?.t('languageAuto') ?? '自動判定';
-
 		const privateOption = statusSelect?.querySelector('option[value="private"]');
 		if (privateOption) privateOption.textContent = window.AdminI18n?.t('statusPrivate') ?? '非公開';
-
 		const description = document.getElementById('source-language-auto-description');
 		if (description) description.textContent = window.AdminI18n?.t('sourceLanguageAutoDescription') ?? 'タイトルと本文から言語を自動判定します。';
-
 		const detectedLabel = detectedLanguageRow?.querySelector('span');
 		if (detectedLabel) detectedLabel.textContent = window.AdminI18n?.t('detectedLanguageLabel') ?? '判定結果';
-
 		const mixedRule = document.getElementById('mixed-language-rule');
 		if (mixedRule) mixedRule.textContent = window.AdminI18n?.t('mixedLanguageRule') ?? '混在する対象言語の部分はそのまま残し、必要な部分だけ翻訳します。';
-
 		if (saveStatus?.dataset.messageKey) {
 			saveStatus.textContent = window.AdminI18n?.t(saveStatus.dataset.messageKey) ?? saveStatus.textContent;
 		}
 	}
 
 	function getDetectedLanguage() {
-		const text = `${titleInput?.value ?? ''}\n${contentInput?.value ?? ''}`.trim();
-		return detectSourceLanguage(text);
+		return detectSourceLanguage(`${titleInput?.value ?? ''}\n${contentInput?.value ?? ''}`.trim());
 	}
 
 	function getEffectiveSourceLanguage() {
@@ -175,29 +164,24 @@
 
 	function updateLanguageState() {
 		if (!sourceLanguage || !targetLanguageBadge) return;
-
 		const automatic = sourceLanguage.value === 'auto';
-		const effectiveSourceLanguage = getEffectiveSourceLanguage();
-		const targetLanguage = oppositeLanguage(effectiveSourceLanguage);
+		const source = getEffectiveSourceLanguage();
+		const target = oppositeLanguage(source);
 		const description = document.getElementById('source-language-auto-description');
 
 		if (description) description.hidden = !automatic;
 		if (detectedLanguageRow && detectedLanguageBadge) {
 			detectedLanguageRow.hidden = !automatic;
-			detectedLanguageBadge.textContent = languageLabel(effectiveSourceLanguage);
-			detectedLanguageBadge.classList.toggle('is-waiting', !effectiveSourceLanguage);
-			detectedLanguageBadge.dataset.detectedLanguage = effectiveSourceLanguage ?? '';
+			detectedLanguageBadge.textContent = languageLabel(source);
+			detectedLanguageBadge.classList.toggle('is-waiting', !source);
 		}
-
-		targetLanguageBadge.textContent = languageLabel(targetLanguage);
-		targetLanguageBadge.classList.toggle('is-waiting', !targetLanguage);
-		targetLanguageBadge.dataset.targetLanguage = targetLanguage ?? '';
+		targetLanguageBadge.textContent = languageLabel(target);
+		targetLanguageBadge.classList.toggle('is-waiting', !target);
 	}
 
 	function updateTranslationMethod() {
 		const selected = document.querySelector('input[name="translation-method"]:checked');
-		if (!manualPanel || !selected) return;
-		manualPanel.hidden = selected.value !== 'manual';
+		if (manualPanel && selected) manualPanel.hidden = selected.value !== 'manual';
 	}
 
 	function selectTranslationMethod(method) {
@@ -249,12 +233,12 @@
 			translatedTitle: translatedTitleInput?.value.trim() ?? '',
 			translatedContent: translatedContentInput?.value.trim() ?? '',
 			categoryId: categorySelect?.value || null,
+			tagIds: window.AdminPostCategories?.getSelectedTagIds?.() ?? [],
 		};
 	}
 
 	async function showValidationWarning(messageKey, target) {
 		clearSaveError();
-
 		if (window.AdminCommon?.alert) {
 			await window.AdminCommon.alert({
 				titleKey: 'validationWarningTitle',
@@ -265,14 +249,12 @@
 		} else {
 			window.alert(window.AdminI18n?.t(messageKey) ?? messageKey);
 		}
-
 		requestAnimationFrame(() => target?.focus({ preventScroll: false }));
 	}
 
 	async function validateBeforeSave() {
 		const titleMissing = !titleInput?.value.trim();
 		const contentMissing = !contentInput?.value.trim();
-
 		if (titleMissing && contentMissing) {
 			await showValidationWarning('postRequiredFields', titleInput);
 			return false;
@@ -301,7 +283,6 @@
 				return false;
 			}
 		}
-
 		return true;
 	}
 
@@ -324,21 +305,17 @@
 		if (!(await validateBeforeSave())) return;
 
 		setSaving(true);
-		const payload = buildPayload(forceDraft);
-
 		try {
 			const response = await fetch('/api/admin/posts', {
 				method: 'POST',
 				credentials: 'same-origin',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(payload),
+				body: JSON.stringify(buildPayload(forceDraft)),
 			});
-
 			if (response.status === 401) {
 				window.location.replace('/admin/login/');
 				return;
 			}
-
 			const result = await response.json().catch(() => null);
 			if (!response.ok || !result?.ok) {
 				console.error('Post save failed', result);
@@ -366,11 +343,9 @@
 
 	function loadPostData(post) {
 		if (!post || !Array.isArray(post.translations)) return false;
-
 		const originalLanguage = post.originalLanguage;
 		const source = post.translations.find((translation) => translation.languageCode === originalLanguage);
 		if (!source) return false;
-
 		const targetLanguage = oppositeLanguage(originalLanguage);
 		const translated = post.translations.find((translation) => translation.languageCode === targetLanguage);
 
@@ -378,10 +353,7 @@
 		titleInput.value = source.title ?? '';
 		contentInput.value = source.content ?? '';
 
-		if (statusSelect?.querySelector(`option[value="${post.status}"]`)) {
-			statusSelect.value = post.status;
-		}
-
+		if (statusSelect?.querySelector(`option[value="${post.status}"]`)) statusSelect.value = post.status;
 		if (post.categoryId && categorySelect && !categorySelect.querySelector(`option[value="${post.categoryId}"]`)) {
 			const option = document.createElement('option');
 			option.value = String(post.categoryId);
@@ -389,6 +361,7 @@
 			categorySelect.appendChild(option);
 		}
 		if (categorySelect) categorySelect.value = post.categoryId ? String(post.categoryId) : '';
+		window.AdminPostCategories?.setSelectedTagIds?.(post.tagIds ?? []);
 
 		if (translated) {
 			translatedTitleInput.value = translated.title ?? '';
@@ -419,7 +392,7 @@
 		draftButton = document.querySelector('button[data-i18n="draftSave"]');
 		saveButton = document.querySelector('button[data-i18n="savePost"]');
 
-		if (!sourceLanguage || !targetLanguageBadge || !manualPanel) {
+		if (!sourceLanguage || !titleInput || !contentInput || !targetLanguageBadge || !manualPanel) {
 			resolveReady(false);
 			return;
 		}
@@ -441,11 +414,11 @@
 			clearSaveError();
 			updateLanguageState();
 		});
-		titleInput?.addEventListener('input', () => {
+		titleInput.addEventListener('input', () => {
 			clearSaveError();
 			updateLanguageState();
 		});
-		contentInput?.addEventListener('input', () => {
+		contentInput.addEventListener('input', () => {
 			clearSaveError();
 			updateLanguageState();
 		});
@@ -459,17 +432,14 @@
 			});
 		});
 
-		if (editorMode === 'create') {
-			draftButton?.addEventListener('click', () => savePost(true));
-		}
+		if (editorMode === 'create') draftButton?.addEventListener('click', () => savePost(true));
 
 		document.addEventListener('adminlanguagechange', () => {
 			refreshDynamicLabels();
 			updateLanguageState();
 		});
 
-		const form = document.getElementById('post-editor-form');
-		form?.addEventListener('submit', (event) => {
+		document.getElementById('post-editor-form')?.addEventListener('submit', (event) => {
 			event.preventDefault();
 			if (editorMode === 'create') savePost(false);
 		});
