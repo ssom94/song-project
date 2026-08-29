@@ -24,6 +24,10 @@
 		else openSidebar();
 	}
 
+	function activeCategory() {
+		return new URLSearchParams(window.location.search).get('category')?.trim() ?? '';
+	}
+
 	function renderCategories(posts, language) {
 		const container = byId('blog-sidebar-categories');
 		const empty = byId('blog-sidebar-categories-empty');
@@ -37,9 +41,14 @@
 		container.replaceChildren();
 		const entries = [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], language === 'ko' ? 'ko' : 'ja'));
 		if (empty) empty.hidden = entries.length > 0;
+		const selected = activeCategory();
 		for (const [category, count] of entries) {
 			const link = document.createElement('a');
 			link.className = 'blog-sidebar-category-link';
+			if (selected === category) {
+				link.classList.add('is-active');
+				link.setAttribute('aria-current', 'page');
+			}
 			link.href = `/${language}/posts/?category=${encodeURIComponent(category)}`;
 			const label = document.createElement('span');
 			label.textContent = category;
