@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { parseTagIds, prepareInsertPostTagStatements, validateTagIds } from './tag-selection';
 
 type SupportedLanguage = 'ja' | 'ko';
 
@@ -11,6 +12,7 @@ interface CreatePostPayload {
 	translatedTitle?: unknown;
 	translatedContent?: unknown;
 	categoryId?: unknown;
+	tagIds?: unknown;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -108,6 +110,7 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 	const translationMethod = payload.translationMethod;
 	const translatedTitle = typeof payload.translatedTitle === 'string' ? payload.translatedTitle.trim() : '';
 	const translatedContent = typeof payload.translatedContent === 'string' ? payload.translatedContent.trim() : '';
+	const tagIds = parseTagIds(payload.tagIds);
 
 	if (!title || !content) {
 		return json({ ok: false, error: 'TITLE_AND_CONTENT_REQUIRED' }, 400);
@@ -123,6 +126,9 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 	}
 	if (translationMethod !== 'ai' && translationMethod !== 'manual' && translationMethod !== 'later') {
 		return json({ ok: false, error: 'INVALID_TRANSLATION_METHOD' }, 400);
+	}
+	if (!tagIds) {
+		return json({ ok: false, error: 'INVALID_TAGS' }, 400);
 	}
 
 	const resolvedSourceLanguage: SupportedLanguage | null = sourceLanguageMode === 'auto'
@@ -159,12 +165,16 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 		categoryId = parsedCategoryId;
 	}
 
+	if (!(await validateTagIds(env.song_project_db, tagIds))) {
+		return json({ ok: false, error: 'INVALID_TAGS' }, 400);
+	}
+
 	const postId = makePostId();
 	const sourceSlug = makeSlug(title, postId);
 	const sourceExcerpt = makeExcerpt(content);
 	const publishedAt = status === 'published' ? new Date().toISOString() : null;
 
-	const statements = [
+	const statements: D1PreparedStatement[] = [
 		env.song_project_db
 			.prepare(`
 				INSERT INTO posts (id, original_language, status, category_id, published_at)
@@ -233,6 +243,8 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 		);
 	}
 
+	statements.push(...prepareInsertPostTagStatements(env.song_project_db, postId, tagIds));
+
 	statements.push(
 		env.song_project_db
 			.prepare(`
@@ -245,6 +257,8 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 				JSON.stringify({
 					originalLanguage: resolvedSourceLanguage,
 					status,
+					categoryId,
+					tagIds,
 					translationMethod,
 					hasManualTranslation: translationMethod === 'manual',
 				}),
@@ -267,6 +281,8 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 			originalLanguage: resolvedSourceLanguage,
 			targetLanguage,
 			status,
+			categoryId,
+			tagIds,
 			slug: sourceSlug,
 		},
 		translation: {
