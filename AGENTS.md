@@ -53,14 +53,21 @@ public/assets/js/admin/
 Public blog frontend structure:
 
 ```text
-public/assets/css/blog/
-├─ common.css        # shared public blog header, language switch, chips, common states
-├─ posts.css         # public post list only
-└─ post-detail.css   # public post detail only
+public/assets/css/
+├─ common.css        # site-wide tokens and base element rules
+├─ markdown.css      # shared safe Markdown presentation for preview/public posts
+└─ blog/
+   ├─ common.css     # shared public header, language switch, chips, common states
+   ├─ home.css       # public portfolio/blog home only
+   ├─ posts.css      # public post list and reusable post-card presentation
+   └─ post-detail.css
 
-public/assets/js/blog/
-├─ posts-list.js     # loads published posts for /ja/posts/ and /ko/posts/
-└─ post-detail.js    # renders localized post detail and missing-translation state
+public/assets/js/
+├─ markdown.js       # shared DOM-based Markdown renderer; do not execute raw HTML
+└─ blog/
+   ├─ home.js        # bilingual public home and recent published posts
+   ├─ posts-list.js  # loads published posts for /ja/posts/ and /ko/posts/
+   └─ post-detail.js # renders localized post detail and missing-translation state
 ```
 
 Public post routes are `/ja/posts/`, `/ko/posts/`, and `/{lang}/posts/:slug`. Public APIs must never return draft/private posts or translations whose status is `pending`.
