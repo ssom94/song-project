@@ -15,6 +15,7 @@ import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
 import { handleCreateAdminPost } from './admin/posts/create';
+import { handleGetAdminPost } from './admin/posts/detail';
 import { handleListAdminPosts } from './admin/posts/list';
 
 export default {
@@ -60,6 +61,14 @@ export default {
 					status: 405,
 					headers: { Allow: 'GET, POST' },
 				});
+			case '/api/admin/posts/detail':
+				if (request.method !== 'GET') {
+					return new Response('Method Not Allowed', {
+						status: 405,
+						headers: { Allow: 'GET' },
+					});
+				}
+				return handleGetAdminPost(request, env);
 			default:
 				return new Response('Not Found', { status: 404 });
 		}
