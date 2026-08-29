@@ -26,6 +26,12 @@ import {
 	handleListAdminJapaneseParts,
 	handleUpdateAdminJapanesePart,
 } from './admin/japanese/parts';
+import {
+	handleCreateAdminJapaneseCategory,
+	handleDeleteAdminJapaneseCategory,
+	handleListAdminJapaneseCategories,
+	handleUpdateAdminJapaneseCategory,
+} from './admin/japanese/categories';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -113,6 +119,14 @@ export default {
 			case '/api/admin/japanese/parts/detail':
 				if (request.method === 'PATCH') return handleUpdateAdminJapanesePart(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminJapanesePart(request, env);
+				return methodNotAllowed('PATCH, DELETE');
+			case '/api/admin/japanese/categories':
+				if (request.method === 'GET') return handleListAdminJapaneseCategories(request, env);
+				if (request.method === 'POST') return handleCreateAdminJapaneseCategory(request, env);
+				return methodNotAllowed('GET, POST');
+			case '/api/admin/japanese/categories/detail':
+				if (request.method === 'PATCH') return handleUpdateAdminJapaneseCategory(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminJapaneseCategory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
 			default:
 				return new Response('Not Found', { status: 404 });
