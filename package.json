@@ -8,6 +8,8 @@
     "start": "wrangler dev",
     "test": "vitest",
     "cf-typegen": "wrangler types",
+    "db:migrate:local": "wrangler d1 migrations apply song-project-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply song-project-db --remote",
     "seed:test:local": "wrangler d1 execute song-project-db --local --file=./seeds/test_data.sql",
     "seed:test:remote": "wrangler d1 execute song-project-db --remote --file=./seeds/test_data.sql"
   },
