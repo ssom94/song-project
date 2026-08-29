@@ -1,0 +1,9 @@
+[
+  { "key": "dashboard", "href": "/admin/" },
+  { "key": "posts", "href": "#" },
+  { "key": "comments", "href": "#" },
+  { "key": "categoriesTags", "href": "#" },
+  { "key": "japaneseLearning", "href": "#" },
+  { "key": "protectedDocuments", "href": "#" },
+  { "key": "accessCodes", "href": "#" }
+]
