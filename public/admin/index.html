@@ -26,9 +26,27 @@
 					<button type="button" aria-pressed="false">한국어</button>
 				</div>
 
-				<div class="admin-user-block">
-					<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
-					<span id="admin-user" class="admin-user"></span>
+				<div class="admin-user-menu-wrap">
+					<button
+						id="admin-user-toggle"
+						class="admin-user-toggle"
+						type="button"
+						aria-haspopup="true"
+						aria-expanded="false"
+						aria-controls="admin-user-menu"
+					>
+						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
+						<span id="admin-user" class="admin-user"></span>
+						<span class="admin-user-chevron" aria-hidden="true"></span>
+					</button>
+
+					<div id="admin-user-menu" class="admin-user-menu" hidden>
+						<div class="admin-user-menu-info">
+							<strong id="admin-user-menu-name"></strong>
+							<span id="admin-user-menu-email"></span>
+						</div>
+						<button id="admin-logout" class="admin-logout-button" type="button">ログアウト</button>
+					</div>
 				</div>
 			</div>
 		</header>
@@ -95,6 +113,48 @@
 		const loading = document.getElementById('admin-loading');
 		const shell = document.getElementById('admin-shell');
 		const adminUser = document.getElementById('admin-user');
+		const adminUserToggle = document.getElementById('admin-user-toggle');
+		const adminUserMenu = document.getElementById('admin-user-menu');
+		const adminUserMenuName = document.getElementById('admin-user-menu-name');
+		const adminUserMenuEmail = document.getElementById('admin-user-menu-email');
+		const adminLogout = document.getElementById('admin-logout');
+
+		function setUserMenuOpen(open) {
+			adminUserMenu.hidden = !open;
+			adminUserToggle.setAttribute('aria-expanded', String(open));
+		}
+
+		adminUserToggle.addEventListener('click', () => {
+			setUserMenuOpen(adminUserMenu.hidden);
+		});
+
+		document.addEventListener('click', (event) => {
+			if (!event.target.closest('.admin-user-menu-wrap')) {
+				setUserMenuOpen(false);
+			}
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				setUserMenuOpen(false);
+				adminUserToggle.focus();
+			}
+		});
+
+		adminLogout.addEventListener('click', async () => {
+			adminLogout.disabled = true;
+			adminLogout.textContent = 'ログアウト中…';
+
+			try {
+				await fetch('/api/admin/auth/logout', {
+					method: 'POST',
+					credentials: 'same-origin',
+					headers: { 'Content-Type': 'application/json' },
+				});
+			} finally {
+				window.location.replace('/admin/login/');
+			}
+		});
 
 		async function initializeAdmin() {
 			try {
@@ -115,7 +175,10 @@
 					return;
 				}
 
-				adminUser.textContent = data.admin.displayName ?? data.admin.username;
+				const displayName = data.admin.displayName ?? data.admin.username;
+				adminUser.textContent = displayName;
+				adminUserMenuName.textContent = displayName;
+				adminUserMenuEmail.textContent = data.admin.email ?? '';
 				loading.hidden = true;
 				shell.hidden = false;
 			} catch {
