@@ -39,8 +39,8 @@ public/assets/js/admin/
 ├─ layout.js       # sidebar and responsive layout behavior
 ├─ login.js        # login page only
 ├─ posts-list.js   # post list loading, search, filters, edit links
-├─ post-editor.js  # shared create/edit editor behavior
-└─ post-edit.js    # edit page data loading only
+├─ post-editor.js  # shared post create/edit form behavior and validation
+└─ post-edit.js    # existing post loading and update requests
 ```
 
 Current CSS structure follows the same principle under `public/assets/css/` and `public/assets/css/admin/`.
