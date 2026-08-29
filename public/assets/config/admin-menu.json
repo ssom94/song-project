@@ -2,9 +2,9 @@
   { "key": "dashboard", "href": "/admin/" },
   { "key": "dashboardGoals", "href": "/admin/goals/" },
   { "key": "posts", "href": "/admin/posts/" },
-  { "key": "comments", "href": "#" },
+  { "key": "comments", "href": "/admin/comments/" },
   { "key": "categoriesTags", "href": "/admin/categories/" },
   { "key": "japaneseLearning", "href": "/admin/japanese/" },
-  { "key": "protectedDocuments", "href": "#" },
-  { "key": "accessCodes", "href": "#" }
+  { "key": "protectedDocuments", "href": "/admin/documents/" },
+  { "key": "accessCodes", "href": "/admin/access-codes/" }
 ]
