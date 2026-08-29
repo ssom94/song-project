@@ -20,6 +20,15 @@
 		return t('statusDraft', '下書き');
 	}
 
+	function categoryLabel(post) {
+		if (!post?.categoryId) return t('categoryNone', '未分類');
+		const language = window.AdminI18n?.getLanguage?.() ?? 'ja';
+		return post.categoryNames?.[language]
+			?? post.categoryNames?.ja
+			?? post.categoryNames?.ko
+			?? `#${post.categoryId}`;
+	}
+
 	function formatDate(value) {
 		const date = new Date(value);
 		if (Number.isNaN(date.getTime())) return value ?? '';
@@ -84,11 +93,11 @@
 		return badge;
 	}
 
-	function createEditLink(post, className) {
+	function createViewLink(post, className) {
 		const link = document.createElement('a');
 		link.className = className;
 		link.href = `/admin/posts/edit/?id=${encodeURIComponent(String(post.id))}`;
-		link.textContent = className === 'admin-post-title-link' ? post.title : t('editPost', '編集');
+		link.textContent = className === 'admin-post-title-link' ? post.title : t('viewPost', '表示');
 		return link;
 	}
 
@@ -119,8 +128,17 @@
 
 		for (const post of filteredPosts) {
 			const row = document.createElement('tr');
+
+			const numberCell = document.createElement('td');
+			numberCell.className = 'admin-post-number';
+			numberCell.textContent = String(post.postNumber ?? '');
+
 			const titleCell = document.createElement('td');
-			titleCell.appendChild(createEditLink(post, 'admin-post-title-link'));
+			titleCell.appendChild(createViewLink(post, 'admin-post-title-link'));
+
+			const categoryCell = document.createElement('td');
+			categoryCell.className = 'admin-post-category';
+			categoryCell.textContent = categoryLabel(post);
 
 			const languageCell = document.createElement('td');
 			languageCell.textContent = languageLabel(post.originalLanguage);
@@ -133,9 +151,9 @@
 			updatedCell.textContent = formatDate(post.updatedAt);
 
 			const actionCell = document.createElement('td');
-			actionCell.appendChild(createEditLink(post, 'admin-post-edit-link'));
+			actionCell.appendChild(createViewLink(post, 'admin-post-edit-link'));
 
-			row.append(titleCell, languageCell, statusCell, updatedCell, actionCell);
+			row.append(numberCell, titleCell, categoryCell, languageCell, statusCell, updatedCell, actionCell);
 			tbody.appendChild(row);
 		}
 
