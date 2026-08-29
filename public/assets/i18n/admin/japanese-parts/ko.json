@@ -1,4 +1,6 @@
 {
+  "japaneseTabWords": "단어",
+  "japaneseTabParts": "품사",
   "partsPageTitle": "일본어 학습·품사 관리",
   "partsPageDescription": "단어에 지정할 품사와 계층을 관리합니다.",
   "partsCreateTitle": "품사 추가",
