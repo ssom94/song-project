@@ -22,7 +22,9 @@
 	function shuffle(items) {
 		const result = [...items];
 		for (let index = result.length - 1; index > 0; index -= 1) {
-			const swap = Math.floor(Math.random() * (index + 1));
+			const random = new Uint32Array(1);
+			crypto.getRandomValues(random);
+			const swap = random[0] % (index + 1);
 			[result[index], result[swap]] = [result[swap], result[index]];
 		}
 		return result;
@@ -30,7 +32,7 @@
 	function splitAnswers(value) {
 		const source = String(value ?? '').trim();
 		if (!source) return [];
-		const answers = [source, ...source.split(/[,、;；/]/g)].map(normalize).filter(Boolean);
+		const answers = [source, ...source.split(/[,、;；/／·|]/g)].map(normalize).filter(Boolean);
 		return [...new Set(answers)];
 	}
 
@@ -61,8 +63,8 @@
 				wordId: word.id,
 				word: word.word,
 				level: word.jlpt || '—',
-				part: language() === 'ko' ? word.part?.nameKo : word.part?.nameJa,
-				category: language() === 'ko' ? word.categoriesKo?.[0] : word.categoriesJa?.[0],
+				category: setup.categoryName || '',
+				part: setup.partName || '',
 			};
 			if (setup.types.includes('reading') && word.reading) {
 				candidates.push({
@@ -103,7 +105,7 @@
 			const distractors = shuffle([...(new Set(pools.get(question.type) || []))].filter((value) => normalize(value) !== normalize(question.correct))).slice(0, 3);
 			const choices = shuffle([question.correct, ...distractors]);
 			let answerMode = setup.answerMode;
-			if (answerMode === 'random') answerMode = Math.random() < 0.5 ? 'input' : 'choice';
+			if (answerMode === 'random') answerMode = crypto.getRandomValues(new Uint8Array(1))[0] % 2 === 0 ? 'input' : 'choice';
 			if (answerMode === 'choice' && choices.length < 4) answerMode = 'input';
 			return { ...question, choices, answerMode };
 		});
@@ -118,11 +120,14 @@
 			return;
 		}
 
-		const params = new URLSearchParams({ limit: '200' });
+		const params = new URLSearchParams({
+			types: setup.types.join(','),
+			count: String(setup.count),
+		});
 		if (setup.jlpt) params.set('jlpt', setup.jlpt);
 		if (setup.categoryId) params.set('category', String(setup.categoryId));
 		if (setup.partId) params.set('part', String(setup.partId));
-		const response = await fetch(`/api/public/japanese/words?${params.toString()}`, { cache: 'no-store' });
+		const response = await fetch(`/api/public/japanese/quiz-pool?${params.toString()}`, { cache: 'no-store' });
 		const result = await response.json().catch(() => null);
 		if (!response.ok || !result?.ok || !Array.isArray(result.words)) throw new Error('QUIZ_WORD_LOAD_FAILED');
 		const candidates = makeCandidates(result.words);
@@ -226,14 +231,34 @@
 	function submitAnswer(event) {
 		event.preventDefault();
 		const input = byId('quiz-play-answer');
-		if (!input.value.trim()) {
-			input.focus();
-			return;
-		}
+		if (!input.value.trim()) { input.focus(); return; }
 		grade(input.value);
 	}
 
-	function saveResult() {
+	async function persistOwnerHistory(result) {
+		try {
+			const payloadAttempts = result.attempts.map((item) => ({
+				wordId: item.questionSnapshot?.wordId,
+				type: item.questionSnapshot?.type,
+				answerMode: item.questionSnapshot?.answerMode === 'choice' ? 'choice' : 'input',
+				answer: item.answer,
+			}));
+			const response = await fetch('/api/admin/japanese/quiz/complete', {
+				method: 'POST',
+				credentials: 'same-origin',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ setup: result.setup, startedAt: result.startedAt, attempts: payloadAttempts }),
+			});
+			if (response.status === 401) return null;
+			const data = await response.json().catch(() => null);
+			return response.ok && data?.ok ? data.session?.id ?? null : null;
+		} catch (error) {
+			console.warn('Failed to persist owner quiz history', error);
+			return null;
+		}
+	}
+
+	async function saveResult() {
 		const finishedAt = Date.now();
 		const result = {
 			id: crypto.randomUUID(),
@@ -246,16 +271,18 @@
 			setup,
 			attempts,
 		};
+		result.serverSessionId = await persistOwnerHistory(result);
 		sessionStorage.setItem(RESULT_KEY, JSON.stringify(result));
 		const history = readJson(localStorage, HISTORY_KEY, []);
 		const nextHistory = [result, ...(Array.isArray(history) ? history.filter((item) => item?.id !== result.id) : [])].slice(0, 100);
 		localStorage.setItem(HISTORY_KEY, JSON.stringify(nextHistory));
 	}
 
-	function nextQuestion() {
+	async function nextQuestion() {
 		if (!answered) return;
 		if (currentIndex + 1 >= questions.length) {
-			saveResult();
+			byId('quiz-play-next').disabled = true;
+			await saveResult();
 			window.location.href = `/${language()}/japanese/quiz/result/`;
 			return;
 		}
