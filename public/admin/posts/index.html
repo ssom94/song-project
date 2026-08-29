@@ -15,20 +15,9 @@
 	<div id="admin-shell" class="admin-shell" hidden>
 		<header class="admin-global-header">
 			<div class="admin-header-left">
-				<button
-					id="admin-sidebar-toggle"
-					class="admin-sidebar-toggle"
-					type="button"
-					aria-controls="admin-sidebar"
-					aria-expanded="true"
-					aria-label="管理メニューを閉じる"
-					data-i18n-aria-label="menuCloseLabel"
-				>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel">
+					<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
 				</button>
-
 				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
 					<img src="/assets/logo-song-ym.png" alt="Song YM" />
 					<span>SONG Admin</span>
@@ -41,26 +30,14 @@
 					<span class="admin-language-divider" aria-hidden="true">|</span>
 					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
 				</div>
-
 				<div class="admin-user-menu-wrap">
-					<button
-						id="admin-user-toggle"
-						class="admin-user-toggle"
-						type="button"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-controls="admin-user-menu"
-					>
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu">
 						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
 						<span id="admin-user" class="admin-user"></span>
 						<span class="admin-user-chevron" aria-hidden="true"></span>
 					</button>
-
 					<div id="admin-user-menu" class="admin-user-menu" hidden>
-						<div class="admin-user-menu-info">
-							<strong id="admin-user-menu-name"></strong>
-							<span id="admin-user-menu-email"></span>
-						</div>
+						<div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div>
 						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
 					</div>
 				</div>
@@ -68,26 +45,13 @@
 		</header>
 
 		<div class="admin-header-accent" aria-hidden="true"></div>
-
 		<div class="admin-body">
 			<aside id="admin-sidebar" class="admin-sidebar">
 				<p class="admin-nav-label" data-i18n="management">管理</p>
 				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
-
-				<div class="admin-sidebar-footer">
-					<a href="/" data-i18n="viewSite">サイトを表示</a>
-				</div>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
 			</aside>
-
-			<button
-				id="admin-sidebar-backdrop"
-				class="admin-sidebar-backdrop"
-				type="button"
-				tabindex="-1"
-				aria-label="管理メニューを閉じる"
-				data-i18n-aria-label="menuCloseLabel"
-				hidden
-			></button>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
 
 			<main class="admin-main">
 				<section class="admin-content">
@@ -96,7 +60,6 @@
 							<h1 data-i18n="postsPageTitle">投稿管理</h1>
 							<p data-i18n="postsPageDescription">記事の作成・編集・翻訳・公開状態を管理します。</p>
 						</div>
-
 						<a id="admin-new-post" class="admin-posts-new-button" href="/admin/posts/new/" data-i18n="newPost">新規投稿</a>
 					</div>
 
@@ -106,7 +69,6 @@
 								<label for="post-search" data-i18n="searchLabel">投稿を検索</label>
 								<input id="post-search" type="search" autocomplete="off" placeholder="タイトルを検索" data-i18n-placeholder="searchPostsPlaceholder" />
 							</div>
-
 							<div class="admin-posts-field">
 								<label for="post-status" data-i18n="statusLabel">公開状態</label>
 								<select id="post-status">
@@ -116,7 +78,6 @@
 									<option value="private" data-i18n="statusPrivate">非公開</option>
 								</select>
 							</div>
-
 							<div class="admin-posts-field">
 								<label for="post-language" data-i18n="languageFilterLabel">言語</label>
 								<select id="post-language">
@@ -131,7 +92,9 @@
 							<table class="admin-posts-table">
 								<thead>
 									<tr>
+										<th class="admin-post-number-column" data-i18n="tableNumber">番号</th>
 										<th data-i18n="tableTitle">タイトル</th>
+										<th data-i18n="tableCategory">カテゴリー</th>
 										<th data-i18n="tableLanguage">言語</th>
 										<th data-i18n="tableStatus">状態</th>
 										<th data-i18n="tableUpdatedAt">更新日時</th>
