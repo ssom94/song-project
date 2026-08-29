@@ -2,41 +2,149 @@
 	let postId = null;
 	let saving = false;
 	let actionsBound = false;
+	let editing = false;
+	let baselinePayload = '';
 
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
 		return value && value !== key ? value : fallback;
 	}
 
+	function getForm() {
+		return document.getElementById('post-editor-form');
+	}
+
+	function getSaveButton() {
+		return document.querySelector('button[data-editor-action="primary"], button[data-i18n="savePost"], button[data-i18n="editPost"], button[data-i18n="saveChanges"]');
+	}
+
+	function serializePayload() {
+		const payload = window.AdminPostEditor?.buildPayload?.(false);
+		return payload ? JSON.stringify(payload) : '';
+	}
+
+	function hasChanges() {
+		return editing && baselinePayload !== '' && serializePayload() !== baselinePayload;
+	}
+
+	function setHeading(viewMode) {
+		const title = document.getElementById('post-page-title');
+		const description = document.getElementById('post-page-description');
+		if (title) {
+			title.dataset.i18n = viewMode ? 'postViewTitle' : 'postEditTitle';
+			title.textContent = t(viewMode ? 'postViewTitle' : 'postEditTitle', viewMode ? '投稿を見る' : '投稿を編集');
+		}
+		if (description) {
+			description.dataset.i18n = viewMode ? 'postViewDescription' : 'postEditDescription';
+			description.textContent = t(
+				viewMode ? 'postViewDescription' : 'postEditDescription',
+				viewMode ? '保存済みの投稿内容を確認します。' : '保存済みの原文と翻訳内容を確認・編集します。',
+			);
+		}
+	}
+
+	function setFormEditable(enabled) {
+		const form = getForm();
+		if (!form) return;
+
+		form.querySelectorAll('input, textarea, select').forEach((control) => {
+			if (!(control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement)) return;
+
+			if (control.id === 'source-language') {
+				control.disabled = true;
+				return;
+			}
+
+			if (control instanceof HTMLSelectElement || (control instanceof HTMLInputElement && (control.type === 'radio' || control.type === 'checkbox'))) {
+				control.disabled = !enabled;
+				return;
+			}
+
+			control.readOnly = !enabled;
+		});
+
+		document.body.classList.toggle('admin-post-view-mode', !enabled);
+		document.body.classList.toggle('admin-post-edit-mode-active', enabled);
+	}
+
+	function setPrimaryButtonState() {
+		const button = getSaveButton();
+		if (!button) return;
+		button.dataset.editorAction = 'primary';
+
+		if (!editing) {
+			button.type = 'button';
+			button.disabled = false;
+			button.dataset.i18n = 'editPost';
+			button.textContent = t('editPost', '編集');
+			button.classList.add('admin-editor-button-primary');
+			button.classList.remove('admin-editor-button-danger');
+			return;
+		}
+
+		const dirty = hasChanges();
+		button.type = 'submit';
+		button.disabled = saving || !dirty;
+		button.dataset.i18n = 'saveChanges';
+		button.textContent = t('saveChanges', '変更を保存');
+		button.classList.remove('admin-editor-button-primary');
+		button.classList.toggle('admin-editor-button-danger', dirty && !saving);
+	}
+
+	function setEditorNote() {
+		const note = document.querySelector('.admin-editor-api-note');
+		if (!note) return;
+		const key = editing ? 'postEditModeNote' : 'postViewModeNote';
+		note.dataset.i18n = key;
+		note.textContent = t(
+			key,
+			editing
+				? '内容を変更すると「変更を保存」ボタンが有効になります。'
+				: '閲覧モードです。「編集」を押すと内容を変更できます。',
+		);
+	}
+
+	function setViewMode() {
+		editing = false;
+		setFormEditable(false);
+		setHeading(true);
+		setEditorNote();
+
+		const draftButton = document.querySelector('button[data-i18n="draftSave"]');
+		if (draftButton) draftButton.hidden = true;
+		setPrimaryButtonState();
+	}
+
+	function enterEditMode() {
+		if (saving) return;
+		editing = true;
+		setFormEditable(true);
+		setHeading(false);
+		setEditorNote();
+		window.AdminPostEditor?.clearError?.();
+		setPrimaryButtonState();
+
+		requestAnimationFrame(() => {
+			document.getElementById('post-title')?.focus({ preventScroll: true });
+		});
+	}
+
+	function refreshDirtyState() {
+		if (!editing) return;
+		window.AdminPostEditor?.clearError?.();
+		setPrimaryButtonState();
+	}
+
 	async function showLoadError(titleKey, messageKey, titleFallback, messageFallback) {
 		if (window.AdminCommon?.alert) {
-			await window.AdminCommon.alert({
-				titleKey,
-				messageKey,
-				titleFallback,
-				messageFallback,
-			});
+			await window.AdminCommon.alert({ titleKey, messageKey, titleFallback, messageFallback });
 		} else {
 			window.alert(messageFallback);
 		}
 	}
 
-	async function showReturnConfirm(forceDraft) {
+	async function showReturnConfirm() {
 		if (!window.AdminCommon?.confirm) return false;
-
-		if (forceDraft) {
-			return window.AdminCommon.confirm({
-				titleKey: 'draftReturnConfirmTitle',
-				messageKey: 'draftReturnConfirmMessage',
-				confirmKey: 'confirmYes',
-				cancelKey: 'confirmNo',
-				titleFallback: '下書き保存完了',
-				messageFallback: '下書きを保存しました。投稿一覧に戻りますか？',
-				confirmFallback: 'はい',
-				cancelFallback: 'いいえ',
-			});
-		}
-
 		return window.AdminCommon.confirm({
 			titleKey: 'postUpdateReturnConfirmTitle',
 			messageKey: 'postUpdateReturnConfirmMessage',
@@ -49,15 +157,16 @@
 		});
 	}
 
-	async function updatePost(forceDraft = false) {
-		if (saving || !postId) return;
+	async function updatePost() {
+		if (saving || !postId || !editing || !hasChanges()) return;
 		if (!(await window.AdminPostEditor?.validate?.())) return;
 
-		const payload = window.AdminPostEditor?.buildPayload?.(forceDraft);
+		const payload = window.AdminPostEditor?.buildPayload?.(false);
 		if (!payload) return;
 
 		saving = true;
-		window.AdminPostEditor?.setBusy?.(true);
+		setPrimaryButtonState();
+		window.AdminPostEditor?.setMessage?.('savingPost', 'info');
 
 		try {
 			const response = await fetch(`/api/admin/posts/detail?id=${encodeURIComponent(String(postId))}`, {
@@ -90,17 +199,20 @@
 				return;
 			}
 
-			window.AdminPostEditor?.setMessage?.(forceDraft ? 'draftSaved' : 'postUpdated', 'success');
-			if (await showReturnConfirm(forceDraft)) {
+			baselinePayload = serializePayload();
+			window.AdminPostEditor?.setMessage?.('postUpdated', 'success');
+			if (await showReturnConfirm()) {
 				window.location.assign('/admin/posts/');
 				return;
 			}
+
+			setViewMode();
 		} catch (error) {
 			console.error('Post update failed', error);
 			window.AdminPostEditor?.setMessage?.('postUpdateFailed', 'error');
 		} finally {
 			saving = false;
-			window.AdminPostEditor?.setBusy?.(false);
+			setPrimaryButtonState();
 		}
 	}
 
@@ -108,13 +220,20 @@
 		if (actionsBound) return;
 		actionsBound = true;
 
-		const draftButton = document.querySelector('button[data-i18n="draftSave"]');
-		const form = document.getElementById('post-editor-form');
+		const form = getForm();
+		const saveButton = getSaveButton();
 
-		draftButton?.addEventListener('click', () => updatePost(true));
+		form?.addEventListener('input', refreshDirtyState);
+		form?.addEventListener('change', refreshDirtyState);
 		form?.addEventListener('submit', (event) => {
 			event.preventDefault();
-			updatePost(false);
+			updatePost();
+		});
+		saveButton?.addEventListener('click', (event) => {
+			if (!editing) {
+				event.preventDefault();
+				enterEditMode();
+			}
 		});
 	}
 
@@ -132,7 +251,7 @@
 			return false;
 		}
 
-		const form = document.getElementById('post-editor-form');
+		const form = getForm();
 		form?.setAttribute('aria-busy', 'true');
 		window.AdminPostEditor?.setMessage?.('postEditLoading', 'info');
 
@@ -172,11 +291,13 @@
 				(translation) => translation.languageCode === result.post.originalLanguage,
 			);
 			if (source?.title) document.title = `${source.title} | SONG Admin`;
-			window.AdminPostEditor?.setMessage?.('postEditSavePending', 'info');
+
+			baselinePayload = serializePayload();
 			bindEditActions();
+			setViewMode();
 			return true;
 		} catch (error) {
-			console.error('Failed to load post for editing', error);
+			console.error('Failed to load post for viewing', error);
 			await showLoadError(
 				'postLoadFailedTitle',
 				'postLoadFailedMessage',
@@ -194,10 +315,17 @@
 		const session = await window.AdminCommon?.ready;
 		if (!session) return;
 		await window.AdminI18n?.ready;
+		await window.AdminPostCategories?.ready;
 		const editorReady = await window.AdminPostEditor?.ready;
 		if (!editorReady) return;
 		await loadPost();
 	}
+
+	document.addEventListener('adminlanguagechange', () => {
+		setHeading(!editing);
+		setEditorNote();
+		setPrimaryButtonState();
+	});
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
