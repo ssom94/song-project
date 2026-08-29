@@ -3,6 +3,7 @@
 	const DEFAULT_LANGUAGE = 'ja';
 	const SUPPORTED_LANGUAGES = new Set(['ja', 'ko']);
 	const translationCache = new Map();
+	const scopedTranslationCache = new Map();
 
 	function normalizeLanguage(language) {
 		return SUPPORTED_LANGUAGES.has(language) ? language : DEFAULT_LANGUAGE;
@@ -43,6 +44,33 @@
 		return translations;
 	}
 
+	async function loadScopedTranslations(language) {
+		const scope = document.body?.dataset.i18nScope;
+		if (!scope) return {};
+
+		const normalizedLanguage = normalizeLanguage(language);
+		const cacheKey = `${scope}:${normalizedLanguage}`;
+		if (scopedTranslationCache.has(cacheKey)) {
+			return scopedTranslationCache.get(cacheKey);
+		}
+
+		const response = await fetch(`/assets/i18n/admin/${scope}/${normalizedLanguage}.json`, {
+			cache: 'no-cache',
+		});
+
+		if (response.status === 404) {
+			scopedTranslationCache.set(cacheKey, {});
+			return {};
+		}
+		if (!response.ok) {
+			throw new Error(`Failed to load admin scoped translations: ${scope}/${normalizedLanguage}`);
+		}
+
+		const translations = await response.json();
+		scopedTranslationCache.set(cacheKey, translations);
+		return translations;
+	}
+
 	let currentLanguage = readStoredLanguage();
 	let currentTranslations = {};
 
@@ -78,12 +106,20 @@
 		let translations;
 
 		try {
-			translations = await loadTranslations(normalizedLanguage);
+			const [baseTranslations, scopedTranslations] = await Promise.all([
+				loadTranslations(normalizedLanguage),
+				loadScopedTranslations(normalizedLanguage),
+			]);
+			translations = { ...baseTranslations, ...scopedTranslations };
 		} catch (error) {
 			console.error(error);
 			if (normalizedLanguage !== DEFAULT_LANGUAGE) {
 				normalizedLanguage = DEFAULT_LANGUAGE;
-				translations = await loadTranslations(DEFAULT_LANGUAGE);
+				const [baseTranslations, scopedTranslations] = await Promise.all([
+					loadTranslations(DEFAULT_LANGUAGE),
+					loadScopedTranslations(DEFAULT_LANGUAGE),
+				]);
+				translations = { ...baseTranslations, ...scopedTranslations };
 			} else {
 				translations = {};
 			}
