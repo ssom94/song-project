@@ -132,6 +132,16 @@
 		updateAlternateLink(translations, language, slug);
 	}
 
+	function renderCategoryPath(translation) {
+		const node = document.getElementById('post-detail-category-path');
+		if (!node) return;
+		const path = Array.isArray(translation?.categoryPath)
+			? translation.categoryPath.filter((value) => typeof value === 'string' && value.trim())
+			: translation?.category ? [translation.category] : [];
+		node.textContent = path.join(' - ');
+		node.hidden = path.length === 0;
+	}
+
 	function renderPost(post, translation, slug) {
 		const language = currentLanguage();
 		const loading = document.getElementById('post-detail-loading');
@@ -148,6 +158,7 @@
 		renderContent(translation.content ?? '', content);
 		meta.replaceChildren();
 		taxonomy.replaceChildren();
+		renderCategoryPath(translation);
 
 		const publishedAt = formatDate(post.publishedAt ?? post.updatedAt);
 		if (publishedAt) {
@@ -164,7 +175,24 @@
 		updateAlternateLink(post.translations, language, translation.slug ?? slug);
 	}
 
+	function bindBackLink() {
+		const link = document.querySelector('.blog-back-link');
+		if (!(link instanceof HTMLAnchorElement)) return;
+		link.addEventListener('click', (event) => {
+			try {
+				const referrer = document.referrer ? new URL(document.referrer) : null;
+				if (referrer && referrer.origin === window.location.origin && referrer.pathname !== window.location.pathname) {
+					event.preventDefault();
+					window.history.back();
+				}
+			} catch (error) {
+				console.warn('Failed to resolve public post referrer', error);
+			}
+		});
+	}
+
 	async function initialize() {
+		bindBackLink();
 		const language = currentLanguage();
 		const slug = currentSlug();
 		const sidebarPostsPromise = loadSidebarPosts(language);
