@@ -18,10 +18,6 @@
 		return labels[status] ?? labels.draft;
 	}
 
-	function unclassifiedLabel(language) {
-		return language === 'ko' ? '미분류' : '未分類';
-	}
-
 	function isValidTranslation(value) {
 		return value
 			&& typeof value === 'object'
@@ -98,6 +94,16 @@
 		}
 	}
 
+	function renderContext(category, language) {
+		const backLabel = document.getElementById('preview-back-label');
+		const categoryNode = document.getElementById('preview-context-category');
+		if (backLabel) backLabel.textContent = language === 'ko' ? '뒤로가기' : '戻る';
+		if (categoryNode) {
+			categoryNode.textContent = category;
+			categoryNode.hidden = !category;
+		}
+	}
+
 	function renderContent(markdown, content) {
 		if (!window.SongMarkdown?.render?.(markdown ?? '', content)) {
 			content.textContent = markdown ?? '';
@@ -112,7 +118,6 @@
 		const waiting = document.getElementById('preview-waiting');
 		const article = document.getElementById('preview-article');
 		const status = document.getElementById('preview-status');
-		const category = document.getElementById('preview-category');
 		const title = document.getElementById('preview-title');
 		const content = document.getElementById('preview-content');
 
@@ -122,12 +127,12 @@
 			status.dataset.status = previewData.status;
 			status.textContent = statusLabel(previewData.status, activeLanguage);
 		}
-		if (category) category.textContent = translation.category || unclassifiedLabel(activeLanguage);
 		if (title) title.textContent = translation.title;
 		if (content) renderContent(translation.content, content);
 
 		document.documentElement.lang = activeLanguage;
 		document.title = `${translation.title || (activeLanguage === 'ko' ? '게시글 미리보기' : '投稿プレビュー')} | SONG`;
+		renderContext(translation.category, activeLanguage);
 		renderTags(translation.tags);
 		renderLanguageSwitch();
 	}
@@ -157,13 +162,27 @@
 		renderArticle();
 	}
 
+	function leavePreview() {
+		if (window.opener && !window.opener.closed) {
+			window.close();
+			return;
+		}
+		if (window.history.length > 1) {
+			window.history.back();
+			return;
+		}
+		window.location.assign('/admin/posts/');
+	}
+
 	async function initialize() {
 		window.addEventListener('message', handleMessage);
 		document.getElementById('preview-close')?.addEventListener('click', () => window.close());
+		document.getElementById('preview-back')?.addEventListener('click', leavePreview);
 
 		const session = await window.AdminCommon?.ready;
 		if (!session) return;
 		renderAdminBar();
+		renderContext('', adminLanguage());
 
 		if (!window.opener) {
 			showNoDataMessage();
@@ -174,7 +193,10 @@
 		waitingTimer = window.setTimeout(showNoDataMessage, 3000);
 	}
 
-	document.addEventListener('adminlanguagechange', renderAdminBar);
+	document.addEventListener('adminlanguagechange', () => {
+		renderAdminBar();
+		if (!previewData) renderContext('', adminLanguage());
+	});
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
