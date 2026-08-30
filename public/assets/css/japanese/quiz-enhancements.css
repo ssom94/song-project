@@ -1,0 +1,232 @@
+.jp-form-field-wide {
+	grid-column: 1 / -1;
+}
+
+.jp-form-field > span small {
+	margin-left: 7px;
+	color: #98a2b3;
+	font-size: 9px;
+	font-weight: 650;
+}
+
+.jp-jlpt-check-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	min-height: 40px;
+}
+
+.jp-jlpt-check,
+.jp-jlpt-loading {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	min-height: 38px;
+	padding: 0 12px;
+	border: 1px solid #dce3ec;
+	border-radius: 10px;
+	background: #fff;
+	color: #536176;
+	font-size: 10px;
+}
+
+.jp-jlpt-check {
+	cursor: pointer;
+}
+
+.jp-jlpt-check:has(input:checked) {
+	border-color: #9cb8f3;
+	background: #f2f6ff;
+	box-shadow: 0 0 0 2px rgba(31, 86, 216, 0.05);
+}
+
+.jp-jlpt-check input {
+	margin: 0;
+	accent-color: #1f56d8;
+}
+
+.jp-jlpt-check strong {
+	color: #344156;
+	font-size: 11px;
+}
+
+.jp-jlpt-check small {
+	color: #98a2b3;
+	font-size: 9px;
+}
+
+.jp-quiz-preview-summary {
+	margin: 13px 0 0;
+	padding: 11px 13px;
+	border: 1px solid #d9e4f8;
+	border-radius: 10px;
+	background: #f7f9ff;
+	color: #51698f;
+	font-size: 11px;
+	font-weight: 750;
+	line-height: 1.55;
+}
+
+.jp-quiz-setup-message.is-info {
+	border-color: #cbdcfb;
+	background: #f6f9ff;
+	color: #315aa8;
+}
+
+.jp-quiz-question-navigator {
+	position: fixed;
+	top: 118px;
+	right: 18px;
+	z-index: 80;
+	width: 230px;
+	max-height: min(64vh, 620px);
+	border: 1px solid rgba(204, 215, 231, 0.95);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.96);
+	box-shadow: 0 18px 50px rgba(31, 48, 78, 0.16);
+	backdrop-filter: blur(12px);
+	overflow: hidden;
+	user-select: none;
+	touch-action: none;
+}
+
+.jp-quiz-question-navigator.is-dragging {
+	box-shadow: 0 22px 58px rgba(31, 48, 78, 0.22);
+}
+
+.jp-quiz-question-navigator-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 12px 13px;
+	border-bottom: 1px solid #e7ebf1;
+	background: #f8faff;
+	cursor: grab;
+}
+
+.jp-quiz-question-navigator.is-dragging .jp-quiz-question-navigator-header {
+	cursor: grabbing;
+}
+
+.jp-quiz-question-navigator-header strong {
+	color: #2f3c51;
+	font-size: 12px;
+}
+
+.jp-quiz-question-navigator-header span {
+	color: #6f7e92;
+	font-size: 10px;
+	font-weight: 850;
+}
+
+.jp-quiz-question-list {
+	display: grid;
+	gap: 6px;
+	max-height: calc(min(64vh, 620px) - 48px);
+	padding: 9px;
+	overflow-y: auto;
+}
+
+.jp-quiz-question-nav-item {
+	display: grid;
+	grid-template-columns: 28px minmax(0, 1fr) 10px;
+	align-items: center;
+	gap: 7px;
+	min-height: 34px;
+	padding: 5px 7px;
+	border: 1px solid #e2e7ee;
+	border-radius: 9px;
+	background: #fff;
+	color: #536176;
+	font-size: 10px;
+}
+
+.jp-quiz-question-nav-item.is-current {
+	outline: 2px solid rgba(31, 86, 216, 0.22);
+	outline-offset: 1px;
+}
+
+.jp-quiz-question-nav-number {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 25px;
+	height: 25px;
+	border-radius: 7px;
+	background: #f2f4f7;
+	color: #6b778a;
+	font-size: 9px;
+	font-weight: 900;
+}
+
+.jp-quiz-question-nav-word {
+	overflow: hidden;
+	color: #344156;
+	font-weight: 800;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.jp-quiz-question-nav-dot {
+	width: 9px;
+	height: 9px;
+	border: 1px solid #ccd4df;
+	border-radius: 999px;
+	background: #fff;
+}
+
+.jp-quiz-question-nav-item.is-correct {
+	border-color: #b9dfc6;
+	background: #f4fbf6;
+}
+
+.jp-quiz-question-nav-item.is-correct .jp-quiz-question-nav-dot {
+	border-color: #56a977;
+	background: #56a977;
+}
+
+.jp-quiz-question-nav-item.is-wrong {
+	border-color: #efc2c2;
+	background: #fff6f6;
+}
+
+.jp-quiz-question-nav-item.is-wrong .jp-quiz-question-nav-dot {
+	border-color: #d65d5d;
+	background: #d65d5d;
+}
+
+.jp-quiz-question-nav-item.is-uncertain {
+	border-color: #ead58c;
+	background: #fffbea;
+}
+
+.jp-quiz-question-nav-item.is-uncertain .jp-quiz-question-nav-dot {
+	border-color: #d3aa2c;
+	background: #e2ba36;
+}
+
+@media (max-width: 1100px) {
+	.jp-quiz-question-navigator {
+		top: auto;
+		right: 12px;
+		bottom: 12px;
+		width: min(300px, calc(100vw - 24px));
+		max-height: 36vh;
+	}
+
+	.jp-quiz-question-list {
+		max-height: calc(36vh - 48px);
+	}
+}
+
+@media (max-width: 680px) {
+	.jp-jlpt-check-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.jp-jlpt-check {
+		justify-content: center;
+	}
+}
