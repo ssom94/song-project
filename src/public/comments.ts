@@ -1,3 +1,5 @@
+import { getAuthenticatedAdminSession } from '../auth/session';
+
 type PublicLanguage = 'ja' | 'ko';
 
 interface CommentPayload {
@@ -14,6 +16,7 @@ interface PublicCommentRow {
 	nickname: string;
 	content: string;
 	admin_id: number | null;
+	language_code: PublicLanguage;
 	created_at: string;
 	updated_at: string;
 }
@@ -133,26 +136,30 @@ export async function handleListPublicComments(request: Request, env: Env): Prom
 			return json({ ok: false, error: 'POST_NOT_FOUND' }, 404);
 		}
 
-		const result = await env.song_project_db
-			.prepare(`
-				SELECT id, parent_id, nickname, content, admin_id, created_at, updated_at
-				FROM comments
-				WHERE post_id = ?1
-					AND language_code = ?2
-					AND status = 'visible'
-					AND deleted_at IS NULL
-				ORDER BY datetime(created_at) ASC, id ASC
-			`)
-			.bind(postId, language)
-			.all<PublicCommentRow>();
+		const [result, session] = await Promise.all([
+			env.song_project_db
+				.prepare(`
+					SELECT id, parent_id, nickname, content, admin_id, language_code, created_at, updated_at
+					FROM comments
+					WHERE post_id = ?1
+						AND status = 'visible'
+						AND deleted_at IS NULL
+					ORDER BY datetime(created_at) ASC, id ASC
+				`)
+				.bind(postId)
+				.all<PublicCommentRow>(),
+			getAuthenticatedAdminSession(request, env.song_project_db),
+		]);
 
 		return json({
 			ok: true,
+			canManage: Boolean(session),
 			comments: result.results.map((row) => ({
 				id: row.id,
 				parentId: row.parent_id,
 				nickname: row.nickname,
 				content: row.content,
+				languageCode: row.language_code,
 				isAdmin: row.admin_id !== null,
 				createdAt: row.created_at,
 				updatedAt: row.updated_at,
@@ -228,6 +235,7 @@ export async function handleCreatePublicComment(request: Request, env: Env): Pro
 				parentId: null,
 				nickname,
 				content,
+				languageCode: language,
 				isAdmin: false,
 				createdAt: inserted.created_at,
 				updatedAt: inserted.updated_at,
