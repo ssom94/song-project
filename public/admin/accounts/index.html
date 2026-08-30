@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Admin Accounts | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/records.css" />
+	<link rel="stylesheet" href="/assets/css/admin/accounts.css" />
+</head>
+<body class="admin-page admin-accounts-page" data-i18n-scope="admin-accounts">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" data-i18n-aria-label="menuCloseLabel"><span></span><span></span><span></span></button>
+				<a class="admin-global-brand" href="/" data-i18n-aria-label="brandHomeLabel"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch"><button class="is-active" type="button" data-admin-lang="ja">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko">한국어</button></div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button></div>
+				</div>
+			</div>
+		</header>
+		<div class="admin-header-accent"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar">
+				<p class="admin-nav-label" data-i18n="management">管理</p>
+				<nav id="admin-nav" class="admin-nav"></nav>
+				<div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div>
+			</aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
+
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading">
+						<h1 data-i18n="pageTitle">管理者アカウント</h1>
+						<p data-i18n="pageDescription">管理画面にログインできるアカウントを追加・管理します。</p>
+					</div>
+
+					<div class="admin-account-top-grid">
+						<section class="admin-record-card admin-account-create-card">
+							<div class="admin-record-card-heading"><h2 data-i18n="createTitle">新しい管理者を登録</h2><span data-i18n="createHint">ログイン情報</span></div>
+							<form id="admin-account-create-form" class="admin-account-form">
+								<div class="admin-account-form-grid">
+									<label class="admin-record-field"><span data-i18n="usernameLabel">ユーザーID</span><input id="account-username" type="text" minlength="3" maxlength="32" autocomplete="off" required data-i18n-placeholder="usernamePlaceholder" placeholder="song.admin" /><small data-i18n="usernameHint">半角英数字と . _ - のみ、3〜32文字</small></label>
+									<label class="admin-record-field"><span data-i18n="displayNameLabel">表示名</span><input id="account-display-name" type="text" maxlength="80" required data-i18n-placeholder="displayNamePlaceholder" placeholder="SONG" /></label>
+									<label class="admin-record-field"><span data-i18n="emailLabel">メール</span><input id="account-email" type="email" maxlength="254" autocomplete="email" data-i18n-placeholder="emailPlaceholder" placeholder="admin@example.com" /><small data-i18n="optionalHint">任意</small></label>
+									<label class="admin-record-field"><span data-i18n="statusLabel">状態</span><select id="account-status"><option value="active" data-i18n="statusActive">有効</option><option value="disabled" data-i18n="statusDisabled">無効</option></select></label>
+									<label class="admin-record-field"><span data-i18n="passwordLabel">パスワード</span><input id="account-password" type="password" minlength="10" maxlength="128" autocomplete="new-password" required /><small data-i18n="passwordHint">10文字以上</small></label>
+									<label class="admin-record-field"><span data-i18n="passwordConfirmLabel">パスワード確認</span><input id="account-password-confirm" type="password" minlength="10" maxlength="128" autocomplete="new-password" required /></label>
+								</div>
+								<p id="account-create-message" class="admin-account-message" hidden></p>
+								<button id="account-create-button" class="admin-account-create-button" type="submit" data-i18n="createButton">管理者を登録</button>
+							</form>
+						</section>
+
+						<section class="admin-record-card admin-account-summary-card">
+							<div class="admin-record-card-heading"><h2 data-i18n="summaryTitle">アカウント状況</h2><span>Accounts</span></div>
+							<div class="admin-record-metric-grid">
+								<div class="admin-record-metric"><span data-i18n="totalAccounts">全アカウント</span><strong id="account-total">0</strong></div>
+								<div class="admin-record-metric"><span data-i18n="activeAccounts">有効</span><strong id="account-active">0</strong></div>
+								<div class="admin-record-metric"><span data-i18n="disabledAccounts">無効</span><strong id="account-disabled">0</strong></div>
+								<div class="admin-record-metric"><span data-i18n="currentAccount">現在</span><strong id="account-current">—</strong></div>
+							</div>
+							<p class="admin-account-policy" data-i18n="policyHint">公開ホームの学習状況は、ログイン中は現在の管理者、未ログイン時は最初に作成された有効な管理者を基準にします。</p>
+						</section>
+					</div>
+
+					<section class="admin-record-card admin-account-list-card">
+						<div class="admin-record-toolbar">
+							<div class="admin-record-filters"><input id="account-search" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="ユーザーID・表示名・メールを検索" /><select id="account-status-filter"><option value="" data-i18n="filterAll">すべて</option><option value="active" data-i18n="statusActive">有効</option><option value="disabled" data-i18n="statusDisabled">無効</option></select></div>
+							<button id="account-refresh" class="admin-record-secondary" type="button" data-i18n="refresh">再読み込み</button>
+						</div>
+						<div class="admin-record-table-wrap"><table class="admin-record-table admin-account-table"><thead><tr><th>No.</th><th data-i18n="usernameLabel">ユーザーID</th><th data-i18n="displayNameLabel">表示名</th><th data-i18n="emailLabel">メール</th><th data-i18n="statusLabel">状態</th><th data-i18n="lastLoginLabel">最終ログイン</th><th data-i18n="createdAtLabel">作成日</th><th data-i18n="actionLabel">操作</th></tr></thead><tbody id="account-list-body"></tbody></table></div>
+						<div id="account-list-loading" class="admin-record-empty" data-i18n="loadingAccounts">アカウントを読み込んでいます…</div>
+						<div id="account-list-empty" class="admin-record-empty" hidden data-i18n="emptyAccounts">アカウントがありません。</div>
+						<div id="account-list-error" class="admin-record-empty admin-account-error" hidden data-i18n="loadFailed">アカウントを読み込めませんでした。</div>
+					</section>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<div id="account-edit-backdrop" class="admin-account-modal-backdrop" hidden>
+		<section class="admin-account-modal" role="dialog" aria-modal="true" aria-labelledby="account-edit-title">
+			<div class="admin-account-modal-heading"><div><span id="account-edit-username"></span><h2 id="account-edit-title" data-i18n="editTitle">管理者アカウントを編集</h2></div><button id="account-edit-close" type="button" aria-label="Close">×</button></div>
+			<form id="account-edit-form" class="admin-account-form">
+				<input id="account-edit-id" type="hidden" />
+				<div class="admin-account-form-grid">
+					<label class="admin-record-field"><span data-i18n="displayNameLabel">表示名</span><input id="account-edit-display-name" type="text" maxlength="80" required /></label>
+					<label class="admin-record-field"><span data-i18n="emailLabel">メール</span><input id="account-edit-email" type="email" maxlength="254" /></label>
+					<label class="admin-record-field"><span data-i18n="statusLabel">状態</span><select id="account-edit-status"><option value="active" data-i18n="statusActive">有効</option><option value="disabled" data-i18n="statusDisabled">無効</option></select><small id="account-edit-self-note" hidden data-i18n="selfDisableHint">ログイン中の自分自身は無効にできません。</small></label>
+					<label class="admin-record-field"><span data-i18n="newPasswordLabel">新しいパスワード</span><input id="account-edit-password" type="password" minlength="10" maxlength="128" autocomplete="new-password" data-i18n-placeholder="newPasswordPlaceholder" placeholder="変更する場合のみ入力" /><small data-i18n="newPasswordHint">空欄なら現在のパスワードを維持します。</small></label>
+				</div>
+				<p id="account-edit-message" class="admin-account-message" hidden></p>
+				<div class="admin-account-modal-actions"><button id="account-edit-cancel" class="admin-record-secondary" type="button" data-i18n="cancelButton">キャンセル</button><button id="account-edit-save" class="admin-account-save-button" type="submit" disabled data-i18n="saveButton">変更を保存</button></div>
+			</form>
+		</section>
+	</div>
+
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/accounts.js"></script>
+</body>
+</html>
