@@ -1,0 +1,51 @@
+/* Public background refresh: keep the original assets in the repository, but use a smaller simple hibiscus ornament. */
+body.blog-dashboard-page::before {
+	background-image: url('/assets/images/hibiscus-corner-simple.svg');
+	background-repeat: no-repeat;
+	background-position: right 26px bottom 18px;
+	background-size: 290px auto;
+	opacity: .34;
+	filter: none;
+}
+
+/* The couple asset remains available, but is no longer shown on Home. */
+body.blog-home-page .home-dashboard-heading {
+	min-height: 0;
+}
+
+body.blog-home-page .home-dashboard-heading::after {
+	content: none !important;
+	display: none !important;
+	background: none !important;
+}
+
+@media (max-width: 1100px) {
+	body.blog-dashboard-page::before {
+		background-position: right 18px bottom 14px;
+		background-size: 240px auto;
+		opacity: .29;
+	}
+}
+
+@media (max-width: 840px) {
+	body.blog-home-page .home-dashboard-heading {
+		padding-top: 0;
+	}
+
+	body.blog-dashboard-page::before {
+		background-position: right 8px bottom 10px;
+		background-size: 190px auto;
+		opacity: .23;
+	}
+}
+
+@media (max-width: 560px) {
+	body.blog-home-page .home-dashboard-heading {
+		padding-top: 0;
+	}
+
+	body.blog-dashboard-page::before {
+		background-size: 150px auto;
+		opacity: .19;
+	}
+}
