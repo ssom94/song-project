@@ -428,6 +428,7 @@
 			const params = new URLSearchParams();
 			params.set('lang', currentLanguage());
 			params.set('page', String(requestedPage()));
+			params.set('manage', '1');
 			const category = selectedCategory();
 			if (category) params.set('category', category);
 			const response = await fetch(`/api/public/posts?${params.toString()}`, {
