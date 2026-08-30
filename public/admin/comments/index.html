@@ -1,3 +1,67 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="robots" content="noindex,nofollow" /><title>Comments | SONG Admin</title><link rel="stylesheet" href="/assets/css/common.css" /><link rel="stylesheet" href="/assets/css/admin/common.css" /><link rel="stylesheet" href="/assets/css/admin/records.css" /></head>
-<body class="admin-page" data-i18n-scope="comments"><div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div><div id="admin-shell" class="admin-shell" hidden><header class="admin-global-header"><div class="admin-header-left"><button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel"><span></span><span></span><span></span></button><a class="admin-global-brand" href="/" data-i18n-aria-label="brandHomeLabel"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a></div><div class="admin-header-actions"><div class="admin-language-switch"><button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button></div><div class="admin-user-menu-wrap"><button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button><div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button></div></div></div></header><div class="admin-header-accent"></div><div class="admin-body"><aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label" data-i18n="management">管理</p><nav id="admin-nav" class="admin-nav"></nav><div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div></aside><button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
-<main class="admin-main"><section class="admin-content"><div class="admin-page-heading"><h1 data-i18n="pageTitle">コメント管理</h1><p data-i18n="pageDescription">公開コメント、返信、非表示、スパム状態を管理します。</p></div><div class="admin-record-metric-grid"><div class="admin-record-metric"><span data-i18n="metricAll">すべて</span><strong>4</strong></div><div class="admin-record-metric"><span data-i18n="metricVisible">公開</span><strong>2</strong></div><div class="admin-record-metric"><span data-i18n="metricHidden">非表示</span><strong>1</strong></div><div class="admin-record-metric"><span data-i18n="metricSpam">スパム</span><strong>1</strong></div></div><section class="admin-record-card"><div class="admin-record-toolbar"><div class="admin-record-filters"><input type="search" data-i18n-placeholder="searchPlaceholder" placeholder="ニックネーム・本文を検索" /><select><option data-i18n="filterAll">すべての状態</option><option data-i18n="statusVisible">公開</option><option data-i18n="statusHidden">非表示</option><option data-i18n="statusSpam">スパム</option></select><select><option data-i18n="languageAll">すべての言語</option><option>日本語</option><option>한국어</option></select></div><button class="admin-record-secondary" type="button" data-i18n="refresh">再読み込み</button></div><div class="admin-record-table-wrap"><table class="admin-record-table"><thead><tr><th>ID</th><th data-i18n="tablePost">投稿</th><th data-i18n="tableAuthor">作成者</th><th data-i18n="tableComment">コメント</th><th data-i18n="tableStatus">状態</th><th data-i18n="tableDate">日時</th><th data-i18n="tableAction">操作</th></tr></thead><tbody><tr><td>900000001</td><td>Markdown 表示テスト</td><td>test-user-ja<br /><small>203.0.113.xxx</small></td><td>公開コメント表示テストです。</td><td><span class="admin-record-status is-visible" data-i18n="statusVisible">公開</span></td><td>2026-08-28</td><td><button class="admin-record-secondary" type="button" data-i18n="hide">非表示</button></td></tr><tr><td>900000002</td><td>↳ Reply</td><td>test-reply</td><td>返信表示テストです。</td><td><span class="admin-record-status is-visible" data-i18n="statusVisible">公開</span></td><td>2026-08-28</td><td><button class="admin-record-secondary" type="button" data-i18n="hide">非表示</button></td></tr><tr><td>900000003</td><td>Markdown 表示テスト</td><td>hidden-user</td><td>管理画面では見えるが公開では非表示のテスト。</td><td><span class="admin-record-status is-hidden" data-i18n="statusHidden">非表示</span></td><td>2026-08-28</td><td><button class="admin-record-primary" type="button" data-i18n="show">公開</button></td></tr><tr><td>900000004</td><td>한국어만 공개된 테스트 글</td><td>spam-user</td><td>스팸 상태 테스트 댓글입니다.</td><td><span class="admin-record-status is-spam" data-i18n="statusSpam">スパム</span></td><td>2026-08-29</td><td><button class="admin-record-secondary" type="button" data-i18n="restore">復元</button></td></tr></tbody></table></div></section></section></main></div></div><script src="/assets/js/admin/i18n.js"></script><script src="/assets/js/admin/menu.js"></script><script src="/assets/js/admin/layout.js"></script><script src="/assets/js/admin/common.js"></script></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Comments | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/records.css" />
+</head>
+<body class="admin-page" data-i18n-scope="comments">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel"><span></span><span></span><span></span></button>
+				<a class="admin-global-brand" href="/" data-i18n-aria-label="brandHomeLabel"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch"><button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button></div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button></div>
+				</div>
+			</div>
+		</header>
+		<div class="admin-header-accent"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label" data-i18n="management">管理</p><nav id="admin-nav" class="admin-nav"></nav><div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div></aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
+			<main class="admin-main">
+				<section class="admin-content">
+					<div class="admin-page-heading"><h1 data-i18n="pageTitle">コメント管理</h1><p data-i18n="pageDescription">公開コメント、返信、非表示、スパム状態を管理します。</p></div>
+					<div class="admin-record-metric-grid">
+						<div class="admin-record-metric"><span data-i18n="metricAll">すべて</span><strong id="comment-metric-all">0</strong></div>
+						<div class="admin-record-metric"><span data-i18n="metricVisible">公開</span><strong id="comment-metric-visible">0</strong></div>
+						<div class="admin-record-metric"><span data-i18n="metricHidden">非表示</span><strong id="comment-metric-hidden">0</strong></div>
+						<div class="admin-record-metric"><span data-i18n="metricSpam">スパム</span><strong id="comment-metric-spam">0</strong></div>
+					</div>
+					<section class="admin-record-card">
+						<div class="admin-record-toolbar">
+							<div class="admin-record-filters">
+								<input id="comment-search" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="ニックネーム・本文を検索" />
+								<select id="comment-status-filter"><option value="" data-i18n="filterAll">すべての状態</option><option value="visible" data-i18n="statusVisible">公開</option><option value="hidden" data-i18n="statusHidden">非表示</option><option value="spam" data-i18n="statusSpam">スパム</option></select>
+								<select id="comment-language-filter"><option value="" data-i18n="languageAll">すべての言語</option><option value="ja">日本語</option><option value="ko">한국어</option></select>
+							</div>
+							<button id="comment-refresh" class="admin-record-secondary" type="button" data-i18n="refresh">再読み込み</button>
+						</div>
+						<div class="admin-record-table-wrap">
+							<table class="admin-record-table">
+								<thead><tr><th>ID</th><th data-i18n="tablePost">投稿</th><th data-i18n="tableAuthor">作成者</th><th data-i18n="tableComment">コメント</th><th data-i18n="tableStatus">状態</th><th data-i18n="tableDate">日時</th><th data-i18n="tableAction">操作</th></tr></thead>
+								<tbody id="comment-table-body"><tr><td colspan="7" class="admin-record-empty" data-i18n="loadingComments">コメントを読み込んでいます…</td></tr></tbody>
+							</table>
+						</div>
+					</section>
+				</section>
+			</main>
+		</div>
+	</div>
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/comments.js"></script>
+</body>
+</html>
