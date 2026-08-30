@@ -264,6 +264,7 @@
 			}
 		}
 
+		let addButton = null;
 		if (admin) {
 			const heading = card.querySelector('.home-card-heading');
 			if (heading && !heading.querySelector('.home-dday-admin-add')) {
@@ -276,11 +277,17 @@
 				add.addEventListener('click', () => openEditor(null, refresh));
 				actions.appendChild(add);
 				heading.appendChild(actions);
+				addButton = add;
 			}
 		}
 
 		await refresh();
-		document.addEventListener('songpubliclanguagechange', refresh);
+		document.querySelectorAll('[data-home-language]').forEach((button) => {
+			button.addEventListener('click', () => window.setTimeout(() => {
+				if (addButton) addButton.textContent = copy().add;
+				refresh();
+			}, 0));
+		});
 	}
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
