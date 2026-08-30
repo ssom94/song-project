@@ -27,6 +27,7 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 	<link rel="stylesheet" href="/assets/css/blog/common.css" />
 	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
 	<link rel="stylesheet" href="/assets/css/blog/post-detail.css" />
+	<link rel="stylesheet" href="/assets/css/blog/post-neighbor-compact.css" />
 	<link rel="stylesheet" href="/assets/css/blog/comments.css" />
 	<link rel="stylesheet" href="/assets/css/markdown.css" />
 </head>
@@ -80,6 +81,7 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 	<script src="/assets/js/markdown.js"></script>
 	<script src="/assets/js/blog/comments.js"></script>
 	<script src="/assets/js/blog/post-detail.js"></script>
+	<script src="/assets/js/blog/post-neighbor-compact.js"></script>
 </body>
 </html>`, { status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'public, max-age=60' } });
 }
