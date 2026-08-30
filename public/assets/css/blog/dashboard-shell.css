@@ -13,9 +13,19 @@ body.blog-dashboard-page {
 	gap: 16px;
 	min-height: 64px;
 	padding: 0 22px;
+	overflow: hidden;
 	border-bottom: 1px solid #dde4ed;
-	background: rgba(255, 255, 255, 0.96);
+	background-color: rgba(255, 255, 255, 0.965);
+	background-image: url('/assets/images/header-korea-japan-wave.svg');
+	background-repeat: no-repeat;
+	background-position: 53% center;
+	background-size: min(980px, 68vw) 64px;
 	backdrop-filter: blur(14px);
+}
+
+.blog-dashboard-topbar > * {
+	position: relative;
+	z-index: 1;
 }
 
 .blog-dashboard-brand {
@@ -233,6 +243,8 @@ body.blog-dashboard-page {
 @media (max-width: 840px) {
 	.blog-dashboard-topbar {
 		padding: 0 14px;
+		background-position: 58% center;
+		background-size: 760px 64px;
 	}
 
 	.blog-dashboard-menu-toggle {
