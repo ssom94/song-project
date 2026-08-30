@@ -142,6 +142,13 @@
 		node.hidden = path.length === 0;
 	}
 
+	function activateComments(post) {
+		const id = Number(post?.id);
+		if (!Number.isSafeInteger(id) || id <= 0) return;
+		document.body.dataset.postId = String(id);
+		document.dispatchEvent(new CustomEvent('song:post-ready', { detail: { postId: id } }));
+	}
+
 	function renderPost(post, translation, slug) {
 		const language = currentLanguage();
 		const loading = document.getElementById('post-detail-loading');
@@ -218,6 +225,7 @@
 			if (!response.ok || !result?.ok || !result.post?.translations) throw new Error('Invalid public post detail response');
 
 			const post = result.post;
+			activateComments(post);
 			const translation = post.translations[language];
 			const sidebarPosts = await sidebarPostsPromise;
 			window.BlogDashboard?.renderCategories?.(sidebarPosts, language, translation?.category ?? '');
