@@ -13,8 +13,12 @@
 			: { previous: '前へ', next: '次へ', summary: (start, end, total) => `${start}-${end} / ${total}件` };
 	}
 
-	function rows() {
+	function allRows() {
 		return [...document.querySelectorAll('#japanese-word-table-body > tr')];
+	}
+
+	function rows() {
+		return allRows().filter((row) => row.dataset.learningExcluded !== 'true');
 	}
 
 	function createPager(id, position) {
@@ -100,9 +104,14 @@
 	}
 
 	function renderPagination() {
+		const everyRow = allRows();
 		const values = rows();
 		const pagers = ensurePagers();
 		if (!pagers.length) return;
+
+		everyRow.forEach((row) => {
+			if (row.dataset.learningExcluded === 'true') row.hidden = true;
+		});
 
 		const total = values.length;
 		const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
@@ -135,6 +144,7 @@
 		observeRows();
 		document.getElementById('japanese-word-search')?.addEventListener('input', () => scheduleRender(true));
 		document.getElementById('japanese-jlpt-filter')?.addEventListener('change', () => scheduleRender(true));
+		document.addEventListener('japaneselearningfilterchange', () => scheduleRender(true));
 		document.addEventListener('adminlanguagechange', () => scheduleRender());
 		renderPagination();
 	}
