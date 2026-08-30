@@ -1,7 +1,11 @@
+import { getAuthenticatedAdminSession } from '../../auth/session';
+
 type PublicLanguage = 'ja' | 'ko';
+type PublicPostStatus = 'published' | 'private';
 
 interface PublicPostListRow {
 	id: number;
+	status: PublicPostStatus;
 	original_language: PublicLanguage;
 	display_language: PublicLanguage;
 	title: string;
@@ -32,10 +36,13 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 	if (!language) return json({ ok: false, error: 'INVALID_LANGUAGE' }, 400);
 
 	try {
+		const session = await getAuthenticatedAdminSession(request, env.song_project_db);
+		const adminView = Boolean(session);
 		const result = await env.song_project_db
 			.prepare(`
 				SELECT
 					p.id,
+					p.status,
 					p.original_language,
 					pt.language_code AS display_language,
 					pt.title,
@@ -69,19 +76,22 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 					AND pt.translation_status IN ('original', 'translated', 'reviewed')
 				LEFT JOIN category_translations AS ct
 					ON ct.category_id = p.category_id AND ct.language_code = pt.language_code
-				WHERE p.status = 'published'
+				WHERE (p.status = 'published' OR (?2 = 1 AND p.status = 'private'))
 					AND p.deleted_at IS NULL
 				ORDER BY datetime(COALESCE(p.published_at, p.updated_at)) DESC, p.id DESC
 				LIMIT 100
 			`)
-			.bind(language)
+			.bind(language, adminView ? 1 : 0)
 			.all<PublicPostListRow>();
 
 		return json({
 			ok: true,
 			language,
+			adminView,
 			posts: result.results.map((row) => ({
 				id: row.id,
+				status: row.status,
+				visible: row.status === 'published',
 				originalLanguage: row.original_language,
 				displayLanguage: row.display_language,
 				isLanguageFallback: row.display_language !== language,
