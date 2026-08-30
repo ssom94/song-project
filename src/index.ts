@@ -8,6 +8,7 @@ import { handleCreateAdminPost } from './admin/posts/create';
 import { handleGetAdminPost } from './admin/posts/detail';
 import { handleListAdminPosts } from './admin/posts/list';
 import { handleUpdateAdminPost } from './admin/posts/update';
+import { handleUpdateAdminPostVisibility } from './admin/posts/visibility';
 import { handleListAdminTags } from './admin/tags/list';
 import {
 	handleCreateAdminTag,
@@ -124,6 +125,8 @@ export default {
 				if (request.method === 'GET') return handleGetAdminPost(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminPost(request, env);
 				return methodNotAllowed('GET, PATCH');
+			case '/api/admin/posts/visibility':
+				return request.method === 'PATCH' ? handleUpdateAdminPostVisibility(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/words':
 				if (request.method === 'GET') return handleListAdminJapaneseWords(request, env);
 				if (request.method === 'POST') return handleCreateAdminJapaneseWord(request, env);
