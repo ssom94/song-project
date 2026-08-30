@@ -11,10 +11,10 @@ body.admin-page::before {
 	position: fixed;
 	right: 0;
 	bottom: 0;
-	background-image: url('/assets/images/learning-flags-bg.svg');
-	background-position: center top;
+	background-image: url('/assets/images/main_bg.png');
+	background-position: center center;
 	background-repeat: no-repeat;
-	background-size: 100% auto;
+	background-size: 100% 100%;
 	pointer-events: none;
 	z-index: 0;
 }
@@ -22,14 +22,14 @@ body.admin-page::before {
 body.blog-dashboard-page::before {
 	top: 64px;
 	left: 230px;
-	opacity: 0.78;
+	opacity: .84;
 }
 
 body.admin-page::before {
 	top: 68px;
 	left: 250px;
-	opacity: 0.17;
-	filter: saturate(.88) brightness(1.03);
+	opacity: .12;
+	filter: saturate(.90) brightness(1.04);
 }
 
 body.blog-dashboard-page .blog-dashboard-shell,
@@ -56,25 +56,22 @@ body.blog-home-page .home-dashboard-heading {
 
 .home-couple-ornament {
 	position: absolute;
-	top: -8px;
-	right: 236px;
+	top: -12px;
+	right: 18px;
 	z-index: 3;
-	width: 330px;
-	height: 82px;
-	border: 1px solid rgba(255, 255, 255, .82);
+	width: 430px;
+	height: 108px;
+	border: 1px solid rgba(255, 255, 255, .72);
 	border-radius: 24px;
-	background:
-		linear-gradient(180deg, rgba(255, 255, 255, .46), rgba(255, 255, 255, .20));
+	background-color: rgba(255, 255, 255, .12);
 	box-shadow:
-		0 8px 24px rgba(67, 86, 118, .08),
-		inset 0 0 0 1px rgba(173, 193, 224, .13);
-	background-image: url('/assets/images/korea-japan-couple-ornament.svg');
+		0 8px 24px rgba(67, 86, 118, .07),
+		inset 0 0 0 1px rgba(173, 193, 224, .09);
+	background-image: url('/assets/images/main_couple_bg.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	filter:
-		drop-shadow(0 1px 0 rgba(255, 255, 255, .95))
-		drop-shadow(0 5px 10px rgba(72, 88, 115, .12));
+	filter: drop-shadow(0 5px 10px rgba(72, 88, 115, .10));
 	cursor: grab;
 	user-select: none;
 	touch-action: none;
@@ -104,84 +101,73 @@ body.blog-home-page .home-dashboard-heading {
 }
 
 @keyframes home-couple-cloud-float {
-	0% {
-		transform: translate3d(-7px, 2px, 0) rotate(-.35deg);
-	}
-	33% {
-		transform: translate3d(7px, -5px, 0) rotate(.25deg);
-	}
-	66% {
-		transform: translate3d(13px, 3px, 0) rotate(.45deg);
-	}
-	100% {
-		transform: translate3d(-2px, -3px, 0) rotate(-.2deg);
-	}
+	0% { transform: translate3d(-7px, 2px, 0) rotate(-.35deg); }
+	33% { transform: translate3d(7px, -5px, 0) rotate(.25deg); }
+	66% { transform: translate3d(13px, 3px, 0) rotate(.45deg); }
+	100% { transform: translate3d(-2px, -3px, 0) rotate(-.2deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.home-couple-ornament {
-		animation: none;
-	}
+	.home-couple-ornament { animation: none; }
 }
 
 @media (max-width: 1240px) {
 	.home-couple-ornament {
-		right: 220px;
-		width: 280px;
-		height: 74px;
+		right: 8px;
+		width: 360px;
+		height: 92px;
 	}
 }
 
 @media (max-width: 1100px) {
-	body.blog-dashboard-page::before {
-		background-size: auto 100%;
-		background-position: center top;
-		opacity: 0.68;
+	body.blog-dashboard-page::before,
+	body.admin-page::before {
+		background-size: 100% 100%;
+		background-position: center center;
 	}
 
-	body.admin-page::before {
-		background-size: auto 100%;
-		opacity: 0.14;
-	}
+	body.blog-dashboard-page::before { opacity: .74; }
+	body.admin-page::before { opacity: .10; }
 
 	.home-couple-ornament {
-		display: none;
+		right: 0;
+		width: 320px;
+		height: 84px;
 	}
 }
 
 @media (max-width: 960px) {
-	body.admin-page::before {
-		left: 210px;
-	}
+	body.admin-page::before { left: 210px; }
 }
 
 @media (max-width: 840px) {
 	body.blog-dashboard-page::before {
 		left: 0;
-		opacity: 0.54;
-		background-position: 56% top;
+		opacity: .64;
+		background-position: center center;
 	}
 
 	body.admin-page::before {
 		top: 62px;
 		left: 0;
-		opacity: 0.11;
-		background-position: 56% top;
+		opacity: .08;
+		background-position: center center;
 	}
 
 	body.blog-home-page .home-dashboard-heading {
 		min-height: 0;
 	}
+
+	.home-couple-ornament {
+		top: 0;
+		right: 50%;
+		width: min(300px, 82vw);
+		height: 78px;
+		transform: translateX(50%);
+	}
 }
 
 @media (max-width: 560px) {
-	body.blog-dashboard-page::before {
-		opacity: 0.42;
-		background-position: 61% top;
-	}
-
-	body.admin-page::before {
-		opacity: 0.085;
-		background-position: 61% top;
-	}
+	body.blog-dashboard-page::before { opacity: .56; }
+	body.admin-page::before { opacity: .065; }
 }
