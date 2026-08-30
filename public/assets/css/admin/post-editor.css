@@ -18,15 +18,30 @@ body.admin-post-editor-page {
 .admin-editor-back-link {
 	display: inline-flex;
 	align-items: center;
-	min-height: 40px;
-	color: #53637a;
-	font-size: 13px;
-	font-weight: 700;
+	justify-content: center;
+	width: 52px;
+	height: 52px;
+	flex: 0 0 auto;
+	border: 1px solid #d9e1ec;
+	border-radius: 14px;
+	background: #fff url('/assets/icons/back-arrow.svg') center / 42px 42px no-repeat;
+	box-shadow: 0 5px 14px rgba(31, 47, 70, 0.08);
+	font-size: 0;
+	line-height: 0;
 	text-decoration: none;
+	transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 .admin-editor-back-link:hover {
-	color: #1f56d8;
+	transform: translateX(-2px);
+	border-color: #aebfda;
+	background-color: #f8faff;
+	box-shadow: 0 7px 18px rgba(31, 86, 216, 0.12);
+}
+
+.admin-editor-back-link:focus-visible {
+	outline: 3px solid rgba(31, 86, 216, 0.18);
+	outline-offset: 2px;
 }
 
 .admin-editor-layout {
@@ -438,6 +453,12 @@ body.admin-post-editor-page {
 	.admin-editor-heading-row {
 		flex-direction: column-reverse;
 		gap: 10px;
+	}
+
+	.admin-editor-back-link {
+		width: 48px;
+		height: 48px;
+		background-size: 38px 38px;
 	}
 
 	.admin-editor-field textarea {
