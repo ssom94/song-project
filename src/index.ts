@@ -1,3 +1,8 @@
+import {
+	handleCreateAdminAccount,
+	handleListAdminAccounts,
+	handleUpdateAdminAccount,
+} from './admin/accounts/manage';
 import { handleListAdminCategories } from './admin/categories/list';
 import {
 	handleCreateAdminCategory,
@@ -128,6 +133,12 @@ export default {
 				return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/session':
 				return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
+			case '/api/admin/accounts':
+				if (request.method === 'GET') return handleListAdminAccounts(request, env);
+				if (request.method === 'POST') return handleCreateAdminAccount(request, env);
+				return methodNotAllowed('GET, POST');
+			case '/api/admin/accounts/detail':
+				return request.method === 'PATCH' ? handleUpdateAdminAccount(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/dashboard':
 				if (request.method === 'GET') return handleGetAdminDashboard(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminDashboard(request, env);
