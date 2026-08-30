@@ -7,12 +7,22 @@ interface CategoryPayload {
 	displayOrder?: unknown;
 }
 
+interface ReorderPayload {
+	parentId?: unknown;
+	orderedIds?: unknown;
+}
+
 interface ExistingCategoryRow {
 	id: number;
 	parent_id: number | null;
 	display_order: number;
 	name_ja: string | null;
 	name_ko: string | null;
+}
+
+interface CategoryOrderRow {
+	id: number;
+	display_order: number;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -58,6 +68,10 @@ function parseDisplayOrder(value: unknown): number | undefined {
 	return Number.isSafeInteger(parsed) && parsed >= 0 && parsed <= 9999 ? parsed : undefined;
 }
 
+function sameParent(left: number | null, right: number | null): boolean {
+	return left === right;
+}
+
 async function getExistingCategory(db: D1Database, categoryId: number): Promise<ExistingCategoryRow | null> {
 	return db
 		.prepare(`
@@ -77,6 +91,25 @@ async function getExistingCategory(db: D1Database, categoryId: number): Promise<
 		`)
 		.bind(categoryId)
 		.first<ExistingCategoryRow>();
+}
+
+async function getSiblings(db: D1Database, parentId: number | null): Promise<CategoryOrderRow[]> {
+	const result = await db.prepare(`
+		SELECT id, display_order
+		FROM categories
+		WHERE deleted_at IS NULL
+			AND ((?1 IS NULL AND parent_id IS NULL) OR parent_id = ?1)
+		ORDER BY display_order ASC, id ASC
+	`).bind(parentId).all<CategoryOrderRow>();
+	return result.results;
+}
+
+function orderStatements(db: D1Database, ids: number[], now: string): D1PreparedStatement[] {
+	return ids.map((id, index) => db.prepare(`
+		UPDATE categories
+		SET display_order = ?1, updated_at = ?2
+		WHERE id = ?3 AND deleted_at IS NULL
+	`).bind(index, now, id));
 }
 
 async function validateParent(db: D1Database, categoryId: number | null, parentId: number | null): Promise<string | null> {
@@ -243,6 +276,63 @@ export async function handleUpdateAdminCategory(request: Request, env: Env): Pro
 	}
 
 	return json({ ok: true });
+}
+
+export async function handleReorderAdminCategories(request: Request, env: Env): Promise<Response> {
+	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
+	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
+	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
+
+	let payload: ReorderPayload;
+	try {
+		payload = (await request.json()) as ReorderPayload;
+	} catch {
+		return json({ ok: false, error: 'INVALID_JSON' }, 400);
+	}
+
+	const parentId = parseParentId(payload.parentId);
+	if (parentId === undefined) return json({ ok: false, error: 'INVALID_PARENT_CATEGORY' }, 400);
+	if (!Array.isArray(payload.orderedIds) || payload.orderedIds.length === 0) {
+		return json({ ok: false, error: 'INVALID_CATEGORY_ORDER' }, 400);
+	}
+
+	const orderedIds = payload.orderedIds.map(Number);
+	if (orderedIds.some((id) => !Number.isSafeInteger(id) || id <= 0) || new Set(orderedIds).size !== orderedIds.length) {
+		return json({ ok: false, error: 'INVALID_CATEGORY_ORDER' }, 400);
+	}
+
+	try {
+		if (parentId !== null) {
+			const parent = await getExistingCategory(env.song_project_db, parentId);
+			if (!parent) return json({ ok: false, error: 'PARENT_CATEGORY_NOT_FOUND' }, 404);
+		}
+
+		const siblings = await getSiblings(env.song_project_db, parentId);
+		const currentIds = siblings.map((row) => row.id);
+		if (currentIds.length !== orderedIds.length) return json({ ok: false, error: 'CATEGORY_ORDER_MISMATCH' }, 409);
+		const currentSet = new Set(currentIds);
+		if (orderedIds.some((id) => !currentSet.has(id))) return json({ ok: false, error: 'CATEGORY_ORDER_MISMATCH' }, 409);
+
+		const now = new Date().toISOString();
+		await env.song_project_db.batch([
+			...orderStatements(env.song_project_db, orderedIds, now),
+			env.song_project_db.prepare(`
+				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, before_data, after_data, country_code, user_agent)
+				VALUES (?1, 'category_order', ?2, 'reorder', ?3, ?4, ?5, ?6)
+			`).bind(
+				session.adminId,
+				orderedIds[0],
+				JSON.stringify({ parentId, orderedIds: currentIds }),
+				JSON.stringify({ parentId, orderedIds }),
+				request.headers.get('CF-IPCountry'),
+				request.headers.get('User-Agent'),
+			),
+		]);
+		return json({ ok: true });
+	} catch (error) {
+		console.error('Failed to reorder categories', error);
+		return json({ ok: false, error: 'CATEGORY_REORDER_FAILED' }, 500);
+	}
 }
 
 export async function handleDeleteAdminCategory(request: Request, env: Env): Promise<Response> {
