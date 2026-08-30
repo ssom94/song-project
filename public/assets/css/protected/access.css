@@ -49,3 +49,25 @@
 	opacity: .56;
 	cursor: wait;
 }
+
+.protected-scope-item b[data-protected-state] {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	padding: 0 8px;
+	border-radius: 999px;
+	background: #f1f4f8;
+	color: #7b8797;
+	font-size: 8px;
+	font-weight: 850;
+}
+
+.protected-scope-item b[data-protected-state].is-registered {
+	background: #eef8f1;
+	color: #39714b;
+}
+
+.protected-scope-item b[data-protected-state].is-unregistered {
+	background: #fff0f2;
+	color: #ad4c58;
+}
