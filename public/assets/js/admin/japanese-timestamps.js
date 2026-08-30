@@ -164,12 +164,26 @@
 
 	function applyLearningFilter() {
 		const selected = ensureFilter()?.value ?? '';
-		document.querySelectorAll('#japanese-word-table-body > tr').forEach((row) => {
-			if (!(row instanceof HTMLTableRowElement)) return;
+		const rows = [...document.querySelectorAll('#japanese-word-table-body > tr')].filter((row) => row instanceof HTMLTableRowElement);
+		let visibleCount = 0;
+		rows.forEach((row) => {
 			const excluded = Boolean(selected) && (row.dataset.learningState || 'unlearned') !== selected;
 			row.dataset.learningExcluded = excluded ? 'true' : 'false';
 			if (excluded) row.hidden = true;
+			else visibleCount += 1;
 		});
+
+		const count = document.getElementById('japanese-word-count');
+		if (count) count.textContent = String(visibleCount);
+
+		const table = document.getElementById('japanese-word-table-wrap');
+		const filteredEmpty = document.getElementById('japanese-words-filtered-empty');
+		if (rows.length > 0 && table && filteredEmpty) {
+			const noMatch = visibleCount === 0;
+			table.hidden = noMatch;
+			filteredEmpty.hidden = !noMatch;
+		}
+
 		document.dispatchEvent(new CustomEvent('japaneselearningfilterchange'));
 	}
 
