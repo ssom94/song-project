@@ -63,9 +63,14 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 				<section id="post-detail-error" class="blog-state blog-state-card" hidden><h1 id="post-detail-error-title"></h1><p id="post-detail-error-message"></p></section>
 			</article>
 
-			<section class="blog-comments" aria-labelledby="blog-comments-title">
+			<section id="blog-comments-section" class="blog-comments" aria-labelledby="blog-comments-title" hidden>
 				<div class="blog-comments-heading"><h2 id="blog-comments-title">${text.comments}</h2><span class="blog-comments-count">${text.commentCount}</span></div>
-				<form class="blog-comment-form"><div class="blog-comment-fields"><input type="text" maxlength="40" placeholder="${text.nickname}" /><input type="password" maxlength="100" placeholder="${text.password}" autocomplete="new-password" /></div><textarea maxlength="2000" placeholder="${text.commentPlaceholder}"></textarea><div class="blog-comment-form-footer"><span>${text.commentPolicy}</span><button class="blog-comment-submit" type="button">${text.commentSubmit}</button></div></form>
+				<form id="public-comment-form" class="blog-comment-form">
+					<div class="blog-comment-fields"><input name="nickname" type="text" maxlength="40" placeholder="${text.nickname}" autocomplete="nickname" required /><input name="password" type="password" minlength="4" maxlength="100" placeholder="${text.password}" autocomplete="new-password" required /></div>
+					<textarea name="content" maxlength="2000" placeholder="${text.commentPlaceholder}" required></textarea>
+					<p id="public-comment-status" class="blog-comment-status" hidden></p>
+					<div class="blog-comment-form-footer"><span>${text.commentPolicy}</span><button class="blog-comment-submit" type="submit">${text.commentSubmit}</button></div>
+				</form>
 				<div id="public-comment-list" class="blog-comment-list"><div class="blog-comments-empty">${text.commentsEmpty}</div></div>
 			</section>
 		</div></main>
@@ -73,6 +78,7 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 
 	<script src="/assets/js/blog/dashboard-shell.js"></script>
 	<script src="/assets/js/markdown.js"></script>
+	<script src="/assets/js/blog/comments.js"></script>
 	<script src="/assets/js/blog/post-detail.js"></script>
 </body>
 </html>`, { status: 200, headers: { 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'public, max-age=60' } });
