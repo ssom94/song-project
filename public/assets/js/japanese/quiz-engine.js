@@ -11,10 +11,10 @@
 		const original = String(value ?? '').trim();
 		if (!original) return [];
 		const values = original
-			.split(/[,/／、;；·|]/)
+			.split(/[\r\n,/／、;；·|]+/)
 			.map((item) => item.trim())
 			.filter(Boolean);
-		return [...new Set([original, ...values])];
+		return [...new Set(values)];
 	}
 
 	function shuffled(values) {
@@ -73,7 +73,7 @@
 			if (!answers.length) return null;
 			return {
 				wordId: Number(word.id), type: 'meaning', prompt: word.word,
-				answers, correct: word.meaningKo,
+				answers, correct: answers.join(' / '),
 				choices: choicesFor('meaning', word, allWords, answers[0]),
 				level: word.jlpt ?? '', word: word.word,
 			};
