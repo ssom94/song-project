@@ -104,7 +104,7 @@
   "postTitle": "제목",
   "postTitlePlaceholder": "게시글 제목 입력",
   "postContent": "본문",
-  "postContentPlaceholder": "본문을 입력해 주세요. 추후 Markdown도 지원할 예정입니다.",
+  "postContentPlaceholder": "본문을 입력해 주세요. Markdown 문법을 사용할 수 있습니다.",
   "editorSettings": "게시글 설정",
   "postCategory": "카테고리",
   "categoryNone": "미분류",
