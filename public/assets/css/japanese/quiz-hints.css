@@ -13,17 +13,28 @@
 }
 
 .admin-quiz-hint-button,
-.jp-quiz-hint-button {
-	min-height: 36px;
-	padding: 0 12px;
-	border: 1px solid #cfd9ea;
+.jp-quiz-hint-button,
+.jp-quiz-skip-button {
+	min-height: 38px;
+	padding: 0 13px;
 	border-radius: 9px;
-	background: #f7f9ff;
-	color: #315cae;
 	font: inherit;
 	font-size: 11px;
 	font-weight: 850;
 	cursor: pointer;
+}
+
+.admin-quiz-hint-button,
+.jp-quiz-hint-button {
+	border: 1px solid #cfd9ea;
+	background: #f7f9ff;
+	color: #315cae;
+}
+
+.jp-quiz-skip-button {
+	border: 1px solid #ebc9ce;
+	background: #fff7f8;
+	color: #b14854;
 }
 
 .admin-quiz-hint-button:hover:not(:disabled),
@@ -32,8 +43,14 @@
 	background: #eef3ff;
 }
 
+.jp-quiz-skip-button:hover:not(:disabled) {
+	border-color: #d99ba4;
+	background: #fff0f2;
+}
+
 .admin-quiz-hint-button:disabled,
-.jp-quiz-hint-button:disabled {
+.jp-quiz-hint-button:disabled,
+.jp-quiz-skip-button:disabled {
 	cursor: default;
 	opacity: 0.52;
 }
@@ -43,6 +60,19 @@
 	color: #8a96a6;
 	font-size: 10px;
 	line-height: 1.45;
+}
+
+.jp-quiz-answer-length {
+	max-width: 650px;
+	margin: 16px auto 0;
+	padding: 9px 12px;
+	border: 1px dashed #d5deeb;
+	border-radius: 9px;
+	background: rgba(255, 255, 255, 0.72);
+	color: #6f7e92;
+	font-size: 10px;
+	font-weight: 800;
+	text-align: center;
 }
 
 .admin-quiz-hint-box,
@@ -73,6 +103,7 @@
 	color: #536176;
 	font-size: 12px;
 	line-height: 1.65;
+	white-space: pre-line;
 	word-break: break-word;
 }
 
@@ -84,7 +115,8 @@
 	}
 
 	.admin-quiz-hint-button,
-	.jp-quiz-hint-button {
+	.jp-quiz-hint-button,
+	.jp-quiz-skip-button {
 		width: 100%;
 	}
 }
