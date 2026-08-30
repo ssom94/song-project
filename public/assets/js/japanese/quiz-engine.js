@@ -41,7 +41,7 @@
 		const sentence = String(word?.example?.sentence ?? '');
 		const target = String(word?.word ?? '');
 		if (!sentence || !target || !sentence.includes(target)) return null;
-		return sentence.split(target).join('□□□□');
+		return sentence.split(target).join('【　　】');
 	}
 
 	function hintData(word) {
@@ -82,6 +82,22 @@
 		}
 		if (distractors.length !== 3) return null;
 		return { correct, choices: shuffled([correct, ...distractors]) };
+	}
+
+	function sentenceChoices(word, allWords) {
+		const correct = String(word?.word ?? '').trim();
+		if (!correct) return null;
+		const distractors = [];
+		for (const other of shuffled(allWords)) {
+			if (Number(other?.id) === Number(word?.id)) continue;
+			const candidate = String(other?.word ?? '').trim();
+			if (!candidate || normalize(candidate) === normalize(correct)) continue;
+			if (distractors.some((value) => normalize(value) === normalize(candidate))) continue;
+			distractors.push(candidate);
+			if (distractors.length === 3) break;
+		}
+		if (distractors.length !== 3) return null;
+		return shuffled([correct, ...distractors]);
 	}
 
 	function inputReading(word) {
@@ -134,19 +150,21 @@
 		};
 	}
 
-	function inputSentence(word) {
+	function choiceSentence(word, allWords) {
 		if (!word?.id || !word?.word) return null;
 		const prompt = sentencePrompt(word);
-		if (!prompt) return null;
+		const choices = sentenceChoices(word, allWords);
+		if (!prompt || !choices) return null;
+		const answers = unique([word.word, word.reading]);
 		return {
 			...commonQuestion(word),
-			key: `${word.id}:sentence:input`,
+			key: `${word.id}:sentence:choice`,
 			type: 'sentence',
-			answerMode: 'input',
+			answerMode: 'choice',
 			prompt,
-			answers: [word.word],
-			correct: word.word,
-			choices: [],
+			answers,
+			correct: answers.join(' / '),
+			choices,
 		};
 	}
 
@@ -187,7 +205,7 @@
 				if (question) pool.push(question);
 			}
 			if ((mode === 'sentence' || mode === 'mixed') && types.includes('sentence')) {
-				const question = inputSentence(word);
+				const question = choiceSentence(word, words);
 				if (question) pool.push(question);
 			}
 		}
@@ -216,8 +234,8 @@
 			const word = activeWords.find((candidate) => Number(candidate.id) === Number(item.wordId));
 			if (!word) continue;
 			let question = null;
-			if (item.answerMode === 'choice' && item.type === 'meaning') question = choiceMeaning(word, activeWords);
-			else if (item.type === 'sentence') question = inputSentence(word);
+			if (item.type === 'sentence') question = choiceSentence(word, activeWords);
+			else if (item.answerMode === 'choice' && item.type === 'meaning') question = choiceMeaning(word, activeWords);
 			else if (item.type === 'meaning') question = inputMeaning(word);
 			else if (item.type === 'reading') question = inputReading(word);
 			if (question) result.push(question);
