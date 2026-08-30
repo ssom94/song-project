@@ -1,0 +1,252 @@
+.admin-skill-summary-card {
+	margin-top: 14px;
+}
+
+.admin-skill-summary-intro {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.admin-skill-summary-intro .admin-record-field textarea {
+	min-height: 86px;
+}
+
+.admin-skill-summary-section-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 20px 0 10px;
+	padding-top: 16px;
+	border-top: 1px solid #edf0f4;
+}
+
+.admin-skill-summary-section-heading h3 {
+	margin: 0;
+	color: #344156;
+	font-size: 13px;
+}
+
+.admin-skill-summary-sections {
+	display: grid;
+	gap: 10px;
+}
+
+.admin-skill-summary-section {
+	padding: 13px;
+	border: 1px solid #e2e8f0;
+	border-radius: 11px;
+	background: #fbfcfe;
+}
+
+.admin-skill-summary-section-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.admin-skill-summary-section-top strong {
+	color: #3b485d;
+	font-size: 11px;
+}
+
+.admin-skill-summary-section-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.admin-skill-summary-section-actions button {
+	min-width: 30px;
+	height: 30px;
+	padding: 0 8px;
+}
+
+.admin-skill-summary-section-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 9px;
+}
+
+.admin-skill-summary-section-grid .is-wide {
+	grid-column: 1 / -1;
+}
+
+.admin-skill-summary-visible {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: #617087;
+	font-size: 9px;
+	font-weight: 800;
+}
+
+.admin-skill-summary-footer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 14px;
+}
+
+.admin-skill-summary-message {
+	margin-right: auto;
+	font-size: 9px;
+	color: #39714b;
+}
+
+.admin-skill-summary-message.is-error {
+	color: #ad4c58;
+}
+
+.admin-document-preview-note {
+	margin: 7px 0 0;
+	color: #8b97a7;
+	font-size: 8px;
+	line-height: 1.55;
+}
+
+.admin-document-preview-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 500;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+	background: rgba(18, 27, 43, .48);
+	backdrop-filter: blur(4px);
+}
+
+.admin-document-preview-dialog {
+	display: grid;
+	grid-template-rows: auto auto minmax(0, 1fr);
+	width: min(1180px, 96vw);
+	height: min(820px, 92vh);
+	border: 1px solid #dbe3ed;
+	border-radius: 15px;
+	background: #fff;
+	box-shadow: 0 24px 70px rgba(20, 34, 56, .24);
+	overflow: hidden;
+}
+
+.admin-document-preview-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 14px 16px;
+	border-bottom: 1px solid #e6ebf1;
+}
+
+.admin-document-preview-header div {
+	min-width: 0;
+}
+
+.admin-document-preview-header strong,
+.admin-document-preview-header small {
+	display: block;
+}
+
+.admin-document-preview-header strong {
+	color: #344156;
+	font-size: 13px;
+}
+
+.admin-document-preview-header small {
+	margin-top: 3px;
+	color: #8995a6;
+	font-size: 9px;
+}
+
+.admin-document-preview-close {
+	width: 34px;
+	height: 34px;
+	border: 1px solid #dce3ec;
+	border-radius: 9px;
+	background: #fff;
+	color: #59687c;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.admin-document-preview-tabs {
+	display: flex;
+	gap: 5px;
+	padding: 8px 12px;
+	border-bottom: 1px solid #e7ecf2;
+	overflow-x: auto;
+	background: #f8fafd;
+}
+
+.admin-document-preview-tab {
+	flex: 0 0 auto;
+	min-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #dbe3ed;
+	border-radius: 8px;
+	background: #fff;
+	color: #607087;
+	font: inherit;
+	font-size: 9px;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.admin-document-preview-tab.is-active {
+	border-color: #8da9df;
+	background: #eef3ff;
+	color: #2458b3;
+}
+
+.admin-document-preview-scroll {
+	overflow: auto;
+	padding: 12px;
+	background: #f4f6f9;
+}
+
+.admin-document-preview-table {
+	border-collapse: collapse;
+	background: #fff;
+	box-shadow: 0 2px 9px rgba(34, 48, 70, .06);
+}
+
+.admin-document-preview-table td {
+	min-width: 82px;
+	max-width: 360px;
+	padding: 6px 8px;
+	border: 1px solid #dfe5ed;
+	color: #425066;
+	font-size: 10px;
+	line-height: 1.45;
+	white-space: pre-wrap;
+	word-break: break-word;
+	vertical-align: top;
+}
+
+.admin-document-preview-table tr:first-child td {
+	background: #f8fafd;
+	font-weight: 800;
+}
+
+@media (max-width: 760px) {
+	.admin-skill-summary-intro,
+	.admin-skill-summary-section-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.admin-skill-summary-section-grid .is-wide {
+		grid-column: auto;
+	}
+
+	.admin-document-preview-backdrop {
+		padding: 8px;
+	}
+
+	.admin-document-preview-dialog {
+		width: 100%;
+		height: 94vh;
+	}
+}
