@@ -119,7 +119,7 @@
 		return [
 			{ value: 'input', title: copy('주관식', '記述式'), description: copy('단어의 읽기 또는 한국어 뜻을 직접 입력합니다.', '単語の読み方または韓国語の意味を直接入力します。') },
 			{ value: 'choice', title: copy('4지선다', '4択'), description: copy('정답 1개와 다른 등록 단어의 뜻 3개 중에서 선택합니다.', '正解1つと、他の登録単語の意味3つから選択します。') },
-			{ value: 'sentence', title: copy('예문 빈칸', '例文穴埋め'), description: copy('등록된 예문에서 단어를 빈칸으로 가리고 직접 맞힙니다.', '登録例文の対象単語を空欄にして直接答えます。') },
+			{ value: 'sentence', title: copy('예문 빈칸', '例文穴埋め'), description: copy('등록된 예문에서 단어를 빈칸으로 가리고 다른 등록 단어와 섞인 4개의 보기 중에서 선택합니다.', '登録例文の対象単語を空欄にし、他の登録単語を含む4つの選択肢から選びます。') },
 			{ value: 'mixed', title: copy('전체 혼합', 'すべて混合'), description: copy('주관식·4지선다·예문 빈칸을 문제마다 랜덤으로 섞습니다.', '記述式・4択・例文穴埋めを問題ごとにランダムで混ぜます。') },
 		];
 	}
@@ -196,7 +196,7 @@
 			order: document.getElementById('quiz-order')?.value || 'random',
 			priority: document.getElementById('quiz-order')?.value === 'weak' ? 'wrong' : 'random',
 			count: Math.max(1, Math.min(200, Number(document.getElementById('quiz-count-custom')?.value) || 20)),
-			answerMode: quizMode === 'choice' ? 'choice' : quizMode === 'mixed' ? 'random' : 'input',
+			answerMode: quizMode === 'choice' || quizMode === 'sentence' ? 'choice' : quizMode === 'mixed' ? 'random' : 'input',
 		};
 	}
 
