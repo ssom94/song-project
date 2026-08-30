@@ -1,0 +1,191 @@
+.schedule-date-mode {
+	margin: 14px 0 0;
+	padding: 0;
+	border: 0;
+}
+
+.schedule-date-mode legend {
+	margin-bottom: 7px;
+	color: #64748b;
+	font-size: 10px;
+	font-weight: 800;
+}
+
+.schedule-date-mode-option {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin: 0 13px 4px 0;
+	color: #536277;
+	font-size: 10px;
+	font-weight: 750;
+	cursor: pointer;
+}
+
+.schedule-date-mode-option input {
+	margin: 0;
+	accent-color: #1f56d8;
+}
+
+.schedule-date-range-fields {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.schedule-date-range-fields[hidden],
+.schedule-date-single[hidden] {
+	display: none !important;
+}
+
+.schedule-calendar-month-wrap {
+	position: relative;
+	z-index: 8;
+}
+
+.schedule-calendar-month-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	min-width: 118px;
+	min-height: 31px;
+	padding: 0 10px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	background: transparent;
+	color: #2c3a4f;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 850;
+	cursor: pointer;
+}
+
+.schedule-calendar-month-button::after {
+	content: '⌄';
+	color: #8a98aa;
+	font-size: 11px;
+	transform: translateY(-1px);
+}
+
+.schedule-calendar-month-button:hover,
+.schedule-calendar-month-button[aria-expanded="true"] {
+	border-color: #d8e2f2;
+	background: #f7f9ff;
+	color: #1f56d8;
+}
+
+.schedule-calendar-month-picker {
+	position: absolute;
+	top: calc(100% + 7px);
+	left: 0;
+	z-index: 30;
+	width: 244px;
+	padding: 11px;
+	border: 1px solid #dce4ee;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 16px 42px rgba(30, 48, 78, .16);
+}
+
+.schedule-calendar-month-picker[hidden] {
+	display: none !important;
+}
+
+.schedule-calendar-year-select {
+	width: 100%;
+	height: 34px;
+	padding: 0 9px;
+	border: 1px solid #d9e1ec;
+	border-radius: 8px;
+	background: #fff;
+	color: #40516a;
+	font: inherit;
+	font-size: 10px;
+	font-weight: 800;
+	outline: none;
+}
+
+.schedule-calendar-year-select:focus {
+	border-color: #86a8eb;
+	box-shadow: 0 0 0 3px rgba(31, 86, 216, .08);
+}
+
+.schedule-calendar-month-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5px;
+	margin-top: 8px;
+}
+
+.schedule-calendar-month-option {
+	min-height: 31px;
+	border: 1px solid #e1e7ef;
+	border-radius: 7px;
+	background: #fff;
+	color: #5b6a7e;
+	font: inherit;
+	font-size: 9px;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.schedule-calendar-month-option:hover {
+	border-color: #a9bee8;
+	background: #f2f6ff;
+	color: #1f56d8;
+}
+
+.schedule-calendar-month-option.is-current {
+	border-color: #1f56d8;
+	background: #eef4ff;
+	color: #1f56d8;
+}
+
+.schedule-calendar-grid {
+	touch-action: pan-y;
+	user-select: none;
+}
+
+.schedule-calendar-grid.is-dragging {
+	cursor: grabbing;
+}
+
+.schedule-calendar-grid.is-dragging .schedule-calendar-day {
+	pointer-events: none;
+}
+
+.schedule-calendar-event.is-range {
+	background: #e8f0ff;
+	color: #2858ad;
+}
+
+.schedule-calendar-event.is-range-start {
+	box-shadow: inset 3px 0 0 #7098e6;
+}
+
+.schedule-calendar-event.is-range-end {
+	box-shadow: inset -3px 0 0 #7098e6;
+}
+
+@media (max-width: 560px) {
+	.schedule-date-mode-option {
+		display: flex;
+		margin-right: 0;
+	}
+
+	.schedule-date-range-fields {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.schedule-calendar-month-button {
+		min-width: 102px;
+		padding: 0 6px;
+		font-size: 10.5px;
+	}
+
+	.schedule-calendar-month-picker {
+		width: 218px;
+	}
+}
