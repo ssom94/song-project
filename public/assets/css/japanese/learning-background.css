@@ -1,9 +1,9 @@
-body.japanese-public-page {
+body.blog-dashboard-page {
 	position: relative;
 	background: #f4f7fb;
 }
 
-body.japanese-public-page::before {
+body.blog-dashboard-page::before {
 	content: '';
 	position: fixed;
 	top: 64px;
@@ -17,22 +17,23 @@ body.japanese-public-page::before {
 	z-index: 0;
 }
 
-body.japanese-public-page .blog-dashboard-shell {
+body.blog-dashboard-page .blog-dashboard-shell {
 	position: relative;
 	z-index: 1;
 	background: transparent;
 }
 
-body.japanese-public-page .blog-dashboard-main {
+body.blog-dashboard-page .blog-dashboard-main {
 	background: transparent;
 }
 
-body.japanese-public-page .jp-page-heading {
+body.blog-dashboard-page .blog-dashboard-content {
 	position: relative;
+	z-index: 1;
 }
 
 @media (max-width: 840px) {
-	body.japanese-public-page::before {
+	body.blog-dashboard-page::before {
 		right: -130px;
 		width: 980px;
 		opacity: 0.13;
@@ -40,7 +41,7 @@ body.japanese-public-page .jp-page-heading {
 }
 
 @media (max-width: 560px) {
-	body.japanese-public-page::before {
+	body.blog-dashboard-page::before {
 		right: -230px;
 		width: 820px;
 		opacity: 0.09;
