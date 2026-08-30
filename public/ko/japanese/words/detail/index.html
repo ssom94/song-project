@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<meta name="description" content="일본어 단어의 읽는 법, 뜻, 품사, 학습 분류와 예문을 확인하는 학습 페이지입니다." />
+	<title>단어 상세 | 일본어 학습 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/word-detail.css" />
+</head>
+<body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ko">
+	<header class="blog-dashboard-topbar">
+		<div class="blog-dashboard-top-actions">
+			<button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button>
+			<a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a>
+		</div>
+		<div class="blog-dashboard-language"><a id="jp-word-detail-language-link" href="/ja/japanese/words/detail/">日本語</a><span>/</span><span class="is-active">한국어</span></div>
+	</header>
+
+	<div class="blog-dashboard-shell">
+		<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
+			<section class="blog-sidebar-section">
+				<p class="blog-sidebar-label">Menu</p>
+				<nav class="blog-sidebar-nav">
+					<a class="blog-sidebar-link" href="/">Home</a>
+					<a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a>
+					<a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a>
+					<a class="blog-sidebar-link" href="/ko/skill-sheet/">Skill Sheet</a>
+					<a class="blog-sidebar-link" href="/ko/career/">경력</a>
+				</nav>
+			</section>
+			<section class="blog-sidebar-section">
+				<p class="blog-sidebar-label">Japanese</p>
+				<nav class="blog-sidebar-nav">
+					<a class="blog-sidebar-link" href="/ko/japanese/">학습 홈</a>
+					<a class="blog-sidebar-link is-active" href="/ko/japanese/words/">단어 목록</a>
+					<a class="blog-sidebar-link" href="/ko/japanese/quiz/">랜덤 퀴즈</a>
+					<a class="blog-sidebar-link" href="/ko/japanese/quiz/result/">학습 결과</a>
+				</nav>
+			</section>
+			<section class="blog-sidebar-section">
+				<p class="blog-sidebar-label">Boards</p>
+				<nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav>
+				<p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p>
+			</section>
+			<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
+		</aside>
+
+		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+
+		<main class="blog-dashboard-main">
+			<div class="blog-dashboard-content jp-dashboard-content">
+				<section class="jp-page-heading">
+					<div>
+						<p class="jp-eyebrow">WORD DETAIL</p>
+						<h1>단어 자세히 학습</h1>
+						<p>읽는 법, 뜻, 분류, 예문을 한 화면에서 확인한 뒤 퀴즈로 이어서 학습합니다.</p>
+					</div>
+					<div class="jp-heading-actions">
+						<a class="jp-secondary-button" href="/ko/japanese/words/">단어 목록으로</a>
+						<a id="jp-word-detail-quiz" class="jp-primary-button" href="/ko/japanese/quiz/">이 단어로 퀴즈</a>
+					</div>
+				</section>
+
+				<div id="jp-word-detail-state" class="jp-word-detail-state">단어를 불러오는 중…</div>
+
+				<section id="jp-word-detail-content" class="jp-word-detail-layout" hidden>
+					<div class="jp-word-detail-main">
+						<article class="jp-word-detail-hero">
+							<div class="jp-word-detail-topline">
+								<div>
+									<h2 id="jp-word-detail-word" class="jp-word-detail-word">—</h2>
+									<p id="jp-word-detail-reading" class="jp-word-detail-reading">—</p>
+								</div>
+								<span id="jp-word-detail-level" class="jp-word-detail-level">—</span>
+							</div>
+							<div id="jp-word-detail-taxonomy" class="jp-word-detail-taxonomy"></div>
+						</article>
+
+						<section class="jp-word-detail-section">
+							<div class="jp-word-detail-section-heading"><h2>뜻</h2><span>MEANING</span></div>
+							<div class="jp-word-detail-meanings">
+								<div class="jp-word-detail-meaning"><span>한국어 뜻</span><p id="jp-word-detail-meaning-ko">—</p></div>
+								<div class="jp-word-detail-meaning"><span>일본어 설명</span><p id="jp-word-detail-meaning-ja">—</p></div>
+							</div>
+						</section>
+
+						<section class="jp-word-detail-section">
+							<div class="jp-word-detail-section-heading"><h2>예문</h2><span>EXAMPLE</span></div>
+							<div id="jp-word-detail-example" class="jp-word-detail-example">
+								<p id="jp-word-detail-example-ja" class="jp-word-detail-example-ja">—</p>
+								<p id="jp-word-detail-example-reading" class="jp-word-detail-example-reading">—</p>
+								<p id="jp-word-detail-example-ko" class="jp-word-detail-example-ko">—</p>
+							</div>
+							<div id="jp-word-detail-example-empty" class="jp-empty-state" hidden>등록된 예문이 아직 없습니다.</div>
+						</section>
+					</div>
+
+					<aside class="jp-word-detail-side">
+						<section class="jp-word-detail-side-card">
+							<h2>학습 정보</h2>
+							<p>이 단어에 설정된 분류와 퀴즈에서 사용할 수 있는 정보를 확인합니다.</p>
+							<div class="jp-word-detail-study-list">
+								<div><span>품사</span><b id="jp-word-detail-part">—</b></div>
+								<div><span>학습 분류</span><b><span id="jp-word-detail-category-count">0</span>개</b></div>
+								<div><span>읽기 문제</span><b>사용 가능</b></div>
+								<div><span>뜻 문제</span><b>사용 가능</b></div>
+							</div>
+						</section>
+						<section class="jp-word-detail-side-card">
+							<h2>다음 학습</h2>
+							<p>단어를 확인한 뒤 바로 퀴즈를 풀거나 단어 목록으로 돌아갈 수 있습니다.</p>
+							<div class="jp-word-detail-actions">
+								<a id="jp-word-detail-quiz-side" class="jp-primary-button" href="/ko/japanese/quiz/">이 단어로 퀴즈</a>
+								<a class="jp-secondary-button" href="/ko/japanese/words/">다른 단어 보기</a>
+							</div>
+						</section>
+					</aside>
+				</section>
+			</div>
+		</main>
+	</div>
+
+	<script src="/assets/js/blog/dashboard-shell.js"></script>
+	<script src="/assets/js/japanese/common.js"></script>
+	<script src="/assets/js/japanese/word-detail.js"></script>
+</body>
+</html>
