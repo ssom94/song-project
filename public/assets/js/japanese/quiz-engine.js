@@ -57,15 +57,26 @@
 		return sentence.replace(target, '＿＿＿＿');
 	}
 
+	function hintData(word) {
+		return {
+			sentence: String(word?.example?.sentence ?? ''),
+			sentenceReading: String(word?.example?.reading ?? ''),
+			translationKo: String(word?.example?.translationKo ?? ''),
+			reading: String(word?.reading ?? ''),
+			meaningKo: String(word?.meaningKo ?? ''),
+		};
+	}
+
 	function buildQuestion(word, type, allWords) {
 		if (!word?.id || !word?.word) return null;
+		const hints = hintData(word);
 		if (type === 'reading') {
 			if (!word.reading) return null;
 			return {
 				wordId: Number(word.id), type: 'reading', prompt: word.word,
 				answers: [word.reading], correct: word.reading,
 				choices: choicesFor('reading', word, allWords, word.reading),
-				level: word.jlpt ?? '', word: word.word,
+				level: word.jlpt ?? '', word: word.word, hints,
 			};
 		}
 		if (type === 'meaning') {
@@ -75,7 +86,7 @@
 				wordId: Number(word.id), type: 'meaning', prompt: word.word,
 				answers, correct: answers.join(' / '),
 				choices: choicesFor('meaning', word, allWords, answers[0]),
-				level: word.jlpt ?? '', word: word.word,
+				level: word.jlpt ?? '', word: word.word, hints,
 			};
 		}
 		if (type === 'sentence') {
@@ -85,7 +96,7 @@
 				wordId: Number(word.id), type: 'sentence', prompt,
 				answers: [word.word], correct: word.word,
 				choices: choicesFor('sentence', word, allWords, word.word),
-				level: word.jlpt ?? '', word: word.word,
+				level: word.jlpt ?? '', word: word.word, hints,
 			};
 		}
 		return null;
