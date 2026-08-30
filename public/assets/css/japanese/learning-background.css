@@ -6,12 +6,13 @@ body.japanese-public-page {
 body.japanese-public-page::before {
 	content: '';
 	position: fixed;
-	top: 58px;
-	right: -70px;
-	width: min(76vw, 1080px);
-	height: calc(100vh - 58px);
-	background: url('/assets/images/learning-flags-bg.svg') right top / contain no-repeat;
-	opacity: 0.085;
+	top: 64px;
+	right: -10px;
+	width: min(82vw, 1180px);
+	height: calc(100vh - 64px);
+	background: url('/assets/images/learning-flags-bg.svg') right 24px top 20px / contain no-repeat;
+	opacity: 0.18;
+	filter: saturate(0.88) contrast(0.96);
 	pointer-events: none;
 	z-index: 0;
 }
@@ -19,6 +20,11 @@ body.japanese-public-page::before {
 body.japanese-public-page .blog-dashboard-shell {
 	position: relative;
 	z-index: 1;
+	background: transparent;
+}
+
+body.japanese-public-page .blog-dashboard-main {
+	background: transparent;
 }
 
 body.japanese-public-page .jp-page-heading {
@@ -27,16 +33,16 @@ body.japanese-public-page .jp-page-heading {
 
 @media (max-width: 840px) {
 	body.japanese-public-page::before {
-		right: -180px;
+		right: -130px;
 		width: 980px;
-		opacity: 0.06;
+		opacity: 0.13;
 	}
 }
 
 @media (max-width: 560px) {
 	body.japanese-public-page::before {
-		right: -250px;
-		width: 850px;
-		opacity: 0.045;
+		right: -230px;
+		width: 820px;
+		opacity: 0.09;
 	}
 }
