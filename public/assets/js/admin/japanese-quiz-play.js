@@ -6,6 +6,7 @@
 	let attempts = [];
 	let questions = [];
 	let startedAt = null;
+	let hintLevel = 0;
 	let setup = {
 		types: ['reading', 'meaning', 'sentence'],
 		jlpt: null,
@@ -63,6 +64,96 @@
 	function scopeLabel(primary, secondary) { return secondary || primary || t('playAll', 'すべて'); }
 	function activeQuestion() { return questions[current] ?? null; }
 
+	function firstCharacter(value) {
+		return Array.from(String(value ?? '').trim())[0] || '—';
+	}
+
+	function contextHint(question) {
+		const hints = question?.hints ?? {};
+		if (question?.type === 'sentence') {
+			if (hints.translationKo) return language() === 'ko' ? `문장 뜻: ${hints.translationKo}` : `文の韓国語訳: ${hints.translationKo}`;
+			if (hints.sentenceReading) return language() === 'ko' ? `문장 읽기: ${hints.sentenceReading}` : `文の読み: ${hints.sentenceReading}`;
+			return '';
+		}
+		if (hints.sentence) return language() === 'ko' ? `예문: ${hints.sentence}` : `例文: ${hints.sentence}`;
+		if (question?.type === 'meaning' && hints.reading) return language() === 'ko' ? `읽기: ${hints.reading}` : `読み: ${hints.reading}`;
+		if (question?.type === 'reading' && hints.meaningKo) return language() === 'ko' ? `뜻: ${hints.meaningKo}` : `韓国語の意味: ${hints.meaningKo}`;
+		return '';
+	}
+
+	function ensureHintUi() {
+		if (byId('quiz-play-hint')) return;
+		const feedback = byId('quiz-play-feedback');
+		if (!feedback) return;
+
+		const controls = document.createElement('div');
+		controls.className = 'admin-quiz-hint-controls';
+		const button = document.createElement('button');
+		button.id = 'quiz-play-hint';
+		button.className = 'admin-quiz-hint-button';
+		button.type = 'button';
+		button.addEventListener('click', requestHint);
+		const guide = document.createElement('span');
+		guide.id = 'quiz-play-hint-guide';
+		controls.append(button, guide);
+
+		const box = document.createElement('div');
+		box.id = 'quiz-play-hint-box';
+		box.className = 'admin-quiz-hint-box';
+		box.hidden = true;
+		const title = document.createElement('strong');
+		title.id = 'quiz-play-hint-title';
+		const text = document.createElement('p');
+		text.id = 'quiz-play-hint-text';
+		box.append(title, text);
+		feedback.insertAdjacentElement('beforebegin', box);
+		box.insertAdjacentElement('beforebegin', controls);
+	}
+
+	function renderHint() {
+		ensureHintUi();
+		const question = activeQuestion();
+		const button = byId('quiz-play-hint');
+		const guide = byId('quiz-play-hint-guide');
+		const box = byId('quiz-play-hint-box');
+		const title = byId('quiz-play-hint-title');
+		const text = byId('quiz-play-hint-text');
+		if (!question || !button || !guide || !box || !title || !text) return;
+
+		const context = contextHint(question);
+		guide.textContent = t('playHintGuide', language() === 'ko' ? '1단계: 첫 글자 · 2단계: 문맥' : '1段階: 最初の文字 · 2段階: 文脈');
+		box.hidden = hintLevel === 0;
+		if (hintLevel === 0) {
+			button.textContent = t('playHintShow', language() === 'ko' ? '힌트 보기' : 'ヒントを見る');
+			button.disabled = answered;
+			return;
+		}
+
+		if (hintLevel === 1) {
+			title.textContent = t('playHintFirstTitle', language() === 'ko' ? '첫 글자 힌트' : '最初の文字ヒント');
+			text.textContent = `${t('playHintFirstLabel', language() === 'ko' ? '정답의 첫 글자' : '答えの最初の文字')}: ${firstCharacter(question.answers?.[0] ?? question.correct)}`;
+			button.textContent = context
+				? t('playHintContextShow', language() === 'ko' ? '문맥 힌트 보기' : '文脈ヒントを見る')
+				: t('playHintNoMore', language() === 'ko' ? '추가 힌트 없음' : '追加ヒントなし');
+			button.disabled = answered || !context;
+			return;
+		}
+
+		title.textContent = t('playHintContextTitle', language() === 'ko' ? '문맥 힌트' : '文脈ヒント');
+		text.textContent = context || t('playHintNoContext', language() === 'ko' ? '추가 문맥 정보가 없습니다.' : '追加の文脈情報はありません。');
+		button.textContent = t('playHintUsed', language() === 'ko' ? '힌트 사용함' : 'ヒント使用済み');
+		button.disabled = true;
+	}
+
+	function requestHint() {
+		if (answered) return;
+		const question = activeQuestion();
+		if (!question) return;
+		if (hintLevel === 0) hintLevel = 1;
+		else if (hintLevel === 1 && contextHint(question)) hintLevel = 2;
+		renderHint();
+	}
+
 	function renderSession() {
 		byId('quiz-play-total').textContent = String(questions.length || setup.count);
 		byId('quiz-play-session-count').textContent = String(questions.length || setup.count);
@@ -109,6 +200,7 @@
 
 	function renderQuestion() {
 		answered = false;
+		hintLevel = 0;
 		const question = activeQuestion();
 		if (!question) return;
 		const number = current + 1;
@@ -135,6 +227,7 @@
 		byId('quiz-play-next').hidden = true;
 		byId('quiz-play-skip').hidden = false;
 		renderChoices(question);
+		renderHint();
 		if (!useChoice) input.focus();
 	}
 
@@ -166,6 +259,7 @@
 		byId('quiz-play-next').textContent = current + 1 >= questions.length
 			? (language() === 'ko' ? '결과 보기' : '結果を見る')
 			: t('playNext', '次の問題');
+		renderHint();
 	}
 
 	function recordAttempt(answer, isCorrect) {
@@ -178,6 +272,7 @@
 			correct: question.correct,
 			isCorrect,
 			answerMode: setup.answerMode === 'choice' ? 'choice' : 'input',
+			hintLevel,
 		});
 	}
 
@@ -258,11 +353,13 @@
 				? `등록 단어 「${question.word}」를 기준으로 채점했습니다.`
 				: `登録単語「${question.word}」を基準に採点しました。`;
 		}
+		renderHint();
 	}
 
 	async function initialize() {
 		await window.AdminCommon?.ready;
 		readSetup();
+		ensureHintUi();
 		try {
 			await loadQuestions();
 		} catch (error) {
