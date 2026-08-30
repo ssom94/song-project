@@ -10,6 +10,9 @@
 			skill: 'スキルシート',
 			career: '職務経歴書',
 			protected: 'Protected',
+			registered: '登録済み',
+			unregistered: '未登録',
+			checking: '確認中…',
 			hint: 'コードは選択した言語の文書にのみ有効です。5回連続で失敗すると15分間入力できません。',
 			invalid: '4桁の数字を入力してください。',
 			failed: 'コードが正しくないか、有効期限が切れています。',
@@ -26,6 +29,9 @@
 			skill: '스킬시트',
 			career: '직무경력서',
 			protected: '보호됨',
+			registered: '등록 완료',
+			unregistered: '미등록 상태',
+			checking: '확인 중…',
 			hint: '코드는 선택한 언어의 문서에만 유효합니다. 5회 연속 실패하면 15분 동안 입력할 수 없습니다.',
 			invalid: '숫자 4자리를 입력해 주세요.',
 			failed: '코드가 올바르지 않거나 만료되었습니다.',
@@ -35,10 +41,26 @@
 	};
 
 	let language = new URLSearchParams(location.search).get('lang') === 'ko' ? 'ko' : 'ja';
+	let documentStatus = null;
+	let statusRequestId = 0;
 
 	function byId(id) { return document.getElementById(id); }
 	function text(key) { return copy[language]?.[key] ?? key; }
 	function languageButtons() { return document.querySelectorAll('button[data-protected-language]'); }
+	function stateNodes() { return [...document.querySelectorAll('[data-protected-state]')]; }
+
+	function renderDocumentStatus() {
+		const nodes = stateNodes();
+		const values = documentStatus
+			? [documentStatus.skillSheet?.registered === true, documentStatus.careerHistory?.registered === true]
+			: [null, null];
+		nodes.forEach((node, index) => {
+			const registered = values[index];
+			node.textContent = registered === null ? text('checking') : registered ? text('registered') : text('unregistered');
+			node.classList.toggle('is-registered', registered === true);
+			node.classList.toggle('is-unregistered', registered === false);
+		});
+	}
 
 	function applyLanguage() {
 		document.documentElement.lang = language;
@@ -51,8 +73,8 @@
 		byId('protected-submit').textContent = text('submit');
 		byId('protected-skill-label').textContent = text('skill');
 		byId('protected-career-label').textContent = text('career');
-		document.querySelectorAll('[data-protected-state]').forEach((node) => { node.textContent = text('protected'); });
 		byId('protected-hint').textContent = text('hint');
+		renderDocumentStatus();
 		languageButtons().forEach((button) => {
 			const active = button.dataset.protectedLanguage === language;
 			button.classList.toggle('is-active', active);
@@ -60,6 +82,24 @@
 		});
 		const publicSummary = byId('protected-public-summary');
 		if (publicSummary instanceof HTMLAnchorElement) publicSummary.href = `/${language}/skill-sheet/`;
+	}
+
+	async function loadDocumentStatus() {
+		const requestId = ++statusRequestId;
+		documentStatus = null;
+		renderDocumentStatus();
+		try {
+			const response = await fetch(`/api/public/protected/status?lang=${language}`, { cache: 'no-store' });
+			const result = await response.json().catch(() => null);
+			if (requestId !== statusRequestId) return;
+			if (!response.ok || !result?.ok || !result.documents) throw new Error(result?.error || 'STATUS_FAILED');
+			documentStatus = result.documents;
+		} catch (error) {
+			console.warn('Failed to load protected document status', error);
+			documentStatus = null;
+		} finally {
+			if (requestId === statusRequestId) renderDocumentStatus();
+		}
 	}
 
 	function setMessage(message, isError = false) {
@@ -77,6 +117,7 @@
 		history.replaceState(null, '', url);
 		setMessage('');
 		applyLanguage();
+		loadDocumentStatus();
 	}
 
 	async function submit(event) {
@@ -129,6 +170,7 @@
 			button.addEventListener('click', () => setLanguage(button.dataset.protectedLanguage));
 		});
 		applyLanguage();
+		loadDocumentStatus();
 	}
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
