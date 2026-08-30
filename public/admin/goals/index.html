@@ -158,14 +158,14 @@
 									<div class="admin-goals-preview-card-head"><strong data-i18n="previewRoadmap">2029 Goals</strong><span id="preview-goal-count">5</span></div>
 									<div id="goal-preview-list" class="admin-goal-preview-list"></div>
 								</section>
-								<p class="admin-goals-preview-note" data-i18n="previewNote">現在は画面確認用です。保存と公開ホームへの反映は機能接続時に追加します。</p>
+								<p id="admin-goals-preview-note" class="admin-goals-preview-note">保存すると公開ホームに反映されます。</p>
 							</div>
 						</aside>
 					</div>
 
-					<div class="admin-goals-footer-actions">
-						<span data-i18n="savePendingNote">画面構成確定後にD1保存を接続します。</span>
-						<button type="button" disabled data-i18n="saveSettings">設定を保存</button>
+					<div class="admin-goals-footer-actions" aria-live="polite">
+						<span id="admin-goals-save-note">変更すると保存ボタンが有効になります。</span>
+						<button id="dashboard-settings-save" type="button" disabled>設定を保存</button>
 					</div>
 				</section>
 			</main>
