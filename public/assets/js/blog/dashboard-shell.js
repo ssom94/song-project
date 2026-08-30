@@ -32,6 +32,47 @@
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
 	}
 
+	function readStoredStudyMode() {
+		try {
+			const setup = JSON.parse(sessionStorage.getItem('song_public_japanese_quiz_setup') || 'null');
+			if (setup?.studyMode === 'korean') return 'korean';
+			const result = JSON.parse(sessionStorage.getItem('song_public_japanese_quiz_result') || 'null');
+			if (result?.setup?.studyMode === 'korean') return 'korean';
+		} catch {
+			// Ignore invalid session data.
+		}
+		return 'japanese';
+	}
+
+	function koreanStudyActive() {
+		if (window.location.pathname.includes('/korean/')) return true;
+		if (new URLSearchParams(window.location.search).get('study') === 'korean') return true;
+		if (window.location.pathname.includes('/japanese/quiz/')) return readStoredStudyMode() === 'korean';
+		return false;
+	}
+
+	function syncLearningMenu() {
+		const language = currentLanguage();
+		const menuNav = document.querySelector('.blog-sidebar-section .blog-sidebar-nav');
+		if (!menuNav) return;
+		let koreanLink = menuNav.querySelector('[data-learning-korean]');
+		const japaneseLink = [...menuNav.querySelectorAll('a')].find((link) => link.getAttribute('href')?.includes('/japanese/'));
+
+		if (!(koreanLink instanceof HTMLAnchorElement)) {
+			koreanLink = document.createElement('a');
+			koreanLink.className = 'blog-sidebar-link';
+			koreanLink.dataset.learningKorean = 'true';
+			if (japaneseLink) japaneseLink.insertAdjacentElement('afterend', koreanLink);
+			else menuNav.appendChild(koreanLink);
+		}
+		koreanLink.href = `/${language}/korean/`;
+		koreanLink.textContent = language === 'ko' ? '한국어 학습' : '韓国語学習';
+
+		const koreanActive = koreanStudyActive();
+		koreanLink.classList.toggle('is-active', koreanActive);
+		if (japaneseLink instanceof HTMLAnchorElement && koreanActive) japaneseLink.classList.remove('is-active');
+	}
+
 	function updateAdminAccessLabel() {
 		const link = byId('blog-sidebar-admin-link');
 		if (!(link instanceof HTMLAnchorElement)) return;
@@ -80,6 +121,7 @@
 			const link = document.querySelector(`[data-home-text="${key}"]`);
 			if (link instanceof HTMLAnchorElement) link.href = href;
 		}
+		syncLearningMenu();
 		updateAdminAccessLabel();
 	}
 
