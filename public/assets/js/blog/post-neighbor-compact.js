@@ -4,6 +4,7 @@
 		postId: 0,
 		applying: false,
 		queued: false,
+		observing: false,
 	};
 
 	function language() {
@@ -15,16 +16,12 @@
 			? {
 				relatedTitle: '같은 카테고리의 글',
 				emptyRelated: '같은 카테고리의 다른 글이 없습니다.',
-				previous: '이전 글',
-				next: '다음 글',
 				noPrevious: '이전 글이 없습니다.',
 				noNext: '다음 글이 없습니다.',
 			}
 			: {
 				relatedTitle: '同じカテゴリーの記事',
 				emptyRelated: '同じカテゴリーの他の記事はありません。',
-				previous: '前の記事',
-				next: '次の記事',
 				noPrevious: '前の記事はありません。',
 				noNext: '次の記事はありません。',
 			};
@@ -133,6 +130,17 @@
 		for (const post of posts) list.appendChild(makeRelatedLink(post));
 	}
 
+	function stopObserver() {
+		observer.disconnect();
+		state.observing = false;
+	}
+
+	function startObserver() {
+		if (state.observing || !document.body) return;
+		observer.observe(document.body, { childList: true, subtree: true });
+		state.observing = true;
+	}
+
 	async function apply() {
 		if (state.applying) return;
 		const section = document.getElementById('post-neighbor-section');
@@ -148,9 +156,6 @@
 			const labels = copy();
 			const previous = posts[index + 1] ?? null;
 			const next = posts[index - 1] ?? null;
-			renderNeighbor(document.getElementById('post-previous-list'), previous, labels.noPrevious);
-			renderNeighbor(document.getElementById('post-next-list'), next, labels.noNext);
-
 			const current = posts[index];
 			const category = String(current?.category ?? '').trim();
 			const excluded = new Set([currentId, Number(previous?.id || 0), Number(next?.id || 0)]);
@@ -162,10 +167,16 @@
 					.slice(0, 6)
 					.map(({ post }) => post)
 				: [];
+
+			// Disconnect while changing the neighbor DOM so this enhancer never observes its own writes.
+			stopObserver();
+			renderNeighbor(document.getElementById('post-previous-list'), previous, labels.noPrevious);
+			renderNeighbor(document.getElementById('post-next-list'), next, labels.noNext);
 			renderRelated(section, related);
 			section.classList.add('is-compact-neighbors');
 		} finally {
 			state.applying = false;
+			startObserver();
 		}
 	}
 
@@ -178,27 +189,29 @@
 		}, 0);
 	}
 
+	function mutationTouchesNeighbor(mutation) {
+		const section = document.getElementById('post-neighbor-section');
+		if (!(section instanceof HTMLElement)) {
+			return [...mutation.addedNodes].some((node) => node instanceof Element && (node.id === 'post-neighbor-section' || Boolean(node.querySelector?.('#post-neighbor-section'))));
+		}
+		if (section.contains(mutation.target)) return true;
+		return [...mutation.addedNodes].some((node) => node === section || (node instanceof Node && section.contains(node)));
+	}
+
+	const observer = new MutationObserver((mutations) => {
+		if (state.applying) return;
+		if (mutations.some(mutationTouchesNeighbor)) queueApply();
+	});
+
 	document.addEventListener('song:post-ready', (event) => {
 		const id = Number(event?.detail?.postId || 0);
 		if (Number.isSafeInteger(id) && id > 0) state.postId = id;
 		queueApply();
 	});
 
-	const observer = new MutationObserver((mutations) => {
-		for (const mutation of mutations) {
-			const target = mutation.target;
-			if (!(target instanceof Node)) continue;
-			const element = target instanceof Element ? target : target.parentElement;
-			if (element?.closest?.('#post-neighbor-section') || element?.querySelector?.('#post-neighbor-section')) {
-				queueApply();
-				break;
-			}
-		}
-	});
-
 	function initialize() {
 		state.postId = Number(document.body.dataset.postId || 0);
-		observer.observe(document.body, { childList: true, subtree: true });
+		startObserver();
 		queueApply();
 	}
 
