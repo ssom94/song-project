@@ -46,8 +46,7 @@ body.blog-home-page .home-dashboard-heading > * {
 		0 10px 28px rgba(31, 48, 78, .07),
 		0 0 0 1px rgba(255, 255, 255, .72) inset;
 	backdrop-filter: blur(8px);
-	animation: homeRoadmapCloud 8.5s ease-in-out infinite;
-	will-change: translate, transform;
+	will-change: translate;
 }
 
 #home-roadmap-summary:hover {
@@ -59,7 +58,6 @@ body.blog-home-page .home-dashboard-heading > * {
 
 #home-roadmap-summary.is-dragging {
 	cursor: grabbing;
-	animation-play-state: paused;
 	border-color: #7c9fe8;
 	box-shadow:
 		0 18px 40px rgba(31, 48, 78, .16),
@@ -74,14 +72,6 @@ body.blog-home-page .home-dashboard-heading > * {
 	border-radius: 17px;
 	pointer-events: none;
 	opacity: .7;
-}
-
-@keyframes homeRoadmapCloud {
-	0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-	20% { transform: translate3d(8px, -8px, 0) rotate(.20deg); }
-	45% { transform: translate3d(14px, -3px, 0) rotate(.35deg); }
-	70% { transform: translate3d(5px, 8px, 0) rotate(-.15deg); }
-	88% { transform: translate3d(-8px, 3px, 0) rotate(-.30deg); }
 }
 
 @media (max-width: 1240px) {
@@ -125,7 +115,6 @@ body.blog-home-page .home-dashboard-heading > * {
 
 	#home-roadmap-summary {
 		translate: 0 0 !important;
-		animation-duration: 10s;
 	}
 }
 
