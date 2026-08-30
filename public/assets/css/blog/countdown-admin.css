@@ -42,6 +42,38 @@
 	display: block;
 }
 
+.home-dday-title-line {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px;
+	min-width: 0;
+}
+
+.home-dday-title-line strong {
+	min-width: 0;
+}
+
+.home-dday-source-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 18px;
+	padding: 0 6px;
+	border: 1px solid #d7e2f4;
+	border-radius: 999px;
+	background: #f4f7ff;
+	color: #456db6;
+	font-size: 7px;
+	font-weight: 900;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.home-dday-item.is-goal-source {
+	background: rgba(248, 251, 255, .96);
+}
+
 .home-dday-value {
 	flex: 0 0 auto;
 	min-width: 42px;
