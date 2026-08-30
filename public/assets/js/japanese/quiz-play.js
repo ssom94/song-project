@@ -30,11 +30,22 @@
 		}
 		return result;
 	}
+	function uniqueText(values) {
+		const seen = new Set();
+		const result = [];
+		for (const value of values) {
+			const text = String(value ?? '').trim();
+			const key = normalize(text);
+			if (!text || !key || seen.has(key)) continue;
+			seen.add(key);
+			result.push(text);
+		}
+		return result;
+	}
 	function splitAnswers(value) {
 		const source = String(value ?? '').trim();
 		if (!source) return [];
-		const answers = [source, ...source.split(/[,、;；/／·|]/g)].map(normalize).filter(Boolean);
-		return [...new Set(answers)];
+		return uniqueText(source.split(/[\r\n,、;；/／·|]+/g));
 	}
 	function readJson(storage, key, fallback = null) {
 		try {
@@ -50,12 +61,32 @@
 		return copy('단어 → 히라가나', '単語 → ひらがな');
 	}
 	function instruction(type) {
-		if (type === 'meaning') return copy('이 단어의 한국어 뜻을 입력해 주세요.', 'この単語の韓国語の意味を入力してください。');
+		if (type === 'meaning') return copy('등록된 한국어 뜻 중 하나를 입력해 주세요.', '登録された韓国語の意味のうち1つを入力してください。');
 		if (type === 'sentence') return copy('문장의 빈칸에 들어갈 단어를 입력해 주세요.', '文の空欄に入る単語を入力してください。');
 		return copy('이 단어의 읽기를 히라가나로 입력해 주세요.', 'この単語の読み方をひらがなで入力してください。');
 	}
 	function firstCharacter(value) {
 		return Array.from(String(value ?? '').trim())[0] || '—';
+	}
+	function answerLength(value) {
+		return Array.from(String(value ?? '').trim()).length;
+	}
+	function acceptedAnswers(question) {
+		const answers = Array.isArray(question?.answers) ? uniqueText(question.answers.flatMap((value) => splitAnswers(value))) : [];
+		if (answers.length) return answers;
+		return splitAnswers(question?.correct);
+	}
+	function correctDisplay(question) {
+		const answers = acceptedAnswers(question);
+		return answers.length ? answers.join(' / ') : String(question?.correct ?? '');
+	}
+	function ensureEnhancementStyles() {
+		if (document.querySelector('link[data-quiz-hints-style]')) return;
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = '/assets/css/japanese/quiz-hints.css';
+		link.dataset.quizHintsStyle = 'true';
+		document.head.appendChild(link);
 	}
 
 	function makeCandidates(words) {
@@ -76,18 +107,20 @@
 				},
 			};
 			if (setup.types.includes('reading') && word.reading) {
-				candidates.push({
+				const answers = splitAnswers(word.reading);
+				if (answers.length) candidates.push({
 					...common,
 					key: `${word.id}:reading`, type: 'reading', prompt: word.word,
-					answers: splitAnswers(word.reading), correct: word.reading,
+					answers, correct: answers.join(' / '), choiceCorrect: answers[0],
 					note: word.meaningKo ? copy(`뜻: ${word.meaningKo}`, `韓国語の意味: ${word.meaningKo}`) : '',
 				});
 			}
 			if (setup.types.includes('meaning') && word.meaningKo) {
-				candidates.push({
+				const answers = splitAnswers(word.meaningKo);
+				if (answers.length) candidates.push({
 					...common,
 					key: `${word.id}:meaning`, type: 'meaning', prompt: word.word,
-					answers: splitAnswers(word.meaningKo), correct: word.meaningKo,
+					answers, correct: answers.join(' / '), choiceCorrect: answers[0],
 					note: word.reading ? copy(`읽기: ${word.reading}`, `読み: ${word.reading}`) : '',
 				});
 			}
@@ -96,7 +129,7 @@
 					...common,
 					key: `${word.id}:sentence`, type: 'sentence',
 					prompt: word.example.sentence.replace(word.word, '＿＿＿＿'),
-					answers: [normalize(word.word)], correct: word.word,
+					answers: [word.word], correct: word.word, choiceCorrect: word.word,
 					note: word.example.translationKo || word.meaningKo || '',
 				});
 			}
@@ -108,23 +141,33 @@
 		const pools = new Map();
 		for (const candidate of allCandidates) {
 			if (!pools.has(candidate.type)) pools.set(candidate.type, []);
-			pools.get(candidate.type).push(candidate.correct);
+			pools.get(candidate.type).push(candidate.choiceCorrect || acceptedAnswers(candidate)[0] || candidate.correct);
 		}
 		return selected.map((question) => {
-			const distractors = shuffle([...(new Set(pools.get(question.type) || []))].filter((value) => normalize(value) !== normalize(question.correct))).slice(0, 3);
-			const choices = shuffle([question.correct, ...distractors]);
+			const choiceCorrect = question.choiceCorrect || acceptedAnswers(question)[0] || question.correct;
+			const distractors = shuffle(uniqueText(pools.get(question.type) || []).filter((value) => normalize(value) !== normalize(choiceCorrect))).slice(0, 3);
+			const choices = shuffle(uniqueText([choiceCorrect, ...distractors]));
 			let answerMode = setup.answerMode;
 			if (answerMode === 'random') answerMode = crypto.getRandomValues(new Uint8Array(1))[0] % 2 === 0 ? 'input' : 'choice';
 			if (answerMode === 'choice' && choices.length < 4) answerMode = 'input';
-			return { ...question, choices, answerMode };
+			return { ...question, choices, answerMode, choiceCorrect };
 		});
+	}
+
+	function canonicalizeRetryQuestion(question) {
+		const answers = acceptedAnswers(question);
+		const next = { ...question, answers, correct: answers.length ? answers.join(' / ') : question.correct };
+		if (setup.answerMode !== 'random') next.answerMode = setup.answerMode;
+		else next.answerMode = question.answerMode || 'input';
+		if (next.answerMode === 'choice' && (!Array.isArray(next.choices) || next.choices.length < 2)) next.answerMode = 'input';
+		return next;
 	}
 
 	async function buildQuestions() {
 		const retry = readJson(sessionStorage, RETRY_KEY, null);
 		if (Array.isArray(retry) && retry.length) {
 			sessionStorage.removeItem(RETRY_KEY);
-			questions = retry.map((question) => ({ ...question, answerMode: setup.answerMode === 'random' ? question.answerMode || 'input' : setup.answerMode }));
+			questions = retry.map(canonicalizeRetryQuestion);
 			setup.count = questions.length;
 			return;
 		}
@@ -170,33 +213,61 @@
 		}
 	}
 
-	function contextHint(question) {
+	function sentenceHint(question) {
 		const hints = question?.hints ?? {};
 		if (question?.type === 'sentence') {
 			if (hints.translationKo) return copy(`문장 뜻: ${hints.translationKo}`, `文の韓国語訳: ${hints.translationKo}`);
 			if (hints.sentenceReading) return copy(`문장 읽기: ${hints.sentenceReading}`, `文の読み: ${hints.sentenceReading}`);
-			return '';
+			return copy('문장 자체가 문제에 표시되어 있습니다.', '文そのものが問題に表示されています。');
 		}
 		if (hints.sentence) return copy(`예문: ${hints.sentence}`, `例文: ${hints.sentence}`);
-		if (question?.type === 'meaning' && hints.reading) return copy(`읽기: ${hints.reading}`, `読み: ${hints.reading}`);
-		if (question?.type === 'reading' && hints.meaningKo) return copy(`뜻: ${hints.meaningKo}`, `韓国語の意味: ${hints.meaningKo}`);
-		return '';
+		return copy('등록된 예문이 없습니다.', '登録された例文がありません。');
+	}
+
+	function firstCharacterHint(question) {
+		const answers = acceptedAnswers(question);
+		const chars = answers.map(firstCharacter);
+		return `${copy(answers.length > 1 ? '정답 첫 글자 후보' : '정답의 첫 글자', answers.length > 1 ? '答えの最初の文字候補' : '答えの最初の文字')}: ${chars.join(' · ') || '—'}`;
+	}
+
+	function answerLengthText(question) {
+		const answers = acceptedAnswers(question);
+		if (!answers.length) return '';
+		const lengths = answers.map((answer) => copy(`${answerLength(answer)}글자`, `${answerLength(answer)}文字`));
+		const suffix = question.type === 'meaning' && answers.length > 1
+			? copy(' · 등록된 뜻 중 하나만 맞혀도 정답', ' · 登録された意味のうち1つで正解')
+			: '';
+		return `${copy('정답 글자 수', '答えの文字数')}: ${lengths.join(' · ')}${suffix}`;
 	}
 
 	function ensureHintUi() {
 		if (byId('quiz-play-hint')) return;
 		const feedback = byId('quiz-play-feedback');
 		if (!feedback) return;
+
+		const length = document.createElement('div');
+		length.id = 'quiz-play-answer-length';
+		length.className = 'jp-quiz-answer-length';
+
 		const controls = document.createElement('div');
 		controls.className = 'jp-quiz-hint-controls';
-		const button = document.createElement('button');
-		button.id = 'quiz-play-hint';
-		button.className = 'jp-quiz-hint-button';
-		button.type = 'button';
-		button.addEventListener('click', requestHint);
+
+		const hintButton = document.createElement('button');
+		hintButton.id = 'quiz-play-hint';
+		hintButton.className = 'jp-quiz-hint-button';
+		hintButton.type = 'button';
+		hintButton.addEventListener('click', requestHint);
+
+		const skipButton = document.createElement('button');
+		skipButton.id = 'quiz-play-skip';
+		skipButton.className = 'jp-quiz-skip-button';
+		skipButton.type = 'button';
+		skipButton.addEventListener('click', skipQuestion);
+
 		const guide = document.createElement('span');
 		guide.id = 'quiz-play-hint-guide';
-		controls.append(button, guide);
+		controls.append(hintButton, skipButton, guide);
+
 		const box = document.createElement('div');
 		box.id = 'quiz-play-hint-box';
 		box.className = 'jp-quiz-hint-box';
@@ -206,46 +277,54 @@
 		const text = document.createElement('p');
 		text.id = 'quiz-play-hint-text';
 		box.append(title, text);
+
 		feedback.insertAdjacentElement('beforebegin', box);
 		box.insertAdjacentElement('beforebegin', controls);
+		controls.insertAdjacentElement('beforebegin', length);
 	}
 
 	function renderHint() {
 		ensureHintUi();
 		const question = questions[currentIndex];
-		const button = byId('quiz-play-hint');
+		const hintButton = byId('quiz-play-hint');
+		const skipButton = byId('quiz-play-skip');
 		const guide = byId('quiz-play-hint-guide');
 		const box = byId('quiz-play-hint-box');
 		const title = byId('quiz-play-hint-title');
 		const text = byId('quiz-play-hint-text');
-		if (!question || !button || !guide || !box || !title || !text) return;
-		const context = contextHint(question);
-		guide.textContent = copy('1단계: 첫 글자 · 2단계: 문맥', '1段階: 最初の文字 · 2段階: 文脈');
+		const length = byId('quiz-play-answer-length');
+		if (!question || !hintButton || !skipButton || !guide || !box || !title || !text || !length) return;
+
+		length.textContent = answerLengthText(question);
+		guide.textContent = copy('힌트 1: 문장 · 힌트 2: 첫 글자', 'ヒント1: 文 · ヒント2: 最初の文字');
+		skipButton.textContent = copy('잘 모르겠음', 'わからない');
+		skipButton.disabled = answered;
 		box.hidden = hintLevel === 0;
+
 		if (hintLevel === 0) {
-			button.textContent = copy('힌트 보기', 'ヒントを見る');
-			button.disabled = answered;
+			hintButton.textContent = copy('힌트 1 · 문장 보기', 'ヒント1 · 文を見る');
+			hintButton.disabled = answered;
 			return;
 		}
+
+		const context = sentenceHint(question);
 		if (hintLevel === 1) {
-			title.textContent = copy('첫 글자 힌트', '最初の文字ヒント');
-			text.textContent = `${copy('정답의 첫 글자', '答えの最初の文字')}: ${firstCharacter(question.answers?.[0] ?? question.correct)}`;
-			button.textContent = context ? copy('문맥 힌트 보기', '文脈ヒントを見る') : copy('추가 힌트 없음', '追加ヒントなし');
-			button.disabled = answered || !context;
+			title.textContent = copy('문장 힌트', '文のヒント');
+			text.textContent = context;
+			hintButton.textContent = copy('힌트 2 · 첫 글자 보기', 'ヒント2 · 最初の文字を見る');
+			hintButton.disabled = answered;
 			return;
 		}
-		title.textContent = copy('문맥 힌트', '文脈ヒント');
-		text.textContent = context || copy('추가 문맥 정보가 없습니다.', '追加の文脈情報はありません。');
-		button.textContent = copy('힌트 사용함', 'ヒント使用済み');
-		button.disabled = true;
+
+		title.textContent = copy('문장 + 첫 글자 힌트', '文 + 最初の文字ヒント');
+		text.textContent = `${context}\n${firstCharacterHint(question)}`;
+		hintButton.textContent = copy('힌트 사용 완료', 'ヒント使用済み');
+		hintButton.disabled = true;
 	}
 
 	function requestHint() {
 		if (answered) return;
-		const question = questions[currentIndex];
-		if (!question) return;
-		if (hintLevel === 0) hintLevel = 1;
-		else if (hintLevel === 1 && contextHint(question)) hintLevel = 2;
+		if (hintLevel < 2) hintLevel += 1;
 		renderHint();
 	}
 
@@ -277,24 +356,41 @@
 		if (question.answerMode === 'input') input.focus();
 	}
 
-	function showFeedback(question, isCorrect, selectedButton) {
+	function showFeedback(question, isCorrect, selectedButton, skipped = false) {
 		const feedback = byId('quiz-play-feedback');
 		feedback.hidden = false;
 		feedback.classList.toggle('is-correct', isCorrect);
 		feedback.classList.toggle('is-wrong', !isCorrect);
-		byId('quiz-feedback-title').textContent = isCorrect ? copy('정답입니다', '正解です') : copy('오답입니다', '不正解です');
-		byId('quiz-feedback-answer').textContent = question.correct;
+		byId('quiz-feedback-title').textContent = skipped
+			? copy('잘 모르겠음 · 오답 처리', 'わからない · 誤答として記録')
+			: (isCorrect ? copy('정답입니다', '正解です') : copy('오답입니다', '不正解です'));
+		byId('quiz-feedback-answer').textContent = correctDisplay(question);
 		byId('quiz-feedback-note').textContent = question.note || '';
 		byId('quiz-play-answer').disabled = true;
 		byId('quiz-play-submit').disabled = true;
 		byId('quiz-play-choices').querySelectorAll('button').forEach((button) => {
 			button.disabled = true;
-			if (normalize(button.textContent) === normalize(question.correct)) button.classList.add('is-correct');
+			const accepted = acceptedAnswers(question).some((answer) => normalize(button.textContent) === normalize(answer));
+			if (accepted) button.classList.add('is-correct');
 		});
 		if (selectedButton && !isCorrect) selectedButton.classList.add('is-wrong');
 		byId('quiz-play-next').hidden = false;
 		byId('quiz-play-next').textContent = currentIndex + 1 >= questions.length ? copy('결과 보기', '結果を見る') : copy('다음 문제', '次の問題');
 		renderHint();
+	}
+
+	function recordAttempt(answer, isCorrect, skipped = false) {
+		if (isCorrect) correctCount += 1;
+		else wrongCount += 1;
+		attempts.push({
+			index: currentIndex + 1,
+			answer: String(answer ?? ''),
+			isCorrect,
+			skipped,
+			hintLevel,
+			questionSnapshot: questions[currentIndex],
+		});
+		byId('quiz-play-score').textContent = copy(`정답 ${correctCount} · 오답 ${wrongCount}`, `正解 ${correctCount} · 誤答 ${wrongCount}`);
 	}
 
 	function grade(answer, selectedButton = null) {
@@ -303,18 +399,18 @@
 		const normalized = normalize(answer);
 		if (!normalized) return;
 		answered = true;
-		const isCorrect = question.answers.some((value) => normalize(value) === normalized);
-		if (isCorrect) correctCount += 1;
-		else wrongCount += 1;
-		attempts.push({
-			index: currentIndex + 1,
-			answer: String(answer ?? ''),
-			isCorrect,
-			hintLevel,
-			questionSnapshot: question,
-		});
-		byId('quiz-play-score').textContent = copy(`정답 ${correctCount} · 오답 ${wrongCount}`, `正解 ${correctCount} · 誤答 ${wrongCount}`);
-		showFeedback(question, isCorrect, selectedButton);
+		const isCorrect = acceptedAnswers(question).some((value) => normalize(value) === normalized);
+		recordAttempt(answer, isCorrect, false);
+		showFeedback(question, isCorrect, selectedButton, false);
+	}
+
+	function skipQuestion() {
+		if (answered) return;
+		const question = questions[currentIndex];
+		if (!question) return;
+		answered = true;
+		recordAttempt('', false, true);
+		showFeedback(question, false, null, true);
 	}
 
 	function submitAnswer(event) {
@@ -388,10 +484,13 @@
 	}
 
 	async function initialize() {
+		ensureEnhancementStyles();
 		setup = readJson(sessionStorage, SETUP_KEY, null) || {
+			studyMode: new URLSearchParams(location.search).get('study') === 'korean' ? 'korean' : 'japanese',
 			types: ['reading', 'meaning', 'sentence'], jlpt: '', categoryId: null, categoryName: copy('전체', 'すべて'),
 			partId: null, partName: copy('전체', 'すべて'), count: 10, answerMode: 'input', priority: 'random',
 		};
+		if (!Array.isArray(setup.types) || !setup.types.length) setup.types = setup.studyMode === 'korean' ? ['meaning'] : ['reading', 'meaning', 'sentence'];
 		ensureHintUi();
 		try {
 			await buildQuestions();
