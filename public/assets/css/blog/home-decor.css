@@ -3,27 +3,27 @@ body.blog-home-page::before {
 	background-image: url('/assets/images/learning-flags-bg.svg');
 	background-size: 100% auto;
 	background-position: center top;
-	opacity: .72;
+	opacity: .82;
 }
 
 body.blog-home-page .home-dashboard-heading {
 	position: relative;
-	min-height: 96px;
+	min-height: 100px;
 	isolation: isolate;
 }
 
-/* Replace the older pseudo ornament with the refined small couple ornament. */
+/* Selected reference artwork: larger and shifted toward the upper-right. */
 body.blog-home-page .home-dashboard-heading::after {
 	content: '';
 	position: absolute;
-	top: -16px;
-	right: 242px;
+	top: -18px;
+	right: 168px;
 	display: block;
-	width: 310px;
-	height: 76px;
+	width: 380px;
+	height: 94px;
 	background: url('/assets/images/korea-japan-couple-ornament.svg') center / contain no-repeat;
-	opacity: .90;
-	filter: drop-shadow(0 4px 8px rgba(54, 73, 102, .08));
+	opacity: .96;
+	filter: drop-shadow(0 5px 10px rgba(54, 73, 102, .10));
 	pointer-events: none;
 	z-index: 0;
 }
@@ -91,9 +91,9 @@ body.blog-home-page .home-dashboard-heading > * {
 
 @media (max-width: 1240px) {
 	body.blog-home-page .home-dashboard-heading::after {
-		right: 220px;
-		width: 270px;
-		height: 68px;
+		right: 150px;
+		width: 330px;
+		height: 82px;
 	}
 }
 
@@ -107,7 +107,7 @@ body.blog-home-page .home-dashboard-heading > * {
 	body.blog-home-page::before {
 		background-size: auto 100%;
 		background-position: 55% top;
-		opacity: .48;
+		opacity: .56;
 	}
 
 	#home-roadmap-summary {
