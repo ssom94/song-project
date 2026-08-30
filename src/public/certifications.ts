@@ -1,14 +1,13 @@
 type Language = 'ja' | 'ko';
 
 type CertificationRow = Record<string, unknown>;
-
 type ScheduleRow = Record<string, unknown>;
 type TopicRow = Record<string, unknown>;
 
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, {
 		status,
-		headers: { 'Cache-Control': 'public, max-age=300' },
+		headers: { 'Cache-Control': 'no-store' },
 	});
 }
 
@@ -72,6 +71,31 @@ function topicPayload(row: TopicRow, language: Language) {
 	};
 }
 
+async function loadTopicsSafely(env: Env, certificationId: number): Promise<TopicRow[]> {
+	try {
+		const topics = await env.song_project_db.prepare(`
+			SELECT *
+			FROM certification_topics
+			WHERE certification_id = ?1
+			ORDER BY CASE topic_type
+				WHEN 'format' THEN 1
+				WHEN 'domain' THEN 2
+				WHEN 'concept' THEN 3
+				WHEN 'study' THEN 4
+				ELSE 9 END,
+				display_order ASC,
+				id ASC
+		`).bind(certificationId).all<TopicRow>();
+		return topics.results;
+	} catch (error) {
+		console.warn('Failed to load certification topics; returning detail without topics', {
+			certificationId,
+			error,
+		});
+		return [];
+	}
+}
+
 export async function handleGetPublicCertifications(request: Request, env: Env): Promise<Response> {
 	const language = languageFromRequest(request);
 	const slug = new URL(request.url).searchParams.get('slug')?.trim() ?? '';
@@ -86,34 +110,21 @@ export async function handleGetPublicCertifications(request: Request, env: Env):
 			`).bind(slug).first<CertificationRow>();
 			if (!certification) return json({ ok: false, error: 'CERTIFICATION_NOT_FOUND' }, 404);
 
-			const [schedules, topics] = await Promise.all([
-				env.song_project_db.prepare(`
-					SELECT *
-					FROM certification_schedules
-					WHERE certification_id = ?1
-					ORDER BY sequence_no ASC, id ASC
-				`).bind(Number(certification.id)).all<ScheduleRow>(),
-				env.song_project_db.prepare(`
-					SELECT *
-					FROM certification_topics
-					WHERE certification_id = ?1
-					ORDER BY CASE topic_type
-						WHEN 'format' THEN 1
-						WHEN 'domain' THEN 2
-						WHEN 'concept' THEN 3
-						WHEN 'study' THEN 4
-						ELSE 9 END,
-						display_order ASC,
-						id ASC
-				`).bind(Number(certification.id)).all<TopicRow>(),
-			]);
+			const certificationId = Number(certification.id);
+			const schedules = await env.song_project_db.prepare(`
+				SELECT *
+				FROM certification_schedules
+				WHERE certification_id = ?1
+				ORDER BY sequence_no ASC, id ASC
+			`).bind(certificationId).all<ScheduleRow>();
+			const topics = await loadTopicsSafely(env, certificationId);
 
 			return json({
 				ok: true,
 				language,
 				certification: certificationPayload(certification, language),
 				schedules: schedules.results.map((row) => schedulePayload(row, language)),
-				topics: topics.results.map((row) => topicPayload(row, language)),
+				topics: topics.map((row) => topicPayload(row, language)),
 			});
 		}
 
