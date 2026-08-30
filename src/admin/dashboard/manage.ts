@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { ensureDashboardGoalsSchema } from '../../dashboard/goals-schema';
 
 type DashboardGoalInput = {
 	id?: unknown;
@@ -101,6 +102,7 @@ export async function handleGetAdminDashboard(request: Request, env: Env): Promi
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
 	try {
+		await ensureDashboardGoalsSchema(env.song_project_db);
 		const [settings, goals] = await Promise.all([
 			env.song_project_db.prepare(`
 				SELECT jlpt_goal_mode, jlpt_manual_target, show_jlpt
@@ -207,6 +209,7 @@ export async function handleUpdateAdminDashboard(request: Request, env: Env): Pr
 	}
 
 	try {
+		await ensureDashboardGoalsSchema(env.song_project_db);
 		const statements: D1PreparedStatement[] = [
 			env.song_project_db.prepare(`
 				INSERT INTO dashboard_settings (id, jlpt_goal_mode, jlpt_manual_target, show_jlpt, updated_at)
