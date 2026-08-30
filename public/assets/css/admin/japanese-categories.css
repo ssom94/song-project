@@ -178,6 +178,36 @@
 	font-weight: 800;
 }
 
+.admin-learning-category-table tbody tr {
+	position: relative;
+	transition: background 0.12s ease, opacity 0.12s ease;
+}
+
+.admin-learning-category-table tbody tr.is-dragging {
+	opacity: 0.45;
+	background: #f5f8ff;
+}
+
+.admin-learning-category-table tbody tr.is-drop-before::before,
+.admin-learning-category-table tbody tr.is-drop-after::after {
+	content: '';
+	position: absolute;
+	left: 8px;
+	right: 8px;
+	height: 2px;
+	border-radius: 999px;
+	background: #1f56d8;
+	pointer-events: none;
+}
+
+.admin-learning-category-table tbody tr.is-drop-before::before {
+	top: -1px;
+}
+
+.admin-learning-category-table tbody tr.is-drop-after::after {
+	bottom: -1px;
+}
+
 .admin-learning-category-name {
 	color: #26354a;
 	font-weight: 800;
@@ -188,6 +218,49 @@
 	color: #758398;
 	font-size: 11px;
 	line-height: 1.55;
+}
+
+.admin-learning-category-order-cell {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	min-width: 54px;
+}
+
+.admin-learning-category-order-cell > span {
+	min-width: 18px;
+	color: #526176;
+	font-weight: 800;
+	text-align: right;
+}
+
+.admin-learning-category-drag-handle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 1px solid #dce3eb;
+	border-radius: 7px;
+	background: #fff;
+	color: #8a96a6;
+	font: inherit;
+	font-size: 15px;
+	font-weight: 900;
+	line-height: 1;
+	cursor: grab;
+	user-select: none;
+}
+
+.admin-learning-category-drag-handle:hover {
+	border-color: #aac0ec;
+	color: #1f56d8;
+	background: #f7f9ff;
+}
+
+.admin-learning-category-drag-handle:active {
+	cursor: grabbing;
 }
 
 .admin-learning-category-row-actions {
@@ -232,5 +305,10 @@
 
 	.admin-learning-category-card-header {
 		margin-bottom: 15px;
+	}
+
+	.admin-learning-category-drag-handle {
+		width: 32px;
+		height: 32px;
 	}
 }
