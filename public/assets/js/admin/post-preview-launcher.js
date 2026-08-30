@@ -46,6 +46,21 @@
 			?? '';
 	}
 
+	function buildCategoryTrail(categories, category, language) {
+		if (!category) return '';
+		const byId = new Map(categories.map((item) => [Number(item.id), item]));
+		const trail = [];
+		const visited = new Set();
+		let current = category;
+		while (current && !visited.has(Number(current.id)) && trail.length < 8) {
+			visited.add(Number(current.id));
+			const label = localizedName(current, language);
+			if (label) trail.unshift(label);
+			current = current.parentId ? byId.get(Number(current.parentId)) ?? null : null;
+		}
+		return trail.join(' - ');
+	}
+
 	function buildPreviewSnapshot() {
 		const payload = window.AdminPostEditor?.buildPayload?.(false);
 		if (!payload) return null;
@@ -67,7 +82,7 @@
 			[sourceLanguage]: {
 				title: payload.title ?? '',
 				content: payload.content ?? '',
-				category: category ? localizedName(category, sourceLanguage) : '',
+				category: buildCategoryTrail(categories, category, sourceLanguage),
 				tags: selectedTags.map((tag) => localizedName(tag, sourceLanguage)).filter(Boolean),
 			},
 		};
@@ -81,7 +96,7 @@
 			translations[targetLanguage] = {
 				title: payload.translatedTitle,
 				content: payload.translatedContent,
-				category: category ? localizedName(category, targetLanguage) : '',
+				category: buildCategoryTrail(categories, category, targetLanguage),
 				tags: selectedTags.map((tag) => localizedName(tag, targetLanguage)).filter(Boolean),
 			};
 		}
