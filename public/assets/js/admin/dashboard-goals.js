@@ -269,3 +269,10 @@
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
+
+if (!document.querySelector('script[data-admin-dashboard-schedules]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/admin/dashboard-schedules.js';
+	script.dataset.adminDashboardSchedules = 'true';
+	document.body.appendChild(script);
+}
