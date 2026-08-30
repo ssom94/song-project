@@ -58,7 +58,7 @@
 					<div class="admin-page-heading-row">
 						<div class="admin-page-heading">
 							<h1 data-i18n="postsPageTitle">投稿管理</h1>
-							<p data-i18n="postsPageDescription">記事の作成・編集・翻訳・公開状態を管理します。</p>
+							<p data-i18n="postsPageDescription">記事の作成・編集・登録状態・表示状態を管理します。</p>
 						</div>
 						<a id="admin-new-post" class="admin-posts-new-button" href="/admin/posts/new/" data-i18n="newPost">新規投稿</a>
 					</div>
@@ -70,12 +70,19 @@
 								<input id="post-search" type="search" autocomplete="off" placeholder="タイトルを検索" data-i18n-placeholder="searchPostsPlaceholder" />
 							</div>
 							<div class="admin-posts-field">
-								<label for="post-status" data-i18n="statusLabel">公開状態</label>
+								<label for="post-status" data-i18n="registrationStatusLabel">登録状態</label>
 								<select id="post-status">
-									<option value="" data-i18n="filterStatusAll">すべての状態</option>
-									<option value="published" data-i18n="statusPublished">公開</option>
-									<option value="draft" data-i18n="statusDraft">下書き</option>
-									<option value="private" data-i18n="statusPrivate">非公開</option>
+									<option value="" data-i18n="filterRegistrationAll">すべて</option>
+									<option value="registered" data-i18n="registrationCompleted">登録完了</option>
+									<option value="draft" data-i18n="registrationDraft">一時保存</option>
+								</select>
+							</div>
+							<div class="admin-posts-field">
+								<label for="post-visibility" data-i18n="visibilityLabel">表示</label>
+								<select id="post-visibility">
+									<option value="" data-i18n="filterVisibilityAll">すべて</option>
+									<option value="visible" data-i18n="visibilityVisible">表示</option>
+									<option value="hidden" data-i18n="visibilityHidden">非表示</option>
 								</select>
 							</div>
 							<div class="admin-posts-field">
@@ -96,7 +103,8 @@
 										<th data-i18n="tableTitle">タイトル</th>
 										<th data-i18n="tableCategory">カテゴリー</th>
 										<th data-i18n="tableLanguage">言語</th>
-										<th data-i18n="tableStatus">状態</th>
+										<th data-i18n="tableRegistrationStatus">登録状態</th>
+										<th data-i18n="tableVisibility">表示</th>
 										<th data-i18n="tableUpdatedAt">更新日時</th>
 										<th data-i18n="tableActions">操作</th>
 									</tr>
