@@ -8,6 +8,7 @@ interface WordRow {
 	part_id: number | null;
 	part_name_ja: string | null;
 	part_name_ko: string | null;
+	parts_blob: string | null;
 	category_names_ja: string | null;
 	category_names_ko: string | null;
 	example_sentence: string | null;
@@ -16,7 +17,7 @@ interface WordRow {
 }
 
 function json(data: unknown, status = 200): Response {
-	return Response.json(data, { status, headers: { 'Cache-Control': 'public, max-age=60' } });
+	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
 function integerParam(url: URL, key: string): number {
@@ -54,6 +55,18 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 					pos.id AS part_id,
 					pos.name_ja AS part_name_ja,
 					pos.name_ko AS part_name_ko,
+					(
+						SELECT GROUP_CONCAT(part_value, CHAR(31))
+						FROM (
+							SELECT
+								p.id || CHAR(30) || p.name_ja || CHAR(30) || COALESCE(p.name_ko, '') AS part_value
+							FROM japanese_word_parts_of_speech AS wp
+							INNER JOIN parts_of_speech AS p
+								ON p.id = wp.part_of_speech_id AND p.deleted_at IS NULL
+							WHERE wp.word_id = jw.id
+							ORDER BY wp.is_primary DESC, p.display_order ASC, p.id ASC
+						)
+					) AS parts_blob,
 					(
 						SELECT GROUP_CONCAT(jc.name_ja, CHAR(31))
 						FROM japanese_word_categories AS jwc
@@ -112,6 +125,7 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 			.all<WordRow>();
 
 		const separator = String.fromCharCode(31);
+		const partSeparator = String.fromCharCode(30);
 		return json({
 			ok: true,
 			filters: {
@@ -131,6 +145,12 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 				meaningJa: row.meaning_ja,
 				jlpt: row.jlpt_code,
 				part: row.part_id ? { id: row.part_id, nameJa: row.part_name_ja, nameKo: row.part_name_ko } : null,
+				parts: row.parts_blob
+					? row.parts_blob.split(separator).map((item) => {
+						const [id, nameJa, nameKo] = item.split(partSeparator);
+						return { id: Number(id), nameJa: nameJa || '', nameKo: nameKo || '' };
+					}).filter((item) => Number.isSafeInteger(item.id) && item.id > 0)
+					: [],
 				categoriesJa: row.category_names_ja ? row.category_names_ja.split(separator).filter(Boolean) : [],
 				categoriesKo: row.category_names_ko ? row.category_names_ko.split(separator).filter(Boolean) : [],
 				example: row.example_sentence ? { sentence: row.example_sentence, reading: row.example_reading, translationKo: row.example_translation_ko } : null,
