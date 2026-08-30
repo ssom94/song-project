@@ -1,0 +1,165 @@
+.admin-japanese-import-card {
+	margin: 14px 0;
+	padding: 18px;
+}
+
+.admin-japanese-import-heading {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.admin-japanese-import-heading h2 {
+	margin: 0;
+	color: #243249;
+	font-size: 16px;
+}
+
+.admin-japanese-import-heading p {
+	margin: 5px 0 0;
+	color: #7d8998;
+	font-size: 11px;
+	line-height: 1.6;
+}
+
+.admin-japanese-import-template,
+.admin-japanese-import-choose,
+.admin-japanese-import-submit {
+	min-height: 34px;
+	padding: 0 12px;
+	border: 1px solid #cfd9e7;
+	border-radius: 9px;
+	background: #fff;
+	color: #496078;
+	font-size: 10px;
+	font-weight: 850;
+	cursor: pointer;
+}
+
+.admin-japanese-import-template:hover,
+.admin-japanese-import-choose:hover {
+	border-color: #9fb6dd;
+	background: #f5f8ff;
+	color: #315cae;
+}
+
+.admin-japanese-import-submit {
+	margin-left: auto;
+	border-color: #1f56d8;
+	background: #1f56d8;
+	color: #fff;
+}
+
+.admin-japanese-import-submit:disabled {
+	opacity: .42;
+	cursor: not-allowed;
+}
+
+.admin-japanese-import-rules {
+	display: grid;
+	gap: 4px;
+	margin-top: 13px;
+	padding: 11px 12px;
+	border: 1px solid #e3e8ef;
+	border-radius: 10px;
+	background: #f9fbfe;
+	color: #69778b;
+	font-size: 10px;
+	line-height: 1.55;
+}
+
+.admin-japanese-import-rules strong {
+	color: #315cae;
+}
+
+.admin-japanese-import-controls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+#japanese-excel-file-name {
+	min-width: 0;
+	overflow: hidden;
+	color: #7c899a;
+	font-size: 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.admin-japanese-import-status {
+	margin: 11px 0 0;
+	padding: 9px 10px;
+	border-radius: 8px;
+	background: #f3f6fa;
+	color: #627187;
+	font-size: 10px;
+	font-weight: 750;
+}
+
+.admin-japanese-import-status[data-type="success"] {
+	background: #edf9f1;
+	color: #247442;
+}
+
+.admin-japanese-import-status[data-type="warning"] {
+	background: #fff7e8;
+	color: #8a5c12;
+}
+
+.admin-japanese-import-status[data-type="error"] {
+	background: #fff0ef;
+	color: #b42318;
+}
+
+.admin-japanese-import-result {
+	margin-top: 9px;
+	padding: 11px 12px;
+	border: 1px solid #e1e7ef;
+	border-radius: 9px;
+	background: #fff;
+	color: #536176;
+	font-size: 10px;
+}
+
+.admin-japanese-import-result > strong {
+	display: block;
+	color: #2f3e54;
+}
+
+.admin-japanese-import-result details {
+	margin-top: 8px;
+}
+
+.admin-japanese-import-result summary {
+	cursor: pointer;
+	font-weight: 800;
+}
+
+.admin-japanese-import-result ul {
+	max-height: 180px;
+	margin: 8px 0 0;
+	padding-left: 18px;
+	overflow: auto;
+	line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+	.admin-japanese-import-heading,
+	.admin-japanese-import-controls {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.admin-japanese-import-submit {
+		margin-left: 0;
+	}
+
+	.admin-japanese-import-template,
+	.admin-japanese-import-choose,
+	.admin-japanese-import-submit {
+		width: 100%;
+	}
+}
