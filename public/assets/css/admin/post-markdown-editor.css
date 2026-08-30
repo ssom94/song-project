@@ -1,0 +1,115 @@
+.admin-markdown-toolbar {
+	display: grid;
+	gap: 8px;
+	margin-bottom: 8px;
+	padding: 9px 10px;
+	border: 1px solid #dde4ed;
+	border-radius: 10px;
+	background: #f8fafc;
+}
+
+.admin-markdown-intro {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+}
+
+.admin-markdown-intro > span {
+	overflow: hidden;
+	color: #8994a4;
+	font-size: 9px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.admin-markdown-badge {
+	display: inline-flex;
+	align-items: center;
+	min-height: 20px;
+	padding: 0 7px;
+	border: 1px solid #c9d8f6;
+	border-radius: 999px;
+	background: #eef4ff;
+	color: #315cae;
+	font-size: 9px;
+	font-weight: 900;
+	letter-spacing: .025em;
+}
+
+.admin-markdown-tools {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.admin-markdown-tool,
+.admin-markdown-preview-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	height: 29px;
+	padding: 0 8px;
+	border: 1px solid #d7dee8;
+	border-radius: 7px;
+	background: #fff;
+	color: #59677b;
+	font: inherit;
+	font-size: 10px;
+	font-weight: 850;
+	cursor: pointer;
+	transition: border-color .13s ease, background .13s ease, color .13s ease;
+}
+
+.admin-markdown-tool:hover:not(:disabled),
+.admin-markdown-preview-toggle:hover:not(:disabled) {
+	border-color: #aebfe4;
+	background: #f1f5ff;
+	color: #2456b3;
+}
+
+.admin-markdown-tool:disabled {
+	opacity: .42;
+	cursor: default;
+}
+
+.admin-markdown-preview-toggle {
+	margin-left: auto;
+	padding: 0 11px;
+	border-color: #b9cbee;
+	color: #315cae;
+}
+
+.admin-markdown-preview {
+	min-height: 110px;
+	margin-top: 10px;
+	padding: 18px;
+	border: 1px dashed #cbd6e5;
+	border-radius: 10px;
+	background: #fff;
+	color: #364256;
+}
+
+.admin-markdown-preview[hidden] {
+	display: none;
+}
+
+.admin-markdown-preview.is-empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #9aa5b4;
+	font-size: 11px;
+}
+
+@media (max-width: 720px) {
+	.admin-markdown-intro > span {
+		display: none;
+	}
+
+	.admin-markdown-preview-toggle {
+		margin-left: 0;
+	}
+}
