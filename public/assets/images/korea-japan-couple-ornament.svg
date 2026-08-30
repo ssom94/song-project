@@ -1,17 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" role="img" aria-label="Korean Japanese couple ornament">
   <defs>
-    <radialGradient id="mugu" cx="50%" cy="42%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#f7cbd7"/><stop offset="1" stop-color="#e997ab"/></radialGradient>
-    <radialGradient id="kiku" cx="50%" cy="50%" r="70%"><stop offset="0" stop-color="#fff4ba"/><stop offset=".65" stop-color="#eacb73"/><stop offset="1" stop-color="#c79d3c"/></radialGradient>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#64748b" flood-opacity=".12"/></filter>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe0cc"/><stop offset="1" stop-color="#efb99c"/></linearGradient>
+    <linearGradient id="suit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#426b9d"/><stop offset="1" stop-color="#233f68"/></linearGradient>
+    <linearGradient id="dress" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3a5b6"/><stop offset="1" stop-color="#d9758d"/></linearGradient>
+    <radialGradient id="sakura"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f2a5b6"/></radialGradient>
+    <radialGradient id="kiku"><stop offset="0" stop-color="#fff7c8"/><stop offset="1" stop-color="#d7b251"/></radialGradient>
+    <filter id="soft" x="-35%" y="-35%" width="170%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#64748b" flood-opacity=".13"/></filter>
   </defs>
-  <g filter="url(#shadow)">
-    <g transform="translate(8 75) scale(.20)"><ellipse cy="-38" rx="25" ry="39" fill="url(#mugu)"/><ellipse cx="36" cy="-12" rx="25" ry="39" fill="url(#mugu)" transform="rotate(72 36 -12)"/><ellipse cx="22" cy="31" rx="25" ry="39" fill="url(#mugu)" transform="rotate(144 22 31)"/><ellipse cx="-22" cy="31" rx="25" ry="39" fill="url(#mugu)" transform="rotate(216 -22 31)"/><ellipse cx="-36" cy="-12" rx="25" ry="39" fill="url(#mugu)" transform="rotate(288 -36 -12)"/><circle r="10" fill="#ca5d78"/></g>
-    <g transform="translate(30 37)"><rect width="92" height="60" rx="10" fill="#fff" stroke="#dde5ef" stroke-width="2.5"/><g transform="translate(46 30) scale(.20)"><path d="M0 -100 A100 100 0 0 1 0 100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 -100Z" fill="#e43b53"/><path d="M0 100 A100 100 0 0 1 0 -100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 100Z" fill="#2f62b6"/></g><g fill="#26384f" opacity=".78" transform="translate(10 10) scale(.2)"><rect width="45" height="7" rx="2"/><rect y="14" width="45" height="7" rx="2"/><rect y="28" width="45" height="7" rx="2"/></g><g fill="#26384f" opacity=".78" transform="translate(82 50) rotate(180) scale(.2)"><rect width="45" height="7" rx="2"/><rect y="14" width="45" height="7" rx="2"/><rect y="28" width="45" height="7" rx="2"/></g></g>
-    <g transform="translate(137 13)"><circle cx="47" cy="39" r="27" fill="#f2c5a9"/><path d="M21 37 C24 7 70 4 75 38 C63 21 41 18 21 37Z" fill="#293548"/><circle cx="38" cy="41" r="2.5" fill="#263447"/><circle cx="57" cy="41" r="2.5" fill="#263447"/><path d="M41 52 Q47 57 54 52" fill="none" stroke="#a85d61" stroke-width="2.2" stroke-linecap="round"/><path d="M14 121 Q18 70 47 68 Q77 70 81 121Z" fill="#4f77cf"/></g>
-    <path d="M244 57 C249 46 264 46 268 57 C272 46 287 46 292 57 C298 72 268 90 268 90 C268 90 238 72 244 57Z" fill="#e96179" opacity=".88"/>
-    <g transform="translate(292 13)"><circle cx="47" cy="39" r="27" fill="#f2c5a9"/><path d="M20 39 C17 12 39 4 50 7 C69 4 79 19 75 43 C67 27 57 21 43 21 C34 23 26 30 20 39Z" fill="#3c3035"/><path d="M24 35 C15 50 20 64 27 72" fill="none" stroke="#3c3035" stroke-width="8" stroke-linecap="round"/><path d="M71 35 C80 50 75 64 68 72" fill="none" stroke="#3c3035" stroke-width="8" stroke-linecap="round"/><circle cx="38" cy="41" r="2.5" fill="#263447"/><circle cx="57" cy="41" r="2.5" fill="#263447"/><path d="M41 52 Q47 57 54 52" fill="none" stroke="#a85d61" stroke-width="2.2" stroke-linecap="round"/><path d="M14 121 Q18 70 47 68 Q77 70 81 121Z" fill="#e88ca1"/></g>
-    <g transform="translate(406 64) scale(.52)"><g fill="url(#kiku)" stroke="#c79e43" stroke-width="1.2"><ellipse cy="-38" rx="10" ry="30"/><ellipse cy="38" rx="10" ry="30"/><ellipse cx="38" rx="30" ry="10"/><ellipse cx="-38" rx="30" ry="10"/><ellipse cx="27" cy="-27" rx="10" ry="30" transform="rotate(45 27 -27)"/><ellipse cx="-27" cy="27" rx="10" ry="30" transform="rotate(45 -27 27)"/><ellipse cx="-27" cy="-27" rx="10" ry="30" transform="rotate(-45 -27 -27)"/><ellipse cx="27" cy="27" rx="10" ry="30" transform="rotate(-45 27 27)"/></g><circle r="14" fill="#d3ab4d"/></g>
-    <g transform="translate(455 37)"><rect width="92" height="60" rx="10" fill="#fff" stroke="#dde5ef" stroke-width="2.5"/><circle cx="46" cy="30" r="17" fill="#df334b"/></g>
-    <g fill="#f2a3b4" opacity=".45"><ellipse cx="18" cy="35" rx="5" ry="10" transform="rotate(25 18 35)"/><ellipse cx="112" cy="20" rx="4" ry="8" transform="rotate(-25 112 20)"/><ellipse cx="560" cy="32" rx="5" ry="10" transform="rotate(28 560 32)"/><ellipse cx="592" cy="68" rx="4" ry="8" transform="rotate(-28 592 68)"/></g>
+
+  <g filter="url(#soft)">
+    <!-- left sakura cloud -->
+    <g transform="translate(8 74)" opacity=".72">
+      <g transform="translate(12 -24) scale(.65)"><ellipse cy="-14" rx="10" ry="16" fill="url(#sakura)"/><ellipse cx="14" cy="-4" rx="10" ry="16" fill="url(#sakura)" transform="rotate(72 14 -4)"/><ellipse cx="9" cy="12" rx="10" ry="16" fill="url(#sakura)" transform="rotate(144 9 12)"/><ellipse cx="-9" cy="12" rx="10" ry="16" fill="url(#sakura)" transform="rotate(216 -9 12)"/><ellipse cx="-14" cy="-4" rx="10" ry="16" fill="url(#sakura)" transform="rotate(288 -14 -4)"/><circle r="4" fill="#d97890"/></g>
+      <g transform="translate(42 10) scale(.45)"><ellipse cy="-14" rx="10" ry="16" fill="url(#sakura)"/><ellipse cx="14" cy="-4" rx="10" ry="16" fill="url(#sakura)" transform="rotate(72 14 -4)"/><ellipse cx="9" cy="12" rx="10" ry="16" fill="url(#sakura)" transform="rotate(144 9 12)"/><ellipse cx="-9" cy="12" rx="10" ry="16" fill="url(#sakura)" transform="rotate(216 -9 12)"/><ellipse cx="-14" cy="-4" rx="10" ry="16" fill="url(#sakura)" transform="rotate(288 -14 -4)"/><circle r="4" fill="#d97890"/></g>
+    </g>
+
+    <!-- Korean flag -->
+    <g transform="translate(58 35)">
+      <rect width="94" height="62" rx="9" fill="#fff" stroke="#dce4ed" stroke-width="2"/>
+      <g transform="translate(47 31) scale(.19)"><path d="M0 -100 A100 100 0 0 1 0 100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 -100Z" fill="#df4056"/><path d="M0 100 A100 100 0 0 1 0 -100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 100Z" fill="#315fae"/></g>
+      <g fill="#28374b" opacity=".82" transform="translate(11 10) scale(.18)"><rect width="48" height="7" rx="2"/><rect y="14" width="48" height="7" rx="2"/><rect y="28" width="48" height="7" rx="2"/></g>
+      <g fill="#28374b" opacity=".82" transform="translate(82 51) rotate(180) scale(.18)"><rect width="48" height="7" rx="2"/><rect y="14" width="48" height="7" rx="2"/><rect y="28" width="48" height="7" rx="2"/></g>
+    </g>
+
+    <!-- male chibi -->
+    <g transform="translate(165 5)">
+      <path d="M25 48 C24 21 40 8 60 8 C85 8 100 24 96 54 C89 33 76 25 58 25 C43 26 33 34 25 48Z" fill="#332d2d"/>
+      <circle cx="60" cy="50" r="31" fill="url(#skin)"/>
+      <path d="M30 43 C33 15 89 13 94 45 C80 29 52 23 30 43Z" fill="#332d2d"/>
+      <circle cx="49" cy="50" r="3.2" fill="#263447"/><circle cx="71" cy="50" r="3.2" fill="#263447"/>
+      <circle cx="44" cy="58" r="5" fill="#ed9ca5" opacity=".32"/><circle cx="76" cy="58" r="5" fill="#ed9ca5" opacity=".32"/>
+      <path d="M52 63 Q60 70 68 63" fill="none" stroke="#a85862" stroke-width="2.3" stroke-linecap="round"/>
+      <path d="M17 139 Q20 83 60 80 Q100 83 103 139Z" fill="url(#suit)"/>
+      <path d="M43 82 L60 101 L77 82" fill="#fff" opacity=".95"/>
+      <path d="M57 98 L63 98 L66 126 L54 126Z" fill="#c84755"/>
+      <path d="M45 12 C57 2 78 5 86 17 C68 12 52 16 39 28 C39 21 41 16 45 12Z" fill="#2c2727"/>
+    </g>
+
+    <!-- heart -->
+    <path d="M286 55 C291 43 307 44 311 56 C315 44 332 43 337 55 C344 72 311 91 311 91 C311 91 279 72 286 55Z" fill="#ef7389" opacity=".94"/>
+
+    <!-- female chibi -->
+    <g transform="translate(338 5)">
+      <circle cx="60" cy="50" r="31" fill="url(#skin)"/>
+      <path d="M28 47 C26 19 44 7 61 7 C86 7 99 25 93 54 C84 34 75 25 59 24 C47 25 36 32 28 47Z" fill="#3b3033"/>
+      <path d="M31 42 C18 56 22 79 34 89" fill="none" stroke="#3b3033" stroke-width="10" stroke-linecap="round"/>
+      <path d="M89 42 C101 57 98 79 86 89" fill="none" stroke="#3b3033" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="49" cy="50" r="3.2" fill="#263447"/><circle cx="71" cy="50" r="3.2" fill="#263447"/>
+      <circle cx="44" cy="58" r="5" fill="#ed9ca5" opacity=".36"/><circle cx="76" cy="58" r="5" fill="#ed9ca5" opacity=".36"/>
+      <path d="M52 63 Q60 70 68 63" fill="none" stroke="#a85862" stroke-width="2.3" stroke-linecap="round"/>
+      <path d="M17 139 Q20 84 60 81 Q100 84 103 139Z" fill="url(#dress)"/>
+      <path d="M42 83 Q60 105 78 83" fill="#fff8f9" opacity=".96"/>
+      <path d="M36 14 C48 3 70 4 83 16 C68 13 53 17 42 28 C41 21 39 17 36 14Z" fill="#3b3033"/>
+      <g transform="translate(88 19) scale(.46)"><ellipse cy="-14" rx="10" ry="16" fill="url(#sakura)"/><ellipse cx="14" cy="-4" rx="10" ry="16" fill="url(#sakura)" transform="rotate(72 14 -4)"/><ellipse cx="9" cy="12" rx="10" ry="16" fill="url(#sakura)" transform="rotate(144 9 12)"/><ellipse cx="-9" cy="12" rx="10" ry="16" fill="url(#sakura)" transform="rotate(216 -9 12)"/><ellipse cx="-14" cy="-4" rx="10" ry="16" fill="url(#sakura)" transform="rotate(288 -14 -4)"/><circle r="4" fill="#d97890"/></g>
+    </g>
+
+    <!-- chrysanthemum -->
+    <g transform="translate(486 68) scale(.48)">
+      <g fill="url(#kiku)" stroke="#c8a446" stroke-width="1"><ellipse cy="-40" rx="11" ry="31"/><ellipse cy="40" rx="11" ry="31"/><ellipse cx="40" rx="31" ry="11"/><ellipse cx="-40" rx="31" ry="11"/><ellipse cx="28" cy="-28" rx="11" ry="31" transform="rotate(45 28 -28)"/><ellipse cx="-28" cy="28" rx="11" ry="31" transform="rotate(45 -28 28)"/><ellipse cx="-28" cy="-28" rx="11" ry="31" transform="rotate(-45 -28 -28)"/><ellipse cx="28" cy="28" rx="11" ry="31" transform="rotate(-45 28 28)"/></g><circle r="14" fill="#d7b04e"/>
+    </g>
+
+    <!-- Japanese flag -->
+    <g transform="translate(532 35)"><rect width="78" height="62" rx="9" fill="#fff" stroke="#dce4ed" stroke-width="2"/><circle cx="39" cy="31" r="18" fill="#df334b"/></g>
+
+    <!-- floral dust -->
+    <g fill="#ef9fb0" opacity=".50"><ellipse cx="26" cy="32" rx="5" ry="10" transform="rotate(25 26 32)"/><ellipse cx="145" cy="18" rx="4" ry="8" transform="rotate(-25 145 18)"/><ellipse cx="518" cy="25" rx="4" ry="8" transform="rotate(22 518 25)"/><ellipse cx="612" cy="72" rx="4" ry="9" transform="rotate(-28 612 72)"/></g>
   </g>
 </svg>
