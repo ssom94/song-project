@@ -18,6 +18,7 @@ import {
 	handleUpdateAdminDashboardSchedule,
 } from './admin/dashboard/schedules';
 import { handleCreateAdminPost } from './admin/posts/create';
+import { handleDeleteAdminPost } from './admin/posts/delete';
 import { handleGetAdminPost } from './admin/posts/detail';
 import { handleListAdminPosts } from './admin/posts/list';
 import { handleUpdateAdminPost } from './admin/posts/update';
@@ -168,7 +169,8 @@ export default {
 			case '/api/admin/posts/detail':
 				if (request.method === 'GET') return handleGetAdminPost(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminPost(request, env);
-				return methodNotAllowed('GET, PATCH');
+				if (request.method === 'DELETE') return handleDeleteAdminPost(request, env);
+				return methodNotAllowed('GET, PATCH, DELETE');
 			case '/api/admin/posts/visibility':
 				return request.method === 'PATCH' ? handleUpdateAdminPostVisibility(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/words':
