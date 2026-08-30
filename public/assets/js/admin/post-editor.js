@@ -115,15 +115,27 @@
 
 	function ensureStatusOptions() {
 		if (!statusSelect) return;
-		if (!statusSelect.querySelector('option[value="private"]')) {
+		for (const value of ['draft', 'private', 'published']) {
+			if (statusSelect.querySelector(`option[value="${value}"]`)) continue;
 			const option = document.createElement('option');
-			option.value = 'private';
-			option.dataset.i18n = 'statusPrivate';
-			option.textContent = window.AdminI18n?.t('statusPrivate') ?? '非公開';
+			option.value = value;
+			option.textContent = value;
 			statusSelect.appendChild(option);
 		}
-		const scheduled = statusSelect.querySelector('option[value="scheduled"]');
-		if (scheduled) scheduled.disabled = true;
+		statusSelect.querySelector('option[value="scheduled"]')?.remove();
+		if (editorMode === 'create') statusSelect.value = 'private';
+	}
+
+	function updateRegistrationState() {
+		const state = document.getElementById('post-registration-state');
+		if (!state || !statusSelect) return;
+		const draft = statusSelect.value === 'draft';
+		state.classList.toggle('is-draft', draft);
+		state.classList.toggle('is-registered', !draft);
+		state.dataset.i18n = draft ? 'registrationDraft' : 'registrationCompleted';
+		state.textContent = draft
+			? (window.AdminI18n?.t('registrationDraft') ?? '一時保存')
+			: (window.AdminI18n?.t('registrationCompleted') ?? '登録完了');
 	}
 
 	function ensureSaveStatusUi() {
@@ -140,8 +152,6 @@
 	function refreshDynamicLabels() {
 		const autoOption = sourceLanguage?.querySelector('option[value="auto"]');
 		if (autoOption) autoOption.textContent = window.AdminI18n?.t('languageAuto') ?? '自動判定';
-		const privateOption = statusSelect?.querySelector('option[value="private"]');
-		if (privateOption) privateOption.textContent = window.AdminI18n?.t('statusPrivate') ?? '非公開';
 		const description = document.getElementById('source-language-auto-description');
 		if (description) description.textContent = window.AdminI18n?.t('sourceLanguageAutoDescription') ?? 'タイトルと本文から言語を自動判定します。';
 		const detectedLabel = detectedLanguageRow?.querySelector('span');
@@ -151,6 +161,7 @@
 		if (saveStatus?.dataset.messageKey) {
 			saveStatus.textContent = window.AdminI18n?.t(saveStatus.dataset.messageKey) ?? saveStatus.textContent;
 		}
+		updateRegistrationState();
 	}
 
 	function getDetectedLanguage() {
@@ -224,11 +235,14 @@
 	}
 
 	function buildPayload(forceDraft = false) {
+		const status = editorMode === 'create'
+			? (forceDraft ? 'draft' : 'private')
+			: (statusSelect?.value ?? 'draft');
 		return {
 			title: titleInput?.value.trim() ?? '',
 			content: contentInput?.value.trim() ?? '',
 			sourceLanguage: sourceLanguage?.value ?? '',
-			status: forceDraft ? 'draft' : statusSelect?.value ?? 'draft',
+			status,
 			translationMethod: selectedTranslationMethod(),
 			translatedTitle: translatedTitleInput?.value.trim() ?? '',
 			translatedContent: translatedContentInput?.value.trim() ?? '',
@@ -293,8 +307,8 @@
 			messageKey: 'draftReturnConfirmMessage',
 			confirmKey: 'confirmYes',
 			cancelKey: 'confirmNo',
-			titleFallback: '下書き保存完了',
-			messageFallback: '下書きを保存しました。投稿一覧に戻りますか？',
+			titleFallback: '一時保存完了',
+			messageFallback: '一時保存しました。投稿一覧に戻りますか？',
 			confirmFallback: 'はい',
 			cancelFallback: 'いいえ',
 		});
@@ -324,6 +338,8 @@
 			}
 
 			saveCompleted = true;
+			if (statusSelect) statusSelect.value = forceDraft ? 'draft' : 'private';
+			updateRegistrationState();
 			if (forceDraft) {
 				setSaveMessage('draftSaved', 'success');
 				if (await showDraftSavedConfirm()) {
@@ -374,8 +390,16 @@
 		}
 
 		updateLanguageState();
+		updateRegistrationState();
 		clearSaveError();
 		setEditControlsEnabled(true);
+		return true;
+	}
+
+	function completeRegistration() {
+		if (!statusSelect || statusSelect.value !== 'draft') return false;
+		statusSelect.value = 'private';
+		updateRegistrationState();
 		return true;
 	}
 
@@ -446,6 +470,7 @@
 
 		updateLanguageState();
 		updateTranslationMethod();
+		updateRegistrationState();
 		resolveReady(true);
 	}
 
@@ -454,6 +479,8 @@
 		ready,
 		buildPayload,
 		clearError: clearSaveError,
+		completeRegistration,
+		getStatus: () => statusSelect?.value ?? 'draft',
 		loadPostData,
 		setBusy: setSaving,
 		setEditControlsEnabled,
