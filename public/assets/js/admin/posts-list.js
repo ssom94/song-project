@@ -3,26 +3,36 @@
 	let state = 'loading';
 	let searchInput;
 	let statusSelect;
+	let visibilitySelect;
 	let languageSelect;
+	const visibilityBusy = new Set();
 
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
 		return value && value !== key ? value : fallback;
 	}
 
+	function currentLanguage() {
+		return window.AdminI18n?.getLanguage?.() ?? 'ja';
+	}
+
 	function languageLabel(language) {
 		return language === 'ko' ? t('languageKorean', '한국어') : t('languageJapanese', '日本語');
 	}
 
-	function statusLabel(status) {
-		if (status === 'published') return t('statusPublished', '公開');
-		if (status === 'private') return t('statusPrivate', '非公開');
-		return t('statusDraft', '下書き');
+	function registrationStatus(post) {
+		return post?.status === 'draft' ? 'draft' : 'registered';
+	}
+
+	function registrationLabel(post) {
+		return registrationStatus(post) === 'draft'
+			? t('registrationDraft', currentLanguage() === 'ko' ? '임시' : '一時保存')
+			: t('registrationCompleted', currentLanguage() === 'ko' ? '등록완료' : '登録完了');
 	}
 
 	function categoryLabel(post) {
 		if (!post?.categoryId) return t('categoryNone', '未分類');
-		const language = window.AdminI18n?.getLanguage?.() ?? 'ja';
+		const language = currentLanguage();
 		return post.categoryNames?.[language]
 			?? post.categoryNames?.ja
 			?? post.categoryNames?.ko
@@ -32,7 +42,7 @@
 	function formatDate(value) {
 		const date = new Date(value);
 		if (Number.isNaN(date.getTime())) return value ?? '';
-		const language = window.AdminI18n?.getLanguage?.() ?? 'ja';
+		const language = currentLanguage();
 		return new Intl.DateTimeFormat(language === 'ko' ? 'ko-KR' : 'ja-JP', {
 			year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
 			hour12: false, timeZone: 'Asia/Tokyo',
@@ -45,13 +55,17 @@
 
 	function getFilteredPosts() {
 		const search = normalizeSearchText(searchInput?.value);
-		const status = statusSelect?.value ?? '';
+		const registration = statusSelect?.value ?? '';
+		const visibility = visibilitySelect?.value ?? '';
 		const language = languageSelect?.value ?? '';
 		return posts.filter((post) => {
 			const matchesSearch = !search || normalizeSearchText(post.title).includes(search);
-			const matchesStatus = !status || post.status === status;
+			const matchesRegistration = !registration || registrationStatus(post) === registration;
+			const matchesVisibility = !visibility
+				|| (visibility === 'visible' && post.status === 'published')
+				|| (visibility === 'hidden' && post.status === 'private');
 			const matchesLanguage = !language || post.originalLanguage === language;
-			return matchesSearch && matchesStatus && matchesLanguage;
+			return matchesSearch && matchesRegistration && matchesVisibility && matchesLanguage;
 		});
 	}
 
@@ -86,10 +100,11 @@
 		description.textContent = t('emptyPostsDescription', '最初の投稿を作成すると、ここに一覧が表示されます。');
 	}
 
-	function createStatusBadge(status) {
+	function createRegistrationBadge(post) {
+		const status = registrationStatus(post);
 		const badge = document.createElement('span');
 		badge.className = `admin-post-status admin-post-status-${status}`;
-		badge.textContent = statusLabel(status);
+		badge.textContent = registrationLabel(post);
 		return badge;
 	}
 
@@ -99,6 +114,77 @@
 		link.href = `/admin/posts/edit/?id=${encodeURIComponent(String(post.id))}`;
 		link.textContent = className === 'admin-post-title-link' ? post.title : t('viewPost', '表示');
 		return link;
+	}
+
+	async function updateVisibility(post, visible) {
+		if (!post || post.status === 'draft' || visibilityBusy.has(post.id)) return;
+		visibilityBusy.add(post.id);
+		renderPosts();
+		try {
+			const response = await fetch(`/api/admin/posts/visibility?id=${encodeURIComponent(String(post.id))}`, {
+				method: 'PATCH',
+				credentials: 'same-origin',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ visible }),
+			});
+			if (response.status === 401) {
+				window.location.replace('/admin/login/');
+				return;
+			}
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok) throw new Error(result?.error ?? 'VISIBILITY_UPDATE_FAILED');
+			post.status = result.status;
+			post.updatedAt = new Date().toISOString();
+		} catch (error) {
+			console.error('Failed to update post visibility', error);
+			if (window.AdminCommon?.alert) {
+				await window.AdminCommon.alert({
+					titleKey: 'visibilityUpdateFailedTitle',
+					messageKey: 'visibilityUpdateFailedMessage',
+					titleFallback: currentLanguage() === 'ko' ? '표시 상태 변경 실패' : '表示状態の変更に失敗しました',
+					messageFallback: currentLanguage() === 'ko' ? '잠시 후 다시 시도해 주세요.' : 'しばらくしてからもう一度お試しください。',
+				});
+			}
+		} finally {
+			visibilityBusy.delete(post.id);
+			renderPosts();
+		}
+	}
+
+	function createVisibilityControl(post) {
+		const wrapper = document.createElement('div');
+		wrapper.className = 'admin-post-visibility-control';
+
+		if (post.status === 'draft') {
+			const unavailable = document.createElement('span');
+			unavailable.className = 'admin-post-visibility-unavailable';
+			unavailable.textContent = t('visibilityAfterRegistration', currentLanguage() === 'ko' ? '등록 후 설정' : '登録後に設定');
+			wrapper.appendChild(unavailable);
+			return wrapper;
+		}
+
+		const visible = post.status === 'published';
+		const button = document.createElement('button');
+		button.type = 'button';
+		button.className = `admin-post-visibility-toggle${visible ? ' is-visible' : ''}`;
+		button.setAttribute('role', 'switch');
+		button.setAttribute('aria-checked', String(visible));
+		button.setAttribute('aria-label', visible
+			? t('hidePostAction', currentLanguage() === 'ko' ? '게시글 비표시로 변경' : '投稿を非表示にする')
+			: t('showPostAction', currentLanguage() === 'ko' ? '게시글 표시로 변경' : '投稿を表示する'));
+		button.disabled = visibilityBusy.has(post.id);
+		const knob = document.createElement('span');
+		knob.className = 'admin-post-visibility-knob';
+		button.appendChild(knob);
+		button.addEventListener('click', () => updateVisibility(post, !visible));
+
+		const label = document.createElement('span');
+		label.className = `admin-post-visibility-label${visible ? ' is-visible' : ''}`;
+		label.textContent = visible
+			? t('visibilityVisible', currentLanguage() === 'ko' ? '표시' : '表示')
+			: t('visibilityHidden', currentLanguage() === 'ko' ? '비표시' : '非表示');
+		wrapper.append(button, label);
+		return wrapper;
 	}
 
 	function renderPosts() {
@@ -143,8 +229,11 @@
 			const languageCell = document.createElement('td');
 			languageCell.textContent = languageLabel(post.originalLanguage);
 
-			const statusCell = document.createElement('td');
-			statusCell.appendChild(createStatusBadge(post.status));
+			const registrationCell = document.createElement('td');
+			registrationCell.appendChild(createRegistrationBadge(post));
+
+			const visibilityCell = document.createElement('td');
+			visibilityCell.appendChild(createVisibilityControl(post));
 
 			const updatedCell = document.createElement('td');
 			updatedCell.className = 'admin-post-updated-at';
@@ -153,7 +242,7 @@
 			const actionCell = document.createElement('td');
 			actionCell.appendChild(createViewLink(post, 'admin-post-edit-link'));
 
-			row.append(numberCell, titleCell, categoryCell, languageCell, statusCell, updatedCell, actionCell);
+			row.append(numberCell, titleCell, categoryCell, languageCell, registrationCell, visibilityCell, updatedCell, actionCell);
 			tbody.appendChild(row);
 		}
 
@@ -165,9 +254,11 @@
 	function bindFilters() {
 		searchInput = document.getElementById('post-search');
 		statusSelect = document.getElementById('post-status');
+		visibilitySelect = document.getElementById('post-visibility');
 		languageSelect = document.getElementById('post-language');
 		searchInput?.addEventListener('input', renderPosts);
 		statusSelect?.addEventListener('change', renderPosts);
+		visibilitySelect?.addEventListener('change', renderPosts);
 		languageSelect?.addEventListener('change', renderPosts);
 	}
 
