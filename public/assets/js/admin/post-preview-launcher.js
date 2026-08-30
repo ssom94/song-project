@@ -168,3 +168,10 @@
 		initialize();
 	}
 })();
+
+if (!document.querySelector('script[data-post-markdown-editor]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/admin/post-markdown-editor.js';
+	script.dataset.postMarkdownEditor = 'true';
+	document.body.appendChild(script);
+}
