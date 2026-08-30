@@ -101,6 +101,15 @@ export default {
 		}
 
 		switch (url.pathname) {
+			case '/favicon.ico':
+				if (request.method !== 'GET' && request.method !== 'HEAD') return methodNotAllowed('GET, HEAD');
+				return new Response(null, {
+					status: 302,
+					headers: {
+						Location: new URL('/assets/logo-song-ym.png', request.url).toString(),
+						'Cache-Control': 'public, max-age=86400',
+					},
+				});
 			case '/message':
 				return new Response('Hello, World!');
 			case '/random':
