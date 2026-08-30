@@ -4,14 +4,6 @@ body.blog-home-page .blog-dashboard-topbar {
 	background-size: min(1540px, 90vw) 74px;
 }
 
-body.blog-home-page::before {
-	background-image: url('/assets/images/main_bg.png');
-	background-size: 100% 100%;
-	background-position: center center;
-	background-repeat: no-repeat;
-	opacity: .92;
-}
-
 body.blog-home-page .home-dashboard-heading {
 	position: relative;
 	min-height: 108px;
@@ -54,7 +46,7 @@ body.blog-home-page .home-dashboard-heading > * {
 		0 10px 28px rgba(31, 48, 78, .07),
 		0 0 0 1px rgba(255, 255, 255, .72) inset;
 	backdrop-filter: blur(8px);
-	animation: homeRoadmapCloud 13s ease-in-out infinite;
+	animation: homeRoadmapCloud 8.5s ease-in-out infinite;
 	will-change: translate, transform;
 }
 
@@ -86,13 +78,10 @@ body.blog-home-page .home-dashboard-heading > * {
 
 @keyframes homeRoadmapCloud {
 	0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-	25% { transform: translate3d(3px, -4px, 0) rotate(.15deg); }
-	50% { transform: translate3d(0, -7px, 0) rotate(0deg); }
-	75% { transform: translate3d(-3px, -3px, 0) rotate(-.15deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-	#home-roadmap-summary { animation: none; }
+	20% { transform: translate3d(8px, -8px, 0) rotate(.20deg); }
+	45% { transform: translate3d(14px, -3px, 0) rotate(.35deg); }
+	70% { transform: translate3d(5px, 8px, 0) rotate(-.15deg); }
+	88% { transform: translate3d(-8px, 3px, 0) rotate(-.30deg); }
 }
 
 @media (max-width: 1240px) {
@@ -122,12 +111,6 @@ body.blog-home-page .home-dashboard-heading > * {
 		background-size: 980px 68px;
 	}
 
-	body.blog-home-page::before {
-		background-size: 100% 100%;
-		background-position: center center;
-		opacity: .78;
-	}
-
 	body.blog-home-page .home-dashboard-heading {
 		padding-top: 78px;
 	}
@@ -142,7 +125,7 @@ body.blog-home-page .home-dashboard-heading > * {
 
 	#home-roadmap-summary {
 		translate: 0 0 !important;
-		animation-duration: 16s;
+		animation-duration: 10s;
 	}
 }
 
@@ -150,10 +133,6 @@ body.blog-home-page .home-dashboard-heading > * {
 	body.blog-home-page .blog-dashboard-topbar {
 		background-position: 50% center;
 		background-size: 820px 66px;
-	}
-
-	body.blog-home-page::before {
-		opacity: .68;
 	}
 
 	body.blog-home-page .home-dashboard-heading {
