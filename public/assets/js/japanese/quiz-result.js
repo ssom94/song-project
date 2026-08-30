@@ -45,9 +45,13 @@
 	}
 	function scopeLabel(result) {
 		const setup = result?.setup || {};
-		const values = [setup.jlpt || 'ALL'];
+		const levels = Array.isArray(setup.jlpts) && setup.jlpts.length
+			? setup.jlpts.map((value) => value === 'UNSET' ? copy('미지정', '未設定') : value)
+			: [setup.jlpt || 'ALL'];
+		const values = [levels.join(' + ')];
 		if (setup.categoryName && !['전체', 'すべて'].includes(setup.categoryName)) values.push(setup.categoryName);
 		if (setup.partName && !['전체', 'すべて'].includes(setup.partName)) values.push(setup.partName);
+		if (setup.quick && setup.focusWord) values.push(copy(`${setup.focusWord} 퀵`, `${setup.focusWord} クイック`));
 		return values.join(' · ');
 	}
 
@@ -145,7 +149,7 @@
 		const attempts = (result.attempts || []).filter((item) => !wrongOnly || !item.isCorrect);
 		const questions = attempts.map((item) => item.questionSnapshot).filter(Boolean);
 		if (!questions.length) return;
-		const setup = { ...(result.setup || {}), count: questions.length };
+		const setup = { ...(result.setup || {}), count: questions.length, focusWordId: null, focusWord: null, quick: false };
 		sessionStorage.setItem(SETUP_KEY, JSON.stringify(setup));
 		sessionStorage.setItem(RETRY_KEY, JSON.stringify(questions));
 		window.location.href = `/${language()}/japanese/quiz/play/`;
