@@ -228,3 +228,10 @@
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
+
+if (!document.querySelector('script[data-context-subnav]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/blog/context-subnav.js';
+	script.dataset.contextSubnav = 'true';
+	document.body.appendChild(script);
+}
