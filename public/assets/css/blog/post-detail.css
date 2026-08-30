@@ -101,6 +101,105 @@
 	color: #98a2b3;
 }
 
+.blog-post-neighbors {
+	width: min(820px, 100%);
+	margin: 24px auto 0;
+	padding: 20px;
+	border: 1px solid #dfe5ed;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.92);
+	box-shadow: 0 8px 22px rgba(31, 48, 78, 0.025);
+}
+
+.blog-post-neighbors[hidden] {
+	display: none;
+}
+
+.blog-post-neighbors-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px;
+}
+
+.blog-post-neighbors-heading h2 {
+	margin: 0;
+	color: #2d3a4e;
+	font-size: 15px;
+}
+
+.blog-post-neighbor-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.blog-post-neighbor-group {
+	min-width: 0;
+}
+
+.blog-post-neighbor-label {
+	display: block;
+	margin-bottom: 7px;
+	color: #7d899a;
+	font-size: 10px;
+	font-weight: 850;
+}
+
+.blog-post-neighbor-list {
+	display: grid;
+	gap: 7px;
+}
+
+.blog-post-neighbor-link {
+	display: flex;
+	min-width: 0;
+	padding: 11px 12px;
+	border: 1px solid #e3e8ef;
+	border-radius: 10px;
+	background: #fbfcfe;
+	color: inherit;
+	flex-direction: column;
+	gap: 4px;
+	text-decoration: none;
+	transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.blog-post-neighbor-link:hover {
+	border-color: #bdcbea;
+	background: #f6f9ff;
+	transform: translateY(-1px);
+}
+
+.blog-post-neighbor-link strong {
+	overflow: hidden;
+	color: #334155;
+	font-size: 11px;
+	font-weight: 800;
+	line-height: 1.45;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.blog-post-neighbor-link small {
+	overflow: hidden;
+	color: #98a2b3;
+	font-size: 8px;
+	line-height: 1.45;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.blog-post-neighbor-empty {
+	margin: 0;
+	padding: 12px;
+	border: 1px dashed #e2e7ef;
+	border-radius: 9px;
+	color: #9aa5b4;
+	font-size: 9px;
+	text-align: center;
+}
+
 @media (max-width: 600px) {
 	.blog-post-shell {
 		padding: 20px 18px 28px;
@@ -124,5 +223,13 @@
 		margin-top: 24px;
 		font-size: 15px;
 		line-height: 1.85;
+	}
+
+	.blog-post-neighbors {
+		padding: 15px;
+	}
+
+	.blog-post-neighbor-grid {
+		grid-template-columns: 1fr;
 	}
 }
