@@ -30,6 +30,7 @@ import {
 	handleCreateAdminJapaneseCategory,
 	handleDeleteAdminJapaneseCategory,
 	handleListAdminJapaneseCategories,
+	handleReorderAdminJapaneseCategories,
 	handleUpdateAdminJapaneseCategory,
 } from './admin/japanese/categories';
 import {
@@ -147,6 +148,8 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminJapaneseCategory(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminJapaneseCategory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
+			case '/api/admin/japanese/categories/reorder':
+				return request.method === 'PATCH' ? handleReorderAdminJapaneseCategories(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/quiz/complete':
 				return request.method === 'POST' ? handleCompleteAdminJapaneseQuiz(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/quiz/history':
