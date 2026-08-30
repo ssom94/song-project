@@ -17,7 +17,7 @@ function json(data: unknown, status = 200): Response {
 	return Response.json(data, {
 		status,
 		headers: {
-			'Cache-Control': 'public, max-age=60',
+			'Cache-Control': 'no-store',
 		},
 	});
 }
