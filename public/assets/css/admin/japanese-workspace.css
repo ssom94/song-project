@@ -1,0 +1,210 @@
+.admin-japanese-page-topline {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 18px;
+	margin-bottom: 14px;
+}
+
+.admin-japanese-page-topline .admin-page-heading {
+	margin-bottom: 0;
+	min-width: 0;
+}
+
+.admin-japanese-page-topline .admin-japanese-tabs {
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+.admin-japanese-layout.admin-japanese-workspace {
+	grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
+	gap: 16px;
+	align-items: start;
+}
+
+.admin-japanese-layout.admin-japanese-workspace.is-form-collapsed {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.admin-japanese-workspace .admin-japanese-list-card {
+	grid-column: 1;
+	min-width: 0;
+}
+
+.admin-japanese-workspace .admin-japanese-form-card {
+	grid-column: 2;
+	position: sticky;
+	top: 88px;
+	max-height: calc(100vh - 106px);
+	overflow: hidden;
+}
+
+.admin-japanese-workspace .admin-japanese-form-card #japanese-word-form-panel {
+	max-height: calc(100vh - 176px);
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-gutter: stable;
+}
+
+.admin-japanese-workspace.is-form-collapsed .admin-japanese-form-card {
+	display: none;
+}
+
+.admin-japanese-list-heading-actions {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+}
+
+.admin-japanese-list-add {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 34px;
+	padding: 0 12px;
+	border: 1px solid #1f56d8;
+	border-radius: 9px;
+	background: #1f56d8;
+	color: #fff;
+	font: inherit;
+	font-size: 11px;
+	font-weight: 850;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(31, 86, 216, 0.14);
+}
+
+.admin-japanese-list-add:hover {
+	background: #1849bd;
+	border-color: #1849bd;
+}
+
+.admin-japanese-floating-word {
+	position: fixed;
+	top: 128px;
+	right: 20px;
+	z-index: 80;
+	max-width: min(240px, calc(100vw - 40px));
+	min-height: 42px;
+	padding: 0 16px;
+	border: 1px solid rgba(31, 86, 216, 0.2);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.96);
+	color: #1f56d8;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 850;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	box-shadow: 0 12px 32px rgba(30, 64, 175, 0.18);
+	backdrop-filter: blur(10px);
+}
+
+.admin-japanese-floating-word:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 14px 36px rgba(30, 64, 175, 0.24);
+}
+
+.admin-japanese-import-card[data-collapsible="true"] {
+	padding: 0;
+	overflow: hidden;
+}
+
+.admin-japanese-import-card[data-collapsible="true"] .admin-japanese-import-heading {
+	align-items: center;
+	padding: 13px 15px;
+}
+
+.admin-japanese-import-card[data-collapsible="true"].is-collapsed .admin-japanese-import-heading p {
+	display: none;
+}
+
+.admin-japanese-import-body {
+	padding: 0 15px 15px;
+}
+
+.admin-japanese-import-collapse {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	margin-left: 2px;
+	border: 1px solid #d7e0ec;
+	border-radius: 9px;
+	background: #f8fafc;
+	color: #53647a;
+	font: inherit;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.admin-japanese-import-collapse:hover {
+	border-color: #9fb6dd;
+	background: #f3f7ff;
+	color: #1f56d8;
+}
+
+.admin-japanese-import-heading .admin-japanese-import-template {
+	margin-left: auto;
+}
+
+.admin-japanese-import-card.is-collapsed .admin-japanese-import-template {
+	display: none;
+}
+
+@media (max-width: 1180px) {
+	.admin-japanese-layout.admin-japanese-workspace {
+		grid-template-columns: minmax(0, 1fr) minmax(330px, 390px);
+	}
+}
+
+@media (max-width: 980px) {
+	.admin-japanese-page-topline {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.admin-japanese-page-topline .admin-japanese-tabs {
+		width: 100%;
+	}
+
+	.admin-japanese-layout.admin-japanese-workspace,
+	.admin-japanese-layout.admin-japanese-workspace.is-form-collapsed {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.admin-japanese-workspace .admin-japanese-form-card {
+		grid-column: 1;
+		position: relative;
+		top: auto;
+		max-height: none;
+	}
+
+	.admin-japanese-workspace .admin-japanese-form-card #japanese-word-form-panel {
+		max-height: min(68vh, 720px);
+	}
+
+	.admin-japanese-floating-word {
+		top: auto;
+		right: 16px;
+		bottom: 18px;
+	}
+}
+
+@media (max-width: 720px) {
+	.admin-japanese-list-heading-actions {
+		align-items: flex-end;
+		flex-direction: column-reverse;
+	}
+
+	.admin-japanese-list-add {
+		min-height: 32px;
+		padding: 0 10px;
+		font-size: 10px;
+	}
+}
