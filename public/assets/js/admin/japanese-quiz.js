@@ -6,22 +6,13 @@
 		const value = window.AdminI18n?.t(key);
 		return value && value !== key ? value : fallback;
 	}
-
-	function currentLanguage() {
-		return window.AdminI18n?.getLanguage?.() ?? 'ja';
-	}
-
+	function currentLanguage() { return window.AdminI18n?.getLanguage?.() ?? 'ja'; }
+	function copy(ko, ja) { return currentLanguage() === 'ko' ? ko : ja; }
 	function label(row) {
 		if (!row) return '';
-		return currentLanguage() === 'ko'
-			? (row.name_ko ?? row.name_ja ?? '')
-			: (row.name_ja ?? row.name_ko ?? '');
+		return currentLanguage() === 'ko' ? (row.name_ko ?? row.name_ja ?? '') : (row.name_ja ?? row.name_ko ?? '');
 	}
-
-	function roots(items) {
-		return items.filter((item) => item.parent_id === null || item.parent_id === undefined);
-	}
-
+	function roots(items) { return items.filter((item) => item.parent_id === null || item.parent_id === undefined); }
 	function children(items, parentId) {
 		if (!parentId) return [];
 		return items.filter((item) => String(item.parent_id ?? '') === String(parentId));
@@ -66,10 +57,10 @@
 	}
 
 	function renderHierarchies() {
-		rebuildParent('quiz-category-parent', categories, 'quizAllCategories', currentLanguage() === 'ko' ? '전체' : 'すべて');
-		rebuildChild('quiz-category-parent', 'quiz-category', categories, 'quizAllSubcategories', currentLanguage() === 'ko' ? '전체' : 'すべて');
-		rebuildParent('quiz-pos-parent', partsOfSpeech, 'quizAllParts', currentLanguage() === 'ko' ? '전체' : 'すべて');
-		rebuildChild('quiz-pos-parent', 'quiz-pos', partsOfSpeech, 'quizAllSubcategories', currentLanguage() === 'ko' ? '전체' : 'すべて');
+		rebuildParent('quiz-category-parent', categories, 'quizAllCategories', copy('전체', 'すべて'));
+		rebuildChild('quiz-category-parent', 'quiz-category', categories, 'quizAllSubcategories', copy('전체', 'すべて'));
+		rebuildParent('quiz-pos-parent', partsOfSpeech, 'quizAllParts', copy('전체', 'すべて'));
+		rebuildChild('quiz-pos-parent', 'quiz-pos', partsOfSpeech, 'quizAllSubcategories', copy('전체', 'すべて'));
 	}
 
 	async function loadSetupData() {
@@ -84,20 +75,12 @@
 				window.location.replace('/admin/login/');
 				return;
 			}
-
 			const wordsResult = await wordsResponse.json().catch(() => null);
 			const categoriesResult = await categoriesResponse.json().catch(() => null);
 			const partsResult = await partsResponse.json().catch(() => null);
-
-			if (count && wordsResponse.ok && wordsResult?.ok && Array.isArray(wordsResult.words)) {
-				count.textContent = String(wordsResult.words.length);
-			}
-			categories = categoriesResponse.ok && categoriesResult?.ok && Array.isArray(categoriesResult.categories)
-				? categoriesResult.categories
-				: [];
-			partsOfSpeech = partsResponse.ok && partsResult?.ok && Array.isArray(partsResult.parts)
-				? partsResult.parts
-				: [];
+			if (count && wordsResponse.ok && wordsResult?.ok && Array.isArray(wordsResult.words)) count.textContent = String(wordsResult.words.length);
+			categories = categoriesResponse.ok && categoriesResult?.ok && Array.isArray(categoriesResult.categories) ? categoriesResult.categories : [];
+			partsOfSpeech = partsResponse.ok && partsResult?.ok && Array.isArray(partsResult.parts) ? partsResult.parts : [];
 			renderHierarchies();
 		} catch (error) {
 			console.error('Failed to load quiz setup data', error);
@@ -120,9 +103,85 @@
 		return select.selectedOptions?.[0]?.textContent?.trim() || null;
 	}
 
+	function savedMode() {
+		try {
+			const stored = JSON.parse(sessionStorage.getItem('song_japanese_quiz_setup') || 'null');
+			if (['input', 'choice', 'sentence', 'mixed'].includes(stored?.quizMode)) return stored.quizMode;
+			if (stored?.answerMode === 'choice') return 'choice';
+			if (Array.isArray(stored?.types) && stored.types.length === 1 && stored.types[0] === 'sentence') return 'sentence';
+		} catch {
+			// Ignore old or invalid setup.
+		}
+		return 'mixed';
+	}
+
+	function modeDefinitions() {
+		return [
+			{ value: 'input', title: copy('주관식', '記述式'), description: copy('단어의 읽기 또는 한국어 뜻을 직접 입력합니다.', '単語の読み方または韓国語の意味を直接入力します。') },
+			{ value: 'choice', title: copy('4지선다', '4択'), description: copy('정답 1개와 다른 등록 단어의 뜻 3개 중에서 선택합니다.', '正解1つと、他の登録単語の意味3つから選択します。') },
+			{ value: 'sentence', title: copy('예문 빈칸', '例文穴埋め'), description: copy('등록된 예문에서 단어를 빈칸으로 가리고 직접 맞힙니다.', '登録例文の対象単語を空欄にして直接答えます。') },
+			{ value: 'mixed', title: copy('전체 혼합', 'すべて混合'), description: copy('주관식·4지선다·예문 빈칸을 문제마다 랜덤으로 섞습니다.', '記述式・4択・例文穴埋めを問題ごとにランダムで混ぜます。') },
+		];
+	}
+
+	function mountModeSelector() {
+		const typeInput = document.querySelector('input[name="quiz-type"]');
+		const typeSection = typeInput?.closest('.admin-quiz-section');
+		if (!typeSection) return;
+		let selected = document.querySelector('input[name="quiz-mode"]:checked')?.value || savedMode();
+		if (!['input', 'choice', 'sentence', 'mixed'].includes(selected)) selected = 'mixed';
+
+		typeSection.replaceChildren();
+		const heading = document.createElement('div');
+		heading.className = 'admin-quiz-section-heading';
+		const strong = document.createElement('strong');
+		strong.textContent = copy('출제 방식', '出題方式');
+		const hint = document.createElement('span');
+		hint.textContent = copy('한 가지 방식 또는 전체 혼합을 선택합니다.', '1つの方式、またはすべて混合を選択します。');
+		heading.append(strong, hint);
+
+		const list = document.createElement('div');
+		list.className = 'admin-quiz-mode-grid';
+		for (const mode of modeDefinitions()) {
+			const labelNode = document.createElement('label');
+			labelNode.className = 'admin-quiz-answer-mode';
+			const input = document.createElement('input');
+			input.type = 'radio';
+			input.name = 'quiz-mode';
+			input.value = mode.value;
+			input.checked = mode.value === selected;
+			const copyWrap = document.createElement('span');
+			const title = document.createElement('strong');
+			title.textContent = mode.title;
+			const description = document.createElement('small');
+			description.textContent = mode.description;
+			copyWrap.append(title, description);
+			labelNode.append(input, copyWrap);
+			list.appendChild(labelNode);
+		}
+		typeSection.append(heading, list);
+
+		const legacyAnswerInput = document.querySelector('input[name="quiz-answer-mode"]');
+		const legacySection = legacyAnswerInput?.closest('.admin-quiz-section');
+		if (legacySection) legacySection.hidden = true;
+	}
+
+	function selectedMode() {
+		return document.querySelector('input[name="quiz-mode"]:checked')?.value || 'mixed';
+	}
+
+	function typesForMode(mode) {
+		if (mode === 'choice') return ['meaning'];
+		if (mode === 'sentence') return ['sentence'];
+		if (mode === 'input') return ['reading', 'meaning'];
+		return ['reading', 'meaning', 'sentence'];
+	}
+
 	function collectSetup() {
+		const quizMode = selectedMode();
 		return {
-			types: [...document.querySelectorAll('input[name="quiz-type"]:checked')].map((input) => input.value),
+			quizMode,
+			types: typesForMode(quizMode),
 			categoryParentId: document.getElementById('quiz-category-parent')?.value || null,
 			categoryParentName: selectedOptionLabel('quiz-category-parent'),
 			categoryId: document.getElementById('quiz-category')?.value || null,
@@ -133,44 +192,48 @@
 			partOfSpeechName: selectedOptionLabel('quiz-pos'),
 			jlpt: document.getElementById('quiz-jlpt')?.value || null,
 			order: document.getElementById('quiz-order')?.value || 'random',
+			priority: document.getElementById('quiz-order')?.value === 'weak' ? 'wrong' : 'random',
 			count: Math.max(1, Math.min(200, Number(document.getElementById('quiz-count-custom')?.value) || 20)),
-			answerMode: document.querySelector('input[name="quiz-answer-mode"]:checked')?.value || 'input',
+			answerMode: quizMode === 'choice' ? 'choice' : quizMode === 'mixed' ? 'random' : 'input',
 		};
+	}
+
+	function updatePageCopy() {
+		const description = document.querySelector('.admin-page-heading p');
+		if (description) description.textContent = copy(
+			'주관식·4지선다·예문 빈칸·전체 혼합 중에서 선택하고 출제 범위를 설정합니다.',
+			'記述式・4択・例文穴埋め・すべて混合から選び、出題範囲を設定します。',
+		);
+		mountModeSelector();
 	}
 
 	async function startQuizPreview() {
 		const setup = collectSetup();
-		if (setup.types.length === 0) {
-			if (window.AdminCommon?.alert) {
-				await window.AdminCommon.alert({
-					titleKey: 'quizTypeRequiredTitle',
-					messageKey: 'quizTypeRequiredMessage',
-					titleFallback: currentLanguage() === 'ko' ? '문제 유형 선택' : '問題タイプを選択',
-					messageFallback: currentLanguage() === 'ko' ? '문제 유형을 하나 이상 선택해 주세요.' : '問題タイプを1つ以上選択してください。',
-				});
-			}
-			return;
-		}
 		sessionStorage.setItem('song_japanese_quiz_setup', JSON.stringify(setup));
 		window.location.href = '/admin/japanese/quiz/play/';
 	}
 
 	async function initialize() {
 		await window.AdminCommon?.ready;
+		mountModeSelector();
 		document.getElementById('quiz-category-parent')?.addEventListener('change', () => {
-			rebuildChild('quiz-category-parent', 'quiz-category', categories, 'quizAllSubcategories', currentLanguage() === 'ko' ? '전체' : 'すべて');
+			rebuildChild('quiz-category-parent', 'quiz-category', categories, 'quizAllSubcategories', copy('전체', 'すべて'));
 		});
 		document.getElementById('quiz-pos-parent')?.addEventListener('change', () => {
-			rebuildChild('quiz-pos-parent', 'quiz-pos', partsOfSpeech, 'quizAllSubcategories', currentLanguage() === 'ko' ? '전체' : 'すべて');
+			rebuildChild('quiz-pos-parent', 'quiz-pos', partsOfSpeech, 'quizAllSubcategories', copy('전체', 'すべて'));
 		});
 		document.querySelectorAll('[data-quiz-count]').forEach((button) => {
 			button.addEventListener('click', () => setQuestionCount(button.dataset.quizCount));
 		});
 		document.getElementById('quiz-count-custom')?.addEventListener('input', (event) => setQuestionCount(event.target.value));
 		document.getElementById('quiz-start')?.addEventListener('click', startQuizPreview);
-		document.addEventListener('adminlanguagechange', renderHierarchies);
+		document.addEventListener('adminlanguagechange', () => {
+			renderHierarchies();
+			updatePageCopy();
+		});
 		await loadSetupData();
 		setQuestionCount(20);
+		updatePageCopy();
 	}
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
