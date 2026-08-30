@@ -17,17 +17,23 @@
 		return [...document.querySelectorAll('#japanese-word-table-body > tr')];
 	}
 
-	function ensurePager() {
-		let pager = document.getElementById('japanese-word-pagination');
-		if (pager) return pager;
+	function createPager(id, position) {
 		const tableWrap = document.getElementById('japanese-word-table-wrap');
 		if (!tableWrap) return null;
-		pager = document.createElement('nav');
-		pager.id = 'japanese-word-pagination';
-		pager.className = 'admin-japanese-pagination';
+		const pager = document.createElement('nav');
+		pager.id = id;
+		pager.className = `admin-japanese-pagination is-${position}`;
 		pager.setAttribute('aria-label', currentLanguage() === 'ko' ? '단어 목록 페이지' : '単語一覧ページ');
-		tableWrap.insertAdjacentElement('afterend', pager);
+		if (position === 'top') tableWrap.insertAdjacentElement('beforebegin', pager);
+		else tableWrap.insertAdjacentElement('afterend', pager);
 		return pager;
+	}
+
+	function ensurePagers() {
+		return [
+			document.getElementById('japanese-word-pagination-top') || createPager('japanese-word-pagination-top', 'top'),
+			document.getElementById('japanese-word-pagination-bottom') || createPager('japanese-word-pagination-bottom', 'bottom'),
+		].filter(Boolean);
 	}
 
 	function pageNumbers(totalPages) {
@@ -42,6 +48,13 @@
 		return result;
 	}
 
+	function goToPage(page) {
+		if (page === currentPage) return;
+		currentPage = page;
+		renderPagination();
+		document.getElementById('japanese-word-table-wrap')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
 	function makeButton(label, page, disabled = false, active = false) {
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -50,35 +63,19 @@
 		button.disabled = disabled;
 		if (active) button.setAttribute('aria-current', 'page');
 		button.addEventListener('click', () => {
-			if (disabled || page === currentPage) return;
-			currentPage = page;
-			renderPagination();
-			document.getElementById('japanese-word-table-wrap')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			if (!disabled) goToPage(page);
 		});
 		return button;
 	}
 
-	function renderPagination() {
-		const values = rows();
-		const pager = ensurePager();
-		if (!pager) return;
-
-		const total = values.length;
-		const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-		currentPage = Math.min(Math.max(1, currentPage), totalPages);
-		const startIndex = (currentPage - 1) * PAGE_SIZE;
-		const endIndex = Math.min(startIndex + PAGE_SIZE, total);
-
-		values.forEach((row, index) => {
-			row.hidden = index < startIndex || index >= endIndex;
-		});
-
+	function fillPager(pager, total, totalPages, startIndex, endIndex) {
 		pager.replaceChildren();
 		if (total <= PAGE_SIZE) {
 			pager.hidden = true;
 			return;
 		}
 		pager.hidden = false;
+		pager.setAttribute('aria-label', currentLanguage() === 'ko' ? '단어 목록 페이지' : '単語一覧ページ');
 		const labels = copy();
 
 		const summary = document.createElement('span');
@@ -102,34 +99,39 @@
 		pager.append(summary, controls);
 	}
 
+	function renderPagination() {
+		const values = rows();
+		const pagers = ensurePagers();
+		if (!pagers.length) return;
+
+		const total = values.length;
+		const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+		currentPage = Math.min(Math.max(1, currentPage), totalPages);
+		const startIndex = (currentPage - 1) * PAGE_SIZE;
+		const endIndex = Math.min(startIndex + PAGE_SIZE, total);
+
+		values.forEach((row, index) => {
+			row.hidden = index < startIndex || index >= endIndex;
+		});
+		pagers.forEach((pager) => fillPager(pager, total, totalPages, startIndex, endIndex));
+	}
+
 	function scheduleRender(resetPage = false) {
 		if (resetPage) currentPage = 1;
 		window.clearTimeout(renderTimer);
-		renderTimer = window.setTimeout(renderPagination, 30);
-	}
-
-	function removeLegacyTimestampColumns() {
-		document.querySelectorAll([
-			'.admin-japanese-table-updated-head',
-			'.admin-japanese-table-created-head',
-			'.admin-japanese-table-updated-cell',
-			'.admin-japanese-table-created-cell',
-		].join(',')).forEach((node) => node.remove());
+		renderTimer = window.setTimeout(renderPagination, 35);
 	}
 
 	function observeRows() {
 		const body = document.getElementById('japanese-word-table-body');
 		if (!body) return;
 		new MutationObserver((mutations) => {
-			if (!mutations.some((mutation) => mutation.type === 'childList')) return;
-			removeLegacyTimestampColumns();
-			scheduleRender();
+			if (mutations.some((mutation) => mutation.type === 'childList')) scheduleRender();
 		}).observe(body, { childList: true });
 	}
 
 	async function initialize() {
 		await Promise.all([window.AdminCommon?.ready, window.AdminI18n?.ready]);
-		removeLegacyTimestampColumns();
 		observeRows();
 		document.getElementById('japanese-word-search')?.addEventListener('input', () => scheduleRender(true));
 		document.getElementById('japanese-jlpt-filter')?.addEventListener('change', () => scheduleRender(true));
