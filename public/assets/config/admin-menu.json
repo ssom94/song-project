@@ -1,6 +1,7 @@
 [
   { "key": "dashboard", "href": "/admin/" },
   { "key": "dashboardGoals", "href": "/admin/goals/" },
+  { "key": "scheduleManagement", "href": "/admin/schedules/", "labelJa": "予定管理", "labelKo": "일정관리" },
   { "key": "posts", "href": "/admin/posts/" },
   { "key": "comments", "href": "/admin/comments/" },
   { "key": "categoriesTags", "href": "/admin/categories/" },
