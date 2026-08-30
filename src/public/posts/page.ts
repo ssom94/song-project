@@ -3,10 +3,10 @@ type PublicLanguage = 'ja' | 'ko';
 function pageText(language: PublicLanguage) {
 	return language === 'ko'
 		? {
-			pageTitle: '게시글 | SONG', home: '홈', posts: '전체 게시글', japanese: '일본어 학습', skill: '스킬시트', career: '경력', menu: '메뉴', boards: '게시판', quick: '바로가기', categoriesEmpty: '아직 공개된 카테고리가 없습니다.', goals: '2029 목표', dday: 'D-Day', jlptProgress: 'JLPT 진행률', back: '← 게시글 목록', loading: '게시글을 불러오는 중…', closeMenu: '메뉴 닫기', comments: '댓글', commentCount: '0개', nickname: '닉네임', password: '수정·삭제 비밀번호', commentPlaceholder: '댓글을 입력해 주세요.', commentPolicy: '댓글은 일반 텍스트로 저장되며 HTML은 실행되지 않습니다.', commentSubmit: '댓글 등록', commentsEmpty: '아직 댓글이 없습니다. 첫 댓글을 남겨보세요.',
+			pageTitle: '게시글 | SONG', home: '홈', posts: '전체 게시글', japanese: '일본어 학습', skill: '스킬시트', career: '경력', menu: '메뉴', boards: '게시판', quick: '바로가기', categoriesEmpty: '아직 공개된 카테고리가 없습니다.', goals: '2029 목표', dday: 'D-Day', jlptProgress: 'JLPT 진행률', back: '뒤로가기', loading: '게시글을 불러오는 중…', closeMenu: '메뉴 닫기', comments: '댓글', commentCount: '0개', nickname: '닉네임', password: '수정·삭제 비밀번호', commentPlaceholder: '댓글을 입력해 주세요.', commentPolicy: '댓글은 일반 텍스트로 저장되며 HTML은 실행되지 않습니다.', commentSubmit: '댓글 등록', commentsEmpty: '아직 댓글이 없습니다. 첫 댓글을 남겨보세요.',
 		}
 		: {
-			pageTitle: '投稿 | SONG', home: 'Home', posts: '投稿', japanese: '日本語学習', skill: 'Skill Sheet', career: 'Career History', menu: 'Menu', boards: 'Boards', quick: 'Quick', categoriesEmpty: '公開されたカテゴリーはまだありません。', goals: '2029 Goals', dday: 'D-Day', jlptProgress: 'JLPT Progress', back: '← 投稿一覧', loading: '投稿を読み込んでいます…', closeMenu: 'メニューを閉じる', comments: 'コメント', commentCount: '0件', nickname: 'ニックネーム', password: '編集・削除用パスワード', commentPlaceholder: 'コメントを入力してください。', commentPolicy: 'コメントはプレーンテキストとして保存し、HTMLは実行しません。', commentSubmit: 'コメントを投稿', commentsEmpty: 'まだコメントはありません。最初のコメントを投稿してみてください。',
+			pageTitle: '投稿 | SONG', home: 'Home', posts: '投稿', japanese: '日本語学習', skill: 'Skill Sheet', career: 'Career History', menu: 'Menu', boards: 'Boards', quick: 'Quick', categoriesEmpty: '公開されたカテゴリーはまだありません。', goals: '2029 Goals', dday: 'D-Day', jlptProgress: 'JLPT Progress', back: '戻る', loading: '投稿を読み込んでいます…', closeMenu: 'メニューを閉じる', comments: 'コメント', commentCount: '0件', nickname: 'ニックネーム', password: '編集・削除用パスワード', commentPlaceholder: 'コメントを入力してください。', commentPolicy: 'コメントはプレーンテキストとして保存し、HTMLは実行しません。', commentSubmit: 'コメントを投稿', commentsEmpty: 'まだコメントはありません。最初のコメントを投稿してみてください。',
 		};
 }
 
@@ -56,7 +56,7 @@ export function renderPublicPostPage(language: PublicLanguage): Response {
 
 		<main class="blog-dashboard-main"><div class="blog-dashboard-content blog-post-detail-dashboard-content">
 			<article class="blog-post-shell">
-				<a class="blog-back-link" href="/${language}/posts/">${text.back}</a>
+				<div class="blog-post-context-row"><a class="blog-back-link" href="/${language}/posts/"><span aria-hidden="true">←</span><b>${text.back}</b></a><span id="post-detail-category-path" class="blog-post-category-path" hidden></span></div>
 				<div id="post-detail-loading" class="blog-state">${text.loading}</div>
 				<section id="post-detail" hidden><div id="post-detail-meta" class="blog-post-meta"></div><h1 id="post-detail-title" class="blog-post-title"></h1><div id="post-detail-taxonomy" class="blog-post-taxonomy"></div><div id="post-detail-content" class="blog-post-content"></div></section>
 				<section id="post-translation-missing" class="blog-state blog-state-card" hidden><h1 id="post-translation-missing-title"></h1><p id="post-translation-missing-message"></p><a id="post-translation-alternate-link" class="blog-primary-link" href="#"></a></section>
