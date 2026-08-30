@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/assets/css/admin/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/taxonomy.css" />
 	<link rel="stylesheet" href="/assets/css/admin/categories.css" />
+	<link rel="stylesheet" href="/assets/css/admin/categories-drag-layout.css" />
 </head>
 <body class="admin-page admin-categories-page" data-i18n-scope="categories">
 	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
@@ -133,6 +134,7 @@
 											<th data-i18n="categoryTableKorean">韓国語</th>
 											<th data-i18n="categoryTableOrder">順序</th>
 											<th data-i18n="tableActions">操作</th>
+											<th class="admin-category-drag-column-header" aria-label="並び替え"></th>
 										</tr>
 									</thead>
 									<tbody id="category-table-body"></tbody>
@@ -150,5 +152,6 @@
 	<script src="/assets/js/admin/layout.js"></script>
 	<script src="/assets/js/admin/common.js"></script>
 	<script src="/assets/js/admin/categories.js"></script>
+	<script src="/assets/js/admin/categories-drag-layout.js"></script>
 </body>
 </html>
