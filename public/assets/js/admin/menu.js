@@ -91,6 +91,15 @@
 		}
 	}
 
+	function loadJapaneseWordEnhancements() {
+		if (normalizePath(window.location.pathname) !== '/admin/japanese/') return;
+		if (document.querySelector('script[data-japanese-word-enhancements]')) return;
+		const script = document.createElement('script');
+		script.src = '/assets/js/admin/japanese-timestamps.js';
+		script.dataset.japaneseWordEnhancements = 'true';
+		document.body.appendChild(script);
+	}
+
 	async function renderMenu() {
 		const nav = document.getElementById('admin-nav');
 		if (!nav) return;
@@ -119,6 +128,7 @@
 
 		nav.replaceChildren(fragment);
 		normalizeJapaneseManagementTabs();
+		loadJapaneseWordEnhancements();
 	}
 
 	async function refreshMenuLabels() {
@@ -140,6 +150,7 @@
 		}
 		await renderMenu();
 		normalizeJapaneseManagementTabs();
+		loadJapaneseWordEnhancements();
 	})();
 
 	window.AdminMenu = {
