@@ -96,17 +96,32 @@
 		list.appendChild(fragment);
 	}
 
+	async function fetchCommentsForLanguage(commentLanguage) {
+		const response = await fetch(`/api/public/comments?postId=${encodeURIComponent(postId)}&lang=${commentLanguage}`, {
+			method: 'GET', cache: 'no-store',
+		});
+		const result = await response.json().catch(() => null);
+		if (!response.ok || !result?.ok || !Array.isArray(result.comments)) throw new Error('COMMENT_LIST_FAILED');
+		return result.comments;
+	}
+
 	async function loadComments() {
 		if (!postId) return;
 		const list = document.getElementById('public-comment-list');
 		if (list) list.innerHTML = `<div class="blog-comments-empty">${copy().loading}</div>`;
 		try {
-			const response = await fetch(`/api/public/comments?postId=${encodeURIComponent(postId)}&lang=${language()}`, {
-				method: 'GET', cache: 'no-store',
+			const [japaneseComments, koreanComments] = await Promise.all([
+				fetchCommentsForLanguage('ja'),
+				fetchCommentsForLanguage('ko'),
+			]);
+			const merged = new Map();
+			for (const comment of [...japaneseComments, ...koreanComments]) merged.set(Number(comment.id), comment);
+			const comments = [...merged.values()].sort((left, right) => {
+				const leftTime = Date.parse(left.createdAt ?? '') || 0;
+				const rightTime = Date.parse(right.createdAt ?? '') || 0;
+				return leftTime - rightTime || Number(left.id) - Number(right.id);
 			});
-			const result = await response.json().catch(() => null);
-			if (!response.ok || !result?.ok || !Array.isArray(result.comments)) throw new Error('COMMENT_LIST_FAILED');
-			render(result.comments);
+			render(comments);
 		} catch (error) {
 			console.error('Failed to load comments', error);
 			if (list) list.innerHTML = `<div class="blog-comments-empty">${copy().loadFailed}</div>`;
