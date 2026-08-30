@@ -19,14 +19,12 @@ body.admin-page::before {
 	z-index: 0;
 }
 
-/* Public pages: visible pastel decoration, but always behind the cards. */
 body.blog-dashboard-page::before {
 	top: 64px;
 	left: 230px;
 	opacity: 0.78;
 }
 
-/* Admin keeps the same identity without reducing table/form readability. */
 body.admin-page::before {
 	top: 68px;
 	left: 250px;
@@ -51,36 +49,86 @@ body.admin-page .admin-main {
 	background: transparent;
 }
 
-/* The couple/flags are a separate ornament so cards can never crop the illustration. */
 body.blog-home-page .home-dashboard-heading {
 	position: relative;
-	min-height: 92px;
+	min-height: 96px;
 }
 
-body.blog-home-page .home-dashboard-heading::after {
-	content: '';
+.home-couple-ornament {
 	position: absolute;
-	top: -10px;
-	right: 238px;
-	width: 342px;
-	height: 84px;
-	background: url('/assets/images/korea-japan-couple-ornament.svg') center / contain no-repeat;
-	opacity: .94;
-	pointer-events: none;
-	z-index: 0;
+	top: -8px;
+	right: 236px;
+	z-index: 3;
+	width: 330px;
+	height: 82px;
+	border: 1px solid rgba(255, 255, 255, .82);
+	border-radius: 24px;
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, .46), rgba(255, 255, 255, .20));
+	box-shadow:
+		0 8px 24px rgba(67, 86, 118, .08),
+		inset 0 0 0 1px rgba(173, 193, 224, .13);
+	background-image: url('/assets/images/korea-japan-couple-ornament.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	filter:
+		drop-shadow(0 1px 0 rgba(255, 255, 255, .95))
+		drop-shadow(0 5px 10px rgba(72, 88, 115, .12));
+	cursor: grab;
+	user-select: none;
+	touch-action: none;
+	will-change: transform, left, top;
+	animation: home-couple-cloud-float 15s ease-in-out infinite alternate;
+	transition: border-color .18s ease, box-shadow .18s ease, opacity .18s ease;
 }
 
-body.blog-home-page .home-dashboard-heading > * {
-	position: relative;
-	z-index: 1;
+.home-couple-ornament:hover {
+	border-color: rgba(139, 166, 211, .42);
+	box-shadow:
+		0 10px 28px rgba(67, 86, 118, .12),
+		inset 0 0 0 1px rgba(255, 255, 255, .65);
+}
+
+.home-couple-ornament.is-positioned,
+.home-couple-ornament.is-dragging {
+	animation: none;
+}
+
+.home-couple-ornament.is-dragging {
+	cursor: grabbing;
+	border-color: rgba(74, 122, 206, .52);
+	box-shadow:
+		0 13px 32px rgba(50, 79, 126, .18),
+		0 0 0 3px rgba(72, 119, 207, .08);
+}
+
+@keyframes home-couple-cloud-float {
+	0% {
+		transform: translate3d(-7px, 2px, 0) rotate(-.35deg);
+	}
+	33% {
+		transform: translate3d(7px, -5px, 0) rotate(.25deg);
+	}
+	66% {
+		transform: translate3d(13px, 3px, 0) rotate(.45deg);
+	}
+	100% {
+		transform: translate3d(-2px, -3px, 0) rotate(-.2deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.home-couple-ornament {
+		animation: none;
+	}
 }
 
 @media (max-width: 1240px) {
-	body.blog-home-page .home-dashboard-heading::after {
-		right: 224px;
-		width: 286px;
-		height: 76px;
-		opacity: .9;
+	.home-couple-ornament {
+		right: 220px;
+		width: 280px;
+		height: 74px;
 	}
 }
 
@@ -96,7 +144,7 @@ body.blog-home-page .home-dashboard-heading > * {
 		opacity: 0.14;
 	}
 
-	body.blog-home-page .home-dashboard-heading::after {
+	.home-couple-ornament {
 		display: none;
 	}
 }
