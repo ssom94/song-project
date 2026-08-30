@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>資格詳細 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/blog/certifications.css" />
+</head>
+<body class="blog-page blog-dashboard-page" data-blog-language="ja">
+<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><span class="is-active">日本語</span><span>/</span><a id="cert-language-link" href="/ko/certifications/detail/">한국어</a></div></header>
+<div class="blog-dashboard-shell">
+<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">Menu</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">Home</a><a class="blog-sidebar-link" href="/ja/posts/">投稿</a><a class="blog-sidebar-link" href="/ja/japanese/">日本語学習</a><a class="blog-sidebar-link is-active" href="/ja/certifications/">資格・試験</a><a class="blog-sidebar-link" href="/ja/skill-sheet/">Skill Sheet</a><a class="blog-sidebar-link" href="/ja/career/">Career History</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">公開されたカテゴリーはまだありません。</p></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside>
+<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
+<main class="blog-dashboard-main"><div class="blog-dashboard-content cert-page" data-certification-page="detail" data-certification-detail data-language="ja">
+<a id="cert-back-link" class="cert-detail-back" href="/ja/certifications/">← 資格・試験一覧</a>
+<section class="cert-detail-head"><div><div class="cert-detail-title-row"><span id="cert-detail-code" class="cert-code">—</span><h1 id="cert-detail-title">Loading…</h1></div><p id="cert-detail-subtitle" class="cert-detail-subtitle"></p><p id="cert-detail-summary" class="cert-detail-summary"></p></div><div class="cert-detail-actions"><a id="cert-official-link" class="cert-primary-link" href="#" target="_blank" rel="noopener noreferrer">公式サイト</a><a id="cert-guide-link" class="cert-secondary-link" href="#" target="_blank" rel="noopener noreferrer">試験ガイド</a></div></section>
+<section id="cert-facts" class="cert-facts"></section>
+<div id="cert-detail-content"><div class="cert-empty">Loading…</div></div>
+</div></main></div>
+<script>const certSlug=new URLSearchParams(location.search).get('slug')||'';const langLink=document.getElementById('cert-language-link');if(langLink)langLink.href='/ko/certifications/detail/?slug='+encodeURIComponent(certSlug);</script>
+<script src="/assets/js/blog/dashboard-shell.js"></script>
+<script src="/assets/js/blog/certification-detail.js"></script>
+</body>
+</html>
