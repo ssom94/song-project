@@ -1,8 +1,38 @@
+.protected-viewer-shell {
+	width: min(1380px, calc(100% - 28px));
+	margin: 18px auto 36px;
+}
+
+.protected-viewer-doc-tabs {
+	display: flex;
+	gap: 6px;
+	margin-bottom: 10px;
+}
+
+.protected-viewer-doc-tab {
+	min-height: 34px;
+	padding: 0 12px;
+	border: 1px solid #dce3ec;
+	border-radius: 9px;
+	background: #fff;
+	color: #637188;
+	font: inherit;
+	font-size: 9px;
+	font-weight: 850;
+	cursor: pointer;
+}
+
+.protected-viewer-doc-tab.is-active {
+	border-color: #9bb2df;
+	background: #eef3ff;
+	color: #2859ae;
+}
+
 .protected-viewer-layout {
 	display: grid;
 	grid-template-columns: 210px minmax(0, 1fr);
 	gap: 14px;
-	width: min(1280px, 100%);
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -24,6 +54,11 @@
 	font-size: 11px;
 }
 
+.protected-viewer-sheet-list {
+	display: grid;
+	gap: 4px;
+}
+
 .protected-viewer-thumb {
 	display: grid;
 	grid-template-columns: 42px minmax(0, 1fr);
@@ -38,6 +73,7 @@
 	font: inherit;
 	font-size: 9px;
 	text-align: left;
+	cursor: pointer;
 }
 
 .protected-viewer-thumb.is-active {
@@ -49,7 +85,7 @@
 .protected-viewer-thumb-preview {
 	display: grid;
 	place-items: center;
-	height: 54px;
+	height: 42px;
 	border: 1px solid #e1e6ed;
 	border-radius: 5px;
 	background: #fff;
@@ -70,14 +106,34 @@
 	margin-bottom: 12px;
 }
 
+.protected-viewer-toolbar-copy {
+	min-width: 0;
+}
+
+.protected-viewer-toolbar strong,
+.protected-viewer-toolbar small {
+	display: block;
+}
+
 .protected-viewer-toolbar strong {
 	color: #344156;
 	font-size: 11px;
 }
 
-.protected-viewer-toolbar div {
+.protected-viewer-toolbar small {
+	margin-top: 3px;
+	max-width: 760px;
+	overflow: hidden;
+	color: #8c98a8;
+	font-size: 8px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.protected-viewer-toolbar-actions {
 	display: flex;
 	gap: 6px;
+	flex: 0 0 auto;
 }
 
 .protected-viewer-toolbar button,
@@ -95,40 +151,90 @@
 	font-size: 8px;
 	font-weight: 800;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .protected-viewer-canvas {
-	display: grid;
-	place-items: center;
 	min-height: 620px;
 	overflow: auto;
-	padding: 24px;
+	padding: 20px;
 	border-radius: 10px;
 	background: #eef2f7;
 }
 
 .protected-viewer-page {
-	width: min(760px, 100%);
-	min-height: 520px;
-	padding: 32px;
+	--viewer-zoom: 1;
+	width: max-content;
+	min-width: 100%;
+	min-height: 540px;
+	padding: 20px;
 	border: 1px solid #d9dee6;
 	background: #fff;
 	box-shadow: 0 12px 28px rgba(31, 48, 78, 0.08);
+	color: #475569;
+	font-size: calc(10px * var(--viewer-zoom));
+	text-align: left;
+}
+
+.protected-viewer-table {
+	border-collapse: collapse;
+	background: #fff;
+}
+
+.protected-viewer-table td {
+	min-width: calc(86px * var(--viewer-zoom));
+	max-width: calc(360px * var(--viewer-zoom));
+	padding: calc(6px * var(--viewer-zoom)) calc(8px * var(--viewer-zoom));
+	border: 1px solid #dfe5ed;
+	color: #445166;
+	font-size: calc(10px * var(--viewer-zoom));
+	line-height: 1.45;
+	white-space: pre-wrap;
+	word-break: break-word;
+	vertical-align: top;
+}
+
+.protected-viewer-table tr:first-child td {
+	background: #f7f9fc;
+	font-weight: 850;
+}
+
+.protected-viewer-empty,
+.protected-viewer-unregistered {
+	display: grid;
+	place-items: center;
+	min-height: 430px;
+	margin: 0;
 	color: #8b96a5;
 	font-size: 10px;
 	text-align: center;
 }
 
+.protected-viewer-unregistered {
+	align-content: center;
+	gap: 7px;
+}
+
+.protected-viewer-unregistered strong {
+	color: #ad4c58;
+	font-size: 15px;
+}
+
+.protected-viewer-unregistered p {
+	margin: 0;
+	color: #8b96a5;
+	font-size: 10px;
+}
+
 @media (max-width: 780px) {
-	.protected-viewer-layout {
-		grid-template-columns: 1fr;
-	}
-	.protected-viewer-sidebar {
-		display: flex;
-		overflow-x: auto;
-		gap: 7px;
-	}
+	.protected-viewer-shell { width: min(100% - 16px, 1380px); }
+	.protected-viewer-layout { grid-template-columns: 1fr; }
+	.protected-viewer-sidebar { overflow-x: auto; }
 	.protected-viewer-sidebar h2 { display: none; }
-	.protected-viewer-thumb { flex: 0 0 120px; }
-	.protected-viewer-canvas { min-height: 480px; padding: 12px; }
+	.protected-viewer-sheet-list { display: flex; gap: 7px; }
+	.protected-viewer-thumb { flex: 0 0 130px; }
+	.protected-viewer-toolbar { align-items: flex-start; flex-direction: column; }
+	.protected-viewer-toolbar-actions { width: 100%; overflow-x: auto; }
+	.protected-viewer-canvas { min-height: 480px; padding: 8px; }
+	.protected-viewer-page { min-height: 460px; padding: 10px; }
 }
