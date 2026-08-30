@@ -18,6 +18,11 @@
 				missingMessage: '이 게시글의 한국어 번역은 아직 등록되지 않았습니다. 다른 언어로 내용을 확인해 주세요.',
 				alternateJapanese: '日本語で見る',
 				alternateKorean: '한국어로 보기',
+				neighborTitle: '이전 · 다음 게시글',
+				previousPosts: '이전 글',
+				nextPosts: '다음 글',
+				noPrevious: '이전 글이 없습니다.',
+				noNext: '다음 글이 없습니다.',
 			}
 			: {
 				notFoundTitle: '投稿が見つかりません',
@@ -28,6 +33,11 @@
 				missingMessage: 'この記事の日本語翻訳はまだ登録されていません。他の言語で内容をご確認ください。',
 				alternateJapanese: '日本語で見る',
 				alternateKorean: '한국어로 보기',
+				neighborTitle: '前後の記事',
+				previousPosts: '前の記事',
+				nextPosts: '次の記事',
+				noPrevious: '前の記事はありません。',
+				noNext: '次の記事はありません。',
 			};
 	}
 
@@ -149,6 +159,84 @@
 		document.dispatchEvent(new CustomEvent('song:post-ready', { detail: { postId: id } }));
 	}
 
+	function ensureNeighborSection() {
+		let section = document.getElementById('post-neighbor-section');
+		if (section) return section;
+		const content = document.querySelector('.blog-post-detail-dashboard-content');
+		if (!content) return null;
+		const copy = text();
+		section = document.createElement('section');
+		section.id = 'post-neighbor-section';
+		section.className = 'blog-post-neighbors';
+		section.hidden = true;
+		const heading = document.createElement('div');
+		heading.className = 'blog-post-neighbors-heading';
+		const title = document.createElement('h2');
+		title.textContent = copy.neighborTitle;
+		heading.appendChild(title);
+		const grid = document.createElement('div');
+		grid.className = 'blog-post-neighbor-grid';
+		for (const [kind, label] of [['previous', copy.previousPosts], ['next', copy.nextPosts]]) {
+			const group = document.createElement('div');
+			group.className = 'blog-post-neighbor-group';
+			const groupTitle = document.createElement('span');
+			groupTitle.className = 'blog-post-neighbor-label';
+			groupTitle.textContent = label;
+			const list = document.createElement('div');
+			list.id = `post-${kind}-list`;
+			list.className = 'blog-post-neighbor-list';
+			group.append(groupTitle, list);
+			grid.appendChild(group);
+		}
+		section.append(heading, grid);
+		const comments = document.getElementById('blog-comments-section');
+		if (comments?.parentNode === content) content.insertBefore(section, comments);
+		else content.appendChild(section);
+		return section;
+	}
+
+	function renderNeighborList(container, posts, emptyMessage) {
+		container.replaceChildren();
+		if (!posts.length) {
+			const empty = document.createElement('p');
+			empty.className = 'blog-post-neighbor-empty';
+			empty.textContent = emptyMessage;
+			container.appendChild(empty);
+			return;
+		}
+		for (const post of posts) {
+			const link = document.createElement('a');
+			link.className = 'blog-post-neighbor-link';
+			const linkLanguage = post.displayLanguage === 'ko' || post.displayLanguage === 'ja' ? post.displayLanguage : currentLanguage();
+			link.href = `/${linkLanguage}/posts/${encodeURIComponent(post.slug ?? '')}`;
+			const title = document.createElement('strong');
+			title.textContent = post.title ?? '';
+			const meta = document.createElement('small');
+			meta.textContent = [formatDate(post.publishedAt ?? post.updatedAt), post.category].filter(Boolean).join(' · ');
+			link.append(title, meta);
+			container.appendChild(link);
+		}
+	}
+
+	function renderNeighborPosts(posts, currentPostId) {
+		const section = ensureNeighborSection();
+		if (!section) return;
+		const values = Array.isArray(posts) ? posts : [];
+		const index = values.findIndex((post) => Number(post?.id) === Number(currentPostId));
+		if (index < 0 || values.length <= 1) {
+			section.hidden = true;
+			return;
+		}
+		const previous = values.slice(index + 1, index + 3);
+		const next = values.slice(Math.max(0, index - 2), index).reverse();
+		const previousList = document.getElementById('post-previous-list');
+		const nextList = document.getElementById('post-next-list');
+		const copy = text();
+		if (previousList) renderNeighborList(previousList, previous, copy.noPrevious);
+		if (nextList) renderNeighborList(nextList, next, copy.noNext);
+		section.hidden = false;
+	}
+
 	function renderPost(post, translation, slug) {
 		const language = currentLanguage();
 		const loading = document.getElementById('post-detail-loading');
@@ -229,6 +317,7 @@
 			const translation = post.translations[language];
 			const sidebarPosts = await sidebarPostsPromise;
 			window.BlogDashboard?.renderCategories?.(sidebarPosts, language, translation?.category ?? '');
+			renderNeighborPosts(sidebarPosts, post.id);
 			if (!translation) {
 				renderMissingTranslation(post.translations, slug);
 				return;
