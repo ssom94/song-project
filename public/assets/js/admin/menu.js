@@ -93,11 +93,16 @@
 
 	function loadJapaneseWordEnhancements() {
 		if (normalizePath(window.location.pathname) !== '/admin/japanese/') return;
-		if (document.querySelector('script[data-japanese-word-enhancements]')) return;
-		const script = document.createElement('script');
-		script.src = '/assets/js/admin/japanese-timestamps.js';
-		script.dataset.japaneseWordEnhancements = 'true';
-		document.body.appendChild(script);
+		for (const [src, attr] of [
+			['/assets/js/admin/japanese-timestamps.js', 'data-japanese-timestamps'],
+			['/assets/js/admin/japanese-history-bulk.js', 'data-japanese-history-bulk'],
+		]) {
+			if (document.querySelector(`script[${attr}]`)) continue;
+			const script = document.createElement('script');
+			script.src = src;
+			script.setAttribute(attr, 'true');
+			document.body.appendChild(script);
+		}
 	}
 
 	async function renderMenu() {
