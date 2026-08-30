@@ -1,5 +1,6 @@
 (() => {
 	const SIDEBAR_COLLAPSE_KEY = 'song_public_sidebar_collapsed';
+	let adminSessionSnapshot = null;
 
 	function byId(id) {
 		return document.getElementById(id);
@@ -137,16 +138,156 @@
 		link.setAttribute('aria-label', link.textContent);
 	}
 
+	function installPublicAdminUserStyle() {
+		if (document.querySelector('link[data-public-admin-user-style]')) return;
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = '/assets/css/blog/public-admin-user.css';
+		link.dataset.publicAdminUserStyle = 'true';
+		document.head.appendChild(link);
+	}
+
+	function publicAdminLabels() {
+		return currentLanguage() === 'ko'
+			? { adminPage: '관리자 페이지', logout: '로그아웃', account: '관리자 계정' }
+			: { adminPage: '管理画面', logout: 'ログアウト', account: '管理者アカウント' };
+	}
+
+	function closePublicAdminUserMenu() {
+		const wrap = byId('blog-public-admin-user');
+		const toggle = byId('blog-public-admin-user-toggle');
+		const menu = byId('blog-public-admin-user-menu');
+		if (menu instanceof HTMLElement) menu.hidden = true;
+		if (toggle instanceof HTMLButtonElement) toggle.setAttribute('aria-expanded', 'false');
+		wrap?.classList.remove('is-open');
+	}
+
+	function syncPublicAdminUserCopy() {
+		const labels = publicAdminLabels();
+		const toggle = byId('blog-public-admin-user-toggle');
+		const adminPage = byId('blog-public-admin-page-link');
+		const logout = byId('blog-public-admin-logout');
+		if (toggle instanceof HTMLButtonElement) toggle.setAttribute('aria-label', labels.account);
+		if (adminPage instanceof HTMLAnchorElement) adminPage.textContent = labels.adminPage;
+		if (logout instanceof HTMLButtonElement) logout.textContent = labels.logout;
+	}
+
+	async function logoutFromPublicHeader(button) {
+		if (button instanceof HTMLButtonElement) button.disabled = true;
+		try {
+			const response = await fetch('/api/admin/auth/logout', {
+				method: 'POST',
+				credentials: 'same-origin',
+				cache: 'no-store',
+			});
+			if (!response.ok) throw new Error(`HTTP_${response.status}`);
+			window.location.reload();
+		} catch (error) {
+			console.error('Failed to logout from public header', error);
+			if (button instanceof HTMLButtonElement) button.disabled = false;
+		}
+	}
+
+	function mountPublicAdminUser(sessionResult) {
+		const existing = byId('blog-public-admin-user');
+		if (!sessionResult?.authenticated || !sessionResult?.admin) {
+			existing?.remove();
+			adminSessionSnapshot = null;
+			return;
+		}
+
+		adminSessionSnapshot = sessionResult;
+		installPublicAdminUserStyle();
+		if (existing) {
+			syncPublicAdminUserCopy();
+			return;
+		}
+
+		const actions = document.querySelector('.blog-dashboard-top-actions');
+		if (!(actions instanceof HTMLElement)) return;
+
+		const admin = sessionResult.admin;
+		const displayName = String(admin.displayName || admin.username || 'Admin');
+		const secondary = String(admin.email || admin.username || '');
+
+		const wrap = document.createElement('div');
+		wrap.id = 'blog-public-admin-user';
+		wrap.className = 'blog-public-admin-user';
+
+		const toggle = document.createElement('button');
+		toggle.id = 'blog-public-admin-user-toggle';
+		toggle.className = 'blog-public-admin-user-toggle';
+		toggle.type = 'button';
+		toggle.setAttribute('aria-haspopup', 'true');
+		toggle.setAttribute('aria-expanded', 'false');
+		toggle.setAttribute('aria-controls', 'blog-public-admin-user-menu');
+
+		const icon = document.createElement('img');
+		icon.className = 'blog-public-admin-user-icon';
+		icon.src = '/assets/icons/user.svg';
+		icon.alt = '';
+		icon.setAttribute('aria-hidden', 'true');
+
+		const name = document.createElement('span');
+		name.className = 'blog-public-admin-user-name';
+		name.textContent = displayName;
+
+		const chevron = document.createElement('span');
+		chevron.className = 'blog-public-admin-user-chevron';
+		chevron.setAttribute('aria-hidden', 'true');
+		toggle.append(icon, name, chevron);
+
+		const menu = document.createElement('div');
+		menu.id = 'blog-public-admin-user-menu';
+		menu.className = 'blog-public-admin-user-menu';
+		menu.hidden = true;
+
+		const info = document.createElement('div');
+		info.className = 'blog-public-admin-user-info';
+		const infoName = document.createElement('strong');
+		infoName.textContent = displayName;
+		const infoSecondary = document.createElement('span');
+		infoSecondary.textContent = secondary;
+		info.append(infoName, infoSecondary);
+
+		const adminPage = document.createElement('a');
+		adminPage.id = 'blog-public-admin-page-link';
+		adminPage.className = 'blog-public-admin-user-action';
+		adminPage.href = '/admin/';
+
+		const logout = document.createElement('button');
+		logout.id = 'blog-public-admin-logout';
+		logout.className = 'blog-public-admin-user-action is-logout';
+		logout.type = 'button';
+		logout.addEventListener('click', () => logoutFromPublicHeader(logout));
+
+		menu.append(info, adminPage, logout);
+		wrap.append(toggle, menu);
+		actions.appendChild(wrap);
+
+		toggle.addEventListener('click', (event) => {
+			event.stopPropagation();
+			const open = menu.hidden;
+			menu.hidden = !open;
+			toggle.setAttribute('aria-expanded', String(open));
+			wrap.classList.toggle('is-open', open);
+		});
+		menu.addEventListener('click', (event) => event.stopPropagation());
+		document.addEventListener('click', closePublicAdminUserMenu);
+		syncPublicAdminUserCopy();
+	}
+
 	async function mountAdminAccess() {
 		const footer = document.querySelector('.blog-sidebar-footer');
-		if (!footer || byId('blog-sidebar-admin-link')) return;
-
-		const link = document.createElement('a');
-		link.id = 'blog-sidebar-admin-link';
-		link.className = 'blog-sidebar-admin-link';
-		link.dataset.authenticated = 'false';
-		footer.appendChild(link);
-		updateAdminAccessLabel();
+		let link = byId('blog-sidebar-admin-link');
+		if (footer && !(link instanceof HTMLAnchorElement)) {
+			link = document.createElement('a');
+			link.id = 'blog-sidebar-admin-link';
+			link.className = 'blog-sidebar-admin-link';
+			link.dataset.authenticated = 'false';
+			footer.appendChild(link);
+			updateAdminAccessLabel();
+		}
 
 		try {
 			const response = await fetch('/api/admin/auth/session', {
@@ -155,10 +296,15 @@
 				cache: 'no-store',
 			});
 			const result = await response.json().catch(() => null);
-			link.dataset.authenticated = response.ok && result?.authenticated === true ? 'true' : 'false';
-			updateAdminAccessLabel();
+			const authenticated = response.ok && result?.authenticated === true;
+			if (link instanceof HTMLAnchorElement) {
+				link.dataset.authenticated = authenticated ? 'true' : 'false';
+				updateAdminAccessLabel();
+			}
+			mountPublicAdminUser(authenticated ? result : null);
 		} catch (error) {
 			console.warn('Failed to check admin session for public shortcut', error);
+			mountPublicAdminUser(null);
 		}
 	}
 
@@ -176,6 +322,7 @@
 		syncLearningMenu();
 		updateAdminAccessLabel();
 		syncSidebarCollapseToggle();
+		if (adminSessionSnapshot) syncPublicAdminUserCopy();
 	}
 
 	function renderCategories(posts, language, selectedCategory = '') {
@@ -221,7 +368,10 @@
 			button.addEventListener('click', () => window.setTimeout(syncHomeModuleLinks, 0));
 		});
 		document.addEventListener('keydown', (event) => {
-			if (event.key === 'Escape') closeSidebar();
+			if (event.key === 'Escape') {
+				closeSidebar();
+				closePublicAdminUserMenu();
+			}
 		});
 		syncHomeModuleLinks();
 		mountAdminAccess();
