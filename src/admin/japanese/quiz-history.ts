@@ -185,7 +185,9 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 			FROM japanese_words AS w
 			LEFT JOIN japanese_word_examples AS ex ON ex.id = (
 				SELECT e.id FROM japanese_word_examples AS e
-				WHERE e.word_id = w.id AND e.deleted_at IS NULL
+				WHERE e.word_id = w.id
+					AND e.deleted_at IS NULL
+					AND e.sentence_ja LIKE '%' || w.word || '%'
 				ORDER BY e.id ASC LIMIT 1
 			)
 			WHERE w.id = ?1 AND w.deleted_at IS NULL
