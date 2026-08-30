@@ -22,13 +22,13 @@ body.admin-page::before {
 body.blog-dashboard-page::before {
 	top: 64px;
 	left: 230px;
-	opacity: 0.31;
+	opacity: 0.56;
 }
 
 body.admin-page::before {
 	top: 68px;
 	left: 250px;
-	opacity: 0.10;
+	opacity: 0.16;
 	filter: saturate(.82) brightness(1.04);
 }
 
@@ -49,43 +49,88 @@ body.admin-page .admin-main {
 	background: transparent;
 }
 
+/* Home header ornament is intentionally separate from the background so cards never cover it. */
+body.blog-home-page .home-dashboard-heading {
+	position: relative;
+	min-height: 88px;
+}
+
+body.blog-home-page .home-dashboard-heading::after {
+	content: '';
+	position: absolute;
+	top: -15px;
+	right: 235px;
+	width: 330px;
+	height: 88px;
+	background: url('/assets/images/korea-japan-couple-ornament.svg') center / contain no-repeat;
+	opacity: .92;
+	pointer-events: none;
+	z-index: 0;
+}
+
+body.blog-home-page .home-dashboard-heading > * {
+	position: relative;
+	z-index: 1;
+}
+
+@media (max-width: 1240px) {
+	body.blog-home-page .home-dashboard-heading::after {
+		right: 225px;
+		width: 275px;
+		opacity: .86;
+	}
+}
+
 @media (max-width: 1100px) {
 	body.blog-dashboard-page::before {
 		background-size: auto 100%;
 		background-position: center top;
-		opacity: 0.27;
+		opacity: 0.48;
 	}
 
 	body.admin-page::before {
-		left: 210px;
 		background-size: auto 100%;
-		opacity: 0.085;
+		opacity: 0.13;
+	}
+
+	body.blog-home-page .home-dashboard-heading::after {
+		display: none;
+	}
+}
+
+@media (max-width: 960px) {
+	body.admin-page::before {
+		left: 210px;
 	}
 }
 
 @media (max-width: 840px) {
 	body.blog-dashboard-page::before {
 		left: 0;
-		opacity: 0.22;
-		background-position: 54% top;
+		opacity: 0.38;
+		background-position: 56% top;
 	}
 
 	body.admin-page::before {
 		top: 62px;
 		left: 0;
-		opacity: 0.07;
-		background-position: 54% top;
+		opacity: 0.10;
+		background-position: 56% top;
+	}
+
+	body.blog-home-page .home-dashboard-heading {
+		min-height: 0;
 	}
 }
 
 @media (max-width: 560px) {
 	body.blog-dashboard-page::before {
-		opacity: 0.17;
-		background-position: 59% top;
+		opacity: 0.28;
+		background-position: 62% top;
 	}
 
 	body.admin-page::before {
-		opacity: 0.055;
-		background-position: 59% top;
+		opacity: 0.08;
+		background-position: 62% top;
 	}
 }
