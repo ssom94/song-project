@@ -93,6 +93,100 @@
 		document.head.appendChild(link);
 	}
 
+	function ensureNavigationStyles() {
+		if (document.getElementById('admin-navigation-stylesheet')) return;
+		const link = document.createElement('link');
+		link.id = 'admin-navigation-stylesheet';
+		link.rel = 'stylesheet';
+		link.href = '/assets/css/admin/navigation.css';
+		document.head.appendChild(link);
+	}
+
+	function adminBackConfig() {
+		const segments = window.location.pathname.split('/').filter(Boolean);
+		if (segments[0] !== 'admin' || segments.length < 3 || segments[1] === 'login') return null;
+		return {
+			fallback: `/${segments.slice(0, -1).join('/')}/`,
+			postContext: segments[1] === 'posts' && ['new', 'edit'].includes(segments[2]),
+		};
+	}
+
+	function backLabel() {
+		return window.AdminI18n?.getLanguage?.() === 'ko' ? '뒤로가기' : '戻る';
+	}
+
+	function goBackOrFallback(fallback) {
+		try {
+			const referrer = document.referrer ? new URL(document.referrer) : null;
+			if (
+				referrer
+				&& referrer.origin === window.location.origin
+				&& referrer.pathname !== window.location.pathname
+				&& !referrer.pathname.startsWith('/admin/login')
+			) {
+				window.history.back();
+				return;
+			}
+		} catch (error) {
+			console.warn('Failed to resolve admin referrer', error);
+		}
+		window.location.assign(fallback);
+	}
+
+	function refreshBackLabel() {
+		const label = document.querySelector('.admin-page-back-label');
+		if (label) label.textContent = backLabel();
+	}
+
+	function loadPostContextScript() {
+		if (document.getElementById('admin-post-context-script')) return;
+		const script = document.createElement('script');
+		script.id = 'admin-post-context-script';
+		script.src = '/assets/js/admin/post-context.js';
+		document.body.appendChild(script);
+	}
+
+	function mountPageContext() {
+		const config = adminBackConfig();
+		const content = document.querySelector('.admin-content');
+		if (!config || !content || document.getElementById('admin-page-context-row')) return;
+
+		ensureNavigationStyles();
+
+		const row = document.createElement('div');
+		row.id = 'admin-page-context-row';
+		row.className = 'admin-page-context-row';
+
+		const back = document.createElement('button');
+		back.type = 'button';
+		back.className = 'admin-page-back-button';
+		back.setAttribute('aria-label', backLabel());
+
+		const arrow = document.createElement('span');
+		arrow.className = 'admin-page-back-arrow';
+		arrow.setAttribute('aria-hidden', 'true');
+		arrow.textContent = '←';
+
+		const label = document.createElement('span');
+		label.className = 'admin-page-back-label';
+		label.textContent = backLabel();
+		back.append(arrow, label);
+		back.addEventListener('click', () => goBackOrFallback(config.fallback));
+		row.appendChild(back);
+
+		if (config.postContext) {
+			const taxonomy = document.createElement('span');
+			taxonomy.id = 'admin-page-taxonomy';
+			taxonomy.className = 'admin-page-taxonomy';
+			taxonomy.hidden = true;
+			row.appendChild(taxonomy);
+			loadPostContextScript();
+		}
+
+		content.prepend(row);
+		document.querySelectorAll('.admin-editor-back-link, .admin-quiz-play-exit, .admin-quiz-result-back').forEach((element) => element.remove());
+	}
+
 	function translateModalElement(element, key, fallback) {
 		element.dataset.i18nKey = key;
 		element.dataset.i18nFallback = fallback;
@@ -190,7 +284,7 @@
 				if (event.key === 'Escape') {
 					event.preventDefault();
 					finish(false);
-			}
+				}
 			}
 
 			cancelButton?.addEventListener('click', () => finish(false));
@@ -224,6 +318,7 @@
 
 		bindUserMenu();
 		bindLogout();
+		mountPageContext();
 
 		try {
 			const data = await fetchAdminSession();
@@ -240,6 +335,7 @@
 
 			currentSession = data;
 			renderAdminIdentity(data.admin);
+			refreshBackLabel();
 			if (loading) loading.hidden = true;
 			if (shell) shell.hidden = false;
 
@@ -258,7 +354,10 @@
 		initializeAdmin();
 	}
 
-	document.addEventListener('adminlanguagechange', refreshActiveConfirmLanguage);
+	document.addEventListener('adminlanguagechange', () => {
+		refreshActiveConfirmLanguage();
+		refreshBackLabel();
+	});
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
@@ -272,5 +371,6 @@
 		setUserMenuOpen,
 		confirm: confirmDialog,
 		alert: alertDialog,
+		mountPageContext,
 	};
 })();
