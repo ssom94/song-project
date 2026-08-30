@@ -15,7 +15,15 @@
 	}
 
 	function getSaveButton() {
-		return document.querySelector('button[data-editor-action="primary"], button[data-i18n="savePost"], button[data-i18n="editPost"], button[data-i18n="saveChanges"]');
+		return document.querySelector('button[data-editor-action="primary"], button[data-i18n="savePost"], button[data-i18n="editPost"], button[data-i18n="saveChanges"], button[data-i18n="registerPost"]');
+	}
+
+	function currentStatus() {
+		return window.AdminPostEditor?.getStatus?.() ?? 'draft';
+	}
+
+	function isDraftPost() {
+		return currentStatus() === 'draft';
 	}
 
 	function serializePayload() {
@@ -24,7 +32,8 @@
 	}
 
 	function hasChanges() {
-		return editing && baselinePayload !== '' && serializePayload() !== baselinePayload;
+		if (!editing || baselinePayload === '') return false;
+		return isDraftPost() || serializePayload() !== baselinePayload;
 	}
 
 	function setHeading(viewMode) {
@@ -82,6 +91,16 @@
 			return;
 		}
 
+		if (isDraftPost()) {
+			button.type = 'submit';
+			button.disabled = saving;
+			button.dataset.i18n = 'registerPost';
+			button.textContent = t('registerPost', '登録完了にする');
+			button.classList.add('admin-editor-button-primary');
+			button.classList.remove('admin-editor-button-danger');
+			return;
+		}
+
 		const dirty = hasChanges();
 		button.type = 'submit';
 		button.disabled = saving || !dirty;
@@ -94,14 +113,14 @@
 	function setEditorNote() {
 		const note = document.querySelector('.admin-editor-api-note');
 		if (!note) return;
-		const key = editing ? 'postEditModeNote' : 'postViewModeNote';
-		note.dataset.i18n = key;
-		note.textContent = t(
-			key,
-			editing
+		const key = editing && isDraftPost() ? 'postDraftEditModeNote' : editing ? 'postEditModeNote' : 'postViewModeNote';
+		const fallback = editing && isDraftPost()
+			? '登録完了にすると、投稿一覧から表示／非表示を切り替えられます。'
+			: editing
 				? '内容を変更すると「変更を保存」ボタンが有効になります。'
-				: '閲覧モードです。「編集」を押すと内容を変更できます。',
-		);
+				: '閲覧モードです。「編集」を押すと内容を変更できます。';
+		note.dataset.i18n = key;
+		note.textContent = t(key, fallback);
 	}
 
 	function setViewMode() {
@@ -135,6 +154,18 @@
 		setPrimaryButtonState();
 	}
 
+	function restoreDraftRegistrationState() {
+		const status = document.getElementById('publication-status');
+		if (status instanceof HTMLSelectElement) status.value = 'draft';
+		const badge = document.getElementById('post-registration-state');
+		if (badge) {
+			badge.classList.add('is-draft');
+			badge.classList.remove('is-registered');
+			badge.dataset.i18n = 'registrationDraft';
+			badge.textContent = t('registrationDraft', '一時保存');
+		}
+	}
+
 	async function showLoadError(titleKey, messageKey, titleFallback, messageFallback) {
 		if (window.AdminCommon?.alert) {
 			await window.AdminCommon.alert({ titleKey, messageKey, titleFallback, messageFallback });
@@ -161,11 +192,17 @@
 		if (saving || !postId || !editing || !hasChanges()) return;
 		if (!(await window.AdminPostEditor?.validate?.())) return;
 
+		const wasDraft = isDraftPost();
+		if (wasDraft) window.AdminPostEditor?.completeRegistration?.();
 		const payload = window.AdminPostEditor?.buildPayload?.(false);
-		if (!payload) return;
+		if (!payload) {
+			if (wasDraft) restoreDraftRegistrationState();
+			return;
+		}
 
 		saving = true;
 		setPrimaryButtonState();
+		setEditorNote();
 		window.AdminPostEditor?.setMessage?.('savingPost', 'info');
 
 		try {
@@ -194,13 +231,14 @@
 			}
 
 			if (!response.ok || !result?.ok) {
+				if (wasDraft) restoreDraftRegistrationState();
 				console.error('Post update failed', result);
 				window.AdminPostEditor?.setMessage?.('postUpdateFailed', 'error');
 				return;
 			}
 
 			baselinePayload = serializePayload();
-			window.AdminPostEditor?.setMessage?.('postUpdated', 'success');
+			window.AdminPostEditor?.setMessage?.(wasDraft ? 'postRegistered' : 'postUpdated', 'success');
 			if (await showReturnConfirm()) {
 				window.location.assign('/admin/posts/');
 				return;
@@ -208,10 +246,12 @@
 
 			setViewMode();
 		} catch (error) {
+			if (wasDraft) restoreDraftRegistrationState();
 			console.error('Post update failed', error);
 			window.AdminPostEditor?.setMessage?.('postUpdateFailed', 'error');
 		} finally {
 			saving = false;
+			setEditorNote();
 			setPrimaryButtonState();
 		}
 	}
