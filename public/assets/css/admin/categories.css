@@ -197,6 +197,18 @@ body.admin-categories-page {
 	background: #fafcff;
 }
 
+.admin-category-table tbody tr.is-dragging {
+	opacity: 0.45;
+}
+
+.admin-category-table tbody tr.is-drop-before td {
+	box-shadow: inset 0 2px 0 #2d64e3;
+}
+
+.admin-category-table tbody tr.is-drop-after td {
+	box-shadow: inset 0 -2px 0 #2d64e3;
+}
+
 .admin-category-tree-name {
 	display: flex;
 	align-items: center;
@@ -224,6 +236,41 @@ body.admin-categories-page {
 
 .admin-category-order {
 	white-space: nowrap;
+}
+
+.admin-category-order-cell {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.admin-category-drag-handle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 1px solid #d7dfeb;
+	border-radius: 7px;
+	background: #fff;
+	color: #7a8798;
+	font: inherit;
+	font-size: 15px;
+	font-weight: 800;
+	line-height: 1;
+	cursor: grab;
+	user-select: none;
+}
+
+.admin-category-drag-handle:hover {
+	border-color: #9db4e8;
+	background: #f6f9ff;
+	color: #1f56d8;
+}
+
+.admin-category-drag-handle:active {
+	cursor: grabbing;
 }
 
 .admin-category-actions {
