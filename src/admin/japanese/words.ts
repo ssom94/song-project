@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { ensureJapaneseAdminLearningStatsSchema, type JapaneseLearningState } from '../../japanese-learning';
 
 type WordPayload = {
 	word?: unknown;
@@ -29,6 +30,7 @@ interface WordListRow extends ExistingWordRow {
 	ai_status: string;
 	created_at: string;
 	updated_at: string;
+	learning_state: JapaneseLearningState;
 	jlpt_code: string | null;
 	category_id: number | null;
 	category_parent_id: number | null;
@@ -205,17 +207,21 @@ export async function handleListAdminJapaneseWords(request: Request, env: Env): 
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
 	try {
+		await ensureJapaneseAdminLearningStatsSchema(env.song_project_db);
 		const [words, wordParts, wordExamples, levels, parts, categories] = await Promise.all([
 			env.song_project_db.prepare(`
 				SELECT
 					w.id, w.word, w.reading, w.meaning_ko, w.meaning_ja, w.jlpt_level_id,
 					w.note, w.ai_status, w.created_at, w.updated_at,
+					COALESCE(ls.learning_state, 'unlearned') AS learning_state,
 					jl.code AS jlpt_code,
 					cat.id AS category_id,
 					cat.parent_id AS category_parent_id,
 					cat.name_ja AS category_ja,
 					cat.name_ko AS category_ko
 				FROM japanese_words AS w
+				LEFT JOIN japanese_admin_word_learning_stats AS ls
+					ON ls.word_id = w.id AND ls.admin_id = ?1
 				LEFT JOIN jlpt_levels AS jl ON jl.id = w.jlpt_level_id
 				LEFT JOIN japanese_categories AS cat
 					ON cat.id = (
@@ -228,7 +234,7 @@ export async function handleListAdminJapaneseWords(request: Request, env: Env): 
 				WHERE w.deleted_at IS NULL
 				ORDER BY datetime(w.updated_at) DESC, w.id DESC
 				LIMIT 500
-			`).all<WordListRow>(),
+			`).bind(session.adminId).all<WordListRow>(),
 			env.song_project_db.prepare(`
 				SELECT
 					wp.word_id,
