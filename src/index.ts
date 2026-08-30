@@ -66,9 +66,14 @@ import {
 	handleRevokeAdminAccessCode,
 } from './admin/access-codes/manage';
 import {
+	handleGetAdminProtectedDocumentPreview,
 	handleListAdminProtectedDocuments,
 	handleUploadAdminProtectedDocument,
 } from './admin/documents/manage';
+import {
+	handleGetAdminSkillSheetSummary,
+	handleUpdateAdminSkillSheetSummary,
+} from './admin/skill-sheet/manage';
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
@@ -79,10 +84,15 @@ import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
 import { handleListPublicJapaneseWords } from './public/japanese/words';
 import { handleProtectedAccessLogin } from './public/protected/auth';
+import {
+	handleDownloadProtectedDocument,
+	handleGetProtectedDocument,
+} from './public/protected/document';
 import { handleGetPublicPost } from './public/posts/detail';
 import { handleListPublicPosts } from './public/posts/list';
 import { renderPublicPostPage } from './public/posts/page';
 import { handleListPublicDashboardSchedules } from './public/schedules';
+import { handleGetPublicSkillSheet } from './public/skill-sheet';
 
 function methodNotAllowed(allow: string): Response {
 	return new Response('Method Not Allowed', {
@@ -126,6 +136,8 @@ export default {
 				return request.method === 'GET' ? handleGetPublicDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/public/dashboard/schedules':
 				return request.method === 'GET' ? handleListPublicDashboardSchedules(request, env) : methodNotAllowed('GET');
+			case '/api/public/skill-sheet':
+				return request.method === 'GET' ? handleGetPublicSkillSheet(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/stats':
 				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/taxonomy':
@@ -136,6 +148,10 @@ export default {
 				return request.method === 'GET' ? handleGetPublicJapaneseQuizPool(request, env) : methodNotAllowed('GET');
 			case '/api/protected/auth':
 				return request.method === 'POST' ? handleProtectedAccessLogin(request, env) : methodNotAllowed('POST');
+			case '/api/protected/document':
+				return request.method === 'GET' ? handleGetProtectedDocument(request, env) : methodNotAllowed('GET');
+			case '/api/protected/document/download':
+				return request.method === 'GET' ? handleDownloadProtectedDocument(request, env) : methodNotAllowed('GET');
 			case '/api/admin/auth/login':
 				return request.method === 'POST' ? handleAdminLogin(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/logout':
@@ -231,10 +247,16 @@ export default {
 				return request.method === 'GET' ? handleListAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/quiz/history/detail':
 				return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/skill-sheet':
+				if (request.method === 'GET') return handleGetAdminSkillSheetSummary(request, env);
+				if (request.method === 'PATCH') return handleUpdateAdminSkillSheetSummary(request, env);
+				return methodNotAllowed('GET, PATCH');
 			case '/api/admin/documents':
 				if (request.method === 'GET') return handleListAdminProtectedDocuments(request, env);
 				if (request.method === 'POST') return handleUploadAdminProtectedDocument(request, env);
 				return methodNotAllowed('GET, POST');
+			case '/api/admin/documents/preview':
+				return request.method === 'GET' ? handleGetAdminProtectedDocumentPreview(request, env) : methodNotAllowed('GET');
 			case '/api/admin/access-codes':
 				if (request.method === 'GET') return handleListAdminAccessCodes(request, env);
 				if (request.method === 'POST') return handleIssueAdminAccessCode(request, env);
