@@ -23,34 +23,15 @@ jobs:
         run: npm ci
 
       - name: TypeScript check
-        id: tsc
-        continue-on-error: true
-        shell: bash
-        run: |
-          set -o pipefail
-          npx tsc -p tsconfig.json 2>&1 | tee tsc.log
-
-      - name: Upload TypeScript log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: typescript-log
-          path: tsc.log
-          if-no-files-found: error
+        run: npx tsc -p tsconfig.json
 
       - name: Unit tests
-        id: tests
-        continue-on-error: true
         run: npm test -- --run
 
       - name: Apply local D1 migrations
-        id: migrations
-        continue-on-error: true
         run: npm run db:migrate:local
 
       - name: Verify seeded catalog and posts
-        id: seedcheck
-        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -74,16 +55,3 @@ jobs:
           test "$TEAMLAB_TRANSLATIONS" -eq 18
           test "$TEAMLAB_REVISIONS" -eq 18
           test "$SKILL_CATALOG" -ge 100
-
-      - name: Final verification result
-        if: always()
-        shell: bash
-        run: |
-          echo "tsc=${{ steps.tsc.outcome }}"
-          echo "tests=${{ steps.tests.outcome }}"
-          echo "migrations=${{ steps.migrations.outcome }}"
-          echo "seedcheck=${{ steps.seedcheck.outcome }}"
-          test "${{ steps.tsc.outcome }}" = "success"
-          test "${{ steps.tests.outcome }}" = "success"
-          test "${{ steps.migrations.outcome }}" = "success"
-          test "${{ steps.seedcheck.outcome }}" = "success"
