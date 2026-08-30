@@ -19,6 +19,10 @@ body.blog-home-page .home-dashboard-heading::after {
 	background: none !important;
 }
 
+body.blog-home-page .home-dashboard-grid-latest-only {
+	grid-template-columns: minmax(0, 1fr);
+}
+
 @media (max-width: 1100px) {
 	body.blog-dashboard-page::before {
 		background-position: right 18px bottom 14px;
