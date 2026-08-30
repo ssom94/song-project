@@ -3,7 +3,14 @@ import { scrypt as nodeScrypt } from 'node:crypto';
 const SCRYPT_ALGORITHM = 'scrypt';
 const PBKDF2_ALGORITHM = 'pbkdf2-sha256';
 const PBKDF2_HASH = 'SHA-256';
+const PBKDF2_ITERATIONS = 210_000;
 const SCRYPT_MAX_MEMORY = 64 * 1024 * 1024;
+
+function bytesToBase64Url(bytes: Uint8Array): string {
+	let binary = '';
+	for (const byte of bytes) binary += String.fromCharCode(byte);
+	return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+}
 
 function base64UrlToBytes(value: string): Uint8Array {
 	const padded = value.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - (value.length % 4)) % 4);
@@ -143,6 +150,28 @@ async function verifyPbkdf2(password: string, encodedHash: string): Promise<bool
 	} catch {
 		return false;
 	}
+}
+
+export async function hashPassword(password: string): Promise<string> {
+	const salt = crypto.getRandomValues(new Uint8Array(16));
+	const keyMaterial = await crypto.subtle.importKey(
+		'raw',
+		new TextEncoder().encode(password),
+		'PBKDF2',
+		false,
+		['deriveBits'],
+	);
+	const derivedBits = await crypto.subtle.deriveBits(
+		{
+			name: 'PBKDF2',
+			hash: PBKDF2_HASH,
+			salt,
+			iterations: PBKDF2_ITERATIONS,
+		},
+		keyMaterial,
+		256,
+	);
+	return `${PBKDF2_ALGORITHM}$${PBKDF2_ITERATIONS}$${bytesToBase64Url(salt)}$${bytesToBase64Url(new Uint8Array(derivedBits))}`;
 }
 
 export async function verifyPassword(password: string, encodedHash: string): Promise<boolean> {
