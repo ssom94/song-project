@@ -56,7 +56,7 @@ function normalizePreviewCell(value: unknown): string | null {
 	return text.length <= MAX_PREVIEW_CELL_CHARS ? text : text.slice(0, MAX_PREVIEW_CELL_CHARS);
 }
 
-function parsePreviewJson(value: FormDataEntryValue | null): PreviewSheet[] | null {
+function parsePreviewJson(value: unknown): PreviewSheet[] | null {
 	if (typeof value !== 'string' || !value.trim()) return [];
 	if (value.length > MAX_PREVIEW_JSON_CHARS) return null;
 	let parsed: unknown;
