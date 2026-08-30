@@ -1,0 +1,88 @@
+.schedule-calendar-swipe-viewport {
+	position: relative;
+	min-height: 0;
+	flex: 1;
+	overflow: hidden;
+	touch-action: pan-y;
+	user-select: none;
+	cursor: grab;
+	background: #fff;
+}
+
+.schedule-calendar-swipe-viewport.is-dragging {
+	cursor: grabbing;
+}
+
+.schedule-calendar-swipe-track {
+	display: flex;
+	width: 300%;
+	height: 100%;
+	min-height: 0;
+	transform: translate3d(-33.333333%, 0, 0);
+	will-change: transform;
+}
+
+.schedule-calendar-swipe-track.is-animating {
+	transition: transform 230ms cubic-bezier(.22, .78, .26, 1);
+}
+
+.schedule-calendar-swipe-slide {
+	position: relative;
+	display: flex;
+	flex: 0 0 33.333333%;
+	width: 33.333333%;
+	height: 100%;
+	min-width: 0;
+	min-height: 0;
+	background: #fff;
+}
+
+.schedule-calendar-swipe-slide.is-current {
+	box-shadow: -10px 0 24px rgba(31, 48, 78, .025), 10px 0 24px rgba(31, 48, 78, .025);
+}
+
+.schedule-calendar-swipe-slide > .schedule-calendar-grid {
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	flex: 1;
+}
+
+.schedule-calendar-grid-preview {
+	pointer-events: none;
+	background: #fff;
+}
+
+.schedule-calendar-grid-preview .schedule-calendar-day {
+	background: #fff;
+}
+
+.schedule-calendar-grid-preview .schedule-calendar-day.is-outside {
+	background: #fbfcfd;
+}
+
+.schedule-calendar-preview-hint {
+	display: block;
+	height: 5px;
+	margin-top: 7px;
+	border-radius: 999px;
+	background: rgba(126, 145, 171, .08);
+}
+
+.schedule-calendar-swipe-viewport.is-dragging .schedule-calendar-swipe-slide.is-current {
+	box-shadow: -18px 0 32px rgba(31, 48, 78, .08), 18px 0 32px rgba(31, 48, 78, .08);
+}
+
+.schedule-calendar-swipe-viewport.is-dragging .schedule-calendar-grid-preview {
+	background: #fcfdff;
+}
+
+.schedule-calendar-swipe-viewport.is-dragging .schedule-calendar-grid-preview .schedule-calendar-day:not(.is-outside) {
+	background: #fcfdff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.schedule-calendar-swipe-track.is-animating {
+		transition-duration: 1ms;
+	}
+}
