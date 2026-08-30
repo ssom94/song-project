@@ -130,10 +130,11 @@ function questionData(row: QuizWordRow, type: ClientQuestionType) {
 		return { expected: row.meaning_ko ?? answers[0], answers, prompt: row.word, exampleId: null };
 	}
 	if (!row.example_sentence || !row.example_sentence.includes(row.word)) return null;
+	const answers = [...new Set([row.word, row.reading].filter((value): value is string => Boolean(value?.trim())))];
 	return {
-		expected: row.word,
-		answers: [row.word],
-		prompt: row.example_sentence.split(row.word).join('□□□□'),
+		expected: answers.join(' / '),
+		answers,
+		prompt: row.example_sentence.split(row.word).join('【　　】'),
 		exampleId: row.example_id,
 	};
 }
