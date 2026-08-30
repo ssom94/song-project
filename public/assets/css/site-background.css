@@ -1,0 +1,98 @@
+/* Shared decorative background for public dashboard and admin pages. */
+:root {
+	--site-public-bg-opacity: .58;
+	--site-admin-bg-opacity: .10;
+}
+
+body.blog-dashboard-page,
+body.admin-page {
+	position: relative;
+	isolation: isolate;
+	background: #f4f7fb;
+}
+
+body.blog-dashboard-page::before,
+body.admin-page::before {
+	content: '';
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	background-image: url('/assets/images/main_bg.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	pointer-events: none;
+	z-index: 0;
+}
+
+body.blog-dashboard-page::before {
+	top: 64px;
+	left: 230px;
+	opacity: var(--site-public-bg-opacity);
+}
+
+body.admin-page::before {
+	top: 68px;
+	left: 250px;
+	opacity: var(--site-admin-bg-opacity);
+	filter: saturate(.90) brightness(1.04);
+}
+
+body.blog-dashboard-page .blog-dashboard-shell,
+body.blog-dashboard-page .blog-dashboard-main,
+body.blog-dashboard-page .blog-dashboard-content,
+body.admin-page .admin-shell,
+body.admin-page .admin-body,
+body.admin-page .admin-main,
+body.admin-page .admin-content {
+	position: relative;
+	z-index: 1;
+}
+
+body.blog-dashboard-page .blog-dashboard-shell,
+body.blog-dashboard-page .blog-dashboard-main,
+body.admin-page .admin-main {
+	background: transparent;
+}
+
+@media (max-width: 1100px) {
+	:root {
+		--site-public-bg-opacity: .52;
+		--site-admin-bg-opacity: .08;
+	}
+
+	body.blog-dashboard-page::before,
+	body.admin-page::before {
+		background-size: 100% 100%;
+		background-position: center center;
+	}
+}
+
+@media (max-width: 960px) {
+	body.admin-page::before {
+		left: 210px;
+	}
+}
+
+@media (max-width: 840px) {
+	:root {
+		--site-public-bg-opacity: .46;
+		--site-admin-bg-opacity: .06;
+	}
+
+	body.blog-dashboard-page::before {
+		left: 0;
+	}
+
+	body.admin-page::before {
+		top: 62px;
+		left: 0;
+	}
+}
+
+@media (max-width: 560px) {
+	:root {
+		--site-public-bg-opacity: .40;
+		--site-admin-bg-opacity: .05;
+	}
+}
