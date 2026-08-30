@@ -113,6 +113,8 @@
 			level: word.jlpt || '—',
 			category: setup.categoryName || '',
 			part: setup.partName || '',
+			previousLearningState: word.learningState || 'unlearned',
+			wrongCount: Number(word.wrongCount || 0),
 			hints: {
 				sentence: word.example?.sentence || '',
 				sentenceReading: word.example?.reading || '',
@@ -126,13 +128,15 @@
 	function meaningChoiceSet(word, allWords) {
 		const correctAnswers = splitAnswers(word.meaningKo);
 		if (!correctAnswers.length) return null;
+		const correctKeys = new Set(correctAnswers.map(normalize));
 		const correct = correctAnswers[0];
 		const distractors = [];
 		for (const other of shuffle(allWords)) {
 			if (Number(other.id) === Number(word.id)) continue;
 			const candidate = splitAnswers(other.meaningKo)[0];
-			if (!candidate || normalize(candidate) === normalize(correct)) continue;
-			if (distractors.some((value) => normalize(value) === normalize(candidate))) continue;
+			const candidateKey = normalize(candidate);
+			if (!candidate || !candidateKey || correctKeys.has(candidateKey)) continue;
+			if (distractors.some((value) => normalize(value) === candidateKey)) continue;
 			distractors.push(candidate);
 			if (distractors.length === 3) break;
 		}
@@ -169,11 +173,11 @@
 			}
 			if (allowChoice && word.meaningKo) {
 				const choiceSet = meaningChoiceSet(word, words);
-				if (choiceSet) candidates.push({
+				const answers = splitAnswers(word.meaningKo);
+				if (choiceSet && answers.length) candidates.push({
 					...common,
 					key: `${word.id}:meaning:choice`, type: 'meaning', answerMode: 'choice', prompt: word.word,
-					answers: splitAnswers(word.meaningKo), correct: splitAnswers(word.meaningKo).join(' / '),
-					choiceCorrect: choiceSet.correct, choices: choiceSet.choices,
+					answers, correct: answers.join(' / '), choiceCorrect: choiceSet.correct, choices: choiceSet.choices,
 					note: word.reading ? copy(`읽기: ${word.reading}`, `読み: ${word.reading}`) : '',
 				});
 			}
@@ -203,16 +207,18 @@
 	}
 
 	function applyPriority(candidates) {
+		const randomized = shuffle(candidates);
 		if (setup.priority === 'wrong') {
-			const retryKeys = new Set();
-			for (const session of readJson(localStorage, HISTORY_KEY, [])) {
-				for (const attempt of Array.isArray(session?.attempts) ? session.attempts : []) {
-					if (!attempt?.isCorrect && attempt?.questionSnapshot?.key) retryKeys.add(attempt.questionSnapshot.key);
-				}
-			}
-			return [...shuffle(candidates.filter((item) => retryKeys.has(item.key))), ...shuffle(candidates.filter((item) => !retryKeys.has(item.key)))];
+			return randomized.sort((a, b) => Number(b.wrongCount || 0) - Number(a.wrongCount || 0));
 		}
-		return shuffle(candidates);
+		if (setup.priority === 'new') {
+			return randomized.sort((a, b) => {
+				const aNew = a.previousLearningState === 'unlearned' && Number(a.wrongCount || 0) === 0 ? 1 : 0;
+				const bNew = b.previousLearningState === 'unlearned' && Number(b.wrongCount || 0) === 0 ? 1 : 0;
+				return bNew - aNew;
+			});
+		}
+		return randomized;
 	}
 
 	async function buildQuestions() {
@@ -228,7 +234,7 @@
 		if (setup.jlpt) params.set('jlpt', setup.jlpt);
 		if (setup.categoryId) params.set('category', String(setup.categoryId));
 		if (setup.partId) params.set('part', String(setup.partId));
-		const response = await fetch(`/api/public/japanese/quiz-pool?${params.toString()}`, { cache: 'no-store' });
+		const response = await fetch(`/api/public/japanese/quiz-pool?${params.toString()}`, { credentials: 'same-origin', cache: 'no-store' });
 		const result = await response.json().catch(() => null);
 		if (!response.ok || !result?.ok || !Array.isArray(result.words)) throw new Error('QUIZ_WORD_LOAD_FAILED');
 		const candidates = applyPriority(makeCandidates(result.words));
@@ -367,9 +373,7 @@
 		}
 	}
 
-	function currentAttempt() {
-		return attempts[attempts.length - 1] || null;
-	}
+	function currentAttempt() { return attempts[attempts.length - 1] || null; }
 
 	function setCurrentLearningState(state) {
 		const attempt = currentAttempt();
@@ -584,7 +588,8 @@
 		result.serverSessionId = await persistOwnerHistory(result);
 		sessionStorage.setItem(RESULT_KEY, JSON.stringify(result));
 		const history = readJson(localStorage, HISTORY_KEY, []);
-		const nextHistory = [result, ...(Array.isArray(history) ? history.filter((item) => item?.id !== result.id) : [])].slice(0, 100);
+		const historyList = Array.isArray(history) ? history : [];
+		const nextHistory = [result, ...historyList.filter((item) => item?.id !== result.id)].slice(0, 100);
 		localStorage.setItem(HISTORY_KEY, JSON.stringify(nextHistory));
 	}
 
@@ -610,7 +615,7 @@
 
 	async function loadAdminStatus() {
 		try {
-			const response = await fetch('/api/admin/session', { credentials: 'same-origin', cache: 'no-store' });
+			const response = await fetch('/api/admin/auth/session', { credentials: 'same-origin', cache: 'no-store' });
 			const result = await response.json().catch(() => null);
 			adminAuthenticated = response.ok && result?.authenticated === true;
 		} catch {
