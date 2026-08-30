@@ -29,6 +29,7 @@ import {
 	handleDeleteAdminTag,
 	handleUpdateAdminTag,
 } from './admin/tags/manage';
+import { handleBulkUpdateAdminJapaneseWords } from './admin/japanese/bulk';
 import { handleImportAdminJapaneseWords } from './admin/japanese/import';
 import {
 	handleCreateAdminJapaneseWord,
@@ -180,6 +181,8 @@ export default {
 				return methodNotAllowed('GET, POST');
 			case '/api/admin/japanese/words/import':
 				return request.method === 'POST' ? handleImportAdminJapaneseWords(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/words/bulk':
+				return request.method === 'PATCH' ? handleBulkUpdateAdminJapaneseWords(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/words/detail':
 				if (request.method === 'PATCH') return handleUpdateAdminJapaneseWord(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminJapaneseWord(request, env);
