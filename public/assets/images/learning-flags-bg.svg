@@ -1,109 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Decorative Korean and Japanese floral background">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Decorative Korean Japanese couple background">
   <defs>
-    <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#90b9f4" stop-opacity=".10"/>
-      <stop offset=".45" stop-color="#5f8ee6" stop-opacity=".34"/>
-      <stop offset="1" stop-color="#2f65ca" stop-opacity=".08"/>
-    </linearGradient>
-    <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ef8b9e" stop-opacity=".08"/>
-      <stop offset=".48" stop-color="#e85d75" stop-opacity=".30"/>
-      <stop offset="1" stop-color="#f5a3b1" stop-opacity=".06"/>
-    </linearGradient>
-    <radialGradient id="hibiscusPetal" cx="55%" cy="48%" r="72%">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".58" stop-color="#f7cbd6"/>
-      <stop offset="1" stop-color="#e58ca1"/>
-    </radialGradient>
-    <radialGradient id="sakuraPetal" cx="48%" cy="45%" r="72%">
-      <stop offset="0" stop-color="#fffdfd"/>
-      <stop offset=".72" stop-color="#facbd5"/>
-      <stop offset="1" stop-color="#ed9db0"/>
-    </radialGradient>
-    <filter id="blur16" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
-    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#64748b" flood-opacity=".16"/></filter>
+    <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9fc2f4" stop-opacity=".08"/><stop offset=".48" stop-color="#6b96e6" stop-opacity=".28"/><stop offset="1" stop-color="#4774ca" stop-opacity=".05"/></linearGradient>
+    <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f0a1b0" stop-opacity=".06"/><stop offset=".48" stop-color="#e96e83" stop-opacity=".24"/><stop offset="1" stop-color="#f3a8b5" stop-opacity=".04"/></linearGradient>
+    <radialGradient id="mugunghwa" cx="50%" cy="42%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".67" stop-color="#f7cbd7"/><stop offset="1" stop-color="#e997ab"/></radialGradient>
+    <radialGradient id="kiku" cx="50%" cy="50%" r="70%"><stop offset="0" stop-color="#fff4ba"/><stop offset=".62" stop-color="#eacb73"/><stop offset="1" stop-color="#c79d3c"/></radialGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#64748b" flood-opacity=".14"/></filter>
   </defs>
 
-  <!-- soft ambient color -->
-  <circle cx="260" cy="220" r="300" fill="#74a7ea" opacity=".035"/>
-  <circle cx="1570" cy="780" r="360" fill="#ef758b" opacity=".045"/>
-  <circle cx="1560" cy="265" r="160" fill="#d93249" opacity=".055" filter="url(#blur16)"/>
+  <circle cx="260" cy="210" r="290" fill="#73a3e6" opacity=".025"/>
+  <circle cx="1560" cy="780" r="360" fill="#ec748b" opacity=".03"/>
 
-  <!-- broad flowing Korea/Japan color ribbons -->
-  <path d="M-120 510 C180 360 375 600 650 465 C930 330 1110 400 1390 255 C1570 162 1715 170 1880 210" fill="none" stroke="url(#blueWave)" stroke-width="82" stroke-linecap="round"/>
-  <path d="M-130 575 C165 425 395 652 675 515 C950 380 1165 440 1425 305 C1600 214 1740 222 1880 258" fill="none" stroke="url(#redWave)" stroke-width="58" stroke-linecap="round"/>
-  <path d="M-100 620 C180 500 410 715 710 575 C980 450 1220 505 1455 388 C1620 306 1755 316 1880 340" fill="none" stroke="#ffffff" stroke-opacity=".52" stroke-width="42" stroke-linecap="round"/>
+  <!-- flowing red / blue background lines -->
+  <path d="M-130 510 C170 355 390 600 680 460 C965 322 1165 410 1415 265 C1585 168 1730 178 1890 220" fill="none" stroke="url(#blueWave)" stroke-width="76" stroke-linecap="round"/>
+  <path d="M-140 575 C160 430 410 660 700 520 C975 388 1190 455 1450 318 C1615 230 1755 235 1890 275" fill="none" stroke="url(#redWave)" stroke-width="54" stroke-linecap="round"/>
+  <path d="M-110 625 C175 505 430 720 730 580 C1000 455 1240 520 1480 398 C1640 320 1770 330 1890 356" fill="none" stroke="#fff" stroke-opacity=".44" stroke-width="38" stroke-linecap="round"/>
 
-  <!-- subtle Korean taegeuk motif on left -->
-  <g transform="translate(135 605) scale(.62)" opacity=".14">
-    <circle cx="0" cy="0" r="108" fill="#fff"/>
-    <path d="M0 -100 A100 100 0 0 1 0 100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 -100Z" fill="#e43b53"/>
-    <path d="M0 100 A100 100 0 0 1 0 -100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 100Z" fill="#2f62b6"/>
-  </g>
-  <g fill="#32445d" opacity=".105" transform="translate(65 740) rotate(-38)">
-    <rect width="50" height="8" rx="2"/><rect y="16" width="50" height="8" rx="2"/><rect y="32" width="50" height="8" rx="2"/>
+  <!-- small Mugunghwa, upper left -->
+  <g transform="translate(50 60) scale(.42)" filter="url(#shadow)" opacity=".74">
+    <path d="M58 250 C145 183 218 106 300 37" fill="none" stroke="#789674" stroke-width="11" stroke-linecap="round"/>
+    <g fill="#86a27f"><ellipse cx="100" cy="204" rx="40" ry="17" transform="rotate(-26 100 204)"/><ellipse cx="220" cy="100" rx="42" ry="18" transform="rotate(20 220 100)"/></g>
+    <g transform="translate(130 92)">
+      <ellipse cy="-54" rx="43" ry="68" fill="url(#mugunghwa)"/><ellipse cx="52" cy="-18" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(72 52 -18)"/><ellipse cx="32" cy="48" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(144 32 48)"/><ellipse cx="-34" cy="48" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(216 -34 48)"/><ellipse cx="-52" cy="-18" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(288 -52 -18)"/><circle r="23" fill="#cb5e7a" opacity=".72"/><path d="M0 0 C20 19 34 44 50 79" fill="none" stroke="#d45d77" stroke-width="7" stroke-linecap="round"/><g fill="#efcb60"><circle cx="49" cy="79" r="5"/><circle cx="56" cy="87" r="4"/><circle cx="43" cy="89" r="4"/></g>
+    </g>
   </g>
 
-  <!-- subtle Japanese sun motif on right -->
-  <circle cx="1640" cy="420" r="108" fill="#dd334d" opacity=".085"/>
+  <!-- Korea-Japan couple header ornament -->
+  <g transform="translate(1265 58)" filter="url(#shadow)" opacity=".93">
+    <!-- Mugunghwa accent beside Korean flag -->
+    <g transform="translate(12 73) scale(.18)"><ellipse cy="-38" rx="25" ry="39" fill="url(#mugunghwa)"/><ellipse cx="36" cy="-12" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(72 36 -12)"/><ellipse cx="22" cy="31" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(144 22 31)"/><ellipse cx="-22" cy="31" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(216 -22 31)"/><ellipse cx="-36" cy="-12" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(288 -36 -12)"/><circle r="10" fill="#ca5d78"/></g>
 
-  <!-- Hibiscus / Mugunghwa cluster, upper-left -->
-  <g transform="translate(38 42)" filter="url(#softShadow)" opacity=".92">
-    <path d="M58 270 C150 195 218 112 300 36" fill="none" stroke="#718f70" stroke-width="10" stroke-linecap="round"/>
-    <path d="M132 208 C90 160 64 125 44 84" fill="none" stroke="#718f70" stroke-width="7" stroke-linecap="round"/>
-    <path d="M188 152 C238 125 284 107 335 98" fill="none" stroke="#718f70" stroke-width="7" stroke-linecap="round"/>
-    <g fill="#84a27d" opacity=".90">
-      <ellipse cx="81" cy="239" rx="42" ry="18" transform="rotate(-25 81 239)"/>
-      <ellipse cx="126" cy="181" rx="38" ry="17" transform="rotate(29 126 181)"/>
-      <ellipse cx="235" cy="95" rx="43" ry="18" transform="rotate(-18 235 95)"/>
-      <ellipse cx="302" cy="63" rx="35" ry="15" transform="rotate(25 302 63)"/>
+    <!-- Korean flag -->
+    <g transform="translate(35 25)">
+      <rect width="94" height="62" rx="11" fill="#fff" stroke="#dce4ef" stroke-width="3"/>
+      <g transform="translate(47 31) scale(.22)"><path d="M0 -100 A100 100 0 0 1 0 100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 -100Z" fill="#e43b53"/><path d="M0 100 A100 100 0 0 1 0 -100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 100Z" fill="#2f62b6"/></g>
+      <g fill="#26384f" opacity=".82" transform="translate(10 10) scale(.22)"><rect width="48" height="8" rx="2"/><rect y="15" width="48" height="8" rx="2"/><rect y="30" width="48" height="8" rx="2"/></g>
+      <g fill="#26384f" opacity=".82" transform="translate(83 51) rotate(180) scale(.22)"><rect width="48" height="8" rx="2"/><rect y="15" width="48" height="8" rx="2"/><rect y="30" width="48" height="8" rx="2"/></g>
     </g>
-    <g transform="translate(125 92)">
-      <ellipse cx="0" cy="-54" rx="45" ry="70" fill="url(#hibiscusPetal)"/>
-      <ellipse cx="52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(72 52 -18)"/>
-      <ellipse cx="32" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(144 32 48)"/>
-      <ellipse cx="-34" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(216 -34 48)"/>
-      <ellipse cx="-52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(288 -52 -18)"/>
-      <circle r="24" fill="#cf5c79" opacity=".74"/>
-      <path d="M0 0 C22 20 35 46 52 82" stroke="#d65d76" stroke-width="7" fill="none" stroke-linecap="round"/>
-      <g fill="#f3d05f"><circle cx="50" cy="79" r="5"/><circle cx="56" cy="88" r="4"/><circle cx="43" cy="89" r="4"/></g>
+
+    <!-- male -->
+    <g transform="translate(142 0)">
+      <circle cx="55" cy="47" r="31" fill="#f2c5a9"/><path d="M24 44 C28 8 81 3 87 44 C75 24 47 18 24 44Z" fill="#293548"/><circle cx="44" cy="48" r="2.8" fill="#263447"/><circle cx="66" cy="48" r="2.8" fill="#263447"/><path d="M48 60 Q55 65 63 60" fill="none" stroke="#a85d61" stroke-width="2.4" stroke-linecap="round"/><path d="M18 132 Q22 81 55 79 Q88 81 92 132Z" fill="#4f77cf"/><path d="M46 80 L55 96 L64 80" fill="#fff" opacity=".88"/>
     </g>
-    <g transform="translate(276 156) scale(.72)">
-      <ellipse cx="0" cy="-54" rx="45" ry="70" fill="url(#hibiscusPetal)"/>
-      <ellipse cx="52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(72 52 -18)"/>
-      <ellipse cx="32" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(144 32 48)"/>
-      <ellipse cx="-34" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(216 -34 48)"/>
-      <ellipse cx="-52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(288 -52 -18)"/>
-      <circle r="23" fill="#cf5c79" opacity=".72"/>
+
+    <!-- heart -->
+    <path d="M260 57 C266 43 286 44 289 58 C292 44 312 43 318 57 C326 76 289 96 289 96 C289 96 252 76 260 57Z" fill="#e96179" opacity=".9"/>
+
+    <!-- female -->
+    <g transform="translate(318 0)">
+      <circle cx="55" cy="47" r="31" fill="#f2c5a9"/><path d="M23 46 C20 13 44 2 58 7 C79 3 92 20 87 52 C78 31 65 23 49 23 C39 25 30 32 23 46Z" fill="#3c3035"/><path d="M27 39 C16 55 23 73 31 81" fill="none" stroke="#3c3035" stroke-width="9" stroke-linecap="round"/><path d="M84 39 C94 55 88 73 80 81" fill="none" stroke="#3c3035" stroke-width="9" stroke-linecap="round"/><circle cx="44" cy="48" r="2.8" fill="#263447"/><circle cx="66" cy="48" r="2.8" fill="#263447"/><path d="M48 60 Q55 65 63 60" fill="none" stroke="#a85d61" stroke-width="2.4" stroke-linecap="round"/><path d="M18 132 Q22 81 55 79 Q88 81 92 132Z" fill="#e88ca1"/><path d="M46 80 L55 96 L64 80" fill="#fff" opacity=".88"/>
     </g>
-    <circle cx="70" cy="198" r="15" fill="#ea9caf"/><circle cx="64" cy="192" r="8" fill="#f7c5cf"/>
+
+    <!-- Japanese chrysanthemum accent -->
+    <g transform="translate(455 55) scale(.56)">
+      <g fill="url(#kiku)" stroke="#c79e43" stroke-width="1.2">
+        <ellipse cy="-38" rx="10" ry="30"/><ellipse cy="38" rx="10" ry="30"/><ellipse cx="38" rx="30" ry="10"/><ellipse cx="-38" rx="30" ry="10"/>
+        <ellipse cx="27" cy="-27" rx="10" ry="30" transform="rotate(45 27 -27)"/><ellipse cx="-27" cy="27" rx="10" ry="30" transform="rotate(45 -27 27)"/><ellipse cx="-27" cy="-27" rx="10" ry="30" transform="rotate(-45 -27 -27)"/><ellipse cx="27" cy="27" rx="10" ry="30" transform="rotate(-45 27 27)"/>
+      </g><circle r="14" fill="#d3ab4d"/>
+    </g>
+
+    <!-- Japanese flag -->
+    <g transform="translate(500 25)"><rect width="94" height="62" rx="11" fill="#fff" stroke="#dce4ef" stroke-width="3"/><circle cx="47" cy="31" r="18" fill="#df334b"/></g>
   </g>
 
-  <!-- Sakura branch, lower-right -->
-  <g transform="translate(1390 690)" filter="url(#softShadow)" opacity=".94">
-    <path d="M-15 350 C80 255 175 182 320 70" fill="none" stroke="#815d59" stroke-width="12" stroke-linecap="round"/>
-    <path d="M106 252 C60 205 25 172 -20 142" fill="none" stroke="#815d59" stroke-width="8" stroke-linecap="round"/>
-    <path d="M180 188 C230 147 270 112 348 94" fill="none" stroke="#815d59" stroke-width="8" stroke-linecap="round"/>
-    <g transform="translate(73 257) scale(.75)">
-      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
-    </g>
-    <g transform="translate(176 183)">
-      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
-    </g>
-    <g transform="translate(300 101) scale(.85)">
-      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
-    </g>
-    <g transform="translate(35 125) scale(.55)">
-      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
-    </g>
+  <!-- faint right-side chrysanthemum -->
+  <g transform="translate(1630 770) scale(1.25)" opacity=".12">
+    <g fill="none" stroke="#c6a24f" stroke-width="6"><ellipse cy="-70" rx="19" ry="60"/><ellipse cy="70" rx="19" ry="60"/><ellipse cx="70" rx="60" ry="19"/><ellipse cx="-70" rx="60" ry="19"/><ellipse cx="50" cy="-50" rx="19" ry="60" transform="rotate(45 50 -50)"/><ellipse cx="-50" cy="50" rx="19" ry="60" transform="rotate(45 -50 50)"/><ellipse cx="-50" cy="-50" rx="19" ry="60" transform="rotate(-45 -50 -50)"/><ellipse cx="50" cy="50" rx="19" ry="60" transform="rotate(-45 50 50)"/></g><circle r="28" fill="none" stroke="#c6a24f" stroke-width="6"/>
   </g>
 
   <!-- drifting petals -->
-  <g fill="#ef9db0" opacity=".36">
-    <ellipse cx="355" cy="245" rx="9" ry="18" transform="rotate(38 355 245)"/>
-    <ellipse cx="448" cy="325" rx="8" ry="15" transform="rotate(-26 448 325)"/>
-    <ellipse cx="1340" cy="245" rx="8" ry="16" transform="rotate(30 1340 245)"/>
-    <ellipse cx="1515" cy="540" rx="9" ry="18" transform="rotate(-35 1515 540)"/>
-    <ellipse cx="1260" cy="780" rx="7" ry="14" transform="rotate(20 1260 780)"/>
-  </g>
+  <g fill="#efa2b2" opacity=".30"><ellipse cx="330" cy="250" rx="8" ry="17" transform="rotate(38 330 250)"/><ellipse cx="455" cy="330" rx="7" ry="14" transform="rotate(-26 455 330)"/><ellipse cx="1340" cy="270" rx="8" ry="16" transform="rotate(30 1340 270)"/><ellipse cx="1530" cy="545" rx="8" ry="17" transform="rotate(-35 1530 545)"/><ellipse cx="1260" cy="790" rx="7" ry="14" transform="rotate(20 1260 790)"/></g>
 </svg>
