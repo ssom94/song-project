@@ -1,5 +1,6 @@
 @import url('/assets/css/site-background.css');
 @import url('/assets/css/blog/home-latest-posts.css');
+@import url('/assets/css/blog/home-learning-progress.css');
 
 :root {
 	color-scheme: light;
