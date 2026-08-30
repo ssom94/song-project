@@ -69,6 +69,37 @@
 		}).format(date);
 	}
 
+	function ensureTitleLink(textKey, route) {
+		const heading = document.querySelector(`.home-card-heading h2[data-home-text="${textKey}"]`);
+		if (!heading || heading.querySelector('.home-section-title-link')) return;
+		heading.removeAttribute('data-home-text');
+		const link = document.createElement('a');
+		link.className = 'home-section-title-link';
+		link.dataset.homeText = textKey;
+		link.dataset.homeRoute = route;
+		link.textContent = text(textKey);
+		heading.replaceChildren(link);
+	}
+
+	function ensureTitleLinks() {
+		ensureTitleLink('latestTitle', 'posts');
+		ensureTitleLink('jlptTitle', 'japanese');
+	}
+
+	function syncTitleLinks() {
+		const routes = {
+			posts: `/${language}/posts/`,
+			japanese: `/${language}/japanese/`,
+			skill: `/${language}/skill-sheet/`,
+			career: `/${language}/career/`,
+		};
+		document.querySelectorAll('[data-home-route]').forEach((link) => {
+			if (!(link instanceof HTMLAnchorElement)) return;
+			const href = routes[link.dataset.homeRoute];
+			if (href) link.href = href;
+		});
+	}
+
 	function createChip(value, category = false) {
 		const chip = document.createElement('span');
 		chip.className = `blog-chip${category ? ' blog-chip-category' : ''}`;
@@ -182,6 +213,7 @@
 			const link = byId(id);
 			if (link instanceof HTMLAnchorElement) link.href = `/${language}/posts/`;
 		}
+		syncTitleLinks();
 		window.BlogDashboard?.syncHomeModuleLinks?.();
 		const description = document.querySelector('meta[name="description"]');
 		if (description) description.setAttribute('content', text('pageDescription'));
@@ -250,6 +282,7 @@
 	}
 
 	function initialize() {
+		ensureTitleLinks();
 		document.querySelectorAll('[data-home-language]').forEach((button) => {
 			button.addEventListener('click', () => setLanguage(button.dataset.homeLanguage));
 		});
