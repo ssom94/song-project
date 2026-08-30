@@ -1,72 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Decorative Korean Japanese couple background">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Soft Korean Japanese floral background">
   <defs>
-    <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9fc2f4" stop-opacity=".08"/><stop offset=".48" stop-color="#6b96e6" stop-opacity=".28"/><stop offset="1" stop-color="#4774ca" stop-opacity=".05"/></linearGradient>
-    <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f0a1b0" stop-opacity=".06"/><stop offset=".48" stop-color="#e96e83" stop-opacity=".24"/><stop offset="1" stop-color="#f3a8b5" stop-opacity=".04"/></linearGradient>
-    <radialGradient id="mugunghwa" cx="50%" cy="42%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".67" stop-color="#f7cbd7"/><stop offset="1" stop-color="#e997ab"/></radialGradient>
-    <radialGradient id="kiku" cx="50%" cy="50%" r="70%"><stop offset="0" stop-color="#fff4ba"/><stop offset=".62" stop-color="#eacb73"/><stop offset="1" stop-color="#c79d3c"/></radialGradient>
-    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#64748b" flood-opacity=".14"/></filter>
+    <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8d0f5" stop-opacity=".05"/><stop offset=".42" stop-color="#78a2e7" stop-opacity=".28"/><stop offset="1" stop-color="#6c93d9" stop-opacity=".05"/></linearGradient>
+    <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f4b7c3" stop-opacity=".04"/><stop offset=".46" stop-color="#ec8496" stop-opacity=".24"/><stop offset="1" stop-color="#f2a9b7" stop-opacity=".04"/></linearGradient>
+    <radialGradient id="mugu" cx="50%" cy="42%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".68" stop-color="#f7cbd7"/><stop offset="1" stop-color="#e997ab"/></radialGradient>
+    <radialGradient id="kiku" cx="50%" cy="50%" r="70%"><stop offset="0" stop-color="#fff8d2"/><stop offset=".65" stop-color="#e9cf82"/><stop offset="1" stop-color="#caa853"/></radialGradient>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#64748b" flood-opacity=".10"/></filter>
   </defs>
 
-  <circle cx="260" cy="210" r="290" fill="#73a3e6" opacity=".025"/>
-  <circle cx="1560" cy="780" r="360" fill="#ec748b" opacity=".03"/>
+  <circle cx="250" cy="200" r="280" fill="#78a5e6" opacity=".025"/>
+  <circle cx="1570" cy="820" r="350" fill="#eb7b8f" opacity=".03"/>
 
-  <!-- flowing red / blue background lines -->
-  <path d="M-130 510 C170 355 390 600 680 460 C965 322 1165 410 1415 265 C1585 168 1730 178 1890 220" fill="none" stroke="url(#blueWave)" stroke-width="76" stroke-linecap="round"/>
-  <path d="M-140 575 C160 430 410 660 700 520 C975 388 1190 455 1450 318 C1615 230 1755 235 1890 275" fill="none" stroke="url(#redWave)" stroke-width="54" stroke-linecap="round"/>
-  <path d="M-110 625 C175 505 430 720 730 580 C1000 455 1240 520 1480 398 C1640 320 1770 330 1890 356" fill="none" stroke="#fff" stroke-opacity=".44" stroke-width="38" stroke-linecap="round"/>
+  <!-- broad, quiet red/blue ribbons -->
+  <path d="M-130 520 C160 380 390 610 680 485 C970 360 1170 425 1430 290 C1600 205 1740 215 1900 250" fill="none" stroke="url(#blueWave)" stroke-width="70" stroke-linecap="round"/>
+  <path d="M-140 585 C155 445 410 670 700 540 C985 412 1195 475 1455 348 C1620 268 1760 275 1900 310" fill="none" stroke="url(#redWave)" stroke-width="50" stroke-linecap="round"/>
+  <path d="M-110 635 C180 525 430 730 735 600 C1010 485 1245 540 1490 430 C1650 358 1780 365 1900 390" fill="none" stroke="#fff" stroke-opacity=".48" stroke-width="36" stroke-linecap="round"/>
 
-  <!-- small Mugunghwa, upper left -->
-  <g transform="translate(50 60) scale(.42)" filter="url(#shadow)" opacity=".74">
-    <path d="M58 250 C145 183 218 106 300 37" fill="none" stroke="#789674" stroke-width="11" stroke-linecap="round"/>
-    <g fill="#86a27f"><ellipse cx="100" cy="204" rx="40" ry="17" transform="rotate(-26 100 204)"/><ellipse cx="220" cy="100" rx="42" ry="18" transform="rotate(20 220 100)"/></g>
-    <g transform="translate(130 92)">
-      <ellipse cy="-54" rx="43" ry="68" fill="url(#mugunghwa)"/><ellipse cx="52" cy="-18" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(72 52 -18)"/><ellipse cx="32" cy="48" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(144 32 48)"/><ellipse cx="-34" cy="48" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(216 -34 48)"/><ellipse cx="-52" cy="-18" rx="43" ry="68" fill="url(#mugunghwa)" transform="rotate(288 -52 -18)"/><circle r="23" fill="#cb5e7a" opacity=".72"/><path d="M0 0 C20 19 34 44 50 79" fill="none" stroke="#d45d77" stroke-width="7" stroke-linecap="round"/><g fill="#efcb60"><circle cx="49" cy="79" r="5"/><circle cx="56" cy="87" r="4"/><circle cx="43" cy="89" r="4"/></g>
-    </g>
+  <!-- left Mugunghwa cluster -->
+  <g transform="translate(28 42) scale(.72)" filter="url(#shadow)" opacity=".76">
+    <path d="M62 280 C145 205 220 126 306 38" fill="none" stroke="#7a9775" stroke-width="10" stroke-linecap="round"/>
+    <path d="M145 212 C105 173 78 133 57 92" fill="none" stroke="#7a9775" stroke-width="7" stroke-linecap="round"/>
+    <g fill="#89a381" opacity=".9"><ellipse cx="92" cy="238" rx="38" ry="16" transform="rotate(-24 92 238)"/><ellipse cx="137" cy="180" rx="34" ry="15" transform="rotate(28 137 180)"/><ellipse cx="244" cy="92" rx="40" ry="17" transform="rotate(-18 244 92)"/></g>
+    <g transform="translate(130 98)"><ellipse cy="-52" rx="42" ry="65" fill="url(#mugu)"/><ellipse cx="50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(72 50 -17)"/><ellipse cx="31" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(144 31 46)"/><ellipse cx="-33" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(216 -33 46)"/><ellipse cx="-50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(288 -50 -17)"/><circle r="22" fill="#cf607b" opacity=".72"/><path d="M0 0 C20 18 33 43 49 77" fill="none" stroke="#d65f79" stroke-width="7" stroke-linecap="round"/><g fill="#efd166"><circle cx="49" cy="78" r="5"/><circle cx="55" cy="86" r="4"/><circle cx="42" cy="88" r="4"/></g></g>
+    <g transform="translate(283 164) scale(.58)"><ellipse cy="-52" rx="42" ry="65" fill="url(#mugu)"/><ellipse cx="50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(72 50 -17)"/><ellipse cx="31" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(144 31 46)"/><ellipse cx="-33" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(216 -33 46)"/><ellipse cx="-50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(288 -50 -17)"/><circle r="22" fill="#cf607b" opacity=".68"/></g>
   </g>
 
-  <!-- Korea-Japan couple header ornament -->
-  <g transform="translate(1390 32) scale(.64)" filter="url(#shadow)" opacity=".88">
-    <!-- Mugunghwa accent beside Korean flag -->
-    <g transform="translate(12 73) scale(.18)"><ellipse cy="-38" rx="25" ry="39" fill="url(#mugunghwa)"/><ellipse cx="36" cy="-12" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(72 36 -12)"/><ellipse cx="22" cy="31" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(144 22 31)"/><ellipse cx="-22" cy="31" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(216 -22 31)"/><ellipse cx="-36" cy="-12" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(288 -36 -12)"/><circle r="10" fill="#ca5d78"/></g>
-
-    <!-- Korean flag -->
-    <g transform="translate(35 25)">
-      <rect width="94" height="62" rx="11" fill="#fff" stroke="#dce4ef" stroke-width="3"/>
-      <g transform="translate(47 31) scale(.22)"><path d="M0 -100 A100 100 0 0 1 0 100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 -100Z" fill="#e43b53"/><path d="M0 100 A100 100 0 0 1 0 -100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 100Z" fill="#2f62b6"/></g>
-      <g fill="#26384f" opacity=".82" transform="translate(10 10) scale(.22)"><rect width="48" height="8" rx="2"/><rect y="15" width="48" height="8" rx="2"/><rect y="30" width="48" height="8" rx="2"/></g>
-      <g fill="#26384f" opacity=".82" transform="translate(83 51) rotate(180) scale(.22)"><rect width="48" height="8" rx="2"/><rect y="15" width="48" height="8" rx="2"/><rect y="30" width="48" height="8" rx="2"/></g>
-    </g>
-
-    <!-- male -->
-    <g transform="translate(142 0)">
-      <circle cx="55" cy="47" r="31" fill="#f2c5a9"/><path d="M24 44 C28 8 81 3 87 44 C75 24 47 18 24 44Z" fill="#293548"/><circle cx="44" cy="48" r="2.8" fill="#263447"/><circle cx="66" cy="48" r="2.8" fill="#263447"/><path d="M48 60 Q55 65 63 60" fill="none" stroke="#a85d61" stroke-width="2.4" stroke-linecap="round"/><path d="M18 132 Q22 81 55 79 Q88 81 92 132Z" fill="#4f77cf"/><path d="M46 80 L55 96 L64 80" fill="#fff" opacity=".88"/>
-    </g>
-
-    <!-- heart -->
-    <path d="M260 57 C266 43 286 44 289 58 C292 44 312 43 318 57 C326 76 289 96 289 96 C289 96 252 76 260 57Z" fill="#e96179" opacity=".9"/>
-
-    <!-- female -->
-    <g transform="translate(318 0)">
-      <circle cx="55" cy="47" r="31" fill="#f2c5a9"/><path d="M23 46 C20 13 44 2 58 7 C79 3 92 20 87 52 C78 31 65 23 49 23 C39 25 30 32 23 46Z" fill="#3c3035"/><path d="M27 39 C16 55 23 73 31 81" fill="none" stroke="#3c3035" stroke-width="9" stroke-linecap="round"/><path d="M84 39 C94 55 88 73 80 81" fill="none" stroke="#3c3035" stroke-width="9" stroke-linecap="round"/><circle cx="44" cy="48" r="2.8" fill="#263447"/><circle cx="66" cy="48" r="2.8" fill="#263447"/><path d="M48 60 Q55 65 63 60" fill="none" stroke="#a85d61" stroke-width="2.4" stroke-linecap="round"/><path d="M18 132 Q22 81 55 79 Q88 81 92 132Z" fill="#e88ca1"/><path d="M46 80 L55 96 L64 80" fill="#fff" opacity=".88"/>
-    </g>
-
-    <!-- Japanese chrysanthemum accent -->
-    <g transform="translate(455 55) scale(.56)">
-      <g fill="url(#kiku)" stroke="#c79e43" stroke-width="1.2">
-        <ellipse cy="-38" rx="10" ry="30"/><ellipse cy="38" rx="10" ry="30"/><ellipse cx="38" rx="30" ry="10"/><ellipse cx="-38" rx="30" ry="10"/>
-        <ellipse cx="27" cy="-27" rx="10" ry="30" transform="rotate(45 27 -27)"/><ellipse cx="-27" cy="27" rx="10" ry="30" transform="rotate(45 -27 27)"/><ellipse cx="-27" cy="-27" rx="10" ry="30" transform="rotate(-45 -27 -27)"/><ellipse cx="27" cy="27" rx="10" ry="30" transform="rotate(-45 27 27)"/>
-      </g><circle r="14" fill="#d3ab4d"/>
-    </g>
-
-    <!-- Japanese flag -->
-    <g transform="translate(500 25)"><rect width="94" height="62" rx="11" fill="#fff" stroke="#dce4ef" stroke-width="3"/><circle cx="47" cy="31" r="18" fill="#df334b"/></g>
+  <!-- soft Japanese chrysanthemum, lower right -->
+  <g transform="translate(1660 840) scale(.72)" opacity=".20" filter="url(#shadow)">
+    <g fill="url(#kiku)" stroke="#c7a34d" stroke-width="2"><ellipse cy="-76" rx="20" ry="62"/><ellipse cy="76" rx="20" ry="62"/><ellipse cx="76" rx="62" ry="20"/><ellipse cx="-76" rx="62" ry="20"/><ellipse cx="54" cy="-54" rx="20" ry="62" transform="rotate(45 54 -54)"/><ellipse cx="-54" cy="54" rx="20" ry="62" transform="rotate(45 -54 54)"/><ellipse cx="-54" cy="-54" rx="20" ry="62" transform="rotate(-45 -54 -54)"/><ellipse cx="54" cy="54" rx="20" ry="62" transform="rotate(-45 54 54)"/></g><circle r="28" fill="#d3ae50" opacity=".8"/>
   </g>
 
-  <!-- faint right-side chrysanthemum -->
-  <g transform="translate(1630 770) scale(1.25)" opacity=".12">
-    <g fill="none" stroke="#c6a24f" stroke-width="6"><ellipse cy="-70" rx="19" ry="60"/><ellipse cy="70" rx="19" ry="60"/><ellipse cx="70" rx="60" ry="19"/><ellipse cx="-70" rx="60" ry="19"/><ellipse cx="50" cy="-50" rx="19" ry="60" transform="rotate(45 50 -50)"/><ellipse cx="-50" cy="50" rx="19" ry="60" transform="rotate(45 -50 50)"/><ellipse cx="-50" cy="-50" rx="19" ry="60" transform="rotate(-45 -50 -50)"/><ellipse cx="50" cy="50" rx="19" ry="60" transform="rotate(-45 50 50)"/></g><circle r="28" fill="none" stroke="#c6a24f" stroke-width="6"/>
-  </g>
-
-  <!-- drifting petals -->
-  <g fill="#efa2b2" opacity=".30"><ellipse cx="330" cy="250" rx="8" ry="17" transform="rotate(38 330 250)"/><ellipse cx="455" cy="330" rx="7" ry="14" transform="rotate(-26 455 330)"/><ellipse cx="1340" cy="270" rx="8" ry="16" transform="rotate(30 1340 270)"/><ellipse cx="1530" cy="545" rx="8" ry="17" transform="rotate(-35 1530 545)"/><ellipse cx="1260" cy="790" rx="7" ry="14" transform="rotate(20 1260 790)"/></g>
+  <!-- a few pale petals -->
+  <g fill="#efa2b2" opacity=".28"><ellipse cx="320" cy="255" rx="8" ry="17" transform="rotate(38 320 255)"/><ellipse cx="455" cy="335" rx="7" ry="14" transform="rotate(-26 455 335)"/><ellipse cx="1370" cy="270" rx="8" ry="16" transform="rotate(30 1370 270)"/><ellipse cx="1540" cy="545" rx="8" ry="17" transform="rotate(-35 1540 545)"/><ellipse cx="1260" cy="800" rx="7" ry="14" transform="rotate(20 1260 800)"/></g>
 </svg>
