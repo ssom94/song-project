@@ -17,11 +17,27 @@ function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
+async function safeCount(db: D1Database, sql: string, label: string): Promise<number> {
+	try {
+		const row = await db.prepare(sql).first<{ count: number }>();
+		return Number(row?.count ?? 0);
+	} catch (error) {
+		console.warn(`Dashboard optional statistic unavailable: ${label}`, error);
+		return 0;
+	}
+}
+
 export async function handleGetPublicDashboard(_request: Request, env: Env): Promise<Response> {
 	try {
 		await ensureDashboardGoalsSchema(env.song_project_db);
-		const [settings, goals, registered, review] = await Promise.all([
-			env.song_project_db.prepare(`SELECT jlpt_goal_mode, jlpt_manual_target, show_jlpt FROM dashboard_settings WHERE id = 1 LIMIT 1`).first<{ jlpt_goal_mode: 'auto' | 'manual'; jlpt_manual_target: number | null; show_jlpt: number }>(),
+
+		const [settings, goals, registeredWords, wrongWords] = await Promise.all([
+			env.song_project_db.prepare(`
+				SELECT jlpt_goal_mode, jlpt_manual_target, show_jlpt
+				FROM dashboard_settings
+				WHERE id = 1
+				LIMIT 1
+			`).first<{ jlpt_goal_mode: 'auto' | 'manual'; jlpt_manual_target: number | null; show_jlpt: number }>(),
 			env.song_project_db.prepare(`
 				SELECT id, goal_key, title, goal_type, target_date, progress_percent,
 					target_count, completed_count, status, display_order
@@ -29,12 +45,18 @@ export async function handleGetPublicDashboard(_request: Request, env: Env): Pro
 				WHERE is_visible = 1
 				ORDER BY display_order ASC, id ASC
 			`).all<GoalRow>(),
-			env.song_project_db.prepare(`SELECT COUNT(*) AS count FROM japanese_words WHERE deleted_at IS NULL`).first<{ count: number }>(),
-			env.song_project_db.prepare(`SELECT COUNT(*) AS count FROM japanese_word_learning_stats WHERE needs_review = 1`).first<{ count: number }>(),
+			safeCount(
+				env.song_project_db,
+				`SELECT COUNT(*) AS count FROM japanese_words WHERE deleted_at IS NULL`,
+				'japanese_words',
+			),
+			safeCount(
+				env.song_project_db,
+				`SELECT COUNT(*) AS count FROM japanese_word_learning_stats WHERE needs_review = 1`,
+				'japanese_word_learning_stats',
+			),
 		]);
 
-		const registeredWords = Number(registered?.count ?? 0);
-		const wrongWords = Number(review?.count ?? 0);
 		const goalMode = settings?.jlpt_goal_mode ?? 'auto';
 		const manualTarget = settings?.jlpt_manual_target ?? null;
 		const targetWords = goalMode === 'manual' && manualTarget ? manualTarget : registeredWords;
