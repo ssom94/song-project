@@ -1,3 +1,5 @@
+import { ensureDashboardSchedulesSchema } from '../dashboard/schedules-schema';
+
 interface ScheduleRow {
 	id: number;
 	title: string;
@@ -11,6 +13,7 @@ function json(data: unknown, status = 200): Response {
 
 export async function handleListPublicDashboardSchedules(_request: Request, env: Env): Promise<Response> {
 	try {
+		await ensureDashboardSchedulesSchema(env.song_project_db);
 		const result = await env.song_project_db.prepare(`
 			SELECT id, title, target_date, display_order
 			FROM dashboard_schedules
