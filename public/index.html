@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
 	<link rel="stylesheet" href="/assets/css/blog/home.css" />
 	<link rel="stylesheet" href="/assets/css/blog/home-decor.css" />
+	<link rel="stylesheet" href="/assets/css/schedule-manager.css" />
 </head>
 <body class="blog-page blog-dashboard-page blog-home-page" data-blog-language="ja">
 	<header class="blog-dashboard-topbar">
@@ -37,6 +38,7 @@
 				<p class="blog-sidebar-label" data-home-text="sidebarMenu">Menu</p>
 				<nav class="blog-sidebar-nav">
 					<a class="blog-sidebar-link is-active" href="/" data-home-text="navHome">Home</a>
+					<a class="blog-sidebar-link" href="#schedule-manager" data-schedule-nav>予定管理</a>
 					<a id="home-posts-nav" class="blog-sidebar-link" href="/ja/posts/" data-home-text="navPosts">投稿</a>
 					<a class="blog-sidebar-link" href="#jlpt-progress" data-home-text="navJapanese">Japanese</a>
 					<a class="blog-sidebar-link" href="#goals" data-home-text="navSkillSheet">Skill Sheet</a>
@@ -54,7 +56,7 @@
 				<p class="blog-sidebar-label" data-home-text="sidebarQuick">Quick</p>
 				<nav class="blog-sidebar-nav">
 					<a class="blog-sidebar-link" href="#goals" data-home-text="quickGoals">2029 Goals</a>
-					<a class="blog-sidebar-link" href="#dday" data-home-text="quickDday">D-Day</a>
+					<a class="blog-sidebar-link" href="#schedule-manager" data-home-text="quickDday">D-Day</a>
 					<a class="blog-sidebar-link" href="#jlpt-progress" data-home-text="quickJlpt">JLPT Progress</a>
 				</nav>
 			</section>
@@ -79,7 +81,9 @@
 					</div>
 				</section>
 
-				<section class="home-dashboard-grid home-dashboard-grid-top">
+				<section id="schedule-manager" data-schedule-manager data-context="home" aria-live="polite"></section>
+
+				<section class="home-dashboard-grid home-dashboard-grid-top home-dashboard-grid-latest-only">
 					<article class="home-dashboard-card home-latest-card">
 						<div class="home-card-heading">
 							<div><span class="home-card-kicker">BLOG</span><h2 data-home-text="latestTitle">最新の投稿</h2></div>
@@ -90,19 +94,6 @@
 						<div id="home-posts-empty" class="home-post-state" hidden data-home-text="postsEmpty">公開中の投稿はまだありません。</div>
 						<div id="home-posts-error" class="home-post-state" hidden data-home-text="postsError">投稿を読み込めませんでした。</div>
 					</article>
-
-					<aside id="dday" class="home-dashboard-card home-dday-card">
-						<div class="home-card-heading">
-							<div><span class="home-card-kicker">COUNTDOWN</span><h2>D-Day</h2></div>
-						</div>
-						<div class="home-dday-list">
-							<div class="home-dday-item"><div><strong>JLPT N1</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
-							<div class="home-dday-item"><div><strong>AP</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
-							<div class="home-dday-item"><div><strong>FP</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
-							<div class="home-dday-item"><div><strong>AWS SAA</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
-							<div class="home-dday-item"><div><strong>Portfolio × 2</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
-						</div>
-					</aside>
 				</section>
 
 				<section id="jlpt-progress" class="home-dashboard-card home-jlpt-card">
@@ -160,5 +151,6 @@
 	<script src="/assets/js/blog/home-goals.js"></script>
 	<script src="/assets/js/blog/home-countdown.js"></script>
 	<script src="/assets/js/blog/home-roadmap-drag.js"></script>
+	<script src="/assets/js/schedule-manager.js"></script>
 </body>
 </html>
