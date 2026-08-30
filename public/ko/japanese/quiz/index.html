@@ -23,7 +23,7 @@
 	<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
 		<section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section>
 		<section class="blog-sidebar-section"><p class="blog-sidebar-label">일본어 학습</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ko/japanese/">학습 홈</a><a class="blog-sidebar-link" href="/ko/japanese/words/">단어 목록</a><a class="blog-sidebar-link is-active" href="/ko/japanese/quiz/">랜덤 퀴즈</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/result/">학습 결과</a></nav></section>
-		<section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section>
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty">아직 공개된 카테고리가 없습니다.</p></section>
 		<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
 	</aside>
 	<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
@@ -44,7 +44,7 @@
 			<section class="jp-card">
 				<div class="jp-card-heading"><h2>출제 범위</h2><span>Filter</span></div>
 				<div class="jp-form-grid">
-					<label class="jp-form-field"><span>JLPT</span><select id="quiz-jlpt"><option value="">전체</option><option value="N1">N1</option><option value="N2">N2</option><option value="N3">N3</option><option value="N4">N4</option><option value="N5">N5</option></select></label>
+					<div class="jp-form-field jp-form-field-wide"><span>JLPT <small>복수 선택 가능 · 선택하지 않으면 전체</small></span><div id="quiz-jlpt-options" class="jp-jlpt-check-grid"><span class="jp-jlpt-loading">등록 단어를 확인하는 중…</span></div></div>
 					<label class="jp-form-field"><span>학습분류</span><select id="quiz-category"><option value="">전체</option></select></label>
 					<label class="jp-form-field"><span>품사</span><select id="quiz-part"><option value="">전체</option></select></label>
 					<label class="jp-form-field"><span>문제 수</span><select id="quiz-count"><option value="10">10문제</option><option value="20">20문제</option><option value="30">30문제</option><option value="50">50문제</option></select></label>
@@ -57,8 +57,10 @@
 				<div class="jp-simple-list">
 					<div class="jp-simple-row"><div><strong>출제 방식</strong><small>선택한 퀴즈 방식</small></div><span id="quiz-preview-types">전체 혼합</span></div>
 					<div class="jp-simple-row"><div><strong>범위</strong><small>JLPT / 분류 / 품사</small></div><span id="quiz-preview-scope">전체</span></div>
-					<div class="jp-simple-row"><div><strong>문제 수</strong><small>설정 조건에서 랜덤 선택</small></div><span id="quiz-preview-count">10문제</span></div>
+					<div class="jp-simple-row"><div><strong>출제 가능 문제</strong><small>현재 필터와 문제유형 기준</small></div><span id="quiz-preview-available">계산 중…</span></div>
+					<div class="jp-simple-row"><div><strong>실제 출제</strong><small>출제 가능 문제 중 랜덤 선택</small></div><span id="quiz-preview-count">10문제</span></div>
 				</div>
+				<p id="quiz-preview-summary" class="jp-quiz-preview-summary">출제 가능 문제를 계산하고 있습니다.</p>
 				<p id="quiz-setup-message" class="jp-quiz-setup-message" hidden></p>
 				<div class="jp-inline-actions"><button id="quiz-start" class="jp-primary-button" type="button">퀴즈 시작</button><button id="quiz-start-wrong" class="jp-secondary-button" type="button">저장된 오답만 시작</button></div>
 			</section>
