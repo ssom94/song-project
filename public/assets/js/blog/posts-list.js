@@ -26,7 +26,7 @@
 		return chip;
 	}
 
-	function renderPost(post) {
+	function renderPost(post, displayNumber) {
 		const language = currentLanguage();
 		const card = document.createElement('a');
 		card.className = 'blog-post-card';
@@ -34,6 +34,11 @@
 
 		const meta = document.createElement('div');
 		meta.className = 'blog-post-card-meta';
+		const number = document.createElement('span');
+		number.className = 'blog-post-card-number';
+		number.textContent = `No. ${displayNumber}`;
+		meta.appendChild(number);
+
 		const publishedAt = formatDate(post.publishedAt ?? post.updatedAt);
 		if (publishedAt) {
 			const date = document.createElement('time');
@@ -109,7 +114,7 @@
 			}
 
 			const fragment = document.createDocumentFragment();
-			for (const post of posts) fragment.appendChild(renderPost(post));
+			posts.forEach((post, index) => fragment.appendChild(renderPost(post, posts.length - index)));
 			list.appendChild(fragment);
 		} catch (loadError) {
 			console.error('Failed to load public posts', loadError);
