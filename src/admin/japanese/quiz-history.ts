@@ -1,5 +1,6 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
 import { ensureJapaneseAdminLearningStatsSchema, type JapaneseLearningState } from '../../japanese-learning';
+import { ensureJapaneseQuizHistorySchema } from '../../japanese-quiz-schema';
 
 type ClientQuestionType = 'reading' | 'meaning' | 'sentence';
 type DbQuestionType = 'reading' | 'meaning_ko' | 'sentence_blank';
@@ -158,7 +159,7 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 		type: ClientQuestionType;
 		answerMode: 'input' | 'choice';
 		answer: string;
-		learningState: JapaneseLearningState;
+		learningState: JapaneseLearningState | null;
 	}> = [];
 	for (const attempt of attempts) {
 		const wordId = Number(attempt.wordId);
@@ -166,14 +167,17 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 		const answerMode = attempt.answerMode === 'choice' ? 'choice' : attempt.answerMode === 'input' ? 'input' : null;
 		const answer = typeof attempt.answer === 'string' ? attempt.answer.slice(0, 1000) : '';
 		const state = learningState(attempt.learningState);
-		if (!Number.isSafeInteger(wordId) || wordId <= 0 || !type || !answerMode || !state) {
+		if (!Number.isSafeInteger(wordId) || wordId <= 0 || !type || !answerMode) {
 			return json({ ok: false, error: 'INVALID_ATTEMPT' }, 400);
 		}
 		normalizedAttempts.push({ wordId, type, answerMode, answer, learningState: state });
 	}
 
 	try {
-		await ensureJapaneseAdminLearningStatsSchema(env.song_project_db);
+		await Promise.all([
+			ensureJapaneseQuizHistorySchema(env.song_project_db),
+			ensureJapaneseAdminLearningStatsSchema(env.song_project_db),
+		]);
 		const lookup = env.song_project_db.prepare(`
 			SELECT
 				w.id, w.word, w.reading, w.meaning_ko,
@@ -209,7 +213,14 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 			if (!question) return json({ ok: false, error: 'QUESTION_DATA_MISSING' }, 400);
 			const answer = normalize(attempt.answer);
 			const isCorrect = Boolean(answer) && question.answers.some((expected) => normalize(expected) === answer);
-			graded.push({ ...attempt, prompt: question.prompt, expected: question.expected, exampleId: question.exampleId, isCorrect });
+			graded.push({
+				...attempt,
+				learningState: attempt.learningState ?? (isCorrect ? 'mastered' : 'unlearned'),
+				prompt: question.prompt,
+				expected: question.expected,
+				exampleId: question.exampleId,
+				isCorrect,
+			});
 		}
 
 		const sessionId = makeId();
@@ -283,6 +294,7 @@ export async function handleListAdminJapaneseQuizHistory(request: Request, env: 
 	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 	try {
+		await ensureJapaneseQuizHistorySchema(env.song_project_db);
 		const result = await env.song_project_db.prepare(`
 			SELECT id, settings_json, question_count, correct_count, wrong_count, status, started_at, completed_at
 			FROM japanese_quiz_sessions
@@ -315,6 +327,7 @@ export async function handleGetAdminJapaneseQuizHistory(request: Request, env: E
 	const id = Number(new URL(request.url).searchParams.get('id'));
 	if (!Number.isSafeInteger(id) || id <= 0) return json({ ok: false, error: 'INVALID_SESSION_ID' }, 400);
 	try {
+		await ensureJapaneseQuizHistorySchema(env.song_project_db);
 		const row = await env.song_project_db.prepare(`
 			SELECT id, settings_json, question_count, correct_count, wrong_count, status, started_at, completed_at
 			FROM japanese_quiz_sessions
