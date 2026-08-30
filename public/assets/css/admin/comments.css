@@ -1,0 +1,25 @@
+.admin-comment-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	min-width: 210px;
+}
+
+.admin-comment-content-cell {
+	min-width: 260px;
+	max-width: 460px;
+	white-space: pre-wrap;
+	word-break: break-word;
+	line-height: 1.6;
+}
+
+.admin-comment-delete-button {
+	border-color: #d92d20 !important;
+	background: #d92d20 !important;
+	color: #fff !important;
+}
+
+.admin-comment-delete-button:hover {
+	border-color: #b42318 !important;
+	background: #b42318 !important;
+}
