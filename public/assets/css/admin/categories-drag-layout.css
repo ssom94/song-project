@@ -1,0 +1,24 @@
+.admin-category-table th.admin-category-drag-column-header,
+.admin-category-table td.admin-category-drag-column {
+	width: 72px;
+	min-width: 72px;
+	padding-right: 14px;
+	padding-left: 8px;
+	text-align: center;
+}
+
+.admin-category-table th.admin-category-drag-column-header {
+	font-size: 0;
+}
+
+.admin-category-drag-column .admin-category-drag-handle {
+	width: 46px;
+	height: 46px;
+	border-radius: 10px;
+	font-size: 22px;
+	letter-spacing: 1px;
+}
+
+.admin-category-order {
+	white-space: nowrap;
+}
