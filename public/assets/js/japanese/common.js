@@ -90,21 +90,24 @@
 		if (!wordBar && !quizGrid) return;
 		try {
 			const taxonomy = await loadTaxonomy();
-			const target = wordBar ?? quizGrid;
-			const selects = [...target.querySelectorAll('select')];
-			if (selects.length < 3) return;
+			if (wordBar) {
+				const selects = [...wordBar.querySelectorAll('select')];
+				if (selects.length >= 3) {
+					const levelSelect = selects[0];
+					resetSelect(levelSelect, language() === 'ko' ? 'JLPT: 전체' : 'JLPT: すべて');
+					for (const level of taxonomy.levels ?? []) {
+						if (Number(level.wordCount ?? 0) > 0) appendOption(levelSelect, level.code, level.code);
+					}
 
-			const levelSelect = selects[0];
-			resetSelect(levelSelect, language() === 'ko' ? 'JLPT: 전체' : 'JLPT: すべて');
-			for (const level of taxonomy.levels ?? []) appendOption(levelSelect, level.code, level.code);
+					const categorySelect = selects[1];
+					resetSelect(categorySelect, language() === 'ko' ? '분류: 전체' : '分類: すべて');
+					for (const category of taxonomy.categories ?? []) appendOption(categorySelect, category.id, localizedName(category));
 
-			const categorySelect = selects[1];
-			resetSelect(categorySelect, language() === 'ko' ? '분류: 전체' : '分類: すべて');
-			for (const category of taxonomy.categories ?? []) appendOption(categorySelect, category.id, localizedName(category));
-
-			const partSelect = selects[2];
-			resetSelect(partSelect, language() === 'ko' ? '품사: 전체' : '品詞: すべて');
-			for (const part of taxonomy.parts ?? []) appendOption(partSelect, part.id, localizedName(part));
+					const partSelect = selects[2];
+					resetSelect(partSelect, language() === 'ko' ? '품사: 전체' : '品詞: すべて');
+					for (const part of taxonomy.parts ?? []) appendOption(partSelect, part.id, localizedName(part));
+				}
+			}
 		} catch (error) {
 			console.warn('Failed to load Japanese taxonomy', error);
 		}
@@ -121,12 +124,33 @@
 		if (word.id) detailParams.set('id', String(word.id));
 		if (word.word) detailParams.set('word', String(word.word));
 		detail.href = `/${language()}/japanese/words/detail/?${detailParams.toString()}`;
+
+		const titleLine = document.createElement('span');
+		titleLine.className = 'jp-word-title-line';
 		const title = document.createElement('strong');
 		title.textContent = word.word ?? '';
+		titleLine.appendChild(title);
+
+		const parts = Array.isArray(word.parts) && word.parts.length ? word.parts : (word.part ? [word.part] : []);
+		if (parts.length) {
+			const wrap = document.createElement('span');
+			wrap.className = 'jp-word-pos-wrap';
+			wrap.append('（');
+			parts.forEach((part, index) => {
+				if (index > 0) wrap.append('・');
+				const badge = document.createElement('span');
+				badge.className = `jp-word-pos jp-word-pos-${Math.abs(Number(part.id) || 0) % 6}`;
+				badge.textContent = localizedName(part);
+				wrap.appendChild(badge);
+			});
+			wrap.append('）');
+			titleLine.appendChild(wrap);
+		}
+
 		const meta = document.createElement('small');
-		const partName = localizedName(word.part);
-		meta.textContent = [word.jlpt, partName].filter(Boolean).join(' · ');
-		detail.append(title, meta);
+		meta.className = 'jp-word-meta';
+		meta.textContent = word.jlpt || (language() === 'ko' ? 'JLPT 미지정' : 'JLPT 未設定');
+		detail.append(titleLine, meta);
 		primary.appendChild(detail);
 
 		const reading = document.createElement('span');
@@ -135,7 +159,11 @@
 		meaning.textContent = word.meaningKo ?? word.meaningJa ?? '—';
 		const quiz = document.createElement('a');
 		quiz.className = 'jp-secondary-button';
-		quiz.href = `/${language()}/japanese/quiz/?word=${encodeURIComponent(word.word ?? '')}`;
+		const quizParams = new URLSearchParams();
+		if (word.id) quizParams.set('wordId', String(word.id));
+		if (word.word) quizParams.set('word', String(word.word));
+		quizParams.set('quick', '1');
+		quiz.href = `/${language()}/japanese/quiz/?${quizParams.toString()}`;
 		quiz.textContent = 'Quiz';
 		row.append(primary, reading, meaning, quiz);
 		return row;
