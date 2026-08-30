@@ -1,9 +1,72 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="robots" content="index,follow" /><title>랜덤 퀴즈 | SONG</title><link rel="stylesheet" href="/assets/css/common.css" /><link rel="stylesheet" href="/assets/css/blog/common.css" /><link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" /><link rel="stylesheet" href="/assets/css/japanese/common.css" /><link rel="stylesheet" href="/assets/css/japanese/quiz.css" /></head>
-<body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ko"><header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><a href="/ja/japanese/quiz/">日本語</a><span>/</span><span class="is-active">한국어</span></div></header>
-<div class="blog-dashboard-shell"><aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">일본어 학습</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ko/japanese/">학습 홈</a><a class="blog-sidebar-link" href="/ko/japanese/words/">단어 목록</a><a class="blog-sidebar-link is-active" href="/ko/japanese/quiz/">랜덤 퀴즈</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/result/">학습 결과</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside><button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
-<main class="blog-dashboard-main"><div class="blog-dashboard-content jp-dashboard-content"><section class="jp-page-heading"><div><p class="jp-eyebrow">RANDOM QUIZ</p><h1>퀴즈 설정</h1><p>문제유형, JLPT, 학습분류, 품사, 문제 수를 선택해 랜덤으로 문제를 풉니다.</p></div><a class="jp-secondary-button" href="/ko/japanese/">학습 홈</a></section>
-<section class="jp-card"><div class="jp-card-heading"><h2>문제 유형</h2><span>복수 선택 가능</span></div><div class="jp-quiz-type-grid"><label class="jp-quiz-option"><input type="checkbox" data-quiz-type="reading" checked /><strong>단어 → 히라가나</strong><small>표시된 단어의 읽기를 입력합니다.</small></label><label class="jp-quiz-option"><input type="checkbox" data-quiz-type="meaning" checked /><strong>단어 → 한국어 뜻</strong><small>일본어 단어를 보고 한국어 뜻을 맞힙니다.</small></label><label class="jp-quiz-option"><input type="checkbox" data-quiz-type="sentence" checked /><strong>예문 빈칸 → 단어</strong><small>문장 속 빈칸에 들어갈 일본어 단어를 맞힙니다.</small></label></div></section>
-<section class="jp-card"><div class="jp-card-heading"><h2>출제 범위</h2><span>Filter</span></div><div class="jp-form-grid"><label class="jp-form-field"><span>JLPT</span><select id="quiz-jlpt"><option value="">전체</option><option value="N1">N1</option><option value="N2">N2</option><option value="N3">N3</option><option value="N4">N4</option><option value="N5">N5</option></select></label><label class="jp-form-field"><span>학습분류</span><select id="quiz-category"><option value="">전체</option></select></label><label class="jp-form-field"><span>품사</span><select id="quiz-part"><option value="">전체</option></select></label><label class="jp-form-field"><span>문제 수</span><select id="quiz-count"><option value="10">10문제</option><option value="20">20문제</option><option value="30">30문제</option><option value="50">50문제</option></select></label><label class="jp-form-field"><span>답변 방식</span><select id="quiz-answer-mode"><option value="input">직접입력</option><option value="choice">4지선다</option><option value="random">랜덤</option></select></label><label class="jp-form-field"><span>출제 우선</span><select id="quiz-priority"><option value="random">완전 랜덤</option><option value="wrong">오답 우선</option><option value="new">새 단어 우선</option></select></label></div></section>
-<section class="jp-card"><div class="jp-card-heading"><h2>시작 전 확인</h2><span>Preview</span></div><div class="jp-simple-list"><div class="jp-simple-row"><div><strong>문제 유형</strong><small>선택한 문제 유형</small></div><span id="quiz-preview-types">3종</span></div><div class="jp-simple-row"><div><strong>범위</strong><small>JLPT / 분류 / 품사</small></div><span id="quiz-preview-scope">전체</span></div><div class="jp-simple-row"><div><strong>문제 수</strong><small>설정 조건에서 랜덤 선택</small></div><span id="quiz-preview-count">10문제</span></div></div><p id="quiz-setup-message" class="jp-quiz-setup-message" hidden></p><div class="jp-inline-actions"><button id="quiz-start" class="jp-primary-button" type="button">퀴즈 시작</button><button id="quiz-start-wrong" class="jp-secondary-button" type="button">저장된 오답만 시작</button></div></section>
-</div></main></div><script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/japanese/common.js"></script><script src="/assets/js/japanese/quiz-setup.js"></script></body></html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>랜덤 퀴즈 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/quiz.css" />
+</head>
+<body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ko">
+<header class="blog-dashboard-topbar">
+	<div class="blog-dashboard-top-actions">
+		<button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button>
+		<a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a>
+	</div>
+	<div class="blog-dashboard-language"><a href="/ja/japanese/quiz/">日本語</a><span>/</span><span class="is-active">한국어</span></div>
+</header>
+<div class="blog-dashboard-shell">
+	<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section>
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">일본어 학습</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ko/japanese/">학습 홈</a><a class="blog-sidebar-link" href="/ko/japanese/words/">단어 목록</a><a class="blog-sidebar-link is-active" href="/ko/japanese/quiz/">랜덤 퀴즈</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/result/">학습 결과</a></nav></section>
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section>
+		<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
+	</aside>
+	<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+	<main class="blog-dashboard-main">
+		<div class="blog-dashboard-content jp-dashboard-content">
+			<section class="jp-page-heading"><div><p class="jp-eyebrow">RANDOM QUIZ</p><h1>퀴즈 설정</h1><p>출제 방식, JLPT, 학습분류, 품사, 문제 수를 선택해 퀴즈를 시작합니다.</p></div><a class="jp-secondary-button" href="/ko/japanese/">학습 홈</a></section>
+
+			<section class="jp-card">
+				<div class="jp-card-heading"><h2>출제 방식</h2><span>한 가지 선택</span></div>
+				<div class="jp-quiz-mode-grid">
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="input" /><strong>주관식</strong><small>단어의 읽기 또는 한국어 뜻을 직접 입력합니다.</small></label>
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="choice" /><strong>4지선다</strong><small>일본어 단어를 보고 한국어 뜻을 고릅니다. 다른 등록 단어의 뜻 3개가 오답으로 섞입니다.</small></label>
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="sentence" /><strong>예문 빈칸</strong><small>등록된 일본어 예문에서 해당 단어를 가리고 직접 맞힙니다.</small></label>
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="mixed" checked /><strong>전체 혼합</strong><small>주관식, 4지선다, 예문 빈칸을 랜덤으로 섞어서 출제합니다.</small></label>
+				</div>
+			</section>
+
+			<section class="jp-card">
+				<div class="jp-card-heading"><h2>출제 범위</h2><span>Filter</span></div>
+				<div class="jp-form-grid">
+					<label class="jp-form-field"><span>JLPT</span><select id="quiz-jlpt"><option value="">전체</option><option value="N1">N1</option><option value="N2">N2</option><option value="N3">N3</option><option value="N4">N4</option><option value="N5">N5</option></select></label>
+					<label class="jp-form-field"><span>학습분류</span><select id="quiz-category"><option value="">전체</option></select></label>
+					<label class="jp-form-field"><span>품사</span><select id="quiz-part"><option value="">전체</option></select></label>
+					<label class="jp-form-field"><span>문제 수</span><select id="quiz-count"><option value="10">10문제</option><option value="20">20문제</option><option value="30">30문제</option><option value="50">50문제</option></select></label>
+					<label class="jp-form-field"><span>출제 우선</span><select id="quiz-priority"><option value="random">완전 랜덤</option><option value="wrong">오답 우선</option><option value="new">새 단어 우선</option></select></label>
+				</div>
+			</section>
+
+			<section class="jp-card">
+				<div class="jp-card-heading"><h2>시작 전 확인</h2><span>Preview</span></div>
+				<div class="jp-simple-list">
+					<div class="jp-simple-row"><div><strong>출제 방식</strong><small>선택한 퀴즈 방식</small></div><span id="quiz-preview-types">전체 혼합</span></div>
+					<div class="jp-simple-row"><div><strong>범위</strong><small>JLPT / 분류 / 품사</small></div><span id="quiz-preview-scope">전체</span></div>
+					<div class="jp-simple-row"><div><strong>문제 수</strong><small>설정 조건에서 랜덤 선택</small></div><span id="quiz-preview-count">10문제</span></div>
+				</div>
+				<p id="quiz-setup-message" class="jp-quiz-setup-message" hidden></p>
+				<div class="jp-inline-actions"><button id="quiz-start" class="jp-primary-button" type="button">퀴즈 시작</button><button id="quiz-start-wrong" class="jp-secondary-button" type="button">저장된 오답만 시작</button></div>
+			</section>
+		</div>
+	</main>
+</div>
+<script src="/assets/js/blog/dashboard-shell.js"></script>
+<script src="/assets/js/japanese/common.js"></script>
+<script src="/assets/js/japanese/quiz-setup.js"></script>
+</body>
+</html>
