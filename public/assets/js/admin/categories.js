@@ -2,6 +2,8 @@
 	let categories = [];
 	let editingId = null;
 	let saving = false;
+	let reordering = false;
+	let draggedCategoryId = null;
 
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
@@ -23,10 +25,20 @@
 		return categories.find((category) => category.id === Number(id)) ?? null;
 	}
 
+	function sameParent(left, right) {
+		return (left ?? null) === (right ?? null);
+	}
+
 	function getChildren(parentId) {
 		return categories
-			.filter((category) => category.parentId === parentId)
+			.filter((category) => sameParent(category.parentId, parentId))
 			.sort((a, b) => a.displayOrder - b.displayOrder || a.id - b.id);
+	}
+
+	function siblingCategories(parentId) {
+		return categories
+			.filter((category) => sameParent(category.parentId, parentId))
+			.sort((a, b) => Number(a.displayOrder) - Number(b.displayOrder) || Number(a.id) - Number(b.id));
 	}
 
 	function flattenCategories() {
@@ -150,6 +162,109 @@
 		}
 	}
 
+	function clearDragMarkers() {
+		document.querySelectorAll('.admin-category-table tbody tr').forEach((row) => {
+			row.classList.remove('is-dragging', 'is-drop-before', 'is-drop-after');
+		});
+	}
+
+	async function persistReorder(sourceId, targetId, placeAfter) {
+		if (reordering || saving) return;
+		const source = findCategory(sourceId);
+		const target = findCategory(targetId);
+		if (!source || !target || source.id === target.id || !sameParent(source.parentId, target.parentId)) return;
+
+		const siblings = siblingCategories(source.parentId);
+		const beforeIds = siblings.map((category) => Number(category.id));
+		const orderedIds = beforeIds.filter((id) => id !== Number(source.id));
+		let targetIndex = orderedIds.indexOf(Number(target.id));
+		if (targetIndex < 0) return;
+		if (placeAfter) targetIndex += 1;
+		orderedIds.splice(targetIndex, 0, Number(source.id));
+		if (orderedIds.every((id, index) => id === beforeIds[index])) return;
+
+		reordering = true;
+		clearDragMarkers();
+		for (const [index, id] of orderedIds.entries()) {
+			const category = findCategory(id);
+			if (category) category.displayOrder = index;
+		}
+		renderCategories();
+
+		try {
+			const response = await fetch('/api/admin/categories/reorder', {
+				method: 'PATCH',
+				credentials: 'same-origin',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ parentId: source.parentId ?? null, orderedIds }),
+			});
+			if (response.status === 401) {
+				window.location.replace('/admin/login/');
+				return;
+			}
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok) throw new Error(result?.error || 'CATEGORY_REORDER_FAILED');
+			await loadCategories();
+			setStatus('categoryReordered', 'success');
+		} catch (error) {
+			console.error('Category reorder failed', error);
+			try {
+				await loadCategories();
+			} catch (reloadError) {
+				console.error('Category reload after reorder failure failed', reloadError);
+			}
+			setStatus('categoryReorderFailed', 'error');
+		} finally {
+			reordering = false;
+			draggedCategoryId = null;
+			clearDragMarkers();
+		}
+	}
+
+	function bindRowDrag(row, handle, category) {
+		handle.draggable = true;
+		handle.addEventListener('dragstart', (event) => {
+			if (reordering || saving) {
+				event.preventDefault();
+				return;
+			}
+			draggedCategoryId = Number(category.id);
+			row.classList.add('is-dragging');
+			if (event.dataTransfer) {
+				event.dataTransfer.effectAllowed = 'move';
+				event.dataTransfer.setData('text/plain', String(category.id));
+			}
+		});
+		handle.addEventListener('dragend', () => {
+			draggedCategoryId = null;
+			clearDragMarkers();
+		});
+
+		row.addEventListener('dragover', (event) => {
+			if (!draggedCategoryId || draggedCategoryId === Number(category.id)) return;
+			const source = findCategory(draggedCategoryId);
+			if (!source || !sameParent(source.parentId, category.parentId)) return;
+			event.preventDefault();
+			if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+			const rect = row.getBoundingClientRect();
+			const after = event.clientY > rect.top + (rect.height / 2);
+			row.classList.toggle('is-drop-before', !after);
+			row.classList.toggle('is-drop-after', after);
+		});
+		row.addEventListener('dragleave', () => {
+			row.classList.remove('is-drop-before', 'is-drop-after');
+		});
+		row.addEventListener('drop', (event) => {
+			if (!draggedCategoryId || draggedCategoryId === Number(category.id)) return;
+			const source = findCategory(draggedCategoryId);
+			if (!source || !sameParent(source.parentId, category.parentId)) return;
+			event.preventDefault();
+			const rect = row.getBoundingClientRect();
+			const after = event.clientY > rect.top + (rect.height / 2);
+			persistReorder(draggedCategoryId, category.id, after);
+		});
+	}
+
 	function renderCategories() {
 		const loading = document.getElementById('category-list-loading');
 		const empty = document.getElementById('category-list-empty');
@@ -174,6 +289,8 @@
 
 		for (const { category, depth } of flattenCategories()) {
 			const row = document.createElement('tr');
+			row.dataset.categoryId = String(category.id);
+			row.dataset.parentId = category.parentId == null ? '' : String(category.parentId);
 
 			const nameCell = document.createElement('td');
 			const treeName = document.createElement('div');
@@ -198,7 +315,19 @@
 
 			const orderCell = document.createElement('td');
 			orderCell.className = 'admin-category-order';
-			orderCell.textContent = String(category.displayOrder ?? 0);
+			const orderWrap = document.createElement('div');
+			orderWrap.className = 'admin-category-order-cell';
+			const dragHandle = document.createElement('button');
+			dragHandle.type = 'button';
+			dragHandle.className = 'admin-category-drag-handle';
+			dragHandle.textContent = '⋮⋮';
+			dragHandle.title = t('categoryDragHandle', currentLanguage() === 'ko' ? '드래그해서 순서 변경' : 'ドラッグして並び替え');
+			dragHandle.setAttribute('aria-label', dragHandle.title);
+			const orderNumber = document.createElement('span');
+			orderNumber.textContent = String(category.displayOrder ?? 0);
+			orderWrap.append(dragHandle, orderNumber);
+			orderCell.appendChild(orderWrap);
+			bindRowDrag(row, dragHandle, category);
 
 			const actionsCell = document.createElement('td');
 			const actions = document.createElement('div');
@@ -288,7 +417,7 @@
 	}
 
 	async function saveCategory() {
-		if (saving) return;
+		if (saving || reordering) return;
 		const payload = buildPayload();
 		if (!payload.nameJa || !payload.nameKo) {
 			await showAlert('categoryNamesRequired', '日本語名と韓国語名を入力してください。');
@@ -339,7 +468,7 @@
 	}
 
 	async function deleteCategory(categoryId) {
-		if (saving) return;
+		if (saving || reordering) return;
 		const category = findCategory(categoryId);
 		if (!category || !(await showDeleteConfirm(category))) return;
 
