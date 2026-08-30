@@ -1,9 +1,10 @@
 /* Home-only decorative layer and draggable 2029 summary card. */
 body.blog-home-page::before {
 	background-image: url('/assets/images/learning-flags-bg.svg');
-	background-size: 100% auto;
-	background-position: center top;
-	opacity: .82;
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	opacity: .88;
 }
 
 body.blog-home-page .home-dashboard-heading {
@@ -12,17 +13,17 @@ body.blog-home-page .home-dashboard-heading {
 	isolation: isolate;
 }
 
-/* Selected reference artwork: larger and shifted toward the upper-right. */
+/* Selected reference artwork: larger and shifted farther toward the upper-right. */
 body.blog-home-page .home-dashboard-heading::after {
 	content: '';
 	position: absolute;
-	top: -18px;
-	right: 168px;
+	top: -20px;
+	right: 20px;
 	display: block;
-	width: 380px;
-	height: 94px;
+	width: 410px;
+	height: 102px;
 	background: url('/assets/images/korea-japan-couple-ornament.svg') center / contain no-repeat;
-	opacity: .96;
+	opacity: .97;
 	filter: drop-shadow(0 5px 10px rgba(54, 73, 102, .10));
 	pointer-events: none;
 	z-index: 0;
@@ -91,9 +92,9 @@ body.blog-home-page .home-dashboard-heading > * {
 
 @media (max-width: 1240px) {
 	body.blog-home-page .home-dashboard-heading::after {
-		right: 150px;
-		width: 330px;
-		height: 82px;
+		right: 8px;
+		width: 350px;
+		height: 88px;
 	}
 }
 
@@ -105,13 +106,19 @@ body.blog-home-page .home-dashboard-heading > * {
 
 @media (max-width: 840px) {
 	body.blog-home-page::before {
-		background-size: auto 100%;
-		background-position: 55% top;
-		opacity: .56;
+		background-size: 100% 100%;
+		background-position: center center;
+		opacity: .70;
 	}
 
 	#home-roadmap-summary {
 		translate: 0 0 !important;
 		animation-duration: 16s;
+	}
+}
+
+@media (max-width: 560px) {
+	body.blog-home-page::before {
+		opacity: .58;
 	}
 }
