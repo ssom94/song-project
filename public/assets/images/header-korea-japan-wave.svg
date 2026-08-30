@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5f8fe6" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#5f8fe6" stop-opacity=".10"/>
+      <stop offset=".52" stop-color="#3572d6" stop-opacity=".18"/>
+      <stop offset=".82" stop-color="#6d9ee9" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#6d9ee9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e76b7f" stop-opacity="0"/>
+      <stop offset=".22" stop-color="#e76b7f" stop-opacity=".08"/>
+      <stop offset=".56" stop-color="#de5069" stop-opacity=".15"/>
+      <stop offset=".84" stop-color="#ee8b9a" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#ee8b9a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M20 41 C185 17 300 55 455 34 C624 11 760 47 920 28 C1030 15 1110 22 1180 32" fill="none" stroke="url(#blue)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M10 48 C170 29 312 59 470 42 C640 23 760 56 930 37 C1040 25 1118 29 1190 39" fill="none" stroke="url(#red)" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
