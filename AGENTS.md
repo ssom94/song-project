@@ -48,7 +48,7 @@ public/assets/js/admin/
 ├─ post-preview.js           # authenticated preview-tab renderer
 ├─ categories.js             # category list/create/edit/delete screen behavior
 ├─ tags.js                   # tag list/create/edit/delete screen behavior
-├─ japanese.js               # Japanese word create/edit/delete, search, JLPT and primary part-of-speech selection
+├─ japanese.js               # Japanese word CRUD, duplicate checks, multiple meanings/parts, examples, list filters
 ├─ japanese-parts.js         # Japanese part-of-speech hierarchy create/edit/delete and usage checks
 └─ dashboard-goals.js        # goal/dashboard UI preview; D1 persistence is a later integration step
 ```
@@ -75,7 +75,7 @@ Current admin routes:
 /admin/access-codes/            # access-code UI
 ```
 
-The Japanese learning schema in `0004_japanese_learning.sql` is designed so words and examples can power quizzes such as word-to-reading, word-to-Korean-meaning, and sentence-blank-to-word questions. Quiz attempt/history tables should be added separately when persistent quiz history is implemented.
+The Japanese learning schema in `0004_japanese_learning.sql` is designed so words and examples can power quizzes such as word-to-reading, word-to-Korean-meaning, and sentence-blank-to-word questions. A Japanese word is treated as one logical record: duplicate word creation is blocked, multiple Korean meanings are stored within that record, and the existing word/part junction supports multiple parts of speech with one primary part. `0009_japanese_parts_seed.sql` supplies the standard reusable part-of-speech hierarchy. Quiz attempt/history tables should be added separately when persistent quiz history is implemented.
 
 Public frontend structure:
 
