@@ -12,6 +12,7 @@
 		return language() === 'ko'
 			? {
 				title: '일본어 학습',
+				subtitle: '하위 메뉴',
 				items: [
 					{ key: 'home', label: '학습 홈', path: '/japanese/' },
 					{ key: 'words', label: '단어 목록', path: '/japanese/words/' },
@@ -21,6 +22,7 @@
 			}
 			: {
 				title: '日本語学習',
+				subtitle: 'サブメニュー',
 				items: [
 					{ key: 'home', label: '学習ホーム', path: '/japanese/' },
 					{ key: 'words', label: '単語一覧', path: '/japanese/words/' },
@@ -120,21 +122,30 @@
 		const heading = document.querySelector('.jp-page-heading');
 		if (!(heading instanceof HTMLElement)) return;
 
+		const wrap = document.createElement('section');
+		wrap.id = 'blog-context-subnav';
+		wrap.className = 'blog-context-subnav-wrap';
+
+		const header = document.createElement('div');
+		header.className = 'blog-context-subnav-header';
+		const parent = document.createElement('strong');
+		parent.textContent = labels().title;
+		const separator = document.createElement('span');
+		separator.setAttribute('aria-hidden', 'true');
+		separator.textContent = '›';
+		const subtitle = document.createElement('small');
+		subtitle.textContent = labels().subtitle;
+		header.append(parent, separator, subtitle);
+
 		const nav = document.createElement('nav');
-		nav.id = 'blog-context-subnav';
 		nav.className = 'blog-context-subnav';
 		nav.setAttribute('aria-label', language() === 'ko' ? '일본어 학습 하위 메뉴' : '日本語学習サブメニュー');
-
-		const title = document.createElement('span');
-		title.className = 'blog-context-subnav-title';
-		title.textContent = labels().title;
-
 		const list = document.createElement('div');
 		list.className = 'blog-context-subnav-list';
 		createSubmenuLinks(list, 'blog-context-subnav-link');
-
-		nav.append(title, list);
-		heading.insertAdjacentElement('afterend', nav);
+		nav.appendChild(list);
+		wrap.append(header, nav);
+		heading.insertAdjacentElement('afterend', wrap);
 	}
 
 	function clearCloseTimer() {
@@ -202,13 +213,23 @@
 
 		const title = document.createElement('div');
 		title.className = 'blog-sidebar-flyout-title';
+		const icon = document.createElement('span');
+		icon.className = 'blog-sidebar-flyout-parent-icon';
+		icon.setAttribute('aria-hidden', 'true');
+		icon.textContent = 'J';
+		const titleCopy = document.createElement('div');
 		const titleText = document.createElement('strong');
 		titleText.textContent = labels().title;
-		const arrow = document.createElement('span');
-		arrow.textContent = '›';
-		title.append(titleText, arrow);
-		flyout.appendChild(title);
-		createSubmenuLinks(flyout, 'blog-sidebar-flyout-link');
+		const titleMeta = document.createElement('small');
+		titleMeta.textContent = labels().subtitle;
+		titleCopy.append(titleText, titleMeta);
+		title.append(icon, titleCopy);
+
+		const links = document.createElement('nav');
+		links.className = 'blog-sidebar-flyout-menu';
+		links.setAttribute('aria-label', labels().subtitle);
+		createSubmenuLinks(links, 'blog-sidebar-flyout-link');
+		flyout.append(title, links);
 		document.body.appendChild(flyout);
 
 		parentLink.addEventListener('mouseenter', showFlyout);
