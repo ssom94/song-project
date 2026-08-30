@@ -98,6 +98,9 @@
 					for (const level of taxonomy.levels ?? []) {
 						if (Number(level.wordCount ?? 0) > 0) appendOption(levelSelect, level.code, level.code);
 					}
+					if (Number(taxonomy.unsetLevel?.wordCount ?? 0) > 0) {
+						appendOption(levelSelect, 'UNSET', language() === 'ko' ? '미지정' : '未設定');
+					}
 
 					const categorySelect = selects[1];
 					resetSelect(categorySelect, language() === 'ko' ? '분류: 전체' : '分類: すべて');
