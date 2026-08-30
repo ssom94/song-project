@@ -406,3 +406,10 @@
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
+
+if (!document.querySelector('script[data-japanese-timestamps]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/admin/japanese-timestamps.js';
+	script.dataset.japaneseTimestamps = 'true';
+	document.body.appendChild(script);
+}
