@@ -1,3 +1,4 @@
+import { getAuthenticatedAdminSession } from '../../auth/session';
 import { handleImportAdminJapaneseWords } from './import';
 import {
 	ensureJapaneseWordHistorySchema,
@@ -72,6 +73,8 @@ async function recordImportHistory(
 }
 
 export async function handleImportAdminJapaneseWordsWithHistory(request: Request, env: Env): Promise<Response> {
+	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
+	if (!session) return Response.json({ ok: false, error: 'UNAUTHORIZED' }, { status: 401, headers: { 'Cache-Control': 'no-store' } });
 	await ensureJapaneseWordHistorySchema(env.song_project_db);
 	const payload = await readPayload(request);
 	const fileName = cleanFileName(payload.fileName);
@@ -81,14 +84,7 @@ export async function handleImportAdminJapaneseWordsWithHistory(request: Request
 	try {
 		const result = await response.clone().json() as { results?: unknown };
 		const rows = Array.isArray(result?.results) ? result.results as ImportResultItem[] : [];
-		const sessionAdmin = await env.song_project_db.prepare(`
-			SELECT id
-			FROM admins
-			WHERE status = 'active'
-			ORDER BY id ASC
-			LIMIT 1
-		`).first<{ id: number }>();
-		await recordImportHistory(env, sessionAdmin?.id ?? null, fileName, rows);
+		await recordImportHistory(env, session.adminId, fileName, rows);
 	} catch (error) {
 		console.warn('Japanese import succeeded but provenance history could not be recorded', error);
 	}
