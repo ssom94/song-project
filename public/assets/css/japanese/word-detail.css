@@ -1,0 +1,295 @@
+.jp-word-detail-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 280px;
+	gap: 14px;
+}
+
+.jp-word-detail-main,
+.jp-word-detail-side {
+	min-width: 0;
+}
+
+.jp-word-detail-hero {
+	padding: 26px;
+	border: 1px solid #dfe5ed;
+	border-radius: 18px;
+	background: linear-gradient(145deg, #ffffff 0%, #f7f9ff 100%);
+	box-shadow: 0 10px 30px rgba(31, 48, 78, 0.04);
+}
+
+.jp-word-detail-topline {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 18px;
+}
+
+.jp-word-detail-word {
+	margin: 0;
+	color: #1f2d42;
+	font-size: clamp(42px, 7vw, 68px);
+	font-weight: 850;
+	line-height: 1.12;
+	letter-spacing: 0.02em;
+	word-break: break-word;
+}
+
+.jp-word-detail-reading {
+	margin: 8px 0 0;
+	color: #66758a;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.jp-word-detail-level {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 48px;
+	height: 30px;
+	padding: 0 10px;
+	border: 1px solid #cfdcf8;
+	border-radius: 999px;
+	background: #eef3ff;
+	color: #315cae;
+	font-size: 11px;
+	font-weight: 900;
+}
+
+.jp-word-detail-taxonomy {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	margin-top: 22px;
+	padding-top: 18px;
+	border-top: 1px solid #e5eaf1;
+}
+
+.jp-word-detail-chip {
+	display: inline-flex;
+	align-items: center;
+	min-height: 28px;
+	padding: 0 9px;
+	border: 1px solid #dce4ef;
+	border-radius: 999px;
+	background: #fff;
+	color: #607087;
+	font-size: 10px;
+	font-weight: 800;
+}
+
+.jp-word-detail-chip.is-part {
+	border-color: #cfdcf8;
+	background: #f5f8ff;
+	color: #315ea9;
+}
+
+.jp-word-detail-section {
+	margin-top: 14px;
+	padding: 22px;
+	border: 1px solid #dfe5ed;
+	border-radius: 15px;
+	background: #fff;
+}
+
+.jp-word-detail-section-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.jp-word-detail-section-heading h2 {
+	margin: 0;
+	color: #2d3a4e;
+	font-size: 15px;
+}
+
+.jp-word-detail-section-heading span {
+	color: #98a2b3;
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+}
+
+.jp-word-detail-meanings {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.jp-word-detail-meaning {
+	padding: 15px;
+	border: 1px solid #e5e9ef;
+	border-radius: 11px;
+	background: #fbfcfe;
+}
+
+.jp-word-detail-meaning span {
+	display: block;
+	margin-bottom: 7px;
+	color: #8a96a6;
+	font-size: 9px;
+	font-weight: 850;
+}
+
+.jp-word-detail-meaning p {
+	margin: 0;
+	color: #344156;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.75;
+	white-space: pre-wrap;
+}
+
+.jp-word-detail-example {
+	padding: 18px;
+	border: 1px solid #e3e8ef;
+	border-radius: 12px;
+	background: #fbfcfe;
+}
+
+.jp-word-detail-example-ja {
+	margin: 0;
+	color: #263449;
+	font-size: 18px;
+	font-weight: 750;
+	line-height: 1.8;
+}
+
+.jp-word-detail-example-reading,
+.jp-word-detail-example-ko {
+	margin: 8px 0 0;
+	color: #7d899a;
+	font-size: 11px;
+	line-height: 1.75;
+}
+
+.jp-word-detail-example-ko {
+	padding-top: 10px;
+	border-top: 1px solid #e7ebf1;
+	color: #59687c;
+}
+
+.jp-word-detail-side-card {
+	padding: 18px;
+	border: 1px solid #dfe5ed;
+	border-radius: 15px;
+	background: #fff;
+}
+
+.jp-word-detail-side-card + .jp-word-detail-side-card {
+	margin-top: 14px;
+}
+
+.jp-word-detail-side-card h2 {
+	margin: 0 0 12px;
+	color: #344156;
+	font-size: 13px;
+}
+
+.jp-word-detail-side-card p {
+	margin: 0;
+	color: #8995a6;
+	font-size: 10px;
+	line-height: 1.65;
+}
+
+.jp-word-detail-study-list {
+	display: grid;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.jp-word-detail-study-list div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 10px 11px;
+	border: 1px solid #e5e9ef;
+	border-radius: 10px;
+	background: #fbfcfe;
+}
+
+.jp-word-detail-study-list span {
+	color: #69778b;
+	font-size: 10px;
+	font-weight: 750;
+}
+
+.jp-word-detail-study-list b {
+	color: #1f56d8;
+	font-size: 9px;
+}
+
+.jp-word-detail-actions {
+	display: grid;
+	gap: 8px;
+	margin-top: 14px;
+}
+
+.jp-word-detail-actions a {
+	width: 100%;
+}
+
+.jp-word-detail-state {
+	padding: 50px 20px;
+	border: 1px dashed #d8e0ea;
+	border-radius: 15px;
+	background: #fff;
+	color: #8793a4;
+	font-size: 11px;
+	line-height: 1.7;
+	text-align: center;
+}
+
+.jp-word-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+.jp-word-link:hover strong {
+	color: #1f56d8;
+}
+
+@media (max-width: 900px) {
+	.jp-word-detail-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.jp-word-detail-side {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	.jp-word-detail-side-card + .jp-word-detail-side-card {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 640px) {
+	.jp-word-detail-hero {
+		padding: 20px;
+	}
+
+	.jp-word-detail-topline {
+		align-items: flex-start;
+	}
+
+	.jp-word-detail-word {
+		font-size: clamp(38px, 15vw, 54px);
+	}
+
+	.jp-word-detail-meanings,
+	.jp-word-detail-side {
+		grid-template-columns: 1fr;
+	}
+
+	.jp-word-detail-section {
+		padding: 17px;
+	}
+}
