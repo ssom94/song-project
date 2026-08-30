@@ -53,6 +53,10 @@ function parseCategory(request: Request): string {
 	return (new URL(request.url).searchParams.get('category') ?? '').trim().slice(0, 120);
 }
 
+function requestedManageView(request: Request): boolean {
+	return new URL(request.url).searchParams.get('manage') === '1';
+}
+
 function basePostCte(): string {
 	return `
 		WITH visible_posts AS (
@@ -110,7 +114,7 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 
 	try {
 		const session = await getAuthenticatedAdminSession(request, env.song_project_db);
-		const adminView = Boolean(session);
+		const adminView = Boolean(session) && requestedManageView(request);
 		const adminFlag = adminView ? 1 : 0;
 
 		const countResult = await env.song_project_db
