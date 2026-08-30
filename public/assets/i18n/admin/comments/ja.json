@@ -20,5 +20,11 @@
   "statusSpam": "スパム",
   "hide": "非表示",
   "show": "公開",
-  "restore": "復元"
+  "restore": "復元",
+  "markSpam": "スパム",
+  "delete": "削除",
+  "deleteTitle": "コメント削除",
+  "deleteConfirm": "このコメントを削除しますか？削除すると公開画面とコメント管理一覧から表示されなくなります。",
+  "empty": "コメントはありません。",
+  "loadingComments": "コメントを読み込んでいます…"
 }
