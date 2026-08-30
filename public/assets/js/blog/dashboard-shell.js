@@ -1,4 +1,6 @@
 (() => {
+	const SIDEBAR_COLLAPSE_KEY = 'song_public_sidebar_collapsed';
+
 	function byId(id) {
 		return document.getElementById(id);
 	}
@@ -30,6 +32,56 @@
 
 	function currentLanguage() {
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
+	}
+
+	function readSidebarCollapsed() {
+		try {
+			return localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === 'true';
+		} catch {
+			return false;
+		}
+	}
+
+	function syncSidebarCollapseToggle() {
+		const button = byId('blog-sidebar-collapse-toggle');
+		if (!(button instanceof HTMLButtonElement)) return;
+		const collapsed = document.body.classList.contains('blog-sidebar-collapsed');
+		const korean = currentLanguage() === 'ko';
+		button.textContent = collapsed ? '>' : '<';
+		button.setAttribute('aria-expanded', String(!collapsed));
+		button.setAttribute('aria-label', collapsed
+			? (korean ? '메뉴 펼치기' : 'メニューを開く')
+			: (korean ? '메뉴 접기' : 'メニューを閉じる'));
+		button.title = button.getAttribute('aria-label') ?? '';
+	}
+
+	function setSidebarCollapsed(collapsed, persist = true) {
+		document.body.classList.toggle('blog-sidebar-collapsed', collapsed);
+		if (persist) {
+			try {
+				localStorage.setItem(SIDEBAR_COLLAPSE_KEY, String(collapsed));
+			} catch {
+				// Ignore storage errors; the current page state still works.
+			}
+		}
+		syncSidebarCollapseToggle();
+	}
+
+	function mountSidebarCollapseToggle() {
+		if (!document.querySelector('.blog-dashboard-sidebar')) return;
+		let button = byId('blog-sidebar-collapse-toggle');
+		if (!(button instanceof HTMLButtonElement)) {
+			button = document.createElement('button');
+			button.id = 'blog-sidebar-collapse-toggle';
+			button.className = 'blog-sidebar-collapse-toggle';
+			button.type = 'button';
+			button.setAttribute('aria-controls', 'blog-dashboard-sidebar');
+			document.body.appendChild(button);
+			button.addEventListener('click', () => {
+				setSidebarCollapsed(!document.body.classList.contains('blog-sidebar-collapsed'));
+			});
+		}
+		setSidebarCollapsed(readSidebarCollapsed(), false);
 	}
 
 	function readStoredStudyMode() {
@@ -123,6 +175,7 @@
 		}
 		syncLearningMenu();
 		updateAdminAccessLabel();
+		syncSidebarCollapseToggle();
 	}
 
 	function renderCategories(posts, language, selectedCategory = '') {
@@ -158,6 +211,7 @@
 	}
 
 	function initialize() {
+		mountSidebarCollapseToggle();
 		byId('blog-dashboard-menu-toggle')?.addEventListener('click', toggleSidebar);
 		byId('blog-dashboard-backdrop')?.addEventListener('click', closeSidebar);
 		document.querySelector('.blog-dashboard-sidebar')?.addEventListener('click', (event) => {
@@ -177,6 +231,7 @@
 		closeSidebar,
 		renderCategories,
 		syncHomeModuleLinks,
+		setSidebarCollapsed,
 	};
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
