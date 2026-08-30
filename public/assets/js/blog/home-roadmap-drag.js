@@ -67,7 +67,6 @@
 				? heading.firstElementChild.getBoundingClientRect()
 				: headingRect;
 
-			// Keep the floating card in the open right-hand area so it does not sweep across the title.
 			const arenaLeft = Math.min(
 				headingRect.right - baseRect.width - EDGE_MARGIN,
 				Math.max(textBlock.right + 24, headingRect.left + headingRect.width * 0.48),
@@ -186,3 +185,10 @@
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
+
+if (!document.querySelector('script[data-home-countdown-manager]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/blog/home-countdown.js';
+	script.dataset.homeCountdownManager = 'true';
+	document.body.appendChild(script);
+}
