@@ -65,6 +65,15 @@
 		};
 	}
 
+	function wordChoice(word) {
+		const value = String(word?.word ?? '').trim();
+		const reading = String(word?.reading ?? '').trim();
+		return {
+			value,
+			label: reading && normalize(reading) !== normalize(value) ? `${value}（${reading}）` : value,
+		};
+	}
+
 	function meaningChoices(word, allWords) {
 		const answers = meaningAnswers(word?.meaningKo);
 		if (!answers.length) return null;
@@ -85,14 +94,14 @@
 	}
 
 	function sentenceChoices(word, allWords) {
-		const correct = String(word?.word ?? '').trim();
-		if (!correct) return null;
+		const correct = wordChoice(word);
+		if (!correct.value) return null;
 		const distractors = [];
 		for (const other of shuffled(allWords)) {
 			if (Number(other?.id) === Number(word?.id)) continue;
-			const candidate = String(other?.word ?? '').trim();
-			if (!candidate || normalize(candidate) === normalize(correct)) continue;
-			if (distractors.some((value) => normalize(value) === normalize(candidate))) continue;
+			const candidate = wordChoice(other);
+			if (!candidate.value || normalize(candidate.value) === normalize(correct.value)) continue;
+			if (distractors.some((item) => normalize(item.value) === normalize(candidate.value))) continue;
 			distractors.push(candidate);
 			if (distractors.length === 3) break;
 		}
@@ -104,32 +113,14 @@
 		if (!word?.id || !word?.word || !word.reading) return null;
 		const answers = unique([word.reading]);
 		if (!answers.length) return null;
-		return {
-			...commonQuestion(word),
-			key: `${word.id}:reading:input`,
-			type: 'reading',
-			answerMode: 'input',
-			prompt: word.word,
-			answers,
-			correct: answers.join(' / '),
-			choices: [],
-		};
+		return { ...commonQuestion(word), key: `${word.id}:reading:input`, type: 'reading', answerMode: 'input', prompt: word.word, answers, correct: answers.join(' / '), choices: [] };
 	}
 
 	function inputMeaning(word) {
 		if (!word?.id || !word?.word) return null;
 		const answers = meaningAnswers(word.meaningKo);
 		if (!answers.length) return null;
-		return {
-			...commonQuestion(word),
-			key: `${word.id}:meaning:input`,
-			type: 'meaning',
-			answerMode: 'input',
-			prompt: word.word,
-			answers,
-			correct: answers.join(' / '),
-			choices: [],
-		};
+		return { ...commonQuestion(word), key: `${word.id}:meaning:input`, type: 'meaning', answerMode: 'input', prompt: word.word, answers, correct: answers.join(' / '), choices: [] };
 	}
 
 	function choiceMeaning(word, allWords) {
@@ -137,17 +128,7 @@
 		const answers = meaningAnswers(word.meaningKo);
 		const choiceSet = meaningChoices(word, allWords);
 		if (!answers.length || !choiceSet) return null;
-		return {
-			...commonQuestion(word),
-			key: `${word.id}:meaning:choice`,
-			type: 'meaning',
-			answerMode: 'choice',
-			prompt: word.word,
-			answers,
-			correct: answers.join(' / '),
-			choiceCorrect: choiceSet.correct,
-			choices: choiceSet.choices,
-		};
+		return { ...commonQuestion(word), key: `${word.id}:meaning:choice`, type: 'meaning', answerMode: 'choice', prompt: word.word, answers, correct: answers.join(' / '), choiceCorrect: choiceSet.correct, choices: choiceSet.choices };
 	}
 
 	function choiceSentence(word, allWords) {
@@ -156,16 +137,7 @@
 		const choices = sentenceChoices(word, allWords);
 		if (!prompt || !choices) return null;
 		const answers = unique([word.word, word.reading]);
-		return {
-			...commonQuestion(word),
-			key: `${word.id}:sentence:choice`,
-			type: 'sentence',
-			answerMode: 'choice',
-			prompt,
-			answers,
-			correct: answers.join(' / '),
-			choices,
-		};
+		return { ...commonQuestion(word), key: `${word.id}:sentence:choice`, type: 'sentence', answerMode: 'choice', prompt, answers, correct: answers.join(' / '), choices };
 	}
 
 	function normalizeMode(setup = {}) {
@@ -177,9 +149,7 @@
 	}
 
 	function allowedTypes(setup, mode) {
-		const requested = Array.isArray(setup.types)
-			? setup.types.filter((type) => ['reading', 'meaning', 'sentence'].includes(type))
-			: [];
+		const requested = Array.isArray(setup.types) ? setup.types.filter((type) => ['reading', 'meaning', 'sentence'].includes(type)) : [];
 		if (requested.length) return requested;
 		if (mode === 'choice') return ['meaning'];
 		if (mode === 'sentence') return ['sentence'];
@@ -193,20 +163,16 @@
 		const pool = [];
 		for (const word of words) {
 			if ((mode === 'input' || mode === 'mixed') && types.includes('reading')) {
-				const question = inputReading(word);
-				if (question) pool.push(question);
+				const question = inputReading(word); if (question) pool.push(question);
 			}
 			if ((mode === 'input' || mode === 'mixed') && types.includes('meaning')) {
-				const question = inputMeaning(word);
-				if (question) pool.push(question);
+				const question = inputMeaning(word); if (question) pool.push(question);
 			}
 			if ((mode === 'choice' || mode === 'mixed') && types.includes('meaning')) {
-				const question = choiceMeaning(word, words);
-				if (question) pool.push(question);
+				const question = choiceMeaning(word, words); if (question) pool.push(question);
 			}
 			if ((mode === 'sentence' || mode === 'mixed') && types.includes('sentence')) {
-				const question = choiceSentence(word, words);
-				if (question) pool.push(question);
+				const question = choiceSentence(word, words); if (question) pool.push(question);
 			}
 		}
 		return pool;
@@ -215,9 +181,7 @@
 	function applyPriority(pool, setup = {}) {
 		const randomized = shuffled(pool);
 		const priority = setup.priority || (setup.order === 'weak' ? 'wrong' : setup.order);
-		if (priority === 'wrong' || priority === 'weak') {
-			return randomized.sort((a, b) => Number(b.wrongCount || 0) - Number(a.wrongCount || 0));
-		}
+		if (priority === 'wrong' || priority === 'weak') return randomized.sort((a, b) => Number(b.wrongCount || 0) - Number(a.wrongCount || 0));
 		if (priority === 'new') {
 			return randomized.sort((a, b) => {
 				const aNew = a.previousLearningState === 'unlearned' && Number(a.wrongCount || 0) === 0 ? 1 : 0;
@@ -246,25 +210,15 @@
 	function buildQuestions(words, setup = {}) {
 		const activeWords = Array.isArray(words) ? words.filter((word) => word?.id && word?.word) : [];
 		const retryItems = Array.isArray(setup.retryItems) ? setup.retryItems : null;
-		const pool = retryItems?.length
-			? buildRetryQuestions(activeWords, retryItems, setup)
-			: applyPriority(buildCandidates(activeWords, setup), setup);
+		const pool = retryItems?.length ? buildRetryQuestions(activeWords, retryItems, setup) : applyPriority(buildCandidates(activeWords, setup), setup);
 		const requested = Math.max(1, Math.min(200, Number(setup.count) || 10));
 		return pool.slice(0, Math.min(requested, pool.length));
 	}
 
 	function isCorrect(question, answer) {
 		const value = normalize(answer);
-		return Boolean(value) && Array.isArray(question?.answers)
-			&& question.answers.some((expected) => normalize(expected) === value);
+		return Boolean(value) && Array.isArray(question?.answers) && question.answers.some((expected) => normalize(expected) === value);
 	}
 
-	window.JapaneseQuizEngine = {
-		normalize,
-		meaningAnswers,
-		shuffled,
-		buildQuestions,
-		isCorrect,
-		normalizeMode,
-	};
+	window.JapaneseQuizEngine = { normalize, meaningAnswers, shuffled, buildQuestions, isCorrect, normalizeMode };
 })();
