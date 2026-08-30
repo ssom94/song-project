@@ -246,3 +246,77 @@
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
+
+(() => {
+	const STYLE_ID = 'schedule-list-add-compact-style';
+
+	function installStyle() {
+		if (document.getElementById(STYLE_ID)) return;
+		const style = document.createElement('style');
+		style.id = STYLE_ID;
+		style.textContent = `
+			.schedule-list-head .schedule-manager-add.schedule-list-add-compact {
+				width: 31px;
+				height: 31px;
+				min-height: 31px;
+				padding: 0;
+				margin-right: 2px;
+				border: 1px solid #d8e2f0;
+				border-radius: 9px;
+				background: #fff;
+				box-shadow: none;
+				color: #1f56d8;
+				font-size: 20px;
+				font-weight: 500;
+				line-height: 1;
+			}
+			.schedule-list-head .schedule-manager-add.schedule-list-add-compact:hover {
+				border-color: #9fb6dd;
+				background: #f3f6ff;
+				color: #1849bd;
+			}
+			.schedule-manager-actions:empty { display: none !important; }
+		`;
+		document.head.appendChild(style);
+	}
+
+	function moveButtons() {
+		document.querySelectorAll('[data-schedule-manager]').forEach((manager) => {
+			const header = manager.querySelector('.schedule-list-head');
+			const button = manager.querySelector('.schedule-manager-add');
+			if (!(header instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
+
+			if (!button.dataset.compactAddLabel) {
+				button.dataset.compactAddLabel = button.textContent?.trim() || 'Add schedule';
+			}
+			const label = button.dataset.compactAddLabel.replace(/^\+\s*/, '');
+			button.textContent = '+';
+			button.title = label;
+			button.setAttribute('aria-label', label);
+			button.classList.add('schedule-list-add-compact');
+			if (button.parentElement !== header) header.appendChild(button);
+
+			const actions = manager.querySelector('.schedule-manager-actions');
+			if (actions instanceof HTMLElement && actions.childElementCount === 0) actions.remove();
+		});
+	}
+
+	let queued = false;
+	const observer = new MutationObserver(() => {
+		if (queued) return;
+		queued = true;
+		queueMicrotask(() => {
+			queued = false;
+			moveButtons();
+		});
+	});
+
+	function initialize() {
+		installStyle();
+		moveButtons();
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
+
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
+	else initialize();
+})();
