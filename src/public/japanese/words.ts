@@ -38,7 +38,7 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 	const requestedLimit = Number(url.searchParams.get('limit') ?? '100');
 	const limit = Number.isSafeInteger(requestedLimit) ? Math.min(500, Math.max(1, requestedLimit)) : 100;
 
-	if (jlpt && !['N1', 'N2', 'N3', 'N4', 'N5'].includes(jlpt)) {
+	if (jlpt && !['N1', 'N2', 'N3', 'N4', 'N5', 'UNSET'].includes(jlpt)) {
 		return json({ ok: false, error: 'INVALID_JLPT' }, 400);
 	}
 
@@ -97,7 +97,7 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 				LEFT JOIN parts_of_speech AS pos ON pos.id = jwpos.part_of_speech_id AND pos.deleted_at IS NULL
 				WHERE jw.deleted_at IS NULL
 					AND (?1 = '' OR jw.word LIKE '%' || ?1 || '%' OR COALESCE(jw.reading, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ko, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ja, '') LIKE '%' || ?1 || '%')
-					AND (?2 = '' OR jl.code = ?2)
+					AND (?2 = '' OR (?2 = 'UNSET' AND jw.jlpt_level_id IS NULL) OR jl.code = ?2)
 					AND (?3 = 0 OR EXISTS (
 						SELECT 1 FROM japanese_word_categories AS fwc
 						WHERE fwc.word_id = jw.id AND fwc.category_id = ?3
