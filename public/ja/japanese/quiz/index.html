@@ -1,10 +1,72 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="robots" content="index,follow" /><title>ランダムクイズ | SONG</title><link rel="stylesheet" href="/assets/css/common.css" /><link rel="stylesheet" href="/assets/css/blog/common.css" /><link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" /><link rel="stylesheet" href="/assets/css/japanese/common.css" /><link rel="stylesheet" href="/assets/css/japanese/quiz.css" /></head>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>ランダムクイズ | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/quiz.css" />
+</head>
 <body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ja">
-<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><span class="is-active">日本語</span><span>/</span><a href="/ko/japanese/quiz/">한국어</a></div></header>
-<div class="blog-dashboard-shell"><aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">Menu</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">Home</a><a class="blog-sidebar-link" href="/ja/posts/">投稿</a><a class="blog-sidebar-link is-active" href="/ja/japanese/">日本語学習</a><a class="blog-sidebar-link" href="/ja/skill-sheet/">Skill Sheet</a><a class="blog-sidebar-link" href="/ja/career/">Career History</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">Japanese</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ja/japanese/">学習ホーム</a><a class="blog-sidebar-link" href="/ja/japanese/words/">単語一覧</a><a class="blog-sidebar-link is-active" href="/ja/japanese/quiz/">ランダムクイズ</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/result/">学習結果</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">公開されたカテゴリーはまだありません。</p></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside><button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
-<main class="blog-dashboard-main"><div class="blog-dashboard-content jp-dashboard-content"><section class="jp-page-heading"><div><p class="jp-eyebrow">RANDOM QUIZ</p><h1>クイズ設定</h1><p>問題形式、JLPT、学習分類、品詞、問題数を選んでランダムに出題します。</p></div><a class="jp-secondary-button" href="/ja/japanese/">学習ホーム</a></section>
-<section class="jp-card"><div class="jp-card-heading"><h2>問題形式</h2><span>複数選択可</span></div><div class="jp-quiz-type-grid"><label class="jp-quiz-option"><input type="checkbox" data-quiz-type="reading" checked /><strong>単語 → ひらがな</strong><small>表示された単語の読み方を入力します。</small></label><label class="jp-quiz-option"><input type="checkbox" data-quiz-type="meaning" checked /><strong>単語 → 韓国語の意味</strong><small>日本語の単語を見て韓国語の意味を答えます。</small></label><label class="jp-quiz-option"><input type="checkbox" data-quiz-type="sentence" checked /><strong>例文の空欄 → 単語</strong><small>例文内の空欄に入る単語を答えます。</small></label></div></section>
-<section class="jp-card"><div class="jp-card-heading"><h2>出題範囲</h2><span>Filter</span></div><div class="jp-form-grid"><label class="jp-form-field"><span>JLPT</span><select id="quiz-jlpt"><option value="">すべて</option><option value="N1">N1</option><option value="N2">N2</option><option value="N3">N3</option><option value="N4">N4</option><option value="N5">N5</option></select></label><label class="jp-form-field"><span>学習分類</span><select id="quiz-category"><option value="">すべて</option></select></label><label class="jp-form-field"><span>品詞</span><select id="quiz-part"><option value="">すべて</option></select></label><label class="jp-form-field"><span>問題数</span><select id="quiz-count"><option value="10">10問</option><option value="20">20問</option><option value="30">30問</option><option value="50">50問</option></select></label><label class="jp-form-field"><span>回答方法</span><select id="quiz-answer-mode"><option value="input">直接入力</option><option value="choice">4択</option><option value="random">ランダム</option></select></label><label class="jp-form-field"><span>出題優先</span><select id="quiz-priority"><option value="random">完全ランダム</option><option value="wrong">誤答を優先</option><option value="new">新規単語を優先</option></select></label></div></section>
-<section class="jp-card"><div class="jp-card-heading"><h2>開始前の確認</h2><span>Preview</span></div><div class="jp-simple-list"><div class="jp-simple-row"><div><strong>問題形式</strong><small>選択した問題形式</small></div><span id="quiz-preview-types">3種</span></div><div class="jp-simple-row"><div><strong>範囲</strong><small>JLPT / 分類 / 品詞</small></div><span id="quiz-preview-scope">すべて</span></div><div class="jp-simple-row"><div><strong>問題数</strong><small>設定条件からランダム選択</small></div><span id="quiz-preview-count">10問</span></div></div><p id="quiz-setup-message" class="jp-quiz-setup-message" hidden></p><div class="jp-inline-actions"><button id="quiz-start" class="jp-primary-button" type="button">クイズ開始</button><button id="quiz-start-wrong" class="jp-secondary-button" type="button">保存済み誤答だけで開始</button></div></section>
-</div></main></div><script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/japanese/common.js"></script><script src="/assets/js/japanese/quiz-setup.js"></script></body></html>
+<header class="blog-dashboard-topbar">
+	<div class="blog-dashboard-top-actions">
+		<button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button>
+		<a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a>
+	</div>
+	<div class="blog-dashboard-language"><span class="is-active">日本語</span><span>/</span><a href="/ko/japanese/quiz/">한국어</a></div>
+</header>
+<div class="blog-dashboard-shell">
+	<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Menu</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">Home</a><a class="blog-sidebar-link" href="/ja/posts/">投稿</a><a class="blog-sidebar-link is-active" href="/ja/japanese/">日本語学習</a><a class="blog-sidebar-link" href="/ja/skill-sheet/">Skill Sheet</a><a class="blog-sidebar-link" href="/ja/career/">Career History</a></nav></section>
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Japanese</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ja/japanese/">学習ホーム</a><a class="blog-sidebar-link" href="/ja/japanese/words/">単語一覧</a><a class="blog-sidebar-link is-active" href="/ja/japanese/quiz/">ランダムクイズ</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/result/">学習結果</a></nav></section>
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">公開されたカテゴリーはまだありません。</p></section>
+		<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
+	</aside>
+	<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
+	<main class="blog-dashboard-main">
+		<div class="blog-dashboard-content jp-dashboard-content">
+			<section class="jp-page-heading"><div><p class="jp-eyebrow">RANDOM QUIZ</p><h1>クイズ設定</h1><p>出題方式、JLPT、学習分類、品詞、問題数を選んでクイズを開始します。</p></div><a class="jp-secondary-button" href="/ja/japanese/">学習ホーム</a></section>
+
+			<section class="jp-card">
+				<div class="jp-card-heading"><h2>出題方式</h2><span>1つ選択</span></div>
+				<div class="jp-quiz-mode-grid">
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="input" /><strong>記述式</strong><small>単語の読み方、または韓国語の意味を直接入力します。</small></label>
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="choice" /><strong>4択</strong><small>日本語の単語を見て韓国語の意味を選びます。他の登録単語の意味3つを誤答候補に使います。</small></label>
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="sentence" /><strong>例文穴埋め</strong><small>登録された日本語例文から対象単語を隠し、直接入力します。</small></label>
+					<label class="jp-quiz-option"><input type="radio" name="quiz-mode" data-quiz-mode="mixed" checked /><strong>すべて混合</strong><small>記述式、4択、例文穴埋めをランダムに混ぜて出題します。</small></label>
+				</div>
+			</section>
+
+			<section class="jp-card">
+				<div class="jp-card-heading"><h2>出題範囲</h2><span>Filter</span></div>
+				<div class="jp-form-grid">
+					<label class="jp-form-field"><span>JLPT</span><select id="quiz-jlpt"><option value="">すべて</option><option value="N1">N1</option><option value="N2">N2</option><option value="N3">N3</option><option value="N4">N4</option><option value="N5">N5</option></select></label>
+					<label class="jp-form-field"><span>学習分類</span><select id="quiz-category"><option value="">すべて</option></select></label>
+					<label class="jp-form-field"><span>品詞</span><select id="quiz-part"><option value="">すべて</option></select></label>
+					<label class="jp-form-field"><span>問題数</span><select id="quiz-count"><option value="10">10問</option><option value="20">20問</option><option value="30">30問</option><option value="50">50問</option></select></label>
+					<label class="jp-form-field"><span>出題優先</span><select id="quiz-priority"><option value="random">完全ランダム</option><option value="wrong">誤答を優先</option><option value="new">新規単語を優先</option></select></label>
+				</div>
+			</section>
+
+			<section class="jp-card">
+				<div class="jp-card-heading"><h2>開始前の確認</h2><span>Preview</span></div>
+				<div class="jp-simple-list">
+					<div class="jp-simple-row"><div><strong>出題方式</strong><small>選択したクイズ方式</small></div><span id="quiz-preview-types">すべて混合</span></div>
+					<div class="jp-simple-row"><div><strong>範囲</strong><small>JLPT / 分類 / 品詞</small></div><span id="quiz-preview-scope">すべて</span></div>
+					<div class="jp-simple-row"><div><strong>問題数</strong><small>設定条件からランダム選択</small></div><span id="quiz-preview-count">10問</span></div>
+				</div>
+				<p id="quiz-setup-message" class="jp-quiz-setup-message" hidden></p>
+				<div class="jp-inline-actions"><button id="quiz-start" class="jp-primary-button" type="button">クイズ開始</button><button id="quiz-start-wrong" class="jp-secondary-button" type="button">保存済み誤答だけで開始</button></div>
+			</section>
+		</div>
+	</main>
+</div>
+<script src="/assets/js/blog/dashboard-shell.js"></script>
+<script src="/assets/js/japanese/common.js"></script>
+<script src="/assets/js/japanese/quiz-setup.js"></script>
+</body>
+</html>
