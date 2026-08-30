@@ -20,5 +20,11 @@
   "statusSpam": "스팸",
   "hide": "숨김",
   "show": "공개",
-  "restore": "복원"
+  "restore": "복원",
+  "markSpam": "스팸",
+  "delete": "삭제",
+  "deleteTitle": "댓글 삭제",
+  "deleteConfirm": "이 댓글을 삭제하시겠습니까? 삭제한 댓글은 공개 화면과 댓글 관리 목록에서 사라집니다.",
+  "empty": "등록된 댓글이 없습니다.",
+  "loadingComments": "댓글을 불러오는 중입니다…"
 }
