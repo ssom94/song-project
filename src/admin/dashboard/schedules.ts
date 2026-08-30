@@ -1,5 +1,11 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
 import { ensureDashboardSchedulesSchema } from '../../dashboard/schedules-schema';
+import {
+	handleCreateAdminCalendarSchedule,
+	handleDeleteAdminCalendarSchedule,
+	handleListAdminCalendarSchedules,
+	handleUpdateAdminCalendarSchedule,
+} from '../calendar-schedules';
 
 interface ScheduleRow {
 	id: number;
@@ -18,6 +24,10 @@ function json(data: unknown, status = 200): Response {
 function isSameOrigin(request: Request): boolean {
 	const origin = request.headers.get('Origin');
 	return !origin || origin === new URL(request.url).origin;
+}
+
+function isCalendarRequest(request: Request): boolean {
+	return new URL(request.url).searchParams.get('kind') === 'calendar';
 }
 
 function parseId(url: URL): number | null {
@@ -53,6 +63,7 @@ async function prepareScheduleDb(env: Env): Promise<void> {
 }
 
 export async function handleListAdminDashboardSchedules(request: Request, env: Env): Promise<Response> {
+	if (isCalendarRequest(request)) return handleListAdminCalendarSchedules(request, env);
 	const session = await requireAdmin(request, env);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
@@ -71,6 +82,7 @@ export async function handleListAdminDashboardSchedules(request: Request, env: E
 }
 
 export async function handleCreateAdminDashboardSchedule(request: Request, env: Env): Promise<Response> {
+	if (isCalendarRequest(request)) return handleCreateAdminCalendarSchedule(request, env);
 	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
 	const session = await requireAdmin(request, env);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
@@ -105,6 +117,7 @@ export async function handleCreateAdminDashboardSchedule(request: Request, env: 
 }
 
 export async function handleUpdateAdminDashboardSchedule(request: Request, env: Env): Promise<Response> {
+	if (isCalendarRequest(request)) return handleUpdateAdminCalendarSchedule(request, env);
 	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
 	const session = await requireAdmin(request, env);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
@@ -148,6 +161,7 @@ export async function handleUpdateAdminDashboardSchedule(request: Request, env: 
 }
 
 export async function handleDeleteAdminDashboardSchedule(request: Request, env: Env): Promise<Response> {
+	if (isCalendarRequest(request)) return handleDeleteAdminCalendarSchedule(request, env);
 	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
 	const session = await requireAdmin(request, env);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
