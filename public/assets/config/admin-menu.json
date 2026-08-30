@@ -6,5 +6,6 @@
   { "key": "categoriesTags", "href": "/admin/categories/" },
   { "key": "japaneseLearning", "href": "/admin/japanese/" },
   { "key": "protectedDocuments", "href": "/admin/documents/" },
-  { "key": "accessCodes", "href": "/admin/access-codes/" }
+  { "key": "accessCodes", "href": "/admin/access-codes/" },
+  { "key": "adminAccounts", "href": "/admin/accounts/", "labelJa": "管理者アカウント", "labelKo": "관리자 계정" }
 ]
