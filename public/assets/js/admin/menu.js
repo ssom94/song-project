@@ -42,6 +42,55 @@
 			: (item.labelJa || item.labelKo || item.key);
 	}
 
+	function japaneseTabItems() {
+		const korean = window.AdminI18n?.getLanguage?.() === 'ko';
+		return [
+			{ key: 'words', href: '/admin/japanese/', label: korean ? '단어' : '単語' },
+			{ key: 'parts', href: '/admin/japanese/parts/', label: korean ? '품사' : '品詞' },
+			{ key: 'categories', href: '/admin/japanese/categories/', label: korean ? '학습 분류' : '学習分類' },
+			{ key: 'quiz', href: '/admin/japanese/quiz/', label: korean ? '퀴즈' : 'クイズ' },
+		];
+	}
+
+	function currentJapaneseTab() {
+		const path = normalizePath(window.location.pathname);
+		if (path.startsWith('/admin/japanese/parts/')) return 'parts';
+		if (path.startsWith('/admin/japanese/categories/')) return 'categories';
+		if (path.startsWith('/admin/japanese/quiz/')) return 'quiz';
+		return path === '/admin/japanese/' ? 'words' : '';
+	}
+
+	function normalizeJapaneseManagementTabs() {
+		const tabs = document.querySelector('.admin-content > .admin-japanese-tabs, .admin-japanese-page-topline > .admin-japanese-tabs');
+		const heading = document.querySelector('.admin-content > .admin-page-heading, .admin-japanese-page-topline > .admin-page-heading');
+		if (!(tabs instanceof HTMLElement) || !(heading instanceof HTMLElement)) return;
+
+		const active = currentJapaneseTab();
+		if (!active) return;
+
+		const fragment = document.createDocumentFragment();
+		for (const item of japaneseTabItems()) {
+			const link = document.createElement('a');
+			link.className = `admin-japanese-tab${item.key === active ? ' is-active' : ''}`;
+			link.href = item.href;
+			link.textContent = item.label;
+			if (item.key === active) link.setAttribute('aria-current', 'page');
+			fragment.appendChild(link);
+		}
+		tabs.replaceChildren(fragment);
+		tabs.setAttribute('aria-label', window.AdminI18n?.getLanguage?.() === 'ko' ? '일본어 학습 관리' : '日本語学習管理');
+
+		let row = heading.parentElement;
+		if (!row?.classList.contains('admin-japanese-page-topline')) {
+			row = document.createElement('div');
+			row.className = 'admin-japanese-page-topline';
+			heading.parentNode?.insertBefore(row, heading);
+			row.append(heading, tabs);
+		} else if (tabs.parentElement !== row) {
+			row.appendChild(tabs);
+		}
+	}
+
 	async function renderMenu() {
 		const nav = document.getElementById('admin-nav');
 		if (!nav) return;
@@ -69,6 +118,7 @@
 		});
 
 		nav.replaceChildren(fragment);
+		normalizeJapaneseManagementTabs();
 	}
 
 	async function refreshMenuLabels() {
@@ -79,6 +129,7 @@
 			const item = key ? byKey.get(key) : null;
 			if (item) link.textContent = itemLabel(item);
 		});
+		normalizeJapaneseManagementTabs();
 	}
 
 	document.addEventListener('adminlanguagechange', refreshMenuLabels);
@@ -88,10 +139,12 @@
 			await window.AdminI18n.ready;
 		}
 		await renderMenu();
+		normalizeJapaneseManagementTabs();
 	})();
 
 	window.AdminMenu = {
 		ready,
 		renderMenu,
+		normalizeJapaneseManagementTabs,
 	};
 })();
