@@ -1,50 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Decorative Korean and Japanese flags">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Decorative Korean and Japanese floral background">
   <defs>
-    <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="0.48" stop-color="#eef3fb"/>
-      <stop offset="0.72" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#dce6f5"/>
+    <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#90b9f4" stop-opacity=".10"/>
+      <stop offset=".45" stop-color="#5f8ee6" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#2f65ca" stop-opacity=".08"/>
     </linearGradient>
-    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".92"/>
-      <stop offset=".45" stop-color="#ffffff" stop-opacity=".1"/>
-      <stop offset="1" stop-color="#b8c6db" stop-opacity=".26"/>
+    <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ef8b9e" stop-opacity=".08"/>
+      <stop offset=".48" stop-color="#e85d75" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#f5a3b1" stop-opacity=".06"/>
     </linearGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="1.2"/>
-    </filter>
-    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#56708f" flood-opacity=".18"/>
-    </filter>
+    <radialGradient id="hibiscusPetal" cx="55%" cy="48%" r="72%">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".58" stop-color="#f7cbd6"/>
+      <stop offset="1" stop-color="#e58ca1"/>
+    </radialGradient>
+    <radialGradient id="sakuraPetal" cx="48%" cy="45%" r="72%">
+      <stop offset="0" stop-color="#fffdfd"/>
+      <stop offset=".72" stop-color="#facbd5"/>
+      <stop offset="1" stop-color="#ed9db0"/>
+    </radialGradient>
+    <filter id="blur16" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#64748b" flood-opacity=".16"/></filter>
   </defs>
 
-  <g transform="translate(650 30) rotate(-5 430 250)" filter="url(#shadow)">
-    <path d="M75 70 C235 10 395 88 560 42 C720 -2 840 24 930 82 L898 430 C745 388 615 442 468 407 C300 366 168 419 32 372 Z" fill="url(#cloth)"/>
-    <path d="M75 70 C235 10 395 88 560 42 C720 -2 840 24 930 82 L898 430 C745 388 615 442 468 407 C300 366 168 419 32 372 Z" fill="url(#shine)" opacity=".55"/>
-    <ellipse cx="500" cy="225" rx="126" ry="121" fill="#e63446" opacity=".96"/>
-    <path d="M55 142 C220 89 374 152 540 111 C682 76 808 83 918 124" fill="none" stroke="#fff" stroke-opacity=".58" stroke-width="20" filter="url(#soft)"/>
-    <path d="M45 315 C211 266 364 333 528 292 C690 252 797 264 905 305" fill="none" stroke="#8ca0bd" stroke-opacity=".14" stroke-width="16" filter="url(#soft)"/>
+  <!-- soft ambient color -->
+  <circle cx="260" cy="220" r="300" fill="#74a7ea" opacity=".035"/>
+  <circle cx="1570" cy="780" r="360" fill="#ef758b" opacity=".045"/>
+  <circle cx="1560" cy="265" r="160" fill="#d93249" opacity=".055" filter="url(#blur16)"/>
+
+  <!-- broad flowing Korea/Japan color ribbons -->
+  <path d="M-120 510 C180 360 375 600 650 465 C930 330 1110 400 1390 255 C1570 162 1715 170 1880 210" fill="none" stroke="url(#blueWave)" stroke-width="82" stroke-linecap="round"/>
+  <path d="M-130 575 C165 425 395 652 675 515 C950 380 1165 440 1425 305 C1600 214 1740 222 1880 258" fill="none" stroke="url(#redWave)" stroke-width="58" stroke-linecap="round"/>
+  <path d="M-100 620 C180 500 410 715 710 575 C980 450 1220 505 1455 388 C1620 306 1755 316 1880 340" fill="none" stroke="#ffffff" stroke-opacity=".52" stroke-width="42" stroke-linecap="round"/>
+
+  <!-- subtle Korean taegeuk motif on left -->
+  <g transform="translate(135 605) scale(.62)" opacity=".14">
+    <circle cx="0" cy="0" r="108" fill="#fff"/>
+    <path d="M0 -100 A100 100 0 0 1 0 100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 -100Z" fill="#e43b53"/>
+    <path d="M0 100 A100 100 0 0 1 0 -100 A50 50 0 0 0 0 0 A50 50 0 0 1 0 100Z" fill="#2f62b6"/>
+  </g>
+  <g fill="#32445d" opacity=".105" transform="translate(65 740) rotate(-38)">
+    <rect width="50" height="8" rx="2"/><rect y="16" width="50" height="8" rx="2"/><rect y="32" width="50" height="8" rx="2"/>
   </g>
 
-  <g transform="translate(790 350) rotate(7 400 220)" filter="url(#shadow)">
-    <path d="M42 78 C177 30 316 83 449 49 C592 12 727 44 854 92 L830 442 C691 406 573 452 431 421 C291 390 160 432 20 392 Z" fill="url(#cloth)"/>
-    <path d="M42 78 C177 30 316 83 449 49 C592 12 727 44 854 92 L830 442 C691 406 573 452 431 421 C291 390 160 432 20 392 Z" fill="url(#shine)" opacity=".5"/>
+  <!-- subtle Japanese sun motif on right -->
+  <circle cx="1640" cy="420" r="108" fill="#dd334d" opacity=".085"/>
 
-    <g transform="translate(438 245) rotate(-10)">
-      <path d="M0 -96 A96 96 0 0 1 0 96 A48 48 0 0 0 0 0 A48 48 0 0 1 0 -96 Z" fill="#df3045"/>
-      <path d="M0 96 A96 96 0 0 1 0 -96 A48 48 0 0 0 0 0 A48 48 0 0 1 0 96 Z" fill="#2356a8"/>
+  <!-- Hibiscus / Mugunghwa cluster, upper-left -->
+  <g transform="translate(38 42)" filter="url(#softShadow)" opacity=".92">
+    <path d="M58 270 C150 195 218 112 300 36" fill="none" stroke="#718f70" stroke-width="10" stroke-linecap="round"/>
+    <path d="M132 208 C90 160 64 125 44 84" fill="none" stroke="#718f70" stroke-width="7" stroke-linecap="round"/>
+    <path d="M188 152 C238 125 284 107 335 98" fill="none" stroke="#718f70" stroke-width="7" stroke-linecap="round"/>
+    <g fill="#84a27d" opacity=".90">
+      <ellipse cx="81" cy="239" rx="42" ry="18" transform="rotate(-25 81 239)"/>
+      <ellipse cx="126" cy="181" rx="38" ry="17" transform="rotate(29 126 181)"/>
+      <ellipse cx="235" cy="95" rx="43" ry="18" transform="rotate(-18 235 95)"/>
+      <ellipse cx="302" cy="63" rx="35" ry="15" transform="rotate(25 302 63)"/>
     </g>
-
-    <g fill="#263447" opacity=".9">
-      <g transform="translate(245 126) rotate(-32)"><rect width="58" height="10" rx="2"/><rect y="19" width="58" height="10" rx="2"/><rect y="38" width="58" height="10" rx="2"/></g>
-      <g transform="translate(623 114) rotate(31)"><rect width="25" height="10" rx="2"/><rect x="33" width="25" height="10" rx="2"/><rect y="19" width="58" height="10" rx="2"/><rect y="38" width="25" height="10" rx="2"/><rect x="33" y="38" width="25" height="10" rx="2"/></g>
-      <g transform="translate(232 350) rotate(31)"><rect width="58" height="10" rx="2"/><rect y="19" width="25" height="10" rx="2"/><rect x="33" y="19" width="25" height="10" rx="2"/><rect y="38" width="58" height="10" rx="2"/></g>
-      <g transform="translate(632 346) rotate(-31)"><rect width="25" height="10" rx="2"/><rect x="33" width="25" height="10" rx="2"/><rect y="19" width="25" height="10" rx="2"/><rect x="33" y="19" width="25" height="10" rx="2"/><rect y="38" width="25" height="10" rx="2"/><rect x="33" y="38" width="25" height="10" rx="2"/></g>
+    <g transform="translate(125 92)">
+      <ellipse cx="0" cy="-54" rx="45" ry="70" fill="url(#hibiscusPetal)"/>
+      <ellipse cx="52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(72 52 -18)"/>
+      <ellipse cx="32" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(144 32 48)"/>
+      <ellipse cx="-34" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(216 -34 48)"/>
+      <ellipse cx="-52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(288 -52 -18)"/>
+      <circle r="24" fill="#cf5c79" opacity=".74"/>
+      <path d="M0 0 C22 20 35 46 52 82" stroke="#d65d76" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <g fill="#f3d05f"><circle cx="50" cy="79" r="5"/><circle cx="56" cy="88" r="4"/><circle cx="43" cy="89" r="4"/></g>
     </g>
-    <path d="M37 147 C176 103 315 153 454 120 C586 89 713 104 844 147" fill="none" stroke="#fff" stroke-opacity=".56" stroke-width="18" filter="url(#soft)"/>
+    <g transform="translate(276 156) scale(.72)">
+      <ellipse cx="0" cy="-54" rx="45" ry="70" fill="url(#hibiscusPetal)"/>
+      <ellipse cx="52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(72 52 -18)"/>
+      <ellipse cx="32" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(144 32 48)"/>
+      <ellipse cx="-34" cy="48" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(216 -34 48)"/>
+      <ellipse cx="-52" cy="-18" rx="45" ry="70" fill="url(#hibiscusPetal)" transform="rotate(288 -52 -18)"/>
+      <circle r="23" fill="#cf5c79" opacity=".72"/>
+    </g>
+    <circle cx="70" cy="198" r="15" fill="#ea9caf"/><circle cx="64" cy="192" r="8" fill="#f7c5cf"/>
   </g>
 
-  <circle cx="1220" cy="455" r="360" fill="#7aa8e8" opacity=".035"/>
-  <circle cx="1325" cy="330" r="250" fill="#ef5b67" opacity=".028"/>
+  <!-- Sakura branch, lower-right -->
+  <g transform="translate(1390 690)" filter="url(#softShadow)" opacity=".94">
+    <path d="M-15 350 C80 255 175 182 320 70" fill="none" stroke="#815d59" stroke-width="12" stroke-linecap="round"/>
+    <path d="M106 252 C60 205 25 172 -20 142" fill="none" stroke="#815d59" stroke-width="8" stroke-linecap="round"/>
+    <path d="M180 188 C230 147 270 112 348 94" fill="none" stroke="#815d59" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(73 257) scale(.75)">
+      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
+    </g>
+    <g transform="translate(176 183)">
+      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
+    </g>
+    <g transform="translate(300 101) scale(.85)">
+      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
+    </g>
+    <g transform="translate(35 125) scale(.55)">
+      <ellipse cy="-37" rx="25" ry="39" fill="url(#sakuraPetal)"/><ellipse cx="35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(72 35 -11)"/><ellipse cx="22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(144 22 30)"/><ellipse cx="-22" cy="30" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(216 -22 30)"/><ellipse cx="-35" cy="-11" rx="25" ry="39" fill="url(#sakuraPetal)" transform="rotate(288 -35 -11)"/><circle r="10" fill="#d87289"/>
+    </g>
+  </g>
+
+  <!-- drifting petals -->
+  <g fill="#ef9db0" opacity=".36">
+    <ellipse cx="355" cy="245" rx="9" ry="18" transform="rotate(38 355 245)"/>
+    <ellipse cx="448" cy="325" rx="8" ry="15" transform="rotate(-26 448 325)"/>
+    <ellipse cx="1340" cy="245" rx="8" ry="16" transform="rotate(30 1340 245)"/>
+    <ellipse cx="1515" cy="540" rx="9" ry="18" transform="rotate(-35 1515 540)"/>
+    <ellipse cx="1260" cy="780" rx="7" ry="14" transform="rotate(20 1260 780)"/>
+  </g>
 </svg>
