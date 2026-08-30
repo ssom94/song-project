@@ -135,6 +135,26 @@ body.blog-page {
 	text-decoration: none;
 }
 
+.home-goal-title-link {
+	color: #344156;
+	font-size: 11px;
+	font-weight: 800;
+	text-decoration: none;
+	text-underline-offset: 3px;
+}
+
+.home-goal-title-link::after {
+	content: ' ›';
+	color: #8fa5c6;
+	font-size: .9em;
+}
+
+.home-goal-title-link:hover,
+.home-goal-title-link:focus-visible {
+	color: #1f56d8;
+	text-decoration: underline;
+}
+
 @media (max-width: 720px) {
 	.blog-header-inner {
 		grid-template-columns: auto 1fr;
