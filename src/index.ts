@@ -5,6 +5,11 @@ import {
 	handleReorderAdminCategories,
 	handleUpdateAdminCategory,
 } from './admin/categories/manage';
+import {
+	handleDeleteAdminComment,
+	handleListAdminComments,
+	handleUpdateAdminCommentStatus,
+} from './admin/comments/manage';
 import { handleCreateAdminPost } from './admin/posts/create';
 import { handleGetAdminPost } from './admin/posts/detail';
 import { handleListAdminPosts } from './admin/posts/list';
@@ -107,6 +112,12 @@ export default {
 				return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/session':
 				return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
+			case '/api/admin/comments':
+				return request.method === 'GET' ? handleListAdminComments(request, env) : methodNotAllowed('GET');
+			case '/api/admin/comments/detail':
+				if (request.method === 'PATCH') return handleUpdateAdminCommentStatus(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminComment(request, env);
+				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/categories':
 				if (request.method === 'GET') return handleListAdminCategories(request, env);
 				if (request.method === 'POST') return handleCreateAdminCategory(request, env);
