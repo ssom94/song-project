@@ -100,7 +100,7 @@
 
 							<section class="admin-editor-card">
 								<div class="admin-editor-actions">
-									<button class="admin-editor-button" type="button" hidden disabled data-i18n="draftSave">下書き保存</button>
+									<button class="admin-editor-button" type="button" hidden disabled data-i18n="draftSave">一時保存</button>
 									<button class="admin-editor-button" type="button" disabled data-i18n="preview">プレビュー</button>
 									<button class="admin-editor-button admin-editor-button-primary" type="button" data-editor-action="primary" data-i18n="editPost">編集</button>
 								</div>
@@ -127,12 +127,14 @@
 										<input id="post-tags" name="tags" type="text" data-i18n-placeholder="postTagsPlaceholder" placeholder="タグをカンマ区切りで入力" />
 									</div>
 									<div class="admin-editor-field">
-										<label for="publication-status" data-i18n="publicationStatus">公開状態</label>
-										<select id="publication-status" name="status">
-											<option value="draft" data-i18n="statusDraft">下書き</option>
-											<option value="published" data-i18n="statusPublished">公開</option>
-											<option value="scheduled" data-i18n="statusScheduled">予約公開</option>
+										<span class="admin-editor-field-title" data-i18n="publicationStatus">登録状態</span>
+										<div id="post-registration-state" class="admin-editor-registration-state is-draft" data-i18n="registrationDraft">一時保存</div>
+										<select id="publication-status" name="status" hidden>
+											<option value="draft" selected>draft</option>
+											<option value="private">private</option>
+											<option value="published">published</option>
 										</select>
+										<p class="admin-editor-registration-help" data-i18n="registrationStateHelp">通常登録すると「登録完了・非表示」になります。表示／非表示は投稿一覧のスイッチで変更します。</p>
 									</div>
 								</div>
 							</section>
