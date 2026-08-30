@@ -49,8 +49,88 @@
 	text-decoration: none !important;
 }
 
+.jp-word-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	padding: 12px 0;
+}
+
+.jp-word-pagination.is-top {
+	border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.jp-word-pagination.is-bottom {
+	border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.jp-word-pagination-summary {
+	color: #718096;
+	font-size: 11px;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+.jp-word-pagination-controls {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 5px;
+	flex-wrap: wrap;
+}
+
+.jp-word-page-button {
+	min-width: 32px;
+	height: 32px;
+	padding: 0 9px;
+	border: 1px solid #d8e0ea;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.92);
+	color: #42526a;
+	font: inherit;
+	font-size: 11px;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.jp-word-page-button:hover:not(:disabled):not(.is-active) {
+	border-color: #9eb4d6;
+	background: #f7f9fd;
+}
+
+.jp-word-page-button.is-active {
+	border-color: #26364e;
+	background: #26364e;
+	color: #fff;
+	cursor: default;
+}
+
+.jp-word-page-button:disabled {
+	opacity: .4;
+	cursor: not-allowed;
+}
+
+.jp-word-pagination-ellipsis {
+	min-width: 18px;
+	color: #94a3b8;
+	font-size: 12px;
+	font-weight: 800;
+	text-align: center;
+}
+
 @media (max-width: 680px) {
 	.jp-word-pos-wrap {
 		margin-left: 10px;
+	}
+
+	.jp-word-pagination {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.jp-word-pagination-controls {
+		justify-content: flex-start;
 	}
 }
