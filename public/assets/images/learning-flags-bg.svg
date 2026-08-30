@@ -1,34 +1,132 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Soft Korean Japanese floral background">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Pastel Korean Japanese watercolor frame">
   <defs>
-    <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8d0f5" stop-opacity=".05"/><stop offset=".42" stop-color="#78a2e7" stop-opacity=".28"/><stop offset="1" stop-color="#6c93d9" stop-opacity=".05"/></linearGradient>
-    <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f4b7c3" stop-opacity=".04"/><stop offset=".46" stop-color="#ec8496" stop-opacity=".24"/><stop offset="1" stop-color="#f2a9b7" stop-opacity=".04"/></linearGradient>
-    <radialGradient id="mugu" cx="50%" cy="42%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".68" stop-color="#f7cbd7"/><stop offset="1" stop-color="#e997ab"/></radialGradient>
-    <radialGradient id="kiku" cx="50%" cy="50%" r="70%"><stop offset="0" stop-color="#fff8d2"/><stop offset=".65" stop-color="#e9cf82"/><stop offset="1" stop-color="#caa853"/></radialGradient>
-    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#64748b" flood-opacity=".10"/></filter>
+    <linearGradient id="waveBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dceafb" stop-opacity=".10"/>
+      <stop offset=".45" stop-color="#8eb5ee" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#6e9be2" stop-opacity=".06"/>
+    </linearGradient>
+    <linearGradient id="waveRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fde4e9" stop-opacity=".12"/>
+      <stop offset=".46" stop-color="#f2a4b3" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#e77b91" stop-opacity=".06"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9fb79a"/>
+      <stop offset="1" stop-color="#688b6a"/>
+    </linearGradient>
+    <radialGradient id="mugu" cx="48%" cy="42%" r="72%">
+      <stop offset="0" stop-color="#fffdfd"/>
+      <stop offset=".58" stop-color="#f8dce3"/>
+      <stop offset="1" stop-color="#e999ad"/>
+    </radialGradient>
+    <radialGradient id="muguHeart" cx="50%" cy="50%" r="70%">
+      <stop offset="0" stop-color="#d34e71"/>
+      <stop offset="1" stop-color="#a93b5b"/>
+    </radialGradient>
+    <radialGradient id="kiku" cx="50%" cy="50%" r="70%">
+      <stop offset="0" stop-color="#fff9d8"/>
+      <stop offset=".63" stop-color="#efd98f"/>
+      <stop offset="1" stop-color="#caa750"/>
+    </radialGradient>
+    <filter id="watercolor" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="2" seed="11" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="B" result="rough"/>
+      <feGaussianBlur in="rough" stdDeviation=".45"/>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
   </defs>
 
-  <circle cx="250" cy="200" r="280" fill="#78a5e6" opacity=".025"/>
-  <circle cx="1570" cy="820" r="350" fill="#eb7b8f" opacity=".03"/>
+  <!-- pale atmosphere -->
+  <circle cx="170" cy="145" r="260" fill="#9fc3f4" opacity=".035"/>
+  <circle cx="1435" cy="810" r="340" fill="#f4a9b7" opacity=".045"/>
 
-  <!-- broad, quiet red/blue ribbons -->
-  <path d="M-130 520 C160 380 390 610 680 485 C970 360 1170 425 1430 290 C1600 205 1740 215 1900 250" fill="none" stroke="url(#blueWave)" stroke-width="70" stroke-linecap="round"/>
-  <path d="M-140 585 C155 445 410 670 700 540 C985 412 1195 475 1455 348 C1620 268 1760 275 1900 310" fill="none" stroke="url(#redWave)" stroke-width="50" stroke-linecap="round"/>
-  <path d="M-110 635 C180 525 430 730 735 600 C1010 485 1245 540 1490 430 C1650 358 1780 365 1900 390" fill="none" stroke="#fff" stroke-opacity=".48" stroke-width="36" stroke-linecap="round"/>
+  <!-- right vertical blue watercolor ribbon -->
+  <path d="M1545 75 C1455 170 1498 270 1538 360 C1582 458 1504 552 1518 660 C1530 760 1600 842 1568 970" fill="none" stroke="#a8c8f2" stroke-opacity=".18" stroke-width="62" stroke-linecap="round" filter="url(#soft)"/>
+  <path d="M1584 105 C1508 200 1544 295 1575 378 C1605 463 1548 550 1560 650" fill="none" stroke="#d7e7fa" stroke-opacity=".46" stroke-width="23" stroke-linecap="round"/>
 
-  <!-- left Mugunghwa cluster -->
-  <g transform="translate(28 42) scale(.72)" filter="url(#shadow)" opacity=".76">
-    <path d="M62 280 C145 205 220 126 306 38" fill="none" stroke="#7a9775" stroke-width="10" stroke-linecap="round"/>
-    <path d="M145 212 C105 173 78 133 57 92" fill="none" stroke="#7a9775" stroke-width="7" stroke-linecap="round"/>
-    <g fill="#89a381" opacity=".9"><ellipse cx="92" cy="238" rx="38" ry="16" transform="rotate(-24 92 238)"/><ellipse cx="137" cy="180" rx="34" ry="15" transform="rotate(28 137 180)"/><ellipse cx="244" cy="92" rx="40" ry="17" transform="rotate(-18 244 92)"/></g>
-    <g transform="translate(130 98)"><ellipse cy="-52" rx="42" ry="65" fill="url(#mugu)"/><ellipse cx="50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(72 50 -17)"/><ellipse cx="31" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(144 31 46)"/><ellipse cx="-33" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(216 -33 46)"/><ellipse cx="-50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(288 -50 -17)"/><circle r="22" fill="#cf607b" opacity=".72"/><path d="M0 0 C20 18 33 43 49 77" fill="none" stroke="#d65f79" stroke-width="7" stroke-linecap="round"/><g fill="#efd166"><circle cx="49" cy="78" r="5"/><circle cx="55" cy="86" r="4"/><circle cx="42" cy="88" r="4"/></g></g>
-    <g transform="translate(283 164) scale(.58)"><ellipse cy="-52" rx="42" ry="65" fill="url(#mugu)"/><ellipse cx="50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(72 50 -17)"/><ellipse cx="31" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(144 31 46)"/><ellipse cx="-33" cy="46" rx="42" ry="65" fill="url(#mugu)" transform="rotate(216 -33 46)"/><ellipse cx="-50" cy="-17" rx="42" ry="65" fill="url(#mugu)" transform="rotate(288 -50 -17)"/><circle r="22" fill="#cf607b" opacity=".68"/></g>
+  <!-- lower flowing ribbons -->
+  <path d="M-80 570 C145 480 240 620 410 604 C615 585 730 690 915 670 C1135 647 1270 540 1455 578 C1535 595 1595 636 1670 650" fill="none" stroke="url(#waveBlue)" stroke-width="82" stroke-linecap="round" filter="url(#soft)"/>
+  <path d="M-95 625 C115 545 270 690 430 657 C635 615 765 742 965 710 C1180 675 1310 602 1465 630 C1544 645 1606 682 1680 704" fill="none" stroke="url(#waveRed)" stroke-width="62" stroke-linecap="round" filter="url(#soft)"/>
+  <path d="M-80 672 C145 595 290 733 470 694 C675 650 800 780 1012 742 C1205 707 1332 650 1495 682 C1563 696 1622 724 1682 748" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="30" stroke-linecap="round"/>
+
+  <!-- small gold cloud lines -->
+  <g fill="none" stroke="#dfb45e" stroke-width="2.5" opacity=".38" stroke-linecap="round">
+    <path d="M0 258 h56 c12 0 12-13 24-13 h36 c12 0 12 13 24 13 h38"/>
+    <path d="M0 275 h34 c10 0 10 10 20 10 h54 c10 0 10-10 20-10 h62"/>
+    <path d="M1400 530 h48 c11 0 11-12 22-12 h42 c11 0 11 12 22 12 h66"/>
+    <path d="M1440 548 h38 c10 0 10 10 20 10 h48 c10 0 10-10 20-10 h34"/>
   </g>
 
-  <!-- soft Japanese chrysanthemum, lower right -->
-  <g transform="translate(1660 840) scale(.72)" opacity=".20" filter="url(#shadow)">
-    <g fill="url(#kiku)" stroke="#c7a34d" stroke-width="2"><ellipse cy="-76" rx="20" ry="62"/><ellipse cy="76" rx="20" ry="62"/><ellipse cx="76" rx="62" ry="20"/><ellipse cx="-76" rx="62" ry="20"/><ellipse cx="54" cy="-54" rx="20" ry="62" transform="rotate(45 54 -54)"/><ellipse cx="-54" cy="54" rx="20" ry="62" transform="rotate(45 -54 54)"/><ellipse cx="-54" cy="-54" rx="20" ry="62" transform="rotate(-45 -54 -54)"/><ellipse cx="54" cy="54" rx="20" ry="62" transform="rotate(-45 54 54)"/></g><circle r="28" fill="#d3ae50" opacity=".8"/>
+  <!-- left watercolor mugunghwa branch -->
+  <g transform="translate(10 26)" filter="url(#watercolor)" opacity=".84">
+    <path d="M22 265 C88 210 132 145 190 70 C217 35 246 20 278 7" fill="none" stroke="#7d9d78" stroke-width="7" stroke-linecap="round"/>
+    <path d="M84 205 C62 166 45 135 31 92" fill="none" stroke="#86a47f" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M140 143 C184 123 216 102 246 78" fill="none" stroke="#86a47f" stroke-width="4.5" stroke-linecap="round"/>
+    <g fill="url(#leaf)" opacity=".86">
+      <ellipse cx="47" cy="226" rx="29" ry="12" transform="rotate(-30 47 226)"/>
+      <ellipse cx="82" cy="183" rx="28" ry="11" transform="rotate(25 82 183)"/>
+      <ellipse cx="125" cy="137" rx="29" ry="12" transform="rotate(-20 125 137)"/>
+      <ellipse cx="192" cy="83" rx="27" ry="11" transform="rotate(18 192 83)"/>
+      <ellipse cx="243" cy="42" rx="24" ry="10" transform="rotate(-22 243 42)"/>
+    </g>
+    <g transform="translate(89 108)">
+      <ellipse cy="-45" rx="35" ry="53" fill="url(#mugu)"/>
+      <ellipse cx="43" cy="-15" rx="35" ry="53" fill="url(#mugu)" transform="rotate(72 43 -15)"/>
+      <ellipse cx="27" cy="39" rx="35" ry="53" fill="url(#mugu)" transform="rotate(144 27 39)"/>
+      <ellipse cx="-29" cy="39" rx="35" ry="53" fill="url(#mugu)" transform="rotate(216 -29 39)"/>
+      <ellipse cx="-43" cy="-15" rx="35" ry="53" fill="url(#mugu)" transform="rotate(288 -43 -15)"/>
+      <circle r="18" fill="url(#muguHeart)" opacity=".78"/>
+      <path d="M0 0 C17 18 28 39 41 67" fill="none" stroke="#d45b78" stroke-width="5" stroke-linecap="round"/>
+      <g fill="#f1ce67"><circle cx="41" cy="68" r="4"/><circle cx="47" cy="75" r="3.2"/><circle cx="35" cy="76" r="3.2"/></g>
+    </g>
+    <g transform="translate(173 70) scale(.72)">
+      <ellipse cy="-45" rx="35" ry="53" fill="url(#mugu)"/>
+      <ellipse cx="43" cy="-15" rx="35" ry="53" fill="url(#mugu)" transform="rotate(72 43 -15)"/>
+      <ellipse cx="27" cy="39" rx="35" ry="53" fill="url(#mugu)" transform="rotate(144 27 39)"/>
+      <ellipse cx="-29" cy="39" rx="35" ry="53" fill="url(#mugu)" transform="rotate(216 -29 39)"/>
+      <ellipse cx="-43" cy="-15" rx="35" ry="53" fill="url(#mugu)" transform="rotate(288 -43 -15)"/>
+      <circle r="18" fill="url(#muguHeart)" opacity=".74"/>
+    </g>
+    <g transform="translate(52 178) scale(.50)">
+      <ellipse cy="-45" rx="35" ry="53" fill="url(#mugu)"/>
+      <ellipse cx="43" cy="-15" rx="35" ry="53" fill="url(#mugu)" transform="rotate(72 43 -15)"/>
+      <ellipse cx="27" cy="39" rx="35" ry="53" fill="url(#mugu)" transform="rotate(144 27 39)"/>
+      <ellipse cx="-29" cy="39" rx="35" ry="53" fill="url(#mugu)" transform="rotate(216 -29 39)"/>
+      <ellipse cx="-43" cy="-15" rx="35" ry="53" fill="url(#mugu)" transform="rotate(288 -43 -15)"/>
+      <circle r="18" fill="url(#muguHeart)" opacity=".68"/>
+    </g>
+    <g fill="#eda1b3" opacity=".58"><ellipse cx="234" cy="128" rx="7" ry="15" transform="rotate(32 234 128)"/><ellipse cx="276" cy="158" rx="6" ry="13" transform="rotate(-28 276 158)"/></g>
   </g>
 
-  <!-- a few pale petals -->
-  <g fill="#efa2b2" opacity=".28"><ellipse cx="320" cy="255" rx="8" ry="17" transform="rotate(38 320 255)"/><ellipse cx="455" cy="335" rx="7" ry="14" transform="rotate(-26 455 335)"/><ellipse cx="1370" cy="270" rx="8" ry="16" transform="rotate(30 1370 270)"/><ellipse cx="1540" cy="545" rx="8" ry="17" transform="rotate(-35 1540 545)"/><ellipse cx="1260" cy="800" rx="7" ry="14" transform="rotate(20 1260 800)"/></g>
+  <!-- right lower Japanese chrysanthemum branch -->
+  <g transform="translate(1370 702)" filter="url(#watercolor)" opacity=".72">
+    <path d="M36 290 C88 225 140 160 205 105 C240 75 276 51 326 28" fill="none" stroke="#7f906e" stroke-width="6" stroke-linecap="round"/>
+    <path d="M120 190 C86 164 59 135 37 105" fill="none" stroke="#8c9c78" stroke-width="4" stroke-linecap="round"/>
+    <g fill="url(#leaf)" opacity=".8">
+      <ellipse cx="78" cy="235" rx="28" ry="11" transform="rotate(-30 78 235)"/>
+      <ellipse cx="126" cy="181" rx="29" ry="12" transform="rotate(26 126 181)"/>
+      <ellipse cx="193" cy="113" rx="27" ry="11" transform="rotate(-18 193 113)"/>
+      <ellipse cx="265" cy="66" rx="24" ry="10" transform="rotate(22 265 66)"/>
+    </g>
+    <g transform="translate(176 150) scale(.74)">
+      <g fill="url(#kiku)" stroke="#d2b05a" stroke-width="1.1">
+        <ellipse cy="-46" rx="13" ry="39"/><ellipse cy="46" rx="13" ry="39"/><ellipse cx="46" rx="39" ry="13"/><ellipse cx="-46" rx="39" ry="13"/>
+        <ellipse cx="33" cy="-33" rx="13" ry="39" transform="rotate(45 33 -33)"/><ellipse cx="-33" cy="33" rx="13" ry="39" transform="rotate(45 -33 33)"/><ellipse cx="-33" cy="-33" rx="13" ry="39" transform="rotate(-45 -33 -33)"/><ellipse cx="33" cy="33" rx="13" ry="39" transform="rotate(-45 33 33)"/>
+      </g><circle r="18" fill="#d6b45e"/>
+    </g>
+    <g transform="translate(275 76) scale(.46)">
+      <g fill="url(#kiku)" stroke="#d2b05a" stroke-width="1.1"><ellipse cy="-46" rx="13" ry="39"/><ellipse cy="46" rx="13" ry="39"/><ellipse cx="46" rx="39" ry="13"/><ellipse cx="-46" rx="39" ry="13"/><ellipse cx="33" cy="-33" rx="13" ry="39" transform="rotate(45 33 -33)"/><ellipse cx="-33" cy="33" rx="13" ry="39" transform="rotate(45 -33 33)"/><ellipse cx="-33" cy="-33" rx="13" ry="39" transform="rotate(-45 -33 -33)"/><ellipse cx="33" cy="33" rx="13" ry="39" transform="rotate(-45 33 33)"/></g><circle r="18" fill="#d6b45e"/>
+    </g>
+  </g>
+
+  <!-- drifting petals -->
+  <g fill="#efa5b5" opacity=".40">
+    <ellipse cx="280" cy="188" rx="7" ry="14" transform="rotate(34 280 188)"/>
+    <ellipse cx="330" cy="285" rx="6" ry="12" transform="rotate(-26 330 285)"/>
+    <ellipse cx="1215" cy="132" rx="6" ry="13" transform="rotate(24 1215 132)"/>
+    <ellipse cx="1328" cy="238" rx="7" ry="14" transform="rotate(-34 1328 238)"/>
+    <ellipse cx="1250" cy="775" rx="6" ry="12" transform="rotate(20 1250 775)"/>
+  </g>
 </svg>
