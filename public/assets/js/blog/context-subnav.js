@@ -122,30 +122,19 @@
 		const heading = document.querySelector('.jp-page-heading');
 		if (!(heading instanceof HTMLElement)) return;
 
-		const wrap = document.createElement('section');
-		wrap.id = 'blog-context-subnav';
-		wrap.className = 'blog-context-subnav-wrap';
-
-		const header = document.createElement('div');
-		header.className = 'blog-context-subnav-header';
-		const parent = document.createElement('strong');
-		parent.textContent = labels().title;
-		const separator = document.createElement('span');
-		separator.setAttribute('aria-hidden', 'true');
-		separator.textContent = '›';
-		const subtitle = document.createElement('small');
-		subtitle.textContent = labels().subtitle;
-		header.append(parent, separator, subtitle);
-
 		const nav = document.createElement('nav');
+		nav.id = 'blog-context-subnav';
 		nav.className = 'blog-context-subnav';
 		nav.setAttribute('aria-label', language() === 'ko' ? '일본어 학습 하위 메뉴' : '日本語学習サブメニュー');
+
+		const parent = document.createElement('span');
+		parent.className = 'blog-context-subnav-parent';
+		parent.textContent = labels().title;
 		const list = document.createElement('div');
 		list.className = 'blog-context-subnav-list';
 		createSubmenuLinks(list, 'blog-context-subnav-link');
-		nav.appendChild(list);
-		wrap.append(header, nav);
-		heading.insertAdjacentElement('afterend', wrap);
+		nav.append(parent, list);
+		heading.insertAdjacentElement('beforebegin', nav);
 	}
 
 	function clearCloseTimer() {
