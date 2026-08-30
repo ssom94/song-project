@@ -1,5 +1,5 @@
 (() => {
-	const SELECTOR = '.schedule-calendar-panel > .schedule-calendar-grid:not([data-swipe-enhanced])';
+	const GRID_SELECTOR = '.schedule-calendar-panel > .schedule-calendar-grid:not([data-swipe-enhanced])';
 	const SNAP_MS = 230;
 
 	function parseDate(value) {
@@ -70,7 +70,7 @@
 		return direction < 0 ? buttons[0] : buttons[buttons.length - 1];
 	}
 
-	function enhance(grid) {
+	function enhanceGrid(grid) {
 		if (!(grid instanceof HTMLElement) || grid.dataset.swipeEnhanced === 'true') return;
 		const panel = grid.parentElement;
 		if (!(panel instanceof HTMLElement) || !panel.classList.contains('schedule-calendar-panel')) return;
@@ -119,18 +119,11 @@
 			grid.classList.remove('is-dragging');
 		}
 
-		function releaseCapture(id) {
-			try {
-				if (grid.hasPointerCapture?.(id)) grid.releasePointerCapture(id);
-			} catch {}
-		}
-
 		function settle(direction) {
 			if (animating) return;
 			animating = true;
 			const width = Math.max(1, viewport.clientWidth);
-			const targetDx = direction < 0 ? width : -width;
-			transform(targetDx, true);
+			transform(direction < 0 ? width : -width, true);
 			window.setTimeout(() => {
 				const button = navButton(panel, direction);
 				if (button instanceof HTMLButtonElement) button.click();
@@ -140,16 +133,12 @@
 
 		function bounceBack() {
 			transform(0, true);
-			window.setTimeout(() => {
-				track.classList.remove('is-animating');
-				grid.classList.remove('is-dragging');
-			}, SNAP_MS);
+			window.setTimeout(() => track.classList.remove('is-animating'), SNAP_MS);
 		}
 
 		viewport.addEventListener('pointerdown', (event) => {
 			if (animating) return;
 			if (event.pointerType === 'mouse' && event.button !== 0) return;
-			if (event.target instanceof Element && event.target.closest('.schedule-calendar-month-picker')) return;
 			pointerId = event.pointerId;
 			startX = lastX = event.clientX;
 			startY = lastY = event.clientY;
@@ -177,8 +166,7 @@
 			grid.classList.add('is-dragging');
 			if (event.cancelable) event.preventDefault();
 			const width = Math.max(1, viewport.clientWidth);
-			const resisted = Math.max(-width, Math.min(width, dx));
-			transform(resisted, false);
+			transform(Math.max(-width, Math.min(width, dx)), false);
 		}, { capture: true, passive: false });
 
 		viewport.addEventListener('pointerup', (event) => {
@@ -196,7 +184,6 @@
 
 			event.preventDefault();
 			event.stopPropagation();
-			releaseCapture(event.pointerId);
 			suppressClick = moved || Math.abs(dx) > 10;
 			const width = Math.max(1, viewport.clientWidth);
 			const threshold = Math.min(92, Math.max(56, width * 0.17));
@@ -205,13 +192,11 @@
 
 			if (qualifies) settle(dx > 0 ? -1 : 1);
 			else bounceBack();
-
 			window.setTimeout(() => { suppressClick = false; }, SNAP_MS + 80);
 		}, true);
 
 		viewport.addEventListener('pointercancel', (event) => {
 			if (event.pointerId !== pointerId) return;
-			releaseCapture(event.pointerId);
 			const shouldBounce = horizontal;
 			resetPointer();
 			if (shouldBounce) bounceBack();
@@ -225,15 +210,15 @@
 	}
 
 	function enhanceAll() {
-		document.querySelectorAll(SELECTOR).forEach(enhance);
+		document.querySelectorAll(GRID_SELECTOR).forEach(enhanceGrid);
 	}
 
-	let scheduled = false;
+	let queued = false;
 	const observer = new MutationObserver(() => {
-		if (scheduled) return;
-		scheduled = true;
+		if (queued) return;
+		queued = true;
 		queueMicrotask(() => {
-			scheduled = false;
+			queued = false;
 			enhanceAll();
 		});
 	});
@@ -280,24 +265,31 @@
 		document.head.appendChild(style);
 	}
 
-	function moveButtons() {
+	function compactButton(manager) {
+		const header = manager.querySelector('.schedule-list-head');
+		const button = manager.querySelector('.schedule-manager-add');
+		if (!(header instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
+
+		if (!button.dataset.compactAddLabel) {
+			button.dataset.compactAddLabel = button.textContent?.trim() || 'Add schedule';
+		}
+		const label = button.dataset.compactAddLabel.replace(/^\+\s*/, '');
+
+		// Important: assigning textContent on every observer callback creates a childList
+		// mutation, which can cause an endless MutationObserver loop while admin is logged in.
+		if (button.textContent?.trim() !== '+') button.textContent = '+';
+		if (button.title !== label) button.title = label;
+		if (button.getAttribute('aria-label') !== label) button.setAttribute('aria-label', label);
+		if (!button.classList.contains('schedule-list-add-compact')) button.classList.add('schedule-list-add-compact');
+		if (button.parentElement !== header) header.appendChild(button);
+
+		const actions = manager.querySelector('.schedule-manager-actions');
+		if (actions instanceof HTMLElement && actions.childElementCount === 0) actions.remove();
+	}
+
+	function compactAll() {
 		document.querySelectorAll('[data-schedule-manager]').forEach((manager) => {
-			const header = manager.querySelector('.schedule-list-head');
-			const button = manager.querySelector('.schedule-manager-add');
-			if (!(header instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
-
-			if (!button.dataset.compactAddLabel) {
-				button.dataset.compactAddLabel = button.textContent?.trim() || 'Add schedule';
-			}
-			const label = button.dataset.compactAddLabel.replace(/^\+\s*/, '');
-			button.textContent = '+';
-			button.title = label;
-			button.setAttribute('aria-label', label);
-			button.classList.add('schedule-list-add-compact');
-			if (button.parentElement !== header) header.appendChild(button);
-
-			const actions = manager.querySelector('.schedule-manager-actions');
-			if (actions instanceof HTMLElement && actions.childElementCount === 0) actions.remove();
+			if (manager instanceof HTMLElement) compactButton(manager);
 		});
 	}
 
@@ -307,13 +299,13 @@
 		queued = true;
 		queueMicrotask(() => {
 			queued = false;
-			moveButtons();
+			compactAll();
 		});
 	});
 
 	function initialize() {
 		installStyle();
-		moveButtons();
+		compactAll();
 		observer.observe(document.body, { childList: true, subtree: true });
 	}
 
