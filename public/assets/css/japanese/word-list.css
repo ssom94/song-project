@@ -1,0 +1,40 @@
+.jp-word-title-line {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 0;
+}
+
+.jp-word-pos-wrap {
+	display: inline-flex;
+	align-items: baseline;
+	margin-left: 12px;
+	color: #98a2b3;
+	font-size: 10px;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+.jp-word-pos {
+	font-weight: 900;
+}
+
+.jp-word-pos-0 { color: #2563eb; }
+.jp-word-pos-1 { color: #7c3aed; }
+.jp-word-pos-2 { color: #0f766e; }
+.jp-word-pos-3 { color: #b45309; }
+.jp-word-pos-4 { color: #be123c; }
+.jp-word-pos-5 { color: #4d7c0f; }
+
+.jp-word-meta {
+	display: block;
+	margin-top: 5px;
+	color: #9aa5b4 !important;
+	font-size: 9px !important;
+}
+
+@media (max-width: 680px) {
+	.jp-word-pos-wrap {
+		margin-left: 9px;
+	}
+}
