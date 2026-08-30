@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="index,follow" />
 	<title>단어 목록 | SONG</title>
-	<link rel="stylesheet" href="/assets/css/common.css" /><link rel="stylesheet" href="/assets/css/blog/common.css" /><link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" /><link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/common.css" /><link rel="stylesheet" href="/assets/css/blog/common.css" /><link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" /><link rel="stylesheet" href="/assets/css/japanese/common.css" /><link rel="stylesheet" href="/assets/css/japanese/word-list.css" />
 </head>
 <body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ko">
 	<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><a href="/ja/japanese/words/">日本語</a><span>/</span><span class="is-active">한국어</span></div></header>
@@ -14,15 +14,10 @@
 			<section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
 		</aside><button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
 		<main class="blog-dashboard-main"><div class="blog-dashboard-content jp-dashboard-content">
-			<section class="jp-page-heading"><div><p class="jp-eyebrow">WORD LIBRARY</p><h1>단어 목록</h1><p>일본어 단어, 읽기, 한국어 뜻, JLPT, 학습분류, 품사를 한 번에 검색합니다.</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ko/japanese/">학습 홈</a><a class="jp-primary-button" href="/ko/japanese/quiz/">이 단어로 퀴즈</a></div></section>
-			<section class="jp-card"><div class="jp-filter-bar"><input id="jp-word-search" type="search" placeholder="단어·읽기·뜻 검색" /><select><option>JLPT: 전체</option><option>N1</option><option>N2</option><option>N3</option><option>N4</option><option>N5</option></select><select><option>분류: 전체</option><option>JLPT</option><option>업무·면접</option><option>개발용어</option></select><select><option>품사: 전체</option><option>명사</option><option>동사</option><option>형용사</option></select></div>
-				<div class="jp-card-heading"><h2>등록 단어</h2><span>테스트 Seed 연결 후 DB 목록으로 교체</span></div>
-				<div class="jp-word-list">
-					<article class="jp-word-row"><div><strong>遂行</strong><small>N1 · 명사</small></div><span>すいこう</span><span>수행</span><a class="jp-secondary-button" href="/ko/japanese/quiz/?word=遂行">Quiz</a></article>
-					<article class="jp-word-row"><div><strong>促進</strong><small>N1 · 사변동사</small></div><span>そくしん</span><span>촉진</span><a class="jp-secondary-button" href="/ko/japanese/quiz/?word=促進">Quiz</a></article>
-					<article class="jp-word-row"><div><strong>実装</strong><small>N2 · 명사</small></div><span>じっそう</span><span>구현</span><a class="jp-secondary-button" href="/ko/japanese/quiz/?word=実装">Quiz</a></article>
-					<article class="jp-word-row"><div><strong>取り組む</strong><small>N2 · 동사</small></div><span>とりくむ</span><span>몰두하다 / 착수하다</span><a class="jp-secondary-button" href="/ko/japanese/quiz/?word=取り組む">Quiz</a></article>
-				</div>
+			<section class="jp-page-heading"><div><p class="jp-eyebrow">WORD LIBRARY</p><h1>단어 목록</h1><p>일본어 단어, 읽기, 한국어 뜻, JLPT, 학습분류, 품사를 한 번에 검색합니다.</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ko/japanese/">학습 홈</a><a class="jp-primary-button" href="/ko/japanese/quiz/">랜덤 퀴즈</a></div></section>
+			<section class="jp-card"><div class="jp-filter-bar"><input id="jp-word-search" type="search" placeholder="단어·읽기·뜻 검색" /><select><option>JLPT: 전체</option></select><select><option>분류: 전체</option></select><select><option>품사: 전체</option></select></div>
+				<div class="jp-card-heading"><h2>등록 단어</h2><span>DB</span></div>
+				<div class="jp-word-list"></div>
 			</section>
 		</div></main>
 	</div>
