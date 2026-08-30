@@ -23,7 +23,7 @@
 	<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
 		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Menu</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">Home</a><a class="blog-sidebar-link" href="/ja/posts/">投稿</a><a class="blog-sidebar-link is-active" href="/ja/japanese/">日本語学習</a><a class="blog-sidebar-link" href="/ja/skill-sheet/">Skill Sheet</a><a class="blog-sidebar-link" href="/ja/career/">Career History</a></nav></section>
 		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Japanese</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ja/japanese/">学習ホーム</a><a class="blog-sidebar-link" href="/ja/japanese/words/">単語一覧</a><a class="blog-sidebar-link is-active" href="/ja/japanese/quiz/">ランダムクイズ</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/result/">学習結果</a></nav></section>
-		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">公開されたカテゴリーはまだありません。</p></section>
+		<section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty">公開されたカテゴリーはまだありません。</p></section>
 		<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
 	</aside>
 	<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
@@ -44,7 +44,7 @@
 			<section class="jp-card">
 				<div class="jp-card-heading"><h2>出題範囲</h2><span>Filter</span></div>
 				<div class="jp-form-grid">
-					<label class="jp-form-field"><span>JLPT</span><select id="quiz-jlpt"><option value="">すべて</option><option value="N1">N1</option><option value="N2">N2</option><option value="N3">N3</option><option value="N4">N4</option><option value="N5">N5</option></select></label>
+					<div class="jp-form-field jp-form-field-wide"><span>JLPT <small>複数選択可・未選択ならすべて</small></span><div id="quiz-jlpt-options" class="jp-jlpt-check-grid"><span class="jp-jlpt-loading">登録単語を確認中…</span></div></div>
 					<label class="jp-form-field"><span>学習分類</span><select id="quiz-category"><option value="">すべて</option></select></label>
 					<label class="jp-form-field"><span>品詞</span><select id="quiz-part"><option value="">すべて</option></select></label>
 					<label class="jp-form-field"><span>問題数</span><select id="quiz-count"><option value="10">10問</option><option value="20">20問</option><option value="30">30問</option><option value="50">50問</option></select></label>
@@ -57,8 +57,10 @@
 				<div class="jp-simple-list">
 					<div class="jp-simple-row"><div><strong>出題方式</strong><small>選択したクイズ方式</small></div><span id="quiz-preview-types">すべて混合</span></div>
 					<div class="jp-simple-row"><div><strong>範囲</strong><small>JLPT / 分類 / 品詞</small></div><span id="quiz-preview-scope">すべて</span></div>
-					<div class="jp-simple-row"><div><strong>問題数</strong><small>設定条件からランダム選択</small></div><span id="quiz-preview-count">10問</span></div>
+					<div class="jp-simple-row"><div><strong>出題可能問題</strong><small>現在のフィルターと問題タイプ基準</small></div><span id="quiz-preview-available">計算中…</span></div>
+					<div class="jp-simple-row"><div><strong>実際に出題</strong><small>出題可能問題からランダム選択</small></div><span id="quiz-preview-count">10問</span></div>
 				</div>
+				<p id="quiz-preview-summary" class="jp-quiz-preview-summary">出題可能問題を計算しています。</p>
 				<p id="quiz-setup-message" class="jp-quiz-setup-message" hidden></p>
 				<div class="jp-inline-actions"><button id="quiz-start" class="jp-primary-button" type="button">クイズ開始</button><button id="quiz-start-wrong" class="jp-secondary-button" type="button">保存済み誤答だけで開始</button></div>
 			</section>
