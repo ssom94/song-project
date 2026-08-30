@@ -1,4 +1,9 @@
 /* Home-only decorative layer and draggable 2029 summary card. */
+body.blog-home-page .blog-dashboard-topbar {
+	background-position: center center;
+	background-size: min(1540px, 90vw) 74px;
+}
+
 body.blog-home-page::before {
 	background-image: url('/assets/images/main_bg.png');
 	background-size: 100% 100%;
@@ -91,6 +96,10 @@ body.blog-home-page .home-dashboard-heading > * {
 }
 
 @media (max-width: 1240px) {
+	body.blog-home-page .blog-dashboard-topbar {
+		background-size: min(1260px, 88vw) 70px;
+	}
+
 	body.blog-home-page .home-dashboard-heading::after {
 		right: -6px;
 		width: 400px;
@@ -108,6 +117,11 @@ body.blog-home-page .home-dashboard-heading > * {
 }
 
 @media (max-width: 840px) {
+	body.blog-home-page .blog-dashboard-topbar {
+		background-position: 52% center;
+		background-size: 980px 68px;
+	}
+
 	body.blog-home-page::before {
 		background-size: 100% 100%;
 		background-position: center center;
@@ -133,6 +147,11 @@ body.blog-home-page .home-dashboard-heading > * {
 }
 
 @media (max-width: 560px) {
+	body.blog-home-page .blog-dashboard-topbar {
+		background-position: 50% center;
+		background-size: 820px 66px;
+	}
+
 	body.blog-home-page::before {
 		opacity: .68;
 	}
