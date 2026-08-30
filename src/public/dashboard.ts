@@ -14,7 +14,7 @@ interface GoalRow {
 }
 
 function json(data: unknown, status = 200): Response {
-	return Response.json(data, { status, headers: { 'Cache-Control': 'public, max-age=60' } });
+	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
 export async function handleGetPublicDashboard(_request: Request, env: Env): Promise<Response> {
