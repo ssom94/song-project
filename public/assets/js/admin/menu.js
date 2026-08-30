@@ -94,6 +94,7 @@
 	function loadJapaneseWordEnhancements() {
 		if (normalizePath(window.location.pathname) !== '/admin/japanese/') return;
 		for (const [src, attr] of [
+			['/assets/js/admin/japanese-import-provenance.js', 'data-japanese-import-provenance'],
 			['/assets/js/admin/japanese-timestamps.js', 'data-japanese-timestamps'],
 			['/assets/js/admin/japanese-history-bulk.js', 'data-japanese-history-bulk'],
 		]) {
