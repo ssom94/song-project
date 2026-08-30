@@ -106,12 +106,19 @@
 		row.className = 'jp-word-row';
 
 		const primary = document.createElement('div');
+		const detail = document.createElement('a');
+		detail.className = 'jp-word-link';
+		const detailParams = new URLSearchParams();
+		if (word.id) detailParams.set('id', String(word.id));
+		if (word.word) detailParams.set('word', String(word.word));
+		detail.href = `/${language()}/japanese/words/detail/?${detailParams.toString()}`;
 		const title = document.createElement('strong');
 		title.textContent = word.word ?? '';
 		const meta = document.createElement('small');
 		const partName = localizedName(word.part);
 		meta.textContent = [word.jlpt, partName].filter(Boolean).join(' · ');
-		primary.append(title, meta);
+		detail.append(title, meta);
+		primary.appendChild(detail);
 
 		const reading = document.createElement('span');
 		reading.textContent = word.reading ?? '—';
