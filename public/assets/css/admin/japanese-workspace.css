@@ -16,38 +16,44 @@
 	margin: 0;
 }
 
-.admin-japanese-layout.admin-japanese-workspace {
-	grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
-	gap: 16px;
+.admin-japanese-layout.admin-japanese-workspace,
+.admin-japanese-layout.admin-japanese-workspace.is-form-collapsed {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 14px;
 	align-items: start;
 }
 
-.admin-japanese-layout.admin-japanese-workspace.is-form-collapsed {
-	grid-template-columns: minmax(0, 1fr);
-}
-
+.admin-japanese-workspace .admin-japanese-form-card,
 .admin-japanese-workspace .admin-japanese-list-card {
 	grid-column: 1;
 	min-width: 0;
 }
 
 .admin-japanese-workspace .admin-japanese-form-card {
-	grid-column: 2;
-	position: sticky;
-	top: 88px;
-	max-height: calc(100vh - 106px);
+	position: relative;
+	top: auto;
+	max-height: none;
 	overflow: hidden;
 }
 
 .admin-japanese-workspace .admin-japanese-form-card #japanese-word-form-panel {
-	max-height: calc(100vh - 176px);
+	max-height: min(64vh, 760px);
 	overflow-y: auto;
 	overflow-x: hidden;
 	scrollbar-gutter: stable;
 }
 
 .admin-japanese-workspace.is-form-collapsed .admin-japanese-form-card {
+	display: block;
+}
+
+.admin-japanese-workspace.is-form-collapsed .admin-japanese-form-card #japanese-word-form-panel {
 	display: none;
+}
+
+.admin-japanese-workspace.is-form-collapsed .admin-japanese-form-card .admin-japanese-card-header {
+	border-bottom: 0;
 }
 
 .admin-japanese-workspace .admin-japanese-filters {
@@ -78,36 +84,13 @@
 }
 
 .admin-japanese-list-add:hover {
-	background: #1849bd;
 	border-color: #1849bd;
+	background: #1849bd;
 }
 
+/* Legacy floating trigger is intentionally removed from the layout. */
 .admin-japanese-floating-word {
-	position: fixed;
-	top: 128px;
-	right: 20px;
-	z-index: 80;
-	max-width: min(240px, calc(100vw - 40px));
-	min-height: 42px;
-	padding: 0 16px;
-	border: 1px solid rgba(31, 86, 216, 0.2);
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.96);
-	color: #1f56d8;
-	font: inherit;
-	font-size: 12px;
-	font-weight: 850;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	cursor: pointer;
-	box-shadow: 0 12px 32px rgba(30, 64, 175, 0.18);
-	backdrop-filter: blur(10px);
-}
-
-.admin-japanese-floating-word:hover {
-	transform: translateY(-1px);
-	box-shadow: 0 14px 36px rgba(30, 64, 175, 0.24);
+	display: none !important;
 }
 
 .admin-japanese-import-card[data-collapsible="true"] {
@@ -117,7 +100,11 @@
 
 .admin-japanese-import-card[data-collapsible="true"] .admin-japanese-import-heading {
 	align-items: center;
-	padding: 13px 15px;
+	padding: 13px 15px 10px;
+}
+
+.admin-japanese-import-card[data-collapsible="true"].is-collapsed .admin-japanese-import-heading {
+	padding-bottom: 8px;
 }
 
 .admin-japanese-import-card[data-collapsible="true"].is-collapsed .admin-japanese-import-heading p {
@@ -125,31 +112,48 @@
 }
 
 .admin-japanese-import-body {
-	padding: 0 15px 15px;
+	padding: 0 15px 10px;
+}
+
+.admin-japanese-import-collapse-footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 30px;
+	padding: 3px 0 8px;
+	border-top: 1px solid #edf1f6;
+	background: linear-gradient(to bottom, rgba(248,250,252,.45), #fff);
+}
+
+.admin-japanese-import-card.is-collapsed .admin-japanese-import-collapse-footer {
+	padding-top: 6px;
+	border-top: 0;
 }
 
 .admin-japanese-import-collapse {
-	flex: 0 0 auto;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 32px;
-	height: 32px;
-	margin-left: 2px;
+	width: 48px;
+	height: 22px;
+	padding: 0;
 	border: 1px solid #d7e0ec;
-	border-radius: 9px;
+	border-radius: 999px;
 	background: #f8fafc;
-	color: #53647a;
+	color: #607086;
 	font: inherit;
-	font-size: 20px;
-	font-weight: 700;
+	font-size: 15px;
+	font-weight: 800;
 	line-height: 1;
 	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(36, 50, 71, .05);
+	transition: border-color .15s ease, background .15s ease, color .15s ease, transform .15s ease;
 }
 
 .admin-japanese-import-collapse:hover {
+	transform: translateY(-1px);
 	border-color: #9fb6dd;
-	background: #f3f7ff;
+	background: #f2f6ff;
 	color: #1f56d8;
 }
 
@@ -200,12 +204,6 @@
 	color: #b42318;
 }
 
-@media (max-width: 1180px) {
-	.admin-japanese-layout.admin-japanese-workspace {
-		grid-template-columns: minmax(0, 1fr) minmax(330px, 390px);
-	}
-}
-
 @media (max-width: 980px) {
 	.admin-japanese-page-topline {
 		align-items: stretch;
@@ -216,26 +214,8 @@
 		width: 100%;
 	}
 
-	.admin-japanese-layout.admin-japanese-workspace,
-	.admin-japanese-layout.admin-japanese-workspace.is-form-collapsed {
-		grid-template-columns: minmax(0, 1fr);
-	}
-
-	.admin-japanese-workspace .admin-japanese-form-card {
-		grid-column: 1;
-		position: relative;
-		top: auto;
-		max-height: none;
-	}
-
 	.admin-japanese-workspace .admin-japanese-form-card #japanese-word-form-panel {
 		max-height: min(68vh, 720px);
-	}
-
-	.admin-japanese-floating-word {
-		top: auto;
-		right: 16px;
-		bottom: 18px;
 	}
 }
 
