@@ -35,13 +35,15 @@ import {
 	handleUpdateAdminTag,
 } from './admin/tags/manage';
 import { handleBulkUpdateAdminJapaneseWords } from './admin/japanese/bulk';
-import { handleImportAdminJapaneseWords } from './admin/japanese/import';
+import { handleBulkDeleteAdminJapaneseWords } from './admin/japanese/bulk-delete';
+import { handleGetAdminJapaneseWordHistory } from './admin/japanese/history';
+import { handleImportAdminJapaneseWordsWithHistory } from './admin/japanese/import-history-wrapper';
+import { handleListAdminJapaneseWords } from './admin/japanese/words';
 import {
-	handleCreateAdminJapaneseWord,
-	handleDeleteAdminJapaneseWord,
-	handleListAdminJapaneseWords,
-	handleUpdateAdminJapaneseWord,
-} from './admin/japanese/words';
+	handleCreateAdminJapaneseWordWithHistory,
+	handleDeleteAdminJapaneseWordWithHistory,
+	handleUpdateAdminJapaneseWordWithHistory,
+} from './admin/japanese/words-history-wrapper';
 import {
 	handleCreateAdminJapanesePart,
 	handleDeleteAdminJapanesePart,
@@ -219,15 +221,19 @@ export default {
 				return request.method === 'PATCH' ? handleUpdateAdminPostVisibility(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/words':
 				if (request.method === 'GET') return handleListAdminJapaneseWords(request, env);
-				if (request.method === 'POST') return handleCreateAdminJapaneseWord(request, env);
+				if (request.method === 'POST') return handleCreateAdminJapaneseWordWithHistory(request, env);
 				return methodNotAllowed('GET, POST');
 			case '/api/admin/japanese/words/import':
-				return request.method === 'POST' ? handleImportAdminJapaneseWords(request, env) : methodNotAllowed('POST');
+				return request.method === 'POST' ? handleImportAdminJapaneseWordsWithHistory(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/words/bulk':
 				return request.method === 'PATCH' ? handleBulkUpdateAdminJapaneseWords(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/words/bulk-delete':
+				return request.method === 'POST' ? handleBulkDeleteAdminJapaneseWords(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/words/history':
+				return request.method === 'GET' ? handleGetAdminJapaneseWordHistory(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words/detail':
-				if (request.method === 'PATCH') return handleUpdateAdminJapaneseWord(request, env);
-				if (request.method === 'DELETE') return handleDeleteAdminJapaneseWord(request, env);
+				if (request.method === 'PATCH') return handleUpdateAdminJapaneseWordWithHistory(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminJapaneseWordWithHistory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/japanese/parts':
 				if (request.method === 'GET') return handleListAdminJapaneseParts(request, env);
