@@ -1,0 +1,197 @@
+.home-dday-card .home-card-heading {
+	align-items: center;
+}
+
+.home-dday-heading-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.home-dday-admin-add,
+.home-dday-admin-button {
+	border: 1px solid #cbd8ef;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, .94);
+	color: #315cae;
+	font-size: 10px;
+	font-weight: 850;
+	line-height: 1;
+}
+
+.home-dday-admin-add {
+	min-height: 29px;
+	padding: 0 10px;
+}
+
+.home-dday-admin-add:hover,
+.home-dday-admin-button:hover {
+	border-color: #8eabe1;
+	background: #f4f7ff;
+}
+
+.home-dday-item {
+	position: relative;
+}
+
+.home-dday-item-copy {
+	min-width: 0;
+}
+
+.home-dday-item-copy strong {
+	display: block;
+}
+
+.home-dday-value {
+	flex: 0 0 auto;
+	min-width: 42px;
+	text-align: right;
+	color: #1f56d8;
+	font-size: 12px;
+	font-weight: 900;
+}
+
+.home-dday-admin-actions {
+	display: flex;
+	flex: 0 0 auto;
+	gap: 4px;
+	margin-left: 5px;
+}
+
+.home-dday-admin-button {
+	min-width: 34px;
+	height: 26px;
+	padding: 0 7px;
+}
+
+.home-dday-admin-button.is-delete {
+	border-color: #f0c6c2;
+	color: #b42318;
+}
+
+.home-dday-admin-button.is-delete:hover {
+	border-color: #dc8e87;
+	background: #fff5f4;
+}
+
+.home-dday-empty {
+	padding: 18px 8px;
+	color: #94a0b1;
+	font-size: 11px;
+	text-align: center;
+}
+
+.dashboard-schedule-modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 120;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background: rgba(20, 30, 48, .34);
+	backdrop-filter: blur(3px);
+}
+
+.dashboard-schedule-modal {
+	width: min(430px, 100%);
+	padding: 22px;
+	border: 1px solid #dbe3ee;
+	border-radius: 18px;
+	background: #fff;
+	box-shadow: 0 22px 70px rgba(28, 42, 66, .22);
+}
+
+.dashboard-schedule-modal h3 {
+	margin: 0 0 16px;
+	color: #243249;
+	font-size: 18px;
+}
+
+.dashboard-schedule-modal p {
+	margin: 0 0 16px;
+	color: #667487;
+	font-size: 12px;
+	line-height: 1.7;
+}
+
+.dashboard-schedule-field {
+	display: grid;
+	gap: 6px;
+	margin-top: 12px;
+	color: #637086;
+	font-size: 11px;
+	font-weight: 800;
+}
+
+.dashboard-schedule-field input {
+	width: 100%;
+	height: 40px;
+	padding: 0 11px;
+	border: 1px solid #d9e1ec;
+	border-radius: 10px;
+	outline: 0;
+	color: #253248;
+	background: #fff;
+}
+
+.dashboard-schedule-field input:focus {
+	border-color: #86a6e8;
+	box-shadow: 0 0 0 3px rgba(31, 86, 216, .08);
+}
+
+.dashboard-schedule-visible-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 14px;
+	color: #637086;
+	font-size: 11px;
+	font-weight: 800;
+}
+
+.dashboard-schedule-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 20px;
+}
+
+.dashboard-schedule-modal-actions button {
+	min-height: 36px;
+	padding: 0 14px;
+	border: 1px solid #d7e0eb;
+	border-radius: 9px;
+	background: #fff;
+	color: #536176;
+	font-size: 11px;
+	font-weight: 850;
+}
+
+.dashboard-schedule-modal-actions .is-primary {
+	border-color: #1f56d8;
+	background: #1f56d8;
+	color: #fff;
+}
+
+.dashboard-schedule-modal-actions .is-danger {
+	border-color: #b42318;
+	background: #b42318;
+	color: #fff;
+}
+
+.dashboard-schedule-modal-actions button:disabled {
+	opacity: .55;
+	cursor: wait;
+}
+
+@media (max-width: 840px) {
+	.home-dday-admin-actions {
+		gap: 3px;
+	}
+
+	.home-dday-admin-button {
+		min-width: 31px;
+		padding: 0 5px;
+	}
+}
