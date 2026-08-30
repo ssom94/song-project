@@ -5,6 +5,10 @@
 	gap: 18px;
 }
 
+.admin-dashboard-goals-page .admin-content {
+	padding-bottom: 96px;
+}
+
 .admin-goals-view-home {
 	display: inline-flex;
 	align-items: center;
@@ -466,30 +470,63 @@
 }
 
 .admin-goals-footer-actions {
+	position: fixed;
+	right: 24px;
+	bottom: 20px;
+	z-index: 80;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	gap: 14px;
-	margin-top: 18px;
-	padding: 14px 0 0;
-	border-top: 1px solid #e8edf3;
+	max-width: min(560px, calc(100vw - 48px));
+	padding: 10px 12px;
+	border: 1px solid rgba(216, 223, 233, .96);
+	border-radius: 13px;
+	background: rgba(255, 255, 255, .94);
+	box-shadow: 0 14px 36px rgba(25, 38, 59, .14);
+	backdrop-filter: blur(12px);
 }
 
 .admin-goals-footer-actions span {
-	color: #919cab;
+	color: #7f8a9a;
 	font-size: 9px;
+	line-height: 1.45;
+}
+
+.admin-goals-footer-actions.is-dirty span {
+	color: #9b3b34;
+	font-weight: 800;
 }
 
 .admin-goals-footer-actions button {
 	min-height: 40px;
-	padding: 0 15px;
+	padding: 0 16px;
 	border: 0;
 	border-radius: 9px;
 	background: #cbd3df;
 	color: #fff;
 	font: inherit;
 	font-size: 10px;
-	font-weight: 850;
+	font-weight: 900;
+	white-space: nowrap;
+	cursor: default;
+	transition: background .16s ease, box-shadow .16s ease, transform .16s ease, opacity .16s ease;
+}
+
+.admin-goals-footer-actions button:not(:disabled).is-dirty {
+	background: #c9342b;
+	box-shadow: 0 7px 18px rgba(185, 48, 39, .26);
+	cursor: pointer;
+}
+
+.admin-goals-footer-actions button:not(:disabled).is-dirty:hover {
+	background: #b42318;
+	transform: translateY(-1px);
+}
+
+.admin-goals-footer-actions button.is-saving {
+	background: #8f9bac;
+	cursor: wait;
 }
 
 @media (max-width: 1120px) {
@@ -520,6 +557,12 @@
 	.admin-goal-editor-fields {
 		grid-template-columns: 1fr;
 	}
+
+	.admin-goals-footer-actions {
+		right: 14px;
+		bottom: 14px;
+		max-width: calc(100vw - 28px);
+	}
 }
 
 @media (max-width: 520px) {
@@ -543,8 +586,13 @@
 	}
 
 	.admin-goals-footer-actions {
+		left: 12px;
+		right: 12px;
+		bottom: 12px;
+		max-width: none;
 		align-items: stretch;
 		flex-direction: column;
+		gap: 7px;
 	}
 
 	.admin-goals-footer-actions button {
