@@ -31,6 +31,17 @@
 			};
 	}
 
+	function certificationHref(goal) {
+		const base = `/${language()}/certifications/`;
+		const map = {
+			'jlpt-n1': `${base}detail/?slug=jlpt-n1`,
+			ap: `${base}detail/?slug=ap`,
+			fp: base,
+			'aws-saa': `${base}detail/?slug=aws-saa`,
+		};
+		return map[goal?.goalKey] || '';
+	}
+
 	function clampPercent(value) {
 		const parsed = Number(value);
 		if (!Number.isFinite(parsed)) return 0;
@@ -84,8 +95,14 @@
 		icon.className = 'home-goal-icon';
 		icon.textContent = iconForGoal(goal);
 		const mainCopy = document.createElement('div');
-		const title = document.createElement('strong');
+		const href = certificationHref(goal);
+		const title = href ? document.createElement('a') : document.createElement('strong');
 		title.textContent = goal.title || '';
+		if (href && title instanceof HTMLAnchorElement) {
+			title.href = href;
+			title.className = 'home-goal-title-link';
+			title.title = language() === 'ko' ? '시험 정보 보기' : '試験情報を見る';
+		}
 		const detail = document.createElement('small');
 		detail.textContent = detailForGoal(goal);
 		mainCopy.append(title, detail);
