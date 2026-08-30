@@ -34,6 +34,22 @@ type ExistingWord = {
 	note: string | null;
 };
 
+type ImportWarning = {
+	code: string;
+	field: 'jlpt' | 'part_of_speech' | 'category';
+	value: string;
+};
+
+type ImportResultRow = {
+	rowNumber: number;
+	status: 'created' | 'merged' | 'failed';
+	word: string;
+	error?: string;
+	missingFields?: string[];
+	tooLongFields?: string[];
+	warnings?: ImportWarning[];
+};
+
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
@@ -166,10 +182,12 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 		const levelMap = new Map(levelsResult.results.map((row) => [row.code.toUpperCase(), row.id]));
 		const partLookup = makeLookup(partsResult.results);
 		const categoryLookup = makeLookup(categoriesResult.results);
-		const results: Array<{ rowNumber: number; status: 'created' | 'merged' | 'failed'; word: string; error?: string }> = [];
+		const results: ImportResultRow[] = [];
 		let created = 0;
 		let merged = 0;
 		let failed = 0;
+		let warningRows = 0;
+		let warningCount = 0;
 
 		for (let index = 0; index < payload.rows.length; index += 1) {
 			const row = (payload.rows[index] ?? {}) as ImportRowInput;
@@ -187,47 +205,69 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 			const exampleKo = text(row.exampleKo, 1200);
 			const note = text(row.note, 2000);
 
-			const fail = (error: string) => {
+			const fail = (error: string, details: Pick<ImportResultRow, 'missingFields' | 'tooLongFields'> = {}) => {
 				failed += 1;
-				results.push({ rowNumber, status: 'failed', word, error });
+				results.push({ rowNumber, status: 'failed', word, error, ...details });
 			};
 
-			if (!word || !reading || !meaningKo) {
-				fail('REQUIRED_FIELD_MISSING');
-				continue;
-			}
-			if (word.length > 120 || reading.length > 160 || meaningKo.length > 4000 || meaningJa.length > 1000 || note.length > 2000) {
-				fail('FIELD_TOO_LONG');
+			const missingFields = [
+				!word ? 'word' : '',
+				!reading ? 'reading' : '',
+				!meaningKo ? 'meaning_ko' : '',
+			].filter(Boolean);
+			if (missingFields.length) {
+				fail('REQUIRED_FIELD_MISSING', { missingFields });
 				continue;
 			}
 
-			const jlptLevelId = jlpt ? levelMap.get(jlpt) ?? null : null;
-			if (jlpt && !jlptLevelId) {
-				fail('JLPT_NOT_FOUND');
+			const tooLongFields = [
+				word.length > 120 ? 'word' : '',
+				reading.length > 160 ? 'reading' : '',
+				meaningKo.length > 4000 ? 'meaning_ko' : '',
+				meaningJa.length > 1000 ? 'meaning_ja' : '',
+				partOfSpeech.length > 1000 ? 'part_of_speech' : '',
+				category.length > 240 ? 'category' : '',
+				exampleJa.length > 1000 ? 'example_ja' : '',
+				exampleReading.length > 1200 ? 'example_reading' : '',
+				exampleKo.length > 1200 ? 'example_ko' : '',
+				note.length > 2000 ? 'note' : '',
+			].filter(Boolean);
+			if (tooLongFields.length) {
+				fail('FIELD_TOO_LONG', { tooLongFields });
 				continue;
+			}
+
+			const warnings: ImportWarning[] = [];
+			let jlptLevelId: number | null = null;
+			if (jlpt) {
+				jlptLevelId = levelMap.get(jlpt) ?? null;
+				if (!jlptLevelId) warnings.push({ code: 'JLPT_NOT_FOUND', field: 'jlpt', value: jlpt });
 			}
 
 			const partIds: number[] = [];
-			let partError = '';
 			for (const label of splitValues(partOfSpeech)) {
 				const resolved = resolveSingle(partLookup, label);
-				if (resolved === 'NOT_FOUND') { partError = 'PART_OF_SPEECH_NOT_FOUND'; break; }
-				if (resolved === 'AMBIGUOUS') { partError = 'PART_OF_SPEECH_AMBIGUOUS'; break; }
+				if (resolved === 'NOT_FOUND') {
+					warnings.push({ code: 'PART_OF_SPEECH_NOT_FOUND', field: 'part_of_speech', value: label });
+					continue;
+				}
+				if (resolved === 'AMBIGUOUS') {
+					warnings.push({ code: 'PART_OF_SPEECH_AMBIGUOUS', field: 'part_of_speech', value: label });
+					continue;
+				}
 				if (typeof resolved === 'number' && !partIds.includes(resolved)) partIds.push(resolved);
 			}
-			if (partError) {
-				fail(partError);
-				continue;
-			}
 
-			const categoryId = resolveSingle(categoryLookup, category);
-			if (categoryId === 'NOT_FOUND') {
-				fail('CATEGORY_NOT_FOUND');
-				continue;
-			}
-			if (categoryId === 'AMBIGUOUS') {
-				fail('CATEGORY_AMBIGUOUS');
-				continue;
+			let categoryId: number | null = null;
+			if (category) {
+				const resolvedCategory = resolveSingle(categoryLookup, category);
+				if (resolvedCategory === 'NOT_FOUND') {
+					warnings.push({ code: 'CATEGORY_NOT_FOUND', field: 'category', value: category });
+				} else if (resolvedCategory === 'AMBIGUOUS') {
+					warnings.push({ code: 'CATEGORY_AMBIGUOUS', field: 'category', value: category });
+				} else if (typeof resolvedCategory === 'number') {
+					categoryId = resolvedCategory;
+				}
 			}
 
 			try {
@@ -272,7 +312,7 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 					`).bind(wordId, partId, !primaryExists && partIndex === 0 ? 1 : 0, now));
 				});
 
-				if (typeof categoryId === 'number') {
+				if (categoryId) {
 					statements.push(env.song_project_db.prepare(`
 						INSERT OR IGNORE INTO japanese_word_categories (word_id, category_id, created_at)
 						VALUES (?1, ?2, ?3)
@@ -290,7 +330,11 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 				await env.song_project_db.batch(statements);
 				if (status === 'created') created += 1;
 				else merged += 1;
-				results.push({ rowNumber, status, word });
+				if (warnings.length) {
+					warningRows += 1;
+					warningCount += warnings.length;
+				}
+				results.push({ rowNumber, status, word, warnings: warnings.length ? warnings : undefined });
 			} catch (error) {
 				console.error(`Japanese word import row ${rowNumber} failed`, error);
 				fail('DATABASE_ERROR');
@@ -303,6 +347,8 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 			created,
 			merged,
 			failed,
+			warningRows,
+			warningCount,
 			results,
 		});
 	} catch (error) {
