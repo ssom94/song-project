@@ -8,12 +8,22 @@ type CategoryPayload = {
 	displayOrder?: unknown;
 };
 
+type ReorderPayload = {
+	parentId?: unknown;
+	orderedIds?: unknown;
+};
+
 interface ExistingCategoryRow {
 	id: number;
 	parent_id: number | null;
 	name_ja: string;
 	name_ko: string;
 	description: string | null;
+	display_order: number;
+}
+
+interface CategoryOrderRow {
+	id: number;
 	display_order: number;
 }
 
@@ -42,6 +52,10 @@ function parseDisplayOrder(value: unknown): number | undefined {
 	if (value === null || value === undefined || value === '') return 0;
 	const parsed = Number(value);
 	return Number.isSafeInteger(parsed) && parsed >= 0 && parsed <= 9999 ? parsed : undefined;
+}
+
+function sameParent(left: number | null, right: number | null): boolean {
+	return left === right;
 }
 
 async function readPayload(request: Request): Promise<{
@@ -79,6 +93,33 @@ async function getExistingCategory(db: D1Database, id: number): Promise<Existing
 		WHERE id = ?1 AND deleted_at IS NULL
 		LIMIT 1
 	`).bind(id).first<ExistingCategoryRow>();
+}
+
+async function getSiblings(db: D1Database, parentId: number | null, excludeId: number | null = null): Promise<CategoryOrderRow[]> {
+	const result = await db.prepare(`
+		SELECT id, display_order
+		FROM japanese_categories
+		WHERE deleted_at IS NULL
+			AND ((?1 IS NULL AND parent_id IS NULL) OR parent_id = ?1)
+			AND (?2 IS NULL OR id <> ?2)
+		ORDER BY display_order ASC, id ASC
+	`).bind(parentId, excludeId).all<CategoryOrderRow>();
+	return result.results;
+}
+
+function insertAt(ids: number[], id: number, requestedOrder: number): number[] {
+	const target = Math.max(0, Math.min(requestedOrder, ids.length));
+	const result = [...ids];
+	result.splice(target, 0, id);
+	return result;
+}
+
+function orderStatements(db: D1Database, ids: number[], now: string): D1PreparedStatement[] {
+	return ids.map((id, index) => db.prepare(`
+		UPDATE japanese_categories
+		SET display_order = ?1, updated_at = ?2
+		WHERE id = ?3 AND deleted_at IS NULL
+	`).bind(index, now, id));
 }
 
 async function validateParent(db: D1Database, categoryId: number | null, parentId: number | null): Promise<string | null> {
@@ -149,18 +190,28 @@ export async function handleCreateAdminJapaneseCategory(request: Request, env: E
 	const id = makeCategoryId();
 	const now = new Date().toISOString();
 	try {
+		const siblings = await getSiblings(env.song_project_db, parsed.parentId);
+		const orderedIds = insertAt(siblings.map((row) => row.id), id, parsed.displayOrder);
+		const actualOrder = orderedIds.indexOf(id);
 		await env.song_project_db.batch([
 			env.song_project_db.prepare(`
 				INSERT INTO japanese_categories
 					(id, parent_id, name_ja, name_ko, description, display_order, created_at, updated_at)
 				VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?7)
-			`).bind(id, parsed.parentId, parsed.nameJa, parsed.nameKo, parsed.description || null, parsed.displayOrder, now),
+			`).bind(id, parsed.parentId, parsed.nameJa, parsed.nameKo, parsed.description || null, actualOrder, now),
+			...orderStatements(env.song_project_db, orderedIds, now),
 			env.song_project_db.prepare(`
 				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, after_data, country_code, user_agent)
 				VALUES (?1, 'japanese_category', ?2, 'create', ?3, ?4, ?5)
-			`).bind(session.adminId, id, JSON.stringify(parsed), request.headers.get('CF-IPCountry'), request.headers.get('User-Agent')),
+			`).bind(
+				session.adminId,
+				id,
+				JSON.stringify({ ...parsed, displayOrder: actualOrder }),
+				request.headers.get('CF-IPCountry'),
+				request.headers.get('User-Agent'),
+			),
 		]);
-		return json({ ok: true, category: { id } }, 201);
+		return json({ ok: true, category: { id, displayOrder: actualOrder } }, 201);
 	} catch (error) {
 		console.error('Failed to create Japanese category', error);
 		return json({ ok: false, error: 'JAPANESE_CATEGORY_CREATE_FAILED' }, 500);
@@ -184,21 +235,109 @@ export async function handleUpdateAdminJapaneseCategory(request: Request, env: E
 
 	const now = new Date().toISOString();
 	try {
-		await env.song_project_db.batch([
-			env.song_project_db.prepare(`
+		const statements: D1PreparedStatement[] = [];
+		let actualOrder = 0;
+
+		if (sameParent(existing.parent_id, parsed.parentId)) {
+			const siblings = await getSiblings(env.song_project_db, parsed.parentId, id);
+			const orderedIds = insertAt(siblings.map((row) => row.id), id, parsed.displayOrder);
+			actualOrder = orderedIds.indexOf(id);
+			statements.push(env.song_project_db.prepare(`
 				UPDATE japanese_categories
 				SET parent_id = ?1, name_ja = ?2, name_ko = ?3, description = ?4, display_order = ?5, updated_at = ?6
 				WHERE id = ?7 AND deleted_at IS NULL
-			`).bind(parsed.parentId, parsed.nameJa, parsed.nameKo, parsed.description || null, parsed.displayOrder, now, id),
-			env.song_project_db.prepare(`
-				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, before_data, after_data, country_code, user_agent)
-				VALUES (?1, 'japanese_category', ?2, 'update', ?3, ?4, ?5, ?6)
-			`).bind(session.adminId, id, JSON.stringify(existing), JSON.stringify(parsed), request.headers.get('CF-IPCountry'), request.headers.get('User-Agent')),
-		]);
-		return json({ ok: true });
+			`).bind(parsed.parentId, parsed.nameJa, parsed.nameKo, parsed.description || null, actualOrder, now, id));
+			statements.push(...orderStatements(env.song_project_db, orderedIds, now));
+		} else {
+			const [oldSiblings, newSiblings] = await Promise.all([
+				getSiblings(env.song_project_db, existing.parent_id, id),
+				getSiblings(env.song_project_db, parsed.parentId, id),
+			]);
+			const oldOrderedIds = oldSiblings.map((row) => row.id);
+			const newOrderedIds = insertAt(newSiblings.map((row) => row.id), id, parsed.displayOrder);
+			actualOrder = newOrderedIds.indexOf(id);
+			statements.push(env.song_project_db.prepare(`
+				UPDATE japanese_categories
+				SET parent_id = ?1, name_ja = ?2, name_ko = ?3, description = ?4, display_order = ?5, updated_at = ?6
+				WHERE id = ?7 AND deleted_at IS NULL
+			`).bind(parsed.parentId, parsed.nameJa, parsed.nameKo, parsed.description || null, actualOrder, now, id));
+			statements.push(...orderStatements(env.song_project_db, oldOrderedIds, now));
+			statements.push(...orderStatements(env.song_project_db, newOrderedIds, now));
+		}
+
+		statements.push(env.song_project_db.prepare(`
+			INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, before_data, after_data, country_code, user_agent)
+			VALUES (?1, 'japanese_category', ?2, 'update', ?3, ?4, ?5, ?6)
+		`).bind(
+			session.adminId,
+			id,
+			JSON.stringify(existing),
+			JSON.stringify({ ...parsed, displayOrder: actualOrder }),
+			request.headers.get('CF-IPCountry'),
+			request.headers.get('User-Agent'),
+		));
+
+		await env.song_project_db.batch(statements);
+		return json({ ok: true, displayOrder: actualOrder });
 	} catch (error) {
 		console.error('Failed to update Japanese category', error);
 		return json({ ok: false, error: 'JAPANESE_CATEGORY_UPDATE_FAILED' }, 500);
+	}
+}
+
+export async function handleReorderAdminJapaneseCategories(request: Request, env: Env): Promise<Response> {
+	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
+	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
+	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
+
+	let payload: ReorderPayload;
+	try {
+		payload = await request.json() as ReorderPayload;
+	} catch {
+		return json({ ok: false, error: 'INVALID_JSON' }, 400);
+	}
+
+	const parentId = parseParentId(payload.parentId);
+	if (parentId === undefined) return json({ ok: false, error: 'INVALID_PARENT_JAPANESE_CATEGORY' }, 400);
+	if (!Array.isArray(payload.orderedIds) || payload.orderedIds.length === 0) {
+		return json({ ok: false, error: 'INVALID_CATEGORY_ORDER' }, 400);
+	}
+
+	const orderedIds = payload.orderedIds.map(Number);
+	if (orderedIds.some((id) => !Number.isSafeInteger(id) || id <= 0) || new Set(orderedIds).size !== orderedIds.length) {
+		return json({ ok: false, error: 'INVALID_CATEGORY_ORDER' }, 400);
+	}
+
+	try {
+		if (parentId !== null) {
+			const parent = await getExistingCategory(env.song_project_db, parentId);
+			if (!parent) return json({ ok: false, error: 'PARENT_JAPANESE_CATEGORY_NOT_FOUND' }, 404);
+		}
+		const siblings = await getSiblings(env.song_project_db, parentId);
+		const currentIds = siblings.map((row) => row.id);
+		if (currentIds.length !== orderedIds.length) return json({ ok: false, error: 'CATEGORY_ORDER_MISMATCH' }, 409);
+		const currentSet = new Set(currentIds);
+		if (orderedIds.some((id) => !currentSet.has(id))) return json({ ok: false, error: 'CATEGORY_ORDER_MISMATCH' }, 409);
+
+		const now = new Date().toISOString();
+		await env.song_project_db.batch([
+			...orderStatements(env.song_project_db, orderedIds, now),
+			env.song_project_db.prepare(`
+				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, before_data, after_data, country_code, user_agent)
+				VALUES (?1, 'japanese_category_order', ?2, 'reorder', ?3, ?4, ?5, ?6)
+			`).bind(
+				session.adminId,
+				orderedIds[0],
+				JSON.stringify({ parentId, orderedIds: currentIds }),
+				JSON.stringify({ parentId, orderedIds }),
+				request.headers.get('CF-IPCountry'),
+				request.headers.get('User-Agent'),
+			),
+		]);
+		return json({ ok: true });
+	} catch (error) {
+		console.error('Failed to reorder Japanese categories', error);
+		return json({ ok: false, error: 'JAPANESE_CATEGORY_REORDER_FAILED' }, 500);
 	}
 }
 
@@ -229,12 +368,12 @@ export async function handleDeleteAdminJapaneseCategory(request: Request, env: E
 
 	const now = new Date().toISOString();
 	try {
+		const siblings = await getSiblings(env.song_project_db, existing.parent_id, id);
 		await env.song_project_db.batch([
-			env.song_project_db.prepare(`
-				UPDATE japanese_categories
-				SET deleted_at = ?1, updated_at = ?1
-				WHERE id = ?2 AND deleted_at IS NULL
-			`).bind(now, id),
+			env.song_project_db
+				.prepare('UPDATE japanese_categories SET deleted_at = ?1, updated_at = ?1 WHERE id = ?2 AND deleted_at IS NULL')
+				.bind(now, id),
+			...orderStatements(env.song_project_db, siblings.map((row) => row.id), now),
 			env.song_project_db.prepare(`
 				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, before_data, country_code, user_agent)
 				VALUES (?1, 'japanese_category', ?2, 'delete', ?3, ?4, ?5)
