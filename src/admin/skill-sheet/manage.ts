@@ -6,7 +6,7 @@ type SkillSheetSectionInput = {
 	titleKo?: unknown;
 	descriptionJa?: unknown;
 	descriptionKo?: unknown;
-	skills?: unknown;
+	selectedSkillIds?: unknown;
 	isVisible?: unknown;
 };
 
@@ -41,19 +41,16 @@ function optionalText(value: unknown, max: number): string | null {
 	return normalized.length <= max ? normalized : null;
 }
 
-function parseSkills(value: unknown): string[] | null {
-	if (!Array.isArray(value) || value.length > 60) return null;
-	const result: string[] = [];
-	const seen = new Set<string>();
+function parseSkillIds(value: unknown): number[] | null {
+	if (!Array.isArray(value) || value.length > 100) return null;
+	const result: number[] = [];
+	const seen = new Set<number>();
 	for (const item of value) {
-		if (typeof item !== 'string') return null;
-		const skill = item.trim();
-		if (!skill) continue;
-		if (skill.length > 80) return null;
-		const key = skill.toLocaleLowerCase();
-		if (seen.has(key)) continue;
-		seen.add(key);
-		result.push(skill);
+		const id = Number(item);
+		if (!Number.isSafeInteger(id) || id <= 0) return null;
+		if (seen.has(id)) continue;
+		seen.add(id);
+		result.push(id);
 	}
 	return result;
 }
@@ -73,7 +70,7 @@ function parsePayload(payload: SkillSheetPayload) {
 		titleKo: string;
 		descriptionJa: string;
 		descriptionKo: string;
-		skills: string[];
+		selectedSkillIds: number[];
 		isVisible: boolean;
 	}>;
 
@@ -85,8 +82,8 @@ function parsePayload(payload: SkillSheetPayload) {
 		const titleKo = requiredText(raw.titleKo, 120);
 		const descriptionJa = optionalText(raw.descriptionJa, 1000);
 		const descriptionKo = optionalText(raw.descriptionKo, 1000);
-		const skills = parseSkills(raw.skills);
-		if (!titleJa || !titleKo || descriptionJa === null || descriptionKo === null || !skills) return null;
+		const selectedSkillIds = parseSkillIds(raw.selectedSkillIds);
+		if (!titleJa || !titleKo || descriptionJa === null || descriptionKo === null || selectedSkillIds === null) return null;
 		sectionKeys.add(sectionKey);
 		sections.push({
 			sectionKey,
@@ -94,7 +91,7 @@ function parsePayload(payload: SkillSheetPayload) {
 			titleKo,
 			descriptionJa,
 			descriptionKo,
-			skills,
+			selectedSkillIds,
 			isVisible: raw.isVisible !== false,
 		});
 	}
@@ -102,24 +99,58 @@ function parsePayload(payload: SkillSheetPayload) {
 	return { headingJa, headingKo, descriptionJa, descriptionKo, sections };
 }
 
+function catalogItem(row: Record<string, unknown>) {
+	return {
+		id: Number(row.id),
+		key: String(row.skill_key ?? ''),
+		name: String(row.name ?? ''),
+		category: String(row.category ?? ''),
+		type: String(row.skill_type ?? ''),
+		usageArea: String(row.usage_area ?? ''),
+		descriptionJa: String(row.description_ja ?? ''),
+		descriptionKo: String(row.description_ko ?? ''),
+		aliases: String(row.aliases ?? ''),
+	};
+}
+
 export async function handleGetAdminSkillSheetSummary(request: Request, env: Env): Promise<Response> {
 	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
 	try {
-		const [summary, sections] = await Promise.all([
+		const [summary, sections, links, catalog] = await Promise.all([
 			env.song_project_db.prepare(`
 				SELECT heading_ja, heading_ko, description_ja, description_ko, updated_at
 				FROM skill_sheet_summary
 				WHERE id = 1
-			`).first(),
+			`).first<Record<string, unknown>>(),
 			env.song_project_db.prepare(`
-				SELECT section_key, title_ja, title_ko, description_ja, description_ko, skills_json, display_order, is_visible
+				SELECT id, section_key, title_ja, title_ko, description_ja, description_ko, display_order, is_visible
 				FROM skill_sheet_summary_sections
 				ORDER BY display_order ASC, id ASC
-			`).all(),
+			`).all<Record<string, unknown>>(),
+			env.song_project_db.prepare(`
+				SELECT ss.section_id, ss.skill_id, c.name, ss.display_order
+				FROM skill_sheet_section_skills AS ss
+				INNER JOIN it_skill_catalog AS c ON c.id = ss.skill_id AND c.is_active = 1
+				ORDER BY ss.section_id ASC, ss.display_order ASC, ss.skill_id ASC
+			`).all<Record<string, unknown>>(),
+			env.song_project_db.prepare(`
+				SELECT id, skill_key, name, category, skill_type, usage_area,
+					description_ja, description_ko, aliases
+				FROM it_skill_catalog
+				WHERE is_active = 1
+				ORDER BY display_order ASC, name COLLATE NOCASE ASC
+			`).all<Record<string, unknown>>(),
 		]);
 		if (!summary) return json({ ok: false, error: 'SKILL_SHEET_SUMMARY_NOT_INITIALIZED' }, 500);
+
+		const selectedBySection = new Map<number, Array<{ id: number; name: string }>>();
+		for (const link of links.results) {
+			const sectionId = Number(link.section_id);
+			if (!selectedBySection.has(sectionId)) selectedBySection.set(sectionId, []);
+			selectedBySection.get(sectionId)?.push({ id: Number(link.skill_id), name: String(link.name ?? '') });
+		}
 
 		return json({
 			ok: true,
@@ -129,20 +160,21 @@ export async function handleGetAdminSkillSheetSummary(request: Request, env: Env
 				descriptionJa: summary.description_ja,
 				descriptionKo: summary.description_ko,
 				updatedAt: summary.updated_at,
-				sections: sections.results.map((section: Record<string, unknown>) => {
-					let skills: unknown = [];
-					try { skills = JSON.parse(String(section.skills_json ?? '[]')); } catch { skills = []; }
+				sections: sections.results.map((section) => {
+					const selected = selectedBySection.get(Number(section.id)) ?? [];
 					return {
 						sectionKey: section.section_key,
 						titleJa: section.title_ja,
 						titleKo: section.title_ko,
 						descriptionJa: section.description_ja,
 						descriptionKo: section.description_ko,
-						skills: Array.isArray(skills) ? skills : [],
+						selectedSkillIds: selected.map((item) => item.id),
+						skills: selected.map((item) => item.name),
 						isVisible: Number(section.is_visible) === 1,
 					};
 				}),
 			},
+			catalog: catalog.results.map(catalogItem),
 		});
 	} catch (error) {
 		console.error('Failed to load skill sheet summary', error);
@@ -166,39 +198,76 @@ export async function handleUpdateAdminSkillSheetSummary(request: Request, env: 
 
 	const now = new Date().toISOString();
 	try {
-		const statements = [
-			env.song_project_db.prepare(`
-				UPDATE skill_sheet_summary
-				SET heading_ja = ?1,
-					heading_ko = ?2,
-					description_ja = ?3,
-					description_ko = ?4,
-					updated_by = ?5,
-					updated_at = ?6
-				WHERE id = 1
-			`).bind(parsed.headingJa, parsed.headingKo, parsed.descriptionJa, parsed.descriptionKo, session.adminId, now),
-			env.song_project_db.prepare('DELETE FROM skill_sheet_summary_sections'),
-		];
+		const activeCatalog = await env.song_project_db.prepare(`SELECT id FROM it_skill_catalog WHERE is_active = 1`).all<{ id: number }>();
+		const validSkillIds = new Set(activeCatalog.results.map((row) => Number(row.id)));
+		for (const section of parsed.sections) {
+			if (section.selectedSkillIds.some((id) => !validSkillIds.has(id))) {
+				return json({ ok: false, error: 'SKILL_NOT_FOUND' }, 400);
+			}
+		}
 
-		parsed.sections.forEach((section, index) => {
-			statements.push(env.song_project_db.prepare(`
-				INSERT INTO skill_sheet_summary_sections (
-					section_key, title_ja, title_ko, description_ja, description_ko,
-					skills_json, display_order, is_visible, created_at, updated_at
-				) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?9)
-			`).bind(
-				section.sectionKey,
-				section.titleJa,
-				section.titleKo,
-				section.descriptionJa,
-				section.descriptionKo,
-				JSON.stringify(section.skills),
-				(index + 1) * 10,
-				section.isVisible ? 1 : 0,
-				now,
-			));
-		});
-		await env.song_project_db.batch(statements);
+		await env.song_project_db.prepare(`
+			UPDATE skill_sheet_summary
+			SET heading_ja = ?1,
+				heading_ko = ?2,
+				description_ja = ?3,
+				description_ko = ?4,
+				updated_by = ?5,
+				updated_at = ?6
+			WHERE id = 1
+		`).bind(parsed.headingJa, parsed.headingKo, parsed.descriptionJa, parsed.descriptionKo, session.adminId, now).run();
+
+		const keptSectionIds: number[] = [];
+		for (const [index, section] of parsed.sections.entries()) {
+			const existing = await env.song_project_db.prepare(`
+				SELECT id FROM skill_sheet_summary_sections WHERE section_key = ?1 LIMIT 1
+			`).bind(section.sectionKey).first<{ id: number }>();
+
+			let sectionId = Number(existing?.id) || 0;
+			if (sectionId) {
+				await env.song_project_db.prepare(`
+					UPDATE skill_sheet_summary_sections
+					SET title_ja = ?1, title_ko = ?2, description_ja = ?3, description_ko = ?4,
+						display_order = ?5, is_visible = ?6, updated_at = ?7
+					WHERE id = ?8
+				`).bind(
+					section.titleJa, section.titleKo, section.descriptionJa, section.descriptionKo,
+					(index + 1) * 10, section.isVisible ? 1 : 0, now, sectionId,
+				).run();
+			} else {
+				const inserted = await env.song_project_db.prepare(`
+					INSERT INTO skill_sheet_summary_sections (
+						section_key, title_ja, title_ko, description_ja, description_ko,
+						skills_json, display_order, is_visible, created_at, updated_at
+					) VALUES (?1, ?2, ?3, ?4, ?5, '[]', ?6, ?7, ?8, ?8)
+					RETURNING id
+				`).bind(
+					section.sectionKey, section.titleJa, section.titleKo, section.descriptionJa,
+					section.descriptionKo, (index + 1) * 10, section.isVisible ? 1 : 0, now,
+				).first<{ id: number }>();
+				sectionId = Number(inserted?.id) || 0;
+				if (!sectionId) throw new Error('SECTION_INSERT_FAILED');
+			}
+			keptSectionIds.push(sectionId);
+
+			const statements = [
+				env.song_project_db.prepare(`DELETE FROM skill_sheet_section_skills WHERE section_id = ?1`).bind(sectionId),
+			];
+			section.selectedSkillIds.forEach((skillId, skillIndex) => {
+				statements.push(env.song_project_db.prepare(`
+					INSERT INTO skill_sheet_section_skills (section_id, skill_id, display_order, created_at)
+					VALUES (?1, ?2, ?3, ?4)
+				`).bind(sectionId, skillId, (skillIndex + 1) * 10, now));
+			});
+			await env.song_project_db.batch(statements);
+		}
+
+		const existingSections = await env.song_project_db.prepare(`SELECT id FROM skill_sheet_summary_sections`).all<{ id: number }>();
+		const removeIds = existingSections.results.map((row) => Number(row.id)).filter((id) => !keptSectionIds.includes(id));
+		if (removeIds.length) {
+			await env.song_project_db.batch(removeIds.map((id) => env.song_project_db.prepare(`DELETE FROM skill_sheet_summary_sections WHERE id = ?1`).bind(id)));
+		}
+
 		return json({ ok: true, updatedAt: now });
 	} catch (error) {
 		console.error('Failed to update skill sheet summary', error);
