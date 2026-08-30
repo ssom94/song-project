@@ -125,9 +125,11 @@
 	}
 
 	function mountModeSelector() {
+		const existingModeSection = document.querySelector('[data-quiz-mode-section]');
 		const typeInput = document.querySelector('input[name="quiz-type"]');
-		const typeSection = typeInput?.closest('.admin-quiz-section');
+		const typeSection = existingModeSection || typeInput?.closest('.admin-quiz-section');
 		if (!typeSection) return;
+		typeSection.dataset.quizModeSection = 'true';
 		let selected = document.querySelector('input[name="quiz-mode"]:checked')?.value || savedMode();
 		if (!['input', 'choice', 'sentence', 'mixed'].includes(selected)) selected = 'mixed';
 
@@ -141,7 +143,7 @@
 		heading.append(strong, hint);
 
 		const list = document.createElement('div');
-		list.className = 'admin-quiz-mode-grid';
+		list.className = 'admin-quiz-answer-modes';
 		for (const mode of modeDefinitions()) {
 			const labelNode = document.createElement('label');
 			labelNode.className = 'admin-quiz-answer-mode';
