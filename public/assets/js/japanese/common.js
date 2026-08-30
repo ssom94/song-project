@@ -1,6 +1,9 @@
 (() => {
+	const WORD_PAGE_SIZE = 20;
 	let searchTimer = 0;
 	let taxonomyCache = null;
+	let wordPage = 1;
+	let wordRequestId = 0;
 
 	function language() {
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
@@ -172,21 +175,118 @@
 		return row;
 	}
 
+	function wordPaginationLabels() {
+		return language() === 'ko'
+			? { previous: '이전', next: '다음', summary: (start, end, total) => `${start}-${end} / ${total}개` }
+			: { previous: '前へ', next: '次へ', summary: (start, end, total) => `${start}-${end} / ${total}件` };
+	}
+
+	function ensureWordPagers() {
+		const list = document.querySelector('.jp-word-list');
+		if (!list) return [];
+		let top = document.getElementById('jp-word-pagination-top');
+		let bottom = document.getElementById('jp-word-pagination-bottom');
+		if (!top) {
+			top = document.createElement('nav');
+			top.id = 'jp-word-pagination-top';
+			top.className = 'jp-word-pagination is-top';
+			list.insertAdjacentElement('beforebegin', top);
+		}
+		if (!bottom) {
+			bottom = document.createElement('nav');
+			bottom.id = 'jp-word-pagination-bottom';
+			bottom.className = 'jp-word-pagination is-bottom';
+			list.insertAdjacentElement('afterend', bottom);
+		}
+		return [top, bottom];
+	}
+
+	function pageNumbers(page, totalPages) {
+		if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1);
+		const values = [1];
+		const start = Math.max(2, page - 1);
+		const end = Math.min(totalPages - 1, page + 1);
+		if (start > 2) values.push('left');
+		for (let value = start; value <= end; value += 1) values.push(value);
+		if (end < totalPages - 1) values.push('right');
+		values.push(totalPages);
+		return values;
+	}
+
+	function wordPageButton(label, page, disabled = false, active = false) {
+		const button = document.createElement('button');
+		button.type = 'button';
+		button.className = `jp-word-page-button${active ? ' is-active' : ''}`;
+		button.textContent = label;
+		button.disabled = disabled;
+		if (active) button.setAttribute('aria-current', 'page');
+		button.addEventListener('click', () => {
+			if (disabled || page === wordPage) return;
+			wordPage = page;
+			loadWords();
+			document.querySelector('.jp-card-heading')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+		return button;
+	}
+
+	function renderWordPagination(pagination) {
+		const pagers = ensureWordPagers();
+		const total = Math.max(0, Number(pagination?.total ?? 0));
+		const totalPages = Math.max(1, Number(pagination?.totalPages ?? 1));
+		const page = Math.min(totalPages, Math.max(1, Number(pagination?.page ?? wordPage)));
+		wordPage = page;
+		const start = total ? ((page - 1) * WORD_PAGE_SIZE) + 1 : 0;
+		const end = Math.min(page * WORD_PAGE_SIZE, total);
+		const labels = wordPaginationLabels();
+
+		for (const pager of pagers) {
+			pager.replaceChildren();
+			if (total <= WORD_PAGE_SIZE) {
+				pager.hidden = true;
+				continue;
+			}
+			pager.hidden = false;
+			pager.setAttribute('aria-label', language() === 'ko' ? '단어 목록 페이지' : '単語一覧ページ');
+			const summary = document.createElement('span');
+			summary.className = 'jp-word-pagination-summary';
+			summary.textContent = labels.summary(start, end, total);
+			const controls = document.createElement('div');
+			controls.className = 'jp-word-pagination-controls';
+			controls.appendChild(wordPageButton(labels.previous, page - 1, page <= 1));
+			for (const item of pageNumbers(page, totalPages)) {
+				if (typeof item === 'string') {
+					const ellipsis = document.createElement('span');
+					ellipsis.className = 'jp-word-pagination-ellipsis';
+					ellipsis.textContent = '…';
+					controls.appendChild(ellipsis);
+				} else {
+					controls.appendChild(wordPageButton(String(item), item, false, item === page));
+				}
+			}
+			controls.appendChild(wordPageButton(labels.next, page + 1, page >= totalPages));
+			pager.append(summary, controls);
+		}
+	}
+
 	async function loadWords() {
 		const search = document.getElementById('jp-word-search');
 		const list = document.querySelector('.jp-word-list');
 		const filterBar = document.querySelector('.jp-filter-bar');
 		if (!(search instanceof HTMLInputElement) || !list || !filterBar) return;
+		const requestId = ++wordRequestId;
 		const selects = [...filterBar.querySelectorAll('select')];
 		const params = new URLSearchParams();
 		if (search.value.trim()) params.set('q', search.value.trim());
 		if (selects[0]?.value) params.set('jlpt', selects[0].value);
 		if (selects[1]?.value) params.set('category', selects[1].value);
 		if (selects[2]?.value) params.set('part', selects[2].value);
-		params.set('limit', '200');
+		params.set('page', String(wordPage));
+		params.set('limit', String(WORD_PAGE_SIZE));
 		try {
 			const result = await fetchJson(`/api/public/japanese/words?${params.toString()}`);
+			if (requestId !== wordRequestId) return;
 			list.replaceChildren();
+			renderWordPagination(result.pagination);
 			if (!Array.isArray(result.words) || result.words.length === 0) {
 				const empty = document.createElement('div');
 				empty.className = 'jp-empty-state';
@@ -198,13 +298,20 @@
 			for (const word of result.words) fragment.appendChild(createWordRow(word));
 			list.appendChild(fragment);
 		} catch (error) {
+			if (requestId !== wordRequestId) return;
 			console.warn('Failed to load Japanese words', error);
 			list.replaceChildren();
+			renderWordPagination({ total: 0, page: 1, totalPages: 1 });
 			const failed = document.createElement('div');
 			failed.className = 'jp-empty-state';
 			failed.textContent = language() === 'ko' ? '단어를 불러오지 못했습니다.' : '単語を読み込めませんでした。';
 			list.appendChild(failed);
 		}
+	}
+
+	function resetWordPageAndLoad() {
+		wordPage = 1;
+		loadWords();
 	}
 
 	function bindWordFilters() {
@@ -213,9 +320,9 @@
 		if (!(search instanceof HTMLInputElement) || !filterBar) return;
 		search.addEventListener('input', () => {
 			window.clearTimeout(searchTimer);
-			searchTimer = window.setTimeout(loadWords, 220);
+			searchTimer = window.setTimeout(resetWordPageAndLoad, 220);
 		});
-		filterBar.querySelectorAll('select').forEach((select) => select.addEventListener('change', loadWords));
+		filterBar.querySelectorAll('select').forEach((select) => select.addEventListener('change', resetWordPageAndLoad));
 	}
 
 	async function initialize() {
