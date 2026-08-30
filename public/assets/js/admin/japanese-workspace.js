@@ -145,7 +145,8 @@
 	function applyDefaultCollapsedState() {
 		if (localStorage.getItem(FORM_COLLAPSE_KEY) !== null) return;
 		const panel = document.getElementById('japanese-word-form-panel');
-		if (panel && !panel.hidden) document.getElementById('japanese-word-form-toggle')?.click();
+		const toggle = document.getElementById('japanese-word-form-toggle');
+		if (panel && toggle && !panel.hidden) toggle.click();
 	}
 
 	function syncLanguage() {
@@ -167,6 +168,10 @@
 		ensureFloatingButton();
 		observeWorkspaceState();
 		applyDefaultCollapsedState();
+		window.setTimeout(() => {
+			applyDefaultCollapsedState();
+			updateFloatingButton();
+		}, 120);
 		enhanceImportCard();
 
 		new MutationObserver(() => enhanceImportCard()).observe(document.body, { childList: true, subtree: true });
