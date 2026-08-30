@@ -10,6 +10,13 @@ import {
 	handleListAdminComments,
 	handleUpdateAdminCommentStatus,
 } from './admin/comments/manage';
+import { handleGetAdminDashboard, handleUpdateAdminDashboard } from './admin/dashboard/manage';
+import {
+	handleCreateAdminDashboardSchedule,
+	handleDeleteAdminDashboardSchedule,
+	handleListAdminDashboardSchedules,
+	handleUpdateAdminDashboardSchedule,
+} from './admin/dashboard/schedules';
 import { handleCreateAdminPost } from './admin/posts/create';
 import { handleGetAdminPost } from './admin/posts/detail';
 import { handleListAdminPosts } from './admin/posts/list';
@@ -58,6 +65,7 @@ import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
 import { handleCreatePublicComment, handleListPublicComments } from './public/comments';
+import { handleGetPublicDashboard } from './public/dashboard';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
@@ -66,6 +74,7 @@ import { handleProtectedAccessLogin } from './public/protected/auth';
 import { handleGetPublicPost } from './public/posts/detail';
 import { handleListPublicPosts } from './public/posts/list';
 import { renderPublicPostPage } from './public/posts/page';
+import { handleListPublicDashboardSchedules } from './public/schedules';
 
 function methodNotAllowed(allow: string): Response {
 	return new Response('Method Not Allowed', {
@@ -96,6 +105,10 @@ export default {
 				if (request.method === 'GET') return handleListPublicComments(request, env);
 				if (request.method === 'POST') return handleCreatePublicComment(request, env);
 				return methodNotAllowed('GET, POST');
+			case '/api/public/dashboard':
+				return request.method === 'GET' ? handleGetPublicDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/public/dashboard/schedules':
+				return request.method === 'GET' ? handleListPublicDashboardSchedules(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/stats':
 				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/taxonomy':
@@ -112,6 +125,18 @@ export default {
 				return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/session':
 				return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
+			case '/api/admin/dashboard':
+				if (request.method === 'GET') return handleGetAdminDashboard(request, env);
+				if (request.method === 'PATCH') return handleUpdateAdminDashboard(request, env);
+				return methodNotAllowed('GET, PATCH');
+			case '/api/admin/dashboard/schedules':
+				if (request.method === 'GET') return handleListAdminDashboardSchedules(request, env);
+				if (request.method === 'POST') return handleCreateAdminDashboardSchedule(request, env);
+				return methodNotAllowed('GET, POST');
+			case '/api/admin/dashboard/schedules/detail':
+				if (request.method === 'PATCH') return handleUpdateAdminDashboardSchedule(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminDashboardSchedule(request, env);
+				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/comments':
 				return request.method === 'GET' ? handleListAdminComments(request, env) : methodNotAllowed('GET');
 			case '/api/admin/comments/detail':
