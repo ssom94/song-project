@@ -56,7 +56,7 @@
 				<p class="blog-sidebar-label" data-home-text="sidebarQuick">Quick</p>
 				<nav class="blog-sidebar-nav">
 					<a class="blog-sidebar-link" href="#goals" data-home-text="quickGoals">2029 Goals</a>
-					<a class="blog-sidebar-link" href="#schedule-manager" data-home-text="quickDday">D-Day</a>
+					<a class="blog-sidebar-link" href="#dday" data-home-text="quickDday">D-Day</a>
 					<a class="blog-sidebar-link" href="#jlpt-progress" data-home-text="quickJlpt">JLPT Progress</a>
 				</nav>
 			</section>
@@ -81,9 +81,7 @@
 					</div>
 				</section>
 
-				<section id="schedule-manager" data-schedule-manager data-context="home" aria-live="polite"></section>
-
-				<section class="home-dashboard-grid home-dashboard-grid-top home-dashboard-grid-latest-only">
+				<section class="home-dashboard-grid home-dashboard-grid-top">
 					<article class="home-dashboard-card home-latest-card">
 						<div class="home-card-heading">
 							<div><span class="home-card-kicker">BLOG</span><h2 data-home-text="latestTitle">最新の投稿</h2></div>
@@ -94,7 +92,22 @@
 						<div id="home-posts-empty" class="home-post-state" hidden data-home-text="postsEmpty">公開中の投稿はまだありません。</div>
 						<div id="home-posts-error" class="home-post-state" hidden data-home-text="postsError">投稿を読み込めませんでした。</div>
 					</article>
+
+					<aside id="dday" class="home-dashboard-card home-dday-card">
+						<div class="home-card-heading">
+							<div><span class="home-card-kicker">COUNTDOWN</span><h2>D-Day</h2></div>
+						</div>
+						<div class="home-dday-list">
+							<div class="home-dday-item"><div><strong>JLPT N1</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
+							<div class="home-dday-item"><div><strong>AP</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
+							<div class="home-dday-item"><div><strong>FP</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
+							<div class="home-dday-item"><div><strong>AWS SAA</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
+							<div class="home-dday-item"><div><strong>Portfolio × 2</strong><span data-home-text="dateNotSet">日付未設定</span></div><b>—</b></div>
+						</div>
+					</aside>
 				</section>
+
+				<section id="schedule-manager" data-schedule-manager data-context="home" aria-live="polite"></section>
 
 				<section id="jlpt-progress" class="home-dashboard-card home-jlpt-card">
 					<div class="home-card-heading">
@@ -150,6 +163,7 @@
 	<script src="/assets/js/blog/home.js"></script>
 	<script src="/assets/js/blog/home-goals.js"></script>
 	<script src="/assets/js/blog/home-countdown.js"></script>
+	<script src="/assets/js/blog/home-certification-countdown.js"></script>
 	<script src="/assets/js/blog/home-roadmap-drag.js"></script>
 	<script src="/assets/js/schedule-manager.js"></script>
 </body>
