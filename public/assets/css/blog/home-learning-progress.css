@@ -1,0 +1,53 @@
+body.blog-home-page .home-progress-ring {
+	--home-mastered-deg: 0deg;
+	--home-uncertain-end-deg: 0deg;
+	background:
+		radial-gradient(circle at center, #fff 58%, transparent 59%),
+		conic-gradient(
+			#1f56d8 0deg var(--home-mastered-deg),
+			#e1ad2f var(--home-mastered-deg) var(--home-uncertain-end-deg),
+			#d94b45 var(--home-uncertain-end-deg) 360deg
+		);
+}
+
+.home-learning-legend {
+	display: grid;
+	gap: 5px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.home-learning-legend > div {
+	display: grid;
+	grid-template-columns: 8px 1fr auto;
+	align-items: center;
+	gap: 6px;
+	color: #7a8799;
+	font-size: 8px;
+}
+
+.home-learning-legend i {
+	display: block;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+}
+
+.home-learning-legend [data-learning-legend="mastered"] i {
+	background: #1f56d8;
+}
+
+.home-learning-legend [data-learning-legend="uncertain"] i {
+	background: #e1ad2f;
+}
+
+.home-learning-legend [data-learning-legend="unlearned"] i {
+	background: #d94b45;
+}
+
+.home-learning-legend b {
+	color: #536176;
+	font-size: 8px;
+	font-weight: 850;
+	white-space: nowrap;
+}
