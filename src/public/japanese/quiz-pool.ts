@@ -14,6 +14,17 @@ interface QuizPoolRow {
 	wrong_count: number | null;
 }
 
+interface AvailabilityRow {
+	matched_words: number;
+	reading_questions: number;
+	meaning_questions: number;
+	sentence_questions: number;
+	distinct_meanings: number;
+	distinct_words: number;
+}
+
+type BindValue = string | number | null;
+
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
@@ -21,6 +32,73 @@ function json(data: unknown, status = 200): Response {
 function intParam(url: URL, key: string): number {
 	const value = Number(url.searchParams.get(key));
 	return Number.isSafeInteger(value) && value > 0 ? value : 0;
+}
+
+function parseJlptFilters(url: URL): string[] | null {
+	const values = url.searchParams
+		.getAll('jlpt')
+		.flatMap((value) => value.split(','))
+		.map((value) => value.trim().toUpperCase())
+		.filter(Boolean);
+	const unique = [...new Set(values)];
+	if (unique.some((value) => !['N1', 'N2', 'N3', 'N4', 'N5', 'UNSET'].includes(value))) return null;
+	return unique;
+}
+
+function buildBaseFilters(
+	jlpts: string[],
+	categoryId: number,
+	categoryParentId: number,
+	partId: number,
+	partParentId: number,
+): { sql: string; params: BindValue[] } {
+	const clauses = ['jw.deleted_at IS NULL'];
+	const params: BindValue[] = [];
+
+	if (jlpts.length) {
+		const codes = jlpts.filter((value) => value !== 'UNSET');
+		const includesUnset = jlpts.includes('UNSET');
+		const levelClauses: string[] = [];
+		if (codes.length) {
+			levelClauses.push(`jl.code IN (${codes.map(() => '?').join(', ')})`);
+			params.push(...codes);
+		}
+		if (includesUnset) levelClauses.push('jw.jlpt_level_id IS NULL');
+		clauses.push(`(${levelClauses.join(' OR ')})`);
+	}
+
+	if (categoryId) {
+		clauses.push(`EXISTS (
+			SELECT 1 FROM japanese_word_categories AS wc
+			WHERE wc.word_id = jw.id AND wc.category_id = ?
+		)`);
+		params.push(categoryId);
+	}
+	if (categoryParentId) {
+		clauses.push(`EXISTS (
+			SELECT 1 FROM japanese_word_categories AS wc
+			INNER JOIN japanese_categories AS c ON c.id = wc.category_id AND c.deleted_at IS NULL
+			WHERE wc.word_id = jw.id AND (c.id = ? OR c.parent_id = ?)
+		)`);
+		params.push(categoryParentId, categoryParentId);
+	}
+	if (partId) {
+		clauses.push(`EXISTS (
+			SELECT 1 FROM japanese_word_parts_of_speech AS wp
+			WHERE wp.word_id = jw.id AND wp.part_of_speech_id = ?
+		)`);
+		params.push(partId);
+	}
+	if (partParentId) {
+		clauses.push(`EXISTS (
+			SELECT 1 FROM japanese_word_parts_of_speech AS wp
+			INNER JOIN parts_of_speech AS p ON p.id = wp.part_of_speech_id AND p.deleted_at IS NULL
+			WHERE wp.word_id = jw.id AND (p.id = ? OR p.parent_id = ?)
+		)`);
+		params.push(partParentId, partParentId);
+	}
+
+	return { sql: clauses.join('\n\t\t\tAND '), params };
 }
 
 export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env): Promise<Response> {
@@ -32,21 +110,57 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 
 	const countRaw = Number(url.searchParams.get('count') ?? '10');
 	const count = Number.isSafeInteger(countRaw) ? Math.min(200, Math.max(1, countRaw)) : 10;
-	const candidateLimit = Math.min(500, Math.max(30, count * 8));
-	const jlpt = (url.searchParams.get('jlpt') ?? '').trim().toUpperCase();
-	if (jlpt && !['N1', 'N2', 'N3', 'N4', 'N5'].includes(jlpt)) return json({ ok: false, error: 'INVALID_JLPT' }, 400);
+	const preview = url.searchParams.get('preview') === '1';
+	const candidateLimit = preview ? 5000 : Math.min(500, Math.max(30, count * 8));
+	const jlpts = parseJlptFilters(url);
+	if (jlpts === null) return json({ ok: false, error: 'INVALID_JLPT' }, 400);
 	const categoryId = intParam(url, 'category');
 	const categoryParentId = intParam(url, 'categoryParent');
 	const partId = intParam(url, 'part');
 	const partParentId = intParam(url, 'partParent');
-	const wantsReading = types.includes('reading') ? 1 : 0;
-	const wantsMeaning = types.includes('meaning') ? 1 : 0;
-	const wantsSentence = types.includes('sentence') ? 1 : 0;
+	const focusWordId = intParam(url, 'focusWordId');
+	const wantsReading = types.includes('reading');
+	const wantsMeaning = types.includes('meaning');
+	const wantsSentence = types.includes('sentence');
+	const base = buildBaseFilters(jlpts, categoryId, categoryParentId, partId, partParentId);
 
 	try {
 		await ensureJapaneseAdminLearningStatsSchema(env.song_project_db);
 		const learningAdmin = await resolveLearningAdmin(request, env.song_project_db);
 		const adminId = learningAdmin.adminId ?? 0;
+
+		const availability = await env.song_project_db.prepare(`
+			SELECT
+				COUNT(*) AS matched_words,
+				SUM(CASE WHEN COALESCE(jw.reading, '') <> '' THEN 1 ELSE 0 END) AS reading_questions,
+				SUM(CASE WHEN COALESCE(jw.meaning_ko, '') <> '' THEN 1 ELSE 0 END) AS meaning_questions,
+				SUM(CASE WHEN EXISTS (
+					SELECT 1 FROM japanese_word_examples AS e
+					WHERE e.word_id = jw.id AND e.deleted_at IS NULL AND e.sentence_ja LIKE '%' || jw.word || '%'
+				) THEN 1 ELSE 0 END) AS sentence_questions,
+				COUNT(DISTINCT CASE WHEN COALESCE(jw.meaning_ko, '') <> '' THEN jw.meaning_ko END) AS distinct_meanings,
+				COUNT(DISTINCT jw.word) AS distinct_words
+			FROM japanese_words AS jw
+			LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
+			WHERE ${base.sql}
+		`).bind(...base.params).first<AvailabilityRow>();
+
+		const typeClauses: string[] = [];
+		if (wantsReading) typeClauses.push(`COALESCE(jw.reading, '') <> ''`);
+		if (wantsMeaning) typeClauses.push(`COALESCE(jw.meaning_ko, '') <> ''`);
+		if (wantsSentence) typeClauses.push(`EXISTS (
+			SELECT 1 FROM japanese_word_examples AS e
+			WHERE e.word_id = jw.id AND e.deleted_at IS NULL AND e.sentence_ja LIKE '%' || jw.word || '%'
+		)`);
+
+		const params: BindValue[] = [adminId, ...base.params];
+		let orderSql = 'RANDOM()';
+		if (focusWordId) {
+			orderSql = 'CASE WHEN jw.id = ? THEN 0 ELSE 1 END, RANDOM()';
+			params.push(focusWordId);
+		}
+		params.push(candidateLimit);
+
 		const result = await env.song_project_db.prepare(`
 			SELECT
 				jw.id, jw.word, jw.reading, jw.meaning_ko, jw.meaning_ja,
@@ -71,43 +185,38 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 			FROM japanese_words AS jw
 			LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
 			LEFT JOIN japanese_admin_word_learning_stats AS ls
-				ON ls.word_id = jw.id AND ls.admin_id = ?9
-			WHERE jw.deleted_at IS NULL
-				AND (?1 = '' OR jl.code = ?1)
-				AND (?2 = 0 OR EXISTS (
-					SELECT 1 FROM japanese_word_categories AS wc WHERE wc.word_id = jw.id AND wc.category_id = ?2
-				))
-				AND (?3 = 0 OR EXISTS (
-					SELECT 1 FROM japanese_word_categories AS wc
-					INNER JOIN japanese_categories AS c ON c.id = wc.category_id AND c.deleted_at IS NULL
-					WHERE wc.word_id = jw.id AND (c.id = ?3 OR c.parent_id = ?3)
-				))
-				AND (?4 = 0 OR EXISTS (
-					SELECT 1 FROM japanese_word_parts_of_speech AS wp WHERE wp.word_id = jw.id AND wp.part_of_speech_id = ?4
-				))
-				AND (?5 = 0 OR EXISTS (
-					SELECT 1 FROM japanese_word_parts_of_speech AS wp
-					INNER JOIN parts_of_speech AS p ON p.id = wp.part_of_speech_id AND p.deleted_at IS NULL
-					WHERE wp.word_id = jw.id AND (p.id = ?5 OR p.parent_id = ?5)
-				))
-				AND (
-					(?6 = 1 AND COALESCE(jw.reading, '') <> '')
-					OR (?7 = 1 AND COALESCE(jw.meaning_ko, '') <> '')
-					OR (?8 = 1 AND EXISTS (
-						SELECT 1 FROM japanese_word_examples AS e
-						WHERE e.word_id = jw.id AND e.deleted_at IS NULL AND e.sentence_ja LIKE '%' || jw.word || '%'
-					))
-				)
-			ORDER BY RANDOM()
-			LIMIT ?10
-		`).bind(
-			jlpt, categoryId, categoryParentId, partId, partParentId,
-			wantsReading, wantsMeaning, wantsSentence, adminId, candidateLimit,
-		).all<QuizPoolRow>();
+				ON ls.word_id = jw.id AND ls.admin_id = ?
+			WHERE ${base.sql}
+				AND (${typeClauses.join(' OR ')})
+			ORDER BY ${orderSql}
+			LIMIT ?
+		`).bind(...params).all<QuizPoolRow>();
+
+		const matchedWords = Number(availability?.matched_words ?? 0);
+		const readingQuestions = Number(availability?.reading_questions ?? 0);
+		const meaningQuestions = Number(availability?.meaning_questions ?? 0);
+		const sentenceQuestions = Number(availability?.sentence_questions ?? 0);
+		const meaningChoiceQuestions = Number(availability?.distinct_meanings ?? 0) >= 4 ? meaningQuestions : 0;
+		const sentenceChoiceQuestions = Number(availability?.distinct_words ?? 0) >= 4 ? sentenceQuestions : 0;
 
 		return json({
 			ok: true,
 			count,
+			filters: {
+				jlpts,
+				categoryId: categoryId || null,
+				categoryParentId: categoryParentId || null,
+				partId: partId || null,
+				partParentId: partParentId || null,
+				focusWordId: focusWordId || null,
+			},
+			availability: {
+				matchedWords,
+				readingInput: readingQuestions,
+				meaningInput: meaningQuestions,
+				meaningChoice: meaningChoiceQuestions,
+				sentenceChoice: sentenceChoiceQuestions,
+			},
 			words: result.results.map((row) => ({
 				id: row.id,
 				word: row.word,
