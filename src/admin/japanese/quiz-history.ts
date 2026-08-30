@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { ensureJapaneseAdminLearningStatsSchema, type JapaneseLearningState } from '../../japanese-learning';
 
 type ClientQuestionType = 'reading' | 'meaning' | 'sentence';
 type DbQuestionType = 'reading' | 'meaning_ko' | 'sentence_blank';
@@ -8,6 +9,7 @@ type QuizAttemptPayload = {
 	type?: unknown;
 	answerMode?: unknown;
 	answer?: unknown;
+	learningState?: unknown;
 };
 
 type CompletePayload = {
@@ -74,14 +76,16 @@ function normalize(value: unknown): string {
 function meaningAnswers(value: string | null): string[] {
 	const original = String(value ?? '').trim();
 	if (!original) return [];
-	return [...new Set([
-		original,
-		...original.split(/[,/／、;；·|]/).map((item) => item.trim()).filter(Boolean),
-	])];
+	const split = original.split(/[\r\n,/／、;；·|]+/).map((item) => item.trim()).filter(Boolean);
+	return [...new Set([original, ...split])];
 }
 
 function clientType(value: unknown): ClientQuestionType | null {
 	return value === 'reading' || value === 'meaning' || value === 'sentence' ? value : null;
+}
+
+function learningState(value: unknown): JapaneseLearningState | null {
+	return value === 'mastered' || value === 'uncertain' || value === 'unlearned' ? value : null;
 }
 
 function dbType(value: ClientQuestionType): DbQuestionType {
@@ -128,7 +132,7 @@ function questionData(row: QuizWordRow, type: ClientQuestionType) {
 	return {
 		expected: row.word,
 		answers: [row.word],
-		prompt: row.example_sentence.replace(row.word, '＿＿＿＿'),
+		prompt: row.example_sentence.split(row.word).join('□□□□'),
 		exampleId: row.example_id,
 	};
 }
@@ -149,19 +153,27 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 	}
 
 	const attempts = payload.attempts.map((raw) => raw as QuizAttemptPayload);
-	const normalizedAttempts: Array<{ wordId: number; type: ClientQuestionType; answerMode: 'input' | 'choice'; answer: string }> = [];
+	const normalizedAttempts: Array<{
+		wordId: number;
+		type: ClientQuestionType;
+		answerMode: 'input' | 'choice';
+		answer: string;
+		learningState: JapaneseLearningState;
+	}> = [];
 	for (const attempt of attempts) {
 		const wordId = Number(attempt.wordId);
 		const type = clientType(attempt.type);
 		const answerMode = attempt.answerMode === 'choice' ? 'choice' : attempt.answerMode === 'input' ? 'input' : null;
 		const answer = typeof attempt.answer === 'string' ? attempt.answer.slice(0, 1000) : '';
-		if (!Number.isSafeInteger(wordId) || wordId <= 0 || !type || !answerMode) {
+		const state = learningState(attempt.learningState);
+		if (!Number.isSafeInteger(wordId) || wordId <= 0 || !type || !answerMode || !state) {
 			return json({ ok: false, error: 'INVALID_ATTEMPT' }, 400);
 		}
-		normalizedAttempts.push({ wordId, type, answerMode, answer });
+		normalizedAttempts.push({ wordId, type, answerMode, answer, learningState: state });
 	}
 
 	try {
+		await ensureJapaneseAdminLearningStatsSchema(env.song_project_db);
 		const lookup = env.song_project_db.prepare(`
 			SELECT
 				w.id, w.word, w.reading, w.meaning_ko,
@@ -175,15 +187,14 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 			WHERE w.id = ?1 AND w.deleted_at IS NULL
 			LIMIT 1
 		`);
-		const rows = await env.song_project_db.batch(
-			normalizedAttempts.map((attempt) => lookup.bind(attempt.wordId)),
-		);
+		const rows = await env.song_project_db.batch(normalizedAttempts.map((attempt) => lookup.bind(attempt.wordId)));
 
 		const graded: Array<{
 			wordId: number;
 			type: ClientQuestionType;
 			answerMode: 'input' | 'choice';
 			answer: string;
+			learningState: JapaneseLearningState;
 			prompt: string;
 			expected: string;
 			exampleId: number | null;
@@ -226,21 +237,22 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 				item.prompt, item.expected, item.answer, item.isCorrect ? 1 : 0, completedAt,
 			));
 			statements.push(env.song_project_db.prepare(`
-				INSERT INTO japanese_word_learning_stats
-					(word_id, correct_count, wrong_count, needs_review, last_answered_at, last_correct_at, last_wrong_at, updated_at)
-				VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?5)
-				ON CONFLICT(word_id) DO UPDATE SET
-					correct_count = correct_count + excluded.correct_count,
-					wrong_count = wrong_count + excluded.wrong_count,
-					needs_review = excluded.needs_review,
+				INSERT INTO japanese_admin_word_learning_stats
+					(admin_id, word_id, learning_state, correct_count, wrong_count, last_answered_at, last_correct_at, last_wrong_at, updated_at)
+				VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?6)
+				ON CONFLICT(admin_id, word_id) DO UPDATE SET
+					learning_state = excluded.learning_state,
+					correct_count = japanese_admin_word_learning_stats.correct_count + excluded.correct_count,
+					wrong_count = japanese_admin_word_learning_stats.wrong_count + excluded.wrong_count,
 					last_answered_at = excluded.last_answered_at,
-					last_correct_at = COALESCE(excluded.last_correct_at, last_correct_at),
-					last_wrong_at = COALESCE(excluded.last_wrong_at, last_wrong_at),
+					last_correct_at = COALESCE(excluded.last_correct_at, japanese_admin_word_learning_stats.last_correct_at),
+					last_wrong_at = COALESCE(excluded.last_wrong_at, japanese_admin_word_learning_stats.last_wrong_at),
 					updated_at = excluded.updated_at
 			`).bind(
+				session.adminId,
 				item.wordId,
+				item.learningState,
 				item.isCorrect ? 1 : 0,
-				item.isCorrect ? 0 : 1,
 				item.isCorrect ? 0 : 1,
 				completedAt,
 				item.isCorrect ? completedAt : null,
@@ -252,8 +264,13 @@ export async function handleCompleteAdminJapaneseQuiz(request: Request, env: Env
 			ok: true,
 			session: { id: sessionId, total: graded.length, correct: correctCount, wrong: wrongCount, startedAt, completedAt },
 			attempts: graded.map((item) => ({
-				wordId: item.wordId, type: item.type, prompt: item.prompt, answer: item.answer,
-				correct: item.expected, isCorrect: item.isCorrect,
+				wordId: item.wordId,
+				type: item.type,
+				prompt: item.prompt,
+				answer: item.answer,
+				correct: item.expected,
+				isCorrect: item.isCorrect,
+				learningState: item.learningState,
 			})),
 		}, 201);
 	} catch (error) {
