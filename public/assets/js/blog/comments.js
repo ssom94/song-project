@@ -1,6 +1,7 @@
 (() => {
 	let postId = null;
 	let busy = false;
+	let canManage = false;
 
 	function language() {
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
@@ -13,6 +14,9 @@
 				loading: '댓글을 불러오는 중입니다…',
 				loadFailed: '댓글을 불러오지 못했습니다.',
 				registerFailed: '댓글 등록에 실패했습니다.',
+				deleteFailed: '댓글 삭제에 실패했습니다.',
+				deleteConfirm: '이 댓글을 삭제하시겠습니까?',
+				delete: '삭제',
 				nicknameRequired: '닉네임을 입력해 주세요.',
 				passwordRequired: '비밀번호는 4자 이상 입력해 주세요.',
 				contentRequired: '댓글 내용을 입력해 주세요.',
@@ -24,6 +28,9 @@
 				loading: 'コメントを読み込んでいます…',
 				loadFailed: 'コメントを読み込めませんでした。',
 				registerFailed: 'コメントの投稿に失敗しました。',
+				deleteFailed: 'コメントの削除に失敗しました。',
+				deleteConfirm: 'このコメントを削除しますか？',
+				delete: '削除',
 				nicknameRequired: 'ニックネームを入力してください。',
 				passwordRequired: 'パスワードは4文字以上入力してください。',
 				contentRequired: 'コメントを入力してください。',
@@ -62,6 +69,21 @@
 		}).format(date);
 	}
 
+	async function deleteComment(commentId) {
+		if (!window.confirm(copy().deleteConfirm)) return;
+		try {
+			const response = await fetch(`/api/admin/comments/detail?id=${encodeURIComponent(commentId)}`, {
+				method: 'DELETE', credentials: 'same-origin',
+			});
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok) throw new Error(result?.error ?? 'COMMENT_DELETE_FAILED');
+			await loadComments();
+		} catch (error) {
+			console.error('Failed to delete comment', error);
+			setStatus(copy().deleteFailed, true);
+		}
+	}
+
 	function render(comments) {
 		const list = document.getElementById('public-comment-list');
 		if (!list) return;
@@ -91,18 +113,21 @@
 			body.className = 'blog-comment-body';
 			body.textContent = comment.content ?? '';
 			item.append(meta, body);
+
+			if (canManage) {
+				const actions = document.createElement('div');
+				actions.className = 'blog-comment-actions';
+				const deleteButton = document.createElement('button');
+				deleteButton.type = 'button';
+				deleteButton.className = 'blog-comment-delete';
+				deleteButton.textContent = copy().delete;
+				deleteButton.addEventListener('click', () => deleteComment(comment.id));
+				actions.appendChild(deleteButton);
+				item.appendChild(actions);
+			}
 			fragment.appendChild(item);
 		}
 		list.appendChild(fragment);
-	}
-
-	async function fetchCommentsForLanguage(commentLanguage) {
-		const response = await fetch(`/api/public/comments?postId=${encodeURIComponent(postId)}&lang=${commentLanguage}`, {
-			method: 'GET', cache: 'no-store',
-		});
-		const result = await response.json().catch(() => null);
-		if (!response.ok || !result?.ok || !Array.isArray(result.comments)) throw new Error('COMMENT_LIST_FAILED');
-		return result.comments;
 	}
 
 	async function loadComments() {
@@ -110,18 +135,13 @@
 		const list = document.getElementById('public-comment-list');
 		if (list) list.innerHTML = `<div class="blog-comments-empty">${copy().loading}</div>`;
 		try {
-			const [japaneseComments, koreanComments] = await Promise.all([
-				fetchCommentsForLanguage('ja'),
-				fetchCommentsForLanguage('ko'),
-			]);
-			const merged = new Map();
-			for (const comment of [...japaneseComments, ...koreanComments]) merged.set(Number(comment.id), comment);
-			const comments = [...merged.values()].sort((left, right) => {
-				const leftTime = Date.parse(left.createdAt ?? '') || 0;
-				const rightTime = Date.parse(right.createdAt ?? '') || 0;
-				return leftTime - rightTime || Number(left.id) - Number(right.id);
+			const response = await fetch(`/api/public/comments?postId=${encodeURIComponent(postId)}&lang=${language()}`, {
+				method: 'GET', cache: 'no-store', credentials: 'same-origin',
 			});
-			render(comments);
+			const result = await response.json().catch(() => null);
+			if (!response.ok || !result?.ok || !Array.isArray(result.comments)) throw new Error('COMMENT_LIST_FAILED');
+			canManage = result.canManage === true;
+			render(result.comments);
 		} catch (error) {
 			console.error('Failed to load comments', error);
 			if (list) list.innerHTML = `<div class="blog-comments-empty">${copy().loadFailed}</div>`;
@@ -148,6 +168,7 @@
 			const response = await fetch('/api/public/comments', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
+				credentials: 'same-origin',
 				body: JSON.stringify({ postId, language: language(), nickname, password, content }),
 			});
 			const result = await response.json().catch(() => null);
