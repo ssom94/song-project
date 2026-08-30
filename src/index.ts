@@ -77,6 +77,7 @@ import {
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
+import { handleGetPublicCertifications } from './public/certifications';
 import { handleCreatePublicComment, handleListPublicComments } from './public/comments';
 import { handleGetPublicDashboard } from './public/dashboard';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
@@ -137,6 +138,8 @@ export default {
 				return request.method === 'GET' ? handleGetPublicDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/public/dashboard/schedules':
 				return request.method === 'GET' ? handleListPublicDashboardSchedules(request, env) : methodNotAllowed('GET');
+			case '/api/public/certifications':
+				return request.method === 'GET' ? handleGetPublicCertifications(request, env) : methodNotAllowed('GET');
 			case '/api/public/skill-sheet':
 				return request.method === 'GET' ? handleGetPublicSkillSheet(request, env) : methodNotAllowed('GET');
 			case '/api/public/protected/status':
