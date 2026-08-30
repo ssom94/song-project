@@ -56,16 +56,22 @@
 			return fallback;
 		}
 	}
+	function choiceValue(choice) {
+		return typeof choice === 'object' && choice !== null ? String(choice.value ?? '') : String(choice ?? '');
+	}
+	function choiceLabel(choice) {
+		return typeof choice === 'object' && choice !== null ? String(choice.label ?? choice.value ?? '') : String(choice ?? '');
+	}
 	function typeLabel(question) {
+		if (question?.type === 'sentence') return copy('예문 빈칸 · 4지선다', '例文穴埋め · 4択');
 		if (question?.answerMode === 'choice') return copy('4지선다 · 단어 → 한국어 뜻', '4択 · 単語 → 韓国語の意味');
 		if (question?.type === 'meaning') return copy('주관식 · 단어 → 한국어 뜻', '記述式 · 単語 → 韓国語の意味');
-		if (question?.type === 'sentence') return copy('예문 빈칸 → 단어', '例文穴埋め → 単語');
 		return copy('주관식 · 단어 → 히라가나', '記述式 · 単語 → ひらがな');
 	}
 	function instruction(question) {
+		if (question?.type === 'sentence') return copy('문장의 빈칸에 들어갈 일본어 단어를 4개 보기 중에서 선택해 주세요.', '文の空欄に入る日本語の単語を4つの選択肢から選んでください。');
 		if (question?.answerMode === 'choice') return copy('이 단어의 한국어 뜻을 4개 보기 중에서 선택해 주세요.', 'この単語の韓国語の意味を4つの選択肢から選んでください。');
 		if (question?.type === 'meaning') return copy('등록된 한국어 뜻 중 하나를 입력해 주세요.', '登録された韓国語の意味のうち1つを入力してください。');
-		if (question?.type === 'sentence') return copy('문장의 빈칸에 들어갈 일본어 단어를 입력해 주세요.', '文の空欄に入る日本語の単語を入力してください。');
 		return copy('이 단어의 읽기를 히라가나로 입력해 주세요.', 'この単語の読み方をひらがなで入力してください。');
 	}
 	function firstCharacter(value) { return Array.from(String(value ?? '').trim())[0] || '—'; }
@@ -83,7 +89,12 @@
 		const source = String(sentence ?? '');
 		const target = String(word ?? '');
 		if (!source || !target || !source.includes(target)) return '';
-		return source.split(target).join('□□□□');
+		return source.split(target).join('【　　】');
+	}
+	function choiceLabelForWord(word) {
+		const surface = String(word?.word ?? '').trim();
+		const reading = String(word?.reading ?? '').trim();
+		return reading && normalize(reading) !== normalize(surface) ? `${surface}（${reading}）` : surface;
 	}
 
 	function normalizeLegacySetup(raw) {
@@ -144,6 +155,22 @@
 		return { correct, choices: shuffle([correct, ...distractors]) };
 	}
 
+	function sentenceChoiceSet(word, allWords) {
+		const correct = String(word?.word ?? '').trim();
+		if (!correct) return null;
+		const distractors = [];
+		for (const other of shuffle(allWords)) {
+			if (Number(other.id) === Number(word.id)) continue;
+			const candidate = String(other?.word ?? '').trim();
+			if (!candidate || normalize(candidate) === normalize(correct)) continue;
+			if (distractors.some((item) => normalize(item.value) === normalize(candidate))) continue;
+			distractors.push({ value: candidate, label: choiceLabelForWord(other) });
+			if (distractors.length === 3) break;
+		}
+		if (distractors.length !== 3) return null;
+		return shuffle([{ value: correct, label: choiceLabelForWord(word) }, ...distractors]);
+	}
+
 	function makeCandidates(words) {
 		const candidates = [];
 		const koreanStudy = setup.studyMode === 'korean';
@@ -183,10 +210,12 @@
 			}
 			if (allowSentence && word.example?.sentence) {
 				const prompt = blankSentence(word.example.sentence, word.word);
-				if (prompt) candidates.push({
+				const choices = sentenceChoiceSet(word, words);
+				const answers = uniqueText([word.word, word.reading]);
+				if (prompt && choices && answers.length) candidates.push({
 					...common,
-					key: `${word.id}:sentence:input`, type: 'sentence', answerMode: 'input', prompt,
-					answers: [word.word], correct: word.word, choices: [],
+					key: `${word.id}:sentence:choice`, type: 'sentence', answerMode: 'choice', prompt,
+					answers, correct: answers.join(' / '), choices,
 					note: word.example.translationKo || word.meaningKo || '',
 				});
 			}
@@ -244,8 +273,8 @@
 			if (notice) {
 				notice.hidden = false;
 				notice.textContent = copy(
-					`현재 조건에서 출제 가능한 문제가 ${questions.length}개라 문제 수를 조정했습니다. 4지선다는 서로 다른 뜻 4개가 확보된 단어만 출제됩니다.`,
-					`現在の条件で出題できる問題が${questions.length}問のため、問題数を調整しました。4択は異なる意味を4つ確保できる単語のみ出題します。`,
+					`현재 조건에서 출제 가능한 문제가 ${questions.length}개라 문제 수를 조정했습니다. 4지선다와 예문 빈칸 문제는 서로 다른 보기 4개가 확보될 때만 출제됩니다.`,
+					`現在の条件で出題できる問題が${questions.length}問のため、問題数を調整しました。4択と例文穴埋めは異なる選択肢を4つ確保できる場合のみ出題します。`,
 				);
 			}
 			setup.count = questions.length;
@@ -254,7 +283,7 @@
 
 	function quizModeLabel() {
 		if (setup.quizMode === 'choice') return copy('4지선다', '4択');
-		if (setup.quizMode === 'sentence') return copy('예문 빈칸', '例文穴埋め');
+		if (setup.quizMode === 'sentence') return copy('예문 빈칸 · 4지선다', '例文穴埋め · 4択');
 		if (setup.quizMode === 'mixed') return copy('전체 혼합', 'すべて混合');
 		return copy('주관식', '記述式');
 	}
@@ -270,11 +299,13 @@
 		const wrap = byId('quiz-play-choices');
 		wrap.replaceChildren();
 		for (const choice of question.choices || []) {
+			const value = choiceValue(choice);
 			const button = document.createElement('button');
 			button.type = 'button';
 			button.className = 'jp-quiz-choice';
-			button.textContent = choice;
-			button.addEventListener('click', () => grade(choice, button));
+			button.textContent = choiceLabel(choice);
+			button.dataset.answer = value;
+			button.addEventListener('click', () => grade(value, button));
 			wrap.appendChild(button);
 		}
 	}
@@ -296,7 +327,28 @@
 		return `${copy(answers.length > 1 ? '정답 첫 글자 후보' : '정답의 첫 글자', answers.length > 1 ? '答えの最初の文字候補' : '答えの最初の文字')}: ${chars.join(' · ') || '—'}`;
 	}
 
+	function sentenceShapeText(question) {
+		const surface = String(question?.word ?? '').trim();
+		const reading = String(question?.hints?.reading ?? '').trim();
+		if (!surface) return '';
+		const chars = Array.from(surface);
+		const kanji = chars.filter((char) => /\p{Script=Han}/u.test(char)).length;
+		const kana = chars.filter((char) => /[\p{Script=Hiragana}\p{Script=Katakana}ー]/u.test(char)).length;
+		const readingLength = Array.from(reading).length;
+		let shape;
+		if (kanji > 0 && kana > 0) {
+			shape = copy(`표기 ${chars.length}글자 (한자 ${kanji} · 가나 ${kana})`, `表記 ${chars.length}文字（漢字 ${kanji}・かな ${kana}）`);
+		} else if (kanji > 0) {
+			shape = copy(`한자 ${kanji}글자`, `漢字 ${kanji}文字`);
+		} else {
+			shape = copy(`표기 ${chars.length}글자`, `表記 ${chars.length}文字`);
+		}
+		if (readingLength > 0) shape += copy(` · 히라가나 읽기 ${readingLength}글자`, ` · ひらがな読み ${readingLength}文字`);
+		return `${shape}${copy(' · 한자/히라가나 어느 쪽으로 외워도 정답', ' · 漢字・ひらがなのどちらで覚えても正解')}`;
+	}
+
 	function answerLengthText(question) {
+		if (question?.type === 'sentence') return sentenceShapeText(question);
 		if (question?.answerMode === 'choice') return copy('4개의 보기 중 하나를 선택합니다.', '4つの選択肢から1つ選びます。');
 		const answers = acceptedAnswers(question);
 		if (!answers.length) return '';
@@ -490,7 +542,7 @@
 		byId('quiz-play-submit').disabled = true;
 		byId('quiz-play-choices').querySelectorAll('button').forEach((button) => {
 			button.disabled = true;
-			const accepted = acceptedAnswers(question).some((answer) => normalize(button.textContent) === normalize(answer));
+			const accepted = acceptedAnswers(question).some((answer) => normalize(button.dataset.answer || button.textContent) === normalize(answer));
 			if (accepted) button.classList.add('is-correct');
 		});
 		if (selectedButton && !isCorrect) selectedButton.classList.add('is-wrong');
@@ -631,8 +683,8 @@
 			await buildQuestions();
 			if (!questions.length) {
 				showFatal(copy(
-					'현재 조건으로 출제할 수 있는 문제가 없습니다. 4지선다는 서로 다른 한국어 뜻이 최소 4개 필요하고, 예문 빈칸은 해당 단어가 포함된 예문이 필요합니다.',
-					'現在の条件で出題できる問題がありません。4択には異なる韓国語の意味が最低4つ必要で、例文穴埋めには対象単語を含む例文が必要です。',
+					'현재 조건으로 출제할 수 있는 문제가 없습니다. 4지선다와 예문 빈칸은 서로 다른 보기 4개가 필요하고, 예문 빈칸은 해당 단어가 포함된 예문도 필요합니다.',
+					'現在の条件で出題できる問題がありません。4択と例文穴埋めには異なる選択肢が4つ必要で、例文穴埋めには対象単語を含む例文も必要です。',
 				));
 				return;
 			}
