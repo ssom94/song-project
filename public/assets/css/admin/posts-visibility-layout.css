@@ -1,0 +1,91 @@
+.admin-posts-table {
+	min-width: 1080px;
+}
+
+.admin-post-visibility-status-column,
+.admin-post-visibility-status-cell {
+	width: 82px;
+	text-align: center !important;
+	white-space: nowrap;
+}
+
+.admin-post-visibility-toggle-column,
+.admin-post-visibility-toggle-cell {
+	width: 112px;
+	text-align: center !important;
+	white-space: nowrap;
+}
+
+.admin-post-visibility-toggle-column {
+	padding-right: 18px !important;
+	padding-left: 18px !important;
+}
+
+.admin-post-visibility-status {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 50px;
+	min-height: 27px;
+	padding: 0 9px;
+	border-radius: 999px;
+	background: #f3f5f8;
+	color: #6f7d91;
+	font-size: 11px;
+	font-weight: 800;
+}
+
+.admin-post-visibility-status.is-visible {
+	background: #eaf8f0;
+	color: #087443;
+}
+
+.admin-post-visibility-status.is-unregistered {
+	min-width: 28px;
+	background: transparent;
+	color: #a0a9b6;
+}
+
+.admin-post-visibility-toggle-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 82px;
+}
+
+.admin-post-visibility-toggle {
+	width: 48px;
+	height: 26px;
+}
+
+.admin-post-visibility-knob {
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+}
+
+.admin-post-visibility-toggle.is-visible .admin-post-visibility-knob {
+	transform: translateX(22px);
+}
+
+.admin-post-visibility-unregistered {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 29px;
+	padding: 0 10px;
+	border: 1px solid #e0e5ec;
+	border-radius: 999px;
+	background: #f7f8fa;
+	color: #8a95a5;
+	font-size: 11px;
+	font-weight: 750;
+	white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+	.admin-posts-table {
+		min-width: 1040px;
+	}
+}
