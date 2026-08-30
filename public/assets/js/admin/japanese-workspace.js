@@ -1,7 +1,6 @@
 (() => {
 	const FORM_COLLAPSE_KEY = 'song_admin_japanese_form_collapsed';
 	const IMPORT_COLLAPSE_KEY = 'song_admin_japanese_import_collapsed';
-	let floatingButton = null;
 	let addButton = null;
 
 	function currentLanguage() {
@@ -12,13 +11,11 @@
 		return currentLanguage() === 'ko'
 			? {
 				add: '+ 단어 추가',
-				open: '단어 입력 열기',
 				collapseImport: 'Excel 일괄 등록 접기',
 				expandImport: 'Excel 일괄 등록 펼치기',
 			}
 			: {
 				add: '+ 単語追加',
-				open: '単語入力を開く',
 				collapseImport: 'Excel一括登録を閉じる',
 				expandImport: 'Excel一括登録を開く',
 			};
@@ -40,40 +37,9 @@
 		const list = document.querySelector('.admin-japanese-list-card');
 		if (!layout || !form || !list) return;
 		layout.classList.add('admin-japanese-workspace');
-		if (layout.firstElementChild !== list) layout.insertBefore(list, form);
-	}
-
-	function updateFloatingButton() {
-		if (!floatingButton) return;
-		const layout = document.getElementById('admin-japanese-layout');
-		const collapsed = layout?.classList.contains('is-form-collapsed') ?? true;
-		floatingButton.hidden = !collapsed;
-		if (!collapsed) return;
-
-		const labels = copy();
-		const cancel = document.getElementById('japanese-word-cancel');
-		const word = document.getElementById('japanese-word');
-		const editing = cancel instanceof HTMLElement && !cancel.hidden;
-		const wordValue = word instanceof HTMLInputElement ? word.value.trim() : '';
-		floatingButton.textContent = editing && wordValue ? `✎ ${wordValue}` : labels.add;
-		floatingButton.setAttribute('aria-label', labels.open);
-	}
-
-	function ensureFloatingButton() {
-		if (floatingButton) return;
-		floatingButton = document.createElement('button');
-		floatingButton.id = 'japanese-word-floating-toggle';
-		floatingButton.className = 'admin-japanese-floating-word';
-		floatingButton.type = 'button';
-		floatingButton.addEventListener('click', () => {
-			const cancel = document.getElementById('japanese-word-cancel');
-			const editing = cancel instanceof HTMLElement && !cancel.hidden;
-			if (editing) document.getElementById('japanese-word-form-toggle')?.click();
-			else document.getElementById('japanese-word-new')?.click();
-			updateFloatingButton();
-		});
-		document.body.appendChild(floatingButton);
-		updateFloatingButton();
+		// Word input belongs immediately above the word list. Do not use a side/fixed workspace.
+		if (layout.firstElementChild !== form) layout.insertBefore(form, layout.firstElementChild);
+		if (form.nextElementSibling !== list) layout.insertBefore(list, form.nextSibling);
 	}
 
 	function ensureListAddButton() {
@@ -93,7 +59,8 @@
 		addButton.type = 'button';
 		addButton.addEventListener('click', () => {
 			document.getElementById('japanese-word-new')?.click();
-			updateFloatingButton();
+			const form = document.getElementById('japanese-word-form-card');
+			form?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		});
 		actions.append(addButton, count);
 		addButton.textContent = copy().add;
@@ -104,7 +71,7 @@
 		body.hidden = collapsed;
 		toggle.setAttribute('aria-expanded', String(!collapsed));
 		const labels = copy();
-		toggle.textContent = collapsed ? '›' : '⌄';
+		toggle.textContent = collapsed ? '⌄' : '⌃';
 		toggle.title = collapsed ? labels.expandImport : labels.collapseImport;
 		toggle.setAttribute('aria-label', toggle.title);
 		if (persist) localStorage.setItem(IMPORT_COLLAPSE_KEY, collapsed ? '1' : '0');
@@ -122,24 +89,16 @@
 		while (heading.nextSibling) body.appendChild(heading.nextSibling);
 		card.appendChild(body);
 
+		const footer = document.createElement('div');
+		footer.className = 'admin-japanese-import-collapse-footer';
 		const toggle = document.createElement('button');
 		toggle.className = 'admin-japanese-import-collapse';
 		toggle.type = 'button';
-		heading.appendChild(toggle);
+		footer.appendChild(toggle);
+		card.appendChild(footer);
 		toggle.addEventListener('click', () => setImportCollapsed(card, body, toggle, !body.hidden));
 		setImportCollapsed(card, body, toggle, localStorage.getItem(IMPORT_COLLAPSE_KEY) === '1', false);
 		return true;
-	}
-
-	function observeWorkspaceState() {
-		const layout = document.getElementById('admin-japanese-layout');
-		if (layout) {
-			new MutationObserver(() => updateFloatingButton()).observe(layout, { attributes: true, attributeFilter: ['class'] });
-		}
-		const formTitle = document.getElementById('japanese-word-form-title');
-		if (formTitle) {
-			new MutationObserver(() => updateFloatingButton()).observe(formTitle, { attributes: true, childList: true, subtree: true });
-		}
 	}
 
 	function applyDefaultCollapsedState() {
@@ -151,7 +110,6 @@
 
 	function syncLanguage() {
 		if (addButton) addButton.textContent = copy().add;
-		updateFloatingButton();
 		const card = document.getElementById('japanese-excel-import-card');
 		const body = card?.querySelector('.admin-japanese-import-body');
 		const toggle = card?.querySelector('.admin-japanese-import-collapse');
@@ -165,18 +123,11 @@
 		moveTabsToHeading();
 		rearrangeWorkspace();
 		ensureListAddButton();
-		ensureFloatingButton();
-		observeWorkspaceState();
 		applyDefaultCollapsedState();
-		window.setTimeout(() => {
-			applyDefaultCollapsedState();
-			updateFloatingButton();
-		}, 120);
+		window.setTimeout(applyDefaultCollapsedState, 120);
 		enhanceImportCard();
-
 		new MutationObserver(() => enhanceImportCard()).observe(document.body, { childList: true, subtree: true });
 		document.addEventListener('adminlanguagechange', syncLanguage);
-		updateFloatingButton();
 	}
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
