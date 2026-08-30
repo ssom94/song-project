@@ -7,6 +7,7 @@ type WordPayload = {
 	meaningJa?: unknown;
 	jlptLevelId?: unknown;
 	partOfSpeechId?: unknown;
+	partOfSpeechIds?: unknown;
 	categoryId?: unknown;
 	note?: unknown;
 	exampleSentence?: unknown;
@@ -22,6 +23,34 @@ interface ExistingWordRow {
 	meaning_ja: string | null;
 	jlpt_level_id: number | null;
 	note: string | null;
+}
+
+interface WordListRow extends ExistingWordRow {
+	ai_status: string;
+	created_at: string;
+	updated_at: string;
+	jlpt_code: string | null;
+	category_id: number | null;
+	category_parent_id: number | null;
+	category_ja: string | null;
+	category_ko: string | null;
+}
+
+interface WordPartRow {
+	word_id: number;
+	id: number;
+	parent_id: number | null;
+	name_ja: string;
+	name_ko: string;
+	is_primary: number;
+}
+
+interface WordExampleRow {
+	id: number;
+	word_id: number;
+	sentence_ja: string;
+	reading: string | null;
+	translation_ko: string | null;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -53,6 +82,23 @@ function optionalId(value: unknown): number | null | 'INVALID' {
 	return Number.isSafeInteger(id) && id > 0 ? id : 'INVALID';
 }
 
+function optionalIdList(values: unknown, fallback: unknown): number[] | 'INVALID' {
+	const source = Array.isArray(values)
+		? values
+		: fallback === undefined || fallback === null || fallback === ''
+			? []
+			: [fallback];
+	if (source.length > 20) return 'INVALID';
+
+	const ids: number[] = [];
+	for (const value of source) {
+		const id = optionalId(value);
+		if (id === 'INVALID') return 'INVALID';
+		if (id && !ids.includes(id)) ids.push(id);
+	}
+	return ids;
+}
+
 async function parsePayload(request: Request) {
 	let payload: WordPayload;
 	try {
@@ -61,19 +107,19 @@ async function parsePayload(request: Request) {
 		return json({ ok: false, error: 'INVALID_JSON' }, 400);
 	}
 
-	const word = typeof payload.word === 'string' ? payload.word.trim() : '';
+	const word = typeof payload.word === 'string' ? payload.word.normalize('NFKC').trim() : '';
 	if (!word) return json({ ok: false, error: 'WORD_REQUIRED' }, 400);
 	if (word.length > 120) return json({ ok: false, error: 'WORD_TOO_LONG' }, 400);
 
 	const reading = optionalText(payload.reading, 160);
-	const meaningKo = optionalText(payload.meaningKo, 500);
-	const meaningJa = optionalText(payload.meaningJa, 500);
+	const meaningKo = optionalText(payload.meaningKo, 4000);
+	const meaningJa = optionalText(payload.meaningJa, 1000);
 	const note = optionalText(payload.note, 2000);
 	const exampleSentence = optionalText(payload.exampleSentence, 1000);
 	const exampleReading = optionalText(payload.exampleReading, 1200);
 	const exampleTranslationKo = optionalText(payload.exampleTranslationKo, 1200);
 	const jlptLevelId = optionalId(payload.jlptLevelId);
-	const partOfSpeechId = optionalId(payload.partOfSpeechId);
+	const partOfSpeechIds = optionalIdList(payload.partOfSpeechIds, payload.partOfSpeechId);
 	const categoryId = optionalId(payload.categoryId);
 
 	if ([
@@ -85,7 +131,7 @@ async function parsePayload(request: Request) {
 		exampleReading,
 		exampleTranslationKo,
 		jlptLevelId,
-		partOfSpeechId,
+		partOfSpeechIds,
 		categoryId,
 	].includes('INVALID')) {
 		return json({ ok: false, error: 'INVALID_FIELD' }, 400);
@@ -101,7 +147,7 @@ async function parsePayload(request: Request) {
 		exampleReading: exampleReading as string | null,
 		exampleTranslationKo: exampleTranslationKo as string | null,
 		jlptLevelId: jlptLevelId as number | null,
-		partOfSpeechId: partOfSpeechId as number | null,
+		partOfSpeechIds: partOfSpeechIds as number[],
 		categoryId: categoryId as number | null,
 	};
 }
@@ -109,14 +155,14 @@ async function parsePayload(request: Request) {
 async function validateReferences(
 	db: D1Database,
 	jlptLevelId: number | null,
-	partOfSpeechId: number | null,
+	partOfSpeechIds: number[],
 	categoryId: number | null,
 ): Promise<boolean> {
 	if (jlptLevelId) {
 		const level = await db.prepare('SELECT id FROM jlpt_levels WHERE id = ?1 LIMIT 1').bind(jlptLevelId).first();
 		if (!level) return false;
 	}
-	if (partOfSpeechId) {
+	for (const partOfSpeechId of partOfSpeechIds) {
 		const pos = await db
 			.prepare('SELECT id FROM parts_of_speech WHERE id = ?1 AND deleted_at IS NULL LIMIT 1')
 			.bind(partOfSpeechId)
@@ -142,34 +188,35 @@ async function getExisting(db: D1Database, wordId: number): Promise<ExistingWord
 	`).bind(wordId).first<ExistingWordRow>();
 }
 
+async function findDuplicateWord(db: D1Database, word: string, excludeId: number | null = null): Promise<{ id: number } | null> {
+	return db.prepare(`
+		SELECT id
+		FROM japanese_words
+		WHERE word = ?1 COLLATE NOCASE
+			AND deleted_at IS NULL
+			AND (?2 IS NULL OR id <> ?2)
+		ORDER BY id ASC
+		LIMIT 1
+	`).bind(word, excludeId).first<{ id: number }>();
+}
+
 export async function handleListAdminJapaneseWords(request: Request, env: Env): Promise<Response> {
 	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
 	try {
-		const [words, levels, parts, categories] = await Promise.all([
+		const [words, wordParts, wordExamples, levels, parts, categories] = await Promise.all([
 			env.song_project_db.prepare(`
 				SELECT
 					w.id, w.word, w.reading, w.meaning_ko, w.meaning_ja, w.jlpt_level_id,
 					w.note, w.ai_status, w.created_at, w.updated_at,
 					jl.code AS jlpt_code,
-					pos.id AS part_of_speech_id,
-					pos.parent_id AS part_of_speech_parent_id,
-					pos.name_ja AS part_of_speech_ja,
-					pos.name_ko AS part_of_speech_ko,
 					cat.id AS category_id,
 					cat.parent_id AS category_parent_id,
 					cat.name_ja AS category_ja,
-					cat.name_ko AS category_ko,
-					ex.sentence_ja AS example_sentence,
-					ex.reading AS example_reading,
-					ex.translation_ko AS example_translation_ko
+					cat.name_ko AS category_ko
 				FROM japanese_words AS w
 				LEFT JOIN jlpt_levels AS jl ON jl.id = w.jlpt_level_id
-				LEFT JOIN japanese_word_parts_of_speech AS wp
-					ON wp.word_id = w.id AND wp.is_primary = 1
-				LEFT JOIN parts_of_speech AS pos
-					ON pos.id = wp.part_of_speech_id AND pos.deleted_at IS NULL
 				LEFT JOIN japanese_categories AS cat
 					ON cat.id = (
 						SELECT wc.category_id
@@ -178,16 +225,30 @@ export async function handleListAdminJapaneseWords(request: Request, env: Env): 
 						ORDER BY wc.category_id ASC
 						LIMIT 1
 					) AND cat.deleted_at IS NULL
-				LEFT JOIN japanese_word_examples AS ex
-					ON ex.id = (
-						SELECT e.id FROM japanese_word_examples AS e
-						WHERE e.word_id = w.id AND e.deleted_at IS NULL
-						ORDER BY e.id ASC LIMIT 1
-					)
 				WHERE w.deleted_at IS NULL
 				ORDER BY datetime(w.updated_at) DESC, w.id DESC
 				LIMIT 500
-			`).all(),
+			`).all<WordListRow>(),
+			env.song_project_db.prepare(`
+				SELECT
+					wp.word_id,
+					p.id,
+					p.parent_id,
+					p.name_ja,
+					p.name_ko,
+					wp.is_primary
+				FROM japanese_word_parts_of_speech AS wp
+				INNER JOIN japanese_words AS w ON w.id = wp.word_id AND w.deleted_at IS NULL
+				INNER JOIN parts_of_speech AS p ON p.id = wp.part_of_speech_id AND p.deleted_at IS NULL
+				ORDER BY wp.word_id, wp.is_primary DESC, p.display_order ASC, p.id ASC
+			`).all<WordPartRow>(),
+			env.song_project_db.prepare(`
+				SELECT e.id, e.word_id, e.sentence_ja, e.reading, e.translation_ko
+				FROM japanese_word_examples AS e
+				INNER JOIN japanese_words AS w ON w.id = e.word_id AND w.deleted_at IS NULL
+				WHERE e.deleted_at IS NULL
+				ORDER BY e.word_id, e.id ASC
+			`).all<WordExampleRow>(),
 			env.song_project_db
 				.prepare('SELECT id, code FROM jlpt_levels ORDER BY display_order ASC, id ASC')
 				.all(),
@@ -205,9 +266,40 @@ export async function handleListAdminJapaneseWords(request: Request, env: Env): 
 			`).all(),
 		]);
 
+		const partMap = new Map<number, WordPartRow[]>();
+		for (const row of wordParts.results) {
+			const list = partMap.get(row.word_id) ?? [];
+			list.push(row);
+			partMap.set(row.word_id, list);
+		}
+
+		const exampleMap = new Map<number, WordExampleRow[]>();
+		for (const row of wordExamples.results) {
+			const list = exampleMap.get(row.word_id) ?? [];
+			list.push(row);
+			exampleMap.set(row.word_id, list);
+		}
+
 		return json({
 			ok: true,
-			words: words.results,
+			words: words.results.map((word) => {
+				const wordPartList = partMap.get(word.id) ?? [];
+				const primaryPart = wordPartList.find((part) => part.is_primary === 1) ?? wordPartList[0] ?? null;
+				const examples = exampleMap.get(word.id) ?? [];
+				const firstExample = examples[0] ?? null;
+				return {
+					...word,
+					parts: wordPartList,
+					part_of_speech_id: primaryPart?.id ?? null,
+					part_of_speech_parent_id: primaryPart?.parent_id ?? null,
+					part_of_speech_ja: primaryPart?.name_ja ?? null,
+					part_of_speech_ko: primaryPart?.name_ko ?? null,
+					examples,
+					example_sentence: firstExample?.sentence_ja ?? null,
+					example_reading: firstExample?.reading ?? null,
+					example_translation_ko: firstExample?.translation_ko ?? null,
+				};
+			}),
 			levels: levels.results,
 			partsOfSpeech: parts.results,
 			categories: categories.results,
@@ -225,10 +317,16 @@ export async function handleCreateAdminJapaneseWord(request: Request, env: Env):
 
 	const parsed = await parsePayload(request);
 	if (parsed instanceof Response) return parsed;
+
+	const duplicate = await findDuplicateWord(env.song_project_db, parsed.word);
+	if (duplicate) {
+		return json({ ok: false, error: 'WORD_ALREADY_EXISTS', existingWordId: duplicate.id }, 409);
+	}
+
 	if (!(await validateReferences(
 		env.song_project_db,
 		parsed.jlptLevelId,
-		parsed.partOfSpeechId,
+		parsed.partOfSpeechIds,
 		parsed.categoryId,
 	))) {
 		return json({ ok: false, error: 'INVALID_REFERENCE' }, 400);
@@ -244,12 +342,12 @@ export async function handleCreateAdminJapaneseWord(request: Request, env: Env):
 		`).bind(wordId, parsed.word, parsed.reading, parsed.meaningKo, parsed.meaningJa, parsed.jlptLevelId, parsed.note, now),
 	];
 
-	if (parsed.partOfSpeechId) {
+	parsed.partOfSpeechIds.forEach((partOfSpeechId, index) => {
 		statements.push(env.song_project_db.prepare(`
 			INSERT INTO japanese_word_parts_of_speech (word_id, part_of_speech_id, is_primary, created_at)
-			VALUES (?1, ?2, 1, ?3)
-		`).bind(wordId, parsed.partOfSpeechId, now));
-	}
+			VALUES (?1, ?2, ?3, ?4)
+		`).bind(wordId, partOfSpeechId, index === 0 ? 1 : 0, now));
+	});
 	if (parsed.categoryId) {
 		statements.push(env.song_project_db.prepare(`
 			INSERT INTO japanese_word_categories (word_id, category_id, created_at)
@@ -272,7 +370,7 @@ export async function handleCreateAdminJapaneseWord(request: Request, env: Env):
 		JSON.stringify({
 			word: parsed.word,
 			jlptLevelId: parsed.jlptLevelId,
-			partOfSpeechId: parsed.partOfSpeechId,
+			partOfSpeechIds: parsed.partOfSpeechIds,
 			categoryId: parsed.categoryId,
 		}),
 		request.headers.get('CF-IPCountry'),
@@ -299,10 +397,16 @@ export async function handleUpdateAdminJapaneseWord(request: Request, env: Env):
 
 	const parsed = await parsePayload(request);
 	if (parsed instanceof Response) return parsed;
+
+	const duplicate = await findDuplicateWord(env.song_project_db, parsed.word, wordId);
+	if (duplicate) {
+		return json({ ok: false, error: 'WORD_ALREADY_EXISTS', existingWordId: duplicate.id }, 409);
+	}
+
 	if (!(await validateReferences(
 		env.song_project_db,
 		parsed.jlptLevelId,
-		parsed.partOfSpeechId,
+		parsed.partOfSpeechIds,
 		parsed.categoryId,
 	))) {
 		return json({ ok: false, error: 'INVALID_REFERENCE' }, 400);
@@ -326,12 +430,12 @@ export async function handleUpdateAdminJapaneseWord(request: Request, env: Env):
 			.prepare('UPDATE japanese_word_examples SET deleted_at = ?1, updated_at = ?1 WHERE word_id = ?2 AND deleted_at IS NULL')
 			.bind(now, wordId),
 	];
-	if (parsed.partOfSpeechId) {
+	parsed.partOfSpeechIds.forEach((partOfSpeechId, index) => {
 		statements.push(env.song_project_db.prepare(`
 			INSERT INTO japanese_word_parts_of_speech (word_id, part_of_speech_id, is_primary, created_at)
-			VALUES (?1, ?2, 1, ?3)
-		`).bind(wordId, parsed.partOfSpeechId, now));
-	}
+			VALUES (?1, ?2, ?3, ?4)
+		`).bind(wordId, partOfSpeechId, index === 0 ? 1 : 0, now));
+	});
 	if (parsed.categoryId) {
 		statements.push(env.song_project_db.prepare(`
 			INSERT INTO japanese_word_categories (word_id, category_id, created_at)
@@ -364,7 +468,7 @@ export async function handleUpdateAdminJapaneseWord(request: Request, env: Env):
 			meaningKo: parsed.meaningKo,
 			meaningJa: parsed.meaningJa,
 			jlptLevelId: parsed.jlptLevelId,
-			partOfSpeechId: parsed.partOfSpeechId,
+			partOfSpeechIds: parsed.partOfSpeechIds,
 			categoryId: parsed.categoryId,
 		}),
 		request.headers.get('CF-IPCountry'),
