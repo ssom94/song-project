@@ -48,11 +48,7 @@
 
 	function iconForGoal(goal) {
 		const fixed = {
-			'jlpt-n1': 'N1',
-			ap: 'AP',
-			fp: 'FP',
-			'aws-saa': 'AWS',
-			portfolio: 'PF',
+			'jlpt-n1': 'N1', ap: 'AP', fp: 'FP', 'aws-saa': 'AWS', portfolio: 'PF',
 		};
 		if (fixed[goal.goalKey]) return fixed[goal.goalKey];
 		const source = String(goal.title || '+').trim();
@@ -82,7 +78,6 @@
 		const row = document.createElement('article');
 		row.className = `home-goal-item home-goal-status-${goal.status || 'planned'}`;
 		row.dataset.goalKey = goal.goalKey || '';
-
 		const main = document.createElement('div');
 		main.className = 'home-goal-main';
 		const icon = document.createElement('span');
@@ -95,7 +90,6 @@
 		detail.textContent = detailForGoal(goal);
 		mainCopy.append(title, detail);
 		main.append(icon, mainCopy);
-
 		const progressWrap = document.createElement('div');
 		progressWrap.className = 'home-goal-progress';
 		const progressHead = document.createElement('div');
@@ -103,7 +97,6 @@
 		const percentLabel = document.createElement('b');
 		percentLabel.textContent = `${percent}%`;
 		const progress = document.createElement('progress');
-
 		if (goal.goalType === 'count' && Number(goal.targetCount) > 0) {
 			const target = Math.max(1, Number(goal.targetCount));
 			const completed = Math.max(0, Math.min(target, Number(goal.completedCount) || 0));
@@ -117,7 +110,6 @@
 		}
 		progressHead.append(progressLabel, percentLabel);
 		progressWrap.append(progressHead, progress);
-
 		const state = document.createElement('span');
 		state.className = 'home-goal-state';
 		state.textContent = statusForGoal(goal);
@@ -142,32 +134,30 @@
 				list.appendChild(fragment);
 			}
 		}
-
 		const count = document.querySelector('#goals .home-goal-count');
 		if (count) count.textContent = copy().goals(goals.length);
-
 		const completed = goals.filter((goal) => goal?.status === 'done').length;
 		const completedNode = document.getElementById('home-completed-goals');
 		const totalNode = document.getElementById('home-total-goals');
 		if (completedNode) completedNode.textContent = String(completed);
 		if (totalNode) totalNode.textContent = String(goals.length);
-
 		const jlptSection = document.getElementById('jlpt-progress');
 		if (jlptSection instanceof HTMLElement) jlptSection.hidden = result?.settings?.showJlpt === false;
-
 		if (result?.learning) {
 			window.HomeDashboard?.setLearningSnapshot?.({
 				goalMode: result?.settings?.jlptGoalMode === 'manual' ? 'manual' : 'auto',
 				manualTarget: result?.settings?.jlptManualTarget ?? null,
 				registeredWords: Number(result.learning.registeredWords ?? 0),
-				wrongWords: Number(result.learning.wrongWords ?? 0),
+				masteredWords: Number(result.learning.masteredWords ?? 0),
+				uncertainWords: Number(result.learning.uncertainWords ?? 0),
+				unlearnedWords: Number(result.learning.unlearnedWords ?? 0),
 			});
 		}
 	}
 
 	async function loadDashboard() {
 		try {
-			const response = await fetch('/api/public/dashboard', { method: 'GET', cache: 'no-store' });
+			const response = await fetch('/api/public/dashboard', { method: 'GET', cache: 'no-store', credentials: 'same-origin' });
 			const result = await response.json().catch(() => null);
 			if (!response.ok || !result?.ok) throw new Error(result?.error || `HTTP_${response.status}`);
 			renderDashboard(result);
