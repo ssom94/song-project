@@ -1,0 +1,55 @@
+.protected-skill-status-row {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.protected-registration-status {
+	display: inline-flex;
+	align-items: center;
+	min-height: 26px;
+	padding: 0 10px;
+	border: 1px solid #d9e1eb;
+	border-radius: 999px;
+	background: rgba(255,255,255,.82);
+	color: #6c788a;
+	font-size: 10px;
+	font-weight: 850;
+}
+
+.protected-registration-status.is-unregistered {
+	border-color: #efd0d4;
+	background: #fff3f4;
+	color: #ad4c58;
+}
+
+.protected-registration-status.is-registered {
+	border-color: #c8dfcf;
+	background: #f0f8f2;
+	color: #39714b;
+}
+
+.protected-skill-file-meta {
+	color: #8d99aa;
+	font-size: 9px;
+}
+
+.protected-primary.is-disabled {
+	border-color: #dce3ec;
+	background: #eef1f5;
+	color: #9aa4b2;
+	box-shadow: none;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.protected-skill-load-error {
+	padding: 12px 14px;
+	border: 1px solid #efd7da;
+	border-radius: 10px;
+	background: #fff6f7;
+	color: #a6535c;
+	font-size: 10px;
+}
