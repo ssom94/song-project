@@ -1,30 +1,30 @@
 /* Home-only decorative layer and draggable 2029 summary card. */
 body.blog-home-page::before {
-	background-image: url('/assets/images/learning-flags-bg.svg');
+	background-image: url('/assets/images/main_bg.png');
 	background-size: 100% 100%;
 	background-position: center center;
 	background-repeat: no-repeat;
-	opacity: .88;
+	opacity: .92;
 }
 
 body.blog-home-page .home-dashboard-heading {
 	position: relative;
-	min-height: 100px;
+	min-height: 108px;
 	isolation: isolate;
 }
 
-/* Selected reference artwork: larger and shifted farther toward the upper-right. */
+/* Uploaded couple artwork. */
 body.blog-home-page .home-dashboard-heading::after {
 	content: '';
 	position: absolute;
-	top: -20px;
-	right: 20px;
+	top: -24px;
+	right: -8px;
 	display: block;
-	width: 410px;
-	height: 102px;
-	background: url('/assets/images/korea-japan-couple-ornament.svg') center / contain no-repeat;
-	opacity: .97;
-	filter: drop-shadow(0 5px 10px rgba(54, 73, 102, .10));
+	width: 470px;
+	height: 118px;
+	background: url('/assets/images/main_couple_bg.png') center / contain no-repeat;
+	opacity: .98;
+	filter: drop-shadow(0 5px 12px rgba(54, 73, 102, .10));
 	pointer-events: none;
 	z-index: 0;
 }
@@ -92,15 +92,18 @@ body.blog-home-page .home-dashboard-heading > * {
 
 @media (max-width: 1240px) {
 	body.blog-home-page .home-dashboard-heading::after {
-		right: 8px;
-		width: 350px;
-		height: 88px;
+		right: -6px;
+		width: 400px;
+		height: 102px;
 	}
 }
 
 @media (max-width: 1100px) {
 	body.blog-home-page .home-dashboard-heading::after {
-		display: none;
+		top: -12px;
+		right: -10px;
+		width: 330px;
+		height: 90px;
 	}
 }
 
@@ -108,7 +111,19 @@ body.blog-home-page .home-dashboard-heading > * {
 	body.blog-home-page::before {
 		background-size: 100% 100%;
 		background-position: center center;
-		opacity: .70;
+		opacity: .78;
+	}
+
+	body.blog-home-page .home-dashboard-heading {
+		padding-top: 78px;
+	}
+
+	body.blog-home-page .home-dashboard-heading::after {
+		top: -4px;
+		right: 50%;
+		width: min(310px, 82vw);
+		height: 78px;
+		transform: translateX(50%);
 	}
 
 	#home-roadmap-summary {
@@ -119,6 +134,15 @@ body.blog-home-page .home-dashboard-heading > * {
 
 @media (max-width: 560px) {
 	body.blog-home-page::before {
-		opacity: .58;
+		opacity: .68;
+	}
+
+	body.blog-home-page .home-dashboard-heading {
+		padding-top: 68px;
+	}
+
+	body.blog-home-page .home-dashboard-heading::after {
+		width: min(270px, 86vw);
+		height: 68px;
 	}
 }
