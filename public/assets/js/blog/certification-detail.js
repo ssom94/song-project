@@ -3,8 +3,8 @@
 	if (!(page instanceof HTMLElement)) return;
 	const language = page.dataset.language === 'ko' ? 'ko' : 'ja';
 	const labels = language === 'ko'
-		? { back:'자격증·시험 목록', next:'가장 가까운 일정', nextAfter:'그 다음 일정', application:'접수', exam:'시험', result:'결과', fee:'응시료', mode:'시험방식', duration:'시험시간', questions:'문제구성', pass:'합격기준', schedules:'시험 일정', format:'시험 구성', domains:'출제 범위', concepts:'핵심 개념', study:'공부 포인트', official:'공식 사이트', guide:'시험 가이드', source:'공식정보 확인일', failed:'시험 정보를 불러오지 못했습니다.' }
-		: { back:'資格・試験一覧', next:'最も近い日程', nextAfter:'次の日程', application:'申込', exam:'試験', result:'結果', fee:'受験料', mode:'実施方式', duration:'試験時間', questions:'問題構成', pass:'合格基準', schedules:'試験日程', format:'試験構成', domains:'出題範囲', concepts:'重要概念', study:'学習ポイント', official:'公式サイト', guide:'試験ガイド', source:'公式情報確認日', failed:'試験情報を読み込めませんでした。' };
+		? { back:'자격증·시험 목록', next:'가장 가까운 일정', nextAfter:'그 다음 일정', application:'접수', exam:'시험', result:'결과', fee:'응시료', mode:'시험방식', duration:'시험시간', questions:'문제구성', pass:'합격기준', schedules:'시험 일정', format:'시험 구성', domains:'출제 범위', concepts:'핵심 개념', study:'공부 포인트', official:'공식 사이트', guide:'시험 가이드', source:'공식정보 확인일', failed:'시험 정보를 불러오지 못했습니다.', retry:'목록으로 돌아가 다시 선택해 주세요.' }
+		: { back:'資格・試験一覧', next:'最も近い日程', nextAfter:'次の日程', application:'申込', exam:'試験', result:'結果', fee:'受験料', mode:'実施方式', duration:'試験時間', questions:'問題構成', pass:'合格基準', schedules:'試験日程', format:'試験構成', domains:'出題範囲', concepts:'重要概念', study:'学習ポイント', official:'公式サイト', guide:'試験ガイド', source:'公式情報確認日', failed:'試験情報を読み込めませんでした。', retry:'一覧へ戻ってもう一度選択してください。' };
 	const content = document.getElementById('cert-detail-content');
 	const slug = new URLSearchParams(location.search).get('slug')?.trim() || '';
 
@@ -105,8 +105,24 @@
 		for (const [label,href,cls] of [[labels.official,cert.officialUrl,'cert-primary-link'],[labels.guide,cert.guideUrl || cert.officialUrl,'cert-secondary-link']]) { const a = document.createElement('a'); a.className = cls; a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = label; actions.appendChild(a); }
 		box.append(p,actions); source.appendChild(box); content.appendChild(source);
 	}
-	if (!slug) { if (content) content.innerHTML = `<div class="cert-empty">${labels.failed}</div>`; return; }
+	function showError(error) {
+		console.error('Failed to load certification detail', error);
+		text('cert-detail-code', '!');
+		text('cert-detail-title', labels.failed);
+		text('cert-detail-subtitle', labels.retry);
+		text('cert-detail-summary', '');
+		const facts = document.getElementById('cert-facts');
+		if (facts) facts.replaceChildren();
+		if (content) {
+			content.replaceChildren();
+			const empty = document.createElement('div');
+			empty.className = 'cert-empty';
+			empty.textContent = labels.retry;
+			content.appendChild(empty);
+		}
+	}
+	if (!slug) { showError(new Error('CERTIFICATION_SLUG_REQUIRED')); return; }
 	fetch(`/api/public/certifications?lang=${language}&slug=${encodeURIComponent(slug)}`, { cache:'no-store' })
 		.then(async (response) => { const result = await response.json().catch(() => null); if (!response.ok || !result?.ok) throw new Error(result?.error || `HTTP_${response.status}`); render(result); })
-		.catch((error) => { console.error('Failed to load certification detail', error); if (content) content.innerHTML = `<div class="cert-empty">${labels.failed}</div>`; });
+		.catch(showError);
 })();
