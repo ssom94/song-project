@@ -69,6 +69,25 @@
 		});
 	}
 
+	function configureTableHeader() {
+		const row = document.querySelector('.admin-posts-table thead tr');
+		if (!row) return;
+
+		const visibilityHeader = row.querySelector('[data-i18n="tableVisibility"]');
+		if (visibilityHeader) {
+			visibilityHeader.classList.add('admin-post-visibility-status-column');
+			row.appendChild(visibilityHeader);
+		}
+
+		let toggleHeader = row.querySelector('.admin-post-visibility-toggle-column');
+		if (!toggleHeader) {
+			toggleHeader = document.createElement('th');
+			toggleHeader.className = 'admin-post-visibility-toggle-column';
+			toggleHeader.setAttribute('aria-label', currentLanguage() === 'ko' ? '표시 상태 변경' : '表示状態の変更');
+			row.appendChild(toggleHeader);
+		}
+	}
+
 	function renderState(mode = 'empty') {
 		const empty = document.querySelector('.admin-posts-empty');
 		const title = empty?.querySelector('h2');
@@ -151,14 +170,30 @@
 		}
 	}
 
-	function createVisibilityControl(post) {
+	function createVisibilityStatus(post) {
+		const label = document.createElement('span');
+		if (post.status === 'draft') {
+			label.className = 'admin-post-visibility-status is-unregistered';
+			label.textContent = '—';
+			return label;
+		}
+
+		const visible = post.status === 'published';
+		label.className = `admin-post-visibility-status${visible ? ' is-visible' : ''}`;
+		label.textContent = visible
+			? t('visibilityVisible', currentLanguage() === 'ko' ? '표시' : '表示')
+			: t('visibilityHidden', currentLanguage() === 'ko' ? '비표시' : '非表示');
+		return label;
+	}
+
+	function createVisibilityToggle(post) {
 		const wrapper = document.createElement('div');
-		wrapper.className = 'admin-post-visibility-control';
+		wrapper.className = 'admin-post-visibility-toggle-wrap';
 
 		if (post.status === 'draft') {
 			const unavailable = document.createElement('span');
-			unavailable.className = 'admin-post-visibility-unavailable';
-			unavailable.textContent = t('visibilityAfterRegistration', currentLanguage() === 'ko' ? '등록 후 설정' : '登録後に設定');
+			unavailable.className = 'admin-post-visibility-unregistered';
+			unavailable.textContent = t('visibilityUnregistered', currentLanguage() === 'ko' ? '미등록 상태' : '未登録状態');
 			wrapper.appendChild(unavailable);
 			return wrapper;
 		}
@@ -177,13 +212,7 @@
 		knob.className = 'admin-post-visibility-knob';
 		button.appendChild(knob);
 		button.addEventListener('click', () => updateVisibility(post, !visible));
-
-		const label = document.createElement('span');
-		label.className = `admin-post-visibility-label${visible ? ' is-visible' : ''}`;
-		label.textContent = visible
-			? t('visibilityVisible', currentLanguage() === 'ko' ? '표시' : '表示')
-			: t('visibilityHidden', currentLanguage() === 'ko' ? '비표시' : '非表示');
-		wrapper.append(button, label);
+		wrapper.appendChild(button);
 		return wrapper;
 	}
 
@@ -194,6 +223,7 @@
 		const empty = document.querySelector('.admin-posts-empty');
 		if (!tableWrap || !table || !tbody || !empty) return;
 
+		configureTableHeader();
 		tbody.replaceChildren();
 		if (state === 'loading' || state === 'error' || posts.length === 0) {
 			tableWrap.hidden = true;
@@ -232,9 +262,6 @@
 			const registrationCell = document.createElement('td');
 			registrationCell.appendChild(createRegistrationBadge(post));
 
-			const visibilityCell = document.createElement('td');
-			visibilityCell.appendChild(createVisibilityControl(post));
-
 			const updatedCell = document.createElement('td');
 			updatedCell.className = 'admin-post-updated-at';
 			updatedCell.textContent = formatDate(post.updatedAt);
@@ -242,7 +269,25 @@
 			const actionCell = document.createElement('td');
 			actionCell.appendChild(createViewLink(post, 'admin-post-edit-link'));
 
-			row.append(numberCell, titleCell, categoryCell, languageCell, registrationCell, visibilityCell, updatedCell, actionCell);
+			const visibilityStatusCell = document.createElement('td');
+			visibilityStatusCell.className = 'admin-post-visibility-status-cell';
+			visibilityStatusCell.appendChild(createVisibilityStatus(post));
+
+			const visibilityToggleCell = document.createElement('td');
+			visibilityToggleCell.className = 'admin-post-visibility-toggle-cell';
+			visibilityToggleCell.appendChild(createVisibilityToggle(post));
+
+			row.append(
+				numberCell,
+				titleCell,
+				categoryCell,
+				languageCell,
+				registrationCell,
+				updatedCell,
+				actionCell,
+				visibilityStatusCell,
+				visibilityToggleCell,
+			);
 			tbody.appendChild(row);
 		}
 
@@ -288,10 +333,14 @@
 		const session = await window.AdminCommon?.ready;
 		if (!session) return;
 		await window.AdminI18n?.ready;
+		configureTableHeader();
 		await loadPosts();
 	}
 
-	document.addEventListener('adminlanguagechange', renderPosts);
+	document.addEventListener('adminlanguagechange', () => {
+		configureTableHeader();
+		renderPosts();
+	});
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
