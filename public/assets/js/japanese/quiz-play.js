@@ -3,6 +3,7 @@
 	const RESULT_KEY = 'song_public_japanese_quiz_result';
 	const HISTORY_KEY = 'song_public_japanese_quiz_history_v1';
 	const RETRY_KEY = 'song_public_japanese_quiz_retry_questions';
+	const NAV_POSITION_KEY = 'song_public_quiz_navigator_position_v1';
 
 	let setup = null;
 	let questions = [];
@@ -62,18 +63,6 @@
 	function choiceLabel(choice) {
 		return typeof choice === 'object' && choice !== null ? String(choice.label ?? choice.value ?? '') : String(choice ?? '');
 	}
-	function typeLabel(question) {
-		if (question?.type === 'sentence') return copy('예문 빈칸 · 4지선다', '例文穴埋め · 4択');
-		if (question?.answerMode === 'choice') return copy('4지선다 · 단어 → 한국어 뜻', '4択 · 単語 → 韓国語の意味');
-		if (question?.type === 'meaning') return copy('주관식 · 단어 → 한국어 뜻', '記述式 · 単語 → 韓国語の意味');
-		return copy('주관식 · 단어 → 히라가나', '記述式 · 単語 → ひらがな');
-	}
-	function instruction(question) {
-		if (question?.type === 'sentence') return copy('문장의 빈칸에 들어갈 일본어 단어를 4개 보기 중에서 선택해 주세요.', '文の空欄に入る日本語の単語を4つの選択肢から選んでください。');
-		if (question?.answerMode === 'choice') return copy('이 단어의 한국어 뜻을 4개 보기 중에서 선택해 주세요.', 'この単語の韓国語の意味を4つの選択肢から選んでください。');
-		if (question?.type === 'meaning') return copy('등록된 한국어 뜻 중 하나를 입력해 주세요.', '登録された韓国語の意味のうち1つを入力してください。');
-		return copy('이 단어의 읽기를 히라가나로 입력해 주세요.', 'この単語の読み方をひらがなで入力してください。');
-	}
 	function firstCharacter(value) { return Array.from(String(value ?? '').trim())[0] || '—'; }
 	function answerLength(value) { return Array.from(String(value ?? '').trim()).length; }
 	function acceptedAnswers(question) {
@@ -97,6 +86,20 @@
 		return reading && normalize(reading) !== normalize(surface) ? `${surface}（${reading}）` : surface;
 	}
 
+	function typeLabel(question) {
+		if (question?.type === 'sentence') return copy('예문 빈칸 · 4지선다', '例文穴埋め · 4択');
+		if (question?.answerMode === 'choice') return copy('4지선다 · 단어 → 한국어 뜻', '4択 · 単語 → 韓国語の意味');
+		if (question?.type === 'meaning') return copy('주관식 · 단어 → 한국어 뜻', '記述式 · 単語 → 韓国語の意味');
+		return copy('주관식 · 단어 → 히라가나', '記述式 · 単語 → ひらがな');
+	}
+
+	function instruction(question) {
+		if (question?.type === 'sentence') return copy('문장의 빈칸에 들어갈 일본어 단어를 4개 보기 중에서 선택해 주세요.', '文の空欄に入る日本語の単語を4つの選択肢から選んでください。');
+		if (question?.answerMode === 'choice') return copy('이 단어의 한국어 뜻을 4개 보기 중에서 선택해 주세요.', 'この単語の韓国語の意味を4つの選択肢から選んでください。');
+		if (question?.type === 'meaning') return copy('등록된 한국어 뜻 중 하나를 입력해 주세요.', '登録された韓国語の意味のうち1つを入力してください。');
+		return copy('이 단어의 읽기를 히라가나로 입력해 주세요.', 'この単語の読み方をひらがなで入力してください。');
+	}
+
 	function normalizeLegacySetup(raw) {
 		const next = raw && typeof raw === 'object' ? { ...raw } : {};
 		if (!next.studyMode) next.studyMode = new URLSearchParams(location.search).get('study') === 'korean' ? 'korean' : 'japanese';
@@ -113,7 +116,12 @@
 			else if (next.quizMode === 'input') next.types = ['reading', 'meaning'];
 			else next.types = ['reading', 'meaning', 'sentence'];
 		}
+		if (!Array.isArray(next.jlpts)) next.jlpts = next.jlpt ? [next.jlpt] : [];
+		next.jlpts = uniqueText(next.jlpts.map((value) => String(value).toUpperCase()))
+			.filter((value) => ['N1', 'N2', 'N3', 'N4', 'N5', 'UNSET'].includes(value));
 		next.count = Math.max(1, Math.min(50, Number(next.count) || 10));
+		next.focusWordId = Number.isSafeInteger(Number(next.focusWordId)) && Number(next.focusWordId) > 0 ? Number(next.focusWordId) : null;
+		next.quick = next.quick === true && Boolean(next.focusWordId);
 		return next;
 	}
 
@@ -121,7 +129,7 @@
 		return {
 			wordId: Number(word.id),
 			word: word.word,
-			level: word.jlpt || '—',
+			level: word.jlpt || copy('미지정', '未設定'),
 			category: setup.categoryName || '',
 			part: setup.partName || '',
 			previousLearningState: word.learningState || 'unlearned',
@@ -260,36 +268,50 @@
 		}
 
 		const params = new URLSearchParams({ types: setup.types.join(','), count: String(Math.max(setup.count, 10)) });
-		if (setup.jlpt) params.set('jlpt', setup.jlpt);
+		for (const level of setup.jlpts || []) params.append('jlpt', level);
 		if (setup.categoryId) params.set('category', String(setup.categoryId));
 		if (setup.partId) params.set('part', String(setup.partId));
+		if (setup.focusWordId) params.set('focusWordId', String(setup.focusWordId));
 		const response = await fetch(`/api/public/japanese/quiz-pool?${params.toString()}`, { credentials: 'same-origin', cache: 'no-store' });
 		const result = await response.json().catch(() => null);
 		if (!response.ok || !result?.ok || !Array.isArray(result.words)) throw new Error('QUIZ_WORD_LOAD_FAILED');
-		const candidates = applyPriority(makeCandidates(result.words));
-		questions = candidates.slice(0, setup.count);
+		let candidates = applyPriority(makeCandidates(result.words));
+		if (setup.focusWordId) {
+			candidates = shuffle(candidates.filter((item) => Number(item.wordId) === Number(setup.focusWordId)));
+			questions = candidates.slice(0, 1);
+		} else {
+			questions = candidates.slice(0, setup.count);
+		}
 		if (questions.length < setup.count) {
 			const notice = byId('quiz-play-notice');
 			if (notice) {
 				notice.hidden = false;
-				notice.textContent = copy(
-					`현재 조건에서 출제 가능한 문제가 ${questions.length}개라 문제 수를 조정했습니다. 4지선다와 예문 빈칸 문제는 서로 다른 보기 4개가 확보될 때만 출제됩니다.`,
-					`現在の条件で出題できる問題が${questions.length}問のため、問題数を調整しました。4択と例文穴埋めは異なる選択肢を4つ確保できる場合のみ出題します。`,
-				);
+				notice.textContent = setup.focusWordId
+					? copy(`「${setup.focusWord || ''}」에서 현재 방식으로 출제 가능한 문제를 찾았습니다.`, `「${setup.focusWord || ''}」から現在の方式で出題可能な問題を選びました。`)
+					: copy(
+						`현재 조건에서 출제 가능한 문제가 ${questions.length}개라 문제 수를 조정했습니다.`,
+						`現在の条件で出題できる問題が${questions.length}問のため、問題数を調整しました。`,
+					);
 			}
 			setup.count = questions.length;
 		}
 	}
 
+	function jlptSessionLabel() {
+		const values = Array.isArray(setup.jlpts) ? setup.jlpts : [];
+		if (!values.length) return 'ALL';
+		return values.map((value) => value === 'UNSET' ? copy('미지정', '未設定') : value).join(' + ');
+	}
+
 	function quizModeLabel() {
 		if (setup.quizMode === 'choice') return copy('4지선다', '4択');
-		if (setup.quizMode === 'sentence') return copy('예문 빈칸 · 4지선다', '例文穴埋め · 4択');
+		if (setup.quizMode === 'sentence') return copy('예문 빈칸', '例文穴埋め');
 		if (setup.quizMode === 'mixed') return copy('전체 혼합', 'すべて混合');
 		return copy('주관식', '記述式');
 	}
 
 	function renderScope() {
-		byId('quiz-session-jlpt').textContent = setup.jlpt || 'ALL';
+		byId('quiz-session-jlpt').textContent = jlptSessionLabel();
 		byId('quiz-session-category').textContent = setup.categoryName || copy('전체', 'すべて');
 		byId('quiz-session-part').textContent = setup.partName || copy('전체', 'すべて');
 		byId('quiz-session-mode').textContent = quizModeLabel();
@@ -299,13 +321,12 @@
 		const wrap = byId('quiz-play-choices');
 		wrap.replaceChildren();
 		for (const choice of question.choices || []) {
-			const value = choiceValue(choice);
 			const button = document.createElement('button');
 			button.type = 'button';
 			button.className = 'jp-quiz-choice';
 			button.textContent = choiceLabel(choice);
-			button.dataset.answer = value;
-			button.addEventListener('click', () => grade(value, button));
+			button.dataset.choiceValue = choiceValue(choice);
+			button.addEventListener('click', () => grade(choiceValue(choice), button));
 			wrap.appendChild(button);
 		}
 	}
@@ -327,28 +348,16 @@
 		return `${copy(answers.length > 1 ? '정답 첫 글자 후보' : '정답의 첫 글자', answers.length > 1 ? '答えの最初の文字候補' : '答えの最初の文字')}: ${chars.join(' · ') || '—'}`;
 	}
 
-	function sentenceShapeText(question) {
-		const surface = String(question?.word ?? '').trim();
-		const reading = String(question?.hints?.reading ?? '').trim();
-		if (!surface) return '';
-		const chars = Array.from(surface);
-		const kanji = chars.filter((char) => /\p{Script=Han}/u.test(char)).length;
-		const kana = chars.filter((char) => /[\p{Script=Hiragana}\p{Script=Katakana}ー]/u.test(char)).length;
-		const readingLength = Array.from(reading).length;
-		let shape;
-		if (kanji > 0 && kana > 0) {
-			shape = copy(`표기 ${chars.length}글자 (한자 ${kanji} · 가나 ${kana})`, `表記 ${chars.length}文字（漢字 ${kanji}・かな ${kana}）`);
-		} else if (kanji > 0) {
-			shape = copy(`한자 ${kanji}글자`, `漢字 ${kanji}文字`);
-		} else {
-			shape = copy(`표기 ${chars.length}글자`, `表記 ${chars.length}文字`);
-		}
-		if (readingLength > 0) shape += copy(` · 히라가나 읽기 ${readingLength}글자`, ` · ひらがな読み ${readingLength}文字`);
-		return `${shape}${copy(' · 한자/히라가나 어느 쪽으로 외워도 정답', ' · 漢字・ひらがなのどちらで覚えても正解')}`;
-	}
-
 	function answerLengthText(question) {
-		if (question?.type === 'sentence') return sentenceShapeText(question);
+		if (question?.type === 'sentence') {
+			const surface = String(question.word || '').trim();
+			const reading = String(question.hints?.reading || '').trim();
+			const surfaceLabel = /\p{Script=Han}/u.test(surface) ? copy('한자 표기', '漢字表記') : copy('단어 표기', '単語表記');
+			const parts = [`${surfaceLabel} ${answerLength(surface)}${copy('글자', '文字')}`];
+			if (reading) parts.push(`${copy('히라가나 읽기', 'ひらがなの読み')} ${answerLength(reading)}${copy('글자', '文字')}`);
+			parts.push(copy('한자/히라가나 모두 정답', '漢字・ひらがなどちらでも正解'));
+			return parts.join(' · ');
+		}
 		if (question?.answerMode === 'choice') return copy('4개의 보기 중 하나를 선택합니다.', '4つの選択肢から1つ選びます。');
 		const answers = acceptedAnswers(question);
 		if (!answers.length) return '';
@@ -431,7 +440,9 @@
 		const attempt = currentAttempt();
 		if (!attempt || attempt.index !== currentIndex + 1) return;
 		attempt.learningState = state;
+		attempt.learningStateManuallySet = true;
 		renderLearningState();
+		renderQuestionNavigator();
 	}
 
 	function renderLearningState() {
@@ -464,9 +475,17 @@
 		const length = byId('quiz-play-answer-length');
 		if (!question || !hintButton || !skipButton || !guide || !box || !title || !text || !length) return;
 		length.textContent = answerLengthText(question);
-		guide.textContent = copy('힌트 1: 문장 · 힌트 2: 첫 글자', 'ヒント1: 文 · ヒント2: 最初の文字');
+		guide.textContent = question.type === 'sentence'
+			? copy('보기에서 정답을 선택하세요.', '選択肢から正解を選んでください。')
+			: copy('힌트 1: 문장 · 힌트 2: 첫 글자', 'ヒント1: 文 · ヒント2: 最初の文字');
 		skipButton.textContent = copy('잘 모르겠음', 'わからない');
 		skipButton.disabled = answered;
+		if (question.type === 'sentence') {
+			hintButton.hidden = true;
+			box.hidden = true;
+			return;
+		}
+		hintButton.hidden = false;
 		box.hidden = hintLevel === 0;
 		if (hintLevel === 0) {
 			hintButton.textContent = copy('힌트 1 · 문장 보기', 'ヒント1 · 文を見る');
@@ -488,9 +507,155 @@
 	}
 
 	function requestHint() {
-		if (answered) return;
+		if (answered || questions[currentIndex]?.type === 'sentence') return;
 		if (hintLevel < 2) hintLevel += 1;
 		renderHint();
+	}
+
+	function readNavigatorPosition() {
+		try {
+			const value = JSON.parse(localStorage.getItem(NAV_POSITION_KEY) || 'null');
+			return value && Number.isFinite(value.left) && Number.isFinite(value.top) ? value : null;
+		} catch {
+			return null;
+		}
+	}
+
+	function clampNavigator(panel, left, top) {
+		const margin = 8;
+		const maxLeft = Math.max(margin, window.innerWidth - panel.offsetWidth - margin);
+		const maxTop = Math.max(margin, window.innerHeight - panel.offsetHeight - margin);
+		return {
+			left: Math.min(maxLeft, Math.max(margin, left)),
+			top: Math.min(maxTop, Math.max(margin, top)),
+		};
+	}
+
+	function initializeNavigatorDrag(panel, header) {
+		const saved = readNavigatorPosition();
+		if (saved && window.innerWidth > 1100) {
+			panel.style.right = 'auto';
+			panel.style.bottom = 'auto';
+			panel.style.left = `${saved.left}px`;
+			panel.style.top = `${saved.top}px`;
+		}
+		let dragging = false;
+		let pointerId = null;
+		let startX = 0;
+		let startY = 0;
+		let startLeft = 0;
+		let startTop = 0;
+
+		header.addEventListener('pointerdown', (event) => {
+			if (event.button !== 0 || window.innerWidth <= 720) return;
+			const rect = panel.getBoundingClientRect();
+			dragging = true;
+			pointerId = event.pointerId;
+			startX = event.clientX;
+			startY = event.clientY;
+			startLeft = rect.left;
+			startTop = rect.top;
+			panel.style.right = 'auto';
+			panel.style.bottom = 'auto';
+			panel.style.left = `${rect.left}px`;
+			panel.style.top = `${rect.top}px`;
+			panel.classList.add('is-dragging');
+			header.setPointerCapture?.(pointerId);
+			event.preventDefault();
+		});
+
+		header.addEventListener('pointermove', (event) => {
+			if (!dragging || event.pointerId !== pointerId) return;
+			const next = clampNavigator(panel, startLeft + event.clientX - startX, startTop + event.clientY - startY);
+			panel.style.left = `${next.left}px`;
+			panel.style.top = `${next.top}px`;
+		});
+
+		function finish(event) {
+			if (!dragging || event.pointerId !== pointerId) return;
+			dragging = false;
+			panel.classList.remove('is-dragging');
+			header.releasePointerCapture?.(pointerId);
+			pointerId = null;
+			const rect = panel.getBoundingClientRect();
+			try { localStorage.setItem(NAV_POSITION_KEY, JSON.stringify({ left: rect.left, top: rect.top })); } catch { /* ignore */ }
+		}
+		header.addEventListener('pointerup', finish);
+		header.addEventListener('pointercancel', finish);
+
+		window.addEventListener('resize', () => {
+			if (window.innerWidth <= 1100) {
+				panel.style.left = '';
+				panel.style.top = '';
+				panel.style.right = '';
+				panel.style.bottom = '';
+				return;
+			}
+			if (!panel.style.left) return;
+			const rect = panel.getBoundingClientRect();
+			const next = clampNavigator(panel, rect.left, rect.top);
+			panel.style.left = `${next.left}px`;
+			panel.style.top = `${next.top}px`;
+		});
+	}
+
+	function ensureQuestionNavigator() {
+		let panel = byId('quiz-question-navigator');
+		if (panel) return panel;
+		panel = document.createElement('aside');
+		panel.id = 'quiz-question-navigator';
+		panel.className = 'jp-quiz-question-navigator';
+		const header = document.createElement('div');
+		header.className = 'jp-quiz-question-navigator-header';
+		const title = document.createElement('strong');
+		title.textContent = copy('문제 목록', '問題リスト');
+		const count = document.createElement('span');
+		count.id = 'quiz-question-navigator-count';
+		header.append(title, count);
+		const list = document.createElement('div');
+		list.id = 'quiz-question-list';
+		list.className = 'jp-quiz-question-list';
+		panel.append(header, list);
+		document.body.appendChild(panel);
+		initializeNavigatorDrag(panel, header);
+		return panel;
+	}
+
+	function navigatorAttempt(index) {
+		return attempts.find((attempt) => attempt.index === index + 1) || null;
+	}
+
+	function renderQuestionNavigator() {
+		if (!questions.length) return;
+		ensureQuestionNavigator();
+		const count = byId('quiz-question-navigator-count');
+		if (count) count.textContent = `${Math.min(currentIndex + 1, questions.length)} / ${questions.length}`;
+		const list = byId('quiz-question-list');
+		if (!list) return;
+		list.replaceChildren();
+		questions.forEach((question, index) => {
+			const attempt = navigatorAttempt(index);
+			const item = document.createElement('div');
+			item.className = 'jp-quiz-question-nav-item';
+			if (index === currentIndex) item.classList.add('is-current');
+			if (attempt) {
+				if (attempt.learningStateManuallySet && attempt.learningState === 'uncertain') item.classList.add('is-uncertain');
+				else if (attempt.isCorrect) item.classList.add('is-correct');
+				else item.classList.add('is-wrong');
+			}
+			const number = document.createElement('span');
+			number.className = 'jp-quiz-question-nav-number';
+			number.textContent = String(index + 1);
+			const word = document.createElement('span');
+			word.className = 'jp-quiz-question-nav-word';
+			word.textContent = question.word || question.prompt || '—';
+			word.title = question.word || question.prompt || '';
+			const dot = document.createElement('span');
+			dot.className = 'jp-quiz-question-nav-dot';
+			item.append(number, word, dot);
+			list.appendChild(item);
+		});
+		list.querySelector('.is-current')?.scrollIntoView({ block: 'nearest' });
 	}
 
 	function renderQuestion() {
@@ -519,6 +684,7 @@
 		const statePanel = byId('quiz-learning-state');
 		if (statePanel) statePanel.hidden = true;
 		renderHint();
+		renderQuestionNavigator();
 		if (question.answerMode === 'input') input.focus();
 	}
 
@@ -542,7 +708,8 @@
 		byId('quiz-play-submit').disabled = true;
 		byId('quiz-play-choices').querySelectorAll('button').forEach((button) => {
 			button.disabled = true;
-			const accepted = acceptedAnswers(question).some((answer) => normalize(button.dataset.answer || button.textContent) === normalize(answer));
+			const value = button.dataset.choiceValue || button.textContent;
+			const accepted = acceptedAnswers(question).some((answer) => normalize(value) === normalize(answer));
 			if (accepted) button.classList.add('is-correct');
 		});
 		if (selectedButton && !isCorrect) selectedButton.classList.add('is-wrong');
@@ -550,6 +717,7 @@
 		byId('quiz-play-next').textContent = currentIndex + 1 >= questions.length ? copy('결과 보기', '結果を見る') : copy('다음 문제', '次の問題');
 		renderHint();
 		renderLearningState();
+		renderQuestionNavigator();
 	}
 
 	function recordAttempt(answer, isCorrect, skipped = false) {
@@ -563,6 +731,7 @@
 			skipped,
 			hintLevel,
 			learningState: suggestedLearningState(question, isCorrect, skipped),
+			learningStateManuallySet: false,
 			questionSnapshot: question,
 		};
 		attempts.push(attempt);
@@ -663,6 +832,7 @@
 		fatal.hidden = false;
 		fatal.textContent = message;
 		byId('quiz-play-stage').hidden = true;
+		byId('quiz-question-navigator')?.remove();
 	}
 
 	async function loadAdminStatus() {
@@ -683,8 +853,8 @@
 			await buildQuestions();
 			if (!questions.length) {
 				showFatal(copy(
-					'현재 조건으로 출제할 수 있는 문제가 없습니다. 4지선다와 예문 빈칸은 서로 다른 보기 4개가 필요하고, 예문 빈칸은 해당 단어가 포함된 예문도 필요합니다.',
-					'現在の条件で出題できる問題がありません。4択と例文穴埋めには異なる選択肢が4つ必要で、例文穴埋めには対象単語を含む例文も必要です。',
+					'현재 조건으로 출제할 수 있는 문제가 없습니다. 선택한 JLPT·분류·품사 또는 문제 방식을 확인해 주세요.',
+					'現在の条件で出題できる問題がありません。選択したJLPT・分類・品詞・出題方式を確認してください。',
 				));
 				return;
 			}
