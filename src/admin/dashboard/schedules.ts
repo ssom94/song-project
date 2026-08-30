@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { ensureDashboardSchedulesSchema } from '../../dashboard/schedules-schema';
 
 interface ScheduleRow {
 	id: number;
@@ -47,11 +48,16 @@ async function requireAdmin(request: Request, env: Env) {
 	return getAuthenticatedAdminSession(request, env.song_project_db);
 }
 
+async function prepareScheduleDb(env: Env): Promise<void> {
+	await ensureDashboardSchedulesSchema(env.song_project_db);
+}
+
 export async function handleListAdminDashboardSchedules(request: Request, env: Env): Promise<Response> {
 	const session = await requireAdmin(request, env);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
 	try {
+		await prepareScheduleDb(env);
 		const result = await env.song_project_db.prepare(`
 			SELECT id, title, target_date, display_order, is_visible, created_at, updated_at
 			FROM dashboard_schedules
@@ -84,6 +90,7 @@ export async function handleCreateAdminDashboardSchedule(request: Request, env: 
 	if (typeof isVisible !== 'boolean') return json({ ok: false, error: 'INVALID_VISIBILITY' }, 400);
 
 	try {
+		await prepareScheduleDb(env);
 		const orderRow = await env.song_project_db.prepare(`SELECT COALESCE(MAX(display_order), 0) AS max_order FROM dashboard_schedules`).first<{ max_order: number }>();
 		const result = await env.song_project_db.prepare(`
 			INSERT INTO dashboard_schedules (title, target_date, display_order, is_visible, updated_at)
@@ -111,20 +118,21 @@ export async function handleUpdateAdminDashboardSchedule(request: Request, env: 
 		return json({ ok: false, error: 'INVALID_JSON' }, 400);
 	}
 
-	const current = await env.song_project_db.prepare(`
-		SELECT id, title, target_date, display_order, is_visible, created_at, updated_at
-		FROM dashboard_schedules WHERE id = ?1 LIMIT 1
-	`).bind(id).first<ScheduleRow>();
-	if (!current) return json({ ok: false, error: 'NOT_FOUND' }, 404);
-
-	const title = payload.title === undefined ? current.title : typeof payload.title === 'string' ? payload.title.trim().slice(0, 120) : '';
-	if (!title) return json({ ok: false, error: 'TITLE_REQUIRED' }, 400);
-	const targetDate = payload.targetDate === undefined ? current.target_date : parseDate(payload.targetDate);
-	if (targetDate === 'INVALID') return json({ ok: false, error: 'INVALID_DATE' }, 400);
-	const isVisible = payload.isVisible === undefined ? current.is_visible === 1 : payload.isVisible;
-	if (typeof isVisible !== 'boolean') return json({ ok: false, error: 'INVALID_VISIBILITY' }, 400);
-
 	try {
+		await prepareScheduleDb(env);
+		const current = await env.song_project_db.prepare(`
+			SELECT id, title, target_date, display_order, is_visible, created_at, updated_at
+			FROM dashboard_schedules WHERE id = ?1 LIMIT 1
+		`).bind(id).first<ScheduleRow>();
+		if (!current) return json({ ok: false, error: 'NOT_FOUND' }, 404);
+
+		const title = payload.title === undefined ? current.title : typeof payload.title === 'string' ? payload.title.trim().slice(0, 120) : '';
+		if (!title) return json({ ok: false, error: 'TITLE_REQUIRED' }, 400);
+		const targetDate = payload.targetDate === undefined ? current.target_date : parseDate(payload.targetDate);
+		if (targetDate === 'INVALID') return json({ ok: false, error: 'INVALID_DATE' }, 400);
+		const isVisible = payload.isVisible === undefined ? current.is_visible === 1 : payload.isVisible;
+		if (typeof isVisible !== 'boolean') return json({ ok: false, error: 'INVALID_VISIBILITY' }, 400);
+
 		const result = await env.song_project_db.prepare(`
 			UPDATE dashboard_schedules
 			SET title = ?1, target_date = ?2, is_visible = ?3,
@@ -147,6 +155,7 @@ export async function handleDeleteAdminDashboardSchedule(request: Request, env: 
 	if (!id) return json({ ok: false, error: 'INVALID_ID' }, 400);
 
 	try {
+		await prepareScheduleDb(env);
 		const result = await env.song_project_db.prepare(`DELETE FROM dashboard_schedules WHERE id = ?1 RETURNING id`).bind(id).first<{ id: number }>();
 		if (!result) return json({ ok: false, error: 'NOT_FOUND' }, 404);
 		return json({ ok: true, id: result.id });
