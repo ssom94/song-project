@@ -1,3 +1,8 @@
+.jp-word-link {
+	color: inherit;
+	text-decoration: none;
+}
+
 .jp-word-title-line {
 	display: flex;
 	align-items: baseline;
@@ -5,36 +10,47 @@
 	gap: 0;
 }
 
+.jp-word-link > .jp-word-title-line > strong {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
 .jp-word-pos-wrap {
 	display: inline-flex;
 	align-items: baseline;
-	margin-left: 12px;
-	color: #98a2b3;
-	font-size: 10px;
+	margin-left: 14px;
+	color: #98a2b3 !important;
+	font-size: 10px !important;
 	font-weight: 800;
+	text-decoration: none !important;
 	white-space: nowrap;
 }
 
-.jp-word-pos {
+.jp-word-row .jp-word-pos {
+	font-size: 10px;
 	font-weight: 900;
+	text-decoration: none !important;
 }
 
-.jp-word-pos-0 { color: #2563eb; }
-.jp-word-pos-1 { color: #7c3aed; }
-.jp-word-pos-2 { color: #0f766e; }
-.jp-word-pos-3 { color: #b45309; }
-.jp-word-pos-4 { color: #be123c; }
-.jp-word-pos-5 { color: #4d7c0f; }
+.jp-word-row .jp-word-pos-0 { color: #2563eb !important; }
+.jp-word-row .jp-word-pos-1 { color: #7c3aed !important; }
+.jp-word-row .jp-word-pos-2 { color: #0f766e !important; }
+.jp-word-row .jp-word-pos-3 { color: #b45309 !important; }
+.jp-word-row .jp-word-pos-4 { color: #be123c !important; }
+.jp-word-row .jp-word-pos-5 { color: #4d7c0f !important; }
 
-.jp-word-meta {
+.jp-word-row .jp-word-meta {
 	display: block;
-	margin-top: 5px;
+	margin-top: 6px;
 	color: #9aa5b4 !important;
 	font-size: 9px !important;
+	font-weight: 700;
+	text-decoration: none !important;
 }
 
 @media (max-width: 680px) {
 	.jp-word-pos-wrap {
-		margin-left: 9px;
+		margin-left: 10px;
 	}
 }
