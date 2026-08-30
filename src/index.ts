@@ -88,6 +88,7 @@ import {
 	handleDownloadProtectedDocument,
 	handleGetProtectedDocument,
 } from './public/protected/document';
+import { handleGetProtectedDocumentStatus } from './public/protected/status';
 import { handleGetPublicPost } from './public/posts/detail';
 import { handleListPublicPosts } from './public/posts/list';
 import { renderPublicPostPage } from './public/posts/page';
@@ -138,6 +139,8 @@ export default {
 				return request.method === 'GET' ? handleListPublicDashboardSchedules(request, env) : methodNotAllowed('GET');
 			case '/api/public/skill-sheet':
 				return request.method === 'GET' ? handleGetPublicSkillSheet(request, env) : methodNotAllowed('GET');
+			case '/api/public/protected/status':
+				return request.method === 'GET' ? handleGetProtectedDocumentStatus(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/stats':
 				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/taxonomy':
