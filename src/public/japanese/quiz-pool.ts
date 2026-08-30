@@ -1,3 +1,5 @@
+import { ensureJapaneseAdminLearningStatsSchema, resolveLearningAdmin } from '../../japanese-learning';
+
 interface QuizPoolRow {
 	id: number;
 	word: string;
@@ -8,6 +10,8 @@ interface QuizPoolRow {
 	example_sentence: string | null;
 	example_reading: string | null;
 	example_translation_ko: string | null;
+	learning_state: 'mastered' | 'uncertain' | 'unlearned' | null;
+	wrong_count: number | null;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -28,7 +32,7 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 
 	const countRaw = Number(url.searchParams.get('count') ?? '10');
 	const count = Number.isSafeInteger(countRaw) ? Math.min(200, Math.max(1, countRaw)) : 10;
-	const candidateLimit = Math.min(500, Math.max(20, count * 5));
+	const candidateLimit = Math.min(500, Math.max(30, count * 8));
 	const jlpt = (url.searchParams.get('jlpt') ?? '').trim().toUpperCase();
 	if (jlpt && !['N1', 'N2', 'N3', 'N4', 'N5'].includes(jlpt)) return json({ ok: false, error: 'INVALID_JLPT' }, 400);
 	const categoryId = intParam(url, 'category');
@@ -40,6 +44,9 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 	const wantsSentence = types.includes('sentence') ? 1 : 0;
 
 	try {
+		await ensureJapaneseAdminLearningStatsSchema(env.song_project_db);
+		const learningAdmin = await resolveLearningAdmin(request, env.song_project_db);
+		const adminId = learningAdmin.adminId ?? 0;
 		const result = await env.song_project_db.prepare(`
 			SELECT
 				jw.id, jw.word, jw.reading, jw.meaning_ko, jw.meaning_ja,
@@ -58,9 +65,13 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 					SELECT e.translation_ko FROM japanese_word_examples AS e
 					WHERE e.word_id = jw.id AND e.deleted_at IS NULL AND e.sentence_ja LIKE '%' || jw.word || '%'
 					ORDER BY e.id ASC LIMIT 1
-				) AS example_translation_ko
+				) AS example_translation_ko,
+				ls.learning_state,
+				ls.wrong_count
 			FROM japanese_words AS jw
 			LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
+			LEFT JOIN japanese_admin_word_learning_stats AS ls
+				ON ls.word_id = jw.id AND ls.admin_id = ?9
 			WHERE jw.deleted_at IS NULL
 				AND (?1 = '' OR jl.code = ?1)
 				AND (?2 = 0 OR EXISTS (
@@ -88,10 +99,10 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 					))
 				)
 			ORDER BY RANDOM()
-			LIMIT ?9
+			LIMIT ?10
 		`).bind(
 			jlpt, categoryId, categoryParentId, partId, partParentId,
-			wantsReading, wantsMeaning, wantsSentence, candidateLimit,
+			wantsReading, wantsMeaning, wantsSentence, adminId, candidateLimit,
 		).all<QuizPoolRow>();
 
 		return json({
@@ -104,6 +115,8 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 				meaningKo: row.meaning_ko,
 				meaningJa: row.meaning_ja,
 				jlpt: row.jlpt_code,
+				learningState: row.learning_state ?? 'unlearned',
+				wrongCount: Number(row.wrong_count ?? 0),
 				example: row.example_sentence ? {
 					sentence: row.example_sentence,
 					reading: row.example_reading,
