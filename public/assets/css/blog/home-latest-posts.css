@@ -1,0 +1,108 @@
+/* Home dashboard latest-post compact layout only. */
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card {
+	position: relative;
+	display: grid;
+	grid-template-columns: 102px minmax(0, 1fr);
+	grid-template-rows: auto auto auto;
+	column-gap: 14px;
+	row-gap: 4px;
+	min-height: 92px;
+	padding: 13px 15px;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card-meta {
+	grid-column: 1;
+	grid-row: 1;
+	align-self: start;
+	display: block;
+	min-width: 0;
+	margin: 1px 0 0;
+	padding: 0;
+	color: #8793a5;
+	font-size: 9px;
+	line-height: 1.4;
+}
+
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card-meta time {
+	display: block;
+	white-space: nowrap;
+}
+
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card-title {
+	grid-column: 2;
+	grid-row: 1;
+	display: -webkit-box;
+	min-width: 0;
+	margin: 0;
+	overflow: hidden;
+	color: #263449;
+	font-size: 13px;
+	font-weight: 850;
+	line-height: 1.42;
+	letter-spacing: -0.015em;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card-excerpt {
+	grid-column: 2;
+	grid-row: 2;
+	display: -webkit-box;
+	min-width: 0;
+	margin: 2px 0 0;
+	overflow: hidden;
+	color: #778599;
+	font-size: 9.5px;
+	line-height: 1.55;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card-taxonomy {
+	grid-column: 2;
+	grid-row: 3;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 5px;
+	min-width: 0;
+	margin: 4px 0 0;
+	padding: 0;
+}
+
+/* Keep category visually under the date while tags stay below the excerpt. */
+body.blog-home-page .home-latest-card .home-post-list .blog-post-card-taxonomy > .blog-chip-category {
+	position: absolute;
+	top: 38px;
+	left: 15px;
+	max-width: 92px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+body.blog-home-page .home-latest-card .home-post-list .blog-chip {
+	min-height: 20px;
+	padding: 0 7px;
+	font-size: 8px;
+}
+
+@media (max-width: 560px) {
+	body.blog-home-page .home-latest-card .home-post-list .blog-post-card {
+		grid-template-columns: 82px minmax(0, 1fr);
+		column-gap: 10px;
+		padding: 12px;
+	}
+
+	body.blog-home-page .home-latest-card .home-post-list .blog-post-card-taxonomy > .blog-chip-category {
+		top: 36px;
+		left: 12px;
+		max-width: 72px;
+	}
+
+	body.blog-home-page .home-latest-card .home-post-list .blog-post-card-title {
+		font-size: 12px;
+	}
+}
