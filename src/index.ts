@@ -2,6 +2,7 @@ import { handleListAdminCategories } from './admin/categories/list';
 import {
 	handleCreateAdminCategory,
 	handleDeleteAdminCategory,
+	handleReorderAdminCategories,
 	handleUpdateAdminCategory,
 } from './admin/categories/manage';
 import { handleCreateAdminPost } from './admin/posts/create';
@@ -109,6 +110,8 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminCategory(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminCategory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
+			case '/api/admin/categories/reorder':
+				return request.method === 'PATCH' ? handleReorderAdminCategories(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/tags':
 				if (request.method === 'GET') return handleListAdminTags(request, env);
 				if (request.method === 'POST') return handleCreateAdminTag(request, env);
