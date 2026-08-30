@@ -5,6 +5,8 @@
 	let learningCategories = [];
 	let editingId = null;
 	let saving = false;
+	let selectedPartIds = [];
+	let meaningRowSequence = 0;
 
 	function t(key, fallback) {
 		const value = window.AdminI18n?.t(key);
@@ -72,9 +74,7 @@
 		if (!parent || !child) return;
 
 		const selected = findItem(items, selectedId);
-		const parentValue = selected
-			? String(selected.parent_id ?? selected.id)
-			: '';
+		const parentValue = selected ? String(selected.parent_id ?? selected.id) : '';
 
 		parent.replaceChildren();
 		const none = document.createElement('option');
@@ -177,20 +177,121 @@
 		return byId(childId)?.value || byId(parentId)?.value || null;
 	}
 
-	function getPayload() {
-		return {
-			word: byId('japanese-word')?.value.trim() ?? '',
-			reading: byId('japanese-reading')?.value.trim() ?? '',
-			meaningKo: byId('japanese-meaning-ko')?.value.trim() ?? '',
-			meaningJa: byId('japanese-meaning-ja')?.value.trim() ?? '',
-			jlptLevelId: byId('japanese-jlpt')?.value || null,
-			partOfSpeechId: selectedHierarchyId('japanese-pos-parent', 'japanese-pos'),
-			categoryId: selectedHierarchyId('japanese-category-parent', 'japanese-category'),
-			exampleSentence: byId('japanese-example')?.value.trim() ?? '',
-			exampleReading: byId('japanese-example-reading')?.value.trim() ?? '',
-			exampleTranslationKo: byId('japanese-example-ko')?.value.trim() ?? '',
-			note: byId('japanese-note')?.value.trim() ?? '',
-		};
+	function splitMeanings(value) {
+		return String(value ?? '')
+			.split(/\r?\n/)
+			.map((item) => item.trim())
+			.filter(Boolean);
+	}
+
+	function collectMeaningValues() {
+		return [...document.querySelectorAll('.admin-japanese-meaning-input')]
+			.map((input) => input.value.trim())
+			.filter(Boolean);
+	}
+
+	function createMeaningRow(value = '') {
+		meaningRowSequence += 1;
+		const row = document.createElement('div');
+		row.className = 'admin-japanese-meaning-row';
+
+		const field = document.createElement('div');
+		field.className = 'admin-japanese-field';
+		const inputId = `japanese-meaning-${meaningRowSequence}`;
+		const label = document.createElement('label');
+		label.htmlFor = inputId;
+		label.textContent = t('japaneseMeaningKo', currentLanguage() === 'ko' ? '한국어 뜻' : '韓国語の意味');
+		const input = document.createElement('input');
+		input.id = inputId;
+		input.type = 'text';
+		input.maxLength = 500;
+		input.autocomplete = 'off';
+		input.className = 'admin-japanese-meaning-input';
+		input.placeholder = t('japaneseMeaningKoPlaceholder', '예: 다루다, 취급하다');
+		input.value = value;
+		field.append(label, input);
+
+		const remove = document.createElement('button');
+		remove.type = 'button';
+		remove.className = 'admin-japanese-meaning-remove';
+		remove.textContent = '×';
+		remove.setAttribute('aria-label', t('japaneseMeaningRemove', currentLanguage() === 'ko' ? '뜻 삭제' : '意味を削除'));
+		remove.addEventListener('click', () => {
+			const container = byId('japanese-meaning-rows');
+			if (!container) return;
+			if (container.children.length <= 1) {
+				input.value = '';
+				input.focus();
+				return;
+			}
+			row.remove();
+		});
+
+		row.append(field, remove);
+		return row;
+	}
+
+	function renderMeaningRows(values = ['']) {
+		const container = byId('japanese-meaning-rows');
+		if (!container) return;
+		const normalized = values.length ? values : [''];
+		container.replaceChildren(...normalized.map((value) => createMeaningRow(value)));
+	}
+
+	function partPathLabel(part) {
+		if (!part) return '';
+		const parent = findItem(partsOfSpeech, part.parent_id);
+		return parent ? `${localizedLabel(parent)} > ${localizedLabel(part)}` : localizedLabel(part);
+	}
+
+	function wordParts(word) {
+		if (Array.isArray(word?.parts) && word.parts.length) return word.parts;
+		if (word?.part_of_speech_id) {
+			return [{
+				id: word.part_of_speech_id,
+				parent_id: word.part_of_speech_parent_id,
+				name_ja: word.part_of_speech_ja,
+				name_ko: word.part_of_speech_ko,
+				is_primary: 1,
+			}];
+		}
+		return [];
+	}
+
+	function renderSelectedParts() {
+		const container = byId('japanese-pos-selected');
+		if (!container) return;
+		container.replaceChildren();
+		if (!selectedPartIds.length) {
+			const empty = document.createElement('span');
+			empty.className = 'admin-japanese-selected-empty';
+			empty.textContent = t('japanesePartOfSpeechSelectedEmpty', currentLanguage() === 'ko' ? '선택된 품사 없음' : '選択中の品詞はありません');
+			container.appendChild(empty);
+			return;
+		}
+
+		selectedPartIds.forEach((id, index) => {
+			const part = findItem(partsOfSpeech, id);
+			if (!part) return;
+			const chip = document.createElement('button');
+			chip.type = 'button';
+			chip.className = `admin-japanese-part-chip${index === 0 ? ' is-primary' : ''}`;
+			const prefix = index === 0 ? `${t('japanesePrimaryPart', currentLanguage() === 'ko' ? '대표' : '代表')} · ` : '';
+			chip.textContent = `${prefix}${partPathLabel(part)} ×`;
+			chip.addEventListener('click', () => {
+				selectedPartIds = selectedPartIds.filter((partId) => String(partId) !== String(id));
+				renderSelectedParts();
+			});
+			container.appendChild(chip);
+		});
+	}
+
+	function addSelectedPart() {
+		const selectedId = selectedHierarchyId('japanese-pos-parent', 'japanese-pos');
+		if (!selectedId) return;
+		const numericId = Number(selectedId);
+		if (!selectedPartIds.includes(numericId)) selectedPartIds.push(numericId);
+		renderSelectedParts();
 	}
 
 	function setHierarchyValue(parentId, childId, items, selectedId, noneKey) {
@@ -206,18 +307,140 @@
 		);
 	}
 
+	function getPayload() {
+		return {
+			word: byId('japanese-word')?.value.trim() ?? '',
+			reading: byId('japanese-reading')?.value.trim() ?? '',
+			meaningKo: collectMeaningValues().join('\n'),
+			meaningJa: byId('japanese-meaning-ja')?.value.trim() ?? '',
+			jlptLevelId: byId('japanese-jlpt')?.value || null,
+			partOfSpeechIds: [...selectedPartIds],
+			partOfSpeechId: selectedPartIds[0] ?? null,
+			categoryId: selectedHierarchyId('japanese-category-parent', 'japanese-category'),
+			exampleSentence: byId('japanese-example')?.value.trim() ?? '',
+			exampleReading: byId('japanese-example-reading')?.value.trim() ?? '',
+			exampleTranslationKo: byId('japanese-example-ko')?.value.trim() ?? '',
+			note: byId('japanese-note')?.value.trim() ?? '',
+		};
+	}
+
+	function setFormCollapsed(collapsed, persist = true) {
+		const layout = byId('admin-japanese-layout');
+		const panel = byId('japanese-word-form-panel');
+		const toggle = byId('japanese-word-form-toggle');
+		if (!layout || !panel || !toggle) return;
+		layout.classList.toggle('is-form-collapsed', collapsed);
+		panel.hidden = collapsed;
+		toggle.setAttribute('aria-expanded', String(!collapsed));
+		toggle.dataset.i18n = collapsed ? 'japaneseWordExpand' : 'japaneseWordCollapse';
+		toggle.textContent = t(toggle.dataset.i18n, collapsed
+			? (currentLanguage() === 'ko' ? '단어 추가 펼치기' : '入力欄を開く')
+			: (currentLanguage() === 'ko' ? '단어 추가 접기' : '入力欄を閉じる'));
+		if (persist) localStorage.setItem('song_admin_japanese_form_collapsed', collapsed ? '1' : '0');
+	}
+
+	function duplicateMatches() {
+		const target = normalize(byId('japanese-word')?.value);
+		if (!target) return [];
+		return words.filter((word) => normalize(word.word) === target && String(word.id) !== String(editingId ?? ''));
+	}
+
+	function formatPartsForWord(word) {
+		return wordParts(word).map((part) => partPathLabel(part)).filter(Boolean);
+	}
+
+	function wordExamples(word) {
+		if (Array.isArray(word?.examples) && word.examples.length) return word.examples;
+		if (word?.example_sentence) {
+			return [{
+				sentence_ja: word.example_sentence,
+				reading: word.example_reading,
+				translation_ko: word.example_translation_ko,
+			}];
+		}
+		return [];
+	}
+
+	function renderDuplicatePanel() {
+		const panel = byId('japanese-duplicate-panel');
+		const list = byId('japanese-duplicate-list');
+		const count = byId('japanese-duplicate-count');
+		if (!panel || !list || !count) return;
+		const matches = duplicateMatches();
+		panel.hidden = matches.length === 0;
+		list.replaceChildren();
+		count.textContent = matches.length ? `${matches.length}` : '';
+
+		for (const word of matches) {
+			const card = document.createElement('article');
+			card.className = 'admin-japanese-duplicate-card';
+
+			const heading = document.createElement('div');
+			heading.className = 'admin-japanese-duplicate-card-heading';
+			const title = document.createElement('strong');
+			title.textContent = word.word ?? '';
+			const meta = document.createElement('span');
+			meta.textContent = [`#${word.id}`, word.reading, word.jlpt_code].filter(Boolean).join(' · ');
+			heading.append(title, meta);
+
+			const meanings = document.createElement('div');
+			meanings.className = 'admin-japanese-duplicate-values';
+			for (const meaning of splitMeanings(word.meaning_ko)) {
+				const chip = document.createElement('span');
+				chip.textContent = meaning;
+				meanings.appendChild(chip);
+			}
+			if (!meanings.childElementCount && word.meaning_ja) {
+				const chip = document.createElement('span');
+				chip.textContent = word.meaning_ja;
+				meanings.appendChild(chip);
+			}
+
+			const details = document.createElement('p');
+			const parts = formatPartsForWord(word);
+			const example = wordExamples(word)[0]?.sentence_ja;
+			details.textContent = [
+				parts.length ? `${t('japanesePartOfSpeech', '品詞')}: ${parts.join(', ')}` : '',
+				example ? `${t('japaneseExample', '例文')}: ${example}` : '',
+			].filter(Boolean).join(' / ');
+
+			const open = document.createElement('button');
+			open.type = 'button';
+			open.className = 'admin-japanese-button admin-japanese-button-primary';
+			open.textContent = t('japaneseDuplicateOpenExisting', currentLanguage() === 'ko' ? '기존 단어에 추가' : '既存の単語に追加');
+			open.addEventListener('click', () => {
+				setForm(word);
+				setFormCollapsed(false);
+				byId('japanese-word-form-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+
+			card.append(heading, meanings, details, open);
+			list.appendChild(card);
+		}
+		updateSaveButtonState();
+	}
+
+	function updateSaveButtonState() {
+		const save = byId('japanese-word-save');
+		if (save) save.disabled = saving || duplicateMatches().length > 0;
+	}
+
 	function setForm(word = null) {
 		editingId = word?.id ?? null;
 		byId('japanese-word').value = word?.word ?? '';
 		byId('japanese-reading').value = word?.reading ?? '';
-		byId('japanese-meaning-ko').value = word?.meaning_ko ?? '';
+		renderMeaningRows(splitMeanings(word?.meaning_ko));
 		byId('japanese-meaning-ja').value = word?.meaning_ja ?? '';
 		byId('japanese-jlpt').value = word?.jlpt_level_id ? String(word.jlpt_level_id) : '';
-		setHierarchyValue('japanese-pos-parent', 'japanese-pos', partsOfSpeech, word?.part_of_speech_id, 'japanesePartOfSpeechSubNone');
+
+		const parts = wordParts(word);
+		selectedPartIds = parts.map((part) => Number(part.id)).filter((id) => Number.isSafeInteger(id) && id > 0);
+		renderSelectedParts();
+		setHierarchyValue('japanese-pos-parent', 'japanese-pos', partsOfSpeech, selectedPartIds[0] ?? null, 'japanesePartOfSpeechSubNone');
 		setHierarchyValue('japanese-category-parent', 'japanese-category', learningCategories, word?.category_id, 'japaneseCategorySubNone');
-		byId('japanese-example').value = word?.example_sentence ?? '';
-		byId('japanese-example-reading').value = word?.example_reading ?? '';
-		byId('japanese-example-ko').value = word?.example_translation_ko ?? '';
+		byId('japanese-example').value = word?.example_sentence ?? wordExamples(word)[0]?.sentence_ja ?? '';
+		byId('japanese-example-reading').value = word?.example_reading ?? wordExamples(word)[0]?.reading ?? '';
+		byId('japanese-example-ko').value = word?.example_translation_ko ?? wordExamples(word)[0]?.translation_ko ?? '';
 		byId('japanese-note').value = word?.note ?? '';
 
 		const title = byId('japanese-word-form-title');
@@ -233,6 +456,71 @@
 		}
 		if (cancel) cancel.hidden = !editingId;
 		clearStatus();
+		renderDuplicatePanel();
+		updateSaveButtonState();
+	}
+
+	function appendMeaningCell(cell, word) {
+		const values = splitMeanings(word.meaning_ko);
+		if (!values.length && word.meaning_ja) values.push(word.meaning_ja);
+		if (!values.length) {
+			cell.textContent = '—';
+			return;
+		}
+		const list = document.createElement('div');
+		list.className = 'admin-japanese-value-list';
+		values.forEach((value) => {
+			const item = document.createElement('span');
+			item.textContent = value;
+			list.appendChild(item);
+		});
+		cell.appendChild(list);
+	}
+
+	function appendExampleCell(cell, word) {
+		const examples = wordExamples(word);
+		if (!examples.length) {
+			cell.textContent = '—';
+			return;
+		}
+		const list = document.createElement('div');
+		list.className = 'admin-japanese-example-list';
+		examples.forEach((example) => {
+			const item = document.createElement('div');
+			item.className = 'admin-japanese-example-item';
+			const sentence = document.createElement('strong');
+			sentence.textContent = example.sentence_ja ?? '';
+			item.appendChild(sentence);
+			if (example.reading) {
+				const reading = document.createElement('span');
+				reading.textContent = example.reading;
+				item.appendChild(reading);
+			}
+			if (example.translation_ko) {
+				const translation = document.createElement('small');
+				translation.textContent = example.translation_ko;
+				item.appendChild(translation);
+			}
+			list.appendChild(item);
+		});
+		cell.appendChild(list);
+	}
+
+	function appendPartCell(cell, word) {
+		const parts = wordParts(word);
+		if (!parts.length) {
+			cell.textContent = '—';
+			return;
+		}
+		const list = document.createElement('div');
+		list.className = 'admin-japanese-table-parts';
+		parts.forEach((part, index) => {
+			const chip = document.createElement('span');
+			chip.className = index === 0 ? 'is-primary' : '';
+			chip.textContent = partPathLabel(part);
+			list.appendChild(chip);
+		});
+		cell.appendChild(list);
 	}
 
 	function renderRows() {
@@ -248,7 +536,9 @@
 		const filtered = words.filter((word) => {
 			if (jlptFilter && String(word.jlpt_level_id ?? '') !== jlptFilter) return false;
 			if (!query) return true;
-			return [word.word, word.reading, word.meaning_ko, word.meaning_ja]
+			const examples = wordExamples(word).flatMap((example) => [example.sentence_ja, example.reading, example.translation_ko]);
+			const parts = wordParts(word).flatMap((part) => [part.name_ja, part.name_ko]);
+			return [word.word, word.reading, word.meaning_ko, word.meaning_ja, ...examples, ...parts]
 				.some((value) => normalize(value).includes(query));
 		});
 
@@ -284,7 +574,11 @@
 			readingCell.textContent = word.reading || '—';
 			const meaningCell = document.createElement('td');
 			meaningCell.className = 'admin-japanese-table-meaning';
-			meaningCell.textContent = word.meaning_ko || word.meaning_ja || '—';
+			appendMeaningCell(meaningCell, word);
+
+			const exampleCell = document.createElement('td');
+			exampleCell.className = 'admin-japanese-table-example';
+			appendExampleCell(exampleCell, word);
 
 			const jlptCell = document.createElement('td');
 			if (word.jlpt_code) {
@@ -300,9 +594,7 @@
 				: (word.category_ja || word.category_ko || '—');
 
 			const posCell = document.createElement('td');
-			posCell.textContent = currentLanguage() === 'ko'
-				? (word.part_of_speech_ko || word.part_of_speech_ja || '—')
-				: (word.part_of_speech_ja || word.part_of_speech_ko || '—');
+			appendPartCell(posCell, word);
 
 			const actionCell = document.createElement('td');
 			const actions = document.createElement('div');
@@ -313,8 +605,9 @@
 			edit.textContent = t('japaneseWordEdit', currentLanguage() === 'ko' ? '수정' : '編集');
 			edit.addEventListener('click', () => {
 				setForm(word);
+				setFormCollapsed(false);
 				byId('japanese-word')?.focus({ preventScroll: false });
-				window.scrollTo({ top: 0, behavior: 'smooth' });
+				byId('japanese-word-form-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			});
 			const remove = document.createElement('button');
 			remove.type = 'button';
@@ -324,7 +617,7 @@
 			actions.append(edit, remove);
 			actionCell.appendChild(actions);
 
-			tr.append(wordCell, readingCell, meaningCell, jlptCell, categoryCell, posCell, actionCell);
+			tr.append(wordCell, readingCell, meaningCell, exampleCell, jlptCell, categoryCell, posCell, actionCell);
 			tbody.appendChild(tr);
 		}
 		table.hidden = false;
@@ -345,7 +638,9 @@
 			partsOfSpeech = Array.isArray(result.partsOfSpeech) ? result.partsOfSpeech : [];
 			learningCategories = Array.isArray(result.categories) ? result.categories : [];
 			fillSelectOptions();
+			renderSelectedParts();
 			renderRows();
+			renderDuplicatePanel();
 		} catch (error) {
 			console.error('Failed to load Japanese words', error);
 			words = [];
@@ -364,10 +659,14 @@
 			byId('japanese-word')?.focus();
 			return;
 		}
+		if (duplicateMatches().length) {
+			setStatus('japaneseDuplicateBlocked', 'error');
+			renderDuplicatePanel();
+			return;
+		}
 
 		saving = true;
-		const save = byId('japanese-word-save');
-		if (save) save.disabled = true;
+		updateSaveButtonState();
 		clearStatus();
 		try {
 			const url = editingId
@@ -384,6 +683,12 @@
 				return;
 			}
 			const result = await response.json().catch(() => null);
+			if (response.status === 409 && result?.error === 'WORD_ALREADY_EXISTS') {
+				await loadWords();
+				setStatus('japaneseDuplicateBlocked', 'error');
+				renderDuplicatePanel();
+				return;
+			}
 			if (!response.ok || !result?.ok) throw new Error(result?.error ?? 'SAVE_FAILED');
 			const wasEditing = Boolean(editingId);
 			setForm();
@@ -394,7 +699,7 @@
 			setStatus('japaneseWordSaveFailed', 'error');
 		} finally {
 			saving = false;
-			if (save) save.disabled = false;
+			updateSaveButtonState();
 		}
 	}
 
@@ -435,9 +740,27 @@
 
 	async function initialize() {
 		await Promise.all([window.AdminCommon?.ready, window.AdminI18n?.ready]);
+		renderMeaningRows(['']);
+		setFormCollapsed(localStorage.getItem('song_admin_japanese_form_collapsed') === '1', false);
+
 		byId('japanese-word-form')?.addEventListener('submit', saveWord);
-		byId('japanese-word-new')?.addEventListener('click', () => setForm());
+		byId('japanese-word-new')?.addEventListener('click', () => {
+			setForm();
+			setFormCollapsed(false);
+			byId('japanese-word')?.focus();
+		});
 		byId('japanese-word-cancel')?.addEventListener('click', () => setForm());
+		byId('japanese-word-form-toggle')?.addEventListener('click', () => {
+			setFormCollapsed(!byId('japanese-word-form-panel')?.hidden);
+		});
+		byId('japanese-meaning-add')?.addEventListener('click', () => {
+			byId('japanese-meaning-rows')?.appendChild(createMeaningRow(''));
+		});
+		byId('japanese-pos-add')?.addEventListener('click', addSelectedPart);
+		byId('japanese-word')?.addEventListener('input', () => {
+			clearStatus();
+			renderDuplicatePanel();
+		});
 		byId('japanese-word-search')?.addEventListener('input', renderRows);
 		byId('japanese-jlpt-filter')?.addEventListener('change', renderRows);
 		byId('japanese-pos-parent')?.addEventListener('change', () => {
@@ -447,8 +770,13 @@
 			populateHierarchyChild('japanese-category-parent', 'japanese-category', learningCategories, '', 'japaneseCategorySubNone');
 		});
 		document.addEventListener('adminlanguagechange', () => {
+			const meaningValues = collectMeaningValues();
 			fillSelectOptions();
+			renderMeaningRows(meaningValues);
+			renderSelectedParts();
 			renderRows();
+			renderDuplicatePanel();
+			setFormCollapsed(Boolean(byId('japanese-word-form-panel')?.hidden), false);
 			const status = byId('japanese-word-form-status');
 			if (status?.dataset.key) status.textContent = t(status.dataset.key, status.dataset.key);
 		});
