@@ -52,6 +52,7 @@ import {
 import { handleAdminLogin } from './auth/login';
 import { handleAdminLogout } from './auth/logout';
 import { handleAdminSessionStatus } from './auth/session';
+import { handleCreatePublicComment, handleListPublicComments } from './public/comments';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
@@ -86,6 +87,10 @@ export default {
 				return request.method === 'GET' ? handleListPublicPosts(request, env) : methodNotAllowed('GET');
 			case '/api/public/posts/detail':
 				return request.method === 'GET' ? handleGetPublicPost(request, env) : methodNotAllowed('GET');
+			case '/api/public/comments':
+				if (request.method === 'GET') return handleListPublicComments(request, env);
+				if (request.method === 'POST') return handleCreatePublicComment(request, env);
+				return methodNotAllowed('GET, POST');
 			case '/api/public/japanese/stats':
 				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/taxonomy':
