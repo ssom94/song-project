@@ -6,6 +6,15 @@
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
 	}
 
+	function mountLearningBackground() {
+		if (document.querySelector('link[data-learning-background]')) return;
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = '/assets/css/japanese/learning-background.css';
+		link.dataset.learningBackground = 'true';
+		document.head.appendChild(link);
+	}
+
 	function localizedName(item) {
 		return language() === 'ko' ? item?.nameKo ?? item?.nameJa ?? '' : item?.nameJa ?? item?.nameKo ?? '';
 	}
@@ -179,6 +188,7 @@
 	}
 
 	async function initialize() {
+		mountLearningBackground();
 		await Promise.allSettled([loadSidebarBoards(), loadStats(), populateTaxonomyFilters()]);
 		bindWordFilters();
 		await loadWords();
