@@ -17,6 +17,7 @@ interface PublicTranslationRow {
 	excerpt: string | null;
 	translation_status: TranslationStatus;
 	category_name: string | null;
+	category_parent_name: string | null;
 }
 
 interface PublicTagRow {
@@ -76,12 +77,18 @@ export async function handleGetPublicPost(request: Request, env: Env): Promise<R
 						pt.content,
 						pt.excerpt,
 						pt.translation_status,
-						ct.name AS category_name
+						ct.name AS category_name,
+						pct.name AS category_parent_name
 					FROM post_translations AS pt
 					LEFT JOIN posts AS p ON p.id = pt.post_id
+					LEFT JOIN categories AS c
+						ON c.id = p.category_id AND c.deleted_at IS NULL
 					LEFT JOIN category_translations AS ct
-						ON ct.category_id = p.category_id
+						ON ct.category_id = c.id
 						AND ct.language_code = pt.language_code
+					LEFT JOIN category_translations AS pct
+						ON pct.category_id = c.parent_id
+						AND pct.language_code = pt.language_code
 					WHERE pt.post_id = ?1
 						AND pt.translation_status IN ('original', 'translated', 'reviewed')
 					ORDER BY CASE WHEN pt.language_code = ?2 THEN 0 ELSE 1 END, pt.language_code
@@ -115,6 +122,7 @@ export async function handleGetPublicPost(request: Request, env: Env): Promise<R
 					content: translation.content,
 					excerpt: translation.excerpt,
 					category: translation.category_name,
+					categoryPath: [translation.category_parent_name, translation.category_name].filter(Boolean),
 					tags: tagsByLanguage[translation.language_code],
 					translationStatus: translation.translation_status,
 				},
