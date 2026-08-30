@@ -1,3 +1,5 @@
+import { ensureDashboardGoalsSchema } from '../dashboard/goals-schema';
+
 interface GoalRow {
 	id: number;
 	goal_key: string;
@@ -17,6 +19,7 @@ function json(data: unknown, status = 200): Response {
 
 export async function handleGetPublicDashboard(_request: Request, env: Env): Promise<Response> {
 	try {
+		await ensureDashboardGoalsSchema(env.song_project_db);
 		const [settings, goals, registered, review] = await Promise.all([
 			env.song_project_db.prepare(`SELECT jlpt_goal_mode, jlpt_manual_target, show_jlpt FROM dashboard_settings WHERE id = 1 LIMIT 1`).first<{ jlpt_goal_mode: 'auto' | 'manual'; jlpt_manual_target: number | null; show_jlpt: number }>(),
 			env.song_project_db.prepare(`
