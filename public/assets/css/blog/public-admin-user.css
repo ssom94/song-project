@@ -1,11 +1,19 @@
 .blog-public-admin-user {
-	position: relative;
+	position: fixed;
+	top: 13px;
+	right: 22px;
+	z-index: 75;
 	display: flex;
 	align-items: center;
 }
 
 .blog-dashboard-topbar:has(.blog-public-admin-user) {
 	overflow: visible;
+}
+
+/* Keep the language selector immediately to the left of the admin account. */
+.blog-dashboard-topbar:has(.blog-public-admin-user) > .blog-dashboard-language {
+	margin-right: 190px;
 }
 
 .blog-public-admin-user-toggle {
@@ -137,6 +145,15 @@
 }
 
 @media (max-width: 720px) {
+	.blog-public-admin-user {
+		top: 13px;
+		right: 14px;
+	}
+
+	.blog-dashboard-topbar:has(.blog-public-admin-user) > .blog-dashboard-language {
+		margin-right: 48px;
+	}
+
 	.blog-public-admin-user-toggle {
 		width: 38px;
 		padding: 5px;
@@ -155,6 +172,10 @@
 }
 
 @media (max-width: 480px) {
+	.blog-public-admin-user {
+		top: 15px;
+	}
+
 	.blog-public-admin-user-toggle {
 		width: 34px;
 		min-height: 34px;
