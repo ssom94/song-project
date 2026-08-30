@@ -1,4 +1,5 @@
 import { ensureDashboardSchedulesSchema } from '../dashboard/schedules-schema';
+import { handleListPublicCalendarSchedules } from './calendar-schedules';
 
 interface ScheduleRow {
 	id: number;
@@ -13,7 +14,10 @@ function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
-export async function handleListPublicDashboardSchedules(_request: Request, env: Env): Promise<Response> {
+export async function handleListPublicDashboardSchedules(request: Request, env: Env): Promise<Response> {
+	if (new URL(request.url).searchParams.get('kind') === 'calendar') {
+		return handleListPublicCalendarSchedules(request, env);
+	}
 	try {
 		await ensureDashboardSchedulesSchema(env.song_project_db);
 		const result = await env.song_project_db.prepare(`
