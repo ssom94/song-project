@@ -6,6 +6,7 @@
 	function byId(id) { return document.getElementById(id); }
 	function language() { return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja'; }
 	function copy(ko, ja) { return language() === 'ko' ? ko : ja; }
+	function studyMode() { return new URLSearchParams(location.search).get('study') === 'korean' ? 'korean' : 'japanese'; }
 
 	function readHistory() {
 		try {
@@ -66,6 +67,23 @@
 		return select?.selectedOptions?.[0]?.textContent?.trim() || copy('전체', 'すべて');
 	}
 
+	function configureStudyMode() {
+		if (studyMode() !== 'korean') return;
+		document.querySelectorAll('[data-quiz-type]').forEach((node) => {
+			const koreanMeaning = node.dataset.quizType === 'meaning';
+			node.checked = koreanMeaning;
+			node.disabled = !koreanMeaning;
+		});
+		const heading = document.querySelector('.jp-page-heading h1');
+		const lead = document.querySelector('.jp-page-heading p:not(.jp-eyebrow)');
+		if (heading) heading.textContent = copy('한국어 퀴즈 설정', '韓国語クイズ設定');
+		if (lead) lead.textContent = copy('같은 단어 데이터를 사용해 일본어 단어를 보고 한국어 뜻을 맞힙니다.', '同じ単語データを使い、日本語の単語を見て韓国語の意味を答えます。');
+		const typeTitle = document.querySelector('[data-quiz-type="meaning"]')?.closest('label')?.querySelector('strong');
+		const typeDescription = document.querySelector('[data-quiz-type="meaning"]')?.closest('label')?.querySelector('small');
+		if (typeTitle) typeTitle.textContent = copy('일본어 → 한국어', '日本語 → 韓国語');
+		if (typeDescription) typeDescription.textContent = copy('일본어 단어를 보고 한국어 뜻을 맞힙니다.', '日本語の単語を見て韓国語の意味を答えます。');
+	}
+
 	function renderPreview() {
 		const types = selectedTypes();
 		const typeLabel = byId('quiz-preview-types');
@@ -84,6 +102,7 @@
 		const category = byId('quiz-category');
 		const part = byId('quiz-part');
 		return {
+			studyMode: studyMode(),
 			types: selectedTypes(),
 			jlpt: byId('quiz-jlpt')?.value || '',
 			categoryId: Number(category?.value) || null,
@@ -106,7 +125,7 @@
 		}
 		sessionStorage.removeItem(RETRY_KEY);
 		sessionStorage.setItem(SETUP_KEY, JSON.stringify(setup));
-		window.location.href = `/${language()}/japanese/quiz/play/`;
+		window.location.href = `/${language()}/japanese/quiz/play/?study=${setup.studyMode}`;
 	}
 
 	function startWrongOnly(event) {
@@ -116,6 +135,7 @@
 		for (const session of readHistory()) {
 			for (const attempt of Array.isArray(session.attempts) ? session.attempts : []) {
 				if (attempt.isCorrect || !attempt.questionSnapshot?.key || seen.has(attempt.questionSnapshot.key)) continue;
+				if (studyMode() === 'korean' && attempt.questionSnapshot.type !== 'meaning') continue;
 				seen.add(attempt.questionSnapshot.key);
 				wrongQuestions.push(attempt.questionSnapshot);
 			}
@@ -131,7 +151,7 @@
 		setup.priority = 'wrong';
 		sessionStorage.setItem(SETUP_KEY, JSON.stringify(setup));
 		sessionStorage.setItem(RETRY_KEY, JSON.stringify(wrongQuestions.slice(0, setup.count)));
-		window.location.href = `/${language()}/japanese/quiz/play/`;
+		window.location.href = `/${language()}/japanese/quiz/play/?study=${setup.studyMode}`;
 	}
 
 	function bind() {
@@ -142,6 +162,7 @@
 	}
 
 	async function initialize() {
+		configureStudyMode();
 		await loadTaxonomy();
 		bind();
 		renderPreview();
