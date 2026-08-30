@@ -36,12 +36,6 @@ function isSameOrigin(request: Request): boolean {
 	return !origin || origin === new URL(request.url).origin;
 }
 
-function makeCategoryId(): number {
-	const random = new Uint32Array(1);
-	crypto.getRandomValues(random);
-	return (Date.now() * 1000) + (random[0] % 1000);
-}
-
 function parseParentId(value: unknown): number | null | undefined {
 	if (value === null || value === undefined || value === '') return null;
 	const parsed = Number(value);
@@ -187,33 +181,53 @@ export async function handleCreateAdminJapaneseCategory(request: Request, env: E
 	const parentError = await validateParent(env.song_project_db, null, parsed.parentId);
 	if (parentError) return json({ ok: false, error: parentError }, 400);
 
-	const id = makeCategoryId();
 	const now = new Date().toISOString();
+	let createdId: number | null = null;
 	try {
 		const siblings = await getSiblings(env.song_project_db, parsed.parentId);
-		const orderedIds = insertAt(siblings.map((row) => row.id), id, parsed.displayOrder);
-		const actualOrder = orderedIds.indexOf(id);
+		const provisionalOrder = Math.max(0, Math.min(parsed.displayOrder, siblings.length));
+		const created = await env.song_project_db.prepare(`
+			INSERT INTO japanese_categories
+				(parent_id, name_ja, name_ko, description, display_order, created_at, updated_at)
+			VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?6)
+			RETURNING id
+		`).bind(
+			parsed.parentId,
+			parsed.nameJa,
+			parsed.nameKo,
+			parsed.description || null,
+			provisionalOrder,
+			now,
+		).first<{ id: number }>();
+
+		createdId = Number(created?.id);
+		if (!Number.isSafeInteger(createdId) || createdId <= 0) throw new Error('JAPANESE_CATEGORY_ID_NOT_RETURNED');
+
+		const orderedIds = insertAt(siblings.map((row) => row.id), createdId, parsed.displayOrder);
+		const actualOrder = orderedIds.indexOf(createdId);
 		await env.song_project_db.batch([
-			env.song_project_db.prepare(`
-				INSERT INTO japanese_categories
-					(id, parent_id, name_ja, name_ko, description, display_order, created_at, updated_at)
-				VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?7)
-			`).bind(id, parsed.parentId, parsed.nameJa, parsed.nameKo, parsed.description || null, actualOrder, now),
 			...orderStatements(env.song_project_db, orderedIds, now),
 			env.song_project_db.prepare(`
 				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, after_data, country_code, user_agent)
 				VALUES (?1, 'japanese_category', ?2, 'create', ?3, ?4, ?5)
 			`).bind(
 				session.adminId,
-				id,
+				createdId,
 				JSON.stringify({ ...parsed, displayOrder: actualOrder }),
 				request.headers.get('CF-IPCountry'),
 				request.headers.get('User-Agent'),
 			),
 		]);
-		return json({ ok: true, category: { id, displayOrder: actualOrder } }, 201);
+		return json({ ok: true, category: { id: createdId, displayOrder: actualOrder } }, 201);
 	} catch (error) {
 		console.error('Failed to create Japanese category', error);
+		if (createdId) {
+			try {
+				await env.song_project_db.prepare('DELETE FROM japanese_categories WHERE id = ?1').bind(createdId).run();
+			} catch (cleanupError) {
+				console.error('Failed to clean up Japanese category after create failure', cleanupError);
+			}
+		}
 		return json({ ok: false, error: 'JAPANESE_CATEGORY_CREATE_FAILED' }, 500);
 	}
 }
