@@ -1,0 +1,72 @@
+.admin-page-context-row {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	min-height: 32px;
+	margin: 0 0 14px;
+}
+
+.admin-page-back-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	min-height: 32px;
+	padding: 0 4px 0 0;
+	border: 0;
+	background: transparent;
+	color: #536176;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 800;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.admin-page-back-button:hover {
+	color: #1f56d8;
+}
+
+.admin-page-back-button:focus-visible {
+	outline: 2px solid rgba(31, 86, 216, 0.3);
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+
+.admin-page-back-arrow {
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 1;
+}
+
+.admin-page-taxonomy {
+	display: inline-flex;
+	align-items: center;
+	min-height: 22px;
+	padding-left: 11px;
+	border-left: 1px solid #dce3ec;
+	color: #788598;
+	font-size: 11px;
+	font-weight: 750;
+	line-height: 1.45;
+}
+
+.admin-page-taxonomy[hidden] {
+	display: none;
+}
+
+@media (max-width: 520px) {
+	.admin-page-context-row {
+		gap: 7px;
+		margin-bottom: 11px;
+	}
+
+	.admin-page-back-button {
+		font-size: 11px;
+	}
+
+	.admin-page-taxonomy {
+		max-width: 100%;
+		font-size: 10px;
+	}
+}
