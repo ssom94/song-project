@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>자격증·시험 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/blog/certifications.css" />
+</head>
+<body class="blog-page blog-dashboard-page" data-blog-language="ko">
+<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><a href="/ja/certifications/">日本語</a><span>/</span><span class="is-active">한국어</span></div></header>
+<div class="blog-dashboard-shell">
+<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link is-active" href="/ko/certifications/">자격증·시험</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside>
+<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+<main class="blog-dashboard-main"><div class="blog-dashboard-content cert-page" data-certification-page="list" data-certification-list data-language="ko">
+<section class="cert-hero"><div><p class="cert-eyebrow">CERTIFICATIONS & EXAMS</p><h1>자격증·시험</h1><p>준비 중인 자격증의 가장 가까운 일정과 다음 일정, 응시료, 시험구성, 합격기준, 출제범위와 공부 포인트를 한곳에서 확인합니다.</p></div></section>
+<div class="cert-filter-bar"><div class="cert-filter-list"><button class="cert-filter-button is-active" type="button" data-cert-filter="all">전체</button><button class="cert-filter-button" type="button" data-cert-filter="language">어학</button><button class="cert-filter-button" type="button" data-cert-filter="it">IT</button><button class="cert-filter-button" type="button" data-cert-filter="finance">금융</button><button class="cert-filter-button" type="button" data-cert-filter="cloud">Cloud</button></div><span id="cert-count" class="cert-count"></span></div>
+<section id="cert-list" class="cert-list"><div class="cert-empty">Loading…</div></section>
+</div></main></div>
+<script src="/assets/js/blog/dashboard-shell.js"></script>
+<script src="/assets/js/blog/certifications-list.js"></script>
+</body>
+</html>
