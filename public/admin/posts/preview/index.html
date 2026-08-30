@@ -39,13 +39,17 @@
 			<div id="preview-waiting" class="post-preview-waiting">投稿データを受信しています…</div>
 
 			<article id="preview-article" class="post-preview-article" hidden>
+				<div class="post-preview-context-row">
+					<button id="preview-back" class="post-preview-back" type="button"><span aria-hidden="true">←</span><b id="preview-back-label">戻る</b></button>
+					<span id="preview-context-category" class="post-preview-context-category" hidden></span>
+				</div>
+
 				<div class="post-preview-toolbar">
 					<span id="preview-status" class="post-preview-status"></span>
 					<div id="preview-language-switch" class="post-preview-language-switch" hidden></div>
 				</div>
 
 				<div class="post-preview-meta">
-					<span id="preview-category" class="post-preview-category"></span>
 					<div id="preview-tags" class="post-preview-tags"></div>
 				</div>
 
