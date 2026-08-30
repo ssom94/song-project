@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Decorative Korean and Japanese flags">
+  <defs>
+    <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.48" stop-color="#eef3fb"/>
+      <stop offset="0.72" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dce6f5"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".92"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#b8c6db" stop-opacity=".26"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#56708f" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(650 30) rotate(-5 430 250)" filter="url(#shadow)">
+    <path d="M75 70 C235 10 395 88 560 42 C720 -2 840 24 930 82 L898 430 C745 388 615 442 468 407 C300 366 168 419 32 372 Z" fill="url(#cloth)"/>
+    <path d="M75 70 C235 10 395 88 560 42 C720 -2 840 24 930 82 L898 430 C745 388 615 442 468 407 C300 366 168 419 32 372 Z" fill="url(#shine)" opacity=".55"/>
+    <ellipse cx="500" cy="225" rx="126" ry="121" fill="#e63446" opacity=".96"/>
+    <path d="M55 142 C220 89 374 152 540 111 C682 76 808 83 918 124" fill="none" stroke="#fff" stroke-opacity=".58" stroke-width="20" filter="url(#soft)"/>
+    <path d="M45 315 C211 266 364 333 528 292 C690 252 797 264 905 305" fill="none" stroke="#8ca0bd" stroke-opacity=".14" stroke-width="16" filter="url(#soft)"/>
+  </g>
+
+  <g transform="translate(790 350) rotate(7 400 220)" filter="url(#shadow)">
+    <path d="M42 78 C177 30 316 83 449 49 C592 12 727 44 854 92 L830 442 C691 406 573 452 431 421 C291 390 160 432 20 392 Z" fill="url(#cloth)"/>
+    <path d="M42 78 C177 30 316 83 449 49 C592 12 727 44 854 92 L830 442 C691 406 573 452 431 421 C291 390 160 432 20 392 Z" fill="url(#shine)" opacity=".5"/>
+
+    <g transform="translate(438 245) rotate(-10)">
+      <path d="M0 -96 A96 96 0 0 1 0 96 A48 48 0 0 0 0 0 A48 48 0 0 1 0 -96 Z" fill="#df3045"/>
+      <path d="M0 96 A96 96 0 0 1 0 -96 A48 48 0 0 0 0 0 A48 48 0 0 1 0 96 Z" fill="#2356a8"/>
+    </g>
+
+    <g fill="#263447" opacity=".9">
+      <g transform="translate(245 126) rotate(-32)"><rect width="58" height="10" rx="2"/><rect y="19" width="58" height="10" rx="2"/><rect y="38" width="58" height="10" rx="2"/></g>
+      <g transform="translate(623 114) rotate(31)"><rect width="25" height="10" rx="2"/><rect x="33" width="25" height="10" rx="2"/><rect y="19" width="58" height="10" rx="2"/><rect y="38" width="25" height="10" rx="2"/><rect x="33" y="38" width="25" height="10" rx="2"/></g>
+      <g transform="translate(232 350) rotate(31)"><rect width="58" height="10" rx="2"/><rect y="19" width="25" height="10" rx="2"/><rect x="33" y="19" width="25" height="10" rx="2"/><rect y="38" width="58" height="10" rx="2"/></g>
+      <g transform="translate(632 346) rotate(-31)"><rect width="25" height="10" rx="2"/><rect x="33" width="25" height="10" rx="2"/><rect y="19" width="25" height="10" rx="2"/><rect x="33" y="19" width="25" height="10" rx="2"/><rect y="38" width="25" height="10" rx="2"/><rect x="33" y="38" width="25" height="10" rx="2"/></g>
+    </g>
+    <path d="M37 147 C176 103 315 153 454 120 C586 89 713 104 844 147" fill="none" stroke="#fff" stroke-opacity=".56" stroke-width="18" filter="url(#soft)"/>
+  </g>
+
+  <circle cx="1220" cy="455" r="360" fill="#7aa8e8" opacity=".035"/>
+  <circle cx="1325" cy="330" r="250" fill="#ef5b67" opacity=".028"/>
+</svg>
