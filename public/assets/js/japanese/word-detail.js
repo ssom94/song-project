@@ -91,6 +91,24 @@
 		byId('jp-word-detail-example-ko').textContent = valueOrDash(example.translationKo);
 	}
 
+	function syncLinks(word) {
+		const encodedWord = encodeURIComponent(word.word ?? '');
+		const quizHref = `/${language()}/japanese/quiz/?word=${encodedWord}`;
+		for (const id of ['jp-word-detail-quiz', 'jp-word-detail-quiz-side']) {
+			const link = byId(id);
+			if (link instanceof HTMLAnchorElement) link.href = quizHref;
+		}
+
+		const languageLink = byId('jp-word-detail-language-link');
+		if (languageLink instanceof HTMLAnchorElement) {
+			const otherLanguage = language() === 'ko' ? 'ja' : 'ko';
+			const params = new URLSearchParams();
+			if (word.id) params.set('id', String(word.id));
+			if (word.word) params.set('word', String(word.word));
+			languageLink.href = `/${otherLanguage}/japanese/words/detail/?${params.toString()}`;
+		}
+	}
+
 	function renderWord(word) {
 		showContent();
 		byId('jp-word-detail-word').textContent = valueOrDash(word.word);
@@ -102,11 +120,7 @@
 		byId('jp-word-detail-category-count').textContent = String(categoriesFor(word).length);
 		renderTaxonomy(word);
 		renderExample(word);
-
-		const quizLink = byId('jp-word-detail-quiz');
-		if (quizLink instanceof HTMLAnchorElement) {
-			quizLink.href = `/${language()}/japanese/quiz/?word=${encodeURIComponent(word.word ?? '')}`;
-		}
+		syncLinks(word);
 
 		document.title = language() === 'ko'
 			? `${word.word ?? ''} | 일본어 학습 | SONG`
