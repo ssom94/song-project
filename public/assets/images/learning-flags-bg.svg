@@ -25,7 +25,7 @@
   </g>
 
   <!-- Korea-Japan couple header ornament -->
-  <g transform="translate(1265 58)" filter="url(#shadow)" opacity=".93">
+  <g transform="translate(1390 32) scale(.64)" filter="url(#shadow)" opacity=".88">
     <!-- Mugunghwa accent beside Korean flag -->
     <g transform="translate(12 73) scale(.18)"><ellipse cy="-38" rx="25" ry="39" fill="url(#mugunghwa)"/><ellipse cx="36" cy="-12" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(72 36 -12)"/><ellipse cx="22" cy="31" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(144 22 31)"/><ellipse cx="-22" cy="31" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(216 -22 31)"/><ellipse cx="-36" cy="-12" rx="25" ry="39" fill="url(#mugunghwa)" transform="rotate(288 -36 -12)"/><circle r="10" fill="#ca5d78"/></g>
 
