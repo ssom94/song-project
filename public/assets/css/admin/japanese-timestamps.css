@@ -1,0 +1,44 @@
+.admin-japanese-table-date,
+.admin-japanese-table-updated-head,
+.admin-japanese-table-created-head {
+	min-width: 96px;
+	white-space: nowrap;
+}
+
+.admin-japanese-table-date {
+	color: #68758a;
+	font-variant-numeric: tabular-nums;
+}
+
+.admin-japanese-table-date strong,
+.admin-japanese-table-date small {
+	display: block;
+}
+
+.admin-japanese-table-date strong {
+	color: #46536a;
+	font-size: 10px;
+	font-weight: 850;
+}
+
+.admin-japanese-table-date small {
+	margin-top: 3px;
+	color: #98a2b3;
+	font-size: 9px;
+	font-weight: 700;
+}
+
+.admin-japanese-table-updated-cell {
+	color: #9aa5b4;
+	font-size: 10px;
+}
+
+.admin-japanese-table-created-cell {
+	border-left: 1px solid #edf0f4;
+	background: rgba(248, 250, 253, .62);
+}
+
+.admin-japanese-table-created-head {
+	border-left: 1px solid #e7ebf1;
+	background: #f8fafc;
+}
