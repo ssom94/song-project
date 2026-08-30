@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="index,follow" />
+	<title>자격증 상세 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/blog/certifications.css" />
+</head>
+<body class="blog-page blog-dashboard-page" data-blog-language="ko">
+<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><a id="cert-language-link" href="/ja/certifications/detail/">日本語</a><span>/</span><span class="is-active">한국어</span></div></header>
+<div class="blog-dashboard-shell">
+<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link is-active" href="/ko/certifications/">자격증·시험</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside>
+<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+<main class="blog-dashboard-main"><div class="blog-dashboard-content cert-page" data-certification-page="detail" data-certification-detail data-language="ko">
+<a id="cert-back-link" class="cert-detail-back" href="/ko/certifications/">← 자격증·시험 목록</a>
+<section class="cert-detail-head"><div><div class="cert-detail-title-row"><span id="cert-detail-code" class="cert-code">—</span><h1 id="cert-detail-title">Loading…</h1></div><p id="cert-detail-subtitle" class="cert-detail-subtitle"></p><p id="cert-detail-summary" class="cert-detail-summary"></p></div><div class="cert-detail-actions"><a id="cert-official-link" class="cert-primary-link" href="#" target="_blank" rel="noopener noreferrer">공식 사이트</a><a id="cert-guide-link" class="cert-secondary-link" href="#" target="_blank" rel="noopener noreferrer">시험 가이드</a></div></section>
+<section id="cert-facts" class="cert-facts"></section>
+<div id="cert-detail-content"><div class="cert-empty">Loading…</div></div>
+</div></main></div>
+<script>const certSlug=new URLSearchParams(location.search).get('slug')||'';const langLink=document.getElementById('cert-language-link');if(langLink)langLink.href='/ja/certifications/detail/?slug='+encodeURIComponent(certSlug);</script>
+<script src="/assets/js/blog/dashboard-shell.js"></script>
+<script src="/assets/js/blog/certification-detail.js"></script>
+</body>
+</html>
