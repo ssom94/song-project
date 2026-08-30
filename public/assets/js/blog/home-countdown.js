@@ -1,5 +1,6 @@
 (() => {
 	const API_PUBLIC = '/api/public/dashboard/schedules';
+	const API_GOALS = '/api/public/dashboard';
 	const API_ADMIN = '/api/admin/dashboard/schedules';
 	const API_ADMIN_DETAIL = '/api/admin/dashboard/schedules/detail';
 
@@ -14,12 +15,14 @@
 				addTitle: 'D-Day 일정 추가', editTitle: 'D-Day 일정 수정', deleteTitle: '일정 삭제',
 				name: '일정명', date: '목표일', visible: '홈에 표시', cancel: '취소', save: '저장', confirmDelete: '삭제',
 				deleteMessage: '이 일정을 삭제할까요? 삭제한 일정은 복구할 수 없습니다.', saveFailed: '일정을 저장하지 못했습니다.', deleteFailed: '일정을 삭제하지 못했습니다.',
+				goalSource: '목표',
 			}
 			: {
 				add: '+ 追加', edit: '編集', remove: '削除', noDate: '日付未設定', empty: '登録された予定はありません。',
 				addTitle: 'D-Day 予定を追加', editTitle: 'D-Day 予定を編集', deleteTitle: '予定を削除',
 				name: '予定名', date: '目標日', visible: 'ホームに表示', cancel: 'キャンセル', save: '保存', confirmDelete: '削除',
 				deleteMessage: 'この予定を削除しますか？削除した予定は元に戻せません。', saveFailed: '予定を保存できませんでした。', deleteFailed: '予定を削除できませんでした。',
+				goalSource: '目標',
 			};
 	}
 
@@ -201,24 +204,77 @@
 		}, true);
 	}
 
+	function normalizedKey(item) {
+		return `${String(item?.title || '').trim().toLocaleLowerCase()}\u0000${String(item?.targetDate || '')}`;
+	}
+
+	function mergeCountdownItems(scheduleResult, goalResult, admin) {
+		const schedules = Array.isArray(scheduleResult?.schedules)
+			? scheduleResult.schedules
+				.filter((item) => !admin || item.isVisible !== false)
+				.map((item) => ({ ...item, source: 'schedule' }))
+			: [];
+
+		const goals = Array.isArray(goalResult?.goals)
+			? goalResult.goals
+				.filter((goal) => typeof goal?.targetDate === 'string' && goal.targetDate)
+				.map((goal) => ({
+					id: `goal-${goal.id ?? goal.goalKey}`,
+					goalId: goal.id,
+					goalKey: goal.goalKey,
+					title: goal.title,
+					targetDate: goal.targetDate,
+					displayOrder: goal.displayOrder ?? 0,
+					isVisible: true,
+					source: 'goal',
+				}))
+			: [];
+
+		const goalKeys = new Set(goals.map(normalizedKey));
+		const merged = [
+			...goals,
+			...schedules.filter((schedule) => !goalKeys.has(normalizedKey(schedule))),
+		];
+
+		merged.sort((a, b) => {
+			const dateA = a.targetDate || '9999-12-31';
+			const dateB = b.targetDate || '9999-12-31';
+			if (dateA !== dateB) return dateA.localeCompare(dateB);
+			const orderA = Number(a.displayOrder ?? 0);
+			const orderB = Number(b.displayOrder ?? 0);
+			if (orderA !== orderB) return orderA - orderB;
+			return String(a.title || '').localeCompare(String(b.title || ''));
+		});
+		return merged;
+	}
+
 	function createScheduleRow(schedule, admin, refresh) {
 		const labels = copy();
 		const row = document.createElement('div');
-		row.className = 'home-dday-item';
+		row.className = `home-dday-item${schedule.source === 'goal' ? ' is-goal-source' : ''}`;
 		const details = document.createElement('div');
 		details.className = 'home-dday-item-copy';
+		const titleLine = document.createElement('div');
+		titleLine.className = 'home-dday-title-line';
 		const title = document.createElement('strong');
 		title.textContent = schedule.title;
+		titleLine.appendChild(title);
+		if (schedule.source === 'goal') {
+			const source = document.createElement('small');
+			source.className = 'home-dday-source-badge';
+			source.textContent = labels.goalSource;
+			titleLine.appendChild(source);
+		}
 		const date = document.createElement('span');
 		date.textContent = dateLabel(schedule.targetDate);
-		details.append(title, date);
+		details.append(titleLine, date);
 
 		const value = document.createElement('b');
 		value.className = 'home-dday-value';
 		value.textContent = ddayLabel(schedule.targetDate);
 		row.append(details, value);
 
-		if (admin) {
+		if (admin && schedule.source !== 'goal') {
 			const actions = document.createElement('div');
 			actions.className = 'home-dday-admin-actions';
 			const edit = document.createElement('button');
@@ -246,18 +302,19 @@
 
 		async function refresh() {
 			try {
-				const result = await requestJson(admin ? API_ADMIN : API_PUBLIC);
-				const schedules = Array.isArray(result.schedules)
-					? result.schedules.filter((item) => !admin || item.isVisible !== false)
-					: [];
+				const [scheduleResult, goalResult] = await Promise.all([
+					requestJson(admin ? API_ADMIN : API_PUBLIC),
+					requestJson(API_GOALS),
+				]);
+				const items = mergeCountdownItems(scheduleResult, goalResult, admin);
 				list.replaceChildren();
-				if (schedules.length === 0) {
+				if (items.length === 0) {
 					const empty = document.createElement('div');
 					empty.className = 'home-dday-empty';
 					empty.textContent = copy().empty;
 					list.appendChild(empty);
 				} else {
-					for (const schedule of schedules) list.appendChild(createScheduleRow(schedule, admin, refresh));
+					for (const item of items) list.appendChild(createScheduleRow(item, admin, refresh));
 				}
 			} catch (error) {
 				console.error('Failed to load D-Day schedules', error);
