@@ -36,94 +36,115 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 	const partId = integerParam(url, 'part');
 	const partParentId = integerParam(url, 'partParent');
 	const requestedLimit = Number(url.searchParams.get('limit') ?? '100');
-	const limit = Number.isSafeInteger(requestedLimit) ? Math.min(500, Math.max(1, requestedLimit)) : 100;
+	const limit = Number.isSafeInteger(requestedLimit) ? Math.min(100, Math.max(1, requestedLimit)) : 100;
+	const requestedPage = Number(url.searchParams.get('page') ?? '1');
+	const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? Math.min(100000, requestedPage) : 1;
+	const offset = (page - 1) * limit;
 
 	if (jlpt && !['N1', 'N2', 'N3', 'N4', 'N5', 'UNSET'].includes(jlpt)) {
 		return json({ ok: false, error: 'INVALID_JLPT' }, 400);
 	}
 
 	try {
-		const result = await env.song_project_db
-			.prepare(`
-				SELECT
-					jw.id,
-					jw.word,
-					jw.reading,
-					jw.meaning_ko,
-					jw.meaning_ja,
-					jl.code AS jlpt_code,
-					pos.id AS part_id,
-					pos.name_ja AS part_name_ja,
-					pos.name_ko AS part_name_ko,
-					(
-						SELECT GROUP_CONCAT(part_value, CHAR(31))
-						FROM (
-							SELECT
-								p.id || CHAR(30) || p.name_ja || CHAR(30) || COALESCE(p.name_ko, '') AS part_value
-							FROM japanese_word_parts_of_speech AS wp
-							INNER JOIN parts_of_speech AS p
-								ON p.id = wp.part_of_speech_id AND p.deleted_at IS NULL
-							WHERE wp.word_id = jw.id
-							ORDER BY wp.is_primary DESC, p.display_order ASC, p.id ASC
-						)
-					) AS parts_blob,
-					(
-						SELECT GROUP_CONCAT(jc.name_ja, CHAR(31))
-						FROM japanese_word_categories AS jwc
-						INNER JOIN japanese_categories AS jc ON jc.id = jwc.category_id AND jc.deleted_at IS NULL
-						WHERE jwc.word_id = jw.id
-					) AS category_names_ja,
-					(
-						SELECT GROUP_CONCAT(jc.name_ko, CHAR(31))
-						FROM japanese_word_categories AS jwc
-						INNER JOIN japanese_categories AS jc ON jc.id = jwc.category_id AND jc.deleted_at IS NULL
-						WHERE jwc.word_id = jw.id
-					) AS category_names_ko,
-					(
-						SELECT e.sentence_ja FROM japanese_word_examples AS e
-						WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
-					) AS example_sentence,
-					(
-						SELECT e.reading FROM japanese_word_examples AS e
-						WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
-					) AS example_reading,
-					(
-						SELECT e.translation_ko FROM japanese_word_examples AS e
-						WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
-					) AS example_translation_ko
-				FROM japanese_words AS jw
-				LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
-				LEFT JOIN japanese_word_parts_of_speech AS jwpos ON jwpos.word_id = jw.id AND jwpos.is_primary = 1
-				LEFT JOIN parts_of_speech AS pos ON pos.id = jwpos.part_of_speech_id AND pos.deleted_at IS NULL
-				WHERE jw.deleted_at IS NULL
-					AND (?1 = '' OR jw.word LIKE '%' || ?1 || '%' OR COALESCE(jw.reading, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ko, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ja, '') LIKE '%' || ?1 || '%')
-					AND (?2 = '' OR (?2 = 'UNSET' AND jw.jlpt_level_id IS NULL) OR jl.code = ?2)
-					AND (?3 = 0 OR EXISTS (
-						SELECT 1 FROM japanese_word_categories AS fwc
-						WHERE fwc.word_id = jw.id AND fwc.category_id = ?3
-					))
-					AND (?4 = 0 OR EXISTS (
-						SELECT 1
-						FROM japanese_word_categories AS fwc
-						INNER JOIN japanese_categories AS fc ON fc.id = fwc.category_id AND fc.deleted_at IS NULL
-						WHERE fwc.word_id = jw.id AND (fc.id = ?4 OR fc.parent_id = ?4)
-					))
-					AND (?5 = 0 OR EXISTS (
-						SELECT 1 FROM japanese_word_parts_of_speech AS fwp
-						WHERE fwp.word_id = jw.id AND fwp.part_of_speech_id = ?5
-					))
-					AND (?6 = 0 OR EXISTS (
-						SELECT 1
-						FROM japanese_word_parts_of_speech AS fwp
-						INNER JOIN parts_of_speech AS fp ON fp.id = fwp.part_of_speech_id AND fp.deleted_at IS NULL
-						WHERE fwp.word_id = jw.id AND (fp.id = ?6 OR fp.parent_id = ?6)
-					))
-				ORDER BY COALESCE(jl.display_order, 99) ASC, jw.id DESC
-				LIMIT ?7
-			`)
-			.bind(q, jlpt, categoryId, categoryParentId, partId, partParentId, limit)
-			.all<WordRow>();
+		const bindings = [q, jlpt, categoryId, categoryParentId, partId, partParentId] as const;
+		const whereSql = `
+			WHERE jw.deleted_at IS NULL
+				AND (?1 = '' OR jw.word LIKE '%' || ?1 || '%' OR COALESCE(jw.reading, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ko, '') LIKE '%' || ?1 || '%' OR COALESCE(jw.meaning_ja, '') LIKE '%' || ?1 || '%')
+				AND (?2 = '' OR (?2 = 'UNSET' AND jw.jlpt_level_id IS NULL) OR jl.code = ?2)
+				AND (?3 = 0 OR EXISTS (
+					SELECT 1 FROM japanese_word_categories AS fwc
+					WHERE fwc.word_id = jw.id AND fwc.category_id = ?3
+				))
+				AND (?4 = 0 OR EXISTS (
+					SELECT 1
+					FROM japanese_word_categories AS fwc
+					INNER JOIN japanese_categories AS fc ON fc.id = fwc.category_id AND fc.deleted_at IS NULL
+					WHERE fwc.word_id = jw.id AND (fc.id = ?4 OR fc.parent_id = ?4)
+				))
+				AND (?5 = 0 OR EXISTS (
+					SELECT 1 FROM japanese_word_parts_of_speech AS fwp
+					WHERE fwp.word_id = jw.id AND fwp.part_of_speech_id = ?5
+				))
+				AND (?6 = 0 OR EXISTS (
+					SELECT 1
+					FROM japanese_word_parts_of_speech AS fwp
+					INNER JOIN parts_of_speech AS fp ON fp.id = fwp.part_of_speech_id AND fp.deleted_at IS NULL
+					WHERE fwp.word_id = jw.id AND (fp.id = ?6 OR fp.parent_id = ?6)
+				))
+		`;
 
+		const [result, countRow] = await Promise.all([
+			env.song_project_db
+				.prepare(`
+					SELECT
+						jw.id,
+						jw.word,
+						jw.reading,
+						jw.meaning_ko,
+						jw.meaning_ja,
+						jl.code AS jlpt_code,
+						pos.id AS part_id,
+						pos.name_ja AS part_name_ja,
+						pos.name_ko AS part_name_ko,
+						(
+							SELECT GROUP_CONCAT(part_value, CHAR(31))
+							FROM (
+								SELECT
+									p.id || CHAR(30) || p.name_ja || CHAR(30) || COALESCE(p.name_ko, '') AS part_value
+								FROM japanese_word_parts_of_speech AS wp
+								INNER JOIN parts_of_speech AS p
+									ON p.id = wp.part_of_speech_id AND p.deleted_at IS NULL
+								WHERE wp.word_id = jw.id
+								ORDER BY wp.is_primary DESC, p.display_order ASC, p.id ASC
+							)
+						) AS parts_blob,
+						(
+							SELECT GROUP_CONCAT(jc.name_ja, CHAR(31))
+							FROM japanese_word_categories AS jwc
+							INNER JOIN japanese_categories AS jc ON jc.id = jwc.category_id AND jc.deleted_at IS NULL
+							WHERE jwc.word_id = jw.id
+						) AS category_names_ja,
+						(
+							SELECT GROUP_CONCAT(jc.name_ko, CHAR(31))
+							FROM japanese_word_categories AS jwc
+							INNER JOIN japanese_categories AS jc ON jc.id = jwc.category_id AND jc.deleted_at IS NULL
+							WHERE jwc.word_id = jw.id
+						) AS category_names_ko,
+						(
+							SELECT e.sentence_ja FROM japanese_word_examples AS e
+							WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
+						) AS example_sentence,
+						(
+							SELECT e.reading FROM japanese_word_examples AS e
+							WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
+						) AS example_reading,
+						(
+							SELECT e.translation_ko FROM japanese_word_examples AS e
+							WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
+						) AS example_translation_ko
+					FROM japanese_words AS jw
+					LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
+					LEFT JOIN japanese_word_parts_of_speech AS jwpos ON jwpos.word_id = jw.id AND jwpos.is_primary = 1
+					LEFT JOIN parts_of_speech AS pos ON pos.id = jwpos.part_of_speech_id AND pos.deleted_at IS NULL
+					${whereSql}
+					ORDER BY COALESCE(jl.display_order, 99) ASC, jw.id DESC
+					LIMIT ?7 OFFSET ?8
+				`)
+				.bind(...bindings, limit, offset)
+				.all<WordRow>(),
+			env.song_project_db
+				.prepare(`
+					SELECT COUNT(*) AS total
+					FROM japanese_words AS jw
+					LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
+					${whereSql}
+				`)
+				.bind(...bindings)
+				.first<{ total: number }>(),
+		]);
+
+		const total = Number(countRow?.total ?? 0);
+		const totalPages = Math.max(1, Math.ceil(total / limit));
 		const separator = String.fromCharCode(31);
 		const partSeparator = String.fromCharCode(30);
 		return json({
@@ -136,6 +157,15 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 				partId: partId || null,
 				partParentId: partParentId || null,
 				limit,
+				page,
+			},
+			pagination: {
+				page,
+				limit,
+				total,
+				totalPages,
+				hasPrevious: page > 1,
+				hasNext: page < totalPages,
 			},
 			words: result.results.map((row) => ({
 				id: row.id,
