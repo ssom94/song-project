@@ -149,18 +149,33 @@
 
 .blog-comment-actions {
 	display: flex;
+	justify-content: flex-end;
 	gap: 8px;
-	margin-top: 8px;
+	margin-top: 10px;
 }
 
 .blog-comment-actions button {
-	padding: 0;
-	border: 0;
-	background: transparent;
+	min-height: 30px;
+	padding: 0 10px;
+	border: 1px solid #d8e0ea;
+	border-radius: 7px;
+	background: #fff;
 	color: #7d899a;
 	font: inherit;
 	font-size: 8px;
-	font-weight: 800;
+	font-weight: 850;
+	cursor: pointer;
+}
+
+.blog-comment-actions .blog-comment-delete {
+	border-color: #d92d20;
+	background: #d92d20;
+	color: #fff;
+}
+
+.blog-comment-actions .blog-comment-delete:hover {
+	border-color: #b42318;
+	background: #b42318;
 }
 
 .blog-comment-reply {
