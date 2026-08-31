@@ -250,7 +250,7 @@
 		if (dashboardSnapshot) renderDashboard(dashboardSnapshot);
 		syncStudyHistoryCopy();
 		window.JlptStudyHistory?.refresh?.();
-		window.JlptTodayFloating?.refresh?.();
+		window.JlptTodayStudyFloat?.refresh?.();
 	}
 
 	function initialize() {
