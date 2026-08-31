@@ -10,6 +10,7 @@
 			? {
 				progress: '진행률', planned: '예정', progressing: '진행 중', done: '완료',
 				dateNotSet: '목표일 미설정', goals: (count) => `${count}개 목표`, empty: '표시 중인 목표가 없습니다.',
+				historyTitle: 'JLPT N1 학습 이력', historyLead: '날짜별 실제 학습량을 공개해 꾸준한 준비 과정을 기록합니다.', historyAll: '전체 학습 보기 →',
 				details: {
 					'jlpt-n1': '단어 학습 + 시험 합격',
 					ap: '응용정보기술자시험',
@@ -21,6 +22,7 @@
 			: {
 				progress: '進捗', planned: '予定', progressing: '進行中', done: '完了',
 				dateNotSet: '目標日未設定', goals: (count) => `${count} Goals`, empty: '表示中の目標はありません。',
+				historyTitle: 'JLPT N1 学習履歴', historyLead: '日付ごとの実学習量を公開し、継続的な学習過程を記録します。', historyAll: '学習履歴をすべて見る →',
 				details: {
 					'jlpt-n1': '語彙学習 + 試験合格',
 					ap: '応用情報技術者試験',
@@ -134,6 +136,69 @@
 		return row;
 	}
 
+	function ensureJlptHistoryAssets() {
+		if (!document.querySelector('link[data-home-jlpt-history-style]')) {
+			const link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = '/assets/css/japanese/jlpt-history.css';
+			link.dataset.homeJlptHistoryStyle = 'true';
+			document.head.appendChild(link);
+		}
+		if (!document.querySelector('script[data-home-jlpt-history-script]')) {
+			const script = document.createElement('script');
+			script.src = '/assets/js/japanese/jlpt-history.js';
+			script.defer = true;
+			script.dataset.homeJlptHistoryScript = 'true';
+			document.body.appendChild(script);
+		}
+	}
+
+	function ensureHomeJlptHistoryCard() {
+		let card = document.getElementById('home-jlpt-history');
+		if (card) return card;
+		const jlpt = document.getElementById('jlpt-progress');
+		if (!jlpt?.parentElement) return null;
+		const labels = copy();
+		card = document.createElement('section');
+		card.id = 'home-jlpt-history';
+		card.className = 'home-dashboard-card home-jlpt-history-card';
+		card.innerHTML = `
+			<div class="home-card-heading">
+				<div><span class="home-card-kicker">STUDY LOG</span><h2 data-home-jlpt-history-title></h2><p data-home-jlpt-history-lead></p></div>
+				<a data-home-jlpt-history-link></a>
+			</div>
+			<div id="jp-recent-study-summary" class="jp-public-history-summary"></div>
+			<div id="jp-recent-study-list" class="jp-public-history-list"><div class="home-post-state">Loading…</div></div>
+		`;
+		jlpt.insertAdjacentElement('afterend', card);
+		const title = card.querySelector('[data-home-jlpt-history-title]');
+		const lead = card.querySelector('[data-home-jlpt-history-lead]');
+		const link = card.querySelector('[data-home-jlpt-history-link]');
+		if (title) title.textContent = labels.historyTitle;
+		if (lead) lead.textContent = labels.historyLead;
+		if (link instanceof HTMLAnchorElement) {
+			link.textContent = labels.historyAll;
+			link.href = `/${language()}/japanese/jlpt/`;
+		}
+		return card;
+	}
+
+	function syncHomeJlptHistoryCard() {
+		const card = ensureHomeJlptHistoryCard();
+		if (!card) return;
+		const labels = copy();
+		const title = card.querySelector('[data-home-jlpt-history-title]');
+		const lead = card.querySelector('[data-home-jlpt-history-lead]');
+		const link = card.querySelector('[data-home-jlpt-history-link]');
+		if (title) title.textContent = labels.historyTitle;
+		if (lead) lead.textContent = labels.historyLead;
+		if (link instanceof HTMLAnchorElement) {
+			link.textContent = labels.historyAll;
+			link.href = `/${language()}/japanese/jlpt/`;
+		}
+		window.JlptStudyHistory?.refresh?.();
+	}
+
 	function renderDashboard(result) {
 		dashboardSnapshot = result;
 		const goals = Array.isArray(result?.goals) ? result.goals : [];
@@ -159,7 +224,10 @@
 		if (completedNode) completedNode.textContent = String(completed);
 		if (totalNode) totalNode.textContent = String(goals.length);
 		const jlptSection = document.getElementById('jlpt-progress');
-		if (jlptSection instanceof HTMLElement) jlptSection.hidden = result?.settings?.showJlpt === false;
+		const historySection = ensureHomeJlptHistoryCard();
+		const showJlpt = result?.settings?.showJlpt !== false;
+		if (jlptSection instanceof HTMLElement) jlptSection.hidden = !showJlpt;
+		if (historySection instanceof HTMLElement) historySection.hidden = !showJlpt;
 		if (result?.learning) {
 			window.HomeDashboard?.setLearningSnapshot?.({
 				goalMode: result?.settings?.jlptGoalMode === 'manual' ? 'manual' : 'auto',
@@ -185,9 +253,12 @@
 
 	function rerenderForLanguage() {
 		if (dashboardSnapshot) renderDashboard(dashboardSnapshot);
+		syncHomeJlptHistoryCard();
 	}
 
 	function initialize() {
+		ensureHomeJlptHistoryCard();
+		ensureJlptHistoryAssets();
 		loadDashboard();
 		document.querySelectorAll('[data-home-language]').forEach((button) => {
 			button.addEventListener('click', () => window.setTimeout(rerenderForLanguage, 0));
