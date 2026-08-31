@@ -38,6 +38,15 @@ import { handleBulkUpdateAdminJapaneseWords } from './admin/japanese/bulk';
 import { handleBulkDeleteAdminJapaneseWords } from './admin/japanese/bulk-delete';
 import { handleGetAdminJapaneseWordHistory } from './admin/japanese/history';
 import { handleImportAdminJapaneseWordsWithHistory } from './admin/japanese/import-history-wrapper';
+import {
+	handleCompleteAdminJapaneseJlptContent,
+	handleEnrollAdminJapaneseJlptWords,
+	handleGetAdminJapaneseJlptToday,
+	handleImportAdminJapaneseJlptContent,
+	handleStartAdminJapaneseJlptToday,
+	handleUpdateAdminJapaneseJlptProgress,
+	handleUpdateAdminJapaneseJlptWordState,
+} from './admin/japanese/jlpt';
 import { handleListAdminJapaneseWords } from './admin/japanese/words';
 import {
 	handleCreateAdminJapaneseWordWithHistory,
@@ -82,6 +91,7 @@ import { handleAdminSessionStatus } from './auth/session';
 import { handleGetPublicCertifications } from './public/certifications';
 import { handleCreatePublicComment, handleListPublicComments } from './public/comments';
 import { handleGetPublicDashboard } from './public/dashboard';
+import { handleGetPublicJapaneseJlptDashboard } from './public/japanese/jlpt';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
@@ -148,6 +158,8 @@ export default {
 				return request.method === 'GET' ? handleGetProtectedDocumentStatus(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/stats':
 				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/dashboard':
+				return request.method === 'GET' ? handleGetPublicJapaneseJlptDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/taxonomy':
 				return request.method === 'GET' ? handleGetPublicJapaneseTaxonomy(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/words':
@@ -259,6 +271,20 @@ export default {
 				return request.method === 'GET' ? handleListAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/quiz/history/detail':
 				return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/jlpt/today':
+				return request.method === 'GET' ? handleGetAdminJapaneseJlptToday(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/jlpt/today/start':
+				return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/word-state':
+				return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/progress':
+				return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/curriculum/words':
+				return request.method === 'POST' ? handleEnrollAdminJapaneseJlptWords(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/content/import':
+				return request.method === 'POST' ? handleImportAdminJapaneseJlptContent(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/content/progress':
+				return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptContent(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/skill-sheet':
 				if (request.method === 'GET') return handleGetAdminSkillSheetSummary(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminSkillSheetSummary(request, env);
