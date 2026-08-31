@@ -51,6 +51,7 @@ async function loadAllWords(db: D1Database, adminId: number, filter: ExportFilte
 		LEFT JOIN japanese_admin_word_learning_stats AS s
 			ON s.word_id = w.id AND s.admin_id = ?1
 		WHERE w.deleted_at IS NULL
+			AND ?2 IS NOT NULL
 			${japaneseFilterSql(filter)}
 		ORDER BY w.word COLLATE NOCASE ASC, w.id ASC
 	`).bind(adminId, today).all<WordRow>();
@@ -71,6 +72,7 @@ async function loadJlptWords(db: D1Database, adminId: number, filter: ExportFilt
 		LEFT JOIN japanese_admin_word_learning_stats AS s
 			ON s.word_id = w.id AND s.admin_id = ?1
 		WHERE c.plan_id = ?3
+			AND ?2 IS NOT NULL
 			${japaneseFilterSql(filter)}
 		ORDER BY c.sort_order ASC, w.id ASC
 	`).bind(adminId, today, plan.id).all<WordRow>();
@@ -83,6 +85,7 @@ async function loadApWords(db: D1Database, adminId: number, filter: ExportFilter
 		SELECT v.term AS word, v.reading, v.meaning_ko
 		FROM ap_vocabulary AS v
 		WHERE v.plan_id = ?1
+			AND ?2 IS NOT NULL
 			${apFilterSql(filter)}
 		ORDER BY CASE v.learning_state WHEN 'uncertain' THEN 0 WHEN 'unlearned' THEN 1 WHEN 'learning' THEN 2 ELSE 3 END,
 			v.wrong_count DESC, v.term COLLATE NOCASE ASC
