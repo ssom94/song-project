@@ -36,36 +36,11 @@ export interface LearningProgressRow {
 
 const REVIEW_INTERVAL_DAYS = [1, 3, 7, 14, 30, 60] as const;
 
-function isDuplicateColumnError(error: unknown): boolean {
-	return error instanceof Error && /duplicate column name/i.test(error.message);
-}
-
-async function ensureReviewColumns(db: D1Database): Promise<void> {
-	const info = await db.prepare('PRAGMA table_info(japanese_admin_word_learning_stats)').all<{ name: string }>();
-	const names = new Set(info.results.map((row) => row.name));
-	const additions = [
-		{ name: 'first_learned_at', sql: 'ALTER TABLE japanese_admin_word_learning_stats ADD COLUMN first_learned_at TEXT' },
-		{ name: 'last_studied_at', sql: 'ALTER TABLE japanese_admin_word_learning_stats ADD COLUMN last_studied_at TEXT' },
-		{ name: 'review_stage', sql: 'ALTER TABLE japanese_admin_word_learning_stats ADD COLUMN review_stage INTEGER NOT NULL DEFAULT 0 CHECK (review_stage BETWEEN 0 AND 6)' },
-		{ name: 'next_review_on', sql: 'ALTER TABLE japanese_admin_word_learning_stats ADD COLUMN next_review_on TEXT' },
-	];
-	for (const addition of additions) {
-		if (names.has(addition.name)) continue;
-		try {
-			await db.prepare(addition.sql).run();
-		} catch (error) {
-			if (!isDuplicateColumnError(error)) throw error;
-		}
-	}
-	await db.prepare(`
-		CREATE INDEX IF NOT EXISTS idx_japanese_admin_learning_review
-		ON japanese_admin_word_learning_stats(admin_id, next_review_on, learning_state)
-	`).run();
-}
-
 export async function ensureJapaneseJlptStudySchema(db: D1Database): Promise<void> {
+	// Existing databases must receive migration 0030 before this code is deployed.
+	// Do not ALTER the legacy learning-stats table at runtime: doing so would make
+	// the versioned D1 migration fail later with duplicate-column errors.
 	await ensureJapaneseAdminLearningStatsSchema(db);
-	await ensureReviewColumns(db);
 	await db.batch([
 		db.prepare(`
 			CREATE TABLE IF NOT EXISTS japanese_jlpt_study_plans (
