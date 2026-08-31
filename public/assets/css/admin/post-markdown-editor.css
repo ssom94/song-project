@@ -83,6 +83,18 @@
 	cursor: default;
 }
 
+.admin-markdown-history-tool {
+	font-size: 16px;
+	line-height: 1;
+}
+
+.admin-markdown-history-separator {
+	width: 1px;
+	height: 20px;
+	margin: 0 2px;
+	background: #dce3ec;
+}
+
 .admin-markdown-preview-toggle {
 	margin-left: auto;
 	padding: 0 11px;
@@ -103,6 +115,7 @@
 
 .admin-markdown-editor-pane textarea {
 	display: block;
+	width: 100%;
 }
 
 .admin-markdown-preview-pane {
@@ -171,8 +184,28 @@
 
 @media (min-width: 1180px) {
 	.admin-markdown-workspace {
+		--admin-markdown-pane-height: clamp(460px, 58vh, 620px);
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 		align-items: stretch;
+	}
+
+	.admin-markdown-workspace.is-translation {
+		--admin-markdown-pane-height: clamp(360px, 48vh, 500px);
+	}
+
+	.admin-markdown-editor-pane,
+	.admin-markdown-preview-pane {
+		height: var(--admin-markdown-pane-height);
+		min-height: var(--admin-markdown-pane-height);
+		max-height: var(--admin-markdown-pane-height);
+	}
+
+	.admin-markdown-editor-pane textarea {
+		height: 100% !important;
+		min-height: 0 !important;
+		max-height: none !important;
+		resize: none;
+		overflow: auto;
 	}
 
 	.admin-markdown-preview-pane {
@@ -182,7 +215,9 @@
 
 	.admin-markdown-preview {
 		flex: 1 1 auto;
-		max-height: 620px;
+		min-height: 0 !important;
+		max-height: none;
+		overflow: auto;
 	}
 }
 
