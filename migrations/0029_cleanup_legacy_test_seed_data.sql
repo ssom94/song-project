@@ -5,7 +5,9 @@
 
 PRAGMA foreign_keys = ON;
 
--- Blog test data: delete dependent rows first.
+-- ============================================================
+-- Blog test data
+-- ============================================================
 DELETE FROM comments
 WHERE id >= 900000001 OR post_id >= 900000001;
 
@@ -30,11 +32,35 @@ WHERE id >= 900000001;
 DELETE FROM category_translations
 WHERE id >= 900000001 OR category_id >= 900000001;
 
+-- categories.parent_id uses ON DELETE RESTRICT, so detach any child first.
+UPDATE categories
+SET parent_id = NULL
+WHERE parent_id >= 900000001;
+
 DELETE FROM categories
 WHERE id >= 900000001;
 
--- Japanese-learning test data.
+-- ============================================================
+-- Japanese-learning test data
+-- ============================================================
+-- Remove or detach dependent learning records before words/taxonomy.
+DELETE FROM japanese_quiz_attempts
+WHERE id >= 900000001 OR word_id >= 900000001 OR example_id >= 900000001;
+
+DELETE FROM japanese_word_learning_stats
+WHERE word_id >= 900000001;
+
+DELETE FROM japanese_admin_word_learning_stats
+WHERE word_id >= 900000001;
+
 DELETE FROM japanese_word_history
+WHERE word_id >= 900000001;
+
+DELETE FROM japanese_handwriting_attempts
+WHERE id >= 900000001 OR word_id >= 900000001;
+
+UPDATE japanese_word_ai_drafts
+SET word_id = NULL
 WHERE word_id >= 900000001;
 
 DELETE FROM japanese_word_examples
@@ -49,8 +75,17 @@ WHERE word_id >= 900000001 OR part_of_speech_id >= 900000001;
 DELETE FROM japanese_words
 WHERE id >= 900000001;
 
+-- Self-referencing taxonomy tables use ON DELETE RESTRICT.
+UPDATE japanese_categories
+SET parent_id = NULL
+WHERE parent_id >= 900000001;
+
 DELETE FROM japanese_categories
 WHERE id >= 900000001;
+
+UPDATE parts_of_speech
+SET parent_id = NULL
+WHERE parent_id >= 900000001;
 
 DELETE FROM parts_of_speech
 WHERE id >= 900000001;
