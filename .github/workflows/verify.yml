@@ -37,6 +37,9 @@ jobs:
           node --check public/assets/js/japanese/today-study-float.js
           node --check public/assets/js/admin/japanese-import.js
           node --check public/assets/js/study/ap.js
+          node --check public/assets/js/study/ap-vocabulary.js
+          node --check public/assets/js/study/ap-vocabulary-wrong.js
+          node --check public/assets/js/study-export.js
 
       - name: Unit tests
         run: npm test -- --run
@@ -86,6 +89,8 @@ jobs:
           AP_SESSIONS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_daily_sessions';")"
           AP_ITEMS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_daily_items';")"
           AP_ATTEMPTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_attempts';")"
+          AP_VOCAB="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_vocabulary';")"
+          AP_VOCAB_ATTEMPTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_vocabulary_quiz_attempts';")"
 
           echo "certifications=$CERT_COUNT"
           echo "certification_topics=$CERT_TOPIC_COUNT"
@@ -102,6 +107,8 @@ jobs:
           echo "ap_sessions_table=$AP_SESSIONS"
           echo "ap_items_table=$AP_ITEMS"
           echo "ap_attempts_table=$AP_ATTEMPTS"
+          echo "ap_vocabulary_table=$AP_VOCAB"
+          echo "ap_vocabulary_attempts_table=$AP_VOCAB_ATTEMPTS"
 
           test "$CERT_COUNT" -eq 5
           test "$CERT_TOPIC_COUNT" -gt 0
@@ -118,3 +125,5 @@ jobs:
           test "$AP_SESSIONS" -eq 1
           test "$AP_ITEMS" -eq 1
           test "$AP_ATTEMPTS" -eq 1
+          test "$AP_VOCAB" -eq 1
+          test "$AP_VOCAB_ATTEMPTS" -eq 1
