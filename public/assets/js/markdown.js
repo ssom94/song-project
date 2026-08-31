@@ -27,7 +27,7 @@
 
 	function appendInline(parent, source) {
 		const text = String(source ?? '');
-		const tokenPattern = /`[^`\n]+`|\[[^\]\n]+\]\([^\)\n]+\)|\*\*[^*\n]+\*\*|__[^_\n]+__|~~[^~\n]+~~|\+\+[^+\n]+\+\+|\*[^*\n]+\*|_[^_\n]+_/g;
+		const tokenPattern = /\{\{color:#[0-9a-fA-F]{6}\|[^{}\n]+\}\}|`[^`\n]+`|\[[^\]\n]+\]\([^\)\n]+\)|\*\*[^*\n]+\*\*|__[^_\n]+__|~~[^~\n]+~~|\+\+[^+\n]+\+\+|\*[^*\n]+\*|_[^_\n]+_/g;
 		let cursor = 0;
 
 		for (const match of text.matchAll(tokenPattern)) {
@@ -35,7 +35,18 @@
 			if (index > cursor) appendPlainText(parent, text.slice(cursor, index));
 
 			const token = match[0];
-			if (token.startsWith('`')) {
+			if (token.startsWith('{{color:')) {
+				const colorMatch = token.match(/^\{\{color:(#[0-9a-fA-F]{6})\|([^{}\n]+)\}\}$/);
+				if (!colorMatch) {
+					appendPlainText(parent, token);
+				} else {
+					const color = document.createElement('span');
+					color.className = 'song-text-color';
+					color.style.color = colorMatch[1].toLowerCase();
+					appendInline(color, colorMatch[2]);
+					parent.appendChild(color);
+				}
+			} else if (token.startsWith('`')) {
 				const code = document.createElement('code');
 				code.textContent = token.slice(1, -1);
 				parent.appendChild(code);
