@@ -13,7 +13,7 @@
 	function ensureStyles() {
 		for (const [href, attr] of [
 			['/assets/css/blog/site-cursor.css?v=20260831-2', 'data-song-site-cursor-style'],
-			['/assets/css/blog/site-visuals.css?v=20260831-1', 'data-song-site-visuals-style'],
+			['/assets/css/blog/site-visuals.css?v=20260831-2', 'data-song-site-visuals-style'],
 		]) {
 			if (document.querySelector(`link[${attr}]`)) continue;
 			const link = document.createElement('link');
@@ -43,17 +43,32 @@
 		return `linear-gradient(rgba(255,255,255,${alpha}), rgba(255,255,255,${alpha})), ${layer}`;
 	}
 
+	function backgroundSize(background) {
+		const mode = ['cover', 'contain', 'custom'].includes(background?.sizeMode) ? background.sizeMode : 'cover';
+		if (mode === 'contain') return 'contain';
+		if (mode === 'custom') {
+			const scale = Math.max(50, Math.min(250, Number(background?.scale) || 100));
+			return `${scale}% auto`;
+		}
+		return 'cover';
+	}
+
 	function applyBackground(background) {
 		const root = document.documentElement;
 		root.classList.remove('song-site-background-custom');
 		delete root.dataset.songBackgroundPreset;
-		root.style.removeProperty('--song-site-background-layer');
-		root.style.removeProperty('--song-site-background-overlay');
+		for (const prop of [
+			'--song-site-background-layer', '--song-site-background-overlay', '--song-site-background-size',
+			'--song-site-background-position-x', '--song-site-background-position-y',
+		]) root.style.removeProperty(prop);
 
 		const kind = background?.kind;
 		if (!kind || kind === 'default') return;
 		const alpha = overlayAlpha(background);
 		root.style.setProperty('--song-site-background-overlay', String(alpha));
+		root.style.setProperty('--song-site-background-size', backgroundSize(background));
+		root.style.setProperty('--song-site-background-position-x', `${Math.max(0, Math.min(100, Number(background?.positionX) || 50))}%`);
+		root.style.setProperty('--song-site-background-position-y', `${Math.max(0, Math.min(100, Number(background?.positionY) || 50))}%`);
 
 		let layer = '';
 		if (kind === 'solid' && /^#[0-9a-f]{6}$/i.test(String(background?.value || ''))) {
