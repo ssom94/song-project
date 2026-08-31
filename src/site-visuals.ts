@@ -1,11 +1,30 @@
 import { getAuthenticatedAdminSession } from './auth/session';
 
 type CursorTheme = 'blue' | 'navy' | 'mint';
+type BackgroundKind = 'default' | 'solid' | 'preset' | 'image';
 
 interface VisualRow {
 	cursor_enabled: number;
 	cursor_theme: CursorTheme;
+	background_kind: BackgroundKind;
+	background_value: string;
+	background_overlay: number;
 }
+
+interface VisualPayload {
+	cursorEnabled?: unknown;
+	cursorTheme?: unknown;
+	backgroundKind?: unknown;
+	backgroundValue?: unknown;
+	backgroundOverlay?: unknown;
+}
+
+const BACKGROUND_PRESETS = new Set([
+	'soft-blue', 'mint', 'lavender', 'sunset', 'night', 'paper-grid',
+	'song-main', 'couple', 'learning-flags',
+]);
+const COLOR_RE = /^#[0-9a-f]{6}$/i;
+const BACKGROUND_IMAGE_KEY_RE = /^site-backgrounds\/[0-9a-f-]{20,80}\.(?:png|jpe?g|webp)$/i;
 
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -16,14 +35,24 @@ function isSameOrigin(request: Request): boolean {
 	return !origin || origin === new URL(request.url).origin;
 }
 
+function defaults(): VisualRow {
+	return {
+		cursor_enabled: 1,
+		cursor_theme: 'blue',
+		background_kind: 'default',
+		background_value: '',
+		background_overlay: 12,
+	};
+}
+
 async function readSettings(db: D1Database): Promise<VisualRow> {
 	const row = await db.prepare(`
-		SELECT cursor_enabled, cursor_theme
+		SELECT cursor_enabled, cursor_theme, background_kind, background_value, background_overlay
 		FROM site_visual_settings
 		WHERE id = 1
 		LIMIT 1
 	`).first<VisualRow>();
-	return row ?? { cursor_enabled: 1, cursor_theme: 'blue' };
+	return row ?? defaults();
 }
 
 function publicShape(row: VisualRow) {
@@ -32,7 +61,44 @@ function publicShape(row: VisualRow) {
 			enabled: row.cursor_enabled === 1,
 			theme: row.cursor_theme,
 		},
+		background: {
+			kind: row.background_kind,
+			value: row.background_value,
+			overlay: row.background_overlay,
+			imageUrl: row.background_kind === 'image'
+				? `/api/public/site-background?key=${encodeURIComponent(row.background_value)}`
+				: null,
+		},
 	};
+}
+
+function parseCursorTheme(value: unknown, fallback: CursorTheme): CursorTheme | null {
+	if (value === undefined) return fallback;
+	return value === 'blue' || value === 'navy' || value === 'mint' ? value : null;
+}
+
+function parseBackgroundKind(value: unknown, fallback: BackgroundKind): BackgroundKind | null {
+	if (value === undefined) return fallback;
+	return value === 'default' || value === 'solid' || value === 'preset' || value === 'image' ? value : null;
+}
+
+function parseOverlay(value: unknown, fallback: number): number | null {
+	if (value === undefined) return fallback;
+	const parsed = Number(value);
+	return Number.isInteger(parsed) && parsed >= 0 && parsed <= 80 ? parsed : null;
+}
+
+function parseBackgroundValue(kind: BackgroundKind, value: unknown, fallback: string): string | null {
+	if (value === undefined) {
+		if (kind === 'default') return '';
+		return fallback;
+	}
+	const text = typeof value === 'string' ? value.trim() : '';
+	if (kind === 'default') return '';
+	if (kind === 'solid') return COLOR_RE.test(text) ? text.toLowerCase() : null;
+	if (kind === 'preset') return BACKGROUND_PRESETS.has(text) ? text : null;
+	if (kind === 'image') return BACKGROUND_IMAGE_KEY_RE.test(text) ? text : null;
+	return null;
 }
 
 export async function handleGetPublicSiteVisuals(_request: Request, env: Env): Promise<Response> {
@@ -43,7 +109,7 @@ export async function handleGetPublicSiteVisuals(_request: Request, env: Env): P
 		});
 	} catch (error) {
 		console.warn('Failed to load public site visuals', error);
-		return Response.json({ ok: true, cursor: { enabled: false, theme: 'blue' } }, {
+		return Response.json({ ok: true, ...publicShape(defaults()) }, {
 			headers: { 'Cache-Control': 'public, max-age=30' },
 		});
 	}
@@ -65,36 +131,72 @@ export async function handleUpdateAdminSiteVisuals(request: Request, env: Env): 
 	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
 	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
-	let payload: { cursorEnabled?: unknown; cursorTheme?: unknown };
+
+	let payload: VisualPayload;
 	try {
-		payload = await request.json() as { cursorEnabled?: unknown; cursorTheme?: unknown };
+		payload = await request.json() as VisualPayload;
 	} catch {
 		return json({ ok: false, error: 'INVALID_JSON' }, 400);
 	}
-	if (typeof payload.cursorEnabled !== 'boolean') return json({ ok: false, error: 'INVALID_CURSOR_ENABLED' }, 400);
-	if (payload.cursorTheme !== 'blue' && payload.cursorTheme !== 'navy' && payload.cursorTheme !== 'mint') {
-		return json({ ok: false, error: 'INVALID_CURSOR_THEME' }, 400);
-	}
-	const now = new Date().toISOString();
+
 	try {
+		const current = await readSettings(env.song_project_db);
+		const cursorEnabled = payload.cursorEnabled === undefined
+			? current.cursor_enabled === 1
+			: typeof payload.cursorEnabled === 'boolean' ? payload.cursorEnabled : null;
+		if (cursorEnabled === null) return json({ ok: false, error: 'INVALID_CURSOR_ENABLED' }, 400);
+
+		const cursorTheme = parseCursorTheme(payload.cursorTheme, current.cursor_theme);
+		if (!cursorTheme) return json({ ok: false, error: 'INVALID_CURSOR_THEME' }, 400);
+
+		const backgroundKind = parseBackgroundKind(payload.backgroundKind, current.background_kind);
+		if (!backgroundKind) return json({ ok: false, error: 'INVALID_BACKGROUND_KIND' }, 400);
+
+		const backgroundOverlay = parseOverlay(payload.backgroundOverlay, current.background_overlay);
+		if (backgroundOverlay === null) return json({ ok: false, error: 'INVALID_BACKGROUND_OVERLAY' }, 400);
+
+		let backgroundFallback = current.background_value;
+		if (backgroundKind !== current.background_kind && payload.backgroundValue === undefined) {
+			backgroundFallback = backgroundKind === 'solid' ? '#eef5ff' : backgroundKind === 'preset' ? 'soft-blue' : '';
+		}
+		const backgroundValue = parseBackgroundValue(backgroundKind, payload.backgroundValue, backgroundFallback);
+		if (backgroundValue === null) return json({ ok: false, error: 'INVALID_BACKGROUND_VALUE' }, 400);
+
+		const now = new Date().toISOString();
 		await env.song_project_db.batch([
 			env.song_project_db.prepare(`
-				INSERT INTO site_visual_settings (id, cursor_enabled, cursor_theme, created_at, updated_at)
-				VALUES (1, ?1, ?2, ?3, ?3)
-				ON CONFLICT(id) DO UPDATE SET cursor_enabled = excluded.cursor_enabled,
-					cursor_theme = excluded.cursor_theme, updated_at = excluded.updated_at
-			`).bind(payload.cursorEnabled ? 1 : 0, payload.cursorTheme, now),
+				INSERT INTO site_visual_settings
+					(id, cursor_enabled, cursor_theme, background_kind, background_value, background_overlay, created_at, updated_at)
+				VALUES (1, ?1, ?2, ?3, ?4, ?5, ?6, ?6)
+				ON CONFLICT(id) DO UPDATE SET
+					cursor_enabled = excluded.cursor_enabled,
+					cursor_theme = excluded.cursor_theme,
+					background_kind = excluded.background_kind,
+					background_value = excluded.background_value,
+					background_overlay = excluded.background_overlay,
+					updated_at = excluded.updated_at
+			`).bind(cursorEnabled ? 1 : 0, cursorTheme, backgroundKind, backgroundValue, backgroundOverlay, now),
 			env.song_project_db.prepare(`
 				INSERT INTO audit_logs (admin_id, entity_type, entity_id, action, after_data, country_code, user_agent)
 				VALUES (?1, 'site_visual_settings', 1, 'update', ?2, ?3, ?4)
 			`).bind(
 				session.adminId,
-				JSON.stringify({ cursorEnabled: payload.cursorEnabled, cursorTheme: payload.cursorTheme }),
+				JSON.stringify({ cursorEnabled, cursorTheme, backgroundKind, backgroundValue, backgroundOverlay }),
 				request.headers.get('CF-IPCountry'),
 				request.headers.get('User-Agent'),
 			),
 		]);
-		return json({ ok: true, cursor: { enabled: payload.cursorEnabled, theme: payload.cursorTheme } });
+
+		return json({
+			ok: true,
+			...publicShape({
+				cursor_enabled: cursorEnabled ? 1 : 0,
+				cursor_theme: cursorTheme,
+				background_kind: backgroundKind,
+				background_value: backgroundValue,
+				background_overlay: backgroundOverlay,
+			}),
+		});
 	} catch (error) {
 		console.error('Failed to update site visuals', error);
 		return json({ ok: false, error: 'SITE_VISUALS_UPDATE_FAILED' }, 500);
