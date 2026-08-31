@@ -200,3 +200,10 @@ if (!window.SongActionNotice && !document.querySelector('script[data-song-action
 	script.dataset.songActionNotice = 'true';
 	document.body.appendChild(script);
 }
+
+if (!document.querySelector('script[data-jlpt-today-float]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/japanese/today-study-float.js';
+	script.dataset.jlptTodayFloat = 'true';
+	document.body.appendChild(script);
+}
