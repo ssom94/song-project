@@ -83,6 +83,25 @@ function targetTotal(session: SessionRow | CalendarRow | null): number {
 		+ session.reading_target;
 }
 
+function scheduleCounts(row: SessionRow | CalendarRow | null): { completed: number; target: number } {
+	if (!row) return { completed: 0, target: 0 };
+	const sections = [
+		[row.review_completed, row.review_target],
+		[row.new_word_completed, row.new_word_target],
+		[row.vocab_question_completed, row.vocab_question_target],
+		[row.grammar_completed, row.grammar_target],
+		[row.reading_completed, row.reading_target],
+	] as const;
+	let target = 0;
+	let completed = 0;
+	for (const [done, required] of sections) {
+		if (Number(required) <= 0) continue;
+		target += 1;
+		if (Number(done) >= Number(required)) completed += 1;
+	}
+	return { completed, target };
+}
+
 function calendarProgress(row: CalendarRow): number {
 	return percentage(completedTotal(row), targetTotal(row));
 }
@@ -226,6 +245,7 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 			date: row.study_date,
 			status: row.status,
 			progressPercent: calendarProgress(row),
+			schedule: scheduleCounts(row),
 			review: { completed: row.review_completed, target: row.review_target },
 			newWords: { completed: row.new_word_completed, target: row.new_word_target },
 			vocabQuestions: { completed: row.vocab_question_completed, target: row.vocab_question_target },
@@ -238,6 +258,8 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 		const totalVocabQuestions = history.reduce((sum, row) => sum + Number(row.vocabQuestions.completed || 0), 0);
 		const totalGrammar = history.reduce((sum, row) => sum + Number(row.grammar.completed || 0), 0);
 		const totalReading = history.reduce((sum, row) => sum + Number(row.reading.completed || 0), 0);
+		const totalScheduleCompleted = history.reduce((sum, row) => sum + Number(row.schedule.completed || 0), 0);
+		const totalScheduleItems = history.reduce((sum, row) => sum + Number(row.schedule.target || 0), 0);
 
 		return json({
 			ok: true,
@@ -278,6 +300,7 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				status: todaySession?.status ?? 'not_started',
 				targets: effectiveTargets,
 				completed: effectiveCompleted,
+				schedule: scheduleCounts(todaySession),
 				progressPercent: todaySession ? percentage(completedTotal(todaySession), targetTotal(todaySession)) : 0,
 				startedAt: todaySession?.started_at ?? null,
 				completedAt: todaySession?.completed_at ?? null,
@@ -294,12 +317,16 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				totalVocabQuestions,
 				totalGrammar,
 				totalReading,
+				totalScheduleCompleted,
+				totalScheduleItems,
+				scheduleCompletionPercent: percentage(totalScheduleCompleted, totalScheduleItems),
 			},
 			history,
 			calendar: calendarResult.results.slice(0, 35).map((row) => ({
 				date: row.study_date,
 				status: row.status,
 				progressPercent: calendarProgress(row),
+				schedule: scheduleCounts(row),
 			})),
 		});
 	} catch (error) {
