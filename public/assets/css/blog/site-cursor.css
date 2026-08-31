@@ -41,6 +41,19 @@
 		cursor: url('/assets/cursors/click-mint.svg') 11 4, pointer;
 	}
 
+	/* Drag handles intentionally use the OS grab/grabbing cursor. It is clearer than
+	   reusing the click-hand asset and avoids any extra pointer tracking. */
+	html.song-custom-cursor [data-drag-handle],
+	html.song-custom-cursor .jp-today-study-app-icon,
+	html.song-custom-cursor .jp-today-study-float-header {
+		cursor: grab !important;
+	}
+	html.song-custom-cursor .is-dragging [data-drag-handle],
+	html.song-custom-cursor .jp-today-study-float.is-dragging .jp-today-study-app-icon,
+	html.song-custom-cursor .jp-today-study-float.is-dragging .jp-today-study-float-header {
+		cursor: grabbing !important;
+	}
+
 	html.song-custom-cursor input[type="text"],
 	html.song-custom-cursor input[type="search"],
 	html.song-custom-cursor input[type="email"],
