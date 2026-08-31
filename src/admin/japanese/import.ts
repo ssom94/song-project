@@ -1,4 +1,10 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import {
+	enrollWordsInJlptPlan,
+	ensureDefaultJlptStudyPlan,
+	validDateText,
+	type JlptStudyPlanRow,
+} from '../../jlpt-study';
 
 type ImportRowInput = {
 	rowNumber?: unknown;
@@ -7,6 +13,7 @@ type ImportRowInput = {
 	meaningKo?: unknown;
 	meaningJa?: unknown;
 	jlpt?: unknown;
+	jlptStudyDate?: unknown;
 	partOfSpeech?: unknown;
 	category?: unknown;
 	exampleJa?: unknown;
@@ -36,7 +43,7 @@ type ExistingWord = {
 
 type ImportWarning = {
 	code: string;
-	field: 'jlpt' | 'part_of_speech' | 'category';
+	field: 'jlpt' | 'jlpt_study_date' | 'part_of_speech' | 'category';
 	value: string;
 };
 
@@ -44,6 +51,8 @@ type ImportResultRow = {
 	rowNumber: number;
 	status: 'created' | 'merged' | 'failed';
 	word: string;
+	wordId?: number;
+	jlptEnrolled?: boolean;
 	error?: string;
 	missingFields?: string[];
 	tooLongFields?: string[];
@@ -180,6 +189,7 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 		]);
 
 		const levelMap = new Map(levelsResult.results.map((row) => [row.code.toUpperCase(), row.id]));
+		const n1LevelId = levelMap.get('N1') ?? null;
 		const partLookup = makeLookup(partsResult.results);
 		const categoryLookup = makeLookup(categoriesResult.results);
 		const results: ImportResultRow[] = [];
@@ -188,6 +198,7 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 		let failed = 0;
 		let warningRows = 0;
 		let warningCount = 0;
+		let jlptPlan: JlptStudyPlanRow | null = null;
 
 		for (let index = 0; index < payload.rows.length; index += 1) {
 			const row = (payload.rows[index] ?? {}) as ImportRowInput;
@@ -198,6 +209,8 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 			const meaningKo = text(row.meaningKo, 4000);
 			const meaningJa = text(row.meaningJa, 1000);
 			const jlpt = text(row.jlpt, 8).toUpperCase();
+			const jlptStudyDateRaw = text(row.jlptStudyDate, 10);
+			const jlptStudyDate = jlptStudyDateRaw ? validDateText(jlptStudyDateRaw) : null;
 			const partOfSpeech = text(row.partOfSpeech, 1000);
 			const category = text(row.category, 240);
 			const exampleJa = text(row.exampleJa, 1000);
@@ -225,6 +238,7 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 				reading.length > 160 ? 'reading' : '',
 				meaningKo.length > 4000 ? 'meaning_ko' : '',
 				meaningJa.length > 1000 ? 'meaning_ja' : '',
+				jlptStudyDateRaw.length > 10 ? 'jlpt_study_date' : '',
 				partOfSpeech.length > 1000 ? 'part_of_speech' : '',
 				category.length > 240 ? 'category' : '',
 				exampleJa.length > 1000 ? 'example_ja' : '',
@@ -238,6 +252,9 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 			}
 
 			const warnings: ImportWarning[] = [];
+			if (jlptStudyDateRaw && !jlptStudyDate) {
+				warnings.push({ code: 'JLPT_STUDY_DATE_INVALID', field: 'jlpt_study_date', value: jlptStudyDateRaw });
+			}
 			let jlptLevelId: number | null = null;
 			if (jlpt) {
 				jlptLevelId = levelMap.get(jlpt) ?? null;
@@ -328,13 +345,24 @@ export async function handleImportAdminJapaneseWords(request: Request, env: Env)
 				}
 
 				await env.song_project_db.batch(statements);
+				let jlptEnrolled = false;
+				if (jlptStudyDate) {
+					const effectiveLevelId = existing?.jlpt_level_id ?? jlptLevelId;
+					if (n1LevelId && effectiveLevelId === n1LevelId) {
+						jlptPlan ??= await ensureDefaultJlptStudyPlan(env.song_project_db, session.adminId);
+						await enrollWordsInJlptPlan(env.song_project_db, jlptPlan.id, [wordId], jlptStudyDate);
+						jlptEnrolled = true;
+					} else {
+						warnings.push({ code: 'JLPT_STUDY_REQUIRES_N1', field: 'jlpt', value: jlpt || 'UNCLASSIFIED' });
+					}
+				}
 				if (status === 'created') created += 1;
 				else merged += 1;
 				if (warnings.length) {
 					warningRows += 1;
 					warningCount += warnings.length;
 				}
-				results.push({ rowNumber, status, word, warnings: warnings.length ? warnings : undefined });
+				results.push({ rowNumber, status, word, wordId, jlptEnrolled, warnings: warnings.length ? warnings : undefined });
 			} catch (error) {
 				console.error(`Japanese word import row ${rowNumber} failed`, error);
 				fail('DATABASE_ERROR');

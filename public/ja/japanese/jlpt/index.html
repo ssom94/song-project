@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>JLPT N1 学習 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/jlpt.css" />
+</head>
+<body class="blog-page blog-dashboard-page japanese-public-page jlpt-page" data-blog-language="ja">
+	<header class="blog-dashboard-topbar">
+		<div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div>
+		<div class="blog-dashboard-language"><span class="is-active">日本語</span><span>/</span><a href="/ko/japanese/jlpt/">한국어</a></div>
+	</header>
+	<div class="blog-dashboard-shell">
+		<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">Menu</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">Home</a><a class="blog-sidebar-link" href="/ja/posts/">投稿</a><a class="blog-sidebar-link is-active" href="/ja/japanese/">日本語学習</a><a class="blog-sidebar-link" href="/ja/skill-sheet/">Skill Sheet</a><a class="blog-sidebar-link" href="/ja/career/">Career History</a></nav></section>
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">Japanese</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ja/japanese/">学習ホーム</a><a class="blog-sidebar-link is-active" href="/ja/japanese/jlpt/">JLPT N1 学習</a><a class="blog-sidebar-link" href="/ja/japanese/words/">単語一覧</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/">ランダムクイズ</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/result/">学習結果</a></nav></section>
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">公開されたカテゴリーはまだありません。</p></section>
+			<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
+		</aside>
+		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
+		<main class="blog-dashboard-main"><div class="blog-dashboard-content jlpt-content">
+			<div id="jlpt-error" class="jlpt-error" hidden></div>
+			<section class="jlpt-hero"><div><p class="jlpt-eyebrow">JLPT N1 · 2027 JULY</p><h1>JLPT N1 合格プラン</h1><p class="jlpt-hero-copy">語彙と読解を中心に、新規N1単語20語、復習、試験形式の語彙問題、文法、読解を毎日積み上げます。既存の単語一覧とランダムクイズはそのまま維持します。</p><p id="jlpt-date-note" class="jlpt-note">2027年の公式試験日が発表されるまでは、7月第1日曜日を仮の目標日として表示します。</p></div><div class="jlpt-dday"><span>試験まで</span><strong id="jlpt-dday">—</strong><small id="jlpt-target-date">—</small></div></section>
+
+			<section class="jlpt-stat-grid"><article class="jlpt-stat"><span>N1目標語彙</span><strong id="jlpt-target-words">—</strong><small>語</small></article><article class="jlpt-stat"><span>カリキュラム登録</span><strong id="jlpt-curriculum-count">—</strong><small>語</small></article><article class="jlpt-stat"><span>学習済み</span><strong id="jlpt-studied-count">—</strong><small>語</small></article><article class="jlpt-stat"><span>今日の復習予定</span><strong id="jlpt-review-due">—</strong><small>語</small></article></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>全体進捗</h2><p>3,000語の目標に対して、登録・学習・暗記の進捗を分けて表示します。</p></div><span>N1 DB登録 <b id="jlpt-registered-n1">—</b>語</span></div><div class="jlpt-progress-row"><b>カリキュラム登録</b><div class="jlpt-progress-track"><span id="jlpt-curriculum-bar" class="jlpt-progress-fill"></span></div><span id="jlpt-curriculum-percent">—</span></div><div class="jlpt-progress-row"><b>1回以上学習</b><div class="jlpt-progress-track"><span id="jlpt-study-bar" class="jlpt-progress-fill"></span></div><span id="jlpt-study-percent">—</span></div><div class="jlpt-progress-row"><b>暗記済み</b><div class="jlpt-progress-track"><span id="jlpt-mastery-bar" class="jlpt-progress-fill"></span></div><span id="jlpt-mastery-percent">—</span></div><div class="jlpt-progress-row"><b>状態</b><div>暗記済 <strong id="jlpt-mastered-count">—</strong> · 曖昧 <strong id="jlpt-uncertain-count">—</strong></div><span></span></div></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>今日の学習</h2><p id="jlpt-start-copy">今日の学習情報を読み込んでいます。</p></div><button id="jlpt-start-button" class="jlpt-primary-button" type="button">今日の学習を開始</button></div><div class="jlpt-today-summary"><div><strong id="jlpt-today-percent">0%</strong><p>今日の進捗</p><div class="jlpt-today-track"><span id="jlpt-today-bar" class="jlpt-today-fill"></span></div></div><div>復習 → 新規語彙 → 語彙問題 → 文法 → 読解</div></div><div class="jlpt-today-list"><div class="jlpt-today-item"><span>復習語彙</span><strong id="jlpt-today-review">0 / 0</strong></div><div class="jlpt-today-item"><span>新規語彙</span><strong id="jlpt-today-new">0 / 20</strong></div><div class="jlpt-today-item"><span>語彙問題</span><strong id="jlpt-today-vocab">0 / 15</strong></div><div class="jlpt-today-item"><span>文法</span><strong id="jlpt-today-grammar">0 / 2</strong></div><div class="jlpt-today-item"><span>読解</span><strong id="jlpt-today-reading">0 / 1</strong></div></div></section>
+
+			<section id="jlpt-study-detail" class="jlpt-card jlpt-hidden"><div class="jlpt-card-heading"><div><h2>単語学習・復習</h2><p>各単語を未学習 / 曖昧 / 暗記済で評価すると、次回の復習日を自動計算します。</p></div></div><div class="jlpt-study-grid"><section class="jlpt-word-section"><h3>復習単語</h3><div id="jlpt-review-words" class="jlpt-word-list"></div></section><section class="jlpt-word-section"><h3>新規単語</h3><div id="jlpt-new-words" class="jlpt-word-list"></div></section></div></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>JLPT 語彙問題</h2><p>漢字読み・文脈規定・言い換え・用法の形式で日ごとに問題を蓄積します。</p></div></div><div id="jlpt-vocab-contents" class="jlpt-content-list"><div class="jlpt-empty">今日登録された学習コンテンツはありません。</div></div></section>
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>文法</h2><p>1日約2項目のN1文法と問題を、その日の新規語彙と関連付けて学習します。</p></div></div><div id="jlpt-grammar-contents" class="jlpt-content-list"><div class="jlpt-empty">今日登録された文法はありません。</div></div><div id="jlpt-grammar-questions" class="jlpt-content-list"></div></section>
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>読解</h2><p>新規単語を自然に含めたN1短文・中文・長文を段階的に学習します。</p></div></div><div id="jlpt-reading-contents" class="jlpt-content-list"><div class="jlpt-empty">今日登録された読解はありません。</div></div></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>直近4週間の学習予定</h2><p>完了 ✅ · 途中 🟡 · 未学習 —</p></div></div><div id="jlpt-calendar" class="jlpt-calendar-grid"></div></section>
+		</div></main>
+	</div>
+	<script src="/assets/js/blog/dashboard-shell.js"></script>
+	<script src="/assets/js/japanese/common.js"></script>
+	<script src="/assets/js/japanese/jlpt-dashboard.js"></script>
+</body>
+</html>

@@ -24,14 +24,14 @@
 				<a class="blog-sidebar-link" href="/">Home</a><a class="blog-sidebar-link" href="/ja/posts/">投稿</a><a class="blog-sidebar-link is-active" href="/ja/japanese/">日本語学習</a><a class="blog-sidebar-link" href="/ja/skill-sheet/">Skill Sheet</a><a class="blog-sidebar-link" href="/ja/career/">Career History</a>
 			</nav></section>
 			<section class="blog-sidebar-section"><p class="blog-sidebar-label">Japanese</p><nav class="blog-sidebar-nav">
-				<a class="blog-sidebar-link is-active" href="/ja/japanese/">学習ホーム</a><a class="blog-sidebar-link" href="/ja/japanese/words/">単語一覧</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/">ランダムクイズ</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/result/">学習結果</a>
+				<a class="blog-sidebar-link is-active" href="/ja/japanese/">学習ホーム</a><a class="blog-sidebar-link" href="/ja/japanese/jlpt/">JLPT N1 学習</a><a class="blog-sidebar-link" href="/ja/japanese/words/">単語一覧</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/">ランダムクイズ</a><a class="blog-sidebar-link" href="/ja/japanese/quiz/result/">学習結果</a>
 			</nav></section>
 			<section class="blog-sidebar-section"><p class="blog-sidebar-label">Boards</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">公開されたカテゴリーはまだありません。</p></section>
 			<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
 		</aside>
 		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
 		<main class="blog-dashboard-main"><div class="blog-dashboard-content jp-dashboard-content">
-			<section class="jp-page-heading"><div><p class="jp-eyebrow">JAPANESE LEARNING</p><h1>日本語学習ダッシュボード</h1><p>登録した単語、誤答、JLPT別の進捗とクイズ学習をまとめて確認します。</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ja/japanese/words/">単語を見る</a><a class="jp-primary-button" href="/ja/japanese/quiz/">クイズを始める</a></div></section>
+			<section class="jp-page-heading"><div><p class="jp-eyebrow">JAPANESE LEARNING</p><h1>日本語学習ダッシュボード</h1><p>登録した単語、誤答、JLPT別の進捗とクイズ学習をまとめて確認します。</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ja/japanese/words/">単語を見る</a><a class="jp-primary-button" href="/ja/japanese/jlpt/">JLPT N1 学習</a></div></section>
 			<section class="jp-stat-grid">
 				<article class="jp-stat-card"><span>登録単語</span><strong data-jp-stat="registered">—</strong><small>語</small></article>
 				<article class="jp-stat-card"><span>復習が必要</span><strong data-jp-stat="wrong">—</strong><small>語</small></article>
@@ -41,16 +41,17 @@
 			<section class="jp-two-column">
 				<div>
 					<section class="jp-card"><div class="jp-card-heading"><h2>クイック学習</h2><span>Quick Study</span></div><div class="jp-action-grid">
+						<a class="jp-action-card" href="/ja/japanese/jlpt/"><span class="jp-action-icon">N1</span><div><b>JLPT N1 今日の学習</b><p>新規20語・復習・文法・読解をスケジュールに沿って進めます。</p></div></a>
 						<a class="jp-action-card" href="/ja/japanese/words/"><span class="jp-action-icon">語</span><div><b>単語を確認</b><p>読み方・意味・例文を検索して復習します。</p></div></a>
 						<a class="jp-action-card" href="/ja/japanese/quiz/"><span class="jp-action-icon">Q</span><div><b>ランダムクイズ</b><p>JLPT、分類、品詞を指定して出題します。</p></div></a>
 						<a class="jp-action-card" href="/ja/japanese/quiz/?wrong=1"><span class="jp-action-icon">!</span><div><b>誤答だけ復習</b><p>間違えた単語を優先して再学習します。</p></div></a>
 					</div></section>
-					<section class="jp-card"><div class="jp-card-heading"><h2>JLPT別の進捗</h2><span>登録データから自動計算予定</span></div><div class="jp-level-list">
+					<section class="jp-card"><div class="jp-card-heading"><h2>JLPT別の進捗</h2><span>登録データから自動計算</span></div><div class="jp-level-list">
 						<div class="jp-level-row"><strong>N1</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N2</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N3</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N4</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N5</strong><progress max="100" value="0"></progress><span>— / —</span></div>
 					</div></section>
 				</div>
 				<aside>
-					<section class="jp-card"><div class="jp-card-heading"><h2>最近の学習</h2><span>Recent</span></div><div class="jp-simple-list"><div class="jp-empty-state">学習履歴データを接続すると、ここに最近の回答が表示されます。</div></div></section>
+					<section class="jp-card"><div class="jp-card-heading"><h2>最近の学習</h2><span>Recent</span></div><div class="jp-simple-list"><div class="jp-empty-state">学習履歴が蓄積されると、ここに最近の回答が表示されます。</div></div></section>
 					<section class="jp-card"><div class="jp-card-heading"><h2>学習分類</h2><span>Categories</span></div><div class="jp-simple-list"><div class="jp-simple-row"><div><strong>JLPT</strong><small>N1〜N5</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>仕事・面接</strong><small>業務で使う表現</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>開発用語</strong><small>IT・Web・Cloud</small></div><span>→</span></div></div></section>
 				</aside>
 			</section>
