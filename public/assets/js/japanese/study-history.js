@@ -24,10 +24,11 @@
 				reading: '読解',
 				more: 'さらに表示',
 				allShown: 'すべて表示済み',
-				recordedDays: '学習記録日',
-				completedDays: '完了日',
+				currentStreak: '現在の連続学習',
+				longestStreak: '最長連続学習',
+				totalStudyDays: '総学習日数',
 				totalNewWords: '新規学習単語',
-				totalReviews: '復習単語',
+				dayUnit: '日',
 			}
 			: {
 				empty: '아직 공개할 학습 이력이 없습니다.',
@@ -42,10 +43,11 @@
 				reading: '독해',
 				more: '더 보기',
 				allShown: '전체 표시 완료',
-				recordedDays: '학습 기록일',
-				completedDays: '완료일',
+				currentStreak: '현재 연속 학습',
+				longestStreak: '최장 연속 학습',
+				totalStudyDays: '총 학습일',
 				totalNewWords: '신규 학습 단어',
-				totalReviews: '복습 단어',
+				dayUnit: '일',
 			};
 	}
 
@@ -114,10 +116,10 @@
 		if (!wrap) return;
 		wrap.replaceChildren();
 		const values = [
-			[labels.recordedDays, summary?.recordedDays ?? 0],
-			[labels.completedDays, summary?.completedDays ?? 0],
+			[labels.currentStreak, `${summary?.currentStreak ?? 0}${labels.dayUnit}`],
+			[labels.longestStreak, `${summary?.longestStreak ?? 0}${labels.dayUnit}`],
+			[labels.totalStudyDays, `${summary?.totalStudyDays ?? summary?.recordedDays ?? 0}${labels.dayUnit}`],
 			[labels.totalNewWords, summary?.totalNewWords ?? 0],
-			[labels.totalReviews, summary?.totalReviews ?? 0],
 		];
 		for (const [label, value] of values) {
 			const item = document.createElement('div');
