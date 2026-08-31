@@ -5,7 +5,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "song-project",
-	"main": "src/index.ts",
+	"main": "src/index-ap-wrapper.ts",
 	"compatibility_date": "2026-08-25",
 	"compatibility_flags": [
 		"global_fetch_strictly_public"
@@ -44,14 +44,15 @@
 	 */
 	/**
 	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+	 * Environment Variables are a type of binding that allow you to attach text strings or JSON values to your Worker.
+	 * https://developers.cloudflare.com/workers/configuration/environment-variables/
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
+	// "vars": {  "MY_VARIABLE": "production_value"  }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
+	 * https://developers.cloudflare.com/workers/configuration/bindings/about-service-bindings/
 	 */
-	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
+	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
 }
