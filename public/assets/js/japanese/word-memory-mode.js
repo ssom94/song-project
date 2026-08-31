@@ -1,6 +1,7 @@
 (() => {
-	const STORAGE_KEY = 'song_japanese_word_memory_mode_v1';
+	const STORAGE_KEY = 'song_japanese_word_memory_mode_v2';
 	let enabled = false;
+	let observer = null;
 
 	function language() {
 		return document.body.dataset.blogLanguage === 'ja' ? 'ja' : 'ko';
@@ -14,7 +15,7 @@
 		if (document.querySelector('link[data-word-memory-mode]')) return;
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = '/assets/css/japanese/word-memory-mode.css';
+		link.href = '/assets/css/japanese/word-memory-mode.css?v=20260831-2';
 		link.dataset.wordMemoryMode = 'true';
 		document.head.appendChild(link);
 	}
@@ -28,7 +29,11 @@
 	}
 
 	function resetReveals() {
-		document.querySelectorAll('.jp-word-row.is-memory-revealed').forEach((row) => row.classList.remove('is-memory-revealed'));
+		document.querySelectorAll('.jp-word-row.is-memory-revealed').forEach((row) => {
+			row.classList.remove('is-memory-revealed');
+			const reveal = row.querySelector('.jp-memory-reveal');
+			if (reveal instanceof HTMLButtonElement) reveal.textContent = t('정답 보기', '答えを見る');
+		});
 	}
 
 	function syncButton() {
@@ -37,6 +42,9 @@
 		button.classList.toggle('is-active', enabled);
 		button.textContent = enabled ? t('암기 모드 종료', '暗記モード終了') : t('암기 모드', '暗記モード');
 		button.setAttribute('aria-pressed', String(enabled));
+		button.title = enabled
+			? t('읽기와 뜻을 다시 표시합니다.', '読みと意味を再表示します。')
+			: t('일본어 단어만 보고 외웁니다.', '日本語の単語だけを見て暗記します。');
 	}
 
 	function setEnabled(next) {
@@ -47,16 +55,26 @@
 		syncButton();
 	}
 
+	function bindButton(button) {
+		if (!(button instanceof HTMLButtonElement) || button.dataset.memoryBound === 'true') return;
+		button.dataset.memoryBound = 'true';
+		button.addEventListener('click', () => setEnabled(!enabled));
+	}
+
 	function mountButton() {
 		const actions = document.querySelector('.jp-heading-actions');
-		if (!(actions instanceof HTMLElement) || document.getElementById('jp-memory-mode-toggle')) return;
-		const button = document.createElement('button');
-		button.id = 'jp-memory-mode-toggle';
-		button.type = 'button';
-		button.className = 'jp-secondary-button jp-memory-mode-toggle';
-		button.addEventListener('click', () => setEnabled(!enabled));
-		actions.insertBefore(button, actions.firstChild);
+		if (!(actions instanceof HTMLElement)) return null;
+		let button = document.getElementById('jp-memory-mode-toggle');
+		if (!(button instanceof HTMLButtonElement)) {
+			button = document.createElement('button');
+			button.id = 'jp-memory-mode-toggle';
+			button.type = 'button';
+			button.className = 'jp-secondary-button jp-memory-mode-toggle';
+			actions.insertBefore(button, actions.firstChild);
+		}
+		bindButton(button);
 		syncButton();
+		return button;
 	}
 
 	function enhanceRow(row) {
@@ -81,8 +99,9 @@
 
 	function observeRows() {
 		const list = document.querySelector('.jp-word-list');
-		if (!list) return;
-		new MutationObserver(() => enhanceRows()).observe(list, { childList: true });
+		if (!list || observer) return;
+		observer = new MutationObserver(() => enhanceRows());
+		observer.observe(list, { childList: true });
 	}
 
 	function initialize() {
