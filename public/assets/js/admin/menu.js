@@ -91,18 +91,30 @@
 		}
 	}
 
+	function loadScriptOnce(src, attr) {
+		if (document.querySelector(`script[${attr}]`)) return;
+		const script = document.createElement('script');
+		script.src = src;
+		script.setAttribute(attr, 'true');
+		document.body.appendChild(script);
+	}
+
 	function loadJapaneseWordEnhancements() {
 		if (normalizePath(window.location.pathname) !== '/admin/japanese/') return;
 		for (const [src, attr] of [
 			['/assets/js/admin/japanese-import-provenance.js', 'data-japanese-import-provenance'],
 			['/assets/js/admin/japanese-timestamps.js', 'data-japanese-timestamps'],
 			['/assets/js/admin/japanese-history-bulk.js', 'data-japanese-history-bulk'],
-		]) {
-			if (document.querySelector(`script[${attr}]`)) continue;
-			const script = document.createElement('script');
-			script.src = src;
-			script.setAttribute(attr, 'true');
-			document.body.appendChild(script);
+		]) loadScriptOnce(src, attr);
+	}
+
+	function loadPageEnhancements() {
+		const path = normalizePath(window.location.pathname);
+		if (path === '/admin/site-design/') {
+			loadScriptOnce('/assets/js/admin/site-design-diagnostics.js?v=20260831-1', 'data-site-design-diagnostics');
+		}
+		if (path === '/admin/posts/new/' || path === '/admin/posts/edit/') {
+			loadScriptOnce('/assets/js/admin/post-editor-history.js?v=20260831-1', 'data-post-editor-history');
 		}
 	}
 
@@ -135,6 +147,7 @@
 		nav.replaceChildren(fragment);
 		normalizeJapaneseManagementTabs();
 		loadJapaneseWordEnhancements();
+		loadPageEnhancements();
 	}
 
 	async function refreshMenuLabels() {
@@ -157,6 +170,7 @@
 		await renderMenu();
 		normalizeJapaneseManagementTabs();
 		loadJapaneseWordEnhancements();
+		loadPageEnhancements();
 	})();
 
 	window.AdminMenu = {
