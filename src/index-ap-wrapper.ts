@@ -10,6 +10,12 @@ import {
 import { handleListAdminApVocabularyWrongNotes } from './admin/ap-vocabulary-wrong';
 import { handleListAdminJapaneseWordsWithProvenance } from './admin/japanese/words-provenance';
 import { handleExportStudyXlsx } from './admin/study-export';
+import {
+	handleGetPublicJapaneseJlptPractice,
+	handleGradeAdminJapaneseJlptPractice,
+	handleGradePublicJapaneseJlptPractice,
+	handleListAdminJapaneseJlptWrongNotes,
+} from './jlpt-practice';
 import { handleGetPublicApDashboard } from './public/ap';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
 
@@ -37,6 +43,14 @@ export default {
 				return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/kanji-korean':
 				return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/practice':
+				return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/practice/grade':
+				return request.method === 'POST' ? handleGradePublicJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/practice/grade':
+				return request.method === 'POST' ? handleGradeAdminJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/wrong-notes':
+				return request.method === 'GET' ? handleListAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/study/export.xlsx':
 				return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words':
