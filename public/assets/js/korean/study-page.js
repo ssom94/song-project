@@ -22,8 +22,17 @@
 		}
 	}
 
+	function configureLanguageSwitch() {
+		document.querySelectorAll('.blog-dashboard-language a').forEach((link) => {
+			if (!(link instanceof HTMLAnchorElement)) return;
+			if (!link.pathname.includes('/japanese/words/')) return;
+			link.href = withKoreanMode(link.href);
+		});
+	}
+
 	function configureWordListHeading() {
 		if (!path.includes('/japanese/words/')) return;
+		const lang = language();
 		const heading = document.querySelector('.jp-page-heading h1');
 		const eyebrow = document.querySelector('.jp-page-heading .jp-eyebrow');
 		const lead = document.querySelector('.jp-page-heading p:not(.jp-eyebrow)');
@@ -33,10 +42,21 @@
 			'일본어 단어를 보고 한국어 뜻을 외우고, 암기 모드와 퀴즈로 바로 확인합니다.',
 			'日本語の単語を見て韓国語の意味を覚え、暗記モードとクイズですぐ確認します。',
 		);
-		document.querySelectorAll('.jp-heading-actions a[href*="/japanese/quiz/"]').forEach((link) => {
-			if (link instanceof HTMLAnchorElement) {
+
+		document.querySelectorAll('.jp-heading-actions a').forEach((link) => {
+			if (!(link instanceof HTMLAnchorElement)) return;
+			if (link.pathname.includes('/japanese/quiz/')) {
 				link.href = withKoreanMode(link.href);
 				link.textContent = t('한국어 랜덤 퀴즈', '韓国語ランダムクイズ');
+				return;
+			}
+			if (link.pathname.includes('/japanese/export/')) {
+				link.hidden = true;
+				return;
+			}
+			if (link.pathname === `/${lang}/japanese/`) {
+				link.href = `/${lang}/korean/`;
+				link.textContent = t('한국어 학습 홈', '韓国語学習ホーム');
 			}
 		});
 	}
@@ -57,6 +77,7 @@
 	}
 
 	function initialize() {
+		configureLanguageSwitch();
 		configureWordListHeading();
 		configureWordRows();
 		observeWordRows();
