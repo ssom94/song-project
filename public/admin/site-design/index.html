@@ -7,7 +7,7 @@
 	<title>Site Design | SONG Admin</title>
 	<link rel="stylesheet" href="/assets/css/common.css" />
 	<link rel="stylesheet" href="/assets/css/admin/common.css" />
-	<link rel="stylesheet" href="/assets/css/admin/site-design.css" />
+	<link rel="stylesheet" href="/assets/css/admin/site-design.css?v=20260831-2" />
 </head>
 <body class="admin-page admin-site-design-page" data-i18n-scope="site-design">
 	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
@@ -49,6 +49,21 @@
 							<div class="site-design-upload-field"><label for="site-background-file" class="site-design-upload-button" data-i18n="siteDesignUpload">画像をアップロード</label><input id="site-background-file" type="file" accept="image/png,image/jpeg,image/webp" /><small data-i18n="siteDesignUploadHint">PNG/JPG/WebP・最大5MB</small></div>
 						</div>
 						<label class="site-design-range-field"><span><strong data-i18n="siteDesignOverlay">背景を明るくする</strong><b id="site-background-overlay-value">12%</b></span><input id="site-background-overlay" type="range" min="0" max="80" step="1" value="12" /><small data-i18n="siteDesignOverlayHint">背景が濃い場合、値を上げるとコンテンツが読みやすくなります。</small></label>
+
+						<div id="site-background-layout-controls" class="site-design-background-layout">
+							<div class="site-design-layout-heading"><strong data-i18n="siteDesignBackgroundSize">背景サイズ</strong><small data-i18n="siteDesignBackgroundSizeHint">画像背景の表示方法と位置を調整します。</small></div>
+							<div id="site-background-size-modes" class="site-design-segmented">
+								<button type="button" data-background-size-mode="cover" data-i18n="siteDesignBackgroundCover">画面を埋める</button>
+								<button type="button" data-background-size-mode="contain" data-i18n="siteDesignBackgroundContain">全体を表示</button>
+								<button type="button" data-background-size-mode="custom" data-i18n="siteDesignBackgroundCustom">手動調整</button>
+							</div>
+							<label class="site-design-range-field"><span><strong data-i18n="siteDesignBackgroundScale">サイズ</strong><b id="site-background-scale-value">100%</b></span><input id="site-background-scale" type="range" min="50" max="250" step="1" value="100" /><small data-i18n="siteDesignBackgroundScaleHint">手動調整を選んだ場合に使用します。</small></label>
+							<div class="site-design-position-grid">
+								<label class="site-design-range-field"><span><strong data-i18n="siteDesignBackgroundPositionX">横位置</strong><b id="site-background-position-x-value">50%</b></span><input id="site-background-position-x" type="range" min="0" max="100" step="1" value="50" /></label>
+								<label class="site-design-range-field"><span><strong data-i18n="siteDesignBackgroundPositionY">縦位置</strong><b id="site-background-position-y-value">50%</b></span><input id="site-background-position-y" type="range" min="0" max="100" step="1" value="50" /></label>
+							</div>
+							<p id="site-background-layout-note" class="site-design-layout-note" data-i18n="siteDesignBackgroundLayoutUnavailable">画像系の背景を選択するとサイズと位置を調整できます。</p>
+						</div>
 					</section>
 
 					<section class="site-design-card">
@@ -66,6 +81,6 @@
 	<script src="/assets/js/admin/menu.js"></script>
 	<script src="/assets/js/admin/layout.js"></script>
 	<script src="/assets/js/admin/common.js"></script>
-	<script src="/assets/js/admin/site-design.js"></script>
+	<script src="/assets/js/admin/site-design.js?v=20260831-2"></script>
 </body>
 </html>
