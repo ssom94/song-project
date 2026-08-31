@@ -29,6 +29,7 @@ jobs:
 
       - name: Browser JavaScript syntax check
         run: |
+          node --check public/assets/js/markdown.js
           node --check public/assets/js/blog/dashboard-shell.js
           node --check public/assets/js/blog/certifications-list.js
           node --check public/assets/js/blog/certification-detail.js
@@ -36,6 +37,10 @@ jobs:
           node --check public/assets/js/blog/site-cursor.js
           node --check public/assets/js/shared/category-icons.js
           node --check public/assets/js/admin/category-appearance.js
+          node --check public/assets/js/admin/site-design.js
+          node --check public/assets/js/admin/post-preview-launcher.js
+          node --check public/assets/js/admin/post-markdown-editor.js
+          node --check public/assets/js/admin/post-text-color.js
           node --check public/assets/js/admin/japanese-workspace.js
           node --check public/assets/js/admin/japanese-timestamps.js
           node --check public/assets/js/admin/japanese-import.js
@@ -114,6 +119,7 @@ jobs:
           CATEGORY_APPEARANCE_COLUMNS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM pragma_table_info('categories') WHERE name IN ('icon_kind','icon_value','icon_color');")"
           SITE_VISUALS_TABLE="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='site_visual_settings';")"
           SITE_VISUALS_ROWS="$(sqlite3 "$DB_FILE" 'SELECT COUNT(*) FROM site_visual_settings WHERE id = 1;')"
+          SITE_BACKGROUND_COLUMNS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM pragma_table_info('site_visual_settings') WHERE name IN ('background_kind','background_value','background_overlay');")"
 
           echo "certifications=$CERT_COUNT"
           echo "certification_topics=$CERT_TOPIC_COUNT"
@@ -140,6 +146,7 @@ jobs:
           echo "category_appearance_columns=$CATEGORY_APPEARANCE_COLUMNS"
           echo "site_visuals_table=$SITE_VISUALS_TABLE"
           echo "site_visuals_rows=$SITE_VISUALS_ROWS"
+          echo "site_background_columns=$SITE_BACKGROUND_COLUMNS"
 
           test "$CERT_COUNT" -eq 5
           test "$CERT_TOPIC_COUNT" -gt 0
@@ -166,3 +173,4 @@ jobs:
           test "$CATEGORY_APPEARANCE_COLUMNS" -eq 3
           test "$SITE_VISUALS_TABLE" -eq 1
           test "$SITE_VISUALS_ROWS" -eq 1
+          test "$SITE_BACKGROUND_COLUMNS" -eq 3
