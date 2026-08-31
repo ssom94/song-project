@@ -1,5 +1,6 @@
 import { resolveLearningAdmin } from '../../japanese-learning';
 import {
+	addDays,
 	daysBetween,
 	ensureDefaultJlptStudyPlan,
 	japanDateString,
@@ -64,7 +65,7 @@ function percentage(value: number, total: number): number {
 	return Math.max(0, Math.min(100, Math.round((value / total) * 1000) / 10));
 }
 
-function completedTotal(session: SessionRow | null): number {
+function completedTotal(session: SessionRow | CalendarRow | null): number {
 	if (!session) return 0;
 	return session.review_completed
 		+ session.new_word_completed
@@ -73,7 +74,7 @@ function completedTotal(session: SessionRow | null): number {
 		+ session.reading_completed;
 }
 
-function targetTotal(session: SessionRow | null): number {
+function targetTotal(session: SessionRow | CalendarRow | null): number {
 	if (!session) return 0;
 	return session.review_target
 		+ session.new_word_target
@@ -83,10 +84,34 @@ function targetTotal(session: SessionRow | null): number {
 }
 
 function calendarProgress(row: CalendarRow): number {
-	return percentage(
-		row.review_completed + row.new_word_completed + row.vocab_question_completed + row.grammar_completed + row.reading_completed,
-		row.review_target + row.new_word_target + row.vocab_question_target + row.grammar_target + row.reading_target,
-	);
+	return percentage(completedTotal(row), targetTotal(row));
+}
+
+function activeStudyRows(rows: CalendarRow[]): CalendarRow[] {
+	return rows.filter((row) => row.status === 'completed' || completedTotal(row) > 0);
+}
+
+function studyStreak(rows: CalendarRow[], today: string): { current: number; longest: number } {
+	const dates = [...new Set(activeStudyRows(rows).map((row) => row.study_date))].sort();
+	if (!dates.length) return { current: 0, longest: 0 };
+
+	let longest = 1;
+	let run = 1;
+	for (let index = 1; index < dates.length; index += 1) {
+		if (dates[index] === addDays(dates[index - 1], 1)) run += 1;
+		else run = 1;
+		longest = Math.max(longest, run);
+	}
+
+	const latest = dates[dates.length - 1];
+	if (latest !== today && latest !== addDays(today, -1)) return { current: 0, longest };
+
+	let current = 1;
+	for (let index = dates.length - 1; index > 0; index -= 1) {
+		if (dates[index - 1] !== addDays(dates[index], -1)) break;
+		current += 1;
+	}
+	return { current, longest };
 }
 
 export async function handleGetPublicJapaneseJlptDashboard(request: Request, env: Env): Promise<Response> {
@@ -195,7 +220,9 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 			}
 			: { review: 0, newWords: 0, vocabQuestions: 0, grammar: 0, reading: 0 };
 
-		const history = calendarResult.results.map((row) => ({
+		const activeRows = activeStudyRows(calendarResult.results);
+		const streak = studyStreak(calendarResult.results, today);
+		const history = activeRows.map((row) => ({
 			date: row.study_date,
 			status: row.status,
 			progressPercent: calendarProgress(row),
@@ -208,6 +235,9 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 		const completedDays = history.filter((row) => row.status === 'completed').length;
 		const totalNewWords = history.reduce((sum, row) => sum + Number(row.newWords.completed || 0), 0);
 		const totalReviews = history.reduce((sum, row) => sum + Number(row.review.completed || 0), 0);
+		const totalVocabQuestions = history.reduce((sum, row) => sum + Number(row.vocabQuestions.completed || 0), 0);
+		const totalGrammar = history.reduce((sum, row) => sum + Number(row.grammar.completed || 0), 0);
+		const totalReading = history.reduce((sum, row) => sum + Number(row.reading.completed || 0), 0);
 
 		return json({
 			ok: true,
@@ -256,14 +286,20 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 			historySummary: {
 				recordedDays: history.length,
 				completedDays,
+				currentStreak: streak.current,
+				longestStreak: streak.longest,
+				totalStudyDays: history.length,
 				totalNewWords,
 				totalReviews,
+				totalVocabQuestions,
+				totalGrammar,
+				totalReading,
 			},
 			history,
-			calendar: history.map((row) => ({
-				date: row.date,
+			calendar: calendarResult.results.slice(0, 35).map((row) => ({
+				date: row.study_date,
 				status: row.status,
-				progressPercent: row.progressPercent,
+				progressPercent: calendarProgress(row),
 			})),
 		});
 	} catch (error) {
