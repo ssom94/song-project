@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Certifications | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/certifications.css" />
+</head>
+<body class="admin-page admin-certifications-page">
+	<div id="admin-loading" class="admin-loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる"><span></span><span></span><span></span></button>
+				<a class="admin-global-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語"><button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button></div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button">ログアウト</button></div>
+				</div>
+			</div>
+		</header>
+		<div class="admin-header-accent"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label">管理</p><nav id="admin-nav" class="admin-nav"></nav><div class="admin-sidebar-footer"><a href="/">サイトを表示</a></div></aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
+			<main class="admin-main"><section class="admin-content">
+				<div class="admin-page-heading admin-cert-heading"><div><h1 id="cert-admin-title">資格・試験管理</h1><p id="cert-admin-description">公開中の資格ページ、試験日程、出題範囲・学習情報を編集します。</p></div><a class="admin-cert-public-link" href="/ja/certifications/" target="_blank" rel="noopener">公開ページを見る</a></div>
+				<div id="cert-admin-root" class="admin-cert-root" aria-live="polite"></div>
+			</section></main>
+		</div>
+	</div>
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/certifications.js"></script>
+</body>
+</html>
