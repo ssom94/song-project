@@ -5,6 +5,7 @@
   { "key": "posts", "href": "/admin/posts/" },
   { "key": "comments", "href": "/admin/comments/" },
   { "key": "categoriesTags", "href": "/admin/categories/" },
+  { "key": "siteDesign", "href": "/admin/site-design/", "labelJa": "サイトデザイン", "labelKo": "사이트 디자인" },
   { "key": "japaneseLearning", "href": "/admin/japanese/" },
   { "key": "protectedDocuments", "href": "/admin/documents/" },
   { "key": "accessCodes", "href": "/admin/access-codes/" },
