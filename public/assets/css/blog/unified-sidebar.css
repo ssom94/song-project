@@ -1,0 +1,126 @@
+.blog-sidebar-unified-section {
+	margin-top: 0;
+}
+
+.blog-sidebar-unified-nav {
+	display: grid;
+	gap: 4px;
+}
+
+.blog-sidebar-menu-group {
+	display: grid;
+	gap: 3px;
+}
+
+.blog-sidebar-main-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 4px;
+}
+
+.blog-sidebar-main-row > .blog-sidebar-main-link {
+	min-width: 0;
+}
+
+.blog-sidebar-main-link {
+	font-weight: 820;
+}
+
+.blog-sidebar-menu-group.is-active > .blog-sidebar-main-row .blog-sidebar-main-link {
+	background: #edf3ff;
+	color: #1f56d8;
+	font-weight: 900;
+}
+
+.blog-sidebar-submenu-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: #8a96a6;
+	font: inherit;
+	font-size: 15px;
+	font-weight: 900;
+	cursor: pointer;
+	transition: background .15s ease, color .15s ease;
+}
+
+.blog-sidebar-submenu-toggle:hover {
+	background: #f1f5fd;
+	color: #1f56d8;
+}
+
+.blog-sidebar-submenu-toggle span {
+	display: block;
+	transition: transform .18s ease;
+}
+
+.blog-sidebar-menu-group.is-open .blog-sidebar-submenu-toggle span {
+	transform: rotate(180deg);
+}
+
+.blog-sidebar-submenu {
+	display: grid;
+	gap: 2px;
+	margin: 1px 0 6px 10px;
+	padding: 4px 0 3px 10px;
+	border-left: 1px solid #e3e8ef;
+}
+
+.blog-sidebar-submenu[hidden] {
+	display: none;
+}
+
+.blog-sidebar-sub-link,
+.blog-sidebar-submenu .blog-sidebar-category-link {
+	min-height: 32px;
+	padding: 0 9px;
+	font-size: 10px;
+	font-weight: 730;
+}
+
+.blog-sidebar-sub-link.is-active {
+	background: #f1f5fd;
+	color: #1f56d8;
+	font-weight: 900;
+}
+
+.blog-sidebar-subsection-label {
+	margin: 8px 9px 3px;
+	color: #a0a9b7;
+	font-size: 8px;
+	font-weight: 900;
+	letter-spacing: .08em;
+}
+
+.blog-sidebar-dynamic-categories {
+	display: grid;
+	gap: 2px;
+}
+
+.blog-sidebar-submenu .blog-sidebar-category-empty {
+	margin: 5px 9px 2px;
+	font-size: 9px;
+}
+
+#ap-today,
+#ap-history {
+	scroll-margin-top: 84px;
+}
+
+@media (max-width: 840px) {
+	.blog-sidebar-main-row {
+		grid-template-columns: minmax(0, 1fr) 34px;
+	}
+
+	.blog-sidebar-submenu-toggle {
+		width: 34px;
+		height: 34px;
+	}
+}
