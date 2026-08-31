@@ -8,6 +8,7 @@ import {
 	handleListAdminApVocabulary,
 } from './admin/ap-vocabulary';
 import { handleListAdminApVocabularyWrongNotes } from './admin/ap-vocabulary-wrong';
+import { handleListAdminJapaneseWordsWithProvenance } from './admin/japanese/words-provenance';
 import { handleExportStudyXlsx } from './admin/study-export';
 import { handleGetPublicApDashboard } from './public/ap';
 
@@ -22,10 +23,22 @@ export default {
 	async fetch(request, env): Promise<Response> {
 		const pathname = new URL(request.url).pathname;
 		switch (pathname) {
+			case '/favicon.ico':
+				if (request.method !== 'GET' && request.method !== 'HEAD') return methodNotAllowed('GET, HEAD');
+				return new Response(null, {
+					status: 302,
+					headers: {
+						Location: new URL('/favicon.svg', request.url).toString(),
+						'Cache-Control': 'public, max-age=86400',
+					},
+				});
 			case '/api/public/ap/dashboard':
 				return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/admin/study/export.xlsx':
 				return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/words':
+				if (request.method === 'GET') return handleListAdminJapaneseWordsWithProvenance(request, env);
+				return app.fetch(request, env);
 			case '/api/admin/ap/today':
 				return request.method === 'GET' ? handleGetAdminApToday(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/today/start':
