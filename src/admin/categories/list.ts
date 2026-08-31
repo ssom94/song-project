@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { publicCategoryAppearance } from '../../category-appearance';
 
 interface AdminCategoryRow {
 	id: number;
@@ -6,6 +7,9 @@ interface AdminCategoryRow {
 	display_order: number;
 	name_ja: string | null;
 	name_ko: string | null;
+	icon_kind: string | null;
+	icon_value: string | null;
+	icon_color: string | null;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -28,6 +32,9 @@ export async function handleListAdminCategories(request: Request, env: Env): Pro
 					c.id,
 					c.parent_id,
 					c.display_order,
+					c.icon_kind,
+					c.icon_value,
+					c.icon_color,
 					ja.name AS name_ja,
 					ko.name AS name_ko
 				FROM categories AS c
@@ -50,6 +57,7 @@ export async function handleListAdminCategories(request: Request, env: Env): Pro
 					ja: row.name_ja,
 					ko: row.name_ko,
 				},
+				appearance: publicCategoryAppearance(row),
 			})),
 		});
 	} catch (error) {
