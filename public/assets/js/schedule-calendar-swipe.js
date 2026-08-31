@@ -275,8 +275,6 @@
 		}
 		const label = button.dataset.compactAddLabel.replace(/^\+\s*/, '');
 
-		// Important: assigning textContent on every observer callback creates a childList
-		// mutation, which can cause an endless MutationObserver loop while admin is logged in.
 		if (button.textContent?.trim() !== '+') button.textContent = '+';
 		if (button.title !== label) button.title = label;
 		if (button.getAttribute('aria-label') !== label) button.setAttribute('aria-label', label);
@@ -311,4 +309,13 @@
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
+})();
+
+(() => {
+	if (document.querySelector('script[data-schedule-calendar-local-info]')) return;
+	const script = document.createElement('script');
+	script.src = '/assets/js/schedule-calendar-local-info.js?v=20260831-1';
+	script.async = true;
+	script.dataset.scheduleCalendarLocalInfo = 'true';
+	document.head.appendChild(script);
 })();
