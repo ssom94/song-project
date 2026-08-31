@@ -7,6 +7,7 @@ import {
 	handleGradeAdminApVocabularyQuiz,
 	handleListAdminApVocabulary,
 } from './admin/ap-vocabulary';
+import { handleListAdminApVocabularyWrongNotes } from './admin/ap-vocabulary-wrong';
 import { handleExportStudyXlsx } from './admin/study-export';
 import { handleGetPublicApDashboard } from './public/ap';
 
@@ -36,6 +37,8 @@ export default {
 				if (request.method === 'POST') return handleCreateAdminApVocabulary(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminApVocabulary(request, env);
 				return methodNotAllowed('GET, POST, DELETE');
+			case '/api/admin/ap/vocabulary/wrong-notes':
+				return request.method === 'GET' ? handleListAdminApVocabularyWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/vocabulary/quiz':
 				return request.method === 'GET' ? handleGetAdminApVocabularyQuiz(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/vocabulary/quiz/grade':
