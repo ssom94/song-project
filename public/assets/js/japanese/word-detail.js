@@ -1,4 +1,6 @@
 (() => {
+	const KANJI_API = '/api/public/japanese/kanji-korean';
+
 	function byId(id) {
 		return document.getElementById(id);
 	}
@@ -46,6 +48,53 @@
 		return text || '—';
 	}
 
+	function mountKanjiStyle() {
+		if (document.getElementById('jp-word-detail-kanji-style')) return;
+		const style = document.createElement('style');
+		style.id = 'jp-word-detail-kanji-style';
+		style.textContent = `
+			.jp-word-detail-kanji-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+				gap: 9px;
+			}
+			.jp-word-detail-kanji-item {
+				display: grid;
+				grid-template-columns: 44px minmax(0, 1fr);
+				align-items: center;
+				gap: 11px;
+				padding: 12px;
+				border: 1px solid #e1e7ef;
+				border-radius: 11px;
+				background: #fbfcfe;
+			}
+			.jp-word-detail-kanji-character {
+				display: grid;
+				place-items: center;
+				width: 44px;
+				height: 44px;
+				border-radius: 10px;
+				background: #eef3ff;
+				color: #274f91;
+				font-size: 25px;
+				font-weight: 900;
+			}
+			.jp-word-detail-kanji-info b,
+			.jp-word-detail-kanji-info span { display: block; }
+			.jp-word-detail-kanji-info b {
+				font-size: 13px;
+				color: #344156;
+			}
+			.jp-word-detail-kanji-info span {
+				margin-top: 3px;
+				font-size: 10px;
+				font-weight: 750;
+				color: #7d899a;
+			}
+		`;
+		document.head.appendChild(style);
+	}
+
 	function renderTaxonomy(word) {
 		const container = byId('jp-word-detail-taxonomy');
 		if (!container) return;
@@ -91,6 +140,60 @@
 		byId('jp-word-detail-example-ko').textContent = valueOrDash(example.translationKo);
 	}
 
+	async function renderKanjiKorean(word) {
+		const main = document.querySelector('.jp-word-detail-main');
+		const hero = main?.querySelector('.jp-word-detail-hero');
+		if (!(main instanceof HTMLElement) || !(hero instanceof HTMLElement)) return;
+		main.querySelector('#jp-word-detail-kanji-korean')?.remove();
+		const wordText = String(word?.word ?? '').trim();
+		if (!wordText) return;
+
+		try {
+			const params = new URLSearchParams();
+			params.append('word', wordText);
+			const response = await fetch(`${KANJI_API}?${params.toString()}`, { cache: 'no-store' });
+			const result = await response.json().catch(() => null);
+			const entries = response.ok && result?.ok && Array.isArray(result.words)
+				? result.words.find((item) => item.word === wordText)?.kanji
+				: null;
+			if (!Array.isArray(entries) || !entries.length) return;
+
+			const section = document.createElement('section');
+			section.id = 'jp-word-detail-kanji-korean';
+			section.className = 'jp-word-detail-section';
+			const heading = document.createElement('div');
+			heading.className = 'jp-word-detail-section-heading';
+			const h2 = document.createElement('h2');
+			h2.textContent = copy('漢字の韓国式の訓・音', '한자 한국식 뜻·음');
+			const label = document.createElement('span');
+			label.textContent = 'KOREAN HANJA';
+			heading.append(h2, label);
+
+			const grid = document.createElement('div');
+			grid.className = 'jp-word-detail-kanji-grid';
+			for (const entry of entries) {
+				const item = document.createElement('div');
+				item.className = 'jp-word-detail-kanji-item';
+				const character = document.createElement('strong');
+				character.className = 'jp-word-detail-kanji-character';
+				character.textContent = entry.character || '';
+				const info = document.createElement('div');
+				info.className = 'jp-word-detail-kanji-info';
+				const hunEum = document.createElement('b');
+				hunEum.textContent = `${entry.meaningKo || '—'} ${entry.soundKo || '—'}`;
+				const note = document.createElement('span');
+				note.textContent = copy('韓国漢字の意味・音', '한국 한자의 뜻·음');
+				info.append(hunEum, note);
+				item.append(character, info);
+				grid.appendChild(item);
+			}
+			section.append(heading, grid);
+			hero.insertAdjacentElement('afterend', section);
+		} catch (error) {
+			console.warn('Failed to load Korean kanji readings for word detail', error);
+		}
+	}
+
 	function syncLinks(word) {
 		const encodedWord = encodeURIComponent(word.word ?? '');
 		const quizHref = `/${language()}/japanese/quiz/?word=${encodedWord}`;
@@ -120,6 +223,7 @@
 		byId('jp-word-detail-category-count').textContent = String(categoriesFor(word).length);
 		renderTaxonomy(word);
 		renderExample(word);
+		renderKanjiKorean(word);
 		syncLinks(word);
 
 		document.title = language() === 'ko'
@@ -128,6 +232,7 @@
 	}
 
 	async function loadWord() {
+		mountKanjiStyle();
 		const params = new URLSearchParams(window.location.search);
 		const wordParam = params.get('word')?.trim() ?? '';
 		const idParam = Number(params.get('id'));
