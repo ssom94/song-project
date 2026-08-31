@@ -4,6 +4,7 @@
 	const STEP_COUNT = 20;
 	let items = [];
 	let visibleCount = INITIAL_COUNT;
+	let summarySnapshot = {};
 
 	function language() {
 		return document.body.dataset.blogLanguage === 'ja' ? 'ja' : 'ko';
@@ -37,7 +38,7 @@
 				completed: '완료',
 				inProgress: '학습 중',
 				notStarted: '미완료',
-				schedule: '일정',
+				schedule: '스케줄',
 				review: '복습',
 				newWords: '신규 단어',
 				vocab: '어휘 문제',
@@ -78,14 +79,23 @@
 	}
 
 	function scheduleProgress(item) {
+		if (item?.schedule && Number.isFinite(Number(item.schedule.target))) {
+			return {
+				completed: Number(item.schedule.completed ?? 0),
+				target: Number(item.schedule.target ?? 0),
+			};
+		}
 		const sections = [item?.review, item?.newWords, item?.vocabQuestions, item?.grammar, item?.reading];
 		let completed = 0;
+		let target = 0;
 		for (const section of sections) {
-			const target = Number(section?.target ?? 0);
+			const required = Number(section?.target ?? 0);
 			const done = Number(section?.completed ?? 0);
-			if (target <= 0 || done >= target) completed += 1;
+			if (required <= 0) continue;
+			target += 1;
+			if (done >= required) completed += 1;
 		}
-		return { completed, target: sections.length };
+		return { completed, target };
 	}
 
 	function createRow(item) {
@@ -125,6 +135,7 @@
 	}
 
 	function renderSummary(summary) {
+		summarySnapshot = summary || {};
 		const labels = copy();
 		const wrap = document.getElementById('jp-study-history-summary');
 		if (!wrap) return;
@@ -167,12 +178,7 @@
 		}
 	}
 
-	async function initialize() {
-		const more = document.getElementById('jp-study-history-more');
-		more?.addEventListener('click', () => {
-			visibleCount += STEP_COUNT;
-			renderList();
-		});
+	async function refresh() {
 		try {
 			const response = await fetch(API, { cache: 'no-store', credentials: 'same-origin' });
 			const data = await response.json().catch(() => null);
@@ -193,6 +199,25 @@
 		}
 	}
 
+	function rerenderForLanguage() {
+		renderSummary(summarySnapshot);
+		renderList();
+	}
+
+	function initialize() {
+		const more = document.getElementById('jp-study-history-more');
+		more?.addEventListener('click', () => {
+			visibleCount += STEP_COUNT;
+			renderList();
+		});
+		document.querySelectorAll('[data-home-language]').forEach((button) => {
+			button.addEventListener('click', () => window.setTimeout(rerenderForLanguage, 0));
+		});
+		window.addEventListener('jlptstudyprogresschange', refresh);
+		refresh();
+	}
+
+	window.JlptStudyHistory = { refresh };
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
 	else initialize();
 })();
