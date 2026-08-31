@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/assets/css/blog/common.css" />
 	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
 	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/study-history.css" />
 </head>
 <body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ko">
 	<header class="blog-dashboard-topbar">
@@ -29,9 +30,11 @@
 			<section class="jp-two-column"><div>
 				<section class="jp-card"><div class="jp-card-heading"><h2>빠른 학습</h2><span>Quick Study</span></div><div class="jp-action-grid"><a class="jp-action-card" href="/ko/japanese/jlpt/"><span class="jp-action-icon">N1</span><div><b>JLPT N1 오늘의 학습</b><p>신규 20개·복습·문법·독해를 일정에 맞춰 진행합니다.</p></div></a><a class="jp-action-card" href="/ko/japanese/words/"><span class="jp-action-icon">語</span><div><b>단어 확인</b><p>읽기, 뜻, 예문을 검색하고 복습합니다.</p></div></a><a class="jp-action-card" href="/ko/japanese/quiz/"><span class="jp-action-icon">Q</span><div><b>랜덤 퀴즈</b><p>JLPT, 분류, 품사를 선택해 문제를 풉니다.</p></div></a><a class="jp-action-card" href="/ko/japanese/quiz/?wrong=1"><span class="jp-action-icon">!</span><div><b>오답만 복습</b><p>틀린 단어를 우선해서 다시 학습합니다.</p></div></a></div></section>
 				<section class="jp-card"><div class="jp-card-heading"><h2>JLPT별 진행률</h2><span>등록 데이터 자동 계산</span></div><div class="jp-level-list"><div class="jp-level-row"><strong>N1</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N2</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N3</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N4</strong><progress max="100" value="0"></progress><span>— / —</span></div><div class="jp-level-row"><strong>N5</strong><progress max="100" value="0"></progress><span>— / —</span></div></div></section>
-			</div><aside><section class="jp-card"><div class="jp-card-heading"><h2>최근 학습</h2><span>Recent</span></div><div class="jp-empty-state">학습 이력이 쌓이면 최근 답변이 여기에 표시됩니다.</div></section><section class="jp-card"><div class="jp-card-heading"><h2>학습 분류</h2><span>Categories</span></div><div class="jp-simple-list"><div class="jp-simple-row"><div><strong>JLPT</strong><small>N1~N5</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>업무·면접</strong><small>업무에서 자주 쓰는 표현</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>개발용어</strong><small>IT · Web · Cloud</small></div><span>→</span></div></div></section></aside></section>
+			</div><aside><section class="jp-card"><div class="jp-card-heading"><h2>학습 기록</h2><span>Public History</span></div><div class="jp-empty-state">아래 공개 학습 이력에 날짜별 JLPT N1 학습량이 계속 누적됩니다.</div></section><section class="jp-card"><div class="jp-card-heading"><h2>학습 분류</h2><span>Categories</span></div><div class="jp-simple-list"><div class="jp-simple-row"><div><strong>JLPT</strong><small>N1~N5</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>업무·면접</strong><small>업무에서 자주 쓰는 표현</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>개발용어</strong><small>IT · Web · Cloud</small></div><span>→</span></div></div></section></aside></section>
+
+			<section class="jp-card jp-study-history-card"><div class="jp-card-heading"><div><h2>공개 학습 이력</h2><span>JLPT N1 Study History</span></div><a class="jp-secondary-button" href="/ko/japanese/jlpt/">학습 화면 보기</a></div><div id="jp-study-history-summary" class="jp-study-history-summary"><div><span>학습 기록일</span><strong>—</strong></div><div><span>완료일</span><strong>—</strong></div><div><span>신규 학습 단어</span><strong>—</strong></div><div><span>복습 단어</span><strong>—</strong></div></div><div id="jp-study-history-list" class="jp-study-history-list"><div class="jp-empty-state">학습 이력을 불러오는 중입니다.</div></div><div class="jp-study-history-more-wrap"><button id="jp-study-history-more" class="jp-study-history-more" type="button" hidden>더 보기</button></div></section>
 		</div></main>
 	</div>
-	<script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/japanese/common.js"></script>
+	<script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/japanese/common.js"></script><script src="/assets/js/japanese/study-history.js"></script>
 </body>
 </html>
