@@ -114,6 +114,29 @@
 	scroll-margin-top: 84px;
 }
 
+.jp-today-study-app-icon {
+	position: relative;
+}
+
+.jp-today-study-reopen {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, .88);
+	box-shadow: 0 1px 5px rgba(37, 50, 69, .12);
+	font-size: 9px;
+	font-weight: 950;
+	line-height: 1;
+	color: #63738b;
+	pointer-events: none;
+}
+
 @media (max-width: 840px) {
 	.blog-sidebar-main-row {
 		grid-template-columns: minmax(0, 1fr) 34px;
