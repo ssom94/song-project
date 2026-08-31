@@ -1,6 +1,7 @@
 .jp-memory-mode-toggle {
 	font: inherit;
 	cursor: pointer;
+	white-space: nowrap;
 }
 
 .jp-memory-mode-toggle.is-active {
@@ -25,13 +26,16 @@
 
 .jp-word-memory-mode .jp-word-row {
 	grid-template-columns: minmax(0, 1fr) auto;
-	min-height: 62px;
+	min-height: 64px;
 	padding-top: 14px;
 	padding-bottom: 14px;
+	background: #fff;
 }
 
 .jp-word-memory-mode .jp-word-row > span,
-.jp-word-memory-mode .jp-word-row > a.jp-secondary-button {
+.jp-word-memory-mode .jp-word-row > a.jp-secondary-button,
+.jp-word-memory-mode .jp-word-pos-wrap,
+.jp-word-memory-mode .jp-word-meta {
 	display: none;
 }
 
@@ -40,12 +44,8 @@
 }
 
 .jp-word-memory-mode .jp-word-row .jp-word-title-line > strong {
-	font-size: 19px;
+	font-size: 20px;
 	text-decoration: none;
-}
-
-.jp-word-memory-mode .jp-word-row .jp-word-meta {
-	margin-top: 7px;
 }
 
 .jp-word-memory-mode .jp-memory-reveal {
@@ -61,6 +61,15 @@
 
 .jp-word-memory-mode .jp-word-row.is-memory-revealed > span {
 	display: block;
+}
+
+.jp-word-memory-mode .jp-word-row.is-memory-revealed .jp-word-pos-wrap {
+	display: inline;
+}
+
+.jp-word-memory-mode .jp-word-row.is-memory-revealed .jp-word-meta {
+	display: block;
+	margin-top: 7px;
 }
 
 .jp-word-memory-mode .jp-word-row.is-memory-revealed > a.jp-secondary-button {
