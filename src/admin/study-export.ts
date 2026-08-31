@@ -112,8 +112,10 @@ export async function handleExportStudyXlsx(request: Request, env: Env): Promise
 				? await loadApWords(env.song_project_db, session.adminId, filter, today)
 				: await loadAllWords(env.song_project_db, session.adminId, filter, today);
 		const workbook = createStudyXlsx(toExportRows(rows));
+		const body = new ArrayBuffer(workbook.byteLength);
+		new Uint8Array(body).set(workbook);
 		const filename = `song-${source}-${filter}-${today.replaceAll('-', '')}.xlsx`;
-		return new Response(workbook.buffer, {
+		return new Response(body, {
 			status: 200,
 			headers: {
 				'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
