@@ -32,10 +32,15 @@ jobs:
           node --check public/assets/js/blog/certifications-list.js
           node --check public/assets/js/blog/certification-detail.js
           node --check public/assets/js/admin/japanese-workspace.js
+          node --check public/assets/js/admin/japanese-timestamps.js
+          node --check public/assets/js/admin/japanese-import.js
+          node --check public/assets/js/admin/japanese-import-provenance.js
           node --check public/assets/js/japanese/jlpt-dashboard.js
+          node --check public/assets/js/japanese/jlpt-page-enhancements.js
           node --check public/assets/js/japanese/study-history.js
           node --check public/assets/js/japanese/today-study-float.js
-          node --check public/assets/js/admin/japanese-import.js
+          node --check public/assets/js/japanese/word-detail.js
+          node --check public/assets/js/japanese/word-memory-mode.js
           node --check public/assets/js/study/ap.js
           node --check public/assets/js/study/ap-vocabulary.js
           node --check public/assets/js/study/ap-vocabulary-wrong.js
@@ -83,6 +88,9 @@ jobs:
           JLPT_PLANS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_study_plans';")"
           JLPT_CONTENTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_daily_contents';")"
           JLPT_REVIEW_COLUMNS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM pragma_table_info('japanese_admin_word_learning_stats') WHERE name IN ('first_learned_at','last_studied_at','review_stage','next_review_on');")"
+          JLPT_DAY1_EXAMPLES="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM japanese_word_examples WHERE word_id IN (SELECT id FROM japanese_words WHERE word IN ('遂げる','滞る','損なう','著しい','促す','覆す','免れる','携わる','廃れる','培う','阻む','強いる','顧みる','怠る','乏しい','紛らわしい','夥しい','円滑','妥当','懸念') AND deleted_at IS NULL) AND deleted_at IS NULL;")"
+          KANJI_TABLE="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_kanji_korean_readings';")"
+          KANJI_ROWS="$(sqlite3 "$DB_FILE" 'SELECT COUNT(*) FROM japanese_kanji_korean_readings;')"
           AP_PLANS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_plans';")"
           AP_TOPICS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_topics';")"
           AP_PROGRESS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_topic_progress';")"
@@ -101,6 +109,9 @@ jobs:
           echo "jlpt_plans_table=$JLPT_PLANS"
           echo "jlpt_contents_table=$JLPT_CONTENTS"
           echo "jlpt_review_columns=$JLPT_REVIEW_COLUMNS"
+          echo "jlpt_day1_examples=$JLPT_DAY1_EXAMPLES"
+          echo "kanji_table=$KANJI_TABLE"
+          echo "kanji_rows=$KANJI_ROWS"
           echo "ap_plans_table=$AP_PLANS"
           echo "ap_topics_table=$AP_TOPICS"
           echo "ap_progress_table=$AP_PROGRESS"
@@ -119,6 +130,9 @@ jobs:
           test "$JLPT_PLANS" -eq 1
           test "$JLPT_CONTENTS" -eq 1
           test "$JLPT_REVIEW_COLUMNS" -eq 4
+          test "$JLPT_DAY1_EXAMPLES" -ge 20
+          test "$KANJI_TABLE" -eq 1
+          test "$KANJI_ROWS" -ge 23
           test "$AP_PLANS" -eq 1
           test "$AP_TOPICS" -eq 1
           test "$AP_PROGRESS" -eq 1
