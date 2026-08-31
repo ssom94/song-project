@@ -12,9 +12,11 @@
 		return currentLanguage() === 'ko'
 			? {
 				state: '학습상태', all: '전체', mastered: '암기 완료', uncertain: '애매함', unlearned: '미학습', created: '등록일',
+				source: '등록출처', manual: '직접 등록', file: '파일 등록', legacy: '기존 데이터', noFileName: '파일명 기록 없음', row: (value) => `${value}행`,
 			}
 			: {
 				state: '学習状態', all: 'すべて', mastered: '習得済み', uncertain: 'あいまい', unlearned: '未習得', created: '登録日',
+				source: '登録元', manual: '直接登録', file: 'ファイル登録', legacy: '既存データ', noFileName: 'ファイル名記録なし', row: (value) => `${value}行`,
 			};
 	}
 
@@ -22,6 +24,7 @@
 		for (const [href, attr] of [
 			['/assets/css/admin/japanese-pagination.css', 'data-japanese-pagination-style'],
 			['/assets/css/admin/japanese-workspace.css', 'data-japanese-workspace-style'],
+			['/assets/css/admin/japanese-history-bulk.css', 'data-japanese-history-bulk-style'],
 		]) {
 			if (document.querySelector(`link[${attr}]`)) continue;
 			const link = document.createElement('link');
@@ -34,6 +37,8 @@
 		for (const [src, attr] of [
 			['/assets/js/admin/japanese-workspace.js', 'data-japanese-workspace'],
 			['/assets/js/admin/japanese-pagination.js', 'data-japanese-pagination'],
+			['/assets/js/admin/japanese-history-bulk.js', 'data-japanese-history-bulk'],
+			['/assets/js/admin/japanese-import-provenance.js', 'data-japanese-import-provenance'],
 		]) {
 			if (document.querySelector(`script[${attr}]`)) continue;
 			const script = document.createElement('script');
@@ -55,6 +60,8 @@
 	}
 
 	function wordIdFromRow(row) {
+		const datasetId = Number(row?.dataset?.wordId);
+		if (Number.isSafeInteger(datasetId) && datasetId > 0) return datasetId;
 		const value = row.querySelector('.admin-japanese-word-main span')?.textContent ?? '';
 		const match = value.match(/#(\d+)/);
 		return match ? Number(match[1]) : 0;
@@ -67,6 +74,19 @@
 	function stateLabel(state) {
 		const labels = copy();
 		return state === 'mastered' ? labels.mastered : state === 'uncertain' ? labels.uncertain : labels.unlearned;
+	}
+
+	function sourceLabel(word) {
+		const labels = copy();
+		const source = word?.registrationSource;
+		if (!source) return '—';
+		if (source.type === 'file') {
+			const fileName = source.name || labels.noFileName;
+			const row = Number(source.row) > 0 ? ` · ${labels.row(Number(source.row))}` : '';
+			return `${labels.file} · ${fileName}${row}`;
+		}
+		if (source.type === 'manual') return labels.manual;
+		return labels.legacy;
 	}
 
 	function ensureFilter() {
@@ -113,6 +133,15 @@
 		const labels = copy();
 		const action = row.querySelector('th[data-i18n="tableActions"]');
 
+		let source = row.querySelector('.admin-japanese-table-source-head');
+		if (!(source instanceof HTMLTableCellElement)) {
+			source = document.createElement('th');
+			source.className = 'admin-japanese-table-source-head';
+			if (action) row.insertBefore(source, action);
+			else row.appendChild(source);
+		}
+		source.textContent = labels.source;
+
 		let state = row.querySelector('.admin-japanese-table-state-head');
 		if (!(state instanceof HTMLTableCellElement)) {
 			state = document.createElement('th');
@@ -135,12 +164,27 @@
 		ensureHeaders();
 		document.querySelectorAll('#japanese-word-table-body > tr').forEach((row) => {
 			if (!(row instanceof HTMLTableRowElement)) return;
+			row.querySelector('.admin-japanese-table-source-cell')?.remove();
 			row.querySelector('.admin-japanese-table-state-cell')?.remove();
 			row.querySelector('.admin-japanese-table-created-cell')?.remove();
 			const id = wordIdFromRow(row);
+			if (id) row.dataset.wordId = String(id);
+			const internalId = row.querySelector('.admin-japanese-word-main > span');
+			if (internalId instanceof HTMLElement) internalId.hidden = true;
 			const word = wordMap.get(id);
 			const learningState = stateValue(word);
 			row.dataset.learningState = learningState;
+
+			const actionCell = row.querySelector('.admin-japanese-actions')?.closest('td');
+
+			const sourceCell = document.createElement('td');
+			sourceCell.className = 'admin-japanese-table-source-cell';
+			const sourceBadge = document.createElement('span');
+			sourceBadge.className = `admin-japanese-source-badge is-${word?.registrationSource?.type || 'unknown'}`;
+			sourceBadge.textContent = sourceLabel(word);
+			sourceCell.appendChild(sourceBadge);
+			if (actionCell) row.insertBefore(sourceCell, actionCell);
+			else row.appendChild(sourceCell);
 
 			const stateCell = document.createElement('td');
 			stateCell.className = 'admin-japanese-table-state-cell';
@@ -148,7 +192,6 @@
 			badge.className = `admin-japanese-learning-state is-${learningState}`;
 			badge.textContent = stateLabel(learningState);
 			stateCell.appendChild(badge);
-			const actionCell = row.querySelector('.admin-japanese-actions')?.closest('td');
 			if (actionCell) row.insertBefore(stateCell, actionCell);
 			else row.appendChild(stateCell);
 
