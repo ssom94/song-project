@@ -27,6 +27,10 @@ jobs:
           node --check public/assets/js/admin/categories-drag-layout.js
           node --check public/assets/js/admin/site-design-diagnostics.js
           node --check public/assets/js/admin/post-editor-history.js
+          node --check public/assets/js/admin/certifications.js
           node --check public/assets/js/japanese/jlpt-calendar-stability.js
           node --check public/assets/js/admin/menu.js
           node --check public/assets/js/blog/site-cursor.js
+          node --check public/assets/js/blog/home-countdown.js
+          node --check public/assets/js/schedule-calendar-swipe.js
+          node --check public/assets/js/schedule-calendar-local-info.js
