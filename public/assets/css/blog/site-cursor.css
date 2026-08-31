@@ -1,0 +1,53 @@
+@media (pointer: fine) {
+	html.song-custom-cursor[data-song-cursor-theme="blue"],
+	html.song-custom-cursor[data-song-cursor-theme="blue"] body,
+	html.song-custom-cursor[data-song-cursor-theme="blue"] body * {
+		cursor: url('/assets/cursors/arrow-blue.svg') 4 4, auto;
+	}
+	html.song-custom-cursor[data-song-cursor-theme="navy"],
+	html.song-custom-cursor[data-song-cursor-theme="navy"] body,
+	html.song-custom-cursor[data-song-cursor-theme="navy"] body * {
+		cursor: url('/assets/cursors/arrow-navy.svg') 4 4, auto;
+	}
+	html.song-custom-cursor[data-song-cursor-theme="mint"],
+	html.song-custom-cursor[data-song-cursor-theme="mint"] body,
+	html.song-custom-cursor[data-song-cursor-theme="mint"] body * {
+		cursor: url('/assets/cursors/arrow-mint.svg') 4 4, auto;
+	}
+
+	html.song-custom-cursor[data-song-cursor-theme="blue"] :is(a, button, summary, label, select, [role="button"], [role="link"], [role="switch"], [tabindex]:not([tabindex="-1"])),
+	html.song-custom-cursor[data-song-cursor-theme="blue"] :is(a, button, summary, label, select, [role="button"], [role="link"], [role="switch"], [tabindex]:not([tabindex="-1"])):active {
+		cursor: url('/assets/cursors/click-blue.svg') 11 4, pointer;
+	}
+	html.song-custom-cursor[data-song-cursor-theme="navy"] :is(a, button, summary, label, select, [role="button"], [role="link"], [role="switch"], [tabindex]:not([tabindex="-1"])),
+	html.song-custom-cursor[data-song-cursor-theme="navy"] :is(a, button, summary, label, select, [role="button"], [role="link"], [role="switch"], [tabindex]:not([tabindex="-1"])):active {
+		cursor: url('/assets/cursors/click-navy.svg') 11 4, pointer;
+	}
+	html.song-custom-cursor[data-song-cursor-theme="mint"] :is(a, button, summary, label, select, [role="button"], [role="link"], [role="switch"], [tabindex]:not([tabindex="-1"])),
+	html.song-custom-cursor[data-song-cursor-theme="mint"] :is(a, button, summary, label, select, [role="button"], [role="link"], [role="switch"], [tabindex]:not([tabindex="-1"])):active {
+		cursor: url('/assets/cursors/click-mint.svg') 11 4, pointer;
+	}
+
+	html.song-custom-cursor[data-song-cursor-theme="blue"] body:active,
+	html.song-custom-cursor[data-song-cursor-theme="blue"] body:active * {
+		cursor: url('/assets/cursors/click-blue.svg') 11 4, pointer;
+	}
+	html.song-custom-cursor[data-song-cursor-theme="navy"] body:active,
+	html.song-custom-cursor[data-song-cursor-theme="navy"] body:active * {
+		cursor: url('/assets/cursors/click-navy.svg') 11 4, pointer;
+	}
+	html.song-custom-cursor[data-song-cursor-theme="mint"] body:active,
+	html.song-custom-cursor[data-song-cursor-theme="mint"] body:active * {
+		cursor: url('/assets/cursors/click-mint.svg') 11 4, pointer;
+	}
+
+	html.song-custom-cursor input[type="text"],
+	html.song-custom-cursor input[type="search"],
+	html.song-custom-cursor input[type="email"],
+	html.song-custom-cursor input[type="password"],
+	html.song-custom-cursor input[type="number"],
+	html.song-custom-cursor textarea,
+	html.song-custom-cursor [contenteditable="true"] {
+		cursor: text;
+	}
+}
