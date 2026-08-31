@@ -10,6 +10,9 @@
 			? {
 				progress: '진행률', planned: '예정', progressing: '진행 중', done: '완료',
 				dateNotSet: '목표일 미설정', goals: (count) => `${count}개 목표`, empty: '표시 중인 목표가 없습니다.',
+				historyTitle: 'JLPT N1 학습 이력',
+				historyLead: '날짜별 실제 학습량과 스케줄 완료 이력을 공개합니다.',
+				historyAll: 'JLPT 학습 화면 →',
 				details: {
 					'jlpt-n1': '단어 학습 + 시험 합격',
 					ap: '응용정보기술자시험',
@@ -21,14 +24,17 @@
 			: {
 				progress: '進捗', planned: '予定', progressing: '進行中', done: '完了',
 				dateNotSet: '目標日未設定', goals: (count) => `${count} Goals`, empty: '表示中の目標はありません。',
+				historyTitle: 'JLPT N1 学習履歴',
+				historyLead: '日付ごとの実学習量と予定達成履歴を公開します。',
+				historyAll: 'JLPT学習画面 →',
 				details: {
 					'jlpt-n1': '語彙学習 + 試験合格',
 					ap: '応用情報技術者試験',
 					fp: 'FP 資格取得',
 					'aws-saa': 'Solutions Architect – Associate',
 					portfolio: 'ポートフォリオ完成',
-				},
-			};
+			},
+		};
 	}
 
 	function certificationHref(goal) {
@@ -134,6 +140,60 @@
 		return row;
 	}
 
+	function installStudyHistoryAssets() {
+		if (!document.querySelector('link[data-home-study-history-style]')) {
+			const link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = '/assets/css/japanese/study-history.css';
+			link.dataset.homeStudyHistoryStyle = 'true';
+			document.head.appendChild(link);
+		}
+		if (!document.querySelector('script[data-home-study-history-script]')) {
+			const script = document.createElement('script');
+			script.src = '/assets/js/japanese/study-history.js';
+			script.defer = true;
+			script.dataset.homeStudyHistoryScript = 'true';
+			document.body.appendChild(script);
+		}
+	}
+
+	function syncStudyHistoryCopy() {
+		const card = document.getElementById('home-jlpt-study-history');
+		if (!card) return;
+		const labels = copy();
+		const title = card.querySelector('[data-home-study-history-title]');
+		const lead = card.querySelector('[data-home-study-history-lead]');
+		const link = card.querySelector('[data-home-study-history-link]');
+		if (title) title.textContent = labels.historyTitle;
+		if (lead) lead.textContent = labels.historyLead;
+		if (link instanceof HTMLAnchorElement) {
+			link.textContent = labels.historyAll;
+			link.href = `/${language()}/japanese/jlpt/`;
+		}
+	}
+
+	function ensureStudyHistoryCard() {
+		let card = document.getElementById('home-jlpt-study-history');
+		if (card) return card;
+		const jlptSection = document.getElementById('jlpt-progress');
+		if (!jlptSection?.parentElement) return null;
+		card = document.createElement('section');
+		card.id = 'home-jlpt-study-history';
+		card.className = 'home-dashboard-card home-jlpt-history-card jp-study-history-card';
+		card.innerHTML = `
+			<div class="home-card-heading">
+				<div><span class="home-card-kicker">STUDY LOG</span><h2 data-home-study-history-title></h2><p data-home-study-history-lead></p></div>
+				<a data-home-study-history-link></a>
+			</div>
+			<div id="jp-study-history-summary" class="jp-study-history-summary"></div>
+			<div id="jp-study-history-list" class="jp-study-history-list"><div class="home-post-state">Loading…</div></div>
+			<div class="jp-study-history-more-wrap"><button id="jp-study-history-more" class="jp-study-history-more" type="button" hidden></button></div>
+		`;
+		jlptSection.insertAdjacentElement('afterend', card);
+		syncStudyHistoryCopy();
+		return card;
+	}
+
 	function renderDashboard(result) {
 		dashboardSnapshot = result;
 		const goals = Array.isArray(result?.goals) ? result.goals : [];
@@ -159,7 +219,10 @@
 		if (completedNode) completedNode.textContent = String(completed);
 		if (totalNode) totalNode.textContent = String(goals.length);
 		const jlptSection = document.getElementById('jlpt-progress');
-		if (jlptSection instanceof HTMLElement) jlptSection.hidden = result?.settings?.showJlpt === false;
+		const historySection = ensureStudyHistoryCard();
+		const showJlpt = result?.settings?.showJlpt !== false;
+		if (jlptSection instanceof HTMLElement) jlptSection.hidden = !showJlpt;
+		if (historySection instanceof HTMLElement) historySection.hidden = !showJlpt;
 		if (result?.learning) {
 			window.HomeDashboard?.setLearningSnapshot?.({
 				goalMode: result?.settings?.jlptGoalMode === 'manual' ? 'manual' : 'auto',
@@ -185,9 +248,14 @@
 
 	function rerenderForLanguage() {
 		if (dashboardSnapshot) renderDashboard(dashboardSnapshot);
+		syncStudyHistoryCopy();
+		window.JlptStudyHistory?.refresh?.();
+		window.JlptTodayFloating?.refresh?.();
 	}
 
 	function initialize() {
+		ensureStudyHistoryCard();
+		installStudyHistoryAssets();
 		loadDashboard();
 		document.querySelectorAll('[data-home-language]').forEach((button) => {
 			button.addEventListener('click', () => window.setTimeout(rerenderForLanguage, 0));
