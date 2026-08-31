@@ -1,6 +1,7 @@
 (() => {
 	let categoryMap = new Map();
 	let requestId = 0;
+	let decorateQueued = false;
 
 	function language() {
 		return document.body?.dataset?.blogLanguage === 'ko' ? 'ko' : 'ja';
@@ -35,12 +36,33 @@
 		return node;
 	}
 
+	function appearanceSignature(appearance) {
+		if (!appearance || appearance.kind === 'none') return 'none';
+		return [appearance.kind || 'preset', appearance.value || 'folder', appearance.color || '#5b6ee1', appearance.imageUrl || ''].join('|');
+	}
+
+	function currentIcon(container) {
+		return container.querySelector('.song-category-icon,[data-category-icon-kind]');
+	}
+
+	function syncIcon(container, appearance, className) {
+		const signature = appearanceSignature(appearance);
+		const existing = currentIcon(container);
+		if (container.dataset.songCategoryIconSignature === signature) {
+			if (signature === 'none' || existing) return;
+		}
+		if (existing) existing.remove();
+		container.dataset.songCategoryIconSignature = signature;
+		if (signature === 'none') return;
+		container.insertBefore(createPlaceholder(appearance, className), container.firstChild);
+	}
+
 	function categoryNameFromLink(link) {
-		const candidates = [...link.children].filter((node) => !node.classList.contains('blog-sidebar-count') && !node.classList.contains('song-category-icon'));
+		const candidates = [...link.children].filter((node) => !node.classList.contains('blog-sidebar-count') && !node.classList.contains('song-category-icon') && !node.hasAttribute('data-category-icon-kind'));
 		const named = candidates.find((node) => node.tagName === 'SPAN');
 		if (named?.textContent?.trim()) return named.textContent.trim();
 		const clone = link.cloneNode(true);
-		clone.querySelectorAll('.blog-sidebar-count,.song-category-icon').forEach((node) => node.remove());
+		clone.querySelectorAll('.blog-sidebar-count,.song-category-icon,[data-category-icon-kind]').forEach((node) => node.remove());
 		return clone.textContent?.trim() || '';
 	}
 
@@ -48,10 +70,7 @@
 		document.querySelectorAll('.blog-sidebar-category-link').forEach((link) => {
 			if (!(link instanceof HTMLAnchorElement)) return;
 			const name = categoryNameFromLink(link);
-			const appearance = categoryMap.get(name);
-			link.querySelector('.song-category-icon,[data-category-icon-kind]')?.remove();
-			if (!appearance || appearance.kind === 'none') return;
-			link.insertBefore(createPlaceholder(appearance, 'blog-sidebar-category-icon'), link.firstChild);
+			syncIcon(link, categoryMap.get(name), 'blog-sidebar-category-icon');
 		});
 	}
 
@@ -65,17 +84,21 @@
 				name = clone.textContent?.trim() || '';
 				if (name) chip.dataset.songCategoryName = name;
 			}
-			const appearance = categoryMap.get(name);
-			chip.querySelector('.song-category-icon,[data-category-icon-kind]')?.remove();
-			if (!appearance || appearance.kind === 'none') return;
-			chip.insertBefore(createPlaceholder(appearance, 'blog-category-chip-icon'), chip.firstChild);
+			syncIcon(chip, categoryMap.get(name), 'blog-category-chip-icon');
 		});
 	}
 
 	function decorate() {
+		decorateQueued = false;
 		decorateSidebar();
 		decorateCategoryChips();
 		window.SongCategoryIcons?.hydrate?.();
+	}
+
+	function queueDecorate() {
+		if (decorateQueued) return;
+		decorateQueued = true;
+		window.requestAnimationFrame(decorate);
 	}
 
 	async function loadAppearances() {
@@ -94,7 +117,7 @@
 				if (name && post?.categoryMeta?.appearance && !next.has(name)) next.set(name, post.categoryMeta.appearance);
 			}
 			categoryMap = next;
-			decorate();
+			queueDecorate();
 		} catch (error) {
 			console.warn('Failed to load public category appearance', error);
 		}
@@ -104,8 +127,15 @@
 		ensureStyle();
 		ensureCatalog();
 		loadAppearances();
-		new MutationObserver(() => decorate()).observe(document.body, { childList: true, subtree: true });
-		document.addEventListener('song:category-icons-ready', decorate);
+		new MutationObserver((mutations) => {
+			const relevant = mutations.some((mutation) => [...mutation.addedNodes].some((node) => {
+				if (!(node instanceof HTMLElement)) return false;
+				return node.matches('.blog-sidebar-category-link,.blog-chip-category')
+					|| Boolean(node.querySelector('.blog-sidebar-category-link,.blog-chip-category'));
+			}));
+			if (relevant) queueDecorate();
+		}).observe(document.body, { childList: true, subtree: true });
+		document.addEventListener('song:category-icons-ready', queueDecorate);
 		document.querySelectorAll('[data-home-language]').forEach((button) => {
 			button.addEventListener('click', () => window.setTimeout(loadAppearances, 50));
 		});
