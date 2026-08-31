@@ -60,7 +60,7 @@
 	font-size: 10px;
 	font-weight: 850;
 	cursor: pointer;
-	transition: border-color .13s ease, background .13s ease, color .13s ease;
+	transition: border-color .13s ease, background .13s ease, color .13s ease, box-shadow .13s ease;
 }
 
 .admin-markdown-tool:hover:not(:disabled),
@@ -68,6 +68,14 @@
 	border-color: #aebfe4;
 	background: #f1f5ff;
 	color: #2456b3;
+}
+
+.admin-markdown-tool.is-active,
+.admin-markdown-tool[aria-pressed="true"] {
+	border-color: #7da0e9;
+	background: #eaf1ff;
+	color: #1f56d8;
+	box-shadow: inset 0 0 0 1px rgba(31, 86, 216, .08);
 }
 
 .admin-markdown-tool:disabled {
@@ -82,18 +90,74 @@
 	color: #315cae;
 }
 
-.admin-markdown-preview {
-	min-height: 110px;
-	margin-top: 10px;
-	padding: 18px;
-	border: 1px dashed #cbd6e5;
-	border-radius: 10px;
-	background: #fff;
-	color: #364256;
+.admin-markdown-workspace {
+	display: grid;
+	gap: 10px;
+	min-width: 0;
 }
 
-.admin-markdown-preview[hidden] {
+.admin-markdown-editor-pane,
+.admin-markdown-preview-pane {
+	min-width: 0;
+}
+
+.admin-markdown-editor-pane textarea {
+	display: block;
+}
+
+.admin-markdown-preview-pane {
+	overflow: hidden;
+	border: 1px solid #d8e0eb;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.admin-markdown-preview-pane[hidden] {
 	display: none;
+}
+
+.admin-markdown-preview-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	min-height: 34px;
+	padding: 0 12px;
+	border-bottom: 1px solid #e8edf4;
+	background: #f8fafc;
+	color: #536278;
+	font-size: 10px;
+}
+
+.admin-markdown-preview-header > strong {
+	font-size: 10px;
+	font-weight: 850;
+}
+
+.admin-markdown-live-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 18px;
+	padding: 0 6px;
+	border-radius: 999px;
+	background: #edf7f0;
+	color: #31804a;
+	font-size: 8px;
+	font-weight: 900;
+	letter-spacing: .06em;
+}
+
+.admin-markdown-preview {
+	min-height: 250px;
+	padding: 18px;
+	background: #fff;
+	color: #364256;
+	overflow: auto;
+}
+
+.admin-markdown-workspace:not(.is-translation) .admin-markdown-preview {
+	min-height: 360px;
 }
 
 .admin-markdown-preview.is-empty {
@@ -102,6 +166,24 @@
 	justify-content: center;
 	color: #9aa5b4;
 	font-size: 11px;
+	text-align: center;
+}
+
+@media (min-width: 1180px) {
+	.admin-markdown-workspace {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		align-items: stretch;
+	}
+
+	.admin-markdown-preview-pane {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.admin-markdown-preview {
+		flex: 1 1 auto;
+		max-height: 620px;
+	}
 }
 
 @media (max-width: 720px) {
@@ -111,5 +193,10 @@
 
 	.admin-markdown-preview-toggle {
 		margin-left: 0;
+	}
+
+	.admin-markdown-preview {
+		min-height: 180px !important;
+		padding: 14px;
 	}
 }
