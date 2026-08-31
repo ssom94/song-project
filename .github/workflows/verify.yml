@@ -33,6 +33,7 @@ jobs:
           node --check public/assets/js/blog/certification-detail.js
           node --check public/assets/js/admin/japanese-workspace.js
           node --check public/assets/js/japanese/jlpt-dashboard.js
+          node --check public/assets/js/japanese/jlpt-history.js
           node --check public/assets/js/admin/japanese-import.js
 
       - name: Unit tests
