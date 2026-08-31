@@ -25,11 +25,29 @@
 		document.querySelectorAll('#category-table-body > tr').forEach(moveDragHandleToOwnColumn);
 	}
 
+	function loadPreviewAssets() {
+		if (!document.querySelector('link[data-category-live-preview]')) {
+			const style = document.createElement('link');
+			style.rel = 'stylesheet';
+			style.href = '/assets/css/admin/category-preview.css?v=20260831-1';
+			style.dataset.categoryLivePreview = 'true';
+			document.head.appendChild(style);
+		}
+		if (!document.querySelector('script[data-category-live-preview]')) {
+			const script = document.createElement('script');
+			script.src = '/assets/js/admin/category-preview.js?v=20260831-1';
+			script.async = true;
+			script.dataset.categoryLivePreview = 'true';
+			document.body.appendChild(script);
+		}
+	}
+
 	function initialize() {
 		const body = document.getElementById('category-table-body');
 		if (!body) return;
 		applyLayout();
 		new MutationObserver(applyLayout).observe(body, { childList: true });
+		loadPreviewAssets();
 	}
 
 	if (document.readyState === 'loading') {
