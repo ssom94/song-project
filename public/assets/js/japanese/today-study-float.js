@@ -25,30 +25,62 @@
 		return language() === 'ja' ? ja : ko;
 	}
 
-	function ensureJlptSidebarLink() {
-		if (!window.location.pathname.includes('/japanese/')) return;
-		const sections = [...document.querySelectorAll('.blog-sidebar-section')];
-		const section = sections.find((node) => {
-			const label = node.querySelector('.blog-sidebar-label')?.textContent?.trim();
-			return label === 'Japanese' || label === '일본어 학습';
+	function ensureJapaneseStudyMenu() {
+		const sidebar = document.querySelector('.blog-dashboard-sidebar');
+		if (!(sidebar instanceof HTMLElement)) return;
+		const lang = language();
+		const homeHref = `/${lang}/japanese/`;
+		const items = [
+			{ href: homeHref, ko: '학습 홈', ja: '学習ホーム' },
+			{ href: `/${lang}/japanese/jlpt/`, ko: 'JLPT N1 학습', ja: 'JLPT N1 学習' },
+			{ href: `/${lang}/japanese/words/`, ko: '단어 목록', ja: '単語一覧' },
+			{ href: `/${lang}/japanese/quiz/`, ko: '랜덤 퀴즈', ja: 'ランダムクイズ' },
+			{ href: `/${lang}/japanese/quiz/result/`, ko: '학습 결과', ja: '学習結果' },
+		];
+
+		let section = [...sidebar.querySelectorAll('.blog-sidebar-section')].find((candidate) => {
+			const nav = candidate.querySelector('.blog-sidebar-nav');
+			if (!nav) return false;
+			return [...nav.querySelectorAll('a')].some((link) => {
+				const href = link.getAttribute('href') || '';
+				return href.includes('/japanese/words/') || href.includes('/japanese/quiz/') || href.includes('/japanese/jlpt/');
+			});
 		});
-		const nav = section?.querySelector('.blog-sidebar-nav');
-		if (!(nav instanceof HTMLElement)) return;
-		const href = `/${language()}/japanese/jlpt/`;
-		let link = [...nav.querySelectorAll('a')].find((node) => node.getAttribute('href') === href);
-		if (!(link instanceof HTMLAnchorElement)) {
-			link = document.createElement('a');
-			link.className = 'blog-sidebar-link';
-			link.href = href;
-			link.textContent = t('JLPT N1 학습', 'JLPT N1 学習');
-			const home = [...nav.querySelectorAll('a')].find((node) => node.getAttribute('href') === `/${language()}/japanese/`);
-			if (home) home.insertAdjacentElement('afterend', link);
-			else nav.prepend(link);
+
+		if (!(section instanceof HTMLElement)) {
+			section = document.createElement('section');
+			section.className = 'blog-sidebar-section';
+			const label = document.createElement('p');
+			label.className = 'blog-sidebar-label';
+			label.textContent = lang === 'ja' ? 'Japanese' : '일본어 학습';
+			const nav = document.createElement('nav');
+			nav.className = 'blog-sidebar-nav';
+			section.append(label, nav);
+			const boards = [...sidebar.querySelectorAll('.blog-sidebar-section')].find((candidate) => {
+				const labelText = candidate.querySelector('.blog-sidebar-label')?.textContent?.trim().toLowerCase();
+				return labelText === 'boards' || labelText === '게시판';
+			});
+			if (boards) sidebar.insertBefore(section, boards);
+			else sidebar.insertBefore(section, sidebar.querySelector('.blog-sidebar-footer'));
 		}
-		if (window.location.pathname.startsWith(href)) {
-			for (const item of nav.querySelectorAll('a')) item.classList.remove('is-active');
-			link.classList.add('is-active');
-			link.setAttribute('aria-current', 'page');
+
+		const nav = section.querySelector('.blog-sidebar-nav');
+		if (!(nav instanceof HTMLElement)) return;
+		nav.replaceChildren();
+		const currentPath = window.location.pathname;
+		for (const item of items) {
+			const link = document.createElement('a');
+			link.className = 'blog-sidebar-link';
+			link.href = item.href;
+			link.textContent = lang === 'ja' ? item.ja : item.ko;
+			const active = item.href === homeHref
+				? currentPath === homeHref
+				: currentPath.startsWith(item.href);
+			if (active) {
+				link.classList.add('is-active');
+				link.setAttribute('aria-current', 'page');
+			}
+			nav.appendChild(link);
 		}
 	}
 
@@ -63,11 +95,7 @@
 	}
 
 	function savePosition() {
-		try {
-			localStorage.setItem(STORAGE_KEY, JSON.stringify(position));
-		} catch {
-			// Position persistence is optional.
-		}
+		try { localStorage.setItem(STORAGE_KEY, JSON.stringify(position)); } catch { /* optional */ }
 	}
 
 	function mountStyle() {
@@ -133,8 +161,8 @@
 		return Number(target ?? 0) > 0;
 	}
 
-	function isTaskDone(completed, target, studyStarted) {
-		return studyStarted && hasTask(target) && Number(completed ?? 0) >= Number(target ?? 0);
+	function isTaskDone(completed, target, started) {
+		return started && hasTask(target) && Number(completed ?? 0) >= Number(target ?? 0);
 	}
 
 	function taskRows(data) {
@@ -234,10 +262,15 @@
 		const error = document.createElement('div');
 		error.className = 'jp-today-study-float-error';
 		error.textContent = t('오늘 학습 정보를 불러오지 못했습니다.', '今日の学習情報を読み込めませんでした。');
+		const link = document.createElement('a');
+		link.href = `/${language()}/japanese/jlpt/`;
+		link.textContent = t('학습 화면 →', '学習画面 →');
+		error.append(document.createElement('br'), link);
 		shell.append(header, error);
 	}
 
 	async function refresh() {
+		ensureJapaneseStudyMenu();
 		try {
 			const response = await fetch(API, { cache: 'no-store', credentials: 'same-origin' });
 			const data = await response.json().catch(() => null);
@@ -293,19 +326,13 @@
 	}
 
 	function initialize() {
-		ensureJlptSidebarLink();
 		mountStyle();
+		ensureJapaneseStudyMenu();
 		refresh();
 		timer = window.setInterval(refresh, REFRESH_MS);
 		document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
 		window.addEventListener('focus', refresh);
 		window.addEventListener('jlptstudyprogresschange', refresh);
-		document.querySelectorAll('[data-home-language]').forEach((button) => {
-			button.addEventListener('click', () => window.setTimeout(() => {
-				ensureJlptSidebarLink();
-				refresh();
-			}, 0));
-		});
 		window.addEventListener('resize', () => {
 			if (!card) return;
 			baseRect = null;
