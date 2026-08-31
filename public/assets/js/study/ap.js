@@ -7,7 +7,7 @@
 			login: '学習記録の更新は管理者ログイン後に利用できます。',
 			noHistory: 'まだ学習履歴がありません。',
 			noItems: '今日の学習を開始すると、現在の弱点・復習予定・試験までの日数から内容を自動作成します。',
-			correct: '理解・正解', partial: '曖昧', wrong: '誤答', complete: '完了', score: '点数',
+			correct: '理解・正解', partial: '曖昧', wrong: '誤答', complete: '完了', score: '点数', mandatory: '必須', choice: '選択',
 		}
 		: {
 			loadError: 'AP 학습 데이터를 불러오지 못했습니다.',
@@ -15,7 +15,7 @@
 			login: '학습 기록 갱신은 관리자 로그인 후 사용할 수 있습니다.',
 			noHistory: '아직 학습 이력이 없습니다.',
 			noItems: '오늘의 학습을 시작하면 현재 약점·복습 예정·시험까지 남은 기간을 보고 내용을 자동 구성합니다.',
-			correct: '이해/정답', partial: '애매함', wrong: '오답', complete: '완료', score: '점수',
+			correct: '이해/정답', partial: '애매함', wrong: '오답', complete: '완료', score: '점수', mandatory: '필수', choice: '선택',
 		};
 
 	const byId = (id) => document.getElementById(id);
@@ -40,6 +40,10 @@
 		return ({ mastered: '숙달', learning: '학습중', uncertain: '애매함', unlearned: '미학습' })[state] || state;
 	}
 
+	function resultLabel(result) {
+		return ({ correct: text.correct, partial: text.partial, wrong: text.wrong, completed: text.complete })[result] || result;
+	}
+
 	async function requestJson(url, options = {}) {
 		const response = await fetch(url, { credentials: 'same-origin', cache: 'no-store', ...options });
 		const data = await response.json().catch(() => null);
@@ -60,16 +64,19 @@
 		setText('ap-progress-review', data.progress.dueReviewTopics);
 		setText('ap-history-days', data.historySummary.recordedDays);
 		setText('ap-history-minutes', `${data.historySummary.totalMinutes}m`);
-		setText('ap-history-streak', `${data.historySummary.currentStreak}`);
+		setText('ap-history-streak', data.historySummary.currentStreak);
 
 		const bar = byId('ap-progress-bar-value');
-		if (bar) bar.style.width = `${Math.max(0, Math.min(100, data.progress.averageMastery))}%`;
+		if (bar instanceof HTMLProgressElement) {
+			bar.value = Math.max(0, Math.min(100, Number(data.progress.averageMastery || 0)));
+			bar.textContent = `${bar.value}%`;
+		}
 		const topics = byId('ap-topic-progress');
 		if (topics) {
 			topics.innerHTML = data.topics.map((topic) => `
 				<article class="ap-progress-topic ${topic.focusB ? 'is-focus' : ''}">
 					<div><strong>${escapeHtml(language === 'ja' ? topic.titleJa : topic.titleKo)}</strong><span>${escapeHtml(topic.examPart)} · ${escapeHtml(stateLabel(topic.state))}</span></div>
-					<div class="ap-mini-progress"><i style="width:${Math.max(0, Math.min(100, topic.masteryScore))}%"></i></div>
+					<progress max="100" value="${Math.max(0, Math.min(100, Number(topic.masteryScore || 0)))}">${Math.max(0, Math.min(100, Number(topic.masteryScore || 0)))}%</progress>
 					<b>${topic.masteryScore}%</b>
 				</article>`).join('');
 		}
@@ -78,9 +85,13 @@
 	function renderFocus(data) {
 		const container = byId('ap-focus-subjects');
 		if (!container) return;
-		container.innerHTML = data.focusB.map((topic, index) => `
+		const ordered = [...data.focusB].sort((a, b) => {
+			const order = ['security', 'programming_algorithms', 'database', 'system_development', 'network'];
+			return order.indexOf(a.code) - order.indexOf(b.code);
+		});
+		container.innerHTML = ordered.map((topic) => `
 			<article class="ap-focus-item">
-				<span>${index === 0 && topic.code === 'security' ? (language === 'ja' ? '必須' : '필수') : (language === 'ja' ? '選択' : '선택')}</span>
+				<span>${escapeHtml(topic.code === 'security' ? text.mandatory : text.choice)}</span>
 				<strong>${escapeHtml(language === 'ja' ? topic.titleJa : topic.titleKo)}</strong>
 				<small>${escapeHtml(stateLabel(topic.state))} · ${topic.masteryScore}%</small>
 			</article>`).join('');
@@ -88,7 +99,7 @@
 
 	function itemButtons(item) {
 		if (item.status === 'completed') {
-			const result = item.result ? stateLabel(item.result) : text.complete;
+			const result = item.result ? resultLabel(item.result) : text.complete;
 			return `<span class="ap-item-done">✓ ${escapeHtml(result)}${item.score !== null ? ` · ${item.score}` : ''}</span>`;
 		}
 		const test = item.item_kind === 'weekly_test' || item.item_kind === 'monthly_test';
