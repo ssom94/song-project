@@ -7,6 +7,7 @@ type DashboardGoalInput = {
 	title?: unknown;
 	goalType?: unknown;
 	targetDate?: unknown;
+	targetMonth?: unknown;
 	progressPercent?: unknown;
 	targetCount?: unknown;
 	completedCount?: unknown;
@@ -28,6 +29,7 @@ interface GoalRow {
 	title: string;
 	goal_type: 'percent' | 'count' | 'jlpt_auto';
 	target_date: string | null;
+	target_month: string | null;
 	progress_percent: number;
 	target_count: number | null;
 	completed_count: number;
@@ -67,6 +69,12 @@ function parseDate(value: unknown): string | null | 'INVALID' {
 	return Number.isNaN(date.getTime()) ? 'INVALID' : value;
 }
 
+function parseMonth(value: unknown): string | null | 'INVALID' {
+	if (value === null || value === undefined || value === '') return null;
+	if (typeof value !== 'string' || !/^\d{4}-(0[1-9]|1[0-2])$/.test(value)) return 'INVALID';
+	return value;
+}
+
 function slugKey(title: string, id: number): string {
 	const base = title
 		.normalize('NFKC')
@@ -84,6 +92,7 @@ function mapGoal(row: GoalRow) {
 		title: row.title,
 		goalType: row.goal_type,
 		targetDate: row.target_date,
+		targetMonth: row.target_month,
 		progressPercent: row.progress_percent,
 		targetCount: row.target_count,
 		completedCount: row.completed_count,
@@ -109,7 +118,7 @@ export async function handleGetAdminDashboard(request: Request, env: Env): Promi
 				FROM dashboard_settings WHERE id = 1 LIMIT 1
 			`).first<{ jlpt_goal_mode: 'auto' | 'manual'; jlpt_manual_target: number | null; show_jlpt: number }>(),
 			env.song_project_db.prepare(`
-				SELECT id, goal_key, title, goal_type, target_date, progress_percent,
+				SELECT id, goal_key, title, goal_type, target_date, target_month, progress_percent,
 					target_count, completed_count, status, display_order, is_visible
 				FROM dashboard_goals
 				ORDER BY display_order ASC, id ASC
@@ -157,6 +166,7 @@ export async function handleUpdateAdminDashboard(request: Request, env: Env): Pr
 		title: string;
 		goalType: 'percent' | 'count' | 'jlpt_auto';
 		targetDate: string | null;
+		targetMonth: string | null;
 		progressPercent: number;
 		targetCount: number | null;
 		completedCount: number;
@@ -182,11 +192,12 @@ export async function handleUpdateAdminDashboard(request: Request, env: Env): Pr
 			? raw.goalType
 			: goalKey === 'portfolio' ? 'count' : goalKey === 'jlpt-n1' ? 'jlpt_auto' : 'percent';
 		const targetDate = parseDate(raw.targetDate);
+		const targetMonth = parseMonth(raw.targetMonth);
 		const progressPercent = parseInteger(raw.progressPercent ?? 0, 0, 100);
 		const targetCount = parseInteger(raw.targetCount, 1, 999999, true);
 		const completedCount = parseInteger(raw.completedCount ?? 0, 0, 999999);
 		const displayOrder = parseInteger(raw.displayOrder ?? ((index + 1) * 10), -999999, 999999);
-		if ([targetDate, progressPercent, targetCount, completedCount, displayOrder].includes('INVALID')) {
+		if ([targetDate, targetMonth, progressPercent, targetCount, completedCount, displayOrder].includes('INVALID')) {
 			return json({ ok: false, error: 'INVALID_GOAL_FIELD' }, 400);
 		}
 		const status = raw.status === 'done' || raw.status === 'progress' || raw.status === 'planned' ? raw.status : null;
@@ -199,6 +210,7 @@ export async function handleUpdateAdminDashboard(request: Request, env: Env): Pr
 			title,
 			goalType,
 			targetDate: targetDate as string | null,
+			targetMonth: targetDate ? null : targetMonth as string | null,
 			progressPercent: progressPercent as number,
 			targetCount: targetCount as number | null,
 			completedCount: completedCount as number,
@@ -225,13 +237,14 @@ export async function handleUpdateAdminDashboard(request: Request, env: Env): Pr
 		for (const goal of normalized) {
 			statements.push(env.song_project_db.prepare(`
 				INSERT INTO dashboard_goals (
-					id, goal_key, title, goal_type, target_date, progress_percent,
+					id, goal_key, title, goal_type, target_date, target_month, progress_percent,
 					target_count, completed_count, status, display_order, is_visible, updated_at
-				) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+				) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 				ON CONFLICT(goal_key) DO UPDATE SET
 					title = excluded.title,
 					goal_type = excluded.goal_type,
 					target_date = excluded.target_date,
+					target_month = excluded.target_month,
 					progress_percent = excluded.progress_percent,
 					target_count = excluded.target_count,
 					completed_count = excluded.completed_count,
@@ -240,7 +253,7 @@ export async function handleUpdateAdminDashboard(request: Request, env: Env): Pr
 					is_visible = excluded.is_visible,
 					updated_at = excluded.updated_at
 			`).bind(
-				goal.id, goal.goalKey, goal.title, goal.goalType, goal.targetDate,
+				goal.id, goal.goalKey, goal.title, goal.goalType, goal.targetDate, goal.targetMonth,
 				goal.progressPercent, goal.targetCount, goal.completedCount, goal.status,
 				goal.displayOrder, goal.isVisible ? 1 : 0,
 			));
