@@ -165,6 +165,54 @@
 	display: none;
 }
 
+.admin-japanese-import-source-file {
+	margin-bottom: 7px;
+	font-size: 11px;
+	font-weight: 850;
+	color: #355b8b;
+	word-break: break-all;
+}
+
+.admin-japanese-table-source-head,
+.admin-japanese-table-source-cell {
+	min-width: 150px;
+	max-width: 230px;
+}
+
+.admin-japanese-source-badge {
+	display: inline-flex;
+	align-items: center;
+	max-width: 220px;
+	padding: 5px 8px;
+	border: 1px solid #dbe4ee;
+	border-radius: 8px;
+	background: #f8fafc;
+	font-size: 9px;
+	font-weight: 800;
+	line-height: 1.45;
+	color: #59687c;
+	white-space: normal;
+	word-break: break-all;
+}
+
+.admin-japanese-source-badge.is-file {
+	border-color: #b9d1fa;
+	background: #eef5ff;
+	color: #2b61b4;
+}
+
+.admin-japanese-source-badge.is-manual {
+	border-color: #c9dfd5;
+	background: #eef8f3;
+	color: #326a56;
+}
+
+.admin-japanese-source-badge.is-legacy {
+	border-color: #e1e5ea;
+	background: #f6f7f9;
+	color: #7a8491;
+}
+
 .admin-japanese-table-state-head,
 .admin-japanese-table-state-cell {
 	width: 92px;
@@ -233,5 +281,10 @@
 		min-height: 32px;
 		padding: 0 10px;
 		font-size: 10px;
+	}
+
+	.admin-japanese-table-source-head,
+	.admin-japanese-table-source-cell {
+		min-width: 125px;
 	}
 }
