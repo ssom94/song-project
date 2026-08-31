@@ -30,6 +30,10 @@
 	cursor: default;
 }
 
+.jlpt-content-card:has(> .jlpt-question-options[data-jlpt-enhanced="true"]) > .jlpt-content-done {
+	display: none;
+}
+
 .jlpt-question-submit {
 	display: inline-flex;
 	align-items: center;
