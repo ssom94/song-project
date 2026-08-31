@@ -314,7 +314,7 @@
 (() => {
 	if (document.querySelector('script[data-schedule-calendar-local-info]')) return;
 	const script = document.createElement('script');
-	script.src = '/assets/js/schedule-calendar-local-info.js?v=20260831-1';
+	script.src = '/assets/js/schedule-calendar-local-info.js?v=20260831-2';
 	script.async = true;
 	script.dataset.scheduleCalendarLocalInfo = 'true';
 	document.head.appendChild(script);
