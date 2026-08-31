@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>학습 Excel 추출 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/study/study-export.css" />
+</head>
+<body class="blog-page blog-dashboard-page study-export-page" data-blog-language="ko">
+<header class="blog-dashboard-topbar"><div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div><div class="blog-dashboard-language"><a href="/ja/japanese/export/">日本語</a><span>/</span><span class="is-active">한국어</span></div></header>
+<div class="blog-dashboard-shell">
+<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar"><section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/study/ap/">AP 학습</a></nav></section><section class="blog-sidebar-section"><p class="blog-sidebar-label">학습 자료</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ko/japanese/words/">전체 단어</a><a class="blog-sidebar-link" href="/ko/japanese/jlpt/">JLPT N1</a><a class="blog-sidebar-link" href="/ko/study/ap/vocabulary/">AP 기술단어</a><a class="blog-sidebar-link is-active" href="/ko/japanese/export/">Excel 추출</a></nav></section><div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div></aside>
+<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+<main class="blog-dashboard-main"><div class="blog-dashboard-content study-export-content">
+<section class="study-export-card study-export-hero"><div><h1>학습 Excel 추출</h1><p>일반 일본어 단어장, JLPT 커리큘럼, AP 기술 일본어 단어장을 같은 시험지 형식의 .xlsx 파일로 추출합니다.</p></div><div class="study-export-links"><a href="/ko/japanese/words/">단어 목록</a><a href="/ko/japanese/jlpt/">JLPT</a><a href="/ko/study/ap/vocabulary/">AP 단어장</a></div></section>
+<section class="study-export-card"><h2>추출 조건</h2><p>오답노트는 틀린 이력이 한 번 이상 있는 단어를 의미합니다. 과거 오답 횟수는 맞힌 뒤에도 유지됩니다.</p><div class="study-export-form">
+<label>자료 종류<select id="study-export-source"><option value="all">전체 일본어 단어장</option><option value="jlpt">JLPT 현재 커리큘럼</option><option value="ap">AP 기술 일본어 단어장</option></select></label>
+<label>추출 범위<select id="study-export-filter"><option value="all">전체</option><option value="wrong">오답노트 · 틀린 이력 있음</option><option value="uncertain">애매함</option><option value="unlearned">미학습</option><option value="mastered">숙달</option><option value="due">오늘 복습대상</option></select></label>
+<button class="study-export-button" type="button" data-study-export data-export-source-target="study-export-source" data-export-filter-target="study-export-filter">Excel (.xlsx) 추출</button>
+</div></section>
+<section class="study-export-card"><h2>Excel 컬럼</h2><div class="study-export-columns"><div class="study-export-column">일본어</div><div class="study-export-column">빈칸(히라가나)</div><div class="study-export-column">빈칸(한국어)</div><div class="study-export-column">히라가나</div><div class="study-export-column">한국어</div></div><p class="study-export-note">2·3열은 직접 답을 쓰는 시험용 빈칸입니다. 4·5열에 정답이 들어갑니다. 첫 행은 고정되고 필터가 적용된 Excel 파일로 생성됩니다.</p></section>
+</div></main></div>
+<script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/study-export.js"></script>
+</body></html>
