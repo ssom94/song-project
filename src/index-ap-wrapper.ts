@@ -14,6 +14,7 @@ import {
 } from './admin/categories/appearance-manage';
 import { handleUploadAdminCategoryIcon } from './admin/categories/icon-upload';
 import { handleListAdminJapaneseWordsWithProvenance } from './admin/japanese/words-provenance';
+import { handleUploadAdminSiteBackground } from './admin/site-background-upload';
 import { handleExportStudyXlsx } from './admin/study-export';
 import {
 	handleGetPublicJapaneseJlptPractice,
@@ -26,6 +27,7 @@ import { handleGetPublicCategoryIcon } from './public/category-icon';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
 import { handleGetPublicPostWithAppearance } from './public/posts/appearance-detail';
 import { handleListPublicPostsWithAppearance } from './public/posts/appearance-list';
+import { handleGetPublicSiteBackground } from './public/site-background';
 import {
 	handleGetAdminSiteVisuals,
 	handleGetPublicSiteVisuals,
@@ -58,6 +60,8 @@ export default {
 				return request.method === 'GET' ? handleGetPublicPostWithAppearance(request, env) : methodNotAllowed('GET');
 			case '/api/public/category-icon':
 				return request.method === 'GET' ? handleGetPublicCategoryIcon(request, env) : methodNotAllowed('GET');
+			case '/api/public/site-background':
+				return request.method === 'GET' ? handleGetPublicSiteBackground(request, env) : methodNotAllowed('GET');
 			case '/api/public/site-visuals':
 				return request.method === 'GET' ? handleGetPublicSiteVisuals(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/dashboard':
@@ -80,6 +84,8 @@ export default {
 				if (request.method === 'GET') return handleGetAdminSiteVisuals(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminSiteVisuals(request, env);
 				return methodNotAllowed('GET, PATCH');
+			case '/api/admin/site-visuals/background':
+				return request.method === 'POST' ? handleUploadAdminSiteBackground(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/practice/grade':
 				return request.method === 'POST' ? handleGradeAdminJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/wrong-notes':
