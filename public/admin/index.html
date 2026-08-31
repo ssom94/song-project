@@ -11,122 +11,39 @@
 </head>
 <body class="admin-page admin-dashboard-page">
 	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
-
 	<div id="admin-shell" class="admin-shell" hidden>
 		<header class="admin-global-header">
 			<div class="admin-header-left">
-				<button
-					id="admin-sidebar-toggle"
-					class="admin-sidebar-toggle"
-					type="button"
-					aria-controls="admin-sidebar"
-					aria-expanded="true"
-					aria-label="管理メニューを閉じる"
-					data-i18n-aria-label="menuCloseLabel"
-				>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</button>
-
-				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel">
-					<img src="/assets/logo-song-ym.png" alt="Song YM" />
-					<span>SONG Admin</span>
-				</a>
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a>
 			</div>
-
 			<div class="admin-header-actions">
-				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel">
-					<button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button>
-					<span class="admin-language-divider" aria-hidden="true">|</span>
-					<button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button>
-				</div>
-
-				<div class="admin-user-menu-wrap">
-					<button
-						id="admin-user-toggle"
-						class="admin-user-toggle"
-						type="button"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-controls="admin-user-menu"
-					>
-						<img class="admin-user-icon" src="/assets/icons/user.svg" alt="" aria-hidden="true" />
-						<span id="admin-user" class="admin-user"></span>
-						<span class="admin-user-chevron" aria-hidden="true"></span>
-					</button>
-
-					<div id="admin-user-menu" class="admin-user-menu" hidden>
-						<div class="admin-user-menu-info">
-							<strong id="admin-user-menu-name"></strong>
-							<span id="admin-user-menu-email"></span>
-						</div>
-						<button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button>
-					</div>
-				</div>
+				<div class="admin-language-switch" aria-label="表示言語"><button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button></div>
+				<div class="admin-user-menu-wrap"><button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button><div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button></div></div>
 			</div>
 		</header>
-
 		<div class="admin-header-accent" aria-hidden="true"></div>
-
 		<div class="admin-body">
-			<aside id="admin-sidebar" class="admin-sidebar">
-				<p class="admin-nav-label" data-i18n="management">管理</p>
-				<nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav>
-
-				<div class="admin-sidebar-footer">
-					<a href="/" data-i18n="viewSite">サイトを表示</a>
+			<aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label" data-i18n="management">管理</p><nav id="admin-nav" class="admin-nav"></nav><div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div></aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
+			<main class="admin-main"><section class="admin-content">
+				<div class="admin-page-heading"><h1 data-i18n="dashboard">ダッシュボード</h1><p>現在の公開サイト構成に合わせて、各管理機能へ移動できます。 / 현재 사이트 구성에 맞춘 관리 메뉴입니다.</p></div>
+				<div class="admin-dashboard-grid">
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/goals/">目標・D-Day / 목표·D-Day</a></h2><p>JLPT・AP・資格・ポートフォリオなどの目標時期と進捗を管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/schedules/">予定・カレンダー / 일정·달력</a></h2><p>通常予定、月間カレンダー、公開ホームの共通スケジュールを管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/certifications/">資格・試験 / 자격증·시험</a></h2><p>資格ページの説明、試験方式、日程、出題範囲・学習情報を直接編集します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/posts/">投稿管理 / 게시글 관리</a></h2><p>記事の作成・編集・翻訳・公開状態を管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/comments/">コメント管理 / 댓글 관리</a></h2><p>公開コメント、返信、非表示・スパム状態を管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/categories/">カテゴリ・タグ / 카테고리·태그</a></h2><p>カテゴリ、タグ、カテゴリ用アイコン・色・表示順を管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/site-design/">サイトデザイン / 사이트 디자인</a></h2><p>背景、明るさ、サイズ・位置、マウスカーソルなど公開サイトの外観を設定します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/japanese/">日本語学習 / 일본어 학습</a></h2><p>単語、品詞、学習分類、クイズ、JLPT学習データを管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/documents/">職務経歴書・資料 / 직무경력서·자료</a></h2><p>公開用の職務経歴書・スキル資料とファイルのバージョンを管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/access-codes/">アクセスコード / 접근 코드</a></h2><p>保護ページ用アクセスコードの発行・期限・失効を管理します.</p></article>
+					<article class="admin-dashboard-card"><h2><a class="admin-dashboard-title-link" href="/admin/accounts/">管理者アカウント / 관리자 계정</a></h2><p>管理者アカウントと権限対象を管理します.</p></article>
 				</div>
-			</aside>
-
-			<button
-				id="admin-sidebar-backdrop"
-				class="admin-sidebar-backdrop"
-				type="button"
-				tabindex="-1"
-				aria-label="管理メニューを閉じる"
-				data-i18n-aria-label="menuCloseLabel"
-				hidden
-			></button>
-
-			<main class="admin-main">
-				<section class="admin-content">
-					<div class="admin-page-heading">
-						<h1 data-i18n="dashboard">ダッシュボード</h1>
-						<p data-i18n="dashboardDescription">ブログと各モジュールをここから管理します。</p>
-					</div>
-
-					<div class="admin-dashboard-grid">
-						<article class="admin-dashboard-card">
-							<h2><a class="admin-dashboard-title-link" href="/admin/posts/" data-i18n="posts">投稿管理</a></h2>
-							<p data-i18n="postsDescription">記事の作成・編集・翻訳・公開状態を管理します。</p>
-						</article>
-						<article class="admin-dashboard-card">
-							<h2><a class="admin-dashboard-title-link" href="/admin/comments/" data-i18n="comments">コメント管理</a></h2>
-							<p data-i18n="commentsDescription">公開コメント、返信、非表示・スパム状態を管理します。</p>
-						</article>
-						<article class="admin-dashboard-card">
-							<h2><a class="admin-dashboard-title-link" href="/admin/japanese/" data-i18n="japaneseLearning">日本語学習</a></h2>
-							<p data-i18n="japaneseDescription">単語、例文、JLPT分類、AIレビューを管理します。</p>
-						</article>
-						<article class="admin-dashboard-card">
-							<h2><a class="admin-dashboard-title-link" href="/admin/documents/" data-i18n="protectedDocuments">スキル・職務経歴書</a></h2>
-							<p data-i18n="protectedDocumentsDescription">Excelのバージョンと公開中のドキュメントを管理します。</p>
-						</article>
-						<article class="admin-dashboard-card">
-							<h2><a class="admin-dashboard-title-link" href="/admin/access-codes/" data-i18n="accessCodes">アクセスコード</a></h2>
-							<p data-i18n="accessCodesDescription">保護ページ用コードの発行・期限・失効を管理します。</p>
-						</article>
-						<article class="admin-dashboard-card">
-							<h2 data-i18n="auditHistory">監査・履歴</h2>
-							<p data-i18n="auditHistoryDescription">今後、変更履歴や管理操作を確認できるようにします。</p>
-						</article>
-					</div>
-				</section>
-			</main>
+			</section></main>
 		</div>
 	</div>
-
 	<script src="/assets/js/admin/i18n.js"></script>
 	<script src="/assets/js/admin/menu.js"></script>
 	<script src="/assets/js/admin/layout.js"></script>
