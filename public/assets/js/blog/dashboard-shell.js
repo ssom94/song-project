@@ -357,6 +357,15 @@
 		}
 	}
 
+	function mountJlptTodayFloating() {
+		if (document.querySelector('script[data-jlpt-today-floating]')) return;
+		const script = document.createElement('script');
+		script.src = '/assets/js/japanese/today-floating.js';
+		script.defer = true;
+		script.dataset.jlptTodayFloating = 'true';
+		document.body.appendChild(script);
+	}
+
 	function initialize() {
 		mountSidebarCollapseToggle();
 		byId('blog-dashboard-menu-toggle')?.addEventListener('click', toggleSidebar);
@@ -375,6 +384,7 @@
 		});
 		syncHomeModuleLinks();
 		mountAdminAccess();
+		mountJlptTodayFloating();
 	}
 
 	window.BlogDashboard = {
