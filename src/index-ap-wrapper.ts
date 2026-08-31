@@ -13,6 +13,7 @@ import {
 	handleUpdateAdminCategoryWithAppearance,
 } from './admin/categories/appearance-manage';
 import { handleUploadAdminCategoryIcon } from './admin/categories/icon-upload';
+import { handleGetAdminCertifications, handleUpdateAdminCertification } from './admin/certifications';
 import { handleListAdminJapaneseWordsWithProvenance } from './admin/japanese/words-provenance';
 import { handleUploadAdminSiteBackground } from './admin/site-background-upload';
 import { handleExportStudyXlsx } from './admin/study-export';
@@ -80,6 +81,10 @@ export default {
 				return app.fetch(request, env);
 			case '/api/admin/categories/icon':
 				return request.method === 'POST' ? handleUploadAdminCategoryIcon(request, env) : methodNotAllowed('POST');
+			case '/api/admin/certifications':
+				if (request.method === 'GET') return handleGetAdminCertifications(request, env);
+				if (request.method === 'PATCH') return handleUpdateAdminCertification(request, env);
+				return methodNotAllowed('GET, PATCH');
 			case '/api/admin/site-visuals':
 				if (request.method === 'GET') return handleGetAdminSiteVisuals(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminSiteVisuals(request, env);
