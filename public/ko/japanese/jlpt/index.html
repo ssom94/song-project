@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>JLPT N1 학습 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/jlpt.css" />
+</head>
+<body class="blog-page blog-dashboard-page japanese-public-page jlpt-page" data-blog-language="ko">
+	<header class="blog-dashboard-topbar">
+		<div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div>
+		<div class="blog-dashboard-language"><a href="/ja/japanese/jlpt/">日本語</a><span>/</span><span class="is-active">한국어</span></div>
+	</header>
+	<div class="blog-dashboard-shell">
+		<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section>
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">일본어 학습</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ko/japanese/">학습 홈</a><a class="blog-sidebar-link is-active" href="/ko/japanese/jlpt/">JLPT N1 학습</a><a class="blog-sidebar-link" href="/ko/japanese/words/">단어 목록</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/">랜덤 퀴즈</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/result/">학습 결과</a></nav></section>
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">게시판</p><nav id="blog-sidebar-categories" class="blog-sidebar-nav"></nav><p id="blog-sidebar-categories-empty" class="blog-sidebar-category-empty">아직 공개된 카테고리가 없습니다.</p></section>
+			<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
+		</aside>
+		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+		<main class="blog-dashboard-main"><div class="blog-dashboard-content jlpt-content">
+			<div id="jlpt-error" class="jlpt-error" hidden></div>
+			<section class="jlpt-hero"><div><p class="jlpt-eyebrow">JLPT N1 · 2027 JULY</p><h1>JLPT N1 합격 플랜</h1><p class="jlpt-hero-copy">어휘와 독해를 중심으로 매일 신규 N1 단어 20개, 복습, 시험형 어휘 문제, 문법, 독해를 누적합니다. 기존 단어일람과 랜덤 퀴즈는 그대로 유지합니다.</p><p id="jlpt-date-note" class="jlpt-note">2027년 공식 시험일 발표 전까지 7월 첫째 일요일을 임시 목표일로 표시합니다.</p></div><div class="jlpt-dday"><span>시험까지</span><strong id="jlpt-dday">—</strong><small id="jlpt-target-date">—</small></div></section>
+
+			<section class="jlpt-stat-grid"><article class="jlpt-stat"><span>N1 목표 어휘</span><strong id="jlpt-target-words">—</strong><small>개</small></article><article class="jlpt-stat"><span>커리큘럼 등록</span><strong id="jlpt-curriculum-count">—</strong><small>개</small></article><article class="jlpt-stat"><span>학습한 단어</span><strong id="jlpt-studied-count">—</strong><small>개</small></article><article class="jlpt-stat"><span>오늘 복습 예정</span><strong id="jlpt-review-due">—</strong><small>개</small></article></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>전체 진도</h2><p>3,000개 목표 기준으로 등록·학습·암기 진행률을 구분합니다.</p></div><span>N1 DB 등록 <b id="jlpt-registered-n1">—</b>개</span></div><div class="jlpt-progress-row"><b>커리큘럼 등록</b><div class="jlpt-progress-track"><span id="jlpt-curriculum-bar" class="jlpt-progress-fill"></span></div><span id="jlpt-curriculum-percent">—</span></div><div class="jlpt-progress-row"><b>1회 이상 학습</b><div class="jlpt-progress-track"><span id="jlpt-study-bar" class="jlpt-progress-fill"></span></div><span id="jlpt-study-percent">—</span></div><div class="jlpt-progress-row"><b>외움 상태</b><div class="jlpt-progress-track"><span id="jlpt-mastery-bar" class="jlpt-progress-fill"></span></div><span id="jlpt-mastery-percent">—</span></div><div class="jlpt-progress-row"><b>상태</b><div>외움 <strong id="jlpt-mastered-count">—</strong> · 애매함 <strong id="jlpt-uncertain-count">—</strong></div><span></span></div></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>오늘의 학습</h2><p id="jlpt-start-copy">오늘 학습 정보를 불러오는 중입니다.</p></div><button id="jlpt-start-button" class="jlpt-primary-button" type="button">오늘의 학습 시작</button></div><div class="jlpt-today-summary"><div><strong id="jlpt-today-percent">0%</strong><p>오늘 전체 진행률</p><div class="jlpt-today-track"><span id="jlpt-today-bar" class="jlpt-today-fill"></span></div></div><div>복습 → 신규 어휘 → 어휘 문제 → 문법 → 독해</div></div><div class="jlpt-today-list"><div class="jlpt-today-item"><span>복습 어휘</span><strong id="jlpt-today-review">0 / 0</strong></div><div class="jlpt-today-item"><span>신규 어휘</span><strong id="jlpt-today-new">0 / 20</strong></div><div class="jlpt-today-item"><span>어휘 문제</span><strong id="jlpt-today-vocab">0 / 15</strong></div><div class="jlpt-today-item"><span>문법</span><strong id="jlpt-today-grammar">0 / 2</strong></div><div class="jlpt-today-item"><span>독해</span><strong id="jlpt-today-reading">0 / 1</strong></div></div></section>
+
+			<section id="jlpt-study-detail" class="jlpt-card jlpt-hidden"><div class="jlpt-card-heading"><div><h2>단어 학습·복습</h2><p>각 단어를 미학습 / 애매함 / 외움으로 평가하면 다음 복습일이 자동 계산됩니다.</p></div></div><div class="jlpt-study-grid"><section class="jlpt-word-section"><h3>복습 단어</h3><div id="jlpt-review-words" class="jlpt-word-list"></div></section><section class="jlpt-word-section"><h3>신규 단어</h3><div id="jlpt-new-words" class="jlpt-word-list"></div></section></div></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>JLPT 어휘 문제</h2><p>漢字読み · 文脈規定 · 言い換え · 用法 형식의 문제를 날짜별로 누적합니다.</p></div></div><div id="jlpt-vocab-contents" class="jlpt-content-list"><div class="jlpt-empty">오늘 등록된 학습 자료가 없습니다.</div></div></section>
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>문법</h2><p>하루 약 2개의 N1 문법과 문제를 오늘 신규 어휘와 연결해서 학습합니다.</p></div></div><div id="jlpt-grammar-contents" class="jlpt-content-list"><div class="jlpt-empty">오늘 등록된 문법이 없습니다.</div></div><div id="jlpt-grammar-questions" class="jlpt-content-list"></div></section>
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>독해</h2><p>신규 단어를 자연스럽게 포함한 N1 단문·중문·장문을 단계적으로 학습합니다.</p></div></div><div id="jlpt-reading-contents" class="jlpt-content-list"><div class="jlpt-empty">오늘 등록된 독해가 없습니다.</div></div></section>
+
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>최근 4주 학습 일정</h2><p>완료 ✅ · 일부 진행 🟡 · 미학습 —</p></div></div><div id="jlpt-calendar" class="jlpt-calendar-grid"></div></section>
+		</div></main>
+	</div>
+	<script src="/assets/js/blog/dashboard-shell.js"></script>
+	<script src="/assets/js/japanese/common.js"></script>
+	<script src="/assets/js/japanese/jlpt-dashboard.js"></script>
+</body>
+</html>
