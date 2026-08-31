@@ -8,6 +8,11 @@ import {
 	handleListAdminApVocabulary,
 } from './admin/ap-vocabulary';
 import { handleListAdminApVocabularyWrongNotes } from './admin/ap-vocabulary-wrong';
+import {
+	handleCreateAdminCategoryWithAppearance,
+	handleUpdateAdminCategoryWithAppearance,
+} from './admin/categories/appearance-manage';
+import { handleUploadAdminCategoryIcon } from './admin/categories/icon-upload';
 import { handleListAdminJapaneseWordsWithProvenance } from './admin/japanese/words-provenance';
 import { handleExportStudyXlsx } from './admin/study-export';
 import {
@@ -17,7 +22,15 @@ import {
 	handleListAdminJapaneseJlptWrongNotes,
 } from './jlpt-practice';
 import { handleGetPublicApDashboard } from './public/ap';
+import { handleGetPublicCategoryIcon } from './public/category-icon';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
+import { handleGetPublicPostWithAppearance } from './public/posts/appearance-detail';
+import { handleListPublicPostsWithAppearance } from './public/posts/appearance-list';
+import {
+	handleGetAdminSiteVisuals,
+	handleGetPublicSiteVisuals,
+	handleUpdateAdminSiteVisuals,
+} from './site-visuals';
 
 function methodNotAllowed(allow: string): Response {
 	return new Response('Method Not Allowed', {
@@ -39,6 +52,14 @@ export default {
 						'Cache-Control': 'public, max-age=86400',
 					},
 				});
+			case '/api/public/posts':
+				return request.method === 'GET' ? handleListPublicPostsWithAppearance(request, env) : methodNotAllowed('GET');
+			case '/api/public/posts/detail':
+				return request.method === 'GET' ? handleGetPublicPostWithAppearance(request, env) : methodNotAllowed('GET');
+			case '/api/public/category-icon':
+				return request.method === 'GET' ? handleGetPublicCategoryIcon(request, env) : methodNotAllowed('GET');
+			case '/api/public/site-visuals':
+				return request.method === 'GET' ? handleGetPublicSiteVisuals(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/dashboard':
 				return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/kanji-korean':
@@ -47,6 +68,18 @@ export default {
 				return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice/grade':
 				return request.method === 'POST' ? handleGradePublicJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
+			case '/api/admin/categories':
+				if (request.method === 'POST') return handleCreateAdminCategoryWithAppearance(request, env);
+				return app.fetch(request, env);
+			case '/api/admin/categories/detail':
+				if (request.method === 'PATCH') return handleUpdateAdminCategoryWithAppearance(request, env);
+				return app.fetch(request, env);
+			case '/api/admin/categories/icon':
+				return request.method === 'POST' ? handleUploadAdminCategoryIcon(request, env) : methodNotAllowed('POST');
+			case '/api/admin/site-visuals':
+				if (request.method === 'GET') return handleGetAdminSiteVisuals(request, env);
+				if (request.method === 'PATCH') return handleUpdateAdminSiteVisuals(request, env);
+				return methodNotAllowed('GET, PATCH');
 			case '/api/admin/japanese/jlpt/practice/grade':
 				return request.method === 'POST' ? handleGradeAdminJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/wrong-notes':
