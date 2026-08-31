@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/assets/css/blog/common.css" />
 	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
 	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/jlpt-history.css" />
 </head>
 <body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ja">
 	<header class="blog-dashboard-topbar">
@@ -31,7 +32,7 @@
 		</aside>
 		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
 		<main class="blog-dashboard-main"><div class="blog-dashboard-content jp-dashboard-content">
-			<section class="jp-page-heading"><div><p class="jp-eyebrow">JAPANESE LEARNING</p><h1>日本語学習ダッシュボード</h1><p>登録した単語、誤答、JLPT別の進捗とクイズ学習をまとめて確認します。</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ja/japanese/words/">単語を見る</a><a class="jp-primary-button" href="/ja/japanese/jlpt/">JLPT N1 学習</a></div></section>
+			<section class="jp-page-heading"><div><p class="jp-eyebrow">JAPANESE LEARNING</p><h1>日本語学習ダッシュボード</h1><p>登録した単語、誤答、JLPT別の進捗と実際の学習履歴をまとめて確認します。</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ja/japanese/words/">単語を見る</a><a class="jp-primary-button" href="/ja/japanese/jlpt/">JLPT N1 学習</a></div></section>
 			<section class="jp-stat-grid">
 				<article class="jp-stat-card"><span>登録単語</span><strong data-jp-stat="registered">—</strong><small>語</small></article>
 				<article class="jp-stat-card"><span>復習が必要</span><strong data-jp-stat="wrong">—</strong><small>語</small></article>
@@ -51,12 +52,12 @@
 					</div></section>
 				</div>
 				<aside>
-					<section class="jp-card"><div class="jp-card-heading"><h2>最近の学習</h2><span>Recent</span></div><div class="jp-simple-list"><div class="jp-empty-state">学習履歴が蓄積されると、ここに最近の回答が表示されます。</div></div></section>
+					<section class="jp-card"><div class="jp-card-heading"><h2>JLPT N1 学習履歴</h2><a href="/ja/japanese/jlpt/">すべて見る →</a></div><div id="jp-recent-study-summary" class="jp-public-history-summary"></div><div id="jp-recent-study-list" class="jp-public-history-list"><div class="jp-empty-state">学習履歴を読み込んでいます。</div></div></section>
 					<section class="jp-card"><div class="jp-card-heading"><h2>学習分類</h2><span>Categories</span></div><div class="jp-simple-list"><div class="jp-simple-row"><div><strong>JLPT</strong><small>N1〜N5</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>仕事・面接</strong><small>業務で使う表現</small></div><span>→</span></div><div class="jp-simple-row"><div><strong>開発用語</strong><small>IT・Web・Cloud</small></div><span>→</span></div></div></section>
 				</aside>
 			</section>
 		</div></main>
 	</div>
-	<script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/japanese/common.js"></script>
+	<script src="/assets/js/blog/dashboard-shell.js"></script><script src="/assets/js/japanese/common.js"></script><script src="/assets/js/japanese/jlpt-history.js"></script>
 </body>
 </html>
