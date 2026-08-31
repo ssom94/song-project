@@ -4,11 +4,12 @@ html.song-site-background-custom body:not(.admin-page)::before {
 	inset: 0;
 	z-index: -2;
 	pointer-events: none;
-	background: var(--song-site-background-layer, #f7f9fc) !important;
+	background-color: #f7f9fc !important;
+	background-image: var(--song-site-background-layer, none) !important;
 	background-attachment: fixed !important;
-	background-position: center !important;
+	background-position: var(--song-site-background-position-x, 50%) var(--song-site-background-position-y, 50%) !important;
 	background-repeat: no-repeat !important;
-	background-size: cover !important;
+	background-size: var(--song-site-background-size, cover) !important;
 	opacity: 1 !important;
 }
 
@@ -26,5 +27,6 @@ html.song-site-background-custom[data-song-background-preset="paper-grid"] body:
 		linear-gradient(rgba(255,255,255,var(--song-site-background-overlay, .12)), rgba(255,255,255,var(--song-site-background-overlay, .12))),
 		linear-gradient(rgba(86,105,150,.075) 1px, transparent 1px),
 		linear-gradient(90deg, rgba(86,105,150,.075) 1px, transparent 1px) !important;
+	background-position: center !important;
 	background-size: auto, 28px 28px, 28px 28px !important;
 }
