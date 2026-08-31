@@ -360,7 +360,7 @@
 	function mountJlptTodayFloating() {
 		if (document.querySelector('script[data-jlpt-today-floating]')) return;
 		const script = document.createElement('script');
-		script.src = '/assets/js/japanese/today-floating.js';
+		script.src = '/assets/js/japanese/today-study-float.js';
 		script.defer = true;
 		script.dataset.jlptTodayFloating = 'true';
 		document.body.appendChild(script);
