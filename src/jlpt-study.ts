@@ -1,7 +1,7 @@
 import { ensureJapaneseAdminLearningStatsSchema, type JapaneseLearningState } from './japanese-learning';
 
 export const DEFAULT_JLPT_PLAN_CODE = 'N1_2027_JUL';
-export const DEFAULT_JLPT_STUDY_START_DATE = '2026-09-01';
+export const DEFAULT_JLPT_STUDY_START_DATE = '2026-08-31';
 // 2027년 공식 JLPT 일정 발표 전까지 첫째 일요일을 임시 목표일로 사용한다.
 export const DEFAULT_JLPT_TARGET_EXAM_DATE = '2027-07-04';
 export const DEFAULT_JLPT_TARGET_WORD_COUNT = 3000;
