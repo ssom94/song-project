@@ -10,6 +10,16 @@
 		return match?.[1] || 'song-study.xlsx';
 	}
 
+	function applyQueryDefaults() {
+		const params = new URLSearchParams(window.location.search);
+		const source = params.get('source');
+		const filter = params.get('filter');
+		const sourceSelect = document.getElementById('study-export-source');
+		const filterSelect = document.getElementById('study-export-filter');
+		if (sourceSelect && ['all', 'jlpt', 'ap'].includes(source || '')) sourceSelect.value = source;
+		if (filterSelect && ['all', 'wrong', 'uncertain', 'unlearned', 'mastered', 'due'].includes(filter || '')) filterSelect.value = filter;
+	}
+
 	async function download(event) {
 		const button = event.currentTarget;
 		const sourceTarget = button.dataset.exportSourceTarget;
@@ -48,5 +58,6 @@
 		}
 	}
 
+	applyQueryDefaults();
 	document.querySelectorAll('[data-study-export]').forEach((button) => button.addEventListener('click', download));
 })();
