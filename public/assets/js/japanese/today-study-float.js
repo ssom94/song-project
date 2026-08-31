@@ -28,6 +28,7 @@
 			experience.dataset.jlptExperience = 'true';
 			document.body.appendChild(experience);
 		}
+		loadScript('/assets/js/japanese/jlpt-calendar-stability.js?v=20260831-1', 'data-jlpt-calendar-stability');
 		if (!document.querySelector('script[data-jlpt-visitor-mode]')) {
 			const visitor = document.createElement('script');
 			visitor.src = '/assets/js/japanese/jlpt-visitor-mode.js?v=20260831-1';
