@@ -45,12 +45,21 @@ function parseJlptFilters(url: URL): string[] | null {
 	return unique;
 }
 
+function parseWordFilters(url: URL): string[] {
+	return [...new Set(url.searchParams
+		.getAll('word')
+		.map((value) => value.normalize('NFKC').trim())
+		.filter(Boolean))]
+		.slice(0, 60);
+}
+
 function buildBaseFilters(
 	jlpts: string[],
 	categoryId: number,
 	categoryParentId: number,
 	partId: number,
 	partParentId: number,
+	wordFilters: string[],
 ): { sql: string; params: BindValue[] } {
 	const clauses = ['jw.deleted_at IS NULL'];
 	const params: BindValue[] = [];
@@ -65,6 +74,11 @@ function buildBaseFilters(
 		}
 		if (includesUnset) levelClauses.push('jw.jlpt_level_id IS NULL');
 		clauses.push(`(${levelClauses.join(' OR ')})`);
+	}
+
+	if (wordFilters.length) {
+		clauses.push(`jw.word IN (${wordFilters.map(() => '?').join(', ')})`);
+		params.push(...wordFilters);
 	}
 
 	if (categoryId) {
@@ -114,6 +128,7 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 	const candidateLimit = preview ? 5000 : Math.min(500, Math.max(30, count * 8));
 	const jlpts = parseJlptFilters(url);
 	if (jlpts === null) return json({ ok: false, error: 'INVALID_JLPT' }, 400);
+	const wordFilters = parseWordFilters(url);
 	const categoryId = intParam(url, 'category');
 	const categoryParentId = intParam(url, 'categoryParent');
 	const partId = intParam(url, 'part');
@@ -122,7 +137,7 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 	const wantsReading = types.includes('reading');
 	const wantsMeaning = types.includes('meaning');
 	const wantsSentence = types.includes('sentence');
-	const base = buildBaseFilters(jlpts, categoryId, categoryParentId, partId, partParentId);
+	const base = buildBaseFilters(jlpts, categoryId, categoryParentId, partId, partParentId, wordFilters);
 
 	try {
 		await ensureJapaneseAdminLearningStatsSchema(env.song_project_db);
@@ -204,6 +219,7 @@ export async function handleGetPublicJapaneseQuizPool(request: Request, env: Env
 			count,
 			filters: {
 				jlpts,
+				wordFilters,
 				categoryId: categoryId || null,
 				categoryParentId: categoryParentId || null,
 				partId: partId || null,
