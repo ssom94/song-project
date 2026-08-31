@@ -9,6 +9,9 @@ export const DEFAULT_JLPT_DAILY_NEW_WORDS = 20;
 export const DEFAULT_JLPT_VOCAB_QUESTIONS = 15;
 export const DEFAULT_JLPT_GRAMMAR_TARGET = 2;
 export const DEFAULT_JLPT_READING_TARGET = 1;
+export const DEFAULT_JLPT_MAINTENANCE_REVIEW_TARGET = 10;
+export const DEFAULT_JLPT_WEEKLY_TEST_TARGET = 30;
+export const DEFAULT_JLPT_MONTHLY_TEST_TARGET = 100;
 
 export interface JlptStudyPlanRow {
 	id: number;
@@ -31,15 +34,15 @@ export interface LearningProgressRow {
 	first_learned_at: string | null;
 	last_studied_at: string | null;
 	review_stage: number;
+	long_review_stage: number;
 	next_review_on: string | null;
 }
 
 const REVIEW_INTERVAL_DAYS = [1, 3, 7, 14, 30, 60] as const;
 
 export async function ensureJapaneseJlptStudySchema(db: D1Database): Promise<void> {
-	// Existing databases must receive migration 0030 before this code is deployed.
-	// Do not ALTER the legacy learning-stats table at runtime: doing so would make
-	// the versioned D1 migration fail later with duplicate-column errors.
+	// Existing databases must receive migrations before this code is deployed.
+	// Do not ALTER legacy tables at runtime: versioned D1 migrations own schema changes.
 	await ensureJapaneseAdminLearningStatsSchema(db);
 	await db.batch([
 		db.prepare(`
@@ -219,12 +222,23 @@ export function validDateText(value: unknown): string | null {
 export function nextReview(current: LearningProgressRow | null, nextState: JapaneseLearningState, studyDate: string) {
 	const firstStudy = !current?.first_learned_at;
 	if (nextState !== 'mastered') {
-		return { reviewStage: 0, nextReviewOn: addDays(studyDate, 1) };
+		return { reviewStage: 0, longReviewStage: 0, nextReviewOn: addDays(studyDate, 1) };
 	}
+
 	const currentStage = Math.max(0, Math.min(6, Number(current?.review_stage ?? 0)));
-	const nextStage = firstStudy ? 1 : Math.min(6, currentStage + 1);
-	const interval = REVIEW_INTERVAL_DAYS[Math.max(0, nextStage - 1)] ?? 60;
-	return { reviewStage: nextStage, nextReviewOn: addDays(studyDate, interval) };
+	const currentLongStage = Math.max(0, Math.min(2, Number(current?.long_review_stage ?? 0)));
+	if (firstStudy) {
+		return { reviewStage: 1, longReviewStage: 0, nextReviewOn: addDays(studyDate, 1) };
+	}
+	if (currentStage < 6) {
+		const nextStage = currentStage + 1;
+		const interval = REVIEW_INTERVAL_DAYS[nextStage - 1] ?? 60;
+		return { reviewStage: nextStage, longReviewStage: 0, nextReviewOn: addDays(studyDate, interval) };
+	}
+	if (currentLongStage === 0) {
+		return { reviewStage: 6, longReviewStage: 1, nextReviewOn: addDays(studyDate, 90) };
+	}
+	return { reviewStage: 6, longReviewStage: 2, nextReviewOn: addDays(studyDate, 180) };
 }
 
 export async function enrollWordsInJlptPlan(
