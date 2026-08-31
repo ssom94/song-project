@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
+    "dev": "npm run db:migrate:local && wrangler dev",
+    "start": "npm run dev",
     "test": "vitest",
     "cf-typegen": "wrangler types",
     "db:migrate:local": "wrangler d1 migrations apply song-project-db --local",
