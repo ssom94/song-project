@@ -1,21 +1,29 @@
 (() => {
 	const root = document.documentElement;
-	if (root.dataset.jlptTodayStudyLoaded === 'true') return;
-	root.dataset.jlptTodayStudyLoaded = 'true';
+	if (root.dataset.todayStudyFloatLoaded === 'true') return;
+	root.dataset.todayStudyFloatLoaded = 'true';
 
-	const API = '/api/public/japanese/jlpt/dashboard';
-	const STORAGE_KEY = 'song_jlpt_today_float_position_v1';
+	const JLPT_API = '/api/public/japanese/jlpt/dashboard';
+	const AP_API = '/api/public/ap/dashboard';
+	const POSITION_KEY = 'song_today_study_float_position_v2';
+	const COLLAPSED_KEY = 'song_today_study_float_collapsed_v2';
+	const MODE_KEY = 'song_today_study_float_mode_v2';
 	const REFRESH_MS = 30000;
 	const EDGE = 12;
 
 	let card = null;
 	let position = readPosition();
+	let collapsed = localStorage.getItem(COLLAPSED_KEY) === '1';
+	let mode = readMode();
+	let data = { jlpt: null, ap: null };
 	let dragging = false;
+	let dragged = false;
 	let pointerId = null;
 	let pointerStart = { x: 0, y: 0 };
 	let positionStart = { x: 0, y: 0 };
 	let baseRect = null;
 	let timer = 0;
+	let ignoreClickUntil = 0;
 
 	function language() {
 		return document.body.dataset.blogLanguage === 'ja' ? 'ja' : 'ko';
@@ -23,6 +31,20 @@
 
 	function t(ko, ja) {
 		return language() === 'ja' ? ja : ko;
+	}
+
+	function readMode() {
+		const path = window.location.pathname;
+		if (path.includes('/study/ap/')) return 'ap';
+		if (path.includes('/japanese/jlpt/')) return 'jlpt';
+		return localStorage.getItem(MODE_KEY) === 'ap' ? 'ap' : 'jlpt';
+	}
+
+	function saveState() {
+		try {
+			localStorage.setItem(COLLAPSED_KEY, collapsed ? '1' : '0');
+			localStorage.setItem(MODE_KEY, mode);
+		} catch { /* optional */ }
 	}
 
 	function ensureJapaneseStudyMenu() {
@@ -37,45 +59,21 @@
 			{ href: `/${lang}/japanese/quiz/`, ko: '랜덤 퀴즈', ja: 'ランダムクイズ' },
 			{ href: `/${lang}/japanese/quiz/result/`, ko: '학습 결과', ja: '学習結果' },
 		];
-
 		let section = [...sidebar.querySelectorAll('.blog-sidebar-section')].find((candidate) => {
 			const nav = candidate.querySelector('.blog-sidebar-nav');
-			if (!nav) return false;
-			return [...nav.querySelectorAll('a')].some((link) => {
-				const href = link.getAttribute('href') || '';
-				return href.includes('/japanese/words/') || href.includes('/japanese/quiz/') || href.includes('/japanese/jlpt/');
-			});
+			return nav && [...nav.querySelectorAll('a')].some((link) => (link.getAttribute('href') || '').includes('/japanese/'));
 		});
-
-		if (!(section instanceof HTMLElement)) {
-			section = document.createElement('section');
-			section.className = 'blog-sidebar-section';
-			const label = document.createElement('p');
-			label.className = 'blog-sidebar-label';
-			label.textContent = lang === 'ja' ? 'Japanese' : '일본어 학습';
-			const nav = document.createElement('nav');
-			nav.className = 'blog-sidebar-nav';
-			section.append(label, nav);
-			const boards = [...sidebar.querySelectorAll('.blog-sidebar-section')].find((candidate) => {
-				const labelText = candidate.querySelector('.blog-sidebar-label')?.textContent?.trim().toLowerCase();
-				return labelText === 'boards' || labelText === '게시판';
-			});
-			if (boards) sidebar.insertBefore(section, boards);
-			else sidebar.insertBefore(section, sidebar.querySelector('.blog-sidebar-footer'));
-		}
-
+		if (!(section instanceof HTMLElement)) return;
 		const nav = section.querySelector('.blog-sidebar-nav');
 		if (!(nav instanceof HTMLElement)) return;
-		nav.replaceChildren();
 		const currentPath = window.location.pathname;
+		nav.replaceChildren();
 		for (const item of items) {
 			const link = document.createElement('a');
 			link.className = 'blog-sidebar-link';
 			link.href = item.href;
 			link.textContent = lang === 'ja' ? item.ja : item.ko;
-			const active = item.href === homeHref
-				? currentPath === homeHref
-				: currentPath.startsWith(item.href);
+			const active = item.href === homeHref ? currentPath === homeHref : currentPath.startsWith(item.href);
 			if (active) {
 				link.classList.add('is-active');
 				link.setAttribute('aria-current', 'page');
@@ -86,7 +84,7 @@
 
 	function readPosition() {
 		try {
-			const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+			const parsed = JSON.parse(localStorage.getItem(POSITION_KEY) || 'null');
 			if (!parsed || !Number.isFinite(parsed.x) || !Number.isFinite(parsed.y)) return { x: 0, y: 0 };
 			return { x: Number(parsed.x), y: Number(parsed.y) };
 		} catch {
@@ -95,16 +93,29 @@
 	}
 
 	function savePosition() {
-		try { localStorage.setItem(STORAGE_KEY, JSON.stringify(position)); } catch { /* optional */ }
+		try { localStorage.setItem(POSITION_KEY, JSON.stringify(position)); } catch { /* optional */ }
 	}
 
 	function mountStyle() {
-		if (document.querySelector('link[data-jp-today-study-float]')) return;
+		if (document.querySelector('link[data-today-study-float]')) return;
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.href = '/assets/css/japanese/today-study-float.css';
-		link.dataset.jpTodayStudyFloat = 'true';
+		link.dataset.todayStudyFloat = 'true';
 		document.head.appendChild(link);
+	}
+
+	function buildCard() {
+		if (card) return card;
+		mountStyle();
+		card = document.createElement('aside');
+		card.id = 'jp-today-study-float';
+		card.className = 'jp-today-study-float';
+		card.setAttribute('aria-label', t('오늘의 학습', '今日の学習'));
+		document.body.appendChild(card);
+		applyPosition();
+		bindDrag();
+		return card;
 	}
 
 	function applyPosition() {
@@ -144,104 +155,189 @@
 		};
 	}
 
-	function buildCard() {
-		if (card) return card;
-		mountStyle();
-		card = document.createElement('aside');
-		card.id = 'jp-today-study-float';
-		card.className = 'jp-today-study-float';
-		card.setAttribute('aria-label', t('오늘의 JLPT 학습', '今日のJLPT学習'));
-		document.body.appendChild(card);
-		applyPosition();
-		bindDrag();
-		return card;
-	}
-
 	function hasTask(target) {
 		return Number(target ?? 0) > 0;
 	}
 
-	function isTaskDone(completed, target, started) {
-		return started && hasTask(target) && Number(completed ?? 0) >= Number(target ?? 0);
-	}
-
-	function taskRows(data) {
-		const targets = data?.today?.targets || {};
-		const completed = data?.today?.completed || {};
-		const started = Boolean(data?.plan?.studyStarted);
+	function jlptTasks(payload) {
+		const targets = payload?.today?.targets || {};
+		const completed = payload?.today?.completed || {};
+		const started = Boolean(payload?.plan?.studyStarted);
+		const make = (labelKo, labelJa, completedValue, targetValue) => ({
+			label: t(labelKo, labelJa), completed: Number(completedValue ?? 0), target: Number(targetValue ?? 0),
+			required: hasTask(targetValue), done: started && hasTask(targetValue) && Number(completedValue ?? 0) >= Number(targetValue ?? 0),
+		});
 		return [
-			{ label: t('복습 단어', '復習単語'), detail: t('복습 예정 어휘', '復習予定語彙'), completed: completed.review, target: targets.review, required: hasTask(targets.review), done: isTaskDone(completed.review, targets.review, started) },
-			{ label: t('신규 N1 단어', '新規N1単語'), detail: t('오늘 신규 어휘', '今日の新規語彙'), completed: completed.newWords, target: targets.newWords, required: hasTask(targets.newWords), done: isTaskDone(completed.newWords, targets.newWords, started) },
-			{ label: t('JLPT 어휘 문제', 'JLPT語彙問題'), detail: t('읽기·문맥·유의어·용법', '読み・文脈・言い換え・用法'), completed: completed.vocabQuestions, target: targets.vocabQuestions, required: hasTask(targets.vocabQuestions), done: isTaskDone(completed.vocabQuestions, targets.vocabQuestions, started) },
-			{ label: t('N1 문법', 'N1文法'), detail: t('문법 학습 및 문제', '文法学習・問題'), completed: completed.grammar, target: targets.grammar, required: hasTask(targets.grammar), done: isTaskDone(completed.grammar, targets.grammar, started) },
-			{ label: t('N1 독해', 'N1読解'), detail: t('오늘의 독해 지문', '今日の読解'), completed: completed.reading, target: targets.reading, required: hasTask(targets.reading), done: isTaskDone(completed.reading, targets.reading, started) },
+			make('복습 단어', '復習単語', completed.review, targets.review),
+			make('신규 N1 단어', '新規N1単語', completed.newWords, targets.newWords),
+			make('JLPT 어휘 문제', 'JLPT語彙問題', completed.vocabQuestions, targets.vocabQuestions),
+			make('N1 문법', 'N1文法', completed.grammar, targets.grammar),
+			make('N1 독해', 'N1読解', completed.reading, targets.reading),
 		];
 	}
 
-	function render(data) {
-		const shell = buildCard();
-		shell.replaceChildren();
-		const tasks = taskRows(data);
-		const required = tasks.filter((task) => task.required);
-		const doneCount = required.filter((task) => task.done).length;
-		const totalCount = required.length;
-		const studyStarted = Boolean(data?.plan?.studyStarted);
+	function apTasks(payload) {
+		const items = Array.isArray(payload?.today?.items) ? payload.today.items : [];
+		const definitions = [
+			['review', '복습', '復習'],
+			['concept', '개념', '概念'],
+			['subject_a', '科目A 문제', '科目A問題'],
+			['subject_b', '科目B 문제', '科目B問題'],
+			['wrong_answer', '오답 복습', '誤答復習'],
+			['weekly_test', '주간 테스트', '週間テスト'],
+			['monthly_test', '월간 테스트', '月間テスト'],
+		];
+		return definitions.map(([kind, ko, ja]) => {
+			const matched = items.filter((item) => item?.item_kind === kind);
+			return {
+				label: t(ko, ja),
+				completed: matched.filter((item) => item?.status === 'completed').length,
+				target: matched.length,
+				required: matched.length > 0,
+				done: matched.length > 0 && matched.every((item) => item?.status === 'completed'),
+			};
+		}).filter((task) => task.required);
+	}
 
+	function progressFor(currentMode) {
+		const tasks = currentMode === 'ap' ? apTasks(data.ap) : jlptTasks(data.jlpt);
+		const required = tasks.filter((task) => task.required);
+		return {
+			tasks,
+			done: required.filter((task) => task.done).length,
+			total: required.length,
+		};
+	}
+
+	function modeLink(currentMode) {
+		return currentMode === 'ap' ? `/${language()}/study/ap/` : `/${language()}/japanese/jlpt/`;
+	}
+
+	function setMode(nextMode) {
+		mode = nextMode === 'ap' ? 'ap' : 'jlpt';
+		saveState();
+		render();
+	}
+
+	function setCollapsed(next) {
+		collapsed = Boolean(next);
+		saveState();
+		render();
+	}
+
+	function renderCollapsed(shell) {
+		const progress = progressFor(mode);
+		const button = document.createElement('button');
+		button.type = 'button';
+		button.className = `jp-today-study-app-icon is-${mode}`;
+		button.dataset.dragHandle = 'true';
+		button.setAttribute('aria-label', t('오늘의 학습 펼치기', '今日の学習を開く'));
+		const mark = document.createElement('strong');
+		mark.textContent = mode === 'ap' ? 'AP' : 'N1';
+		const count = document.createElement('small');
+		count.textContent = progress.total ? `${progress.done}/${progress.total}` : '—';
+		button.append(mark, count);
+		button.addEventListener('click', () => {
+			if (Date.now() < ignoreClickUntil) return;
+			setCollapsed(false);
+		});
+		shell.appendChild(button);
+	}
+
+	function renderExpanded(shell) {
+		const current = mode === 'ap' ? data.ap : data.jlpt;
+		const progress = progressFor(mode);
 		const header = document.createElement('div');
 		header.className = 'jp-today-study-float-header';
 		header.dataset.dragHandle = 'true';
 		const heading = document.createElement('div');
 		const title = document.createElement('strong');
-		title.textContent = t('오늘의 JLPT N1', '今日のJLPT N1');
+		title.textContent = t('오늘의 학습', '今日の学習');
 		const subtitle = document.createElement('small');
-		subtitle.textContent = studyStarted
-			? t('드래그해서 이동 · 실제 학습 진도 자동 반영', 'ドラッグ移動 · 実際の学習進捗を自動反映')
-			: t(`${data?.plan?.studyStartDate || '2026-08-31'}부터 시작`, `${data?.plan?.studyStartDate || '2026-08-31'}から開始`);
+		subtitle.textContent = t('드래그해서 이동 · 진도 자동 반영', 'ドラッグ移動 · 進捗を自動反映');
 		heading.append(title, subtitle);
-		const progress = document.createElement('span');
-		progress.className = 'jp-today-study-float-progress';
-		progress.textContent = `${doneCount} / ${totalCount}`;
-		header.append(heading, progress);
+		const headerActions = document.createElement('div');
+		headerActions.className = 'jp-today-study-float-header-actions';
+		const progressBadge = document.createElement('span');
+		progressBadge.className = 'jp-today-study-float-progress';
+		progressBadge.textContent = `${progress.done} / ${progress.total}`;
+		const collapseButton = document.createElement('button');
+		collapseButton.type = 'button';
+		collapseButton.className = 'jp-today-study-collapse';
+		collapseButton.textContent = '−';
+		collapseButton.setAttribute('aria-label', t('접기', '折りたたむ'));
+		collapseButton.addEventListener('pointerdown', (event) => event.stopPropagation());
+		collapseButton.addEventListener('click', () => setCollapsed(true));
+		headerActions.append(progressBadge, collapseButton);
+		header.append(heading, headerActions);
+
+		const tabs = document.createElement('div');
+		tabs.className = 'jp-today-study-tabs';
+		for (const value of ['jlpt', 'ap']) {
+			const tab = document.createElement('button');
+			tab.type = 'button';
+			tab.className = value === mode ? 'is-active' : '';
+			tab.textContent = value === 'ap' ? 'AP' : 'JLPT N1';
+			tab.addEventListener('click', () => setMode(value));
+			tabs.appendChild(tab);
+		}
 
 		const body = document.createElement('div');
 		body.className = 'jp-today-study-float-body';
-		const list = document.createElement('ul');
-		list.className = 'jp-today-study-float-list';
-		for (const task of tasks) {
-			const row = document.createElement('li');
-			row.className = `jp-today-study-float-item${task.done ? ' is-completed' : ''}${task.required ? '' : ' is-not-required'}`;
-			const checkbox = document.createElement('input');
-			checkbox.type = 'checkbox';
-			checkbox.checked = task.done;
-			checkbox.disabled = true;
-			checkbox.setAttribute('aria-label', task.label);
-			const main = document.createElement('span');
-			main.className = 'jp-today-study-float-item-main';
-			const label = document.createElement('b');
-			label.textContent = task.label;
-			const detail = document.createElement('small');
-			detail.textContent = task.required ? task.detail : `${task.detail} · ${t('오늘 없음', '今日はなし')}`;
-			main.append(label, detail);
-			const count = document.createElement('span');
-			count.className = 'jp-today-study-float-count';
-			count.textContent = task.required ? `${Number(task.completed ?? 0)} / ${Number(task.target ?? 0)}` : '—';
-			row.append(checkbox, main, count);
-			list.appendChild(row);
+		if (!current) {
+			const unavailable = document.createElement('div');
+			unavailable.className = 'jp-today-study-float-error';
+			unavailable.textContent = t('학습 정보를 불러오지 못했습니다.', '学習情報を読み込めませんでした。');
+			body.appendChild(unavailable);
+		} else if (mode === 'ap' && progress.tasks.length === 0) {
+			const empty = document.createElement('div');
+			empty.className = 'jp-today-study-float-empty';
+			empty.textContent = t('오늘 AP 학습 일정이 아직 생성되지 않았습니다.', '今日のAP学習予定はまだ作成されていません。');
+			body.appendChild(empty);
+		} else {
+			const list = document.createElement('ul');
+			list.className = 'jp-today-study-float-list';
+			for (const task of progress.tasks) {
+				const row = document.createElement('li');
+				row.className = `jp-today-study-float-item${task.done ? ' is-completed' : ''}${task.required ? '' : ' is-not-required'}`;
+				const checkbox = document.createElement('input');
+				checkbox.type = 'checkbox';
+				checkbox.checked = task.done;
+				checkbox.disabled = true;
+				const label = document.createElement('span');
+				label.className = 'jp-today-study-float-item-main';
+				const bold = document.createElement('b');
+				bold.textContent = task.label;
+				label.appendChild(bold);
+				const count = document.createElement('span');
+				count.className = 'jp-today-study-float-count';
+				count.textContent = task.required ? `${task.completed} / ${task.target}` : '—';
+				row.append(checkbox, label, count);
+				list.appendChild(row);
+			}
+			body.appendChild(list);
 		}
-		body.appendChild(list);
 
 		const footer = document.createElement('div');
 		footer.className = 'jp-today-study-float-footer';
 		const status = document.createElement('span');
-		status.textContent = studyStarted
-			? t(`오늘 일정 ${doneCount}/${totalCount} 완료`, `今日の予定 ${doneCount}/${totalCount} 完了`)
-			: t('학습 시작 전', '学習開始前');
+		status.textContent = mode === 'ap'
+			? t(`AP ${progress.done}/${progress.total} 완료`, `AP ${progress.done}/${progress.total} 完了`)
+			: t(`JLPT ${progress.done}/${progress.total} 완료`, `JLPT ${progress.done}/${progress.total} 完了`);
 		const link = document.createElement('a');
-		link.href = `/${language()}/japanese/jlpt/`;
+		link.href = modeLink(mode);
 		link.textContent = t('학습 화면 →', '学習画面 →');
 		footer.append(status, link);
-		shell.append(header, body, footer);
+		shell.append(header, tabs, body, footer);
+	}
 
+	function render() {
+		const shell = buildCard();
+		shell.replaceChildren();
+		shell.classList.toggle('is-collapsed', collapsed);
+		shell.dataset.mode = mode;
+		if (collapsed) renderCollapsed(shell);
+		else renderExpanded(shell);
 		baseRect = null;
 		requestAnimationFrame(() => {
 			measureBaseRect();
@@ -250,36 +346,21 @@
 		});
 	}
 
-	function renderError() {
-		const shell = buildCard();
-		shell.replaceChildren();
-		const header = document.createElement('div');
-		header.className = 'jp-today-study-float-header';
-		header.dataset.dragHandle = 'true';
-		const title = document.createElement('strong');
-		title.textContent = t('오늘의 JLPT N1', '今日のJLPT N1');
-		header.appendChild(title);
-		const error = document.createElement('div');
-		error.className = 'jp-today-study-float-error';
-		error.textContent = t('오늘 학습 정보를 불러오지 못했습니다.', '今日の学習情報を読み込めませんでした。');
-		const link = document.createElement('a');
-		link.href = `/${language()}/japanese/jlpt/`;
-		link.textContent = t('학습 화면 →', '学習画面 →');
-		error.append(document.createElement('br'), link);
-		shell.append(header, error);
+	async function fetchDashboard(url) {
+		try {
+			const response = await fetch(url, { cache: 'no-store', credentials: 'same-origin' });
+			const payload = await response.json().catch(() => null);
+			return response.ok && payload?.ok ? payload : null;
+		} catch {
+			return null;
+		}
 	}
 
 	async function refresh() {
 		ensureJapaneseStudyMenu();
-		try {
-			const response = await fetch(API, { cache: 'no-store', credentials: 'same-origin' });
-			const data = await response.json().catch(() => null);
-			if (!response.ok || !data?.ok) throw new Error(data?.error || `HTTP_${response.status}`);
-			render(data);
-		} catch (error) {
-			console.warn('Failed to load floating JLPT checklist', error);
-			renderError();
-		}
+		const [jlpt, ap] = await Promise.all([fetchDashboard(JLPT_API), fetchDashboard(AP_API)]);
+		data = { jlpt, ap };
+		render();
 	}
 
 	function bindDrag() {
@@ -288,65 +369,47 @@
 			if (event.button !== 0) return;
 			const handle = event.target instanceof Element ? event.target.closest('[data-drag-handle]') : null;
 			if (!handle) return;
+			if (event.target instanceof Element && event.target.closest('button.jp-today-study-collapse')) return;
 			dragging = true;
+			dragged = false;
 			pointerId = event.pointerId;
 			pointerStart = { x: event.clientX, y: event.clientY };
 			positionStart = { ...position };
 			measureBaseRect();
 			card.classList.add('is-dragging');
-			card.setPointerCapture?.(pointerId);
-			event.preventDefault();
+			card.setPointerCapture?.(event.pointerId);
 		});
 		card.addEventListener('pointermove', (event) => {
 			if (!dragging || event.pointerId !== pointerId) return;
-			position = clampPosition({
-				x: positionStart.x + event.clientX - pointerStart.x,
-				y: positionStart.y + event.clientY - pointerStart.y,
-			});
+			const dx = event.clientX - pointerStart.x;
+			const dy = event.clientY - pointerStart.y;
+			if (Math.abs(dx) + Math.abs(dy) > 5) dragged = true;
+			position = clampPosition({ x: positionStart.x + dx, y: positionStart.y + dy });
 			applyPosition();
 		});
 		const finish = (event) => {
 			if (!dragging || event.pointerId !== pointerId) return;
 			dragging = false;
 			card.classList.remove('is-dragging');
-			card.releasePointerCapture?.(pointerId);
+			if (dragged) ignoreClickUntil = Date.now() + 250;
+			try { card.releasePointerCapture?.(event.pointerId); } catch { /* optional */ }
 			pointerId = null;
 			savePosition();
 		};
 		card.addEventListener('pointerup', finish);
 		card.addEventListener('pointercancel', finish);
-		card.addEventListener('dblclick', (event) => {
-			const handle = event.target instanceof Element ? event.target.closest('[data-drag-handle]') : null;
-			if (!handle) return;
-			position = { x: 0, y: 0 };
-			baseRect = null;
-			applyPosition();
-			savePosition();
-		});
 	}
 
-	function initialize() {
-		mountStyle();
-		ensureJapaneseStudyMenu();
-		refresh();
-		timer = window.setInterval(refresh, REFRESH_MS);
-		document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
-		window.addEventListener('focus', refresh);
-		window.addEventListener('jlptstudyprogresschange', refresh);
-		window.addEventListener('resize', () => {
-			if (!card) return;
-			baseRect = null;
-			requestAnimationFrame(() => {
-				measureBaseRect();
-				position = clampPosition(position);
-				applyPosition();
-				savePosition();
-			});
-		});
-		window.addEventListener('pagehide', () => window.clearInterval(timer), { once: true });
-	}
+	window.addEventListener('resize', () => {
+		if (!card) return;
+		baseRect = null;
+		measureBaseRect();
+		position = clampPosition(position);
+		applyPosition();
+		savePosition();
+	});
 
-	window.JlptTodayStudyFloat = { refresh };
-	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
-	else initialize();
+	refresh();
+	timer = window.setInterval(refresh, REFRESH_MS);
+	window.addEventListener('pagehide', () => window.clearInterval(timer), { once: true });
 })();
