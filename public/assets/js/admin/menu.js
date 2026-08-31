@@ -113,6 +113,9 @@
 		if (path === '/admin/site-design/') {
 			loadScriptOnce('/assets/js/admin/site-design-diagnostics.js?v=20260831-1', 'data-site-design-diagnostics');
 		}
+		if (path === '/admin/categories/') {
+			loadScriptOnce('/assets/js/admin/category-schema-notice.js?v=20260831-1', 'data-category-schema-notice');
+		}
 		if (path === '/admin/posts/new/' || path === '/admin/posts/edit/') {
 			loadScriptOnce('/assets/js/admin/post-editor-history.js?v=20260831-1', 'data-post-editor-history');
 		}
