@@ -11,6 +11,11 @@ interface VisualRow {
 	background_overlay: number;
 }
 
+interface LegacyVisualRow {
+	cursor_enabled: number;
+	cursor_theme: CursorTheme;
+}
+
 interface VisualPayload {
 	cursorEnabled?: unknown;
 	cursorTheme?: unknown;
@@ -19,12 +24,18 @@ interface VisualPayload {
 	backgroundOverlay?: unknown;
 }
 
+interface VisualState {
+	row: VisualRow;
+	schemaReady: boolean;
+}
+
 const BACKGROUND_PRESETS = new Set([
 	'soft-blue', 'mint', 'lavender', 'sunset', 'night', 'paper-grid',
 	'song-main', 'couple', 'learning-flags',
 ]);
 const COLOR_RE = /^#[0-9a-f]{6}$/i;
 const BACKGROUND_IMAGE_KEY_RE = /^site-backgrounds\/[0-9a-f-]{20,80}\.(?:png|jpe?g|webp)$/i;
+const REQUIRED_VISUAL_MIGRATIONS = ['0040_category_icons_site_cursor.sql', '0041_site_background_settings.sql'];
 
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
@@ -45,14 +56,39 @@ function defaults(): VisualRow {
 	};
 }
 
+async function readSettingsState(db: D1Database): Promise<VisualState> {
+	try {
+		const row = await db.prepare(`
+			SELECT cursor_enabled, cursor_theme, background_kind, background_value, background_overlay
+			FROM site_visual_settings
+			WHERE id = 1
+			LIMIT 1
+		`).first<VisualRow>();
+		return { row: row ?? defaults(), schemaReady: true };
+	} catch (fullSchemaError) {
+		try {
+			const legacy = await db.prepare(`
+				SELECT cursor_enabled, cursor_theme
+				FROM site_visual_settings
+				WHERE id = 1
+				LIMIT 1
+			`).first<LegacyVisualRow>();
+			const row = defaults();
+			if (legacy) {
+				row.cursor_enabled = legacy.cursor_enabled;
+				row.cursor_theme = legacy.cursor_theme;
+			}
+			console.warn('Site background schema is not ready yet', fullSchemaError);
+			return { row, schemaReady: false };
+		} catch (legacySchemaError) {
+			console.warn('Site visual settings schema is not ready yet', legacySchemaError);
+			return { row: defaults(), schemaReady: false };
+		}
+	}
+}
+
 async function readSettings(db: D1Database): Promise<VisualRow> {
-	const row = await db.prepare(`
-		SELECT cursor_enabled, cursor_theme, background_kind, background_value, background_overlay
-		FROM site_visual_settings
-		WHERE id = 1
-		LIMIT 1
-	`).first<VisualRow>();
-	return row ?? defaults();
+	return (await readSettingsState(db)).row;
 }
 
 function publicShape(row: VisualRow) {
@@ -103,8 +139,8 @@ function parseBackgroundValue(kind: BackgroundKind, value: unknown, fallback: st
 
 export async function handleGetPublicSiteVisuals(_request: Request, env: Env): Promise<Response> {
 	try {
-		const row = await readSettings(env.song_project_db);
-		return Response.json({ ok: true, ...publicShape(row) }, {
+		const state = await readSettingsState(env.song_project_db);
+		return Response.json({ ok: true, ...publicShape(state.row) }, {
 			headers: { 'Cache-Control': 'public, max-age=60' },
 		});
 	} catch (error) {
@@ -119,8 +155,13 @@ export async function handleGetAdminSiteVisuals(request: Request, env: Env): Pro
 	const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 	if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 	try {
-		const row = await readSettings(env.song_project_db);
-		return json({ ok: true, ...publicShape(row) });
+		const state = await readSettingsState(env.song_project_db);
+		return json({
+			ok: true,
+			...publicShape(state.row),
+			schemaReady: state.schemaReady,
+			requiredMigrations: state.schemaReady ? [] : REQUIRED_VISUAL_MIGRATIONS,
+		});
 	} catch (error) {
 		console.error('Failed to load admin site visuals', error);
 		return json({ ok: false, error: 'SITE_VISUALS_LOAD_FAILED' }, 500);
@@ -140,7 +181,15 @@ export async function handleUpdateAdminSiteVisuals(request: Request, env: Env): 
 	}
 
 	try {
-		const current = await readSettings(env.song_project_db);
+		const state = await readSettingsState(env.song_project_db);
+		if (!state.schemaReady) {
+			return json({
+				ok: false,
+				error: 'SITE_VISUALS_MIGRATION_REQUIRED',
+				requiredMigrations: REQUIRED_VISUAL_MIGRATIONS,
+			}, 409);
+		}
+		const current = state.row;
 		const cursorEnabled = payload.cursorEnabled === undefined
 			? current.cursor_enabled === 1
 			: typeof payload.cursorEnabled === 'boolean' ? payload.cursorEnabled : null;
