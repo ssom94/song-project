@@ -7,6 +7,7 @@ import {
 	handleGradeAdminApVocabularyQuiz,
 	handleListAdminApVocabulary,
 } from './admin/ap-vocabulary';
+import { handleExportStudyXlsx } from './admin/study-export';
 import { handleGetPublicApDashboard } from './public/ap';
 
 function methodNotAllowed(allow: string): Response {
@@ -22,6 +23,8 @@ export default {
 		switch (pathname) {
 			case '/api/public/ap/dashboard':
 				return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/admin/study/export.xlsx':
+				return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/today':
 				return request.method === 'GET' ? handleGetAdminApToday(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/today/start':
