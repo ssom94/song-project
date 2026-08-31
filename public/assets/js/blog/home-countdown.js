@@ -3,6 +3,7 @@
 	const API_GOALS = '/api/public/dashboard';
 	const API_ADMIN = '/api/admin/dashboard/schedules';
 	const API_ADMIN_DETAIL = '/api/admin/dashboard/schedules/detail';
+	const API_ADMIN_GOALS = '/api/admin/dashboard';
 
 	function language() {
 		return document.body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
@@ -12,17 +13,19 @@
 		return language() === 'ko'
 			? {
 				add: '+ 추가', edit: '수정', remove: '삭제', noDate: '날짜 미설정', empty: '등록된 일정이 없습니다.',
-				addTitle: 'D-Day 일정 추가', editTitle: 'D-Day 일정 수정', deleteTitle: '일정 삭제',
-				name: '일정명', date: '목표일', visible: '홈에 표시', cancel: '취소', save: '저장', confirmDelete: '삭제',
+				addTitle: 'D-Day 일정 추가', editTitle: 'D-Day 일정 수정', goalEditTitle: '시험·목표 수정', deleteTitle: '일정 삭제',
+				name: '일정명', date: '목표일', month: '예정 월', targetType: '목표 시점', exactDate: '정확한 날짜', plannedMonth: '월 단위 예정', undecided: '미정',
+				visible: '홈에 표시', cancel: '취소', save: '저장', confirmDelete: '삭제', planned: '예정',
 				deleteMessage: '이 일정을 삭제할까요? 삭제한 일정은 복구할 수 없습니다.', saveFailed: '일정을 저장하지 못했습니다.', deleteFailed: '일정을 삭제하지 못했습니다.',
-				goalSource: '목표',
+				goalSource: '시험일정',
 			}
 			: {
 				add: '+ 追加', edit: '編集', remove: '削除', noDate: '日付未設定', empty: '登録された予定はありません。',
-				addTitle: 'D-Day 予定を追加', editTitle: 'D-Day 予定を編集', deleteTitle: '予定を削除',
-				name: '予定名', date: '目標日', visible: 'ホームに表示', cancel: 'キャンセル', save: '保存', confirmDelete: '削除',
+				addTitle: 'D-Day 予定を追加', editTitle: 'D-Day 予定を編集', goalEditTitle: '試験・目標を編集', deleteTitle: '予定を削除',
+				name: '予定名', date: '目標日', month: '予定月', targetType: '目標時期', exactDate: '正確な日付', plannedMonth: '月単位の予定', undecided: '未定',
+				visible: 'ホームに表示', cancel: 'キャンセル', save: '保存', confirmDelete: '削除', planned: '予定',
 				deleteMessage: 'この予定を削除しますか？削除した予定は元に戻せません。', saveFailed: '予定を保存できませんでした。', deleteFailed: '予定を削除できませんでした。',
-				goalSource: '目標',
+				goalSource: '試験予定',
 			};
 	}
 
@@ -65,6 +68,24 @@
 		return new Intl.DateTimeFormat(language() === 'ko' ? 'ko-KR' : 'ja-JP', {
 			year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'UTC',
 		}).format(date);
+	}
+
+	function monthLabel(targetMonth) {
+		if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(String(targetMonth || ''))) return copy().noDate;
+		const [year, month] = targetMonth.split('-');
+		return language() === 'ko' ? `${year}. ${month}. 예정` : `${year}年${Number(month)}月予定`;
+	}
+
+	function targetMeta(item) {
+		if (item?.targetDate) return { detail: dateLabel(item.targetDate), value: ddayLabel(item.targetDate) };
+		if (item?.targetMonth) {
+			const month = item.targetMonth.split('-')[1];
+			return {
+				detail: monthLabel(item.targetMonth),
+				value: language() === 'ko' ? `${Number(month)}월 예정` : `${Number(month)}月予定`,
+			};
+		}
+		return { detail: copy().noDate, value: '—' };
 	}
 
 	async function isAdmin() {
@@ -136,40 +157,35 @@
 		});
 	}
 
+	function field(label, input) {
+		const node = document.createElement('label');
+		node.className = 'dashboard-schedule-field';
+		node.textContent = label;
+		node.appendChild(input);
+		return node;
+	}
+
 	async function openEditor(schedule, refresh) {
 		const labels = copy();
 		const { backdrop, modal } = modalShell(schedule ? labels.editTitle : labels.addTitle);
-		const titleLabel = document.createElement('label');
-		titleLabel.className = 'dashboard-schedule-field';
-		titleLabel.textContent = labels.name;
 		const titleInput = document.createElement('input');
 		titleInput.type = 'text';
 		titleInput.maxLength = 120;
 		titleInput.value = schedule?.title ?? '';
-		titleLabel.appendChild(titleInput);
-
-		const dateLabelNode = document.createElement('label');
-		dateLabelNode.className = 'dashboard-schedule-field';
-		dateLabelNode.textContent = labels.date;
 		const dateInput = document.createElement('input');
 		dateInput.type = 'date';
 		dateInput.value = schedule?.targetDate ?? '';
-		dateLabelNode.appendChild(dateInput);
-
 		const visibleLabel = document.createElement('label');
 		visibleLabel.className = 'dashboard-schedule-visible-field';
 		const visible = document.createElement('input');
 		visible.type = 'checkbox';
 		visible.checked = schedule?.isVisible !== false;
 		visibleLabel.append(visible, document.createTextNode(labels.visible));
-		modal.append(titleLabel, dateLabelNode, visibleLabel);
+		modal.append(field(labels.name, titleInput), field(labels.date, dateInput), visibleLabel);
 
 		actionButtons(modal, labels.save, async () => {
 			const title = titleInput.value.trim();
-			if (!title) {
-				titleInput.focus();
-				return;
-			}
+			if (!title) return titleInput.focus();
 			try {
 				await requestJson(schedule ? `${API_ADMIN_DETAIL}?id=${encodeURIComponent(schedule.id)}` : API_ADMIN, {
 					method: schedule ? 'PATCH' : 'POST',
@@ -184,6 +200,84 @@
 			}
 		});
 		titleInput.focus();
+	}
+
+	async function openGoalEditor(schedule, refresh) {
+		const labels = copy();
+		let dashboard;
+		try {
+			dashboard = await requestJson(API_ADMIN_GOALS);
+		} catch (error) {
+			console.error(error);
+			window.alert(labels.saveFailed);
+			return;
+		}
+		const goal = dashboard.goals?.find((item) => item.goalKey === schedule.goalKey);
+		if (!goal) return;
+
+		const { backdrop, modal } = modalShell(labels.goalEditTitle);
+		const titleInput = document.createElement('input');
+		titleInput.type = 'text';
+		titleInput.maxLength = 120;
+		titleInput.value = goal.title || '';
+
+		const typeSelect = document.createElement('select');
+		for (const [value, text] of [['date', labels.exactDate], ['month', labels.plannedMonth], ['none', labels.undecided]]) {
+			const option = document.createElement('option');
+			option.value = value;
+			option.textContent = text;
+			typeSelect.appendChild(option);
+		}
+		typeSelect.value = goal.targetDate ? 'date' : goal.targetMonth ? 'month' : 'none';
+
+		const dateInput = document.createElement('input');
+		dateInput.type = 'date';
+		dateInput.value = goal.targetDate || '';
+		const monthInput = document.createElement('input');
+		monthInput.type = 'month';
+		monthInput.value = goal.targetMonth || '';
+		const dateField = field(labels.date, dateInput);
+		const monthField = field(labels.month, monthInput);
+		function syncTargetFields() {
+			dateField.hidden = typeSelect.value !== 'date';
+			monthField.hidden = typeSelect.value !== 'month';
+		}
+		typeSelect.addEventListener('change', syncTargetFields);
+		syncTargetFields();
+
+		const visibleLabel = document.createElement('label');
+		visibleLabel.className = 'dashboard-schedule-visible-field';
+		const visible = document.createElement('input');
+		visible.type = 'checkbox';
+		visible.checked = goal.isVisible !== false;
+		visibleLabel.append(visible, document.createTextNode(labels.visible));
+		modal.append(field(labels.name, titleInput), field(labels.targetType, typeSelect), dateField, monthField, visibleLabel);
+
+		actionButtons(modal, labels.save, async () => {
+			const title = titleInput.value.trim();
+			if (!title) return titleInput.focus();
+			if (typeSelect.value === 'date' && !dateInput.value) return dateInput.focus();
+			if (typeSelect.value === 'month' && !monthInput.value) return monthInput.focus();
+			const goals = dashboard.goals.map((item) => item.goalKey === goal.goalKey ? {
+				...item,
+				title,
+				targetDate: typeSelect.value === 'date' ? dateInput.value : null,
+				targetMonth: typeSelect.value === 'month' ? monthInput.value : null,
+				isVisible: visible.checked,
+			} : item);
+			try {
+				await requestJson(API_ADMIN_GOALS, {
+					method: 'PATCH',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ ...dashboard.settings, goals }),
+				});
+				closeModal(backdrop);
+				await refresh();
+			} catch (error) {
+				console.error(error);
+				window.alert(labels.saveFailed);
+			}
+		});
 	}
 
 	function openDelete(schedule, refresh) {
@@ -210,35 +304,29 @@
 
 	function mergeCountdownItems(scheduleResult, goalResult, admin) {
 		const schedules = Array.isArray(scheduleResult?.schedules)
-			? scheduleResult.schedules
-				.filter((item) => !admin || item.isVisible !== false)
-				.map((item) => ({ ...item, source: 'schedule' }))
+			? scheduleResult.schedules.filter((item) => !admin || item.isVisible !== false).map((item) => ({ ...item, source: 'schedule' }))
 			: [];
-
 		const goals = Array.isArray(goalResult?.goals)
 			? goalResult.goals
-				.filter((goal) => typeof goal?.targetDate === 'string' && goal.targetDate)
+				.filter((goal) => goal?.targetDate || goal?.targetMonth)
 				.map((goal) => ({
 					id: `goal-${goal.id ?? goal.goalKey}`,
 					goalId: goal.id,
 					goalKey: goal.goalKey,
 					title: goal.title,
-					targetDate: goal.targetDate,
+					targetDate: goal.targetDate || null,
+					targetMonth: goal.targetMonth || null,
 					displayOrder: goal.displayOrder ?? 0,
 					isVisible: true,
 					source: 'goal',
 				}))
 			: [];
 
-		const goalKeys = new Set(goals.map(normalizedKey));
-		const merged = [
-			...goals,
-			...schedules.filter((schedule) => !goalKeys.has(normalizedKey(schedule))),
-		];
-
+		const goalKeys = new Set(goals.filter((goal) => goal.targetDate).map(normalizedKey));
+		const merged = [...goals, ...schedules.filter((schedule) => !goalKeys.has(normalizedKey(schedule)))];
 		merged.sort((a, b) => {
-			const dateA = a.targetDate || '9999-12-31';
-			const dateB = b.targetDate || '9999-12-31';
+			const dateA = a.targetDate || (a.targetMonth ? `${a.targetMonth}-01` : '9999-12-31');
+			const dateB = b.targetDate || (b.targetMonth ? `${b.targetMonth}-01` : '9999-12-31');
 			if (dateA !== dateB) return dateA.localeCompare(dateB);
 			const orderA = Number(a.displayOrder ?? 0);
 			const orderB = Number(b.displayOrder ?? 0);
@@ -265,29 +353,32 @@
 			source.textContent = labels.goalSource;
 			titleLine.appendChild(source);
 		}
+		const meta = targetMeta(schedule);
 		const date = document.createElement('span');
-		date.textContent = dateLabel(schedule.targetDate);
+		date.textContent = meta.detail;
 		details.append(titleLine, date);
-
 		const value = document.createElement('b');
 		value.className = 'home-dday-value';
-		value.textContent = ddayLabel(schedule.targetDate);
+		value.textContent = meta.value;
 		row.append(details, value);
 
-		if (admin && schedule.source !== 'goal') {
+		if (admin) {
 			const actions = document.createElement('div');
 			actions.className = 'home-dday-admin-actions';
 			const edit = document.createElement('button');
 			edit.type = 'button';
 			edit.className = 'home-dday-admin-button';
 			edit.textContent = labels.edit;
-			edit.addEventListener('click', () => openEditor(schedule, refresh));
-			const remove = document.createElement('button');
-			remove.type = 'button';
-			remove.className = 'home-dday-admin-button is-delete';
-			remove.textContent = labels.remove;
-			remove.addEventListener('click', () => openDelete(schedule, refresh));
-			actions.append(edit, remove);
+			edit.addEventListener('click', () => schedule.source === 'goal' ? openGoalEditor(schedule, refresh) : openEditor(schedule, refresh));
+			actions.appendChild(edit);
+			if (schedule.source !== 'goal') {
+				const remove = document.createElement('button');
+				remove.type = 'button';
+				remove.className = 'home-dday-admin-button is-delete';
+				remove.textContent = labels.remove;
+				remove.addEventListener('click', () => openDelete(schedule, refresh));
+				actions.appendChild(remove);
+			}
 			row.appendChild(actions);
 		}
 		return row;
