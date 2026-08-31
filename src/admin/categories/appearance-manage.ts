@@ -16,6 +16,23 @@ function hasAppearance(payload: CategoryPayload): boolean {
 	return payload.iconKind !== undefined || payload.iconValue !== undefined || payload.iconColor !== undefined;
 }
 
+function missingAppearanceSchema(error: unknown): boolean {
+	const message = error instanceof Error ? error.message : String(error ?? '');
+	return /no such column|icon_kind|icon_value|icon_color/i.test(message);
+}
+
+async function responseWithMigrationWarning(response: Response): Promise<Response> {
+	const body = await response.clone().json().catch(() => ({})) as Record<string, unknown>;
+	return Response.json({
+		...body,
+		appearanceSaved: false,
+		warning: 'CATEGORY_APPEARANCE_MIGRATION_REQUIRED',
+	}, {
+		status: response.status,
+		headers: { 'Cache-Control': 'no-store' },
+	});
+}
+
 async function parsePayload(request: Request): Promise<{ raw: CategoryPayload; appearance: ReturnType<typeof parseCategoryAppearance> | null } | Response> {
 	let raw: CategoryPayload;
 	try {
@@ -49,6 +66,10 @@ export async function handleCreateAdminCategoryWithAppearance(request: Request, 
 		if (Number.isSafeInteger(categoryId) && categoryId > 0) await saveAppearance(env.song_project_db, categoryId, parsed.appearance);
 		return response;
 	} catch (error) {
+		if (missingAppearanceSchema(error)) {
+			console.warn('Category created before appearance migration was applied', error);
+			return responseWithMigrationWarning(response);
+		}
 		console.error('Failed to save new category appearance', error);
 		return json({ ok: false, error: 'CATEGORY_APPEARANCE_SAVE_FAILED' }, 500);
 	}
@@ -78,6 +99,10 @@ export async function handleUpdateAdminCategoryWithAppearance(request: Request, 
 		}
 		return response;
 	} catch (error) {
+		if (missingAppearanceSchema(error)) {
+			console.warn('Category updated before appearance migration was applied', error);
+			return responseWithMigrationWarning(response);
+		}
 		console.error('Failed to save category appearance', error);
 		return json({ ok: false, error: 'CATEGORY_APPEARANCE_SAVE_FAILED' }, 500);
 	}
