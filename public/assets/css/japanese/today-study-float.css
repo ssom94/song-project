@@ -1,0 +1,212 @@
+.jp-today-study-float {
+	--jp-study-x: 0px;
+	--jp-study-y: 0px;
+	position: fixed;
+	top: 112px;
+	right: 20px;
+	z-index: 1250;
+	width: min(306px, calc(100vw - 24px));
+	overflow: hidden;
+	border: 1px solid rgba(202, 211, 223, 0.92);
+	border-radius: 17px;
+	background: rgba(255, 255, 255, 0.96);
+	box-shadow: 0 18px 48px rgba(37, 50, 69, 0.17);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	transform: translate3d(var(--jp-study-x), var(--jp-study-y), 0);
+	color: #344258;
+}
+
+.jp-today-study-float.is-dragging {
+	box-shadow: 0 23px 60px rgba(37, 50, 69, 0.25);
+}
+
+.jp-today-study-float-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 13px 14px 11px;
+	border-bottom: 1px solid #edf1f5;
+	cursor: grab;
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.jp-today-study-float.is-dragging .jp-today-study-float-header {
+	cursor: grabbing;
+}
+
+.jp-today-study-float-header > div {
+	min-width: 0;
+}
+
+.jp-today-study-float-header strong,
+.jp-today-study-float-header small {
+	display: block;
+}
+
+.jp-today-study-float-header strong {
+	font-size: 13px;
+	font-weight: 900;
+	color: #2d3b50;
+}
+
+.jp-today-study-float-header small {
+	margin-top: 3px;
+	font-size: 8px;
+	line-height: 1.45;
+	color: #8d98a7;
+}
+
+.jp-today-study-float-progress {
+	flex: 0 0 auto;
+	min-width: 44px;
+	padding: 6px 8px;
+	border-radius: 999px;
+	background: #e8f1ed;
+	font-size: 9px;
+	font-weight: 900;
+	text-align: center;
+	color: #376451;
+}
+
+.jp-today-study-float-body {
+	padding: 10px 12px;
+}
+
+.jp-today-study-float-list {
+	display: grid;
+	gap: 5px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.jp-today-study-float-item {
+	display: grid;
+	grid-template-columns: 20px minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 8px;
+	min-height: 39px;
+	padding: 6px 8px;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background: #f7f9fb;
+	transition: opacity 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.jp-today-study-float-item.is-completed {
+	border-color: #e3e7e9;
+	background: #eff1f2;
+	opacity: 0.58;
+}
+
+.jp-today-study-float-item.is-completed .jp-today-study-float-item-main b {
+	text-decoration: line-through;
+	text-decoration-thickness: 1px;
+}
+
+.jp-today-study-float-item.is-not-required {
+	opacity: 0.42;
+}
+
+.jp-today-study-float-item input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	accent-color: #56816e;
+}
+
+.jp-today-study-float-item-main {
+	min-width: 0;
+}
+
+.jp-today-study-float-item-main b,
+.jp-today-study-float-item-main small {
+	display: block;
+}
+
+.jp-today-study-float-item-main b {
+	overflow: hidden;
+	font-size: 10px;
+	font-weight: 850;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #415067;
+}
+
+.jp-today-study-float-item-main small {
+	margin-top: 2px;
+	overflow: hidden;
+	font-size: 7px;
+	line-height: 1.35;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #929dab;
+}
+
+.jp-today-study-float-count {
+	font-size: 9px;
+	font-weight: 900;
+	font-variant-numeric: tabular-nums;
+	color: #6d7a8c;
+}
+
+.jp-today-study-float-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 9px 13px 11px;
+	border-top: 1px solid #edf1f5;
+	background: rgba(249, 251, 252, 0.9);
+}
+
+.jp-today-study-float-footer span {
+	font-size: 8px;
+	font-weight: 750;
+	color: #8490a0;
+}
+
+.jp-today-study-float-footer a {
+	font-size: 8px;
+	font-weight: 900;
+	text-decoration: none;
+	color: #315f50;
+}
+
+.jp-today-study-float-error {
+	padding: 13px;
+	font-size: 9px;
+	line-height: 1.55;
+	color: #8b5a5a;
+}
+
+@media (max-width: 840px) {
+	.jp-today-study-float {
+		top: 78px;
+		right: 12px;
+		width: min(292px, calc(100vw - 24px));
+	}
+
+	.jp-today-study-float-header {
+		cursor: grab;
+		touch-action: none;
+	}
+
+	.jp-today-study-float-body {
+		max-height: 52vh;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+	}
+}
+
+@media (max-width: 420px) {
+	.jp-today-study-float {
+		top: 72px;
+		right: 8px;
+		width: min(280px, calc(100vw - 16px));
+	}
+}
