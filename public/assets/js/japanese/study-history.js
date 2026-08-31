@@ -17,6 +17,7 @@
 				completed: '完了',
 				inProgress: '学習中',
 				notStarted: '未完了',
+				schedule: '予定',
 				review: '復習',
 				newWords: '新規単語',
 				vocab: '語彙問題',
@@ -36,6 +37,7 @@
 				completed: '완료',
 				inProgress: '학습 중',
 				notStarted: '미완료',
+				schedule: '일정',
 				review: '복습',
 				newWords: '신규 단어',
 				vocab: '어휘 문제',
@@ -75,6 +77,17 @@
 		return wrap;
 	}
 
+	function scheduleProgress(item) {
+		const sections = [item?.review, item?.newWords, item?.vocabQuestions, item?.grammar, item?.reading];
+		let completed = 0;
+		for (const section of sections) {
+			const target = Number(section?.target ?? 0);
+			const done = Number(section?.completed ?? 0);
+			if (target <= 0 || done >= target) completed += 1;
+		}
+		return { completed, target: sections.length };
+	}
+
 	function createRow(item) {
 		const labels = copy();
 		const row = document.createElement('article');
@@ -93,6 +106,7 @@
 		const metrics = document.createElement('div');
 		metrics.className = 'jp-study-history-metrics';
 		metrics.append(
+			metric(labels.schedule, scheduleProgress(item)),
 			metric(labels.review, item.review),
 			metric(labels.newWords, item.newWords),
 			metric(labels.vocab, item.vocabQuestions),
