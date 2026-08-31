@@ -1,5 +1,6 @@
 (() => {
 	const API = '/api/public/japanese/jlpt/dashboard';
+	let loading = false;
 
 	function lang() {
 		return document.body.dataset.blogLanguage === 'ja' ? 'ja' : 'ko';
@@ -91,6 +92,7 @@
 		wrap.replaceChildren();
 		const labels = [
 			`${t('연속', '連続')} ${summary.currentStreak ?? 0}${t('일', '日')}`,
+			`${t('최장', '最長')} ${summary.longestStreak ?? 0}${t('일', '日')}`,
 			`${t('총 학습', '総学習')} ${summary.totalStudyDays ?? 0}${t('일', '日')}`,
 			`${t('신규 단어', '新規単語')} ${summary.newWords ?? 0}${t('개', '語')}`,
 		];
@@ -105,15 +107,14 @@
 		const wrap = byId('jp-recent-study-list');
 		if (!wrap) return;
 		wrap.replaceChildren();
-		const recent = history.slice(0, 8);
-		if (!recent.length) {
+		if (!history.length) {
 			const empty = document.createElement('div');
 			empty.className = 'jp-empty-state';
 			empty.textContent = t('학습을 시작하면 날짜별 기록이 이곳에 남습니다.', '学習を開始すると日付ごとの記録がここに残ります。');
 			wrap.appendChild(empty);
 			return;
 		}
-		for (const item of recent) {
+		for (const item of history) {
 			const row = document.createElement('article');
 			row.className = 'jp-public-history-row';
 			const time = document.createElement('time');
@@ -126,8 +127,10 @@
 		}
 	}
 
-	async function initialize() {
+	async function refresh() {
+		if (loading) return;
 		if (!byId('jlpt-history-list') && !byId('jp-recent-study-list')) return;
+		loading = true;
 		try {
 			const response = await fetch(API, { method: 'GET', credentials: 'same-origin', cache: 'no-store' });
 			const data = await response.json().catch(() => null);
@@ -144,9 +147,12 @@
 			if (detailed) detailed.textContent = t('학습 이력을 불러오지 못했습니다.', '学習履歴を読み込めませんでした。');
 			const home = byId('jp-recent-study-list');
 			if (home) home.textContent = t('학습 이력을 불러오지 못했습니다.', '学習履歴を読み込めませんでした。');
+		} finally {
+			loading = false;
 		}
 	}
 
-	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
-	else initialize();
+	window.JlptStudyHistory = { refresh };
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh, { once: true });
+	else refresh();
 })();
