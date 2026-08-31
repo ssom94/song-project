@@ -7,6 +7,7 @@ interface GoalRow {
 	title: string;
 	goal_type: 'percent' | 'count' | 'jlpt_auto';
 	target_date: string | null;
+	target_month: string | null;
 	progress_percent: number;
 	target_count: number | null;
 	completed_count: number;
@@ -53,7 +54,7 @@ export async function handleGetPublicDashboard(request: Request, env: Env): Prom
 				LIMIT 1
 			`).first<{ jlpt_goal_mode: 'auto' | 'manual'; jlpt_manual_target: number | null; show_jlpt: number }>(),
 			env.song_project_db.prepare(`
-				SELECT id, goal_key, title, goal_type, target_date, progress_percent,
+				SELECT id, goal_key, title, goal_type, target_date, target_month, progress_percent,
 					target_count, completed_count, status, display_order
 				FROM dashboard_goals
 				WHERE is_visible = 1
@@ -121,6 +122,7 @@ export async function handleGetPublicDashboard(request: Request, env: Env): Prom
 					title: row.title,
 					goalType: row.goal_type,
 					targetDate: row.target_date,
+					targetMonth: row.target_month,
 					progressPercent,
 					targetCount: row.target_count,
 					completedCount: row.completed_count,
