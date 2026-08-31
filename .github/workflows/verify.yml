@@ -38,6 +38,7 @@ jobs:
           node --check public/assets/js/admin/japanese-import-provenance.js
           node --check public/assets/js/japanese/jlpt-dashboard.js
           node --check public/assets/js/japanese/jlpt-page-enhancements.js
+          node --check public/assets/js/japanese/jlpt-experience.js
           node --check public/assets/js/japanese/study-history.js
           node --check public/assets/js/japanese/today-study-float.js
           node --check public/assets/js/japanese/today-study-float-v3.js
@@ -91,6 +92,8 @@ jobs:
           SKILL_CATALOG="$(sqlite3 "$DB_FILE" 'SELECT COUNT(*) FROM it_skill_catalog;')"
           JLPT_PLANS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_study_plans';")"
           JLPT_CONTENTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_daily_contents';")"
+          JLPT_ATTEMPTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_question_attempts';")"
+          JLPT_WRONG_NOTES="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_wrong_notes';")"
           JLPT_REVIEW_COLUMNS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM pragma_table_info('japanese_admin_word_learning_stats') WHERE name IN ('first_learned_at','last_studied_at','review_stage','next_review_on');")"
           JLPT_DAY1_EXAMPLES="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM japanese_word_examples WHERE word_id IN (SELECT id FROM japanese_words WHERE word IN ('遂げる','滞る','損なう','著しい','促す','覆す','免れる','携わる','廃れる','培う','阻む','強いる','顧みる','怠る','乏しい','紛らわしい','夥しい','円滑','妥当','懸念') AND deleted_at IS NULL) AND deleted_at IS NULL;")"
           KANJI_TABLE="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_kanji_korean_readings';")"
@@ -112,6 +115,8 @@ jobs:
           echo "skill_catalog=$SKILL_CATALOG"
           echo "jlpt_plans_table=$JLPT_PLANS"
           echo "jlpt_contents_table=$JLPT_CONTENTS"
+          echo "jlpt_attempts_table=$JLPT_ATTEMPTS"
+          echo "jlpt_wrong_notes_table=$JLPT_WRONG_NOTES"
           echo "jlpt_review_columns=$JLPT_REVIEW_COLUMNS"
           echo "jlpt_day1_examples=$JLPT_DAY1_EXAMPLES"
           echo "kanji_table=$KANJI_TABLE"
@@ -133,6 +138,8 @@ jobs:
           test "$SKILL_CATALOG" -eq 421
           test "$JLPT_PLANS" -eq 1
           test "$JLPT_CONTENTS" -eq 1
+          test "$JLPT_ATTEMPTS" -eq 1
+          test "$JLPT_WRONG_NOTES" -eq 1
           test "$JLPT_REVIEW_COLUMNS" -eq 4
           test "$JLPT_DAY1_EXAMPLES" -ge 20
           test "$KANJI_TABLE" -eq 1
