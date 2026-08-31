@@ -36,6 +36,7 @@ jobs:
           node --check public/assets/js/japanese/study-history.js
           node --check public/assets/js/japanese/today-study-float.js
           node --check public/assets/js/admin/japanese-import.js
+          node --check public/assets/js/study/ap.js
 
       - name: Unit tests
         run: npm test -- --run
@@ -54,7 +55,7 @@ jobs:
           path: migration.log
           if-no-files-found: error
 
-      - name: Verify seeded catalog and posts
+      - name: Verify seeded catalog and study schemas
         shell: bash
         run: |
           set -euo pipefail
@@ -79,6 +80,12 @@ jobs:
           JLPT_PLANS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_study_plans';")"
           JLPT_CONTENTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='japanese_jlpt_daily_contents';")"
           JLPT_REVIEW_COLUMNS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM pragma_table_info('japanese_admin_word_learning_stats') WHERE name IN ('first_learned_at','last_studied_at','review_stage','next_review_on');")"
+          AP_PLANS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_plans';")"
+          AP_TOPICS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_topics';")"
+          AP_PROGRESS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_topic_progress';")"
+          AP_SESSIONS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_daily_sessions';")"
+          AP_ITEMS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_daily_items';")"
+          AP_ATTEMPTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_attempts';")"
 
           echo "certifications=$CERT_COUNT"
           echo "certification_topics=$CERT_TOPIC_COUNT"
@@ -89,6 +96,12 @@ jobs:
           echo "jlpt_plans_table=$JLPT_PLANS"
           echo "jlpt_contents_table=$JLPT_CONTENTS"
           echo "jlpt_review_columns=$JLPT_REVIEW_COLUMNS"
+          echo "ap_plans_table=$AP_PLANS"
+          echo "ap_topics_table=$AP_TOPICS"
+          echo "ap_progress_table=$AP_PROGRESS"
+          echo "ap_sessions_table=$AP_SESSIONS"
+          echo "ap_items_table=$AP_ITEMS"
+          echo "ap_attempts_table=$AP_ATTEMPTS"
 
           test "$CERT_COUNT" -eq 5
           test "$CERT_TOPIC_COUNT" -gt 0
@@ -99,3 +112,9 @@ jobs:
           test "$JLPT_PLANS" -eq 1
           test "$JLPT_CONTENTS" -eq 1
           test "$JLPT_REVIEW_COLUMNS" -eq 4
+          test "$AP_PLANS" -eq 1
+          test "$AP_TOPICS" -eq 1
+          test "$AP_PROGRESS" -eq 1
+          test "$AP_SESSIONS" -eq 1
+          test "$AP_ITEMS" -eq 1
+          test "$AP_ATTEMPTS" -eq 1
