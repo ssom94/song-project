@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Site Design | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/site-design.css" />
+</head>
+<body class="admin-page admin-site-design-page" data-i18n-scope="site-design">
+	<div id="admin-loading" class="admin-loading" data-i18n="loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header">
+			<div class="admin-header-left">
+				<button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel"><span></span><span></span><span></span></button>
+				<a class="admin-global-brand" href="/" aria-label="Song Project ホームへ" data-i18n-aria-label="brandHomeLabel"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a>
+			</div>
+			<div class="admin-header-actions">
+				<div class="admin-language-switch" aria-label="表示言語" data-i18n-aria-label="languageLabel"><button class="is-active" type="button" data-admin-lang="ja" aria-pressed="true">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko" aria-pressed="false">한국어</button></div>
+				<div class="admin-user-menu-wrap">
+					<button id="admin-user-toggle" class="admin-user-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="admin-user-menu"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button>
+					<div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button" data-i18n="logout">ログアウト</button></div>
+				</div>
+			</div>
+		</header>
+		<div class="admin-header-accent"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label" data-i18n="management">管理</p><nav id="admin-nav" class="admin-nav" aria-label="管理メニュー" data-i18n-aria-label="navLabel"></nav><div class="admin-sidebar-footer"><a href="/" data-i18n="viewSite">サイトを表示</a></div></aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" aria-label="管理メニューを閉じる" data-i18n-aria-label="menuCloseLabel" hidden></button>
+			<main class="admin-main">
+				<section class="admin-content site-design-content">
+					<div class="admin-page-heading"><h1 data-i18n="siteDesignTitle">サイトデザイン</h1><p data-i18n="siteDesignDescription">公開サイトの背景とPC用マウスカーソルを設定します。</p></div>
+
+					<section class="site-design-card site-design-preview-card">
+						<div class="site-design-card-heading"><div><h2 data-i18n="siteDesignPreview">プレビュー</h2></div></div>
+						<div id="site-design-preview" class="site-design-preview">
+							<div class="site-design-preview-shell"><div class="site-design-preview-sidebar"><strong>SONG</strong><span>Home</span><span>Posts</span><span>Study</span></div><div class="site-design-preview-main"><div class="site-design-preview-hero"></div><div class="site-design-preview-grid"><i></i><i></i><i></i></div></div></div>
+							<img id="site-design-preview-cursor" class="site-design-preview-cursor" src="/assets/cursors/arrow-blue.svg" alt="" />
+						</div>
+					</section>
+
+					<section class="site-design-card">
+						<div class="site-design-card-heading"><div><h2 data-i18n="siteDesignBackground">背景</h2><p data-i18n="siteDesignBackgroundHint">標準背景、カラー、プリセット、またはアップロード画像を選択できます。</p></div></div>
+						<div id="site-background-options" class="site-design-background-grid"></div>
+						<div class="site-design-custom-row">
+							<label class="site-design-color-field"><span data-i18n="siteDesignSolid">単色</span><input id="site-background-color" type="color" value="#eef5ff" /></label>
+							<div class="site-design-upload-field"><label for="site-background-file" class="site-design-upload-button" data-i18n="siteDesignUpload">画像をアップロード</label><input id="site-background-file" type="file" accept="image/png,image/jpeg,image/webp" /><small data-i18n="siteDesignUploadHint">PNG/JPG/WebP・最大5MB</small></div>
+						</div>
+						<label class="site-design-range-field"><span><strong data-i18n="siteDesignOverlay">背景を明るくする</strong><b id="site-background-overlay-value">12%</b></span><input id="site-background-overlay" type="range" min="0" max="80" step="1" value="12" /><small data-i18n="siteDesignOverlayHint">背景が濃い場合、値を上げるとコンテンツが読みやすくなります。</small></label>
+					</section>
+
+					<section class="site-design-card">
+						<div class="site-design-card-heading"><div><h2 data-i18n="siteDesignCursor">マウスカーソル</h2><p data-i18n="siteDesignCursorHint">実際のマウスがあるPC環境でのみ適用されます。</p></div><label class="site-design-switch"><input id="site-cursor-enabled" type="checkbox" checked /><span></span><b data-i18n="siteDesignCursorEnabled">カスタムカーソルを使用</b></label></div>
+						<div id="site-cursor-options" class="site-design-cursor-grid"></div>
+					</section>
+
+					<p id="site-design-status" class="site-design-status" hidden></p>
+					<div class="site-design-actions"><button id="site-design-reset" class="site-design-button" type="button" data-i18n="siteDesignReset">標準に戻す</button><button id="site-design-save" class="site-design-button is-primary" type="button" data-i18n="siteDesignSave">サイトデザインを保存</button></div>
+				</section>
+			</main>
+		</div>
+	</div>
+	<script src="/assets/js/admin/i18n.js"></script>
+	<script src="/assets/js/admin/menu.js"></script>
+	<script src="/assets/js/admin/layout.js"></script>
+	<script src="/assets/js/admin/common.js"></script>
+	<script src="/assets/js/admin/site-design.js"></script>
+</body>
+</html>
