@@ -1,4 +1,8 @@
 (() => {
+	const WIDGET_ID = 'jp-today-study-float';
+	const WIDGET_SCRIPT_ATTR = 'data-today-study-float-v5';
+	const WIDGET_SRC = '/assets/js/japanese/today-study-float-v3.js';
+
 	function loadScript(src, marker) {
 		if (document.querySelector(`script[${marker}]`)) return;
 		const script = document.createElement('script');
@@ -8,13 +12,28 @@
 		document.body.appendChild(script);
 	}
 
-	if (!document.getElementById('jp-today-study-float') && !document.querySelector('script[data-today-study-float-v4]')) {
+	function ensureWidget(force = false) {
+		if (document.getElementById(WIDGET_ID)) return;
+		const existing = document.querySelector(`script[${WIDGET_SCRIPT_ATTR}]`);
+		if (existing && !force) return;
+		if (existing) existing.remove();
+
 		const script = document.createElement('script');
-		script.src = '/assets/js/japanese/today-study-float-v3.js?v=20260831-4';
+		const version = force ? `20260831-7-${Date.now()}` : '20260831-7';
+		script.src = `${WIDGET_SRC}?v=${version}`;
 		script.async = true;
-		script.dataset.todayStudyFloatV4 = 'true';
+		script.setAttribute(WIDGET_SCRIPT_ATTR, 'true');
+		script.addEventListener('error', () => script.remove(), { once: true });
 		document.body.appendChild(script);
 	}
+
+	ensureWidget();
+	window.setTimeout(() => {
+		if (!document.getElementById(WIDGET_ID)) ensureWidget(true);
+	}, 900);
+	window.setTimeout(() => {
+		if (!document.getElementById(WIDGET_ID)) ensureWidget(true);
+	}, 2600);
 
 	loadScript('/assets/js/shared/category-icons.js?v=20260831-1', 'data-song-category-icon-catalog');
 	loadScript('/assets/js/blog/category-appearance-public.js?v=20260831-1', 'data-song-category-appearance-public');
