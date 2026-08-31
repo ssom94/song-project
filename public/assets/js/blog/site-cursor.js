@@ -12,7 +12,7 @@
 
 	function ensureStyles() {
 		for (const [href, attr] of [
-			['/assets/css/blog/site-cursor.css?v=20260831-1', 'data-song-site-cursor-style'],
+			['/assets/css/blog/site-cursor.css?v=20260831-2', 'data-song-site-cursor-style'],
 			['/assets/css/blog/site-visuals.css?v=20260831-1', 'data-song-site-visuals-style'],
 		]) {
 			if (document.querySelector(`link[${attr}]`)) continue;
