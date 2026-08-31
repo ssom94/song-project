@@ -1,0 +1,84 @@
+.jp-memory-mode-toggle {
+	font: inherit;
+	cursor: pointer;
+}
+
+.jp-memory-mode-toggle.is-active {
+	border-color: #26364e;
+	background: #26364e;
+	color: #fff;
+}
+
+.jp-memory-reveal {
+	display: none;
+	min-height: 32px;
+	padding: 0 11px;
+	border: 1px solid #cfd9e6;
+	border-radius: 9px;
+	background: #fff;
+	font: inherit;
+	font-size: 10px;
+	font-weight: 850;
+	color: #42526a;
+	cursor: pointer;
+}
+
+.jp-word-memory-mode .jp-word-row {
+	grid-template-columns: minmax(0, 1fr) auto;
+	min-height: 62px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+}
+
+.jp-word-memory-mode .jp-word-row > span,
+.jp-word-memory-mode .jp-word-row > a.jp-secondary-button {
+	display: none;
+}
+
+.jp-word-memory-mode .jp-word-row .jp-word-link {
+	display: block;
+}
+
+.jp-word-memory-mode .jp-word-row .jp-word-title-line > strong {
+	font-size: 19px;
+	text-decoration: none;
+}
+
+.jp-word-memory-mode .jp-word-row .jp-word-meta {
+	margin-top: 7px;
+}
+
+.jp-word-memory-mode .jp-memory-reveal {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.jp-word-memory-mode .jp-word-row.is-memory-revealed {
+	grid-template-columns: minmax(0, 1.2fr) minmax(100px, .7fr) minmax(140px, 1fr) auto;
+	background: #fbfcfe;
+}
+
+.jp-word-memory-mode .jp-word-row.is-memory-revealed > span {
+	display: block;
+}
+
+.jp-word-memory-mode .jp-word-row.is-memory-revealed > a.jp-secondary-button {
+	display: none;
+}
+
+.jp-word-memory-mode .jp-word-row.is-memory-revealed .jp-memory-reveal {
+	background: #eef3fa;
+}
+
+@media (max-width: 720px) {
+	.jp-word-memory-mode .jp-word-row,
+	.jp-word-memory-mode .jp-word-row.is-memory-revealed {
+		grid-template-columns: minmax(0, 1fr) auto;
+	}
+
+	.jp-word-memory-mode .jp-word-row.is-memory-revealed > span {
+		grid-column: 1 / -1;
+		padding-left: 0;
+	}
+}
