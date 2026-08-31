@@ -8,6 +8,7 @@
 		'meaning_ko',
 		'meaning_ja',
 		'jlpt',
+		'jlpt_study_date',
 		'part_of_speech',
 		'category',
 		'example_ja',
@@ -27,14 +28,14 @@
 		return currentLanguage() === 'ko'
 			? {
 				title: 'Excel 일괄 등록',
-				hint: '필수 3개 컬럼만 입력해도 등록됩니다. 선택 컬럼은 값이 있는 경우에만 반영됩니다.',
+				hint: '필수 3개 컬럼만 입력해도 등록됩니다. N1 학습용은 jlpt=N1과 jlpt_study_date를 함께 입력하면 해당 날짜 커리큘럼에 자동 연결됩니다.',
 				template: 'Excel 템플릿 다운로드',
 				choose: 'Excel 파일 선택',
 				import: '일괄 등록',
 				noFile: '선택된 파일 없음',
 				selected: (name) => `선택 파일: ${name}`,
 				required: '필수: word / reading / meaning_ko',
-				optional: '선택: meaning_ja / jlpt / part_of_speech / category / example_ja / example_reading / example_ko / note',
+				optional: '선택: meaning_ja / jlpt / jlpt_study_date / part_of_speech / category / example_ja / example_reading / example_ko / note',
 				multi: '여러 뜻·품사는 한 셀에서 | 로 구분합니다.',
 				loadingLibrary: 'Excel 기능을 불러오는 중입니다…',
 				invalidHeaders: '필수 컬럼이 없습니다. 템플릿의 1행 컬럼명을 변경하지 마세요.',
@@ -44,21 +45,24 @@
 				importing: '일괄 등록 중입니다…',
 				failed: 'Excel 일괄 등록에 실패했습니다.',
 				libraryFailed: 'Excel 파일 처리 기능을 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.',
-				summary: (result) => `총 ${result.total}건 · 신규 ${result.created}건 · 기존 병합 ${result.merged}건 · 실패 ${result.failed}건`,
+				summary: (result) => {
+					const enrolled = Array.isArray(result.results) ? result.results.filter((item) => item?.jlptEnrolled).length : 0;
+					return `총 ${result.total}건 · 신규 ${result.created}건 · 기존 병합 ${result.merged}건 · 실패 ${result.failed}건${enrolled ? ` · N1 학습등록 ${enrolled}건` : ''}`;
+				},
 				failedRows: '실패 행',
 				ruleSheet: '규칙',
 				wordSheet: '단어',
 			}
 			: {
 				title: 'Excel一括登録',
-				hint: '必須3列だけでも登録できます。任意列は値がある場合のみ反映されます。',
+				hint: '必須3列だけでも登録できます。N1学習用は jlpt=N1 と jlpt_study_date を入力すると、その日のカリキュラムへ自動連携します。',
 				template: 'Excelテンプレートをダウンロード',
-				choose: 'Excelファイルを選択',
+				choose: 'Excelファイル選択',
 				import: '一括登録',
 				noFile: 'ファイル未選択',
 				selected: (name) => `選択ファイル: ${name}`,
 				required: '必須: word / reading / meaning_ko',
-				optional: '任意: meaning_ja / jlpt / part_of_speech / category / example_ja / example_reading / example_ko / note',
+				optional: '任意: meaning_ja / jlpt / jlpt_study_date / part_of_speech / category / example_ja / example_reading / example_ko / note',
 				multi: '複数の意味・品詞は1セル内で | 区切りにします。',
 				loadingLibrary: 'Excel機能を読み込んでいます…',
 				invalidHeaders: '必須列がありません。テンプレート1行目の列名を変更しないでください。',
@@ -68,7 +72,10 @@
 				importing: '一括登録中です…',
 				failed: 'Excel一括登録に失敗しました。',
 				libraryFailed: 'Excelファイル処理機能を読み込めませんでした。ネット接続を確認してください。',
-				summary: (result) => `合計 ${result.total}件 · 新規 ${result.created}件 · 既存へ統合 ${result.merged}件 · 失敗 ${result.failed}件`,
+				summary: (result) => {
+					const enrolled = Array.isArray(result.results) ? result.results.filter((item) => item?.jlptEnrolled).length : 0;
+					return `合計 ${result.total}件 · 新規 ${result.created}件 · 既存へ統合 ${result.merged}件 · 失敗 ${result.failed}件${enrolled ? ` · N1学習登録 ${enrolled}件` : ''}`;
+				},
 				failedRows: '失敗行',
 				ruleSheet: 'ルール',
 				wordSheet: '単語',
@@ -273,9 +280,10 @@
 					['선택', '나머지 컬럼은 비워도 됩니다. 값이 있으면 등록됩니다.'],
 					['meaning_ko', '뜻이 여러 개면 | 로 구분: 약속|언약'],
 					['jlpt', 'N1, N2, N3, N4, N5 중 하나'],
+					['jlpt_study_date', 'N1 커리큘럼에 넣을 학습일. YYYY-MM-DD 형식. 예: 2026-09-01'],
 					['part_of_speech', '관리자 품사명 사용. 여러 개면 | 로 구분: 명사|サ変名詞'],
 					['category', '관리자 학습분류의 일본어명 또는 한국어명 사용'],
-					['중복 단어', '신규 생성하지 않고 기존 단어에 뜻·품사·예문을 병합합니다.'],
+					['중복 단어', '신규 생성하지 않고 기존 단어에 뜻·품사·예문을 병합합니다. jlpt_study_date가 있으면 기존 단어도 커리큘럼에 연결합니다.'],
 					['최대 행 수', '1회 500행'],
 				]
 				: [
@@ -286,13 +294,14 @@
 					['任意', 'その他の列は空欄でも登録できます。値がある場合のみ反映します。'],
 					['meaning_ko', '複数の意味は | 区切り: 약속|언약'],
 					['jlpt', 'N1, N2, N3, N4, N5 のいずれか'],
+					['jlpt_study_date', 'N1カリキュラムへ登録する学習日。YYYY-MM-DD。例: 2026-09-01'],
 					['part_of_speech', '管理画面の品詞名を使用。複数は | 区切り: 名詞|サ変名詞'],
 					['category', '管理画面の学習分類の日本語名または韓国語名を使用'],
-					['重複単語', '新規作成せず、既存単語へ意味・品詞・例文を統合します。'],
+					['重複単語', '新規作成せず、既存単語へ意味・品詞・例文を統合します。jlpt_study_date があれば既存単語もカリキュラムへ連携します。'],
 					['最大行数', '1回500行'],
 				];
 			const ruleSheet = XLSX.utils.aoa_to_sheet(ruleRows);
-			ruleSheet['!cols'] = [{ wch: 20 }, { wch: 70 }];
+			ruleSheet['!cols'] = [{ wch: 20 }, { wch: 78 }];
 			XLSX.utils.book_append_sheet(workbook, ruleSheet, labels.ruleSheet);
 			XLSX.writeFile(workbook, 'japanese_words_import_template.xlsx');
 			setStatus('');
@@ -310,6 +319,7 @@
 			meaningKo: String(row.meaning_ko ?? '').trim(),
 			meaningJa: String(row.meaning_ja ?? '').trim(),
 			jlpt: String(row.jlpt ?? '').trim(),
+			jlptStudyDate: String(row.jlpt_study_date ?? '').trim(),
 			partOfSpeech: String(row.part_of_speech ?? '').trim(),
 			category: String(row.category ?? '').trim(),
 			exampleJa: String(row.example_ja ?? '').trim(),
