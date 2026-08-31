@@ -11,6 +11,7 @@ import { handleListAdminApVocabularyWrongNotes } from './admin/ap-vocabulary-wro
 import { handleListAdminJapaneseWordsWithProvenance } from './admin/japanese/words-provenance';
 import { handleExportStudyXlsx } from './admin/study-export';
 import { handleGetPublicApDashboard } from './public/ap';
+import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
 
 function methodNotAllowed(allow: string): Response {
 	return new Response('Method Not Allowed', {
@@ -34,6 +35,8 @@ export default {
 				});
 			case '/api/public/ap/dashboard':
 				return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/kanji-korean':
+				return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
 			case '/api/admin/study/export.xlsx':
 				return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words':
