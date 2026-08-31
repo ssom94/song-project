@@ -32,6 +32,10 @@ jobs:
           node --check public/assets/js/blog/dashboard-shell.js
           node --check public/assets/js/blog/certifications-list.js
           node --check public/assets/js/blog/certification-detail.js
+          node --check public/assets/js/blog/category-appearance-public.js
+          node --check public/assets/js/blog/site-cursor.js
+          node --check public/assets/js/shared/category-icons.js
+          node --check public/assets/js/admin/category-appearance.js
           node --check public/assets/js/admin/japanese-workspace.js
           node --check public/assets/js/admin/japanese-timestamps.js
           node --check public/assets/js/admin/japanese-import.js
@@ -107,6 +111,9 @@ jobs:
           AP_ATTEMPTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_study_attempts';")"
           AP_VOCAB="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_vocabulary';")"
           AP_VOCAB_ATTEMPTS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='ap_vocabulary_quiz_attempts';")"
+          CATEGORY_APPEARANCE_COLUMNS="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM pragma_table_info('categories') WHERE name IN ('icon_kind','icon_value','icon_color');")"
+          SITE_VISUALS_TABLE="$(sqlite3 "$DB_FILE" "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='site_visual_settings';")"
+          SITE_VISUALS_ROWS="$(sqlite3 "$DB_FILE" 'SELECT COUNT(*) FROM site_visual_settings WHERE id = 1;')"
 
           echo "certifications=$CERT_COUNT"
           echo "certification_topics=$CERT_TOPIC_COUNT"
@@ -130,6 +137,9 @@ jobs:
           echo "ap_attempts_table=$AP_ATTEMPTS"
           echo "ap_vocabulary_table=$AP_VOCAB"
           echo "ap_vocabulary_attempts_table=$AP_VOCAB_ATTEMPTS"
+          echo "category_appearance_columns=$CATEGORY_APPEARANCE_COLUMNS"
+          echo "site_visuals_table=$SITE_VISUALS_TABLE"
+          echo "site_visuals_rows=$SITE_VISUALS_ROWS"
 
           test "$CERT_COUNT" -eq 5
           test "$CERT_TOPIC_COUNT" -gt 0
@@ -153,3 +163,6 @@ jobs:
           test "$AP_ATTEMPTS" -eq 1
           test "$AP_VOCAB" -eq 1
           test "$AP_VOCAB_ATTEMPTS" -eq 1
+          test "$CATEGORY_APPEARANCE_COLUMNS" -eq 3
+          test "$SITE_VISUALS_TABLE" -eq 1
+          test "$SITE_VISUALS_ROWS" -eq 1
