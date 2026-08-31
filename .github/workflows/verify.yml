@@ -34,6 +34,7 @@ jobs:
           node --check public/assets/js/admin/japanese-workspace.js
           node --check public/assets/js/japanese/jlpt-dashboard.js
           node --check public/assets/js/japanese/study-history.js
+          node --check public/assets/js/japanese/today-floating.js
           node --check public/assets/js/japanese/today-study-float.js
           node --check public/assets/js/admin/japanese-import.js
 
