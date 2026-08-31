@@ -175,3 +175,10 @@ if (!document.querySelector('script[data-post-markdown-editor]')) {
 	script.dataset.postMarkdownEditor = 'true';
 	document.body.appendChild(script);
 }
+
+if (!document.querySelector('script[data-post-text-color]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/admin/post-text-color.js?v=20260831-1';
+	script.dataset.postTextColor = 'true';
+	document.body.appendChild(script);
+}
