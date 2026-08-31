@@ -82,6 +82,13 @@ function targetTotal(session: SessionRow | null): number {
 		+ session.reading_target;
 }
 
+function calendarProgress(row: CalendarRow): number {
+	return percentage(
+		row.review_completed + row.new_word_completed + row.vocab_question_completed + row.grammar_completed + row.reading_completed,
+		row.review_target + row.new_word_target + row.vocab_question_target + row.grammar_target + row.reading_target,
+	);
+}
+
 export async function handleGetPublicJapaneseJlptDashboard(request: Request, env: Env): Promise<Response> {
 	try {
 		const admin = await resolveLearningAdmin(request, env.song_project_db);
@@ -139,7 +146,7 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				FROM japanese_jlpt_daily_sessions
 				WHERE plan_id = ?1
 				ORDER BY study_date DESC
-				LIMIT 35
+				LIMIT 365
 			`).bind(plan.id).all<CalendarRow>(),
 			env.song_project_db.prepare(`
 				SELECT content_type, COUNT(*) AS total,
@@ -188,6 +195,20 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 			}
 			: { review: 0, newWords: 0, vocabQuestions: 0, grammar: 0, reading: 0 };
 
+		const history = calendarResult.results.map((row) => ({
+			date: row.study_date,
+			status: row.status,
+			progressPercent: calendarProgress(row),
+			review: { completed: row.review_completed, target: row.review_target },
+			newWords: { completed: row.new_word_completed, target: row.new_word_target },
+			vocabQuestions: { completed: row.vocab_question_completed, target: row.vocab_question_target },
+			grammar: { completed: row.grammar_completed, target: row.grammar_target },
+			reading: { completed: row.reading_completed, target: row.reading_target },
+		}));
+		const completedDays = history.filter((row) => row.status === 'completed').length;
+		const totalNewWords = history.reduce((sum, row) => sum + Number(row.newWords.completed || 0), 0);
+		const totalReviews = history.reduce((sum, row) => sum + Number(row.review.completed || 0), 0);
+
 		return json({
 			ok: true,
 			admin: {
@@ -232,13 +253,17 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				completedAt: todaySession?.completed_at ?? null,
 				availableContent: content,
 			},
-			calendar: calendarResult.results.map((row) => ({
-				date: row.study_date,
+			historySummary: {
+				recordedDays: history.length,
+				completedDays,
+				totalNewWords,
+				totalReviews,
+			},
+			history,
+			calendar: history.map((row) => ({
+				date: row.date,
 				status: row.status,
-				progressPercent: percentage(
-					row.review_completed + row.new_word_completed + row.vocab_question_completed + row.grammar_completed + row.reading_completed,
-					row.review_target + row.new_word_target + row.vocab_question_target + row.grammar_target + row.reading_target,
-				),
+				progressPercent: row.progressPercent,
 			})),
 		});
 	} catch (error) {
