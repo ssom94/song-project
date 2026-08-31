@@ -3,9 +3,9 @@
 
 	const JLPT_API = '/api/public/japanese/jlpt/dashboard';
 	const AP_API = '/api/public/ap/dashboard';
-	const POSITION_KEY = 'song_today_study_float_position_v3';
-	const COLLAPSED_KEY = 'song_today_study_float_collapsed_v3';
-	const MODE_KEY = 'song_today_study_float_mode_v3';
+	const POSITION_KEY = 'song_today_study_float_position_v4';
+	const COLLAPSED_KEY = 'song_today_study_float_collapsed_v4';
+	const MODE_KEY = 'song_today_study_float_mode_v4';
 	const REFRESH_MS = 30000;
 	const EDGE = 12;
 
@@ -21,7 +21,8 @@
 	let pointerStart = { x: 0, y: 0 };
 	let positionStart = { x: 0, y: 0 };
 	let baseRect = null;
-	let ignoreClickUntil = 0;
+	let startedOnLauncher = false;
+	let startedCollapsed = false;
 
 	function language() {
 		return document.body?.dataset?.blogLanguage === 'ja' ? 'ja' : 'ko';
@@ -67,7 +68,7 @@
 		if (document.querySelector('link[data-today-study-float]')) return;
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = '/assets/css/japanese/today-study-float.css?v=20260831-3';
+		link.href = '/assets/css/japanese/today-study-float.css?v=20260831-4';
 		link.dataset.todayStudyFloat = 'true';
 		document.head.appendChild(link);
 	}
@@ -189,13 +190,19 @@
 		button.className = `jp-today-study-app-icon is-${mode}`;
 		button.dataset.dragHandle = 'true';
 		button.setAttribute('aria-label', t('오늘의 학습 펼치기', '今日の学習を開く'));
+		button.setAttribute('aria-expanded', 'false');
+
 		const mark = document.createElement('strong');
 		mark.textContent = mode === 'ap' ? 'AP' : 'N1';
 		const count = document.createElement('small');
 		count.textContent = loading ? '…' : (progress.total ? `${progress.done}/${progress.total}` : '—');
-		button.append(mark, count);
-		button.addEventListener('click', () => {
-			if (Date.now() >= ignoreClickUntil) setCollapsed(false);
+		const reopen = document.createElement('span');
+		reopen.className = 'jp-today-study-reopen';
+		reopen.textContent = '↗';
+		reopen.setAttribute('aria-hidden', 'true');
+		button.append(mark, count, reopen);
+		button.addEventListener('click', (event) => {
+			if (event.detail === 0) setCollapsed(false);
 		});
 		shell.appendChild(button);
 	}
@@ -203,10 +210,10 @@
 	function renderExpanded(shell) {
 		const current = mode === 'ap' ? data.ap : data.jlpt;
 		const progress = progressFor(mode);
-
 		const header = document.createElement('div');
 		header.className = 'jp-today-study-float-header';
 		header.dataset.dragHandle = 'true';
+
 		const heading = document.createElement('div');
 		const title = document.createElement('strong');
 		title.textContent = t('오늘의 학습', '今日の学習');
@@ -245,20 +252,20 @@
 		const body = document.createElement('div');
 		body.className = 'jp-today-study-float-body';
 		if (loading) {
-			const loadingNode = document.createElement('div');
-			loadingNode.className = 'jp-today-study-float-empty';
-			loadingNode.textContent = t('학습 정보를 불러오는 중입니다.', '学習情報を読み込んでいます。');
-			body.appendChild(loadingNode);
+			const node = document.createElement('div');
+			node.className = 'jp-today-study-float-empty';
+			node.textContent = t('학습 정보를 불러오는 중입니다.', '学習情報を読み込んでいます。');
+			body.appendChild(node);
 		} else if (!current) {
-			const error = document.createElement('div');
-			error.className = 'jp-today-study-float-error';
-			error.textContent = t('학습 정보를 불러오지 못했습니다.', '学習情報を読み込めませんでした。');
-			body.appendChild(error);
+			const node = document.createElement('div');
+			node.className = 'jp-today-study-float-error';
+			node.textContent = t('학습 정보를 불러오지 못했습니다.', '学習情報を読み込めませんでした。');
+			body.appendChild(node);
 		} else if (mode === 'ap' && progress.tasks.length === 0) {
-			const empty = document.createElement('div');
-			empty.className = 'jp-today-study-float-empty';
-			empty.textContent = t('오늘 AP 학습 일정이 아직 생성되지 않았습니다.', '今日のAP学習予定はまだ作成されていません。');
-			body.appendChild(empty);
+			const node = document.createElement('div');
+			node.className = 'jp-today-study-float-empty';
+			node.textContent = t('오늘 AP 학습 일정이 아직 생성되지 않았습니다.', '今日のAP学習予定はまだ作成されていません。');
+			body.appendChild(node);
 		} else {
 			const list = document.createElement('ul');
 			list.className = 'jp-today-study-float-list';
@@ -286,9 +293,7 @@
 		const footer = document.createElement('div');
 		footer.className = 'jp-today-study-float-footer';
 		const status = document.createElement('span');
-		status.textContent = loading
-			? t('불러오는 중', '読み込み中')
-			: `${mode === 'ap' ? 'AP' : 'JLPT'} ${progress.done}/${progress.total}`;
+		status.textContent = loading ? t('불러오는 중', '読み込み中') : `${mode === 'ap' ? 'AP' : 'JLPT'} ${progress.done}/${progress.total}`;
 		const link = document.createElement('a');
 		link.href = modeLink(mode);
 		link.textContent = t('학습 화면 →', '学習画面 →');
@@ -336,33 +341,42 @@
 		if (!card) return;
 		card.addEventListener('pointerdown', (event) => {
 			if (event.button !== 0) return;
-			const handle = event.target instanceof Element ? event.target.closest('[data-drag-handle]') : null;
-			if (!handle || event.target instanceof Element && event.target.closest('.jp-today-study-collapse')) return;
+			const target = event.target instanceof Element ? event.target : null;
+			const handle = target?.closest('[data-drag-handle]');
+			if (!handle || target?.closest('.jp-today-study-collapse')) return;
 			dragging = true;
 			dragged = false;
 			pointerId = event.pointerId;
 			pointerStart = { x: event.clientX, y: event.clientY };
 			positionStart = { ...position };
+			startedCollapsed = collapsed;
+			startedOnLauncher = Boolean(target?.closest('.jp-today-study-app-icon'));
 			measureBaseRect();
 			card.classList.add('is-dragging');
 			card.setPointerCapture?.(event.pointerId);
 		});
+
 		card.addEventListener('pointermove', (event) => {
 			if (!dragging || event.pointerId !== pointerId) return;
 			const dx = event.clientX - pointerStart.x;
 			const dy = event.clientY - pointerStart.y;
-			if (Math.abs(dx) + Math.abs(dy) > 5) dragged = true;
+			if (Math.abs(dx) + Math.abs(dy) > 6) dragged = true;
+			if (!dragged) return;
 			position = clampPosition({ x: positionStart.x + dx, y: positionStart.y + dy });
 			applyPosition();
 		});
+
 		const finish = (event) => {
 			if (!dragging || event.pointerId !== pointerId) return;
+			const shouldOpen = startedCollapsed && startedOnLauncher && !dragged;
 			dragging = false;
 			card.classList.remove('is-dragging');
-			if (dragged) ignoreClickUntil = Date.now() + 250;
 			try { card.releasePointerCapture?.(event.pointerId); } catch { /* optional */ }
 			pointerId = null;
+			startedOnLauncher = false;
+			startedCollapsed = false;
 			saveState();
+			if (shouldOpen) setCollapsed(false);
 		};
 		card.addEventListener('pointerup', finish);
 		card.addEventListener('pointercancel', finish);
