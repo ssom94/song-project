@@ -342,3 +342,10 @@ if (!document.querySelector('script[data-context-subnav]')) {
 	script.dataset.contextSubnav = 'true';
 	document.body.appendChild(script);
 }
+
+if (!document.querySelector('script[data-jlpt-today-float]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/japanese/today-study-float.js';
+	script.dataset.jlptTodayFloat = 'true';
+	document.body.appendChild(script);
+}
