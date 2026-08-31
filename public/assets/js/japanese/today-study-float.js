@@ -25,6 +25,33 @@
 		return language() === 'ja' ? ja : ko;
 	}
 
+	function ensureJlptSidebarLink() {
+		if (!window.location.pathname.includes('/japanese/')) return;
+		const sections = [...document.querySelectorAll('.blog-sidebar-section')];
+		const section = sections.find((node) => {
+			const label = node.querySelector('.blog-sidebar-label')?.textContent?.trim();
+			return label === 'Japanese' || label === '일본어 학습';
+		});
+		const nav = section?.querySelector('.blog-sidebar-nav');
+		if (!(nav instanceof HTMLElement)) return;
+		const href = `/${language()}/japanese/jlpt/`;
+		let link = [...nav.querySelectorAll('a')].find((node) => node.getAttribute('href') === href);
+		if (!(link instanceof HTMLAnchorElement)) {
+			link = document.createElement('a');
+			link.className = 'blog-sidebar-link';
+			link.href = href;
+			link.textContent = t('JLPT N1 학습', 'JLPT N1 学習');
+			const home = [...nav.querySelectorAll('a')].find((node) => node.getAttribute('href') === `/${language()}/japanese/`);
+			if (home) home.insertAdjacentElement('afterend', link);
+			else nav.prepend(link);
+		}
+		if (window.location.pathname.startsWith(href)) {
+			for (const item of nav.querySelectorAll('a')) item.classList.remove('is-active');
+			link.classList.add('is-active');
+			link.setAttribute('aria-current', 'page');
+		}
+	}
+
 	function readPosition() {
 		try {
 			const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
@@ -141,7 +168,7 @@
 		const subtitle = document.createElement('small');
 		subtitle.textContent = studyStarted
 			? t('드래그해서 이동 · 실제 학습 진도 자동 반영', 'ドラッグ移動 · 実際の学習進捗を自動反映')
-			: t(`${data?.plan?.studyStartDate || '2026-09-01'}부터 시작`, `${data?.plan?.studyStartDate || '2026-09-01'}から開始`);
+			: t(`${data?.plan?.studyStartDate || '2026-08-31'}부터 시작`, `${data?.plan?.studyStartDate || '2026-08-31'}から開始`);
 		heading.append(title, subtitle);
 		const progress = document.createElement('span');
 		progress.className = 'jp-today-study-float-progress';
@@ -266,6 +293,7 @@
 	}
 
 	function initialize() {
+		ensureJlptSidebarLink();
 		mountStyle();
 		refresh();
 		timer = window.setInterval(refresh, REFRESH_MS);
@@ -273,7 +301,10 @@
 		window.addEventListener('focus', refresh);
 		window.addEventListener('jlptstudyprogresschange', refresh);
 		document.querySelectorAll('[data-home-language]').forEach((button) => {
-			button.addEventListener('click', () => window.setTimeout(refresh, 0));
+			button.addEventListener('click', () => window.setTimeout(() => {
+				ensureJlptSidebarLink();
+				refresh();
+			}, 0));
 		});
 		window.addEventListener('resize', () => {
 			if (!card) return;
