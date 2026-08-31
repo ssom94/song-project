@@ -1,8 +1,6 @@
 (() => {
 	const API_CERTIFICATIONS = '/api/public/certifications';
 	const AUTOMATIC_ROWS = new Map([
-		['JLPT N1', { slug: 'jlpt-n1', rolling: false }],
-		['AP', { slug: 'ap', rolling: false }],
 		['FP', { slug: 'fp3', rolling: true }],
 		['AWS SAA', { slug: 'aws-saa', rolling: true }],
 	]);
