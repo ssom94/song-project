@@ -1,0 +1,32 @@
+name: Verify UI Enhancements
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check enhancement JavaScript
+        run: |
+          node --check public/assets/js/admin/category-preview.js
+          node --check public/assets/js/admin/category-schema-notice.js
+          node --check public/assets/js/admin/categories-drag-layout.js
+          node --check public/assets/js/admin/site-design-diagnostics.js
+          node --check public/assets/js/admin/post-editor-history.js
+          node --check public/assets/js/japanese/jlpt-calendar-stability.js
+          node --check public/assets/js/admin/menu.js
+          node --check public/assets/js/blog/site-cursor.js
