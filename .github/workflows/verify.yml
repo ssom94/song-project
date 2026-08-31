@@ -39,6 +39,7 @@ jobs:
           node --check public/assets/js/japanese/jlpt-dashboard.js
           node --check public/assets/js/japanese/jlpt-page-enhancements.js
           node --check public/assets/js/japanese/jlpt-experience.js
+          node --check public/assets/js/japanese/jlpt-visitor-mode.js
           node --check public/assets/js/japanese/study-history.js
           node --check public/assets/js/japanese/today-study-float.js
           node --check public/assets/js/japanese/today-study-float-v3.js
