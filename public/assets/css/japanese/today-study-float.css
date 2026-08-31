@@ -17,8 +17,61 @@
 	color: #344258;
 }
 
+.jp-today-study-float.is-collapsed {
+	width: 64px;
+	height: 64px;
+	overflow: visible;
+	border: 0;
+	border-radius: 18px;
+	background: transparent;
+	box-shadow: none;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+
 .jp-today-study-float.is-dragging {
-	box-shadow: 0 23px 60px rgba(37, 50, 69, 0.25);
+	filter: drop-shadow(0 12px 24px rgba(37, 50, 69, 0.2));
+}
+
+.jp-today-study-app-icon {
+	display: grid;
+	place-items: center;
+	align-content: center;
+	gap: 1px;
+	width: 64px;
+	height: 64px;
+	padding: 0;
+	border: 1px solid rgba(163, 178, 198, 0.8);
+	border-radius: 18px;
+	background: linear-gradient(145deg, #ffffff, #edf3fb);
+	box-shadow: 0 12px 30px rgba(37, 50, 69, 0.2);
+	font: inherit;
+	cursor: grab;
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.jp-today-study-app-icon.is-ap {
+	background: linear-gradient(145deg, #fff, #edf7f2);
+}
+
+.jp-today-study-app-icon strong {
+	font-size: 19px;
+	font-weight: 950;
+	letter-spacing: -0.02em;
+	color: #2b4d7d;
+}
+
+.jp-today-study-app-icon.is-ap strong {
+	color: #27614f;
+}
+
+.jp-today-study-app-icon small {
+	font-size: 9px;
+	font-weight: 900;
+	font-variant-numeric: tabular-nums;
+	color: #7f8b9d;
 }
 
 .jp-today-study-float-header {
@@ -34,11 +87,12 @@
 	-webkit-user-select: none;
 }
 
-.jp-today-study-float.is-dragging .jp-today-study-float-header {
+.jp-today-study-float.is-dragging .jp-today-study-float-header,
+.jp-today-study-float.is-dragging .jp-today-study-app-icon {
 	cursor: grabbing;
 }
 
-.jp-today-study-float-header > div {
+.jp-today-study-float-header > div:first-child {
 	min-width: 0;
 }
 
@@ -60,8 +114,14 @@
 	color: #8d98a7;
 }
 
-.jp-today-study-float-progress {
+.jp-today-study-float-header-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
 	flex: 0 0 auto;
+}
+
+.jp-today-study-float-progress {
 	min-width: 44px;
 	padding: 6px 8px;
 	border-radius: 999px;
@@ -70,6 +130,52 @@
 	font-weight: 900;
 	text-align: center;
 	color: #376451;
+}
+
+.jp-today-study-collapse {
+	width: 27px;
+	height: 27px;
+	padding: 0;
+	border: 1px solid #dce4ed;
+	border-radius: 8px;
+	background: #fff;
+	font: inherit;
+	font-size: 16px;
+	font-weight: 900;
+	line-height: 1;
+	color: #677489;
+	cursor: pointer;
+}
+
+.jp-today-study-tabs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5px;
+	padding: 8px 12px 0;
+}
+
+.jp-today-study-tabs button {
+	padding: 7px 8px;
+	border: 1px solid #dce4ed;
+	border-radius: 9px;
+	background: #f8fafc;
+	font: inherit;
+	font-size: 9px;
+	font-weight: 900;
+	color: #718096;
+	cursor: pointer;
+}
+
+.jp-today-study-tabs button.is-active {
+	border-color: #a9bcd9;
+	background: #eaf1fb;
+	color: #355b8b;
+}
+
+.jp-today-study-float[data-mode="ap"] .jp-today-study-tabs button.is-active {
+	border-color: #b1d1c3;
+	background: #edf7f2;
+	color: #326a56;
 }
 
 .jp-today-study-float-body {
@@ -89,7 +195,7 @@
 	grid-template-columns: 20px minmax(0, 1fr) auto;
 	align-items: center;
 	gap: 8px;
-	min-height: 39px;
+	min-height: 38px;
 	padding: 6px 8px;
 	border: 1px solid transparent;
 	border-radius: 10px;
@@ -123,12 +229,8 @@
 	min-width: 0;
 }
 
-.jp-today-study-float-item-main b,
-.jp-today-study-float-item-main small {
-	display: block;
-}
-
 .jp-today-study-float-item-main b {
+	display: block;
 	overflow: hidden;
 	font-size: 10px;
 	font-weight: 850;
@@ -137,21 +239,29 @@
 	color: #415067;
 }
 
-.jp-today-study-float-item-main small {
-	margin-top: 2px;
-	overflow: hidden;
-	font-size: 7px;
-	line-height: 1.35;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	color: #929dab;
-}
-
 .jp-today-study-float-count {
 	font-size: 9px;
 	font-weight: 900;
 	font-variant-numeric: tabular-nums;
 	color: #6d7a8c;
+}
+
+.jp-today-study-float-empty,
+.jp-today-study-float-error {
+	padding: 12px;
+	border-radius: 10px;
+	font-size: 9px;
+	line-height: 1.55;
+}
+
+.jp-today-study-float-empty {
+	background: #f7f9fb;
+	color: #7c8798;
+}
+
+.jp-today-study-float-error {
+	background: #fff5f5;
+	color: #8b5a5a;
 }
 
 .jp-today-study-float-footer {
@@ -164,24 +274,19 @@
 	background: rgba(249, 251, 252, 0.9);
 }
 
-.jp-today-study-float-footer span {
+.jp-today-study-float-footer span,
+.jp-today-study-float-footer a {
 	font-size: 8px;
-	font-weight: 750;
+	font-weight: 850;
+}
+
+.jp-today-study-float-footer span {
 	color: #8490a0;
 }
 
 .jp-today-study-float-footer a {
-	font-size: 8px;
-	font-weight: 900;
 	text-decoration: none;
 	color: #315f50;
-}
-
-.jp-today-study-float-error {
-	padding: 13px;
-	font-size: 9px;
-	line-height: 1.55;
-	color: #8b5a5a;
 }
 
 @media (max-width: 840px) {
@@ -191,9 +296,15 @@
 		width: min(292px, calc(100vw - 24px));
 	}
 
-	.jp-today-study-float-header {
-		cursor: grab;
-		touch-action: none;
+	.jp-today-study-float.is-collapsed {
+		width: 58px;
+		height: 58px;
+	}
+
+	.jp-today-study-app-icon {
+		width: 58px;
+		height: 58px;
+		border-radius: 16px;
 	}
 
 	.jp-today-study-float-body {
@@ -208,5 +319,15 @@
 		top: 72px;
 		right: 8px;
 		width: min(280px, calc(100vw - 16px));
+	}
+
+	.jp-today-study-float.is-collapsed {
+		width: 56px;
+		height: 56px;
+	}
+
+	.jp-today-study-app-icon {
+		width: 56px;
+		height: 56px;
 	}
 }
