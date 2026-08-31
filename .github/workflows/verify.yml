@@ -29,6 +29,7 @@ jobs:
 
       - name: Browser JavaScript syntax check
         run: |
+          node --check public/assets/js/blog/dashboard-shell.js
           node --check public/assets/js/blog/certifications-list.js
           node --check public/assets/js/blog/certification-detail.js
           node --check public/assets/js/admin/japanese-workspace.js
@@ -39,8 +40,11 @@ jobs:
           node --check public/assets/js/japanese/jlpt-page-enhancements.js
           node --check public/assets/js/japanese/study-history.js
           node --check public/assets/js/japanese/today-study-float.js
+          node --check public/assets/js/japanese/today-study-float-v3.js
           node --check public/assets/js/japanese/word-detail.js
           node --check public/assets/js/japanese/word-memory-mode.js
+          node --check public/assets/js/japanese/quiz-scope-bootstrap.js
+          node --check public/assets/js/korean/study-page.js
           node --check public/assets/js/study/ap.js
           node --check public/assets/js/study/ap-vocabulary.js
           node --check public/assets/js/study/ap-vocabulary-wrong.js
