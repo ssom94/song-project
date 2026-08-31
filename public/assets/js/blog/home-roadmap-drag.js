@@ -192,3 +192,11 @@ if (!document.querySelector('script[data-home-countdown-manager]')) {
 	script.dataset.homeCountdownManager = 'true';
 	document.body.appendChild(script);
 }
+
+if (!window.SongActionNotice && !document.querySelector('script[data-song-action-notice]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/action-notice.js';
+	script.async = false;
+	script.dataset.songActionNotice = 'true';
+	document.body.appendChild(script);
+}
