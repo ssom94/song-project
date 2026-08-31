@@ -1,0 +1,30 @@
+html.song-site-background-custom body:not(.admin-page)::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	pointer-events: none;
+	background: var(--song-site-background-layer, #f7f9fc) !important;
+	background-attachment: fixed !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	opacity: 1 !important;
+}
+
+html.song-site-background-custom body:not(.admin-page)::after {
+	content: none !important;
+}
+
+html.song-site-background-custom body:not(.admin-page) {
+	background: transparent !important;
+}
+
+html.song-site-background-custom[data-song-background-preset="paper-grid"] body:not(.admin-page)::before {
+	background-color: #f7f9ff !important;
+	background-image:
+		linear-gradient(rgba(255,255,255,var(--song-site-background-overlay, .12)), rgba(255,255,255,var(--song-site-background-overlay, .12))),
+		linear-gradient(rgba(86,105,150,.075) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(86,105,150,.075) 1px, transparent 1px) !important;
+	background-size: auto, 28px 28px, 28px 28px !important;
+}
