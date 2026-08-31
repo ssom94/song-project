@@ -8,6 +8,15 @@
 	let backdrop;
 	let desktopCollapsed = false;
 
+	function loadActionNotice() {
+		if (window.SongActionNotice || document.querySelector('script[data-song-action-notice]')) return;
+		const script = document.createElement('script');
+		script.src = '/assets/js/action-notice.js';
+		script.async = false;
+		script.dataset.songActionNotice = 'true';
+		document.head.appendChild(script);
+	}
+
 	function readDesktopCollapsed() {
 		try {
 			return localStorage.getItem(STORAGE_KEY) === 'true';
@@ -109,6 +118,8 @@
 		document.addEventListener('adminlanguagechange', updateToggleAccessibility);
 		MOBILE_MEDIA.addEventListener('change', applyResponsiveState);
 	}
+
+	loadActionNotice();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialize, { once: true });
