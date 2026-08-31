@@ -27,7 +27,7 @@
 
 	function appendInline(parent, source) {
 		const text = String(source ?? '');
-		const tokenPattern = /`[^`\n]+`|\[[^\]\n]+\]\([^\)\n]+\)|\*\*[^*\n]+\*\*|__[^_\n]+__|~~[^~\n]+~~|\*[^*\n]+\*|_[^_\n]+_/g;
+		const tokenPattern = /`[^`\n]+`|\[[^\]\n]+\]\([^\)\n]+\)|\*\*[^*\n]+\*\*|__[^_\n]+__|~~[^~\n]+~~|\+\+[^+\n]+\+\+|\*[^*\n]+\*|_[^_\n]+_/g;
 		let cursor = 0;
 
 		for (const match of text.matchAll(tokenPattern)) {
@@ -68,6 +68,10 @@
 				const del = document.createElement('del');
 				appendInline(del, token.slice(2, -2));
 				parent.appendChild(del);
+			} else if (token.startsWith('++')) {
+				const underline = document.createElement('u');
+				appendInline(underline, token.slice(2, -2));
+				parent.appendChild(underline);
 			} else {
 				const emphasis = document.createElement('em');
 				appendInline(emphasis, token.slice(1, -1));
