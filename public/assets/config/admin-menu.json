@@ -1,13 +1,14 @@
 [
   { "key": "dashboard", "href": "/admin/" },
-  { "key": "dashboardGoals", "href": "/admin/goals/" },
-  { "key": "scheduleManagement", "href": "/admin/schedules/", "labelJa": "予定管理", "labelKo": "일정관리" },
-  { "key": "posts", "href": "/admin/posts/" },
-  { "key": "comments", "href": "/admin/comments/" },
-  { "key": "categoriesTags", "href": "/admin/categories/" },
+  { "key": "dashboardGoals", "href": "/admin/goals/", "labelJa": "目標・D-Day", "labelKo": "목표·D-Day" },
+  { "key": "scheduleManagement", "href": "/admin/schedules/", "labelJa": "予定・カレンダー", "labelKo": "일정·달력" },
+  { "key": "certificationManagement", "href": "/admin/certifications/", "labelJa": "資格・試験", "labelKo": "자격증·시험" },
+  { "key": "posts", "href": "/admin/posts/", "labelJa": "投稿管理", "labelKo": "게시글 관리" },
+  { "key": "comments", "href": "/admin/comments/", "labelJa": "コメント管理", "labelKo": "댓글 관리" },
+  { "key": "categoriesTags", "href": "/admin/categories/", "labelJa": "カテゴリ・タグ", "labelKo": "카테고리·태그" },
   { "key": "siteDesign", "href": "/admin/site-design/", "labelJa": "サイトデザイン", "labelKo": "사이트 디자인" },
-  { "key": "japaneseLearning", "href": "/admin/japanese/" },
-  { "key": "protectedDocuments", "href": "/admin/documents/" },
-  { "key": "accessCodes", "href": "/admin/access-codes/" },
+  { "key": "japaneseLearning", "href": "/admin/japanese/", "labelJa": "日本語学習", "labelKo": "일본어 학습" },
+  { "key": "protectedDocuments", "href": "/admin/documents/", "labelJa": "職務経歴書・資料", "labelKo": "직무경력서·자료" },
+  { "key": "accessCodes", "href": "/admin/access-codes/", "labelJa": "アクセスコード", "labelKo": "접근 코드" },
   { "key": "adminAccounts", "href": "/admin/accounts/", "labelJa": "管理者アカウント", "labelKo": "관리자 계정" }
 ]
