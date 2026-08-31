@@ -13,6 +13,15 @@
 			: { undo: '元に戻す', redo: 'やり直す' };
 	}
 
+	function ensureFreshStyle() {
+		if (document.querySelector('link[data-post-editor-layout-v2]')) return;
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = '/assets/css/admin/post-markdown-editor.css?v=20260831-2';
+		link.dataset.postEditorLayoutV2 = 'true';
+		document.head.appendChild(link);
+	}
+
 	function snapshot(textarea) {
 		return {
 			value: textarea.value,
@@ -153,6 +162,7 @@
 	}
 
 	function initialize() {
+		ensureFreshStyle();
 		scan();
 		new MutationObserver(scan).observe(document.body, { childList: true, subtree: true });
 	}
