@@ -1,5 +1,6 @@
 import { resolveLearningAdmin } from '../../japanese-learning';
 import {
+	addDays,
 	daysBetween,
 	ensureDefaultJlptStudyPlan,
 	japanDateString,
@@ -64,7 +65,7 @@ function percentage(value: number, total: number): number {
 	return Math.max(0, Math.min(100, Math.round((value / total) * 1000) / 10));
 }
 
-function completedTotal(session: SessionRow | null): number {
+function completedTotal(session: SessionRow | CalendarRow | null): number {
 	if (!session) return 0;
 	return session.review_completed
 		+ session.new_word_completed
@@ -73,13 +74,37 @@ function completedTotal(session: SessionRow | null): number {
 		+ session.reading_completed;
 }
 
-function targetTotal(session: SessionRow | null): number {
+function targetTotal(session: SessionRow | CalendarRow | null): number {
 	if (!session) return 0;
 	return session.review_target
 		+ session.new_word_target
 		+ session.vocab_question_target
 		+ session.grammar_target
 		+ session.reading_target;
+}
+
+function activeStudyRows(rows: CalendarRow[]): CalendarRow[] {
+	return rows.filter((row) => row.status === 'completed' || completedTotal(row) > 0);
+}
+
+function studyStreak(rows: CalendarRow[], today: string): { current: number; longest: number } {
+	const dates = [...new Set(activeStudyRows(rows).map((row) => row.study_date))].sort();
+	if (!dates.length) return { current: 0, longest: 0 };
+	let longest = 1;
+	let run = 1;
+	for (let index = 1; index < dates.length; index += 1) {
+		if (dates[index] === addDays(dates[index - 1], 1)) run += 1;
+		else run = 1;
+		longest = Math.max(longest, run);
+	}
+	const latest = dates[dates.length - 1];
+	if (latest !== today && latest !== addDays(today, -1)) return { current: 0, longest };
+	let current = 1;
+	for (let index = dates.length - 1; index > 0; index -= 1) {
+		if (dates[index - 1] !== addDays(dates[index], -1)) break;
+		current += 1;
+	}
+	return { current, longest };
 }
 
 export async function handleGetPublicJapaneseJlptDashboard(request: Request, env: Env): Promise<Response> {
@@ -89,7 +114,7 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 
 		const plan = await ensureDefaultJlptStudyPlan(env.song_project_db, admin.adminId);
 		const today = japanDateString();
-		const [curriculum, registeredN1, stateCounts, reviewDue, session, calendarResult, contentResult] = await Promise.all([
+		const [curriculum, registeredN1, stateCounts, reviewDue, session, historyResult, contentResult] = await Promise.all([
 			env.song_project_db.prepare(`
 				SELECT COUNT(*) AS value
 				FROM japanese_jlpt_curriculum_words
@@ -139,7 +164,7 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				FROM japanese_jlpt_daily_sessions
 				WHERE plan_id = ?1
 				ORDER BY study_date DESC
-				LIMIT 35
+				LIMIT 400
 			`).bind(plan.id).all<CalendarRow>(),
 			env.song_project_db.prepare(`
 				SELECT content_type, COUNT(*) AS total,
@@ -188,6 +213,17 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 			}
 			: { review: 0, newWords: 0, vocabQuestions: 0, grammar: 0, reading: 0 };
 
+		const allHistory = activeStudyRows(historyResult.results);
+		const streak = studyStreak(historyResult.results, today);
+		const historySummary = allHistory.reduce((summary, row) => ({
+			totalStudyDays: summary.totalStudyDays + 1,
+			newWords: summary.newWords + Number(row.new_word_completed ?? 0),
+			reviews: summary.reviews + Number(row.review_completed ?? 0),
+			vocabQuestions: summary.vocabQuestions + Number(row.vocab_question_completed ?? 0),
+			grammar: summary.grammar + Number(row.grammar_completed ?? 0),
+			reading: summary.reading + Number(row.reading_completed ?? 0),
+		}), { totalStudyDays: 0, newWords: 0, reviews: 0, vocabQuestions: 0, grammar: 0, reading: 0 });
+
 		return json({
 			ok: true,
 			admin: {
@@ -232,13 +268,25 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				completedAt: todaySession?.completed_at ?? null,
 				availableContent: content,
 			},
-			calendar: calendarResult.results.map((row) => ({
+			historySummary: {
+				...historySummary,
+				currentStreak: streak.current,
+				longestStreak: streak.longest,
+			},
+			history: allHistory.slice(0, 30).map((row) => ({
 				date: row.study_date,
 				status: row.status,
-				progressPercent: percentage(
-					row.review_completed + row.new_word_completed + row.vocab_question_completed + row.grammar_completed + row.reading_completed,
-					row.review_target + row.new_word_target + row.vocab_question_target + row.grammar_target + row.reading_target,
-				),
+				progressPercent: percentage(completedTotal(row), targetTotal(row)),
+				review: Number(row.review_completed ?? 0),
+				newWords: Number(row.new_word_completed ?? 0),
+				vocabQuestions: Number(row.vocab_question_completed ?? 0),
+				grammar: Number(row.grammar_completed ?? 0),
+				reading: Number(row.reading_completed ?? 0),
+			})),
+			calendar: historyResult.results.slice(0, 35).map((row) => ({
+				date: row.study_date,
+				status: row.status,
+				progressPercent: percentage(completedTotal(row), targetTotal(row)),
 			})),
 		});
 	} catch (error) {
