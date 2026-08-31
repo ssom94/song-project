@@ -12,7 +12,9 @@
 
 	async function download(event) {
 		const button = event.currentTarget;
-		const source = button.dataset.exportSource || 'all';
+		const sourceTarget = button.dataset.exportSourceTarget;
+		const sourceElement = sourceTarget ? document.getElementById(sourceTarget) : null;
+		const source = sourceElement?.value || button.dataset.exportSource || 'all';
 		const filterTarget = button.dataset.exportFilterTarget;
 		const filterElement = filterTarget ? document.getElementById(filterTarget) : null;
 		const filter = filterElement?.value || button.dataset.exportFilter || 'all';
