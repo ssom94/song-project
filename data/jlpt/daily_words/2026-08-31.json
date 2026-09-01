@@ -1,0 +1,29 @@
+{
+  "date": "2026-08-31",
+  "day": 1,
+  "level": "N1",
+  "new_word_target": 20,
+  "duplicate_policy": "exclude previously introduced curriculum words",
+  "words": [
+    {"word":"遂げる","reading":"とげる","meaning":"이루다|달성하다","part":"一段動詞"},
+    {"word":"滞る","reading":"とどこおる","meaning":"밀리다|정체되다|지체되다","part":"五段動詞"},
+    {"word":"損なう","reading":"そこなう","meaning":"손상시키다|해치다|망치다","part":"五段動詞"},
+    {"word":"著しい","reading":"いちじるしい","meaning":"현저하다|두드러지다","part":"い形容詞"},
+    {"word":"促す","reading":"うながす","meaning":"재촉하다|촉구하다|촉진하다","part":"五段動詞"},
+    {"word":"覆す","reading":"くつがえす","meaning":"뒤집다|번복하다","part":"五段動詞"},
+    {"word":"免れる","reading":"まぬがれる","meaning":"면하다|피하다","part":"一段動詞"},
+    {"word":"携わる","reading":"たずさわる","meaning":"종사하다|관여하다","part":"五段動詞"},
+    {"word":"廃れる","reading":"すたれる","meaning":"쇠퇴하다|유행이 지나가다","part":"一段動詞"},
+    {"word":"培う","reading":"つちかう","meaning":"기르다|배양하다","part":"五段動詞"},
+    {"word":"阻む","reading":"はばむ","meaning":"가로막다|방해하다","part":"五段動詞"},
+    {"word":"強いる","reading":"しいる","meaning":"강요하다|억지로 시키다","part":"一段動詞"},
+    {"word":"顧みる","reading":"かえりみる","meaning":"돌아보다|고려하다","part":"一段動詞"},
+    {"word":"怠る","reading":"おこたる","meaning":"게을리하다|소홀히 하다","part":"五段動詞"},
+    {"word":"乏しい","reading":"とぼしい","meaning":"부족하다|빈약하다","part":"い形容詞"},
+    {"word":"紛らわしい","reading":"まぎらわしい","meaning":"헷갈리기 쉽다|혼동하기 쉽다","part":"い形容詞"},
+    {"word":"夥しい","reading":"おびただしい","meaning":"엄청나다|수많다","part":"い形容詞"},
+    {"word":"円滑","reading":"えんかつ","meaning":"원활함|매끄러움","part":"な形容詞"},
+    {"word":"妥当","reading":"だとう","meaning":"타당함|적절함","part":"な形容詞"},
+    {"word":"懸念","reading":"けねん","meaning":"우려|걱정","part":"サ変名詞"}
+  ]
+}
