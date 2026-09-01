@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "updated_through": "2026-09-01",
+  "entries": [
+    {
+      "date": "2026-08-31",
+      "jlpt": {
+        "day": 1,
+        "phase": "foundation_vocab_grammar",
+        "new_words": 20,
+        "word_range": "1-20",
+        "content_status": "daily words recorded; detailed content predates this index"
+      },
+      "ap": null
+    },
+    {
+      "date": "2026-09-01",
+      "jlpt": {
+        "day": 2,
+        "phase": "foundation_vocab_grammar",
+        "new_words": 20,
+        "word_range": "21-40",
+        "vocab_questions": 15,
+        "grammar_points": [
+          "〜いかんにかかわらず",
+          "〜ずくめ"
+        ],
+        "reading_focus": "接続関係を追う",
+        "reading_passages": 1,
+        "weekly_test": false,
+        "monthly_test": false
+      },
+      "ap": {
+        "day": 1,
+        "phase": "baseline_and_technology",
+        "concept_topics": [
+          "programming_algorithms"
+        ],
+        "concept_title": "計算量と探索アルゴリズム",
+        "subject_a_questions": 10,
+        "subject_a_topics": [
+          "fundamentals_math",
+          "computer_architecture",
+          "operating_system",
+          "database",
+          "network",
+          "security",
+          "programming_algorithms",
+          "project_management",
+          "business_strategy",
+          "system_performance"
+        ],
+        "subject_b_topics": [
+          "programming_algorithms"
+        ],
+        "subject_b_scenarios": 1,
+        "weekly_test": false,
+        "monthly_test": false
+      }
+    }
+  ]
+}
