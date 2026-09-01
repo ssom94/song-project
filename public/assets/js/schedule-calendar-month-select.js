@@ -1,6 +1,9 @@
 (() => {
 	const STYLE_ID = 'schedule-calendar-month-select-style';
 	const ENHANCED_ATTR = 'monthSelectEnhanced';
+	const RANGE_ENHANCED_ATTR = 'scheduleRangeEnhanced';
+	const PUBLIC_API = '/api/public/dashboard/schedules?kind=calendar';
+	let scheduleRequest = null;
 
 	function language() {
 		return document.body?.dataset?.blogLanguage === 'ko' ? 'ko' : 'ja';
@@ -48,13 +51,106 @@
 			.schedule-calendar-day.is-outside .schedule-calendar-events {
 				opacity: .58;
 			}
+			.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-table-head,
+			.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-row {
+				grid-template-columns: 68px 116px minmax(0, 1fr);
+			}
+			.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-table-head,
+			.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-row {
+				grid-template-columns: 68px 116px minmax(0, 1fr) 34px;
+			}
+			.schedule-list-period {
+				color: #607089;
+				font-size: 8.6px;
+				font-weight: 750;
+				line-height: 1.35;
+				white-space: normal;
+			}
 			@media (max-width: 560px) {
 				.schedule-calendar-month-picker[data-month-select-enhanced="true"] .schedule-calendar-picker-selects {
 					gap: 6px;
 				}
+				.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-table-head,
+				.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-row {
+					grid-template-columns: 58px 96px minmax(0, 1fr);
+					gap: 5px;
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+				.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-table-head,
+				.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-row {
+					grid-template-columns: 58px 96px minmax(0, 1fr) 30px;
+				}
+				.schedule-list-period { font-size: 8px; }
 			}
 		`;
 		document.head.appendChild(style);
+	}
+
+	function validDate(value) {
+		return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value);
+	}
+
+	function compactDate(value) {
+		if (!validDate(value)) return '—';
+		const [year, month, day] = value.split('-');
+		return `${year.slice(2)}. ${month}. ${day}.`;
+	}
+
+	function periodLabel(item) {
+		if (!validDate(item?.startDate)) return '—';
+		const start = compactDate(item.startDate);
+		if (!validDate(item?.endDate) || item.endDate === item.startDate) return start;
+		return `${start} ~ ${compactDate(item.endDate)}`;
+	}
+
+	function sortedSchedules(items) {
+		return [...items].sort((a, b) => {
+			const dateA = validDate(a.startDate) ? a.startDate : '9999-12-31';
+			const dateB = validDate(b.startDate) ? b.startDate : '9999-12-31';
+			if (dateA !== dateB) return dateA.localeCompare(dateB);
+			return Number(a.id || 0) - Number(b.id || 0);
+		});
+	}
+
+	async function loadSchedules() {
+		if (!scheduleRequest) {
+			scheduleRequest = fetch(PUBLIC_API, { credentials: 'same-origin', cache: 'no-store' })
+				.then((response) => response.ok ? response.json() : null)
+				.then((result) => result?.ok && Array.isArray(result.schedules) ? sortedSchedules(result.schedules) : [])
+				.catch(() => []);
+		}
+		return scheduleRequest;
+	}
+
+	async function enhanceScheduleList(panel) {
+		if (!(panel instanceof HTMLElement) || panel.dataset[RANGE_ENHANCED_ATTR] === 'true') return;
+		const head = panel.querySelector('.schedule-list-table-head');
+		const rows = [...panel.querySelectorAll('.schedule-list-row')];
+		if (!(head instanceof HTMLElement) || !rows.length) return;
+
+		const schedules = await loadSchedules();
+		if (!schedules.length) return;
+		panel.dataset[RANGE_ENHANCED_ATTR] = 'true';
+
+		const rangeHead = document.createElement('span');
+		rangeHead.textContent = language() === 'ko' ? '일정기간' : '予定期間';
+		const contentHead = head.children[1];
+		if (contentHead) head.insertBefore(rangeHead, contentHead);
+
+		rows.forEach((row, index) => {
+			const item = schedules[index];
+			if (!item) return;
+			const period = document.createElement('span');
+			period.className = 'schedule-list-period';
+			period.textContent = periodLabel(item);
+			period.title = period.textContent;
+			const content = row.querySelector('.schedule-list-content');
+			if (content) row.insertBefore(period, content);
+		});
+
+		const hint = panel.querySelector('.schedule-list-head span');
+		if (hint) hint.textContent = language() === 'ko' ? '작성일, 일정기간과 내용 표시' : '登録日・予定期間・内容を表示';
 	}
 
 	function enhancePicker(picker) {
@@ -100,6 +196,7 @@
 	function enhanceAll() {
 		installStyle();
 		document.querySelectorAll('.schedule-calendar-month-picker').forEach(enhancePicker);
+		document.querySelectorAll('.schedule-list-panel').forEach((panel) => { void enhanceScheduleList(panel); });
 	}
 
 	let queued = false;
