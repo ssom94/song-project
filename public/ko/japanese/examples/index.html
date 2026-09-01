@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>예문 독해 | SONG</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/common.css" />
+	<link rel="stylesheet" href="/assets/css/blog/dashboard-shell.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/common.css" />
+	<link rel="stylesheet" href="/assets/css/japanese/examples.css?v=20260901-1" />
+</head>
+<body class="blog-page blog-dashboard-page japanese-public-page" data-blog-language="ko">
+	<header class="blog-dashboard-topbar">
+		<div class="blog-dashboard-top-actions"><button id="blog-dashboard-menu-toggle" class="blog-dashboard-menu-toggle" type="button" aria-label="메뉴" aria-expanded="false" aria-controls="blog-dashboard-sidebar"><span></span><span></span><span></span></button><a class="blog-dashboard-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>Dashboard & Blog</span></a></div>
+	</header>
+	<div class="blog-dashboard-shell">
+		<aside id="blog-dashboard-sidebar" class="blog-dashboard-sidebar">
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">메뉴</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/">홈</a><a class="blog-sidebar-link" href="/ko/posts/">전체 게시글</a><a class="blog-sidebar-link is-active" href="/ko/japanese/">일본어 학습</a><a class="blog-sidebar-link" href="/ko/skill-sheet/">스킬시트</a><a class="blog-sidebar-link" href="/ko/career/">경력</a></nav></section>
+			<section class="blog-sidebar-section"><p class="blog-sidebar-label">일본어 학습</p><nav class="blog-sidebar-nav"><a class="blog-sidebar-link" href="/ko/japanese/">학습 홈</a><a class="blog-sidebar-link" href="/ko/japanese/jlpt/">JLPT N1 학습</a><a class="blog-sidebar-link is-active" href="/ko/japanese/examples/">예문 독해</a><a class="blog-sidebar-link" href="/ko/japanese/words/">단어 목록</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/">랜덤 퀴즈</a><a class="blog-sidebar-link" href="/ko/japanese/quiz/result/">학습 결과</a></nav></section>
+			<div class="blog-sidebar-footer">SONG<br />Portfolio · Blog · Learning</div>
+		</aside>
+		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="메뉴 닫기" hidden></button>
+		<main class="blog-dashboard-main"><div class="blog-dashboard-content jp-dashboard-content">
+			<section class="jp-page-heading"><div><p class="jp-eyebrow">EXAMPLE READING</p><h1>예문 독해</h1><p>등록된 일본어 예문을 문장 단위로 읽고, 한국어 번역을 필요할 때만 확인하면서 독해 상태를 관리합니다.</p></div><div class="jp-heading-actions"><a class="jp-secondary-button" href="/ko/japanese/jlpt/">JLPT 학습</a><a class="jp-secondary-button" href="/ko/japanese/words/">단어 목록</a></div></section>
+			<section class="jp-card example-toolbar">
+				<div class="example-filters"><input id="example-search" type="search" placeholder="단어·문장 검색" /><select id="example-jlpt"><option value="">JLPT 전체</option><option>N1</option><option>N2</option><option>N3</option><option>N4</option><option>N5</option></select><select id="example-state"><option value="">상태 전체</option><option value="mastered">완벽독해</option><option value="review">복습필요</option><option value="unlearned">미학습</option></select></div>
+				<div class="example-summary"><strong id="example-total">—</strong><span>개 예문</span><span id="example-login-note"></span></div>
+			</section>
+			<section class="jp-card example-list-card">
+				<div class="example-table-wrap"><table class="example-table"><thead><tr><th class="col-check">체크</th><th class="col-no">번호</th><th class="col-word">단어</th><th>문장</th><th class="col-translation">한국어</th><th class="col-state">상태</th></tr></thead><tbody id="example-body"><tr><td colspan="6" class="example-empty">예문을 불러오는 중입니다.</td></tr></tbody></table></div>
+				<nav id="example-pagination" class="example-pagination"></nav>
+			</section>
+		</div></main>
+	</div>
+	<script src="/assets/js/blog/dashboard-shell.js"></script>
+	<script src="/assets/js/japanese/common.js"></script>
+	<script src="/assets/js/japanese/examples.js?v=20260901-1"></script>
+</body>
+</html>
