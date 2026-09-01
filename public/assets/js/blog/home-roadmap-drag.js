@@ -207,3 +207,10 @@ if (!document.querySelector('script[data-jlpt-today-float]')) {
 	script.dataset.jlptTodayFloat = 'true';
 	document.body.appendChild(script);
 }
+
+if (!document.querySelector('script[data-home-today-study]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/blog/home-today-study.js?v=20260901-1';
+	script.dataset.homeTodayStudy = 'true';
+	document.body.appendChild(script);
+}
