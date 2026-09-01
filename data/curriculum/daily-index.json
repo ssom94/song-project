@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_through": "2026-09-01",
+  "updated_through": "2026-09-02",
   "entries": [
     {
       "date": "2026-08-31",
@@ -54,6 +54,39 @@
           "programming_algorithms"
         ],
         "subject_b_scenarios": 1,
+        "weekly_test": false,
+        "monthly_test": false
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "jlpt": {
+        "day": 0,
+        "phase": "prestart",
+        "scheduled_start_date": "2026-09-07",
+        "new_words": 0,
+        "word_range": null,
+        "vocab_questions": 0,
+        "grammar_points": [],
+        "reading_passages": 0,
+        "review_topics": [],
+        "weekly_test": false,
+        "monthly_test": false,
+        "content_status": "prestart marker only; reserved 2026-09-07+ curriculum unchanged"
+      },
+      "ap": {
+        "day": 0,
+        "phase": "prestudy",
+        "mode": "concept_first_pass",
+        "concept_topics": [
+          "fundamentals_math"
+        ],
+        "concept_title": "基礎理論：基数変換・情報量・論理演算",
+        "subject_a_questions": 0,
+        "subject_a_topics": [],
+        "subject_b_topics": [],
+        "subject_b_scenarios": 0,
+        "review_topics": [],
         "weekly_test": false,
         "monthly_test": false
       }
