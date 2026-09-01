@@ -1,5 +1,6 @@
 (() => {
 	const PRACTICE_API = '/api/public/japanese/jlpt/practice';
+	const FIX_SCRIPT = '/assets/js/japanese/jlpt-word-pagination-fix.js?v=20260901-2';
 	const isJa = document.body.dataset.blogLanguage === 'ja';
 	const t = (ko, ja) => isJa ? ja : ko;
 	const cache = new Map();
@@ -10,6 +11,7 @@
 	}
 
 	function calendarCellDate(cell) {
+		if (cell?.dataset?.fullDate && /^\d{4}-\d{2}-\d{2}$/.test(cell.dataset.fullDate)) return cell.dataset.fullDate;
 		const text = cell.querySelector('strong')?.textContent?.trim();
 		if (!/^\d{2}\/\d{2}$/.test(text || '')) return null;
 		const [month, day] = text.split('/').map(Number);
@@ -19,6 +21,15 @@
 		if (todayMonth === 1 && month === 12) year -= 1;
 		if (todayMonth === 12 && month === 1) year += 1;
 		return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+	}
+
+	function loadFixScript() {
+		if (document.querySelector('script[data-jlpt-word-pagination-fix]')) return;
+		const script = document.createElement('script');
+		script.src = FIX_SCRIPT;
+		script.defer = true;
+		script.dataset.jlptWordPaginationFix = 'true';
+		document.head.appendChild(script);
 	}
 
 	function injectStyle() {
@@ -92,6 +103,7 @@
 
 	function init() {
 		injectStyle();
+		loadFixScript();
 		keepDateNavVisible();
 		const root = document.querySelector('.jlpt-content') || document.body;
 		new MutationObserver(scanCalendar).observe(root, { childList: true, subtree: true });
