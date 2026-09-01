@@ -79,18 +79,25 @@
 
 	async function decorateCell(cell) {
 		const date = calendarCellDate(cell);
-		if (!date || cell.dataset.studyChecked === date) return;
+		if (!date) return;
 		cell.dataset.studyChecked = date;
 		const result = await inspectDate(date);
-		if (cell.dataset.studyChecked !== date) return;
+		if (cell.dataset.studyChecked !== date || !cell.isConnected) return;
 		cell.dataset.studyAvailable = String(result.available);
-		cell.querySelector('.jlpt-calendar-study-badge')?.remove();
-		if (!result.available) return;
-		const badge = document.createElement('span');
-		badge.className = 'jlpt-calendar-study-badge';
-		badge.textContent = t(`문제 ${result.count}`, `問題 ${result.count}`);
+
+		let badge = cell.querySelector('.jlpt-calendar-study-badge');
+		if (!result.available) {
+			badge?.remove();
+			return;
+		}
+		if (!(badge instanceof HTMLElement)) {
+			badge = document.createElement('span');
+			badge.className = 'jlpt-calendar-study-badge';
+			cell.appendChild(badge);
+		}
+		const label = t(`문제 ${result.count}`, `問題 ${result.count}`);
+		if (badge.textContent !== label) badge.textContent = label;
 		badge.title = t(`${date} 학습 문제 있음`, `${date} 学習問題あり`);
-		cell.appendChild(badge);
 	}
 
 	function scanCalendar() {
