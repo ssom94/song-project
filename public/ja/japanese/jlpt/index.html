@@ -26,7 +26,7 @@
 		<button id="blog-dashboard-backdrop" class="blog-dashboard-backdrop" type="button" aria-label="メニューを閉じる" hidden></button>
 		<main class="blog-dashboard-main"><div class="blog-dashboard-content jlpt-content">
 			<div id="jlpt-error" class="jlpt-error" hidden></div>
-			<section class="jlpt-hero"><div><p class="jlpt-eyebrow">JLPT N1 · 2027 JULY</p><h1>JLPT N1 合格プラン</h1><p class="jlpt-hero-copy">語彙と読解を中心に、新規N1単語20語、復習、試験形式の語彙問題、文法、読解を毎日積み上げます。既存の単語一覧とランダムクイズはそのまま維持します。</p><p id="jlpt-date-note" class="jlpt-note">2027年の公式試験日が発表されるまでは、7月第1日曜日を仮の目標日として表示します。</p></div><div class="jlpt-dday"><span>試験まで</span><strong id="jlpt-dday">—</strong><small id="jlpt-target-date">—</small></div></section>
+			<section class="jlpt-hero"><div><p class="jlpt-eyebrow">JLPT N1 · 2027 JULY</p><h1>JLPT N1 合格プラン</h1><p class="jlpt-hero-copy">語彙と読解を中心に、新規語彙と累積復習、試験形式の語彙問題、文法、読解を毎日学習します。既存の単語一覧とランダムクイズはそのまま維持します。</p><p id="jlpt-date-note" class="jlpt-note">2027年の公式試験日が発表されるまでは、7月第1日曜日を仮の目標日として表示します。</p></div><div class="jlpt-dday"><span>試験まで</span><strong id="jlpt-dday">—</strong><small id="jlpt-target-date">—</small></div></section>
 
 			<section class="jlpt-stat-grid"><article class="jlpt-stat"><span>N1目標語彙</span><strong id="jlpt-target-words">—</strong><small>語</small></article><article class="jlpt-stat"><span>カリキュラム登録</span><strong id="jlpt-curriculum-count">—</strong><small>語</small></article><article class="jlpt-stat"><span>学習済み</span><strong id="jlpt-studied-count">—</strong><small>語</small></article><article class="jlpt-stat"><span>今日の復習予定</span><strong id="jlpt-review-due">—</strong><small>語</small></article></section>
 
@@ -40,7 +40,7 @@
 			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>文法</h2><p>1日約2項目のN1文法と問題を、その日の新規語彙と関連付けて学習します。</p></div></div><div id="jlpt-grammar-contents" class="jlpt-content-list"><div class="jlpt-empty">今日登録された文法はありません。</div></div><div id="jlpt-grammar-questions" class="jlpt-content-list"></div></section>
 			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>読解</h2><p>新規単語を自然に含めたN1短文・中文・長文を段階的に学習します。</p></div></div><div id="jlpt-reading-contents" class="jlpt-content-list"><div class="jlpt-empty">今日登録された読解はありません。</div></div></section>
 
-			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>直近4週間の学習予定</h2><p>完了 ✅ · 途中 🟡 · 未学習 —</p></div></div><div id="jlpt-calendar" class="jlpt-calendar-grid"></div></section>
+			<section class="jlpt-card"><div class="jlpt-card-heading"><div><h2>学習カレンダー</h2><p>表示中の月の日付だけを表示し、問題の準備状況と学習状態を合わせて表示します。</p></div></div><div id="jlpt-calendar" class="jlpt-calendar-grid"></div></section>
 		</div></main>
 	</div>
 	<script src="/assets/js/blog/dashboard-shell.js"></script>
@@ -48,5 +48,7 @@
 	<script src="/assets/js/japanese/common.js"></script>
 	<script src="/assets/js/japanese/jlpt-dashboard.js"></script>
 	<script src="/assets/js/japanese/jlpt-page-enhancements.js?v=20260831-3"></script>
+	<script src="/assets/js/japanese/jlpt-history-controls.js?v=20260901-1"></script>
+	<script src="/assets/js/japanese/jlpt-date-fixes.js?v=20260902-2"></script>
 </body>
 </html>
