@@ -7,6 +7,13 @@
   "daily_questions_enabled": false,
   "reason_ko": "AP 정식 일일 문제 학습 시작일은 2026-10-01이며, 9월은 개념 페이지를 먼저 한 바퀴 도는 사전학습 기간이다. 따라서 오늘은 科目A/科目B 실전문제 대신 기초이론 개념 이해와 회상에 집중한다.",
   "reason_ja": "APの本格的な日次問題学習は2026-10-01開始で、9月は概念ページを一巡する事前学習期間である。そのため今日は科目A・科目Bの実戦問題ではなく、基礎理論の理解と想起を優先する。",
+  "study_order": [
+    "基数変換の考え方を理解する",
+    "bit・byte・KiB・MiBの単位関係を整理する",
+    "AND・OR・XOR・NOTの意味を真理値表で確認する",
+    "ド・モルガンの法則を式と日本語の意味で理解する",
+    "例題を自力で解き、最後に想起チェックをする"
+  ],
   "concept": {
     "topic_code": "fundamentals_math",
     "title_ja": "基礎理論：基数変換・情報量・論理演算",
@@ -17,24 +24,80 @@
       "AND·OR·XOR·NOT의 의미와 기본 진리표를 설명할 수 있다.",
       "드모르간 법칙을 이용해 논리식을 변형할 수 있다."
     ],
-    "summary_ko": "컴퓨터는 정보를 비트 단위의 0과 1로 표현한다. 2진수의 각 자릿값은 2의 거듭제곱이며, 16진수 한 자리는 정확히 4비트와 대응한다. 용량 계산에서는 1 byte=8 bit, 1 KiB=1024 byte를 기준으로 문제의 단위를 먼저 통일한다. 논리 연산에서 AND는 둘 다 1일 때 1, OR은 하나라도 1이면 1, XOR은 서로 다를 때 1이다. NOT은 값을 반전한다. 드모르간 법칙은 NOT(A AND B)=NOT A OR NOT B, NOT(A OR B)=NOT A AND NOT B로 기억한다.",
+    "easy_explanation_ja": [
+      "コンピュータは電気的なON/OFFを扱いやすいため、情報を0と1の二つの状態で表す。これが2進数の基本である。",
+      "2進数では右端から1, 2, 4, 8, 16, 32…のように各桁の重みが2倍ずつ増える。1になっている桁の重みを足せば10進数に変換できる。",
+      "16進数は0〜9とA〜Fを使い、1桁で0〜15を表す。2進数4桁で表せる値も0〜15なので、16進数1桁と2進数4bitはちょうど対応する。",
+      "情報量では1 byte = 8 bitを最初に覚える。さらに1 KiB = 1024 byte、1 MiB = 1024 KiBである。計算問題では、まず単位を同じものにそろえてから掛け算・割り算をする。",
+      "ANDは両方が1のときだけ1、ORは少なくとも一方が1なら1、XORは二つの値が異なるとき1、NOTは0と1を反転する演算である。",
+      "ド・モルガンの法則は、全体を否定するとANDとORが入れ替わり、各要素にも否定が付く、と考えると覚えやすい。"
+    ],
+    "support_explanation_ko": [
+      "컴퓨터는 전기적인 ON/OFF 두 상태를 다루기 쉬워 정보를 0과 1로 표현한다. 이것이 2진수의 기본이다.",
+      "2진수의 자릿값은 오른쪽부터 1, 2, 4, 8, 16, 32…처럼 2배씩 증가한다. 값이 1인 자리의 자릿값만 더하면 10진수로 바꿀 수 있다.",
+      "16진수 한 자리는 0~15를 표현하고 2진수 4자리도 0~15를 표현하므로, 16진수 1자리 = 4bit로 바로 대응시킬 수 있다.",
+      "정보량 계산은 먼저 1 byte=8 bit, 1 KiB=1024 byte, 1 MiB=1024 KiB 관계를 이용해 단위를 통일한 뒤 계산한다.",
+      "AND는 둘 다 1, OR는 하나라도 1, XOR는 서로 다를 때 1, NOT은 0과 1을 반대로 바꾼다.",
+      "드모르간 법칙은 전체 NOT을 괄호 안으로 넣을 때 AND와 OR가 서로 바뀌고 각 항에도 NOT이 붙는다고 이해하면 쉽다."
+    ],
+    "truth_table": [
+      {"A": 0, "B": 0, "AND": 0, "OR": 0, "XOR": 0},
+      {"A": 0, "B": 1, "AND": 0, "OR": 1, "XOR": 1},
+      {"A": 1, "B": 0, "AND": 0, "OR": 1, "XOR": 1},
+      {"A": 1, "B": 1, "AND": 1, "OR": 1, "XOR": 0}
+    ],
+    "key_rules": [
+      "2進数→10進数：1になっている桁の2の累乗を足す。",
+      "10進数→2進数：2で割った余りを下から読む方法、または2の累乗の組合せで考える。",
+      "16進数↔2進数：16進数1桁を4bitずつ変換する。",
+      "1 byte = 8 bit、1 KiB = 1024 byte、1 MiB = 1024 KiB。",
+      "NOT(A AND B) = (NOT A) OR (NOT B)。",
+      "NOT(A OR B) = (NOT A) AND (NOT B)。"
+    ],
     "worked_examples": [
       {
+        "type": "binary_to_decimal",
         "prompt_ja": "2進数 110101 を10進数に変換する。",
-        "solution_ko": "32+16+4+1=53이므로 53이다."
+        "steps_ko": ["자릿값을 32,16,8,4,2,1로 놓는다.", "1인 자리만 고르면 32,16,4,1이다.", "32+16+4+1=53이다."],
+        "answer": "53"
       },
       {
+        "type": "hex_to_binary",
         "prompt_ja": "16進数 3F を2進数に変換する。",
-        "solution_ko": "3=0011, F=1111이므로 00111111이다."
+        "steps_ko": ["16진수 한 자리씩 4bit로 바꾼다.", "3=0011, F=1111이다.", "두 결과를 이어 붙이면 00111111이다."],
+        "answer": "00111111"
       },
       {
+        "type": "information_unit",
         "prompt_ja": "8 MiB は何bitか。",
-        "solution_ko": "8×1024×1024 byte×8 bit = 67,108,864 bit이다."
+        "steps_ko": ["8 MiB = 8×1024×1024 byte이다.", "1 byte=8 bit이므로 다시 8을 곱한다.", "8×1024×1024×8 = 67,108,864 bit이다."],
+        "answer": "67,108,864 bit"
+      },
+      {
+        "type": "logic",
+        "prompt_ja": "A=1, B=0 のとき、A XOR B と A AND B を求める。",
+        "steps_ko": ["XOR는 두 값이 다르면 1이므로 1이다.", "AND는 둘 다 1이어야 하므로 0이다."],
+        "answer": "XOR=1, AND=0"
       }
+    ],
+    "common_traps_ko": [
+      "bit와 byte를 반대로 계산하지 않는다. byte에서 bit로 갈 때는 ×8, bit에서 byte로 갈 때는 ÷8이다.",
+      "16진수 10~15는 A~F라는 점을 놓치지 않는다.",
+      "XOR를 OR와 혼동하지 않는다. XOR는 둘 다 1이면 0이다.",
+      "드모르간 법칙에서 AND/OR만 바꾸고 각 항의 NOT을 빠뜨리는 실수가 자주 나온다.",
+      "KB와 KiB가 구분되어 제시되면 문제의 정의를 우선한다. AP 계산에서는 주어진 단위 조건을 그대로 사용한다."
+    ],
+    "memory_points_ko": [
+      "16진수 1자리 = 4bit",
+      "1 byte = 8bit",
+      "XOR = 서로 다르면 1",
+      "드모르간 = 전체 NOT을 안으로 넣으면 AND↔OR 교환 + 각 항 NOT"
     ],
     "recall_prompts": [
       "16진수 한 자리가 몇 비트와 대응하는지 말해본다.",
+      "2진수 10110을 10진수로 머릿속에서 변환해본다.",
       "XOR가 1이 되는 조건을 말해본다.",
+      "1 MiB가 몇 byte인지 말해본다.",
       "드모르간 법칙 두 식을 보지 않고 적어본다."
     ]
   },
@@ -42,6 +105,6 @@
   "subject_b": null,
   "review": {
     "runtime_state_checked": false,
-    "note": "Remote D1 wrong-answer/review state was not accessible in this run. No persisted weak-topic signal was available, so curriculum topic_order was used."
+    "note": "Remote D1 wrong-answer/review state was not accessible in this run. Repository search also found no persisted wrong-answer/mastery signal, so curriculum topic_order was used."
   }
 }
