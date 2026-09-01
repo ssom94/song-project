@@ -6,6 +6,7 @@
 --
 -- JLPT N1 is intentionally not inserted today because the configured restart date is 2026-09-07.
 -- AP is in the September concept-first prestudy phase, so only a concept item is registered.
+-- This migration is idempotent: all inserts use INSERT OR IGNORE and stable date/plan/item keys.
 
 PRAGMA foreign_keys = ON;
 
@@ -46,8 +47,8 @@ SELECT
     1,
     '기초이론: 진법 변환·정보량·논리 연산',
     '基礎理論：基数変換・情報量・論理演算',
-    '2진수·16진수 변환, bit/byte 단위, AND·OR·XOR·NOT, 드모르간 법칙을 개념 중심으로 복습한다.',
-    '2進数・16進数の変換、bit/byte、AND・OR・XOR・NOT、ド・モルガンの法則を概念中心に確認する。',
+    '2진수·16진수 변환, bit/byte/KiB/MiB 단위, AND·OR·XOR·NOT, 드모르간 법칙을 개념 중심으로 학습하고 예제로 확인한다.',
+    '2進数・16進数の変換、bit/byte/KiB/MiB、AND・OR・XOR・NOT、ド・モルガンの法則を概念中心に学び、例題で確認する。',
     30
 FROM ap_daily_sessions s
 JOIN ap_study_plans p ON p.id = s.plan_id
@@ -76,7 +77,7 @@ SELECT
     1,
     '기초이론: 진법 변환·정보량·논리 연산',
     '基礎理論：基数変換・情報量・論理演算',
-    '{"mode":"prestudy_concept_first_pass","topic_code":"fundamentals_math","source":"data/ap/daily/2026-09-02.json","daily_questions_enabled":false}'
+    '{"mode":"prestudy_concept_first_pass","topic_code":"fundamentals_math","subtopics":["base_conversion","information_units","logic_operations","de_morgan"],"source":"data/ap/daily/2026-09-02.json","daily_questions_enabled":false}'
 FROM ap_study_plans p
 LEFT JOIN ap_study_topics t
   ON t.plan_id = p.id
