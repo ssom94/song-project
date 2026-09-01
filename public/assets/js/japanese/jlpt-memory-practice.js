@@ -38,6 +38,11 @@
 	}
 	function normalize(v) { return String(v || '').normalize('NFKC').replace(/\s+/g, '').toLowerCase(); }
 
+	function visibleInputs() {
+		return [...document.querySelectorAll('.jlpt-memory-answer-input')]
+			.filter((node) => node instanceof HTMLInputElement && node.offsetParent !== null);
+	}
+
 	function addInput(host, answer) {
 		if (!(host instanceof HTMLElement) || host.querySelector(':scope > .jlpt-memory-answer-input')) return;
 		const input = document.createElement('input');
@@ -49,6 +54,18 @@
 		const result = document.createElement('div');
 		result.className = 'jlpt-memory-practice-check';
 		input.addEventListener('keydown', (event) => {
+			if (event.key === 'Tab') {
+				const inputs = visibleInputs();
+				const index = inputs.indexOf(input);
+				if (index >= 0 && inputs.length > 1) {
+					event.preventDefault();
+					const delta = event.shiftKey ? -1 : 1;
+					const next = (index + delta + inputs.length) % inputs.length;
+					inputs[next].focus();
+					inputs[next].select();
+				}
+				return;
+			}
 			if (event.key !== 'Enter') return;
 			event.preventDefault();
 			const typed = normalize(input.value);
