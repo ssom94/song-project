@@ -82,13 +82,21 @@
           "fundamentals_math"
         ],
         "concept_title": "基礎理論：基数変換・情報量・論理演算",
+        "concept_subtopics": [
+          "基数変換",
+          "bit・byte・KiB・MiB",
+          "AND・OR・XOR・NOT",
+          "ド・モルガンの法則"
+        ],
+        "target_minutes": 30,
         "subject_a_questions": 0,
         "subject_a_topics": [],
         "subject_b_topics": [],
         "subject_b_scenarios": 0,
         "review_topics": [],
         "weekly_test": false,
-        "monthly_test": false
+        "monthly_test": false,
+        "content_status": "prestudy concept-first-pass generated and verified"
       }
     }
   ]
