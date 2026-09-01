@@ -136,6 +136,7 @@
 				children: [
 					{ label: ko ? '학습 홈' : '学習ホーム', href: `${prefix}/japanese/`, active: () => path === `${prefix}/japanese/` },
 					{ label: 'JLPT N1', href: `${prefix}/japanese/jlpt/`, active: () => path.includes('/japanese/jlpt/') },
+					{ label: ko ? '예문 독해' : '例文読解', href: `${prefix}/japanese/examples/`, active: () => path.includes('/japanese/examples/') },
 					{ label: ko ? '단어 목록' : '単語一覧', href: `${prefix}/japanese/words/`, active: () => path.includes('/japanese/words/') && !korean },
 					{ label: ko ? '랜덤 퀴즈' : 'ランダムクイズ', href: `${prefix}/japanese/quiz/`, active: () => path.includes('/japanese/quiz/') && !path.includes('/result/') && !korean },
 					{ label: ko ? '학습 결과' : '学習結果', href: `${prefix}/japanese/quiz/result/`, active: () => path.includes('/japanese/quiz/result/') && !korean },
@@ -155,6 +156,7 @@
 				children: [
 					{ label: ko ? 'AP 학습 홈' : 'AP 学習ホーム', href: `${prefix}/study/ap/`, active: () => path === `${prefix}/study/ap/` && !hash },
 					{ label: ko ? '오늘의 학습' : '今日の学習', href: `${prefix}/study/ap/#ap-today`, active: () => path === `${prefix}/study/ap/` && hash === '#ap-today' },
+					{ label: ko ? 'AP 개념정리' : 'AP 概念整理', href: `${prefix}/study/ap/concepts/`, active: () => path.includes('/study/ap/concepts/') },
 					{ label: ko ? '기술 일본어 단어' : '技術日本語単語', href: `${prefix}/study/ap/vocabulary/`, active: () => path.includes('/study/ap/vocabulary/') && !path.includes('/wrong/') },
 					{ label: ko ? '오답 노트' : '誤答ノート', href: `${prefix}/study/ap/vocabulary/wrong/`, active: () => path.includes('/study/ap/vocabulary/wrong/') },
 					{ label: ko ? '학습 이력' : '学習履歴', href: `${prefix}/study/ap/#ap-history`, active: () => path === `${prefix}/study/ap/` && hash === '#ap-history' },
