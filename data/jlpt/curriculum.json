@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "level": "N1",
-  "study_start_date": "2026-08-31",
+  "study_start_date": "2026-09-07",
   "target_exam_month": "2027-07",
   "daily_base": {
     "new_words": 20,
@@ -27,7 +27,7 @@
   "phases": [
     {
       "id": "foundation_vocab_grammar",
-      "from": "2026-08-31",
+      "from": "2026-09-07",
       "to": "2026-11-30",
       "goal": "Build N1 core vocabulary and grammar while establishing daily reading habit.",
       "rules": [
