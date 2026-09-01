@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "exam": "応用情報技術者試験",
+  "study_start_date": "2026-09-01",
+  "subject_a_target_month": "2027-02",
+  "subject_b_target_month": "2027-03",
+  "daily_minutes": 60,
+  "daily_base": {
+    "concept_minutes": 15,
+    "subject_a_minutes": 30,
+    "subject_b_minutes": 15,
+    "subject_a_question_count": 10,
+    "subject_b_scenario_count": 1,
+    "concept_check_count": 1,
+    "review_intervals": [1, 3, 7, 14, 30, 60]
+  },
+  "subject_b_focus": [
+    "security",
+    "programming_algorithms",
+    "database",
+    "system_development",
+    "network"
+  ],
+  "topic_order": [
+    "fundamentals_math",
+    "computer_architecture",
+    "operating_system",
+    "programming_algorithms",
+    "database",
+    "network",
+    "security",
+    "system_development",
+    "software_engineering",
+    "system_performance",
+    "project_management",
+    "service_management",
+    "system_audit",
+    "system_strategy",
+    "business_strategy",
+    "accounting_legal"
+  ],
+  "phases": [
+    {
+      "id": "baseline_and_technology",
+      "from": "2026-09-01",
+      "to": "2026-10-31",
+      "goal": "Establish baseline and cover high-value technology foundations.",
+      "topic_priority": [
+        "programming_algorithms",
+        "security",
+        "database",
+        "network",
+        "operating_system",
+        "computer_architecture",
+        "fundamentals_math",
+        "system_development"
+      ],
+      "rules": [
+        "teach one focused concept before questions",
+        "mix 科目A across multiple topics to expose weaknesses",
+        "keep one 科目B scenario every day where practical"
+      ]
+    },
+    {
+      "id": "full_subject_a_coverage",
+      "from": "2026-11-01",
+      "to": "2026-12-31",
+      "goal": "Complete broad 科目A coverage including management and strategy.",
+      "topic_priority": [
+        "software_engineering",
+        "system_performance",
+        "project_management",
+        "service_management",
+        "system_audit",
+        "system_strategy",
+        "business_strategy",
+        "accounting_legal"
+      ],
+      "rules": [
+        "maintain daily review of technology topics",
+        "increase mixed 科目A sets",
+        "weekly test includes all three domains: technology, management, strategy"
+      ]
+    },
+    {
+      "id": "subject_a_exam_mode",
+      "from": "2027-01-01",
+      "to": "2027-02-28",
+      "goal": "Raise 科目A accuracy and speed to stable passing level.",
+      "rules": [
+        "科目A receives the majority of daily question time",
+        "weak topics and unresolved wrong answers are selected first",
+        "weekly timed mixed sets are mandatory",
+        "target stable mixed-set accuracy of at least 75% before the exam window"
+      ]
+    },
+    {
+      "id": "subject_b_intensive",
+      "from": "2027-03-01",
+      "to": "2027-03-31",
+      "goal": "Focus on written reasoning for the selected five 科目B areas.",
+      "rules": [
+        "security appears every study cycle",
+        "practice pseudocode, SQL/database reasoning, network troubleshooting, and development-process scenarios",
+        "answers must be short, evidence-based, and use terms from the scenario"
+      ]
+    },
+    {
+      "id": "maintenance_after_exam",
+      "from": "2027-04-01",
+      "to": "2027-08-31",
+      "goal": "If study continues, retain practical AP knowledge using weak-topic review rather than full daily exam volume.",
+      "rules": [
+        "prioritize unresolved weak areas",
+        "reduce unnecessary repeated broad coverage",
+        "use practical system-design and troubleshooting scenarios"
+      ]
+    }
+  ],
+  "daily_selection_algorithm": {
+    "first": "due review and unresolved wrong answers",
+    "second": "topics with lowest mastery/accuracy",
+    "third": "current phase topic priority not recently covered",
+    "fourth": "balanced mixed 科目A coverage",
+    "fifth": "科目B focus rotation",
+    "avoid": "exact question reuse within 90 days unless explicitly presented as review"
+  },
+  "assessment_rules": {
+    "wrong": "review next study day and re-teach concept if repeated",
+    "partial": "review within 3 days",
+    "correct": "advance through 1-3-7-14-30-60 review stages",
+    "topic_mastery_threshold": 80,
+    "mixed_exam_target_accuracy": 75
+  },
+  "weekly_test": {
+    "subject_a_questions": 20,
+    "subject_b_scenarios": 1,
+    "selection": "recent topics + weak topics + wrong answers"
+  },
+  "monthly_test": {
+    "subject_a_questions": 40,
+    "subject_b_scenarios": 2,
+    "selection": "full cumulative coverage weighted toward weak areas"
+  },
+  "pagination_ui_target": 10
+}
