@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-01",
+  "level": "N1",
+  "words": [
+    {"word":"概ね","reading":"おおむね","meaning":"대체로","part":"副詞"},
+    {"word":"携わる","reading":"たずさわる","meaning":"종사하다, 관여하다","part":"動詞"},
+    {"word":"促す","reading":"うながす","meaning":"촉구하다","part":"動詞"},
+    {"word":"妥当","reading":"だとう","meaning":"타당함","part":"名詞"},
+    {"word":"遂げる","reading":"とげる","meaning":"달성하다","part":"動詞"},
+    {"word":"著しい","reading":"いちじるしい","meaning":"현저한","part":"形容詞"},
+    {"word":"補う","reading":"おぎなう","meaning":"보충하다","part":"動詞"},
+    {"word":"阻む","reading":"はばむ","meaning":"막다, 방해하다","part":"動詞"},
+    {"word":"懸念","reading":"けねん","meaning":"우려","part":"名詞"},
+    {"word":"把握","reading":"はあく","meaning":"파악","part":"名詞"},
+    {"word":"衰える","reading":"おとろえる","meaning":"쇠하다","part":"動詞"},
+    {"word":"見据える","reading":"みすえる","meaning":"내다보다","part":"動詞"},
+    {"word":"顕著","reading":"けんちょ","meaning":"현저함","part":"名詞"},
+    {"word":"柔軟","reading":"じゅうなん","meaning":"유연함","part":"名詞"},
+    {"word":"乏しい","reading":"とぼしい","meaning":"부족하다","part":"形容詞"},
+    {"word":"慎重","reading":"しんちょう","meaning":"신중함","part":"名詞"},
+    {"word":"維持","reading":"いじ","meaning":"유지","part":"名詞"},
+    {"word":"逸脱","reading":"いつだつ","meaning":"일탈","part":"名詞"},
+    {"word":"膨大","reading":"ぼうだい","meaning":"방대함","part":"名詞"},
+    {"word":"挙げる","reading":"あげる","meaning":"들다, 예로 들다","part":"動詞"}
+  ]
+}
