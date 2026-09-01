@@ -1,23 +1,126 @@
 {
-  "date":"2026-09-01",
-  "level":"応用情報",
-  "category":"ネットワーク",
-  "topic":"TCP/IP",
-  "concepts":[
-    {"title":"TCP","summary":"信頼性のある通信を提供するトランスポート層プロトコル"},
-    {"title":"3ウェイハンドシェイク","summary":"SYN,SYN-ACK,ACKで接続を確立する方式"}
-  ],
-  "questions":[
+  "date": "2026-09-01",
+  "day": 1,
+  "level": "応用情報技術者試験",
+  "target_minutes": 60,
+  "mode": "initial_baseline",
+  "allocation": {
+    "concept": 15,
+    "subject_a": 30,
+    "subject_b": 15
+  },
+  "reason_ko": "첫 AP 학습일이므로 복습 대신 초기 기준점을 측정한다. 科目A는 여러 분야를 섞어 약점을 찾고, 科目B는 강점인 프로그래밍을 먼저 확인한다.",
+  "focus_subject_b": ["情報セキュリティ", "プログラミング", "データベース", "情報システム開発", "ネットワーク"],
+  "concept": {
+    "topic_code": "programming_algorithms",
+    "title": "計算量と探索アルゴリズム",
+    "summary_ko": "알고리즘의 처리량이 입력 크기 n에 따라 어떻게 증가하는지 Big-O로 표현한다. 선형 탐색은 O(n), 정렬된 배열의 이분 탐색은 O(log n), 이중 반복의 단순 비교는 보통 O(n²)이다.",
+    "keywords": [
+      {"term":"O(1)","meaning_ko":"입력 크기와 관계없이 일정한 처리량"},
+      {"term":"O(log n)","meaning_ko":"입력이 커져도 비교 횟수가 완만하게 증가. 대표적으로 이분 탐색"},
+      {"term":"O(n)","meaning_ko":"입력 원소 수에 비례. 대표적으로 선형 탐색"},
+      {"term":"O(n log n)","meaning_ko":"효율적인 비교 정렬에서 자주 나타남"},
+      {"term":"O(n²)","meaning_ko":"중첩 반복에서 자주 나타남"}
+    ],
+    "check": {
+      "question":"昇順に整列済みの要素数1,024の配列を二分探索するとき、最悪の場合の比較回数として最も近いものはどれか。",
+      "choices":["10回","32回","512回","1,024回"],
+      "answer":0,
+      "explanation_ko":"2^10=1,024이므로 이분 탐색은 최악의 경우 약 10회의 비교로 범위를 좁힐 수 있다."
+    }
+  },
+  "subject_a_questions": [
     {
-      "type":"午前問題",
-      "question":"TCPの特徴として適切なものはどれか",
-      "choices":["到達確認を行わない","信頼性のある通信を提供する","IPアドレスを割り当てる","暗号化のみを担当する"],
-      "answer":1
+      "no":1,
+      "topic":"基礎理論",
+      "question":"2進数101101を10進数で表した値はどれか。",
+      "choices":["41","43","45","47"],
+      "answer":2,
+      "explanation_ko":"32+8+4+1=45."
     },
     {
-      "type":"午後問題",
-      "question":"HTTP通信が200を返すが画面にデータが表示されない場合、確認すべき項目を優先順に説明せよ",
-      "answer":"レスポンスデータ、フロント側受信処理、型定義、表示条件を確認する"
+      "no":2,
+      "topic":"コンピュータ構成",
+      "question":"キャッシュメモリのヒット率が90%、キャッシュのアクセス時間が10ns、主記憶のアクセス時間が100nsである。キャッシュミス時に主記憶へ100nsでアクセスするとき、平均アクセス時間はどれか。",
+      "choices":["19ns","20ns","90ns","100ns"],
+      "answer":0,
+      "explanation_ko":"0.9×10 + 0.1×100 = 19ns로 보는 단순 모델이다."
+    },
+    {
+      "no":3,
+      "topic":"OS",
+      "question":"仮想記憶方式において、必要なページが主記憶上に存在しないときに発生するものはどれか。",
+      "choices":["ページフォールト","デッドロック","スラッシングの終了","コンテキスト固定"],
+      "answer":0,
+      "explanation_ko":"필요 페이지가 메모리에 없을 때 페이지 폴트가 발생하고 보조기억장치에서 읽어온다."
+    },
+    {
+      "no":4,
+      "topic":"データベース",
+      "question":"トランザクションのACID特性のうち、処理途中の状態を他のトランザクションから見えにくくし、互いの処理が不当に干渉しない性質はどれか。",
+      "choices":["Atomicity","Consistency","Isolation","Durability"],
+      "answer":2,
+      "explanation_ko":"Isolation(격리성)은 동시 트랜잭션이 서로 부당하게 간섭하지 않도록 한다."
+    },
+    {
+      "no":5,
+      "topic":"ネットワーク",
+      "question":"IPv4のサブネットマスクが255.255.255.192であるネットワークにおいて、ホスト部として利用できるビット数は幾つか。",
+      "choices":["2","4","6","8"],
+      "answer":2,
+      "explanation_ko":"255.255.255.192=/26이므로 호스트부는 32-26=6비트다."
+    },
+    {
+      "no":6,
+      "topic":"情報セキュリティ",
+      "question":"パスワードを保存するとき、同じパスワードでも利用者ごとに異なるハッシュ値になりやすくするために付加するランダムな値はどれか。",
+      "choices":["ソルト","セッションID","ディジタル署名","公開鍵"],
+      "answer":0,
+      "explanation_ko":"솔트를 비밀번호에 추가한 뒤 해시하면 동일 비밀번호의 동일 해시 문제와 사전 공격 위험을 줄일 수 있다."
+    },
+    {
+      "no":7,
+      "topic":"プログラミング",
+      "question":"要素数nの配列を先頭から末尾まで1回だけ走査して最大値を求めるアルゴリズムの時間計算量はどれか。",
+      "choices":["O(1)","O(log n)","O(n)","O(n²)"],
+      "answer":2,
+      "explanation_ko":"모든 원소를 한 번씩 확인하므로 O(n)."
+    },
+    {
+      "no":8,
+      "topic":"プロジェクトマネジメント",
+      "question":"EVMでPV=100、EV=80、AC=90のとき、コスト効率を示すCPIとして正しいものはどれか。",
+      "choices":["0.80","0.89","1.11","1.25"],
+      "answer":1,
+      "explanation_ko":"CPI=EV/AC=80/90≈0.89. 1 미만이면 비용 효율이 계획보다 나쁘다."
+    },
+    {
+      "no":9,
+      "topic":"経営戦略",
+      "question":"SWOT分析において、企業内部の好ましい要因に分類されるものはどれか。",
+      "choices":["Strength","Weakness","Opportunity","Threat"],
+      "answer":0,
+      "explanation_ko":"Strength와 Weakness는 내부 요인, Opportunity와 Threat는 외부 요인이다."
+    },
+    {
+      "no":10,
+      "topic":"システム信頼性",
+      "question":"直列に接続された二つの装置の稼働率がそれぞれ0.99と0.98であり、両方が稼働しているときだけシステムが利用できる。このシステムの稼働率はどれか。",
+      "choices":["0.9702","0.9800","0.9850","0.9998"],
+      "answer":0,
+      "explanation_ko":"직렬 시스템은 두 장치가 모두 동작해야 하므로 0.99×0.98=0.9702."
     }
-  ]
+  ],
+  "subject_b": {
+    "topic":"プログラミング",
+    "title":"幅優先探索による最短距離",
+    "estimated_minutes":15,
+    "scenario":"頂点0から5までの無向グラフがある。隣接リストは0:[1,2], 1:[0,3,4], 2:[0,4], 3:[1,5], 4:[1,2,5], 5:[3,4]である。各辺の長さは全て1とする。次の疑似コードは、始点sから各頂点までの最短距離を幅優先探索で求める。distの初期値は全要素-1である。\n\nqueue <- empty queue\ndist[s] <- 0\nenqueue(queue, s)\nwhile queue is not empty\n  v <- dequeue(queue)\n  for each u in adjacency[v]\n    if dist[u] = [a]\n      dist[u] <- dist[v] + [b]\n      [c]\n    endif\n  endfor\nendwhile",
+    "questions":[
+      {"no":1,"question":"空欄[a]〜[c]に入る適切な内容を書け。","answer":"[a] -1, [b] 1, [c] enqueue(queue, u)","explanation_ko":"미방문 정점을 -1로 판별하고, 간선 길이가 1이므로 부모 거리+1로 갱신한 후 큐에 넣는다."},
+      {"no":2,"question":"s=0のとき、探索終了後のdist[5]はいくつか。","answer":"3","explanation_ko":"0→1→3→5 또는 0→1→4→5 등 최단 간선 수는 3이다."},
+      {"no":3,"question":"頂点数をV、辺数をEとするとき、この幅優先探索の時間計算量をBig-O記法で答えよ。","answer":"O(V+E)","explanation_ko":"각 정점과 각 간선을 상수 횟수만큼 확인한다."}
+    ],
+    "answering_tip_ko":"문제에서 요구하는 값만 짧게 쓰고, 근거가 필요한 경우 변수의 의미와 갱신 조건을 한 문장으로 설명한다."
+  }
 }
