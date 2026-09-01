@@ -1,7 +1,7 @@
 import { addDays, daysBetween } from './jlpt-study';
 
 export const DEFAULT_AP_PLAN_CODE = 'AP_2026_H2';
-export const DEFAULT_AP_STUDY_START_DATE = '2026-09-01';
+export const DEFAULT_AP_STUDY_START_DATE = '2026-10-01';
 export const DEFAULT_AP_REGISTRATION_START_DATE = '2027-01-27';
 export const DEFAULT_AP_REGISTRATION_END_DATE = '2027-02-16';
 export const DEFAULT_AP_SUBJECT_A_TARGET_DATE = '2027-02-19';
@@ -174,82 +174,27 @@ export function buildApDailyBudget(input: {
 	if (input.completedStudyDays > 0 && input.completedStudyDays % 7 === 0) {
 		return {
 			mode: 'weekly_test', reviewMinutes: scale(10), conceptMinutes: 0, subjectAMinutes: 0, subjectBMinutes: 0, testMinutes: scale(50),
-			reasonKo: '7일 누적 학습 시점이라 주간 누적 테스트로 약점을 다시 계산합니다.',
-			reasonJa: '7日分の学習が蓄積したため、週次累積テストで弱点を再計算します。',
+			reasonKo: '7일 학습 주기가 끝나 주간 누적 테스트를 실시합니다.',
+			reasonJa: '7日間の学習周期が終わったため、週次累積テストを行います。',
 		};
 	}
-	if (input.daysUntilSubjectA <= 45) {
+	if (input.daysUntilSubjectA <= 30) {
 		return {
-			mode: 'subject_a_final', reviewMinutes: scale(10), conceptMinutes: scale(10), subjectAMinutes: scale(30), subjectBMinutes: scale(10), testMinutes: 0,
-			reasonKo: '科目A까지 45일 이내이므로 신규 범위를 줄이고 科目A 실전 문제 비중을 높입니다.',
-			reasonJa: '科目Aまで45日以内のため、新規範囲を減らし科目A実戦問題の比重を上げます。',
+			mode: 'subject_a_final', reviewMinutes: scale(10), conceptMinutes: scale(5), subjectAMinutes: scale(35), subjectBMinutes: scale(10), testMinutes: 0,
+			reasonKo: '科目A 응시 30일 전이므로 객관식 정확도와 시간 관리 비중을 높입니다.',
+			reasonJa: '科目A受験30日前のため、多肢選択の正確さと時間配分を重視します。',
 		};
 	}
-	if (input.dueReviewCount >= 5) {
+	if (input.dueReviewCount >= 20) {
 		return {
-			mode: 'review_heavy', reviewMinutes: scale(20), conceptMinutes: scale(10), subjectAMinutes: scale(20), subjectBMinutes: scale(10), testMinutes: 0,
-			reasonKo: '복습 예정이 밀려 있어 신규 학습보다 오답·약점 복습을 우선합니다.',
-			reasonJa: '復習予定が溜まっているため、新規学習より誤答・弱点復習を優先します。',
+			mode: 'review_heavy', reviewMinutes: scale(25), conceptMinutes: scale(10), subjectAMinutes: scale(15), subjectBMinutes: scale(10), testMinutes: 0,
+			reasonKo: '복습 대기 개념이 많아 신규 진도보다 기억 회복을 우선합니다.',
+			reasonJa: '復習待ちの概念が多いため、新規範囲より記憶の定着を優先します。',
 		};
 	}
 	return {
-		mode: 'normal', reviewMinutes: scale(10), conceptMinutes: scale(15), subjectAMinutes: scale(25), subjectBMinutes: scale(10), testMinutes: 0,
-		reasonKo: '복습량이 안정적이므로 개념·科目A·科目B를 균형 있게 진행합니다.',
-		reasonJa: '復習量が安定しているため、概念・科目A・科目Bをバランスよく進めます。',
-	};
-}
-
-export async function ensureDefaultApStudyPlan(db: D1Database, adminId: number): Promise<ApStudyPlanRow> {
-	const now = new Date().toISOString();
-	await db.prepare(`
-		INSERT OR IGNORE INTO ap_study_plans
-			(admin_id, plan_code, study_start_date, registration_start_date, registration_end_date,
-			 subject_a_target_date, subject_b_target_date, daily_minutes, subject_b_focus_json, is_active, created_at, updated_at)
-		VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, 1, ?10, ?10)
-	`).bind(
-		adminId,
-		DEFAULT_AP_PLAN_CODE,
-		DEFAULT_AP_STUDY_START_DATE,
-		DEFAULT_AP_REGISTRATION_START_DATE,
-		DEFAULT_AP_REGISTRATION_END_DATE,
-		DEFAULT_AP_SUBJECT_A_TARGET_DATE,
-		DEFAULT_AP_SUBJECT_B_TARGET_DATE,
-		DEFAULT_AP_DAILY_MINUTES,
-		JSON.stringify(DEFAULT_AP_SUBJECT_B_FOCUS),
-		now,
-	).run();
-
-	const plan = await db.prepare(`
-		SELECT id, admin_id, plan_code, study_start_date, registration_start_date, registration_end_date,
-			subject_a_target_date, subject_b_target_date, daily_minutes, subject_b_focus_json, is_active
-		FROM ap_study_plans
-		WHERE admin_id = ?1 AND is_active = 1
-		ORDER BY CASE WHEN plan_code = ?2 THEN 0 ELSE 1 END, id ASC
-		LIMIT 1
-	`).bind(adminId, DEFAULT_AP_PLAN_CODE).first<ApStudyPlanRow>();
-	if (!plan) throw new Error('AP_STUDY_PLAN_NOT_AVAILABLE');
-
-	const topicStatements = AP_TOPICS.map((topic, index) => db.prepare(`
-		INSERT OR IGNORE INTO ap_study_topics
-			(plan_id, topic_code, exam_part, domain_code, title_ko, title_ja, study_points_ko, study_points_ja,
-			 priority, sort_order, is_focus_b, created_at, updated_at)
-		VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?12)
-	`).bind(
-		plan.id, topic.code, topic.examPart, topic.domain, topic.titleKo, topic.titleJa, topic.pointsKo, topic.pointsJa,
-		topic.priority, index + 1, topic.focusB ? 1 : 0, now,
-	));
-	if (topicStatements.length) await db.batch(topicStatements);
-	await db.prepare(`
-		INSERT OR IGNORE INTO ap_topic_progress (plan_id, topic_id, learning_state, mastery_score, updated_at)
-		SELECT ?1, id, 'unlearned', 0, ?2 FROM ap_study_topics WHERE plan_id = ?1
-	`).bind(plan.id, now).run();
-	return plan;
-}
-
-export function apPlanCountdown(plan: ApStudyPlanRow, today: string) {
-	return {
-		daysUntilRegistration: daysBetween(today, plan.registration_start_date),
-		daysUntilSubjectA: daysBetween(today, plan.subject_a_target_date),
-		daysUntilSubjectB: daysBetween(today, plan.subject_b_target_date),
+		mode: 'normal', reviewMinutes: scale(10), conceptMinutes: scale(15), subjectAMinutes: scale(20), subjectBMinutes: scale(15), testMinutes: 0,
+		reasonKo: '복습·개념·科目A·科目B를 매일 균형 있게 진행합니다.',
+		reasonJa: '復習・概念・科目A・科目Bを毎日バランスよく進めます。',
 	};
 }
