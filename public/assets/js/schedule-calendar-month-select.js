@@ -52,11 +52,11 @@
 			}
 			.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-table-head,
 			.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-row {
-				grid-template-columns: 68px 116px minmax(0, 1fr);
+				grid-template-columns: 68px minmax(0, 1fr) 116px;
 			}
 			.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-table-head,
 			.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-row {
-				grid-template-columns: 68px 116px minmax(0, 1fr) 34px;
+				grid-template-columns: 68px minmax(0, 1fr) 116px 34px;
 			}
 			.schedule-list-period {
 				color: #607089;
@@ -71,14 +71,14 @@
 				}
 				.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-table-head,
 				.schedule-list-panel[data-schedule-range-enhanced="true"] .schedule-list-row {
-					grid-template-columns: 58px 96px minmax(0, 1fr);
+					grid-template-columns: 58px minmax(0, 1fr) 96px;
 					gap: 5px;
 					padding-left: 10px;
 					padding-right: 10px;
 				}
 				.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-table-head,
 				.schedule-list-panel.is-admin[data-schedule-range-enhanced="true"] .schedule-list-row {
-					grid-template-columns: 58px 96px minmax(0, 1fr) 30px;
+					grid-template-columns: 58px minmax(0, 1fr) 96px 30px;
 				}
 				.schedule-list-period { font-size: 8px; }
 			}
@@ -112,6 +112,11 @@
 		});
 	}
 
+	function createdTime(item) {
+		const value = Date.parse(String(item?.createdAt || ''));
+		return Number.isFinite(value) ? value : 0;
+	}
+
 	async function loadSchedules() {
 		try {
 			const response = await fetch(PUBLIC_API, { credentials: 'same-origin', cache: 'no-store' });
@@ -138,9 +143,11 @@
 		const rangeHead = document.createElement('span');
 		rangeHead.className = 'schedule-list-period-head';
 		rangeHead.textContent = language() === 'ko' ? '일정기간' : '予定期間';
-		const contentHead = head.children[1];
-		if (contentHead) head.insertBefore(rangeHead, contentHead);
+		const actionHead = panel.classList.contains('is-admin') ? head.lastElementChild : null;
+		if (actionHead) head.insertBefore(rangeHead, actionHead);
+		else head.appendChild(rangeHead);
 
+		const paired = [];
 		rows.forEach((row, index) => {
 			const item = schedules[index];
 			if (!item || !row.isConnected) return;
@@ -148,12 +155,21 @@
 			period.className = 'schedule-list-period';
 			period.textContent = periodLabel(item);
 			period.title = period.textContent;
-			const content = row.querySelector('.schedule-list-content');
-			if (content) row.insertBefore(period, content);
+			const actions = row.querySelector('.schedule-item-actions');
+			if (actions) row.insertBefore(period, actions);
+			else row.appendChild(period);
+			paired.push({ row, item });
 		});
 
+		const body = panel.querySelector('.schedule-list-body');
+		if (body) {
+			paired
+				.sort((a, b) => createdTime(b.item) - createdTime(a.item) || Number(b.item?.id || 0) - Number(a.item?.id || 0))
+				.forEach(({ row }) => body.appendChild(row));
+		}
+
 		const hint = panel.querySelector('.schedule-list-head span');
-		if (hint) hint.textContent = language() === 'ko' ? '작성일, 일정기간과 내용 표시' : '登録日・予定期間・内容を表示';
+		if (hint) hint.textContent = language() === 'ko' ? '작성일 최신순 · 내용 · 일정기간' : '登録日の新しい順・内容・予定期間';
 	}
 
 	function enhancePicker(picker) {
