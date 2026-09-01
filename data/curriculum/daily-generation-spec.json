@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "effective_from": "2026-09-01",
+  "purpose": "Canonical executable-style specification for generating the user's daily JLPT N1 and AP study set.",
+  "timezone": "Asia/Tokyo",
+  "generation_order": [
+    "read policy and curricula",
+    "read daily-index and recent daily files",
+    "read JLPT used_words",
+    "incorporate D1 wrong answers/review due/mastery when available",
+    "select review and new content",
+    "generate JLPT daily_words and daily content",
+    "generate AP daily content",
+    "generate idempotent SQL",
+    "update daily-index and used_words",
+    "present the resulting study set to the user"
+  ],
+  "jlpt": {
+    "level": "N1",
+    "default_new_words": 20,
+    "session_order": [
+      "review due from 1/3/7/14/30/60/90/180-day intervals and unresolved wrong answers",
+      "20 new words",
+      "15 vocabulary questions",
+      "2 grammar points with one confirmation question each",
+      "1 reading passage with 3 questions",
+      "short recall/review block"
+    ],
+    "new_word_fields": [
+      "word",
+      "reading",
+      "meaning_ko",
+      "part_of_speech",
+      "example_ja",
+      "example_ko"
+    ],
+    "vocabulary_question_mix": {
+      "kanji_reading": 3,
+      "context_fill": 7,
+      "meaning_usage_synonym": 5
+    },
+    "word_selection": {
+      "unique_new_words_only": true,
+      "exclude_used_words": true,
+      "preferred_pos_mix": {
+        "verbs": "30-40%",
+        "nouns_and_sahen": "30-40%",
+        "adjectives_adverbs_other": "20-40%"
+      },
+      "example_context_priority": [
+        "workplace/IT",
+        "news/editorial",
+        "general abstract N1"
+      ]
+    },
+    "review_states": [
+      "未学習",
+      "学習中",
+      "曖昧",
+      "覚えた"
+    ],
+    "wrong_answer_rule": "Wrong or uncertain items return to review before optional new drills. Review questions should normally change context/stem/options."
+  },
+  "ap": {
+    "exam": "応用情報技術者試験",
+    "default_minutes": 60,
+    "session_order": [
+      "due review and unresolved wrong answers",
+      "focused concept recall/re-teach",
+      "科目A questions",
+      "科目B scenario",
+      "error analysis and review scheduling"
+    ],
+    "default_blocks": {
+      "concept_minutes": 15,
+      "subject_a_minutes": 30,
+      "subject_b_minutes": 15,
+      "concept_check_questions": 1,
+      "subject_a_questions": 10,
+      "subject_b_scenarios": 1
+    },
+    "subject_b_priority": [
+      "security",
+      "programming_algorithms",
+      "database",
+      "system_development",
+      "network"
+    ],
+    "review_intervals": [1, 3, 7, 14, 30, 60],
+    "question_style": {
+      "subject_a": "4-choice exam-style questions with concise explanation of why the answer is correct and why key distractors are wrong",
+      "subject_b": "scenario-based practical reasoning; answer using evidence and terms from the scenario"
+    }
+  },
+  "adaptive_rules": {
+    "accuracy_below_60": "reduce new material about 25% and increase review/re-teaching",
+    "accuracy_60_to_79": "keep normal new volume and add focused review",
+    "accuracy_80_or_above": "keep normal volume and advance curriculum",
+    "same_topic_wrong_three_times": "force concept re-teach before more advanced questions",
+    "missed_day": "do not double workload; roll reviews forward and retain new-content backlog"
+  },
+  "cumulative_tests": {
+    "every_7_completed_study_days": "weekly cumulative test",
+    "every_30_completed_study_days": "monthly cumulative test",
+    "weekly_ap": {
+      "subject_a_questions": 20,
+      "subject_b_scenarios": 1
+    },
+    "monthly_ap": {
+      "subject_a_questions": 40,
+      "subject_b_scenarios": 2
+    },
+    "selection_priority": [
+      "recent wrong answers",
+      "weak topics",
+      "representative newly learned content"
+    ]
+  },
+  "anti_repetition": {
+    "exact_question_reuse_days": 90,
+    "same_concept_variant_min_gap_days": 7,
+    "new_jlpt_word_duplicates_allowed": false,
+    "review_repetition_allowed": true
+  },
+  "required_outputs": [
+    "data/jlpt/daily_words/YYYY-MM-DD.json",
+    "data/jlpt/daily/YYYY-MM-DD.json",
+    "data/ap/daily/YYYY-MM-DD.json",
+    "daily-study-migrations/YYYY-MM-DD.sql",
+    "updated data/jlpt/used_words.json",
+    "updated data/curriculum/daily-index.json"
+  ],
+  "sql_rules": {
+    "folder": "daily-study-migrations",
+    "idempotent": true,
+    "preferred_guards": [
+      "INSERT OR IGNORE",
+      "NOT EXISTS",
+      "stable unique keys"
+    ],
+    "goal": "User can git pull and apply only that day's SQL to register today's learning data."
+  },
+  "chat_delivery": {
+    "show_in_study_order": true,
+    "do_not_require_user_to_understand_repo_details": true,
+    "keep_answers_hidden_until_user_submits_when_practicing": true,
+    "after_submission": "grade, explain mistakes, and feed wrong/uncertain items into later review"
+  }
+}
