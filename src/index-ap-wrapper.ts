@@ -28,6 +28,7 @@ import {
 	handleGradePublicJapaneseJlptPractice,
 	handleListAdminJapaneseJlptWrongNotes,
 } from './jlpt-practice';
+import { handleListJapaneseExamples, handleUpdateJapaneseExampleState } from './japanese-example-reading';
 import { handleGetPublicApDashboard } from './public/ap';
 import { handleGetPublicCategoryIcon } from './public/category-icon';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
@@ -62,6 +63,8 @@ export default {
 			case '/api/public/japanese/kanji-korean': return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice': return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice/grade': return request.method === 'POST' ? handleGradePublicJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
+			case '/api/public/japanese/examples': return request.method === 'GET' ? handleListJapaneseExamples(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/examples/state': return request.method === 'PATCH' ? handleUpdateJapaneseExampleState(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/categories': if (request.method === 'POST') return handleCreateAdminCategoryWithAppearance(request, env); return app.fetch(request, env);
 			case '/api/admin/categories/detail': if (request.method === 'PATCH') return handleUpdateAdminCategoryWithAppearance(request, env); return app.fetch(request, env);
 			case '/api/admin/categories/icon': return request.method === 'POST' ? handleUploadAdminCategoryIcon(request, env) : methodNotAllowed('POST');
