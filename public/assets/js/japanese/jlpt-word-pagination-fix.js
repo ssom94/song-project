@@ -4,6 +4,7 @@
 	const calendarStatus = new Map();
 	let initialized = false;
 	let calendarMonth = '';
+	let calendarRepairTimer = 0;
 
 	function isJa() { return document.body?.dataset?.blogLanguage === 'ja'; }
 	function t(ko, ja) { return isJa() ? ja : ko; }
@@ -23,9 +24,7 @@
 			.jlpt-calendar-month-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 14px}
 			.jlpt-calendar-month-nav button{width:40px;height:38px;border:1px solid #d4dce5;border-radius:9px;background:#fff;font:inherit;font-weight:900;cursor:pointer}
 			.jlpt-calendar-month-nav strong{min-width:120px;text-align:center;font-size:15px;color:#26364e}
-			.jlpt-calendar-empty{min-height:70px}
 			.jlpt-calendar-day[data-full-date]{cursor:pointer}
-			@media(max-width:640px){.jlpt-calendar-empty{min-height:58px}}
 		`;
 		document.head.appendChild(style);
 	}
@@ -100,7 +99,8 @@
 		for (const cell of cal.querySelectorAll('.jlpt-calendar-day')) {
 			const full = cell.dataset.fullDate || inferFullDate(cell.querySelector('strong')?.textContent?.trim() || '');
 			if (!full) continue;
-			calendarStatus.set(full, { status: cell.dataset.status || 'not_started', text: cell.querySelector('span')?.textContent || '—' });
+			const state = cell.querySelector('.jlpt-calendar-state') || cell.querySelector('span:not(.jlpt-calendar-study-badge)');
+			calendarStatus.set(full, { status: cell.dataset.status || 'not_started', text: state?.textContent || '—' });
 		}
 	}
 	function shiftMonth(month, delta) {
@@ -109,17 +109,24 @@
 		return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
 	}
 	function selectedFromInput() { return document.getElementById('jlpt-study-date')?.value || jstToday(); }
+	function expectedDays() {
+		if (!calendarMonth) return 0;
+		const [year, month] = calendarMonth.split('-').map(Number);
+		return new Date(Date.UTC(year, month, 0)).getUTCDate();
+	}
+	function isCurrentMonthDom() {
+		const cal = document.getElementById('jlpt-calendar');
+		if (!(cal instanceof HTMLElement) || !calendarMonth) return false;
+		const cells = [...cal.children].filter((node) => node instanceof HTMLElement && node.classList.contains('jlpt-calendar-day'));
+		return cells.length === expectedDays() && cells.every((cell) => cell.dataset.fullDate?.startsWith(`${calendarMonth}-`));
+	}
 	function renderMonth() {
 		const cal = document.getElementById('jlpt-calendar');
 		if (!(cal instanceof HTMLElement) || !calendarMonth) return;
 		const [year, month] = calendarMonth.split('-').map(Number);
-		const firstWeekday = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
 		const days = new Date(Date.UTC(year, month, 0)).getUTCDate();
 		const selected = selectedFromInput();
-		cal.replaceChildren();
-		for (let i = 0; i < firstWeekday; i += 1) {
-			const blank = document.createElement('div'); blank.className = 'jlpt-calendar-empty'; blank.setAttribute('aria-hidden', 'true'); cal.appendChild(blank);
-		}
+		const fragment = document.createDocumentFragment();
 		for (let day = 1; day <= days; day += 1) {
 			const date = `${calendarMonth}-${String(day).padStart(2, '0')}`;
 			const status = calendarStatus.get(date);
@@ -128,41 +135,73 @@
 			cell.dataset.fullDate = date;
 			cell.dataset.status = status?.status || 'not_started';
 			cell.classList.toggle('is-selected', date === selected);
-			const strong = document.createElement('strong'); strong.textContent = `${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}`;
-			const state = document.createElement('span'); state.textContent = status?.text || '—';
-			cell.append(strong, state); cal.appendChild(cell);
+			const strong = document.createElement('strong');
+			strong.textContent = `${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}`;
+			const state = document.createElement('span');
+			state.className = 'jlpt-calendar-state';
+			state.textContent = status?.text || '—';
+			cell.append(strong, state);
+			fragment.appendChild(cell);
 		}
+		cal.replaceChildren(fragment);
 		const label = document.getElementById('jlpt-calendar-month-label');
 		if (label) label.textContent = isJa() ? `${year}年 ${month}月` : `${year}년 ${month}월`;
+	}
+	function repairCalendarAfterExternalRender() {
+		clearTimeout(calendarRepairTimer);
+		calendarRepairTimer = window.setTimeout(() => {
+			if (isCurrentMonthDom()) return;
+			harvestCalendarStatus();
+			renderMonth();
+		}, 30);
+	}
+	function watchCalendar() {
+		const cal = document.getElementById('jlpt-calendar');
+		if (!(cal instanceof HTMLElement) || cal.dataset.monthFixObserved === 'true') return;
+		cal.dataset.monthFixObserved = 'true';
+		new MutationObserver(() => repairCalendarAfterExternalRender()).observe(cal, { childList: true });
 	}
 	function mountMonthNav() {
 		const cal = document.getElementById('jlpt-calendar');
 		const card = cal?.closest('.jlpt-card');
-		if (!(cal instanceof HTMLElement) || !(card instanceof HTMLElement) || document.getElementById('jlpt-calendar-month-nav')) return;
+		if (!(cal instanceof HTMLElement) || !(card instanceof HTMLElement)) return;
 		harvestCalendarStatus();
 		calendarMonth = (selectedFromInput() || jstToday()).slice(0, 7);
 		const heading = card.querySelector('.jlpt-card-heading');
 		const title = heading?.querySelector('h2');
 		const copy = heading?.querySelector('p');
 		if (title) title.textContent = t('학습 달력', '学習カレンダー');
-		if (copy) copy.textContent = t('이전·다음 달을 이동하고 날짜를 누르면 해당 날짜의 학습을 확인합니다.', '前月・翌月へ移動し、日付を押すとその日の学習を確認できます。');
-		const nav = document.createElement('div'); nav.id = 'jlpt-calendar-month-nav'; nav.className = 'jlpt-calendar-month-nav';
-		nav.innerHTML = `<button type="button" data-cal-shift="-1" aria-label="${t('이전 달','前月')}">‹</button><strong id="jlpt-calendar-month-label"></strong><button type="button" data-cal-shift="1" aria-label="${t('다음 달','翌月')}">›</button>`;
-		cal.before(nav);
-		nav.addEventListener('click', (event) => {
-			const button = event.target.closest('[data-cal-shift]'); if (!button) return;
-			calendarMonth = shiftMonth(calendarMonth, Number(button.dataset.calShift || 0)); renderMonth();
-		});
+		if (copy) copy.textContent = t('표시 중인 달의 날짜만 보여줍니다. 이전·다음 달을 이동하고 날짜를 누르면 해당 날짜의 학습을 확인합니다.', '表示中の月の日付だけを表示します。前月・翌月へ移動し、日付を押すとその日の学習を確認できます。');
+		let nav = document.getElementById('jlpt-calendar-month-nav');
+		if (!(nav instanceof HTMLElement)) {
+			nav = document.createElement('div');
+			nav.id = 'jlpt-calendar-month-nav';
+			nav.className = 'jlpt-calendar-month-nav';
+			nav.innerHTML = `<button type="button" data-cal-shift="-1" aria-label="${t('이전 달','前月')}">‹</button><strong id="jlpt-calendar-month-label"></strong><button type="button" data-cal-shift="1" aria-label="${t('다음 달','翌月')}">›</button>`;
+			cal.before(nav);
+			nav.addEventListener('click', (event) => {
+				const button = event.target.closest('[data-cal-shift]');
+				if (!button) return;
+				harvestCalendarStatus();
+				calendarMonth = shiftMonth(calendarMonth, Number(button.dataset.calShift || 0));
+				renderMonth();
+			});
+		}
 		renderMonth();
+		watchCalendar();
 	}
 	function captureCalendarClick(event) {
 		const target = event.target instanceof Element ? event.target.closest('.jlpt-calendar-day[data-full-date]') : null;
 		if (!(target instanceof HTMLElement)) return;
-		const date = target.dataset.fullDate; if (!date) return;
+		const date = target.dataset.fullDate;
+		if (!date) return;
 		const input = document.getElementById('jlpt-study-date');
 		if (!(input instanceof HTMLInputElement)) return;
-		event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
-		input.value = date; input.dispatchEvent(new Event('change', { bubbles: true }));
+		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		input.value = date;
+		input.dispatchEvent(new Event('change', { bubbles: true }));
 		document.querySelectorAll('#jlpt-calendar .jlpt-calendar-day').forEach((cell) => cell.classList.toggle('is-selected', cell.dataset.fullDate === date));
 	}
 
@@ -177,5 +216,6 @@
 		if (detail instanceof HTMLElement) new MutationObserver(() => LIST_IDS.forEach(watchList)).observe(detail, { childList: true, subtree: true });
 		window.setTimeout(mountMonthNav, 120);
 	}
-	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else init();
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+	else init();
 })();
