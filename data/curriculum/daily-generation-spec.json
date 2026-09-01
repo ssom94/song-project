@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "effective_from": "2026-09-01",
   "purpose": "Canonical executable-style specification for generating the user's daily JLPT N1 and AP study set.",
   "timezone": "Asia/Tokyo",
@@ -27,6 +27,7 @@
       "short recall/review block"
     ],
     "new_word_fields": [
+      "sequence_no",
       "word",
       "reading",
       "meaning_ko",
@@ -34,6 +35,35 @@
       "example_ja",
       "example_ko"
     ],
+    "display_rules": {
+      "word_numbering": "Every review/new word shown in daily study must display its sequence number. New daily words use 1..N in daily order; review lists use their displayed list order unless a stable curriculum number is available.",
+      "default_page_size": 10,
+      "paginate": [
+        "review words",
+        "new words",
+        "wrong-answer notes",
+        "long concept/question lists when item count exceeds page size"
+      ],
+      "new_words_20_example": "page 1 shows 1-10; page 2 shows 11-20"
+    },
+    "date_navigation": {
+      "top_date_picker_required": true,
+      "previous_next_controls_required": true,
+      "today_button_required": true,
+      "calendar_dates_clickable": true,
+      "calendar_click_behavior": "Selecting a calendar date must load and display that date's full daily study set on the same study page.",
+      "shared_selected_date": "Top date picker, previous/next controls, today button, and calendar all update the same selected study date.",
+      "date_scoped_sections": [
+        "session/progress summary",
+        "review words",
+        "new words",
+        "vocabulary questions",
+        "grammar",
+        "reading",
+        "answer/progress state"
+      ],
+      "missing_date_behavior": "Show that no study data exists for the selected date instead of silently falling back to today."
+    },
     "vocabulary_question_mix": {
       "kanji_reading": 3,
       "context_fill": 7,
