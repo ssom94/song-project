@@ -1,8 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "effective_from": "2026-09-01",
   "purpose": "Generate JLPT N1 and AP daily study from a stable long-term curriculum instead of ad-hoc questions.",
   "sources_of_truth": {
+    "generation_spec": "data/curriculum/daily-generation-spec.json",
     "curriculum": [
       "data/jlpt/curriculum.json",
       "data/ap/curriculum.json"
@@ -14,6 +15,16 @@
     "ap_daily_content": "data/ap/daily/YYYY-MM-DD.json",
     "runtime_learning_state": "Remote D1: actual progress, wrong answers, review due dates, mastery states"
   },
+  "mandatory_pre_generation_read_order": [
+    "data/curriculum/daily-study-policy.json",
+    "data/curriculum/daily-generation-spec.json",
+    "data/jlpt/curriculum.json",
+    "data/ap/curriculum.json",
+    "data/curriculum/daily-index.json",
+    "data/jlpt/used_words.json",
+    "recent JLPT/AP daily files",
+    "Remote D1 learning state when available"
+  ],
   "daily_generation_priority": [
     "1. overdue review and unresolved wrong answers",
     "2. weak topics according to recent accuracy/mastery",
@@ -26,7 +37,7 @@
     "read_before_generating": [
       "data/curriculum/daily-index.json",
       "data/jlpt/used_words.json",
-      "previous daily data files for at least 90 days",
+      "previous daily data files for at least 90 days where available",
       "D1 learning state when available"
     ],
     "exact_question_reuse_days": 90,
@@ -70,6 +81,10 @@
       "daily-study-migrations/YYYY-MM-DD.sql",
       "daily-index entry"
     ],
+    "must_update": [
+      "data/jlpt/used_words.json after selecting new words",
+      "data/curriculum/daily-index.json after completing generation"
+    ],
     "must_record_in_index": [
       "date",
       "curriculum phase",
@@ -78,6 +93,8 @@
       "question counts",
       "JLPT word range/count",
       "weekly/monthly test flag"
-    ]
-  }
+    ],
+    "registration_goal": "After git pull, the user should be able to register that day's learning data by applying only daily-study-migrations/YYYY-MM-DD.sql."
+  },
+  "execution_rule": "The daily-generation-spec is authoritative for exact daily lesson order, question counts, output paths, anti-repetition behavior, SQL generation, and chat delivery."
 }
