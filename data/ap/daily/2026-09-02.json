@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-02",
+  "exam": "応用情報技術者試験",
+  "mode": "prestudy_concept_first_pass",
+  "phase": "prestudy",
+  "target_minutes": 30,
+  "daily_questions_enabled": false,
+  "reason_ko": "AP 정식 일일 문제 학습 시작일은 2026-10-01이며, 9월은 개념 페이지를 먼저 한 바퀴 도는 사전학습 기간이다. 따라서 오늘은 科目A/科目B 실전문제 대신 기초이론 개념 이해와 회상에 집중한다.",
+  "reason_ja": "APの本格的な日次問題学習は2026-10-01開始で、9月は概念ページを一巡する事前学習期間である。そのため今日は科目A・科目Bの実戦問題ではなく、基礎理論の理解と想起を優先する。",
+  "concept": {
+    "topic_code": "fundamentals_math",
+    "title_ja": "基礎理論：基数変換・情報量・論理演算",
+    "title_ko": "기초이론: 진법 변환·정보량·논리 연산",
+    "objectives_ko": [
+      "2진수·10진수·16진수 변환 원리를 설명할 수 있다.",
+      "bit와 byte, KiB·MiB의 관계를 계산할 수 있다.",
+      "AND·OR·XOR·NOT의 의미와 기본 진리표를 설명할 수 있다.",
+      "드모르간 법칙을 이용해 논리식을 변형할 수 있다."
+    ],
+    "summary_ko": "컴퓨터는 정보를 비트 단위의 0과 1로 표현한다. 2진수의 각 자릿값은 2의 거듭제곱이며, 16진수 한 자리는 정확히 4비트와 대응한다. 용량 계산에서는 1 byte=8 bit, 1 KiB=1024 byte를 기준으로 문제의 단위를 먼저 통일한다. 논리 연산에서 AND는 둘 다 1일 때 1, OR은 하나라도 1이면 1, XOR은 서로 다를 때 1이다. NOT은 값을 반전한다. 드모르간 법칙은 NOT(A AND B)=NOT A OR NOT B, NOT(A OR B)=NOT A AND NOT B로 기억한다.",
+    "worked_examples": [
+      {
+        "prompt_ja": "2進数 110101 を10進数に変換する。",
+        "solution_ko": "32+16+4+1=53이므로 53이다."
+      },
+      {
+        "prompt_ja": "16進数 3F を2進数に変換する。",
+        "solution_ko": "3=0011, F=1111이므로 00111111이다."
+      },
+      {
+        "prompt_ja": "8 MiB は何bitか。",
+        "solution_ko": "8×1024×1024 byte×8 bit = 67,108,864 bit이다."
+      }
+    ],
+    "recall_prompts": [
+      "16진수 한 자리가 몇 비트와 대응하는지 말해본다.",
+      "XOR가 1이 되는 조건을 말해본다.",
+      "드모르간 법칙 두 식을 보지 않고 적어본다."
+    ]
+  },
+  "subject_a_questions": [],
+  "subject_b": null,
+  "review": {
+    "runtime_state_checked": false,
+    "note": "Remote D1 wrong-answer/review state was not accessible in this run. No persisted weak-topic signal was available, so curriculum topic_order was used."
+  }
+}
