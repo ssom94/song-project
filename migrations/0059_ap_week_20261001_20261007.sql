@@ -1,13 +1,13 @@
 -- 0059_ap_week_20261001_20261007.sql
 -- AP daily content for 2026-10-01 through 2026-10-07.
--- Reuses the maintained AP concept/question library so daily sets stay consistent with the concept pages.
+-- D1-safe version: avoids compound SELECT chains.
 PRAGMA foreign_keys = ON;
 
 DELETE FROM ap_daily_contents
 WHERE plan_id IN (SELECT id FROM ap_study_plans WHERE plan_code='AP_2026_H2')
   AND study_date BETWEEN '2026-10-01' AND '2026-10-07';
 
--- Daily concept focus: algorithm -> security -> DB -> network -> development -> OS -> mixed review.
+-- Daily concept focus.
 WITH focus(study_date,seq,topic_code) AS (VALUES
  ('2026-10-01',1,'programming_algorithms'),
  ('2026-10-02',2,'security'),
@@ -38,7 +38,8 @@ JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code=f.topic_code;
 WITH days(study_date,day_no) AS (VALUES
  ('2026-10-01',1),('2026-10-02',2),('2026-10-03',3),('2026-10-04',4),
  ('2026-10-05',5),('2026-10-06',6),('2026-10-07',7)
-), ranked AS (
+), nums(n) AS (VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10)),
+ranked AS (
  SELECT q.id,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,
         q.explanation_ja,q.explanation_ko,c.title_ja,c.title_ko,c.concept_code,
         ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id) AS rn
@@ -46,13 +47,13 @@ WITH days(study_date,day_no) AS (VALUES
  JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id
  JOIN ap_concepts c ON c.id=pt.concept_id
  WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL
-), totals AS (SELECT COUNT(*) AS n FROM ranked), nums(n) AS (
- SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5
- UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10
-), selected AS (
- SELECT d.study_date,nums.n AS sequence_no,r.*
- FROM days d CROSS JOIN nums CROSS JOIN totals t
- JOIN ranked r ON r.rn = (((d.day_no-1)*10 + nums.n - 1) % t.n) + 1
+), totals AS (SELECT COUNT(*) AS total_count FROM ranked), selected AS (
+ SELECT d.study_date,n.n AS sequence_no,r.*
+ FROM days d
+ CROSS JOIN nums n
+ CROSS JOIN totals total
+ JOIN ranked r ON r.rn = (((d.day_no-1)*10 + n.n - 1) % total.total_count) + 1
+ WHERE total.total_count > 0
 )
 INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
 SELECT p.id,s.study_date,NULL,'subject_a_question',s.sequence_no,
