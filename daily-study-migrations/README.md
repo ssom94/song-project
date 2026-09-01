@@ -4,6 +4,7 @@
 
 ## 원본 데이터 위치
 
+- JLPT 누적 사용 단어 인덱스: `data/jlpt/used_words.json`
 - JLPT 신규 단어 20개: `data/jlpt/daily_words/YYYY-MM-DD.json`
 - JLPT 오늘의 학습 문제: `data/jlpt/daily/YYYY-MM-DD.json`
 - AP 오늘의 개념/문제: `data/ap/daily/YYYY-MM-DD.json`
@@ -12,7 +13,8 @@
 
 ### JLPT N1
 - 신규 단어 20개를 선정한다.
-- 선정 전에 `data/jlpt/daily_words/`의 과거 날짜 파일 전체를 기준으로 이미 사용한 단어를 제외한다.
+- 선정 전에 `data/jlpt/used_words.json`과 `data/jlpt/daily_words/`의 과거 날짜 파일을 기준으로 이미 사용한 단어를 제외한다.
+- 선정이 끝나면 `used_words.json`에도 같은 20개를 누적해서 다음 날 중복 체크 기준으로 사용한다.
 - 각 단어에는 읽기, 한국어 뜻, 품사, 일본어 예문, 한국어 예문을 준비한다.
 - 어휘 문제 15문제 + 문법 2개(각 확인문제 포함) + 독해 1지문을 기본 구성으로 한다.
 - 복습은 학습 DB의 SRS 일정(1-3-7-14-30-60-90-180)을 우선한다.
@@ -39,10 +41,11 @@
 
 ## 운영 순서
 
-1. 과거 `daily_words`를 확인해 JLPT 신규 단어 중복을 제거한다.
+1. `used_words.json`과 과거 `daily_words`를 확인해 JLPT 신규 단어 중복을 제거한다.
 2. JLPT 신규 단어 20개와 문제를 생성해 `data/jlpt/...`에 저장한다.
-3. AP 개념/문제를 생성해 `data/ap/daily/...`에 저장한다.
-4. 같은 내용을 DB에 넣을 날짜별 SQL을 `daily-study-migrations/YYYY-MM-DD.sql`로 저장한다.
-5. 사용자가 Git pull 후 해당 SQL만 Remote D1에 적용한다.
+3. `used_words.json`에 그날의 20개를 누적한다.
+4. AP 개념/문제를 생성해 `data/ap/daily/...`에 저장한다.
+5. 같은 내용을 DB에 넣을 날짜별 SQL을 `daily-study-migrations/YYYY-MM-DD.sql`로 저장한다.
+6. 사용자가 Git pull 후 해당 SQL만 Remote D1에 적용한다.
 
 일반 스키마 변경이 필요한 경우에만 기존 `migrations/`에 번호 migration을 추가한다.
