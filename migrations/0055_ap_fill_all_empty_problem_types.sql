@@ -1,5 +1,5 @@
 -- 0055 Ensure every published AP concept problem type has question data.
--- This migration is intentionally data-driven so no type heading can render empty.
+-- D1-compatible version: avoids TEMP TABLE guard statements that can be rejected by D1.
 PRAGMA foreign_keys = ON;
 
 -- A: guarantee question #1 for any legacy type that somehow has no question.
@@ -69,12 +69,3 @@ FROM ap_concept_problem_types t
 JOIN ap_concepts c ON c.id=t.concept_id
 WHERE c.exam_part='B' AND c.is_published=1
 AND NOT EXISTS (SELECT 1 FROM ap_concept_questions q WHERE q.problem_type_id=t.id AND q.question_no=2);
-
--- Safety check: abort migration if a published A/B type is still empty.
-CREATE TEMP TABLE _ap_empty_type_guard(v INTEGER CHECK(v=0));
-INSERT INTO _ap_empty_type_guard(v)
-SELECT COUNT(*) FROM ap_concept_problem_types t
-JOIN ap_concepts c ON c.id=t.concept_id
-WHERE c.is_published=1 AND c.exam_part IN ('A','B')
-AND NOT EXISTS (SELECT 1 FROM ap_concept_questions q WHERE q.problem_type_id=t.id);
-DROP TABLE _ap_empty_type_guard;
