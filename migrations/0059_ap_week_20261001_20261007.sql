@@ -1,114 +1,107 @@
 -- 0059_ap_week_20261001_20261007.sql
 -- AP daily content for 2026-10-01 through 2026-10-07.
--- D1-safe version: avoids compound SELECT chains.
+-- D1-safe: intentionally avoids UNION/compound SELECT chains.
 PRAGMA foreign_keys = ON;
 
 DELETE FROM ap_daily_contents
 WHERE plan_id IN (SELECT id FROM ap_study_plans WHERE plan_code='AP_2026_H2')
   AND study_date BETWEEN '2026-10-01' AND '2026-10-07';
 
--- Daily concept focus.
-WITH focus(study_date,seq,topic_code) AS (VALUES
- ('2026-10-01',1,'programming_algorithms'),
- ('2026-10-02',2,'security'),
- ('2026-10-03',3,'database'),
- ('2026-10-04',4,'network'),
- ('2026-10-05',5,'system_development'),
- ('2026-10-06',6,'operating_system'),
- ('2026-10-07',7,'fundamentals_math')
-)
+-- ---------------------------------------------------------------------------
+-- Concept cards: one per day.
+-- ---------------------------------------------------------------------------
 INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
-SELECT p.id,f.study_date,t.id,'concept',1,t.title_ko,t.title_ja,
- json_object(
-   'summary_ko',t.study_points_ko,
-   'summary_ja',t.study_points_ja,
-   'keywords',json_array(t.title_ja),
-   'check',json_object(
-      'question','今日のテーマ「'||t.title_ja||'」を学ぶとき、最も重要な姿勢はどれか。',
-      'options',json_array('用語だけでなく判断根拠と計算・手順まで説明できるようにする。','答えだけ暗記する。','韓国語訳だけ覚える。','苦手な問題を飛ばして記録しない。'),
-      'answer',0,
-      'explanation','日本語：APでは定義だけでなく、計算・判断根拠・手順を説明できることが重要。\n한국어: 정의뿐 아니라 계산 과정과 판단 근거까지 설명할 수 있어야 한다。'
-   )
- )
-FROM focus f
-JOIN ap_study_plans p ON p.plan_code='AP_2026_H2'
-JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code=f.topic_code;
+SELECT p.id,'2026-10-01',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','오늘의 알고리즘 개념에서 가장 중요한 것은?','options',json_array('처리 과정과 근거까지 설명한다','정답만 외운다','용어만 본다','틀린 문제를 건너뛴다'),'answer',0,'explanation','알고리즘은 결과뿐 아니라 추적 과정, 자료구조 선택 이유, 시간복잡도까지 설명할 수 있어야 한다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='programming_algorithms' WHERE p.plan_code='AP_2026_H2';
 
--- 科目A: 10 questions every day, rotated through the complete A-question library.
-WITH days(study_date,day_no) AS (VALUES
- ('2026-10-01',1),('2026-10-02',2),('2026-10-03',3),('2026-10-04',4),
- ('2026-10-05',5),('2026-10-06',6),('2026-10-07',7)
-), nums(n) AS (VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10)),
-ranked AS (
- SELECT q.id,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,
-        q.explanation_ja,q.explanation_ko,c.title_ja,c.title_ko,c.concept_code,
-        ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id) AS rn
- FROM ap_concept_questions q
- JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id
- JOIN ap_concepts c ON c.id=pt.concept_id
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-02',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','セキュリティ問題を分析するとき最初に区別すべきものはどれか。','options',json_array('事実と推測','製品名と価格','画面色と文字数','担当者の好み'),'answer',0,'explanation','로그나 요청 등 확인된 사실과 추측을 먼저 분리해야 공격 경로와 영향을 정확히 판단할 수 있다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='security' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-03',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','DB問題でSQL結果を判断する前に確認すべき内容はどれか。','options',json_array('表構造・キー・結合条件','画面の色','CPUメーカー','ブラウザ名'),'answer',0,'explanation','테이블 구조, 키 관계, JOIN 조건을 먼저 확인해야 행 수와 결과값을 정확히 추적할 수 있다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='database' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-04',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','ネットワーク障害の切分けで有効な順序はどれか。','options',json_array('アドレス→経路→名前解決→上位プロトコル','アプリだけ再起動する','DNSだけ確認する','利用者端末を全交換する'),'answer',0,'explanation','계층을 따라 주소, 라우팅, 이름해결, 상위 프로토콜 순으로 범위를 좁히면 원인을 체계적으로 찾을 수 있다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='network' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-05',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','要件変更時に最初に行うべきことはどれか。','options',json_array('影響範囲を特定する','すぐ実装する','テストを省略する','文書を削除する'),'answer',0,'explanation','요구 변경은 관련 설계, 코드, 테스트, 일정에 영향을 주므로 먼저 영향 범위를 식별해야 한다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='system_development' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-06',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','仮想記憶で必要なページが主記憶にないとき何が起こるか。','options',json_array('ページフォールト','DNS更新','SQL結合','暗号鍵交換'),'answer',0,'explanation','필요 페이지가 주기억장치에 없으면 페이지 폴트가 발생하고 보조기억장치에서 읽어온다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='operating_system' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-07',t.id,'concept',1,t.title_ko,t.title_ja,
+ json_object('summary_ko',t.study_points_ko,'summary_ja',t.study_points_ja,'keywords',json_array(t.title_ja),'check',json_object('question','基礎理論の計算問題で最も重要な習慣はどれか。','options',json_array('途中式と単位を確認する','暗算だけで済ませる','選択肢を見ずに勘で答える','公式名だけ覚える'),'answer',0,'explanation','진법, 확률, 정보량 등 계산 문제는 중간식과 단위를 남겨야 실수를 줄일 수 있다.'))
+FROM ap_study_plans p JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='fundamentals_math' WHERE p.plan_code='AP_2026_H2';
+
+-- ---------------------------------------------------------------------------
+-- 科目A: exactly 10 questions/day. Each day uses a different slice.
+-- ---------------------------------------------------------------------------
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-01',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,
+ json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (
+ SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id) AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko
+ FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id
  WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL
-), totals AS (SELECT COUNT(*) AS total_count FROM ranked), selected AS (
- SELECT d.study_date,n.n AS sequence_no,r.*
- FROM days d
- CROSS JOIN nums n
- CROSS JOIN totals total
- JOIN ranked r ON r.rn = (((d.day_no-1)*10 + n.n - 1) % total.total_count) + 1
- WHERE total.total_count > 0
-)
-INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
-SELECT p.id,s.study_date,NULL,'subject_a_question',s.sequence_no,
-       s.concept_code||' '||s.title_ko,s.concept_code||' '||s.title_ja,
-       json_object(
-         'question',s.question_ja,
-         'question_ko',s.question_ko,
-         'options',json(s.choices_ja_json),
-         'options_ko',CASE WHEN s.choices_ko_json IS NULL THEN NULL ELSE json(s.choices_ko_json) END,
-         'answer',s.correct_choice,
-         'explanation',COALESCE(s.explanation_ja,'')||'\n한국어: '||COALESCE(s.explanation_ko,'')
-       )
-FROM selected s
-JOIN ap_study_plans p ON p.plan_code='AP_2026_H2';
+ ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 0
+) x WHERE p.plan_code='AP_2026_H2';
 
--- 科目B: one scenario set per day, three written questions. Selected 5 areas only.
-WITH focus(study_date,area,title_ja,title_ko,from_code,to_code,scenario) AS (VALUES
- ('2026-10-01','programming','プログラミング','프로그래밍','B-08','B-14','疑似コード、データ構造、処理結果を順に追い、空欄・計算量・改善理由を答えなさい。'),
- ('2026-10-02','security','情報セキュリティ','정보보안','B-01','B-07','Webシステムで異常なアクセスが検出された。ログ、認証設定、通信経路を確認し、原因と対策を説明しなさい。'),
- ('2026-10-03','database','データベース','데이터베이스','B-23','B-28','業務システムの表設計、SQL、トランザクション競合を確認し、結果と改善方法を説明しなさい。'),
- ('2026-10-04','network','ネットワーク','네트워크','B-17','B-22','複数セグメントで通信障害が発生した。アドレス、経路、名前解決、TCP/IPの観点から切り分けなさい。'),
- ('2026-10-05','development','情報システム開発','정보시스템개발','B-29','B-32','要件変更が発生した。影響範囲、設計、テスト、レビューの順で必要な対応を説明しなさい。'),
- ('2026-10-06','security','情報セキュリティ','정보보안','B-01','B-07','認証情報の漏えいが疑われる。事実確認、封じ込め、原因分析、再発防止を順序立てて答えなさい。'),
- ('2026-10-07','programming','プログラミング','프로그래밍','B-08','B-14','配列とグラフを扱う処理について、実行結果を追跡し、計算量と改善案を説明しなさい。')
-), plans AS (SELECT id FROM ap_study_plans WHERE plan_code='AP_2026_H2')
 INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
-SELECT p.id,f.study_date,t.id,'subject_b_scenario',1,f.title_ko,f.title_ja,
- json_object(
-   'scenario',f.scenario,
-   'estimated_minutes',15,
-   'questions',json((
-      SELECT json_group_array(json_object(
-        'question',z.question_ja,
-        'question_ko',z.question_ko,
-        'answer',COALESCE(z.answer_ja,z.answer_ko,''),
-        'answer_ko',z.answer_ko,
-        'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,'')
-      ))
-      FROM (
-        SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko
-        FROM ap_concept_questions q
-        JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id
-        JOIN ap_concepts c ON c.id=pt.concept_id
-        WHERE c.exam_part='B' AND c.concept_code BETWEEN f.from_code AND f.to_code
-        ORDER BY c.sort_order,pt.type_no,q.question_no,q.id
-        LIMIT 3
-      ) z
-   )),
-   'answering_tip_ja','設問が求める対象を先に特定し、事実→判断基準→結論の順に短く記述する。',
-   'answering_tip_ko','문제가 요구하는 대상을 먼저 특정하고 사실→판단기준→결론 순서로 짧고 명확하게 쓴다.'
- )
-FROM focus f CROSS JOIN plans p
-LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code = CASE f.area
- WHEN 'programming' THEN 'programming_algorithms'
- WHEN 'security' THEN 'security'
- WHEN 'database' THEN 'database'
- WHEN 'network' THEN 'network'
- ELSE 'system_development' END;
+SELECT p.id,'2026-10-02',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id)-10 AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 10) x WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-03',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id)-20 AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 20) x WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-04',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id)-30 AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 30) x WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-05',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id)-40 AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 40) x WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-06',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id)-50 AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 50) x WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-07',NULL,'subject_a_question',x.seq,x.concept_code||' '||x.title_ko,x.concept_code||' '||x.title_ja,json_object('question',x.question_ja,'question_ko',x.question_ko,'options',json(x.choices_ja_json),'options_ko',CASE WHEN x.choices_ko_json IS NULL THEN NULL ELSE json(x.choices_ko_json) END,'answer',x.correct_choice,'explanation',COALESCE(x.explanation_ja,'')||'\n한국어: '||COALESCE(x.explanation_ko,''))
+FROM ap_study_plans p JOIN (SELECT ROW_NUMBER() OVER(ORDER BY c.sort_order,pt.type_no,q.question_no,q.id)-60 AS seq,c.concept_code,c.title_ko,c.title_ja,q.question_ja,q.question_ko,q.choices_ja_json,q.choices_ko_json,q.correct_choice,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='A' AND q.choices_ja_json IS NOT NULL AND q.correct_choice IS NOT NULL ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 10 OFFSET 60) x WHERE p.plan_code='AP_2026_H2';
+
+-- ---------------------------------------------------------------------------
+-- 科目B: one scenario/day, with three written questions from the selected area.
+-- ---------------------------------------------------------------------------
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-01',t.id,'subject_b_scenario',1,'프로그래밍','プログラミング',json_object('scenario','疑似コード、データ構造、処理結果を順に追い、空欄・計算量・改善理由を答えなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-08' AND 'B-14' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3) z)),'answering_tip_ja','事実→判断基準→結論の順に短く記述する。','answering_tip_ko','사실→판단기준→결론 순으로 짧고 명확하게 쓴다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='programming_algorithms' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-02',t.id,'subject_b_scenario',1,'정보보안','情報セキュリティ',json_object('scenario','Webシステムで異常なアクセスが検出された。ログ、認証設定、通信経路を確認し、原因と対策を説明しなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-01' AND 'B-07' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3) z)),'answering_tip_ja','ログの事実と推測を分離して答える。','answering_tip_ko','로그의 사실과 추측을 분리해서 답한다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='security' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-03',t.id,'subject_b_scenario',1,'데이터베이스','データベース',json_object('scenario','業務システムの表設計、SQL、トランザクション競合を確認し、結果と改善方法を説明しなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-23' AND 'B-28' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3) z)),'answering_tip_ja','キー・結合条件・トランザクション境界を明示する。','answering_tip_ko','키·조인조건·트랜잭션 경계를 명확히 한다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='database' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-04',t.id,'subject_b_scenario',1,'네트워크','ネットワーク',json_object('scenario','複数セグメントで通信障害が発生した。アドレス、経路、名前解決、TCP/IPの観点から切り分けなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-17' AND 'B-22' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3) z)),'answering_tip_ja','層ごとに確認対象を分けて切り分ける。','answering_tip_ko','계층별로 확인 대상을 나눠 원인을 좁힌다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='network' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-05',t.id,'subject_b_scenario',1,'정보시스템개발','情報システム開発',json_object('scenario','要件変更が発生した。影響範囲、設計、テスト、レビューの順で必要な対応を説明しなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-29' AND 'B-32' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3) z)),'answering_tip_ja','変更要求からテストまで追跡可能性を意識する。','answering_tip_ko','변경요구부터 테스트까지 추적가능성을 의식한다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='system_development' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-06',t.id,'subject_b_scenario',1,'정보보안','情報セキュリティ',json_object('scenario','認証情報の漏えいが疑われる。事実確認、封じ込め、原因分析、再発防止を順序立てて答えなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-01' AND 'B-07' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3 OFFSET 3) z)),'answering_tip_ja','初動対応と恒久対策を分けて書く。','answering_tip_ko','초동대응과 영구대책을 구분해서 쓴다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='security' WHERE p.plan_code='AP_2026_H2';
+
+INSERT INTO ap_daily_contents(plan_id,study_date,topic_id,content_type,sequence_no,title_ko,title_ja,payload_json)
+SELECT p.id,'2026-10-07',t.id,'subject_b_scenario',1,'프로그래밍','プログラミング',json_object('scenario','配列とグラフを扱う処理について、実行結果を追跡し、計算量と改善案を説明しなさい。','estimated_minutes',15,'questions',json((SELECT json_group_array(json_object('question',z.question_ja,'question_ko',z.question_ko,'answer',COALESCE(z.answer_ja,z.answer_ko,''),'answer_ko',z.answer_ko,'explanation',COALESCE(z.explanation_ja,'')||'\n한국어: '||COALESCE(z.explanation_ko,''))) FROM (SELECT q.question_ja,q.question_ko,q.answer_ja,q.answer_ko,q.explanation_ja,q.explanation_ko FROM ap_concept_questions q JOIN ap_concept_problem_types pt ON pt.id=q.problem_type_id JOIN ap_concepts c ON c.id=pt.concept_id WHERE c.exam_part='B' AND c.concept_code BETWEEN 'B-08' AND 'B-14' ORDER BY c.sort_order,pt.type_no,q.question_no,q.id LIMIT 3 OFFSET 3) z)),'answering_tip_ja','変数の状態を表にして追跡し、計算量は処理回数から判断する。','answering_tip_ko','변수 상태를 표처럼 추적하고 처리횟수로 복잡도를 판단한다.') FROM ap_study_plans p LEFT JOIN ap_study_topics t ON t.plan_id=p.id AND t.topic_code='programming_algorithms' WHERE p.plan_code='AP_2026_H2';
