@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "exam": "応用情報技術者試験",
-  "study_start_date": "2026-09-01",
+  "study_start_date": "2026-10-01",
   "subject_a_target_month": "2027-02",
   "subject_b_target_month": "2027-03",
   "daily_minutes": 60,
@@ -13,6 +13,18 @@
     "subject_b_scenario_count": 1,
     "concept_check_count": 1,
     "review_intervals": [1, 3, 7, 14, 30, 60]
+  },
+  "prestudy": {
+    "from": "2026-09-01",
+    "to": "2026-09-30",
+    "mode": "concept_first_pass",
+    "goal": "Complete one broad pass through AP concept pages before daily question study begins.",
+    "daily_questions_enabled": false,
+    "rules": [
+      "prioritize understanding the concept library over solving daily sets",
+      "read Japanese first and reveal Korean only when needed",
+      "mark weak concepts for review after daily study starts in October"
+    ]
   },
   "subject_b_focus": [
     "security",
@@ -42,9 +54,9 @@
   "phases": [
     {
       "id": "baseline_and_technology",
-      "from": "2026-09-01",
+      "from": "2026-10-01",
       "to": "2026-10-31",
-      "goal": "Establish baseline and cover high-value technology foundations.",
+      "goal": "Establish baseline and cover high-value technology foundations after the September concept-first pass.",
       "topic_priority": [
         "programming_algorithms",
         "security",
