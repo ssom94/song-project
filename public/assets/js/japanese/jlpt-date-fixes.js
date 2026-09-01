@@ -158,14 +158,14 @@
 		let badge = cell.querySelector('.jlpt-calendar-study-badge');
 		if (!result.available) {
 			delete cell.dataset.studyState;
-			stateNode.textContent = '—';
+			if (stateNode.textContent !== '—') stateNode.textContent = '—';
 			badge?.remove();
 			return;
 		}
 
 		const state = resolveState(cell, date);
 		cell.dataset.studyState = state.state;
-		stateNode.textContent = state.text;
+		if (stateNode.textContent !== state.text) stateNode.textContent = state.text;
 
 		if (!(badge instanceof HTMLElement)) {
 			badge = document.createElement('span');
