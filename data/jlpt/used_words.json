@@ -2,6 +2,8 @@
   "level": "N1",
   "restart_date": "2026-09-07",
   "updated_through": null,
+  "last_generation_check": "2026-09-02",
   "total_words": 0,
-  "entries": []
+  "entries": [],
+  "note": "No new JLPT N1 words are consumed before the configured restart date. Reserved daily words from 2026-09-07 onward are not counted until introduced."
 }
