@@ -1,9 +1,40 @@
 -- 0062_jlpt_october_november_2026.sql
--- Pre-register JLPT N1 daily curriculum for 2026-10-01 through 2026-11-30.
--- 61 days x 20 new words = 1,220 words.
--- Daily contents: 15 vocab questions, 2 grammar lessons, 3 grammar questions, 1 reading set (3 questions).
+-- Pre-register JLPT N1 preparation for 2026-10-01 through 2026-11-30.
+-- 61 days x 20 new/reinforcement words = 1,220 unique words.
+-- Daily contents: 15 vocab questions, 2 grammar lessons, 3 grammar questions,
+-- 1 reading set containing 3 questions.
+--
+-- Vocabulary classification is NEVER rewritten here. Candidate priority is:
+-- N1 -> N2 -> unclassified -> N3 -> N4 -> N5.
+-- This keeps the source classification intact while allowing prerequisite
+-- vocabulary reinforcement inside an N1 preparation plan.
 
--- Remove only future curriculum/content for this range so this migration is deterministic before first study.
+-- Fail early with a useful constraint name if the whole registered word DB is
+-- genuinely too small. Only rows with a usable word are counted.
+CREATE TABLE _assert_jlpt_octnov_pool_0062 (
+  ok INTEGER NOT NULL,
+  CONSTRAINT jlpt_oct_nov_eligible_pool_at_least_1220 CHECK(ok=1)
+);
+WITH plan AS (
+  SELECT id FROM japanese_jlpt_study_plans
+  WHERE plan_code='N1_2027_JUL' AND is_active=1 LIMIT 1
+)
+INSERT INTO _assert_jlpt_octnov_pool_0062(ok)
+SELECT CASE WHEN (
+  SELECT COUNT(*)
+  FROM japanese_words w CROSS JOIN plan p
+  LEFT JOIN jlpt_levels l ON l.id=w.jlpt_level_id
+  WHERE w.deleted_at IS NULL
+    AND NULLIF(TRIM(w.word),'') IS NOT NULL
+    AND NOT EXISTS (
+      SELECT 1 FROM japanese_jlpt_curriculum_words c
+      WHERE c.plan_id=p.id AND c.word_id=w.id
+    )
+)>=1220 THEN 1 ELSE 0 END;
+DROP TABLE _assert_jlpt_octnov_pool_0062;
+
+-- Remove only future curriculum/content for this range so a retry before study
+-- remains deterministic.
 DELETE FROM japanese_jlpt_daily_contents
 WHERE plan_id IN (SELECT id FROM japanese_jlpt_study_plans WHERE plan_code='N1_2027_JUL')
   AND study_date BETWEEN '2026-10-01' AND '2026-11-30';
@@ -12,14 +43,32 @@ DELETE FROM japanese_jlpt_curriculum_words
 WHERE plan_id IN (SELECT id FROM japanese_jlpt_study_plans WHERE plan_code='N1_2027_JUL')
   AND introduced_on BETWEEN '2026-10-01' AND '2026-11-30';
 
--- Pick 1,220 N1 words not already assigned to this curriculum.
+-- Pick 1,220 unique words that have not already appeared in this plan.
+-- Prefer N1, then N2. Unclassified/lower-level vocabulary is used only when
+-- the upper-level pool is exhausted; its original classification is preserved.
 WITH candidate AS (
   SELECT p.id AS plan_id, w.id AS word_id,
-         ROW_NUMBER() OVER (PARTITION BY p.id ORDER BY w.id) AS rn
+         ROW_NUMBER() OVER (
+           PARTITION BY p.id
+           ORDER BY
+             CASE COALESCE(l.code,'')
+               WHEN 'N1' THEN 0
+               WHEN 'N2' THEN 1
+               WHEN ''   THEN 2
+               WHEN 'N3' THEN 3
+               WHEN 'N4' THEN 4
+               WHEN 'N5' THEN 5
+               ELSE 6
+             END,
+             CASE WHEN NULLIF(TRIM(COALESCE(w.reading,'')),'') IS NOT NULL THEN 0 ELSE 1 END,
+             CASE WHEN NULLIF(TRIM(COALESCE(w.meaning_ko,'')),'') IS NOT NULL THEN 0 ELSE 1 END,
+             w.id
+         ) AS rn
   FROM japanese_jlpt_study_plans p
-  JOIN jlpt_levels l ON l.code=p.jlpt_level_code
-  JOIN japanese_words w ON w.jlpt_level_id=l.id AND w.deleted_at IS NULL
+  JOIN japanese_words w ON w.deleted_at IS NULL
+  LEFT JOIN jlpt_levels l ON l.id=w.jlpt_level_id
   WHERE p.plan_code='N1_2027_JUL' AND p.is_active=1
+    AND NULLIF(TRIM(w.word),'') IS NOT NULL
     AND NOT EXISTS (
       SELECT 1 FROM japanese_jlpt_curriculum_words c
       WHERE c.plan_id=p.id AND c.word_id=w.id
@@ -37,10 +86,11 @@ SELECT x.plan_id,x.word_id,b.base_order+x.rn,
 FROM candidate x JOIN base b ON b.plan_id=x.plan_id
 WHERE x.rn<=1220;
 
--- 15 vocabulary questions per day, rotating all major vocabulary formats.
+-- 15 vocabulary questions per day, rotating major JLPT vocabulary formats.
 WITH ranked AS (
-  SELECT c.plan_id,c.introduced_on AS study_date,w.word,w.reading,
-         COALESCE(NULLIF(w.meaning_ko,''),'뜻 확인') AS meaning_ko,
+  SELECT c.plan_id,c.introduced_on AS study_date,w.word,
+         COALESCE(NULLIF(w.reading,''),w.word) AS reading,
+         COALESCE(NULLIF(w.meaning_ko,''),NULLIF(w.meaning_ja,''),'뜻 확인') AS meaning_ko,
          ROW_NUMBER() OVER(PARTITION BY c.plan_id,c.introduced_on ORDER BY c.sort_order) AS rn
   FROM japanese_jlpt_curriculum_words c
   JOIN japanese_words w ON w.id=c.word_id AND w.deleted_at IS NULL
@@ -67,7 +117,7 @@ SELECT q.plan_id,q.study_date,'vocab_question',q.rn,'文字・語彙：'||q.subt
     ELSE json_object('prompt','「'||q.word||'」の読みと意味の組合せとして正しいものを選びなさい。','options',json_array(q.reading||' / '||q.meaning_ko,q.reading||' / 다른 의미','べつのよみ / '||q.meaning_ko,'べつのよみ / 다른 의미'),'answer',q.reading||' / '||q.meaning_ko,'explanation','読みは「'||q.reading||'」、意味は「'||q.meaning_ko||'」。') END
 FROM q;
 
--- Two grammar lessons every day. The sequence cycles through core N1 patterns.
+-- Two grammar lessons every day.
 WITH RECURSIVE days(d,n) AS (
   SELECT date('2026-10-01'),0
   UNION ALL SELECT date(d,'+1 day'),n+1 FROM days WHERE d<'2026-11-30'
@@ -126,32 +176,35 @@ SELECT id,d,'reading',1,'読解：'||focus,
  )
 FROM daily;
 
--- Integrity checks: every day must have the complete prepared package.
-CREATE TABLE IF NOT EXISTS _jlpt_future_integrity_0062 (
-  name TEXT PRIMARY KEY,
-  ok INTEGER NOT NULL CHECK(ok=1)
+-- Named integrity check 1: exactly 20 words on every date.
+CREATE TABLE _assert_jlpt_octnov_words_0062 (
+  ok INTEGER NOT NULL,
+  CONSTRAINT jlpt_oct_nov_20_words_each_day CHECK(ok=1)
 );
-DELETE FROM _jlpt_future_integrity_0062;
-
 WITH RECURSIVE days(d) AS (
  SELECT date('2026-10-01') UNION ALL SELECT date(d,'+1 day') FROM days WHERE d<'2026-11-30'
 ), plans AS (SELECT id FROM japanese_jlpt_study_plans WHERE plan_code='N1_2027_JUL' AND is_active=1)
-INSERT INTO _jlpt_future_integrity_0062(name,ok)
-SELECT 'jlpt_oct_nov_20_words_each_day', CASE WHEN NOT EXISTS(
+INSERT INTO _assert_jlpt_octnov_words_0062(ok)
+SELECT CASE WHEN NOT EXISTS(
  SELECT 1 FROM days CROSS JOIN plans p
  WHERE (SELECT COUNT(*) FROM japanese_jlpt_curriculum_words c WHERE c.plan_id=p.id AND c.introduced_on=days.d)<>20
 ) THEN 1 ELSE 0 END;
+DROP TABLE _assert_jlpt_octnov_words_0062;
 
+-- Named integrity check 2: full learning/problem package on every date.
+CREATE TABLE _assert_jlpt_octnov_contents_0062 (
+  ok INTEGER NOT NULL,
+  CONSTRAINT jlpt_oct_nov_full_contents_each_day CHECK(ok=1)
+);
 WITH RECURSIVE days(d) AS (
  SELECT date('2026-10-01') UNION ALL SELECT date(d,'+1 day') FROM days WHERE d<'2026-11-30'
 ), plans AS (SELECT id FROM japanese_jlpt_study_plans WHERE plan_code='N1_2027_JUL' AND is_active=1)
-INSERT INTO _jlpt_future_integrity_0062(name,ok)
-SELECT 'jlpt_oct_nov_full_contents_each_day', CASE WHEN NOT EXISTS(
+INSERT INTO _assert_jlpt_octnov_contents_0062(ok)
+SELECT CASE WHEN NOT EXISTS(
  SELECT 1 FROM days CROSS JOIN plans p WHERE
   (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='vocab_question')<>15 OR
   (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='grammar')<>2 OR
   (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='grammar_question')<>3 OR
   (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='reading')<>1
 ) THEN 1 ELSE 0 END;
-
-DROP TABLE _jlpt_future_integrity_0062;
+DROP TABLE _assert_jlpt_octnov_contents_0062;
