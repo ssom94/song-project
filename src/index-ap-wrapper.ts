@@ -30,6 +30,7 @@ import {
 } from './jlpt-practice';
 import { handleListJapaneseExamples, handleUpdateJapaneseExampleState } from './japanese-example-reading';
 import { handleGetPublicApDashboard } from './public/ap';
+import { handleGetPublicApConcepts } from './public/ap-concepts';
 import { handleGetPublicCategoryIcon } from './public/category-icon';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
 import { handleGetPublicPostWithAppearance } from './public/posts/appearance-detail';
@@ -58,6 +59,7 @@ export default {
 			case '/api/public/site-background': return request.method === 'GET' ? handleGetPublicSiteBackground(request, env) : methodNotAllowed('GET');
 			case '/api/public/site-visuals': return request.method === 'GET' ? handleGetPublicSiteVisuals(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/dashboard': return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/public/ap/concepts': return request.method === 'GET' ? handleGetPublicApConcepts(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice': return request.method === 'GET' ? handleGetPublicApPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice/grade': return request.method === 'POST' ? handleGradePublicApPractice(request, env) : methodNotAllowed('POST');
 			case '/api/public/japanese/kanji-korean': return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
