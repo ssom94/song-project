@@ -3,7 +3,6 @@
 	const ENHANCED_ATTR = 'monthSelectEnhanced';
 	const RANGE_ENHANCED_ATTR = 'scheduleRangeEnhanced';
 	const PUBLIC_API = '/api/public/dashboard/schedules?kind=calendar';
-	let scheduleRequest = null;
 
 	function language() {
 		return document.body?.dataset?.blogLanguage === 'ko' ? 'ko' : 'ja';
@@ -114,33 +113,37 @@
 	}
 
 	async function loadSchedules() {
-		if (!scheduleRequest) {
-			scheduleRequest = fetch(PUBLIC_API, { credentials: 'same-origin', cache: 'no-store' })
-				.then((response) => response.ok ? response.json() : null)
-				.then((result) => result?.ok && Array.isArray(result.schedules) ? sortedSchedules(result.schedules) : [])
-				.catch(() => []);
+		try {
+			const response = await fetch(PUBLIC_API, { credentials: 'same-origin', cache: 'no-store' });
+			const result = response.ok ? await response.json().catch(() => null) : null;
+			return result?.ok && Array.isArray(result.schedules) ? sortedSchedules(result.schedules) : [];
+		} catch {
+			return [];
 		}
-		return scheduleRequest;
 	}
 
 	async function enhanceScheduleList(panel) {
-		if (!(panel instanceof HTMLElement) || panel.dataset[RANGE_ENHANCED_ATTR] === 'true') return;
+		if (!(panel instanceof HTMLElement)) return;
 		const head = panel.querySelector('.schedule-list-table-head');
 		const rows = [...panel.querySelectorAll('.schedule-list-row')];
 		if (!(head instanceof HTMLElement) || !rows.length) return;
+		if (head.querySelector('.schedule-list-period-head') || head.dataset.rangeEnhancing === 'true') return;
+		head.dataset.rangeEnhancing = 'true';
 
 		const schedules = await loadSchedules();
-		if (!schedules.length) return;
-		panel.dataset[RANGE_ENHANCED_ATTR] = 'true';
+		delete head.dataset.rangeEnhancing;
+		if (!head.isConnected || !schedules.length) return;
 
+		panel.dataset[RANGE_ENHANCED_ATTR] = 'true';
 		const rangeHead = document.createElement('span');
+		rangeHead.className = 'schedule-list-period-head';
 		rangeHead.textContent = language() === 'ko' ? '일정기간' : '予定期間';
 		const contentHead = head.children[1];
 		if (contentHead) head.insertBefore(rangeHead, contentHead);
 
 		rows.forEach((row, index) => {
 			const item = schedules[index];
-			if (!item) return;
+			if (!item || !row.isConnected) return;
 			const period = document.createElement('span');
 			period.className = 'schedule-list-period';
 			period.textContent = periodLabel(item);
