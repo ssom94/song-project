@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "effective_from": "2026-09-01",
+  "purpose": "Generate JLPT N1 and AP daily study from a stable long-term curriculum instead of ad-hoc questions.",
+  "sources_of_truth": {
+    "curriculum": [
+      "data/jlpt/curriculum.json",
+      "data/ap/curriculum.json"
+    ],
+    "daily_history_index": "data/curriculum/daily-index.json",
+    "jlpt_used_words": "data/jlpt/used_words.json",
+    "jlpt_daily_words": "data/jlpt/daily_words/YYYY-MM-DD.json",
+    "jlpt_daily_content": "data/jlpt/daily/YYYY-MM-DD.json",
+    "ap_daily_content": "data/ap/daily/YYYY-MM-DD.json",
+    "runtime_learning_state": "Remote D1: actual progress, wrong answers, review due dates, mastery states"
+  },
+  "daily_generation_priority": [
+    "1. overdue review and unresolved wrong answers",
+    "2. weak topics according to recent accuracy/mastery",
+    "3. new curriculum content due in the current phase",
+    "4. spaced review due today",
+    "5. cumulative weekly/monthly testing",
+    "6. balanced coverage of topics not recently seen"
+  ],
+  "history_rules": {
+    "read_before_generating": [
+      "data/curriculum/daily-index.json",
+      "data/jlpt/used_words.json",
+      "previous daily data files for at least 90 days",
+      "D1 learning state when available"
+    ],
+    "exact_question_reuse_days": 90,
+    "same_concept_variant_min_gap_days": 7,
+    "new_jlpt_word_duplicates_allowed": false,
+    "review_content_may_repeat": true,
+    "repeat_rule": "Repeated content must be explicitly classified as review and should use a changed context or question stem unless memorization itself is the goal."
+  },
+  "adaptation_rules": {
+    "accuracy_below_60": "reduce new content by about 25% next session and increase direct review/wrong-answer work",
+    "accuracy_60_to_79": "keep normal new-content volume and add one focused review block",
+    "accuracy_80_or_above": "keep normal volume and advance to the next planned curriculum topic",
+    "three_consecutive_wrong_same_topic": "mark topic as high priority and require a concept re-teach before more advanced questions",
+    "overdue_review_over_daily_capacity": "review takes priority; new content may be reduced but not silently discarded from the curriculum",
+    "missed_day": "do not double the next day's load; roll overdue review forward and keep the planned new-content backlog visible"
+  },
+  "weekly_cycle": {
+    "days_1_to_6": "normal adaptive daily study",
+    "day_7": "cumulative review/test using content from the previous 7 study days",
+    "weekly_test_should_include": [
+      "recent wrong answers",
+      "weak topics",
+      "representative questions from newly learned content"
+    ]
+  },
+  "monthly_cycle": {
+    "every_completed_study_days": 30,
+    "action": "larger cumulative test plus curriculum coverage audit",
+    "audit": [
+      "coverage by topic",
+      "accuracy by topic",
+      "unresolved wrong answers",
+      "overdue reviews",
+      "topics not seen recently"
+    ]
+  },
+  "daily_output_contract": {
+    "must_create": [
+      "JLPT daily words/content",
+      "AP daily content",
+      "daily-study-migrations/YYYY-MM-DD.sql",
+      "daily-index entry"
+    ],
+    "must_record_in_index": [
+      "date",
+      "curriculum phase",
+      "new concepts/topics",
+      "review topics",
+      "question counts",
+      "JLPT word range/count",
+      "weekly/monthly test flag"
+    ]
+  }
+}
