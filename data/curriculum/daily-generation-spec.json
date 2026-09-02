@@ -1,8 +1,10 @@
 {
-  "version": 2,
-  "effective_from": "2026-09-01",
+  "version": 3,
+  "effective_from": "2026-09-07",
   "purpose": "Canonical executable-style specification for generating the user's daily JLPT N1 and AP study set.",
   "timezone": "Asia/Tokyo",
+  "generation_start_date": "2026-09-07",
+  "prestart_rule": "For dates after the preserved 2026-09-01 history and before 2026-09-07, generate nothing for either JLPT or AP: no daily files, no SQL, no index entry, and no used-word update.",
   "generation_order": [
     "read policy and curricula",
     "read daily-index and recent daily files",

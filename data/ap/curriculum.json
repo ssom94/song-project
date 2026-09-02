@@ -15,7 +15,7 @@
     "review_intervals": [1, 3, 7, 14, 30, 60]
   },
   "prestudy": {
-    "from": "2026-09-01",
+    "from": "2026-09-07",
     "to": "2026-09-30",
     "mode": "concept_first_pass",
     "goal": "Complete one broad pass through AP concept pages before daily question study begins.",

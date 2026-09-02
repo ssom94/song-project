@@ -1,7 +1,13 @@
 {
-  "version": 2,
-  "effective_from": "2026-09-01",
+  "version": 3,
+  "effective_from": "2026-09-07",
   "purpose": "Generate JLPT N1 and AP daily study from a stable long-term curriculum instead of ad-hoc questions.",
+  "generation_gate": {
+    "start_date": "2026-09-07",
+    "applies_to": ["JLPT", "AP"],
+    "before_start": "Do not create new daily study JSON, SQL, daily-index entries, or consume JLPT words before the start date. Reply that daily study starts on 2026-09-07.",
+    "historical_exception": "Keep the already completed 2026-08-31 and 2026-09-01 history entries, but do not generate any additional prestart dates."
+  },
   "sources_of_truth": {
     "generation_spec": "data/curriculum/daily-generation-spec.json",
     "curriculum": [
