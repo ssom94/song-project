@@ -1,6 +1,7 @@
 -- 0065_jlpt_december_2026_february_2027.sql
 -- Prepare JLPT N1 daily study for 2026-12-01 through 2027-02-28.
 -- 20 scheduled words + 15 vocab questions + 2 grammar lessons + 3 grammar questions + 1 reading set/day.
+-- Cost note: option lookup uses indexed self-joins and validation aggregates each target table once.
 
 DROP TABLE IF EXISTS _jlpt_dec_feb_0065;
 CREATE TABLE _jlpt_dec_feb_0065 (
@@ -75,41 +76,41 @@ SELECT x.plan_id,x.study_date,'vocab_question',x.slot_no,
     WHEN 0 THEN json_object(
       'prompt','「'||x.word||'」の読み方として最も適切なものを選びなさい。',
       'options',json_array(COALESCE(x.reading,x.word),
-        COALESCE((SELECT reading FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no)%20)+1),x.word),
-        COALESCE((SELECT reading FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+1)%20)+1),x.word),
-        COALESCE((SELECT reading FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+2)%20)+1),x.word)),
+        COALESCE(y1.reading,x.word),COALESCE(y2.reading,x.word),COALESCE(y3.reading,x.word)),
       'answer',COALESCE(x.reading,x.word),
       'explanation','「'||x.word||'」の読みは「'||COALESCE(x.reading,'—')||'」。意味は「'||x.meaning_ko||'」。')
     WHEN 1 THEN json_object(
       'prompt','「'||COALESCE(x.reading,x.word)||'」と読む語として最も適切なものを選びなさい。',
       'options',json_array(x.word,
-        (SELECT word FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no)%20)+1),
-        (SELECT word FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+1)%20)+1),
-        (SELECT word FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+2)%20)+1)),
+        y1.word,y2.word,y3.word),
       'answer',x.word,'explanation','正しい表記は「'||x.word||'」。')
     WHEN 2 THEN json_object(
       'prompt','次の意味に最も近い語を選びなさい：「'||x.meaning_ko||'」',
       'options',json_array(x.word,
-        (SELECT word FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+3)%20)+1),
-        (SELECT word FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+6)%20)+1),
-        (SELECT word FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+9)%20)+1)),
+        y4.word,y7.word,y10.word),
       'answer',x.word,'explanation','文脈上の意味に対応する語は「'||x.word||'」。')
     WHEN 3 THEN json_object(
       'prompt','「'||x.word||'」の意味として最も近いものを選びなさい。',
       'options',json_array(x.meaning_ko,
-        (SELECT meaning_ko FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+2)%20)+1),
-        (SELECT meaning_ko FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+5)%20)+1),
-        (SELECT meaning_ko FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+8)%20)+1)),
+        y3.meaning_ko,y6.meaning_ko,y9.meaning_ko),
       'answer',x.meaning_ko,'explanation','「'||x.word||'」の意味は「'||x.meaning_ko||'」。')
     ELSE json_object(
       'prompt','「'||x.word||'」について、読みと意味の組合せとして最も適切なものを選びなさい。',
       'options',json_array(COALESCE(x.reading,'—')||' / '||x.meaning_ko,
         COALESCE(x.reading,'—')||' / 다른 의미',
-        COALESCE((SELECT reading FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+1)%20)+1),'—')||' / '||x.meaning_ko,
-        COALESCE((SELECT reading FROM _jlpt_dec_feb_0065 y WHERE y.plan_id=x.plan_id AND y.study_date=x.study_date AND y.slot_no=((x.slot_no+2)%20)+1),'—')||' / 다른 의미'),
+        COALESCE(y2.reading,'—')||' / '||x.meaning_ko,
+        COALESCE(y3.reading,'—')||' / 다른 의미'),
       'answer',COALESCE(x.reading,'—')||' / '||x.meaning_ko,
       'explanation','読みと意味を同時に確認する。') END
 FROM _jlpt_dec_feb_0065 x
+JOIN _jlpt_dec_feb_0065 y1 ON y1.plan_id=x.plan_id AND y1.study_date=x.study_date AND y1.slot_no=((x.slot_no)%20)+1
+JOIN _jlpt_dec_feb_0065 y2 ON y2.plan_id=x.plan_id AND y2.study_date=x.study_date AND y2.slot_no=((x.slot_no+1)%20)+1
+JOIN _jlpt_dec_feb_0065 y3 ON y3.plan_id=x.plan_id AND y3.study_date=x.study_date AND y3.slot_no=((x.slot_no+2)%20)+1
+JOIN _jlpt_dec_feb_0065 y4 ON y4.plan_id=x.plan_id AND y4.study_date=x.study_date AND y4.slot_no=((x.slot_no+3)%20)+1
+JOIN _jlpt_dec_feb_0065 y6 ON y6.plan_id=x.plan_id AND y6.study_date=x.study_date AND y6.slot_no=((x.slot_no+5)%20)+1
+JOIN _jlpt_dec_feb_0065 y7 ON y7.plan_id=x.plan_id AND y7.study_date=x.study_date AND y7.slot_no=((x.slot_no+6)%20)+1
+JOIN _jlpt_dec_feb_0065 y9 ON y9.plan_id=x.plan_id AND y9.study_date=x.study_date AND y9.slot_no=((x.slot_no+8)%20)+1
+JOIN _jlpt_dec_feb_0065 y10 ON y10.plan_id=x.plan_id AND y10.study_date=x.study_date AND y10.slot_no=((x.slot_no+9)%20)+1
 WHERE x.slot_no<=15;
 
 -- Two grammar lessons/day. 60 N1 patterns rotate through the period.
@@ -185,19 +186,53 @@ SELECT plan_id,d,'reading',1,'読解：'||theme||'（'||d||'）',json_object(
    json_object('prompt','本文の内容と合うものはどれか。','options',json_array('導入直後と慣れた後の評価が変わることもある','導入直後の反応だけが最も重要だ','成功例は条件を確認せず一般化できる','根拠を残す必要はない'),'answer','導入直後と慣れた後の評価が変わることもある','explanation','本文に異なる時点の比較が必要だと明記されている。')
  )) FROM r;
 
+DROP TABLE IF EXISTS _jlpt_dec_feb_counts_0065;
+CREATE TABLE _jlpt_dec_feb_counts_0065 (
+  plan_id INTEGER NOT NULL,
+  study_date TEXT NOT NULL,
+  new_words INTEGER NOT NULL,
+  vocab_questions INTEGER NOT NULL,
+  grammar_lessons INTEGER NOT NULL,
+  grammar_questions INTEGER NOT NULL,
+  readings INTEGER NOT NULL,
+  reading_questions INTEGER NOT NULL,
+  PRIMARY KEY(plan_id,study_date)
+);
+
+INSERT INTO _jlpt_dec_feb_counts_0065
+SELECT e.plan_id,e.study_date,
+       COALESCE(w.new_words,0),
+       COALESCE(c.vocab_questions,0),
+       COALESCE(c.grammar_lessons,0),
+       COALESCE(c.grammar_questions,0),
+       COALESCE(c.readings,0),
+       COALESCE(c.reading_questions,0)
+FROM (SELECT DISTINCT plan_id,study_date FROM _jlpt_dec_feb_0065) e
+LEFT JOIN (
+  SELECT s.plan_id,s.study_date,COUNT(*) AS new_words
+  FROM japanese_jlpt_daily_sessions s
+  JOIN japanese_jlpt_daily_words w ON w.session_id=s.id AND w.item_kind='new'
+  WHERE s.study_date BETWEEN '2026-12-01' AND '2027-02-28'
+  GROUP BY s.plan_id,s.study_date
+) w ON w.plan_id=e.plan_id AND w.study_date=e.study_date
+LEFT JOIN (
+  SELECT plan_id,study_date,
+         SUM(content_type='vocab_question') AS vocab_questions,
+         SUM(content_type='grammar') AS grammar_lessons,
+         SUM(content_type='grammar_question') AS grammar_questions,
+         SUM(content_type='reading') AS readings,
+         SUM(CASE WHEN content_type='reading' THEN COALESCE(json_array_length(json_extract(payload_json,'$.questions')),0) ELSE 0 END) AS reading_questions
+  FROM japanese_jlpt_daily_contents
+  WHERE study_date BETWEEN '2026-12-01' AND '2027-02-28'
+  GROUP BY plan_id,study_date
+) c ON c.plan_id=e.plan_id AND c.study_date=e.study_date;
+
 CREATE TABLE _assert_jlpt_dec_feb_0065(ok INTEGER NOT NULL,CONSTRAINT jlpt_dec_feb_daily_complete CHECK(ok=1));
-WITH RECURSIVE days(d) AS (
- SELECT date('2026-12-01') UNION ALL SELECT date(d,'+1 day') FROM days WHERE d<'2027-02-28'
-), plans AS (SELECT id FROM japanese_jlpt_study_plans WHERE plan_code='N1_2027_JUL' AND is_active=1)
 INSERT INTO _assert_jlpt_dec_feb_0065(ok)
-SELECT CASE WHEN NOT EXISTS (
- SELECT 1 FROM days CROSS JOIN plans p
- WHERE (SELECT COUNT(*) FROM japanese_jlpt_daily_words dw JOIN japanese_jlpt_daily_sessions s ON s.id=dw.session_id WHERE s.plan_id=p.id AND s.study_date=days.d AND dw.item_kind='new')<>20
-    OR (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='vocab_question')<>15
-    OR (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='grammar')<>2
-    OR (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='grammar_question')<>3
-    OR (SELECT COUNT(*) FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='reading')<>1
-    OR json_array_length((SELECT json_extract(x.payload_json,'$.questions') FROM japanese_jlpt_daily_contents x WHERE x.plan_id=p.id AND x.study_date=days.d AND x.content_type='reading' LIMIT 1))<>3
-) THEN 1 ELSE 0 END;
+SELECT CASE WHEN COUNT(*)=0 THEN 1 ELSE 0 END
+FROM _jlpt_dec_feb_counts_0065
+WHERE new_words<>20 OR vocab_questions<>15 OR grammar_lessons<>2
+   OR grammar_questions<>3 OR readings<>1 OR reading_questions<>3;
 DROP TABLE _assert_jlpt_dec_feb_0065;
+DROP TABLE _jlpt_dec_feb_counts_0065;
 DROP TABLE _jlpt_dec_feb_0065;
