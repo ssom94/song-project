@@ -261,7 +261,7 @@ async function resolveQuestion(db: D1Database, planId: number, questionKey: stri
 function validatePracticeDate(value: unknown, today: string): string | null {
 	const date = validDateText(value) ?? today;
 	const lower = addDays(today, -365);
-	const upper = addDays(today, 30);
+	const upper = addDays(today, 365);
 	return date >= lower && date <= upper ? date : null;
 }
 

@@ -151,6 +151,9 @@
 	function wordCard(word) {
 		const card = document.createElement('article');
 		card.className = `jlpt-word-card${word.item_status === 'completed' ? ' is-completed' : ''}`;
+		card.dataset.memoryWord = 'true';
+		card.dataset.memoryReading = word.reading || '';
+		card.dataset.memoryMeaningKo = word.meaning_ko || '';
 		const head = document.createElement('div');
 		head.className = 'jlpt-word-head';
 		const title = document.createElement('div');

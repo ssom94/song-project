@@ -280,6 +280,9 @@
 	function visitorWordCard(word) {
 		const card = document.createElement('article');
 		card.className = 'jlpt-word-card';
+		card.dataset.memoryWord = 'true';
+		card.dataset.memoryReading = word.reading || '';
+		card.dataset.memoryMeaningKo = word.meaningKo || '';
 		const head = document.createElement('div');
 		head.className = 'jlpt-word-head';
 		const title = document.createElement('div');
@@ -469,6 +472,9 @@
 			for (const word of words) {
 				const row = document.createElement('div');
 				row.className = 'jlpt-preview-word';
+				row.dataset.memoryWord = 'true';
+				row.dataset.memoryReading = word.reading || '';
+				row.dataset.memoryMeaningKo = word.meaningKo || '';
 				const strong = document.createElement('strong');
 				strong.textContent = word.word || '—';
 				const reading = document.createElement('span');
