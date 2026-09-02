@@ -26,8 +26,9 @@ body.blog-home-page {
 	margin: 7px 0 0;
 	color: #1d2939;
 	font-size: clamp(27px, 4vw, 38px);
+	font-weight: 700;
 	line-height: 1.18;
-	letter-spacing: -0.035em;
+	letter-spacing: -0.025em;
 }
 
 .home-dashboard-heading > div > p:last-child {
