@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_through": "2026-09-02",
+  "updated_through": "2026-09-03",
   "entries": [
     {
       "date": "2026-08-31",
@@ -97,6 +97,47 @@
         "weekly_test": false,
         "monthly_test": false,
         "content_status": "prestudy concept-first-pass generated and verified"
+      }
+    },
+    {
+      "date": "2026-09-03",
+      "jlpt": {
+        "day": 0,
+        "phase": "prestart",
+        "scheduled_start_date": "2026-09-07",
+        "new_words": 0,
+        "word_range": null,
+        "vocab_questions": 0,
+        "grammar_points": [],
+        "reading_passages": 0,
+        "review_topics": [],
+        "weekly_test": false,
+        "monthly_test": false,
+        "content_status": "prestart marker only; reserved 2026-09-07+ curriculum unchanged"
+      },
+      "ap": {
+        "day": 0,
+        "phase": "prestudy",
+        "mode": "concept_first_pass",
+        "concept_topics": [
+          "computer_architecture"
+        ],
+        "concept_title": "コンピュータ構成：CPU・レジスタ・命令実行・性能指標",
+        "concept_subtopics": [
+          "CPUの基本構成",
+          "主要レジスタ",
+          "命令サイクル",
+          "クロック周波数・CPI・CPU実行時間"
+        ],
+        "target_minutes": 30,
+        "subject_a_questions": 0,
+        "subject_a_topics": [],
+        "subject_b_topics": [],
+        "subject_b_scenarios": 0,
+        "review_topics": [],
+        "weekly_test": false,
+        "monthly_test": false,
+        "content_status": "prestudy concept-first-pass generated; recent cache-memory item avoided for anti-repetition"
       }
     }
   ]

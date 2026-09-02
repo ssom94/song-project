@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-03",
+  "level": "N1",
+  "status": "prestart",
+  "scheduled_start_date": "2026-09-07",
+  "phase": "prestart",
+  "review": {
+    "runtime_state_checked": false,
+    "reason": "Remote D1 learning state could not be read before generation because the account was still within the previous day's free-tier row-read exhaustion window. The JLPT restart is configured for 2026-09-07, so no review or new-word workload is advanced today.",
+    "due_words": []
+  },
+  "new_words": [],
+  "vocabulary_questions": [],
+  "grammar": [],
+  "reading": null,
+  "note_ko": "현재 Git 기준 JLPT N1 재시작일은 2026-09-07이므로 9월 3일에도 신규 단어와 문제를 앞당겨 등록하지 않는다. 9월 7일부터 예약된 커리큘럼과 used_words 상태를 그대로 유지한다.",
+  "note_ja": "現在のGit基準ではJLPT N1の再開日は2026-09-07のため、9月3日も新出語彙や問題を前倒し登録しない。9月7日以降の予約済みカリキュラムとused_wordsの状態を維持する。"
+}
