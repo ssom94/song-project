@@ -6,8 +6,10 @@ on:
     paths:
       - 'scripts/jlpt/prepare-production-candidates.mjs'
       - 'scripts/jlpt/enrich-from-krdict.py'
+      - 'scripts/jlpt/build-word-enrichment-drafts.mjs'
       - '.github/workflows/build-jlpt-candidates.yml'
       - 'data/jlpt/production/sources.json'
+      - 'data/jlpt/daily_words/**'
   workflow_dispatch:
 
 permissions:
@@ -50,6 +52,9 @@ jobs:
 
       - name: Reverse-match official Japanese translations to Korean glosses
         run: python3 scripts/jlpt/enrich-from-krdict.py --krdict-dir .cache/korean-dict-nikl/krdict
+
+      - name: Merge source-backed glosses and existing curated examples into review drafts
+        run: node scripts/jlpt/build-word-enrichment-drafts.mjs
 
       - name: Commit generated candidate artifacts
         run: |
