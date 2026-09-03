@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Setup recoverable XML parser
+        run: python3 -m pip install --disable-pip-version-check --quiet 'lxml==6.0.1'
+
       - name: Build deterministic 3,000-word candidate set
         run: node scripts/jlpt/prepare-production-candidates.mjs
 
