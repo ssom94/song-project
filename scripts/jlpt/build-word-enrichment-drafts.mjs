@@ -37,9 +37,9 @@ function legacyRecords() {
     const file = path.join(LEGACY_DIR, name);
     const parsed = readJson(file);
     for (const item of parsed.words ?? []) {
-      const key = identity(item.word, item.reading);
-      if (!byIdentity.has(key)) {
-        byIdentity.set(key, {
+      const id = identity(item.word, item.reading);
+      if (!byIdentity.has(id)) {
+        byIdentity.set(id, {
           ...item,
           source_file: `data/jlpt/daily_words/${name}`,
         });
@@ -50,22 +50,23 @@ function legacyRecords() {
 }
 
 function curatedRecords() {
-  const byKey = new Map();
-  if (!fs.existsSync(CURATION_DIR)) return byKey;
+  const byIdentity = new Map();
+  if (!fs.existsSync(CURATION_DIR)) return byIdentity;
 
   for (const name of fs.readdirSync(CURATION_DIR).filter(v => v.endsWith('.json')).sort()) {
     const file = path.join(CURATION_DIR, name);
     const parsed = readJson(file);
     for (const item of parsed.words ?? []) {
-      if (!item?.key) throw new Error(`Missing key in ${file}`);
-      if (byKey.has(item.key)) throw new Error(`Duplicate curated key ${item.key}`);
-      byKey.set(item.key, {
+      if (!item?.word || !item?.reading) throw new Error(`Missing curated word/reading in ${file}`);
+      const id = identity(item.word, item.reading);
+      if (byIdentity.has(id)) throw new Error(`Duplicate curated identity ${item.word}/${item.reading}`);
+      byIdentity.set(id, {
         ...item,
         source_file: `data/jlpt/production/curation/words/${name}`,
       });
     }
   }
-  return byKey;
+  return byIdentity;
 }
 
 function splitMeaning(value) {
@@ -83,11 +84,13 @@ const curated = curatedRecords();
 const krdictMatches = krdictDoc.matches ?? {};
 
 const records = [];
+const matchedCuratedIdentities = new Set();
 const report = {
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
   candidateCount: candidateDoc.candidates?.length ?? 0,
   curatedOverrides: 0,
+  curatedKeyDrift: 0,
   legacyExactMatches: 0,
   krdictExactMatches: 0,
   sourceBackedKoreanGlosses: 0,
@@ -96,19 +99,19 @@ const report = {
   needsExamples: 0,
   needsKoreanGloss: 0,
   unresolvedKeys: [],
-  note: 'Draft artifacts only. Curated overrides are manually reviewed, but the complete 3,000-word set must still pass semantic/example review and production validation before promotion.',
+  note: 'Draft artifacts only. Curated overrides are joined by normalized word+reading identity so candidate reranking cannot attach review data to the wrong lexeme. The complete set must still pass production validation before promotion.',
 };
 
 for (const candidate of candidateDoc.candidates ?? []) {
-  const legacyItem = legacy.get(identity(candidate.word, candidate.reading));
-  const curatedItem = curated.get(candidate.key) ?? null;
+  const candidateIdentity = identity(candidate.word, candidate.reading);
+  const legacyItem = legacy.get(candidateIdentity);
+  const curatedItem = curated.get(candidateIdentity) ?? null;
   const kr = krdictMatches[candidate.key] ?? null;
 
   if (curatedItem) {
-    if (identity(curatedItem.word, curatedItem.reading) !== identity(candidate.word, candidate.reading)) {
-      throw new Error(`Curated identity mismatch for ${candidate.key}: ${curatedItem.word}/${curatedItem.reading} != ${candidate.word}/${candidate.reading}`);
-    }
+    matchedCuratedIdentities.add(candidateIdentity);
     report.curatedOverrides += 1;
+    if (curatedItem.key && curatedItem.key !== candidate.key) report.curatedKeyDrift += 1;
   }
   if (legacyItem) report.legacyExactMatches += 1;
   if (kr) report.krdictExactMatches += 1;
@@ -154,6 +157,7 @@ for (const candidate of candidateDoc.candidates ?? []) {
       jmdict_seq: candidate.jmdict_seq,
       meaning_en: candidate.meaning_en,
       curated_file: curatedItem?.source_file ?? null,
+      curated_original_key: curatedItem?.key ?? null,
       legacy_curated_file: legacyItem?.source_file ?? null,
       krdict: kr ? {
         score: kr.score,
@@ -167,9 +171,9 @@ for (const candidate of candidateDoc.candidates ?? []) {
   });
 }
 
-for (const key of curated.keys()) {
-  if (!records.some(item => item.key === key)) {
-    throw new Error(`Curated key not present in current candidate corpus: ${key}`);
+for (const [id, item] of curated.entries()) {
+  if (!matchedCuratedIdentities.has(id)) {
+    throw new Error(`Curated identity not present in current candidate corpus: ${item.word}/${item.reading} (${item.source_file})`);
   }
 }
 
@@ -193,6 +197,7 @@ fs.writeFileSync(REPORT_FILE, `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify({
   candidateCount: report.candidateCount,
   curatedOverrides: report.curatedOverrides,
+  curatedKeyDrift: report.curatedKeyDrift,
   legacyExactMatches: report.legacyExactMatches,
   krdictExactMatches: report.krdictExactMatches,
   sourceBackedKoreanGlosses: report.sourceBackedKoreanGlosses,
