@@ -13,6 +13,14 @@
 
 PRAGMA foreign_keys = ON;
 
+-- Production rebuild resolves up to 3,000 canonical word+reading identities. The
+-- original schema only had separate word and reading indexes, which can make that
+-- mapping needlessly expensive on D1. Keep active dictionary identity lookups
+-- index-driven without changing the table's deliberate non-UNIQUE semantics.
+CREATE INDEX IF NOT EXISTS idx_japanese_words_word_reading_active
+ON japanese_words(word, reading)
+WHERE deleted_at IS NULL;
+
 -- Remove eager cumulative propagation into every future session.
 DROP TRIGGER IF EXISTS trg_jlpt_cumulative_after_daily_word;
 DROP TRIGGER IF EXISTS trg_jlpt_cumulative_after_stats_insert;
