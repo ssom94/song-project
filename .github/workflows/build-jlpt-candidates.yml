@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: build-jlpt-n1-candidates
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
