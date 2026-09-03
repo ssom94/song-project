@@ -1,0 +1,314 @@
+#!/usr/bin/env python3
+"""Build authoritative Korean gloss overrides for selected JLPT words.
+
+Input 1: data/jlpt/production/candidates/n1-source-3000.json
+Input 2: an unpacked spellcheck-ko/korean-dict-nikl/krdict directory
+Output : data/jlpt/production/candidates/krdict-n1-matches.json
+
+The Korean Learners' Dictionary is distributed by the National Institute of Korean
+Language under CC BY-SA 2.0 KR. Its Japanese translation fields let us reverse-map
+Japanese headwords to concise Korean dictionary headwords/definitions without using
+proprietary dictionary dumps or treating generic machine translation as authority.
+
+The official downloadable XML has changed structure over time, so the parser is
+intentionally feature-driven: it understands both simple trans_* element names and
+LMF-style <feat att="..." val="..."> nodes and preserves only high-confidence exact
+surface/reading matches.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import unicodedata
+from collections import defaultdict
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+
+def norm(value: object) -> str:
+    return unicodedata.normalize("NFKC", str(value or "")).strip()
+
+
+def local(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1].lower()
+
+
+def direct_features(node: ET.Element) -> dict[str, list[str]]:
+    values: dict[str, list[str]] = defaultdict(list)
+    for child in list(node):
+        if local(child.tag) != "feat":
+            continue
+        att = norm(child.attrib.get("att") or child.attrib.get("name")).lower()
+        val = norm(child.attrib.get("val") or child.attrib.get("value") or child.text)
+        if att and val:
+            values[att].append(val)
+    return values
+
+
+def text_by_name(node: ET.Element, names: set[str]) -> list[str]:
+    found: list[str] = []
+    for child in node.iter():
+        if local(child.tag) in names:
+            value = norm(child.text)
+            if value:
+                found.append(value)
+    return found
+
+
+def all_feature_values(node: ET.Element) -> dict[str, list[str]]:
+    values: dict[str, list[str]] = defaultdict(list)
+    for child in node.iter():
+        if local(child.tag) != "feat":
+            continue
+        att = norm(child.attrib.get("att") or child.attrib.get("name")).lower()
+        val = norm(child.attrib.get("val") or child.attrib.get("value") or child.text)
+        if att and val:
+            values[att].append(val)
+    return values
+
+
+def first(values: dict[str, list[str]], *keys: str) -> str:
+    for key in keys:
+        for value in values.get(key.lower(), []):
+            if norm(value):
+                return norm(value)
+    return ""
+
+
+def korean_headword(entry: ET.Element) -> str:
+    # Simple export form.
+    simple = text_by_name(entry, {"word", "lemma", "headword"})
+    for value in simple:
+        if re.search(r"[가-힣]", value):
+            return value
+
+    # LMF form: prefer the Lemma subtree over every feature in the entry.
+    for node in entry.iter():
+        if local(node.tag) == "lemma":
+            features = all_feature_values(node)
+            value = first(features, "writtenform", "lemma", "word", "lexicalunit")
+            if re.search(r"[가-힣]", value):
+                return value
+
+    features = all_feature_values(entry)
+    for key in ("writtenform", "lexicalunit", "lemma", "word"):
+        for value in features.get(key, []):
+            if re.search(r"[가-힣]", value):
+                return norm(value)
+    return ""
+
+
+def korean_definition(sense: ET.Element) -> str:
+    simple = text_by_name(sense, {"definition"})
+    for value in simple:
+        if re.search(r"[가-힣]", value):
+            return value
+    features = all_feature_values(sense)
+    for key in ("definition", "definitiontext", "definition_text"):
+        for value in features.get(key, []):
+            if re.search(r"[가-힣]", value):
+                return norm(value)
+    return ""
+
+
+def is_japanese_language(value: str) -> bool:
+    v = norm(value).lower()
+    return v in {"일본어", "日本語", "japanese", "ja", "jpn"} or "일본" in v
+
+
+def translation_nodes(sense: ET.Element):
+    # First handle simple API-like/download structures.
+    for node in sense.iter():
+        lname = local(node.tag)
+        if lname in {"translation", "equivalent", "equivalentform", "senseexample"}:
+            yield node
+
+
+def extract_japanese_translations(sense: ET.Element) -> list[tuple[str, str]]:
+    results: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+
+    # Simple <translation><trans_lang>일본어...</translation>.
+    for node in translation_nodes(sense):
+        langs = text_by_name(node, {"trans_lang", "language", "lang"})
+        features = all_feature_values(node)
+        langs.extend(sum((features.get(k, []) for k in ("language", "lang", "languageidentifier", "language_identifier")), []))
+        if langs and not any(is_japanese_language(x) for x in langs):
+            continue
+        words = text_by_name(node, {"trans_word", "translation", "equivalent", "lemma", "writtenform"})
+        defs = text_by_name(node, {"trans_dfn", "translateddefinition", "definition"})
+        for key in ("writtenform", "lemma", "translation", "equivalent", "trans_word"):
+            words.extend(features.get(key, []))
+        for key in ("definition", "translateddefinition", "trans_dfn"):
+            defs.extend(features.get(key, []))
+        if langs or words:
+            for word in words:
+                if re.search(r"[ぁ-んァ-ヶ一-龯々〆ヶ]", word):
+                    pair = (norm(word), norm(defs[0] if defs else ""))
+                    if pair not in seen:
+                        seen.add(pair)
+                        results.append(pair)
+
+    # Some LMF exports place language and written form in a shared nested subtree
+    # whose tag name is not one of the conventional names above. Inspect any node
+    # with a direct language feature and collect its own feature values only.
+    for node in sense.iter():
+        features = direct_features(node)
+        lang_values = []
+        for key in ("language", "lang", "languageidentifier", "language_identifier"):
+            lang_values.extend(features.get(key, []))
+        if not lang_values or not any(is_japanese_language(x) for x in lang_values):
+            continue
+        words: list[str] = []
+        defs: list[str] = []
+        for key in ("writtenform", "lemma", "translation", "equivalent", "trans_word"):
+            words.extend(features.get(key, []))
+        for key in ("definition", "translateddefinition", "trans_dfn"):
+            defs.extend(features.get(key, []))
+        for word in words:
+            if re.search(r"[ぁ-んァ-ヶ一-龯々〆ヶ]", word):
+                pair = (norm(word), norm(defs[0] if defs else ""))
+                if pair not in seen:
+                    seen.add(pair)
+                    results.append(pair)
+    return results
+
+
+BRACKET_CONTENT = re.compile(r"[〖【\[（(]([^〖〗【】\[\]（）()]+)[〗】\]）)]")
+JP_TOKEN = re.compile(r"[一-龯々〆ヶぁ-んァ-ヶー]+")
+
+
+def japanese_tokens(text: str) -> set[str]:
+    value = norm(text)
+    tokens = {norm(x) for x in JP_TOKEN.findall(value) if norm(x)}
+    for inner in BRACKET_CONTENT.findall(value):
+        tokens.update(norm(x) for x in re.split(r"[・･,，/／;；\s]+", inner) if norm(x))
+    return tokens
+
+
+def candidate_match(candidate: dict, translated_word: str) -> tuple[bool, int, list[str]]:
+    surface = norm(candidate.get("word"))
+    reading = norm(candidate.get("reading"))
+    tokens = japanese_tokens(translated_word)
+    reasons: list[str] = []
+    score = 0
+    if surface and surface in tokens:
+        score += 3
+        reasons.append("surface_exact")
+    if reading and reading in tokens:
+        score += 2
+        reasons.append("reading_exact")
+    # Kana-only dictionary forms often carry just one visible token.
+    if surface == reading and surface in tokens:
+        score += 1
+        reasons.append("kana_identity")
+    # Require exact surface evidence. Reading is a confidence booster, not a hard
+    # requirement because many KRDICT Japanese translations show kanji without an
+    # explicit reading for common forms.
+    return score >= 3, score, reasons
+
+
+def iter_lexical_entries(xml_file: Path):
+    context = ET.iterparse(xml_file, events=("end",))
+    for _, elem in context:
+        if local(elem.tag) in {"lexicalentry", "item", "entry"}:
+            yield elem
+            elem.clear()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--krdict-dir", required=True, type=Path)
+    parser.add_argument("--candidates", default="data/jlpt/production/candidates/n1-source-3000.json", type=Path)
+    parser.add_argument("--output", default="data/jlpt/production/candidates/krdict-n1-matches.json", type=Path)
+    args = parser.parse_args()
+
+    document = json.loads(args.candidates.read_text(encoding="utf-8"))
+    candidates = document.get("candidates", [])
+    by_surface: dict[str, list[dict]] = defaultdict(list)
+    for candidate in candidates:
+        by_surface[norm(candidate.get("word"))].append(candidate)
+
+    matches: dict[str, list[dict]] = defaultdict(list)
+    files = sorted(args.krdict_dir.glob("*.xml"))
+    if not files:
+        raise SystemExit(f"No KRDICT XML files found under {args.krdict_dir}")
+
+    entry_count = 0
+    jp_translation_count = 0
+    for xml_file in files:
+        print(f"KRDICT: {xml_file.name}", flush=True)
+        for entry in iter_lexical_entries(xml_file):
+            entry_count += 1
+            ko_word = korean_headword(entry)
+            if not ko_word:
+                continue
+            senses = [node for node in entry.iter() if local(node.tag) == "sense"]
+            if not senses:
+                senses = [entry]
+            for sense in senses:
+                ko_definition = korean_definition(sense)
+                for ja_word, ja_definition in extract_japanese_translations(sense):
+                    jp_translation_count += 1
+                    tokens = japanese_tokens(ja_word)
+                    candidate_pool: list[dict] = []
+                    for token in tokens:
+                        candidate_pool.extend(by_surface.get(token, []))
+                    if not candidate_pool:
+                        continue
+                    seen_keys: set[str] = set()
+                    for candidate in candidate_pool:
+                        key = candidate["key"]
+                        if key in seen_keys:
+                            continue
+                        seen_keys.add(key)
+                        ok, score, reasons = candidate_match(candidate, ja_word)
+                        if not ok:
+                            continue
+                        matches[key].append({
+                            "score": score,
+                            "reasons": reasons,
+                            "meaning_ko": ko_word,
+                            "definition_ko": ko_definition,
+                            "meaning_ja_source": ja_word,
+                            "definition_ja": ja_definition,
+                            "source_file": xml_file.name,
+                        })
+
+    best: dict[str, dict] = {}
+    ambiguous: dict[str, list[dict]] = {}
+    for key, values in matches.items():
+        # Deterministic: strongest exact evidence first, then prefer concise Korean
+        # headwords and a nonempty Japanese definition.
+        values.sort(key=lambda x: (-x["score"], len(x["meaning_ko"]), 0 if x["definition_ja"] else 1, x["meaning_ko"], x["source_file"]))
+        top_score = values[0]["score"]
+        top = [v for v in values if v["score"] == top_score]
+        # Keep all alternatives for QA, but choose only when the top Korean headword
+        # is unique. Homographs therefore remain unresolved instead of being guessed.
+        top_meanings = sorted({v["meaning_ko"] for v in top})
+        if len(top_meanings) == 1:
+            best[key] = top[0]
+        else:
+            ambiguous[key] = top[:20]
+
+    payload = {
+        "schemaVersion": 1,
+        "source": "National Institute of Korean Language Korean Learners' Dictionary (CC BY-SA 2.0 KR)",
+        "candidateCount": len(candidates),
+        "xmlFiles": len(files),
+        "lexicalEntriesScanned": entry_count,
+        "japaneseTranslationsScanned": jp_translation_count,
+        "matchedUnique": len(best),
+        "ambiguous": len(ambiguous),
+        "unmatched": len(candidates) - len(best),
+        "matches": best,
+        "ambiguousMatches": ambiguous,
+    }
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({k: payload[k] for k in ("candidateCount", "matchedUnique", "ambiguous", "unmatched")}, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()
