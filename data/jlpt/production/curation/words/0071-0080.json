@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "range": "0071-0080",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Over-merged Korean senses are narrowed to the actual Japanese headword and common JLPT-relevant usage.",
+  "words": [
+    {"key":"n1-0071","word":"体験","reading":"たいけん","meaning_ko":"체험; 직접 경험","meaning_ja":"自分自身が実際に行ったり経験したりすること。また、その経験。","part_of_speech":"サ変名詞","example_ja":"留学中に現地の家庭で生活した体験は、価値観を見直すきっかけになった。","example_ko":"유학 중 현지 가정에서 생활한 체험은 가치관을 다시 생각하는 계기가 되었다。"},
+    {"key":"n1-0072","word":"行政","reading":"ぎょうせい","meaning_ko":"행정","meaning_ja":"国や地方公共団体が法律に基づいて行う公的な事務や政策の執行。","part_of_speech":"普通名詞","example_ja":"人口減少に対応するには、複数の自治体が行政の枠を越えて協力する必要がある。","example_ko":"인구 감소에 대응하려면 여러 지자체가 행정의 틀을 넘어 협력할 필요가 있다。"},
+    {"key":"n1-0073","word":"多様","reading":"たよう","meaning_ko":"다양함; 여러 가지임","meaning_ja":"種類や性質などがさまざまで、一つに限られないこと。","part_of_speech":"名詞・な形容詞","example_ja":"多様な働き方を認める制度が整い、社員が勤務時間を選びやすくなった。","example_ko":"다양한 근무 방식을 인정하는 제도가 마련되어 직원들이 근무 시간을 선택하기 쉬워졌다。"},
+    {"key":"n1-0074","word":"上昇","reading":"じょうしょう","meaning_ko":"상승; 오름","meaning_ja":"位置・数値・程度などが上がること。","part_of_speech":"サ変名詞","example_ja":"原材料価格の上昇が続けば、製品価格の見直しも避けられない。","example_ko":"원재료 가격 상승이 계속되면 제품 가격 조정도 피하기 어렵다。"},
+    {"key":"n1-0075","word":"廃止","reading":"はいし","meaning_ko":"폐지","meaning_ja":"それまで行われていた制度・規則・事業などをやめてなくすこと。","part_of_speech":"サ変名詞","example_ja":"利用者の減少を理由に、その路線は来年度で廃止されることになった。","example_ko":"이용자 감소를 이유로 그 노선은 다음 연도에 폐지되기로 했다。"},
+    {"key":"n1-0076","word":"説得","reading":"せっとく","meaning_ko":"설득","meaning_ja":"理由や事情を説明して、相手を納得させること。","part_of_speech":"サ変名詞","example_ja":"計画の必要性を数字で示したことで、反対していた役員を説得できた。","example_ko":"계획의 필요성을 수치로 제시함으로써 반대하던 임원을 설득할 수 있었다。"},
+    {"key":"n1-0077","word":"指示","reading":"しじ","meaning_ko":"지시; 지시 사항","meaning_ja":"何をどのようにするかを示して命じること。また、その内容。","part_of_speech":"サ変名詞","example_ja":"責任者の指示があるまでは、現場の設備に触れないでください。","example_ko":"책임자의 지시가 있을 때까지 현장 설비에 손대지 마십시오。"},
+    {"key":"n1-0078","word":"配置","reading":"はいち","meaning_ko":"배치; 배치 상태","meaning_ja":"人や物を、それぞれの役割や目的に合う位置へ割り当てて置くこと。","part_of_speech":"サ変名詞","example_ja":"来場者の安全を確保するため、入口ごとに警備員を配置した。","example_ko":"방문객의 안전을 확보하기 위해 입구마다 경비원을 배치했다。"},
+    {"key":"n1-0079","word":"勢力","reading":"せいりょく","meaning_ko":"세력; 영향력","meaning_ja":"社会や集団の中で他に影響を及ぼす力。また、その力を持つ集団。","part_of_speech":"普通名詞","example_ja":"新しい政党が地方で勢力を伸ばし、選挙の行方が読みにくくなった。","example_ko":"새 정당이 지방에서 세력을 넓히면서 선거 결과를 예측하기 어려워졌다。"},
+    {"key":"n1-0080","word":"運命","reading":"うんめい","meaning_ko":"운명; 운명적인 결과","meaning_ja":"人の意思を超えて将来の成り行きを決めると考えられる力、またはその成り行き。","part_of_speech":"普通名詞","example_ja":"偶然の出会いがその後の人生を大きく変え、本人はそれを運命だと感じた。","example_ko":"우연한 만남이 이후의 인생을 크게 바꾸었고 본인은 그것을 운명이라고 느꼈다。"}
+  ]
+}
