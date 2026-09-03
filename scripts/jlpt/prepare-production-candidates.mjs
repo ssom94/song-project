@@ -12,6 +12,7 @@ const URLS = {
   web: `${SOURCE_BASE}/data/enrichment/frequency-web.json`,
   wikipedia: `${SOURCE_BASE}/data/enrichment/frequency-wikipedia.json`,
 };
+const DISALLOWED_READING_TAGS = new Set(['ok', 'rk', 'sk']);
 
 async function fetchJson(url) {
   const response = await fetch(url, {
@@ -31,8 +32,6 @@ function pairKey(text, reading = '') {
 
 function validJapaneseHeadword(text) {
   if (!text || text.length > 40) return false;
-  // Keep kana/kanji/Latin loanword notation and common Japanese punctuation. Reject
-  // control chars and obvious source corruption, not legitimate katakana/ASCII terms.
   if (/[\u0000-\u001f\u007f]/u.test(text)) return false;
   return /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}々〆ヶー]/u.test(text);
 }
@@ -81,23 +80,21 @@ function lookupRank(map, text, reading) {
 }
 
 function primaryWordEvidence(wordEntry, text, reading) {
-  if (!wordEntry) return { common: false, posTags: [], canonicalMatch: false };
+  if (!wordEntry) return { common: false, posTags: [], canonicalMatch: false, readingTags: [] };
   const kanji = wordEntry.kanji ?? [];
   const kana = wordEntry.kana ?? [];
-  const writingMatch = kanji.some((x) => normalize(x.text) === text) ||
-    kana.some((x) => normalize(x.text) === text);
-  const readingMatch = kana.some((x) => normalize(x.text) === reading);
-  const common = kanji.some((x) => normalize(x.text) === text && x.common) ||
-    kana.some((x) => normalize(x.text) === reading && x.common);
+  const matchingKana = kana.find((x) => normalize(x.text) === reading) ?? null;
+  const writingMatch = kanji.some((x) => normalize(x.text) === text) || kana.some((x) => normalize(x.text) === text);
+  const appliesToKanji = matchingKana?.appliesToKanji ?? ['*'];
+  const readingApplies = !kanji.some((x) => normalize(x.text) === text) || appliesToKanji.includes('*') || appliesToKanji.some((x) => normalize(x) === text);
+  const canonicalMatch = Boolean(writingMatch && matchingKana && readingApplies);
+  const common = kanji.some((x) => normalize(x.text) === text && x.common) || Boolean(matchingKana?.common);
   const posTags = [...new Set((wordEntry.sense ?? []).flatMap((sense) => sense.partOfSpeech ?? []))];
-  return { common, posTags, canonicalMatch: writingMatch && readingMatch };
+  const readingTags = [...new Set(matchingKana?.tags ?? [])];
+  return { common, posTags, canonicalMatch, readingTags };
 }
 
 function qualityScore(candidate) {
-  // Lower is better. Strongly prefer a canonical JMdict writing+reading match and a
-  // common-subset hit, then combine several independent frequency corpora. Missing
-  // frequency evidence receives a finite penalty so rare but legitimate N1 words
-  // remain eligible for the 3,000-word target.
   let score = 0;
   if (!candidate.jmdictCanonicalMatch) score += 1_000_000;
   if (!candidate.jmdictCommon) score += 150_000;
@@ -147,6 +144,16 @@ for (const entry of rawN1) {
   }
 
   const evidence = primaryWordEvidence(wordsById.get(id), word, reading);
+  const disallowedReadingTag = evidence.readingTags.find((tag) => DISALLOWED_READING_TAGS.has(tag));
+  if (disallowedReadingTag) {
+    rejected.push({ word, reading, jmdict_seq: id, reading_tags: evidence.readingTags, reason: `disallowed_reading_tag_${disallowedReadingTag}` });
+    continue;
+  }
+  if (!evidence.canonicalMatch) {
+    rejected.push({ word, reading, jmdict_seq: id, reading_tags: evidence.readingTags, reason: 'noncanonical_word_reading_pair' });
+    continue;
+  }
+
   const candidate = {
     word,
     reading,
@@ -154,6 +161,7 @@ for (const entry of rawN1) {
     jmdict_seq: id,
     part_of_speech: posCategory(evidence.posTags),
     pos_tags: evidence.posTags,
+    reading_tags: evidence.readingTags,
     jmdict_common: evidence.common,
     jmdict_canonical_match: evidence.canonicalMatch,
     frequency: Object.fromEntries(Object.entries(freqMaps).map(([name, map]) => [name, lookupRank(map, word, reading)])),
@@ -202,7 +210,7 @@ await fs.writeFile(path.join(OUT_DIR, 'n1-source-3000.json'), JSON.stringify({
   generatedAt: new Date().toISOString(),
   target: 3000,
   sourceCandidateCount: rawN1.length,
-  selectionRule: 'valid unique Waller N1 candidates; prefer canonical/common JMdict matches and multi-corpus frequency evidence',
+  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only reading variants; prefer common JMdict matches and multi-corpus frequency evidence',
   candidates: selected,
 }, null, 2) + '\n');
 
@@ -219,6 +227,7 @@ await fs.writeFile(path.join(OUT_DIR, 'selection-report.json'), JSON.stringify({
   selectedQuality: {
     canonicalJmdictMatches: selected.filter((x) => x.jmdict_canonical_match).length,
     commonJmdictEntries: selected.filter((x) => x.jmdict_common).length,
+    disallowedReadingVariants: selected.filter((x) => (x.reading_tags ?? []).some((tag) => DISALLOWED_READING_TAGS.has(tag))).length,
     withCorpusFrequency: selected.filter((x) => x.frequency.corpus != null).length,
     withSubtitleFrequency: selected.filter((x) => x.frequency.subtitles != null).length,
     withWebFrequency: selected.filter((x) => x.frequency.web != null).length,
