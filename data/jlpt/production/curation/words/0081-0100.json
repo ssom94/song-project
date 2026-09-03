@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0081-0100",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Over-merged Korean senses are narrowed to the actual Japanese headword and common JLPT-relevant usage. Entries without a KRDICT exact match are manually reconciled against the JMdict candidate identity.",
+  "words": [
+    {"key":"n1-0081","word":"名誉","reading":"めいよ","meaning_ko":"명예; 영예","meaning_ja":"社会から高く評価され、尊敬や信用を受けること。また、その評価や栄誉。","part_of_speech":"名詞・な形容詞","example_ja":"長年の研究成果が認められ、名誉ある賞を受けることになった。","example_ko":"오랜 연구 성과를 인정받아 영예로운 상을 받게 되었다."},
+    {"key":"n1-0082","word":"日々","reading":"ひび","meaning_ko":"나날; 매일매일","meaning_ja":"一日一日。毎日の暮らしや、その積み重なり。","part_of_speech":"普通名詞・副詞的用法","example_ja":"技術は日々進歩しているため、継続して学ぶ姿勢が欠かせない。","example_ko":"기술은 나날이 발전하고 있기 때문에 계속 배우는 자세가 필수적이다."},
+    {"key":"n1-0083","word":"設立","reading":"せつりつ","meaning_ko":"설립","meaning_ja":"会社・団体・機関などを新しく組織して作ること。","part_of_speech":"サ変名詞","example_ja":"地域の文化を守ることを目的に、新しい財団が設立された。","example_ko":"지역 문화를 지키는 것을 목적으로 새로운 재단이 설립되었다."},
+    {"key":"n1-0084","word":"非難","reading":"ひなん","meaning_ko":"비난","meaning_ja":"人の行為や欠点などを取り上げ、悪いとして責めること。","part_of_speech":"サ変名詞","example_ja":"十分な説明をしないまま計画を変更したとして、会社は利用者から非難を受けた。","example_ko":"충분한 설명 없이 계획을 변경했다는 이유로 회사는 이용자들의 비난을 받았다."},
+    {"key":"n1-0085","word":"同士","reading":"どうし","meaning_ko":"서로 같은 부류끼리; ~끼리","meaning_ja":"同じ立場・性質・関係などを持つ者どうしであることを表す語。","part_of_speech":"接尾語的名詞","example_ja":"同じ業界の企業同士が協力し、共通の安全基準を作った。","example_ko":"같은 업계의 기업끼리 협력해 공통 안전 기준을 만들었다."},
+    {"key":"n1-0086","word":"記述","reading":"きじゅつ","meaning_ko":"기술; 서술","meaning_ja":"事実や内容を文章として書き表すこと。また、その文章。","part_of_speech":"サ変名詞","example_ja":"報告書には、実験の手順と結果を客観的に記述する必要がある。","example_ko":"보고서에는 실험 절차와 결과를 객관적으로 서술할 필요가 있다."},
+    {"key":"n1-0087","word":"報道","reading":"ほうどう","meaning_ko":"보도","meaning_ja":"新聞・テレビ・インターネットなどを通じて、社会の出来事を広く伝えること。","part_of_speech":"サ変名詞","example_ja":"事故の原因については情報が錯綜しており、報道各社も慎重に伝えている。","example_ko":"사고 원인에 대해서는 정보가 엇갈리고 있어 각 언론사도 신중하게 보도하고 있다."},
+    {"key":"n1-0088","word":"緊急","reading":"きんきゅう","meaning_ko":"긴급","meaning_ja":"事態が重大で、すぐに対応する必要があること。","part_of_speech":"名詞・な形容詞","example_ja":"システム障害が発生したため、担当者を集めて緊急の対策会議を開いた。","example_ko":"시스템 장애가 발생해 담당자를 모아 긴급 대책 회의를 열었다."},
+    {"key":"n1-0089","word":"要請","reading":"ようせい","meaning_ko":"요청; 요구","meaning_ja":"必要なこととして、相手に実現や対応を強く求めること。","part_of_speech":"サ変名詞","example_ja":"自治体は大雪に備え、不要不急の外出を控えるよう住民に要請した。","example_ko":"지자체는 폭설에 대비해 불필요한 외출을 자제해 달라고 주민들에게 요청했다."},
+    {"key":"n1-0090","word":"一言","reading":"いちげん","meaning_ko":"한마디; 한마디 말","meaning_ja":"一つの言葉、または短い発言。『いちごん』『ひとこと』とも読むが、この項目では『いちげん』の読みを扱う。","part_of_speech":"普通名詞","example_ja":"会議の最後に、責任者として一言申し上げたい。","example_ko":"회의 마지막에 책임자로서 한마디 말씀드리고 싶다."},
+    {"key":"n1-0091","word":"進行","reading":"しんこう","meaning_ko":"진행; 진척","meaning_ja":"物事が前へ進むこと。また、予定や手順に沿って物事を進めること。","part_of_speech":"サ変名詞","example_ja":"工事の進行が予定より遅れているため、工程を見直すことになった。","example_ko":"공사 진행이 예정보다 늦어져 공정을 재검토하게 되었다."},
+    {"key":"n1-0092","word":"素敵","reading":"すてき","meaning_ko":"멋지다; 훌륭하다; 근사하다","meaning_ja":"心を引かれるほど魅力的で、すばらしいさま。","part_of_speech":"な形容詞","example_ja":"古い建物を生かした素敵な図書館で、地域の人々にも親しまれている。","example_ko":"오래된 건물을 살린 멋진 도서관으로 지역 주민들에게도 사랑받고 있다."},
+    {"key":"n1-0093","word":"株式","reading":"かぶしき","meaning_ko":"주식","meaning_ja":"株式会社における社員としての地位を細分化した単位。また、それを表す権利。","part_of_speech":"普通名詞","example_ja":"市場の動向を見ながら、保有する株式の一部を売却した。","example_ko":"시장 동향을 보면서 보유 주식의 일부를 매각했다."},
+    {"key":"n1-0094","word":"映像","reading":"えいぞう","meaning_ko":"영상; 화면에 비친 상","meaning_ja":"映画・テレビ・カメラなどによって画面に映し出される像や、その記録。","part_of_speech":"普通名詞","example_ja":"防犯カメラの映像を確認したところ、不審な人物が建物に入る様子が記録されていた。","example_ko":"방범카메라 영상을 확인하자 수상한 인물이 건물에 들어가는 모습이 기록되어 있었다."},
+    {"key":"n1-0095","word":"処分","reading":"しょぶん","meaning_ko":"처분; 처리; 징계 처분","meaning_ja":"不要な物を捨てたり売ったりして片付けること。また、規則違反などに対して罰や措置を決定すること。","part_of_speech":"サ変名詞","example_ja":"保存期限を過ぎた書類は、規定に従って適切に処分しなければならない。","example_ko":"보존 기한이 지난 서류는 규정에 따라 적절히 처분해야 한다."},
+    {"key":"n1-0096","word":"部下","reading":"ぶか","meaning_ko":"부하; 하급 직원","meaning_ja":"職場などで、自分より下の地位にあり、自分の指示を受けて働く人。","part_of_speech":"普通名詞","example_ja":"上司には、部下が相談しやすい環境を整える責任もある。","example_ko":"상사에게는 부하 직원이 상담하기 쉬운 환경을 마련할 책임도 있다."},
+    {"key":"n1-0097","word":"地獄","reading":"じごく","meaning_ko":"지옥; 극도로 괴로운 상태","meaning_ja":"宗教上、罪を犯した者が死後に罰を受けるとされる世界。転じて、非常に苦しく悲惨な状態。","part_of_speech":"普通名詞","example_ja":"真夏の停電で冷房が止まり、満員の室内は地獄のような暑さだった。","example_ko":"한여름 정전으로 냉방이 멈춰 사람들로 가득 찬 실내는 지옥 같은 더위였다."},
+    {"key":"n1-0098","word":"協会","reading":"きょうかい","meaning_ko":"협회","meaning_ja":"共通の目的や事業のために、関係者が組織する団体。","part_of_speech":"普通名詞","example_ja":"業界の協会が新しいガイドラインを公表し、加盟企業に対応を求めた。","example_ko":"업계 협회가 새로운 가이드라인을 발표하고 회원 기업에 대응을 요구했다."},
+    {"key":"n1-0099","word":"資格","reading":"しかく","meaning_ko":"자격; 자격 요건","meaning_ja":"ある立場・仕事・行為などに必要とされる条件や能力。また、それを満たしている身分。","part_of_speech":"普通名詞","example_ja":"この業務を担当するには、法律で定められた資格を取得している必要がある。","example_ko":"이 업무를 담당하려면 법률로 정해진 자격을 취득해야 한다."},
+    {"key":"n1-0100","word":"形成","reading":"けいせい","meaning_ko":"형성; 만들어짐","meaning_ja":"ある形・状態・関係などを作り上げること。また、次第に作られること。","part_of_speech":"サ変名詞","example_ja":"信頼関係の形成には、日々の小さな約束を守ることが重要だ。","example_ko":"신뢰 관계 형성에는 매일 작은 약속을 지키는 것이 중요하다."}
+  ]
+}
