@@ -83,13 +83,11 @@ def first(values: dict[str, list[str]], *keys: str) -> str:
 
 
 def korean_headword(entry: ET.Element) -> str:
-    # Simple export form.
     simple = text_by_name(entry, {"word", "lemma", "headword"})
     for value in simple:
         if re.search(r"[가-힣]", value):
             return value
 
-    # LMF form: prefer the Lemma subtree over every feature in the entry.
     for node in entry.iter():
         if local(node.tag) == "lemma":
             features = all_feature_values(node)
@@ -124,7 +122,6 @@ def is_japanese_language(value: str) -> bool:
 
 
 def translation_nodes(sense: ET.Element):
-    # First handle simple API-like/download structures.
     for node in sense.iter():
         lname = local(node.tag)
         if lname in {"translation", "equivalent", "equivalentform", "senseexample"}:
@@ -135,7 +132,6 @@ def extract_japanese_translations(sense: ET.Element) -> list[tuple[str, str]]:
     results: list[tuple[str, str]] = []
     seen: set[tuple[str, str]] = set()
 
-    # Simple <translation><trans_lang>일본어...</translation>.
     for node in translation_nodes(sense):
         langs = text_by_name(node, {"trans_lang", "language", "lang"})
         features = all_feature_values(node)
@@ -156,9 +152,6 @@ def extract_japanese_translations(sense: ET.Element) -> list[tuple[str, str]]:
                         seen.add(pair)
                         results.append(pair)
 
-    # Some LMF exports place language and written form in a shared nested subtree
-    # whose tag name is not one of the conventional names above. Inspect any node
-    # with a direct language feature and collect its own feature values only.
     for node in sense.iter():
         features = direct_features(node)
         lang_values = []
@@ -205,21 +198,51 @@ def candidate_match(candidate: dict, translated_word: str) -> tuple[bool, int, l
     if reading and reading in tokens:
         score += 2
         reasons.append("reading_exact")
-    # Kana-only dictionary forms often carry just one visible token.
     if surface == reading and surface in tokens:
         score += 1
         reasons.append("kana_identity")
-    # Require exact surface evidence. Reading is a confidence booster, not a hard
-    # requirement because many KRDICT Japanese translations show kanji without an
-    # explicit reading for common forms.
     return score >= 3, score, reasons
 
 
+def stable_unique(values: list[str]) -> list[str]:
+    result: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        value = norm(value)
+        if value and value not in seen:
+            seen.add(value)
+            result.append(value)
+    return result
+
+
+def merge_exact_lexeme_senses(values: list[dict]) -> dict:
+    """Merge KRDICT senses only when surface *and* reading evidence are exact.
+
+    Multiple Korean headwords for one exact Japanese surface/reading pair are
+    typically legitimate polysemy. Keeping those senses is safer than guessing one
+    translation. Surface-only homographs remain ambiguous and are never merged.
+    """
+    meanings = stable_unique([v.get("meaning_ko", "") for v in values])
+    definitions_ko = stable_unique([v.get("definition_ko", "") for v in values])
+    definitions_ja = stable_unique([v.get("definition_ja", "") for v in values])
+    source_files = stable_unique([v.get("source_file", "") for v in values])
+    ja_sources = stable_unique([v.get("meaning_ja_source", "") for v in values])
+    first_value = values[0]
+    return {
+        "score": first_value["score"],
+        "reasons": first_value["reasons"],
+        "meaning_ko": " | ".join(meanings),
+        "definition_ko": " | ".join(definitions_ko),
+        "meaning_ja_source": " | ".join(ja_sources),
+        "definition_ja": " | ".join(definitions_ja),
+        "source_file": source_files[0] if source_files else "",
+        "source_files": source_files,
+        "merged_sense_count": len(values),
+        "match_resolution": "exact_surface_reading_multi_sense",
+    }
+
+
 def iter_lexical_entries(xml_file: Path):
-    # The pinned KRDICT mirror contains a small number of malformed XML tokens.
-    # libxml2's recover mode preserves surrounding valid entries instead of aborting
-    # the entire dictionary at the first broken byte/tag. We still emit the parser
-    # diagnostics so data-quality regressions remain visible in CI logs.
     context = ET.iterparse(str(xml_file), events=("end",), recover=True, huge_tree=True)
     for _, elem in context:
         if local(elem.tag) in {"lexicalentry", "item", "entry"}:
@@ -296,17 +319,17 @@ def main() -> None:
 
     best: dict[str, dict] = {}
     ambiguous: dict[str, list[dict]] = {}
+    merged_exact_senses = 0
     for key, values in matches.items():
-        # Deterministic: strongest exact evidence first, then prefer concise Korean
-        # headwords and a nonempty Japanese definition.
         values.sort(key=lambda x: (-x["score"], len(x["meaning_ko"]), 0 if x["definition_ja"] else 1, x["meaning_ko"], x["source_file"]))
         top_score = values[0]["score"]
         top = [v for v in values if v["score"] == top_score]
-        # Keep all alternatives for QA, but choose only when the top Korean headword
-        # is unique. Homographs therefore remain unresolved instead of being guessed.
         top_meanings = sorted({v["meaning_ko"] for v in top})
         if len(top_meanings) == 1:
             best[key] = top[0]
+        elif top_score >= 5 and all("surface_exact" in v["reasons"] and "reading_exact" in v["reasons"] for v in top):
+            best[key] = merge_exact_lexeme_senses(top)
+            merged_exact_senses += 1
         else:
             ambiguous[key] = top[:20]
 
@@ -318,6 +341,7 @@ def main() -> None:
         "lexicalEntriesScanned": entry_count,
         "japaneseTranslationsScanned": jp_translation_count,
         "matchedUnique": len(best),
+        "mergedExactSenseEntries": merged_exact_senses,
         "ambiguous": len(ambiguous),
         "unmatched": len(candidates) - len(best),
         "matches": best,
@@ -325,7 +349,7 @@ def main() -> None:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({k: payload[k] for k in ("candidateCount", "matchedUnique", "ambiguous", "unmatched")}, ensure_ascii=False))
+    print(json.dumps({k: payload[k] for k in ("candidateCount", "matchedUnique", "mergedExactSenseEntries", "ambiguous", "unmatched")}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
