@@ -5,58 +5,6 @@
     {
       "key": "n1-1001",
       "sequence_no": 1001,
-      "word": "降伏",
-      "reading": "こうふく",
-      "meaning_ko": "항복",
-      "meaning_ja": "敵や相手の力に押され、自分の負けを認めて服従すること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1282940",
-        "meaning_en": "capitulation, surrender, submission",
-        "curated_file": null,
-        "curated_original_key": null,
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "011.xml",
-          "meaning_ko": "항복",
-          "definition_ko": "적이나 상대편의 힘에 눌려 자신의 뜻을 굽히고 복종함.",
-          "meaning_ja_source": "こうふく【降伏・降服】"
-        }
-      }
-    },
-    {
-      "key": "n1-1002",
-      "sequence_no": 1002,
-      "word": "遅れ",
-      "reading": "おくれ",
-      "meaning_ko": "",
-      "meaning_ja": "",
-      "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1422020",
-        "meaning_en": "delay, lag",
-        "curated_file": null,
-        "curated_original_key": null,
-        "legacy_curated_file": null,
-        "krdict": null
-      }
-    },
-    {
-      "key": "n1-1003",
-      "sequence_no": 1003,
       "word": "称する",
       "reading": "しょうする",
       "meaning_ko": "부르다 | 일컫다 | 칭하다",
@@ -86,8 +34,8 @@
       }
     },
     {
-      "key": "n1-1004",
-      "sequence_no": 1004,
+      "key": "n1-1002",
+      "sequence_no": 1002,
       "word": "助け",
       "reading": "たすけ",
       "meaning_ko": "도움",
@@ -117,8 +65,8 @@
       }
     },
     {
-      "key": "n1-1005",
-      "sequence_no": 1005,
+      "key": "n1-1003",
+      "sequence_no": 1003,
       "word": "印",
       "reading": "いん",
       "meaning_ko": "도장 | 인장",
@@ -148,8 +96,8 @@
       }
     },
     {
-      "key": "n1-1006",
-      "sequence_no": 1006,
+      "key": "n1-1004",
+      "sequence_no": 1004,
       "word": "兵士",
       "reading": "へいし",
       "meaning_ko": "군사 | 군인 | 병사 | 사병",
@@ -179,8 +127,8 @@
       }
     },
     {
-      "key": "n1-1007",
-      "sequence_no": 1007,
+      "key": "n1-1005",
+      "sequence_no": 1005,
       "word": "訴訟",
       "reading": "そしょう",
       "meaning_ko": "소 | 소송 | 송사",
@@ -210,8 +158,8 @@
       }
     },
     {
-      "key": "n1-1008",
-      "sequence_no": 1008,
+      "key": "n1-1006",
+      "sequence_no": 1006,
       "word": "着陸",
       "reading": "ちゃくりく",
       "meaning_ko": "착륙 | 착지",
@@ -241,8 +189,8 @@
       }
     },
     {
-      "key": "n1-1009",
-      "sequence_no": 1009,
+      "key": "n1-1007",
+      "sequence_no": 1007,
       "word": "決まる",
       "reading": "きまる",
       "meaning_ko": "서다 | 갈리다 | 잡히다 | 터지다 | 규정되다 | 작정되다",
@@ -272,8 +220,8 @@
       }
     },
     {
-      "key": "n1-1010",
-      "sequence_no": 1010,
+      "key": "n1-1008",
+      "sequence_no": 1008,
       "word": "有する",
       "reading": "ゆうする",
       "meaning_ko": "갖다 | 가지다 | 지니다",
@@ -303,8 +251,8 @@
       }
     },
     {
-      "key": "n1-1011",
-      "sequence_no": 1011,
+      "key": "n1-1009",
+      "sequence_no": 1009,
       "word": "意図",
       "reading": "いと",
       "meaning_ko": "심사 | 의도",
@@ -334,8 +282,8 @@
       }
     },
     {
-      "key": "n1-1012",
-      "sequence_no": 1012,
+      "key": "n1-1010",
+      "sequence_no": 1010,
       "word": "勧め",
       "reading": "すすめ",
       "meaning_ko": "",
@@ -355,8 +303,8 @@
       }
     },
     {
-      "key": "n1-1013",
-      "sequence_no": 1013,
+      "key": "n1-1011",
+      "sequence_no": 1011,
       "word": "修行",
       "reading": "しゅぎょう",
       "meaning_ko": "수행",
@@ -386,8 +334,8 @@
       }
     },
     {
-      "key": "n1-1014",
-      "sequence_no": 1014,
+      "key": "n1-1012",
+      "sequence_no": 1012,
       "word": "破壊",
       "reading": "はかい",
       "meaning_ko": "작파 | 파괴",
@@ -417,8 +365,8 @@
       }
     },
     {
-      "key": "n1-1015",
-      "sequence_no": 1015,
+      "key": "n1-1013",
+      "sequence_no": 1013,
       "word": "収集",
       "reading": "しゅうしゅう",
       "meaning_ko": "수집",
@@ -448,8 +396,8 @@
       }
     },
     {
-      "key": "n1-1016",
-      "sequence_no": 1016,
+      "key": "n1-1014",
+      "sequence_no": 1014,
       "word": "問う",
       "reading": "とう",
       "meaning_ko": "묻다 | 하다 | 가르다 | 따지다",
@@ -479,8 +427,8 @@
       }
     },
     {
-      "key": "n1-1017",
-      "sequence_no": 1017,
+      "key": "n1-1015",
+      "sequence_no": 1015,
       "word": "根拠",
       "reading": "こんきょ",
       "meaning_ko": "근거 | 논거 | 터무니 | 대의명분",
@@ -510,8 +458,8 @@
       }
     },
     {
-      "key": "n1-1018",
-      "sequence_no": 1018,
+      "key": "n1-1016",
+      "sequence_no": 1016,
       "word": "楽しむ",
       "reading": "たのしむ",
       "meaning_ko": "보다 | 즐기다",
@@ -541,8 +489,8 @@
       }
     },
     {
-      "key": "n1-1019",
-      "sequence_no": 1019,
+      "key": "n1-1017",
+      "sequence_no": 1017,
       "word": "行い",
       "reading": "おこない",
       "meaning_ko": "행동 | 행실",
@@ -572,8 +520,8 @@
       }
     },
     {
-      "key": "n1-1020",
-      "sequence_no": 1020,
+      "key": "n1-1018",
+      "sequence_no": 1018,
       "word": "難い",
       "reading": "かたい",
       "meaning_ko": "",
@@ -593,8 +541,8 @@
       }
     },
     {
-      "key": "n1-1021",
-      "sequence_no": 1021,
+      "key": "n1-1019",
+      "sequence_no": 1019,
       "word": "拒否",
       "reading": "きょひ",
       "meaning_ko": "거부",
@@ -624,8 +572,8 @@
       }
     },
     {
-      "key": "n1-1022",
-      "sequence_no": 1022,
+      "key": "n1-1020",
+      "sequence_no": 1020,
       "word": "長官",
       "reading": "ちょうかん",
       "meaning_ko": "장관",
@@ -655,8 +603,8 @@
       }
     },
     {
-      "key": "n1-1023",
-      "sequence_no": 1023,
+      "key": "n1-1021",
+      "sequence_no": 1021,
       "word": "返る",
       "reading": "かえる",
       "meaning_ko": "돌아오다 | 되돌아가다",
@@ -686,8 +634,8 @@
       }
     },
     {
-      "key": "n1-1024",
-      "sequence_no": 1024,
+      "key": "n1-1022",
+      "sequence_no": 1022,
       "word": "正に",
       "reading": "まさに",
       "meaning_ko": "즉 | 정히",
@@ -717,8 +665,8 @@
       }
     },
     {
-      "key": "n1-1025",
-      "sequence_no": 1025,
+      "key": "n1-1023",
+      "sequence_no": 1023,
       "word": "結び",
       "reading": "むすび",
       "meaning_ko": "결 | 뒤끝 | 매듭",
@@ -748,8 +696,8 @@
       }
     },
     {
-      "key": "n1-1026",
-      "sequence_no": 1026,
+      "key": "n1-1024",
+      "sequence_no": 1024,
       "word": "本名",
       "reading": "ほんみょう",
       "meaning_ko": "본명",
@@ -779,8 +727,8 @@
       }
     },
     {
-      "key": "n1-1027",
-      "sequence_no": 1027,
+      "key": "n1-1025",
+      "sequence_no": 1025,
       "word": "集まる",
       "reading": "あつまる",
       "meaning_ko": "모이다 | 쏠리다 | 모여들다",
@@ -810,8 +758,8 @@
       }
     },
     {
-      "key": "n1-1028",
-      "sequence_no": 1028,
+      "key": "n1-1026",
+      "sequence_no": 1026,
       "word": "益々",
       "reading": "ますます",
       "meaning_ko": "",
@@ -831,8 +779,8 @@
       }
     },
     {
-      "key": "n1-1029",
-      "sequence_no": 1029,
+      "key": "n1-1027",
+      "sequence_no": 1027,
       "word": "把握",
       "reading": "はあく",
       "meaning_ko": "파악, 파악하다",
@@ -862,8 +810,8 @@
       }
     },
     {
-      "key": "n1-1030",
-      "sequence_no": 1030,
+      "key": "n1-1028",
+      "sequence_no": 1028,
       "word": "恐れ",
       "reading": "おそれ",
       "meaning_ko": "두려움 | 무서움",
@@ -893,8 +841,8 @@
       }
     },
     {
-      "key": "n1-1031",
-      "sequence_no": 1031,
+      "key": "n1-1029",
+      "sequence_no": 1029,
       "word": "甘い",
       "reading": "うまい",
       "meaning_ko": "",
@@ -914,8 +862,8 @@
       }
     },
     {
-      "key": "n1-1032",
-      "sequence_no": 1032,
+      "key": "n1-1030",
+      "sequence_no": 1030,
       "word": "犠牲",
       "reading": "ぎせい",
       "meaning_ko": "밥 | 제물 | 희생",
@@ -945,8 +893,8 @@
       }
     },
     {
-      "key": "n1-1033",
-      "sequence_no": 1033,
+      "key": "n1-1031",
+      "sequence_no": 1031,
       "word": "無礼",
       "reading": "ぶれい",
       "meaning_ko": "무례",
@@ -976,8 +924,8 @@
       }
     },
     {
-      "key": "n1-1034",
-      "sequence_no": 1034,
+      "key": "n1-1032",
+      "sequence_no": 1032,
       "word": "一気",
       "reading": "いっき",
       "meaning_ko": "",
@@ -997,8 +945,8 @@
       }
     },
     {
-      "key": "n1-1035",
-      "sequence_no": 1035,
+      "key": "n1-1033",
+      "sequence_no": 1033,
       "word": "尽くす",
       "reading": "つくす",
       "meaning_ko": "쓰다 | 다하다 | 들이다 | 경주하다",
@@ -1028,8 +976,8 @@
       }
     },
     {
-      "key": "n1-1036",
-      "sequence_no": 1036,
+      "key": "n1-1034",
+      "sequence_no": 1034,
       "word": "課題",
       "reading": "かだい",
       "meaning_ko": "과제 | 과제물",
@@ -1059,8 +1007,8 @@
       }
     },
     {
-      "key": "n1-1037",
-      "sequence_no": 1037,
+      "key": "n1-1035",
+      "sequence_no": 1035,
       "word": "退職",
       "reading": "たいしょく",
       "meaning_ko": "퇴직",
@@ -1090,8 +1038,8 @@
       }
     },
     {
-      "key": "n1-1038",
-      "sequence_no": 1038,
+      "key": "n1-1036",
+      "sequence_no": 1036,
       "word": "栽培",
       "reading": "さいばい",
       "meaning_ko": "수종 | 재배",
@@ -1121,8 +1069,8 @@
       }
     },
     {
-      "key": "n1-1039",
-      "sequence_no": 1039,
+      "key": "n1-1037",
+      "sequence_no": 1037,
       "word": "取り組む",
       "reading": "とりくむ",
       "meaning_ko": "붙다 | 맞붙다 | 붙들다 | 가동되다 | 가동하다 | 노력하다 | 달라붙다 | 달려들다 | 들러붙다 | 들어붙다 | 매달리다 | 씨름하다",
@@ -1152,8 +1100,8 @@
       }
     },
     {
-      "key": "n1-1040",
-      "sequence_no": 1040,
+      "key": "n1-1038",
+      "sequence_no": 1038,
       "word": "柱",
       "reading": "はしら",
       "meaning_ko": "골자 | 기둥 | 기축 | 버팀목",
@@ -1183,8 +1131,8 @@
       }
     },
     {
-      "key": "n1-1041",
-      "sequence_no": 1041,
+      "key": "n1-1039",
+      "sequence_no": 1039,
       "word": "並み",
       "reading": "なみ",
       "meaning_ko": "보통 | 여간",
@@ -1214,8 +1162,8 @@
       }
     },
     {
-      "key": "n1-1042",
-      "sequence_no": 1042,
+      "key": "n1-1040",
+      "sequence_no": 1040,
       "word": "玩具",
       "reading": "おもちゃ",
       "meaning_ko": "완구 | 노리개 | 장난감",
@@ -1245,8 +1193,8 @@
       }
     },
     {
-      "key": "n1-1043",
-      "sequence_no": 1043,
+      "key": "n1-1041",
+      "sequence_no": 1041,
       "word": "明るい",
       "reading": "あかるい",
       "meaning_ko": "밝다 | 환하다 | 훤하다 | 휑하다 | 광명하다 | 해사하다",
@@ -1276,8 +1224,8 @@
       }
     },
     {
-      "key": "n1-1044",
-      "sequence_no": 1044,
+      "key": "n1-1042",
+      "sequence_no": 1042,
       "word": "治安",
       "reading": "ちあん",
       "meaning_ko": "치안",
@@ -1307,8 +1255,8 @@
       }
     },
     {
-      "key": "n1-1045",
-      "sequence_no": 1045,
+      "key": "n1-1043",
+      "sequence_no": 1043,
       "word": "要する",
       "reading": "ようする",
       "meaning_ko": "요하다",
@@ -1338,8 +1286,8 @@
       }
     },
     {
-      "key": "n1-1046",
-      "sequence_no": 1046,
+      "key": "n1-1044",
+      "sequence_no": 1044,
       "word": "以て",
       "reading": "もって",
       "meaning_ko": "",
@@ -1359,8 +1307,8 @@
       }
     },
     {
-      "key": "n1-1047",
-      "sequence_no": 1047,
+      "key": "n1-1045",
+      "sequence_no": 1045,
       "word": "赤字",
       "reading": "あかじ",
       "meaning_ko": "결손 | 적자",
@@ -1390,8 +1338,8 @@
       }
     },
     {
-      "key": "n1-1048",
-      "sequence_no": 1048,
+      "key": "n1-1046",
+      "sequence_no": 1046,
       "word": "排除",
       "reading": "はいじょ",
       "meaning_ko": "배제",
@@ -1421,8 +1369,8 @@
       }
     },
     {
-      "key": "n1-1049",
-      "sequence_no": 1049,
+      "key": "n1-1047",
+      "sequence_no": 1047,
       "word": "沿い",
       "reading": "ぞい",
       "meaning_ko": "",
@@ -1442,8 +1390,8 @@
       }
     },
     {
-      "key": "n1-1050",
-      "sequence_no": 1050,
+      "key": "n1-1048",
+      "sequence_no": 1048,
       "word": "超",
       "reading": "ちょう",
       "meaning_ko": "개- | 급- | 날- | 왕- | 찰- | 초-",
@@ -1473,8 +1421,8 @@
       }
     },
     {
-      "key": "n1-1051",
-      "sequence_no": 1051,
+      "key": "n1-1049",
+      "sequence_no": 1049,
       "word": "覚え",
       "reading": "おぼえ",
       "meaning_ko": "기억",
@@ -1504,8 +1452,8 @@
       }
     },
     {
-      "key": "n1-1052",
-      "sequence_no": 1052,
+      "key": "n1-1050",
+      "sequence_no": 1050,
       "word": "取り扱い",
       "reading": "とりあつかい",
       "meaning_ko": "취급",
@@ -1535,8 +1483,8 @@
       }
     },
     {
-      "key": "n1-1053",
-      "sequence_no": 1053,
+      "key": "n1-1051",
+      "sequence_no": 1051,
       "word": "流し",
       "reading": "ながし",
       "meaning_ko": "개수대 | 때밀이",
@@ -1566,8 +1514,8 @@
       }
     },
     {
-      "key": "n1-1054",
-      "sequence_no": 1054,
+      "key": "n1-1052",
+      "sequence_no": 1052,
       "word": "試み",
       "reading": "こころみ",
       "meaning_ko": "",
@@ -1587,8 +1535,8 @@
       }
     },
     {
-      "key": "n1-1055",
-      "sequence_no": 1055,
+      "key": "n1-1053",
+      "sequence_no": 1053,
       "word": "消息",
       "reading": "しょうそく",
       "meaning_ko": "기별 | 소식",
@@ -1618,8 +1566,8 @@
       }
     },
     {
-      "key": "n1-1056",
-      "sequence_no": 1056,
+      "key": "n1-1054",
+      "sequence_no": 1054,
       "word": "世論",
       "reading": "せろん",
       "meaning_ko": "여론",
@@ -1649,8 +1597,8 @@
       }
     },
     {
-      "key": "n1-1057",
-      "sequence_no": 1057,
+      "key": "n1-1055",
+      "sequence_no": 1055,
       "word": "易い",
       "reading": "やすい",
       "meaning_ko": "쉽다 | 좋다 | -기가 쉽다 | -기 십상이다",
@@ -1680,8 +1628,8 @@
       }
     },
     {
-      "key": "n1-1058",
-      "sequence_no": 1058,
+      "key": "n1-1056",
+      "sequence_no": 1056,
       "word": "災害",
       "reading": "さいがい",
       "meaning_ko": "재해",
@@ -1711,8 +1659,8 @@
       }
     },
     {
-      "key": "n1-1059",
-      "sequence_no": 1059,
+      "key": "n1-1057",
+      "sequence_no": 1057,
       "word": "軌道",
       "reading": "きどう",
       "meaning_ko": "궤도 | 본궤도",
@@ -1742,8 +1690,8 @@
       }
     },
     {
-      "key": "n1-1060",
-      "sequence_no": 1060,
+      "key": "n1-1058",
+      "sequence_no": 1058,
       "word": "年生",
       "reading": "ねんせい",
       "meaning_ko": "년생",
@@ -1773,8 +1721,8 @@
       }
     },
     {
-      "key": "n1-1061",
-      "sequence_no": 1061,
+      "key": "n1-1059",
+      "sequence_no": 1059,
       "word": "効率",
       "reading": "こうりつ",
       "meaning_ko": "능률 | 효율",
@@ -1804,8 +1752,8 @@
       }
     },
     {
-      "key": "n1-1062",
-      "sequence_no": 1062,
+      "key": "n1-1060",
+      "sequence_no": 1060,
       "word": "如何に",
       "reading": "いかに",
       "meaning_ko": "어이 | 제아무리",
@@ -1835,8 +1783,8 @@
       }
     },
     {
-      "key": "n1-1063",
-      "sequence_no": 1063,
+      "key": "n1-1061",
+      "sequence_no": 1061,
       "word": "赤ちゃん",
       "reading": "あかちゃん",
       "meaning_ko": "새끼 | 아가 | 아기 | 아이",
@@ -1866,8 +1814,8 @@
       }
     },
     {
-      "key": "n1-1064",
-      "sequence_no": 1064,
+      "key": "n1-1062",
+      "sequence_no": 1062,
       "word": "臆病",
       "reading": "おくびょう",
       "meaning_ko": "",
@@ -1887,8 +1835,8 @@
       }
     },
     {
-      "key": "n1-1065",
-      "sequence_no": 1065,
+      "key": "n1-1063",
+      "sequence_no": 1063,
       "word": "秩序",
       "reading": "ちつじょ",
       "meaning_ko": "질서",
@@ -1918,8 +1866,8 @@
       }
     },
     {
-      "key": "n1-1066",
-      "sequence_no": 1066,
+      "key": "n1-1064",
+      "sequence_no": 1064,
       "word": "だらけ",
       "reading": "だらけ",
       "meaning_ko": "범벅 | 천지 | 주머니 | -투성이",
@@ -1950,8 +1898,8 @@
       }
     },
     {
-      "key": "n1-1067",
-      "sequence_no": 1067,
+      "key": "n1-1065",
+      "sequence_no": 1065,
       "word": "釣り",
       "reading": "つり",
       "meaning_ko": "낚시 | 낚시질",
@@ -1981,8 +1929,8 @@
       }
     },
     {
-      "key": "n1-1068",
-      "sequence_no": 1068,
+      "key": "n1-1066",
+      "sequence_no": 1066,
       "word": "畜生",
       "reading": "ちくしょう",
       "meaning_ko": "새끼 | 염병 | 제길 | 젠장 | 우라질 | 제기랄 | 빌어먹을",
@@ -2012,8 +1960,8 @@
       }
     },
     {
-      "key": "n1-1069",
-      "sequence_no": 1069,
+      "key": "n1-1067",
+      "sequence_no": 1067,
       "word": "エンジニア",
       "reading": "エンジニア",
       "meaning_ko": "기술자 | 엔지니어",
@@ -2044,8 +1992,8 @@
       }
     },
     {
-      "key": "n1-1070",
-      "sequence_no": 1070,
+      "key": "n1-1068",
+      "sequence_no": 1068,
       "word": "仕組み",
       "reading": "しくみ",
       "meaning_ko": "뼈 | 구조 | 기제 | 뼈대 | 짜임새",
@@ -2075,8 +2023,8 @@
       }
     },
     {
-      "key": "n1-1071",
-      "sequence_no": 1071,
+      "key": "n1-1069",
+      "sequence_no": 1069,
       "word": "逃れる",
       "reading": "のがれる",
       "meaning_ko": "벗다 | 면하다 | 피하다 | 벗어나다",
@@ -2106,8 +2054,8 @@
       }
     },
     {
-      "key": "n1-1072",
-      "sequence_no": 1072,
+      "key": "n1-1070",
+      "sequence_no": 1070,
       "word": "官僚",
       "reading": "かんりょう",
       "meaning_ko": "관료 | 공직자",
@@ -2137,8 +2085,8 @@
       }
     },
     {
-      "key": "n1-1073",
-      "sequence_no": 1073,
+      "key": "n1-1071",
+      "sequence_no": 1071,
       "word": "築く",
       "reading": "きずく",
       "meaning_ko": "닦다 | 쌓다 | 축구하다",
@@ -2168,8 +2116,8 @@
       }
     },
     {
-      "key": "n1-1074",
-      "sequence_no": 1074,
+      "key": "n1-1072",
+      "sequence_no": 1072,
       "word": "貨幣",
       "reading": "かへい",
       "meaning_ko": "돈 | 화폐",
@@ -2199,8 +2147,8 @@
       }
     },
     {
-      "key": "n1-1075",
-      "sequence_no": 1075,
+      "key": "n1-1073",
+      "sequence_no": 1073,
       "word": "役立つ",
       "reading": "やくだつ",
       "meaning_ko": "",
@@ -2220,8 +2168,8 @@
       }
     },
     {
-      "key": "n1-1076",
-      "sequence_no": 1076,
+      "key": "n1-1074",
+      "sequence_no": 1074,
       "word": "負う",
       "reading": "おう",
       "meaning_ko": "안다 | 업다 | 입다 | 지다 | 힘입다 | 짊어지다",
@@ -2251,8 +2199,8 @@
       }
     },
     {
-      "key": "n1-1077",
-      "sequence_no": 1077,
+      "key": "n1-1075",
+      "sequence_no": 1075,
       "word": "キャリア",
       "reading": "キャリア",
       "meaning_ko": "보균자",
@@ -2283,8 +2231,8 @@
       }
     },
     {
-      "key": "n1-1078",
-      "sequence_no": 1078,
+      "key": "n1-1076",
+      "sequence_no": 1076,
       "word": "若干",
       "reading": "じゃっかん",
       "meaning_ko": "약간",
@@ -2314,8 +2262,8 @@
       }
     },
     {
-      "key": "n1-1079",
-      "sequence_no": 1079,
+      "key": "n1-1077",
+      "sequence_no": 1077,
       "word": "演習",
       "reading": "えんしゅう",
       "meaning_ko": "연습",
@@ -2345,8 +2293,8 @@
       }
     },
     {
-      "key": "n1-1080",
-      "sequence_no": 1080,
+      "key": "n1-1078",
+      "sequence_no": 1078,
       "word": "装飾",
       "reading": "そうしょく",
       "meaning_ko": "수식 | 장식 | 치장",
@@ -2376,8 +2324,8 @@
       }
     },
     {
-      "key": "n1-1081",
-      "sequence_no": 1081,
+      "key": "n1-1079",
+      "sequence_no": 1079,
       "word": "仕える",
       "reading": "つかえる",
       "meaning_ko": "막히다 | 모시다 | 섬기다",
@@ -2407,8 +2355,8 @@
       }
     },
     {
-      "key": "n1-1082",
-      "sequence_no": 1082,
+      "key": "n1-1080",
+      "sequence_no": 1080,
       "word": "止まる",
       "reading": "とどまる",
       "meaning_ko": "그치다 | 머물다 | 눌러앉다 | 머무르다",
@@ -2438,8 +2386,8 @@
       }
     },
     {
-      "key": "n1-1083",
-      "sequence_no": 1083,
+      "key": "n1-1081",
+      "sequence_no": 1081,
       "word": "欠く",
       "reading": "かく",
       "meaning_ko": "",
@@ -2459,8 +2407,8 @@
       }
     },
     {
-      "key": "n1-1084",
-      "sequence_no": 1084,
+      "key": "n1-1082",
+      "sequence_no": 1082,
       "word": "廃棄",
       "reading": "はいき",
       "meaning_ko": "폐기",
@@ -2490,8 +2438,8 @@
       }
     },
     {
-      "key": "n1-1085",
-      "sequence_no": 1085,
+      "key": "n1-1083",
+      "sequence_no": 1083,
       "word": "アプローチ",
       "reading": "アプローチ",
       "meaning_ko": "",
@@ -2511,8 +2459,8 @@
       }
     },
     {
-      "key": "n1-1086",
-      "sequence_no": 1086,
+      "key": "n1-1084",
+      "sequence_no": 1084,
       "word": "番目",
       "reading": "ばんめ",
       "meaning_ko": "-째 | 번째",
@@ -2542,8 +2490,8 @@
       }
     },
     {
-      "key": "n1-1087",
-      "sequence_no": 1087,
+      "key": "n1-1085",
+      "sequence_no": 1085,
       "word": "審判",
       "reading": "しんばん",
       "meaning_ko": "심판",
@@ -2572,8 +2520,8 @@
       }
     },
     {
-      "key": "n1-1088",
-      "sequence_no": 1088,
+      "key": "n1-1086",
+      "sequence_no": 1086,
       "word": "唱える",
       "reading": "となえる",
       "meaning_ko": "떠들다 | 부르짖다",
@@ -2603,8 +2551,8 @@
       }
     },
     {
-      "key": "n1-1089",
-      "sequence_no": 1089,
+      "key": "n1-1087",
+      "sequence_no": 1087,
       "word": "弾く",
       "reading": "はじく",
       "meaning_ko": "뜯다 | 뚱기다 | 퉁기다 | 튀기다 | 튕기다",
@@ -2634,8 +2582,8 @@
       }
     },
     {
-      "key": "n1-1090",
-      "sequence_no": 1090,
+      "key": "n1-1088",
+      "sequence_no": 1088,
       "word": "動員",
       "reading": "どういん",
       "meaning_ko": "동원",
@@ -2665,8 +2613,8 @@
       }
     },
     {
-      "key": "n1-1091",
-      "sequence_no": 1091,
+      "key": "n1-1089",
+      "sequence_no": 1089,
       "word": "極端",
       "reading": "きょくたん",
       "meaning_ko": "극단 | 극도 | 극단적",
@@ -2696,8 +2644,8 @@
       }
     },
     {
-      "key": "n1-1092",
-      "sequence_no": 1092,
+      "key": "n1-1090",
+      "sequence_no": 1090,
       "word": "マスコミ",
       "reading": "マスコミ",
       "meaning_ko": "언론 | 매스컴 | 언론사",
@@ -2728,8 +2676,8 @@
       }
     },
     {
-      "key": "n1-1093",
-      "sequence_no": 1093,
+      "key": "n1-1091",
+      "sequence_no": 1091,
       "word": "収容",
       "reading": "しゅうよう",
       "meaning_ko": "수용",
@@ -2759,8 +2707,8 @@
       }
     },
     {
-      "key": "n1-1094",
-      "sequence_no": 1094,
+      "key": "n1-1092",
+      "sequence_no": 1092,
       "word": "大げさ",
       "reading": "おおげさ",
       "meaning_ko": "과장 | 엄살 | 요란",
@@ -2790,8 +2738,8 @@
       }
     },
     {
-      "key": "n1-1095",
-      "sequence_no": 1095,
+      "key": "n1-1093",
+      "sequence_no": 1093,
       "word": "写し",
       "reading": "うつし",
       "meaning_ko": "",
@@ -2811,8 +2759,8 @@
       }
     },
     {
-      "key": "n1-1096",
-      "sequence_no": 1096,
+      "key": "n1-1094",
+      "sequence_no": 1094,
       "word": "度々",
       "reading": "たびたび",
       "meaning_ko": "",
@@ -2832,8 +2780,8 @@
       }
     },
     {
-      "key": "n1-1097",
-      "sequence_no": 1097,
+      "key": "n1-1095",
+      "sequence_no": 1095,
       "word": "次いで",
       "reading": "ついで",
       "meaning_ko": "이어 | 이어서",
@@ -2863,8 +2811,8 @@
       }
     },
     {
-      "key": "n1-1098",
-      "sequence_no": 1098,
+      "key": "n1-1096",
+      "sequence_no": 1096,
       "word": "頻繁",
       "reading": "ひんぱん",
       "meaning_ko": "",
@@ -2884,8 +2832,8 @@
       }
     },
     {
-      "key": "n1-1099",
-      "sequence_no": 1099,
+      "key": "n1-1097",
+      "sequence_no": 1097,
       "word": "受け入れる",
       "reading": "うけいれる",
       "meaning_ko": "듣다 | 받다 | 수용하다 | 승인하다 | 용납하다 | 받아들이다",
@@ -2915,8 +2863,8 @@
       }
     },
     {
-      "key": "n1-1100",
-      "sequence_no": 1100,
+      "key": "n1-1098",
+      "sequence_no": 1098,
       "word": "辞職",
       "reading": "じしょく",
       "meaning_ko": "사직 | 하직",
@@ -2946,8 +2894,8 @@
       }
     },
     {
-      "key": "n1-1101",
-      "sequence_no": 1101,
+      "key": "n1-1099",
+      "sequence_no": 1099,
       "word": "耐える",
       "reading": "たえる",
       "meaning_ko": "참다 | 견디다 | 배기다 | 버티다 | 감당하다 | 배겨나다 | 배겨내다",
@@ -2977,8 +2925,8 @@
       }
     },
     {
-      "key": "n1-1102",
-      "sequence_no": 1102,
+      "key": "n1-1100",
+      "sequence_no": 1100,
       "word": "退学",
       "reading": "たいがく",
       "meaning_ko": "자퇴 | 퇴학",
@@ -3008,8 +2956,8 @@
       }
     },
     {
-      "key": "n1-1103",
-      "sequence_no": 1103,
+      "key": "n1-1101",
+      "sequence_no": 1101,
       "word": "脱出",
       "reading": "だっしゅつ",
       "meaning_ko": "탈출",
@@ -3039,8 +2987,8 @@
       }
     },
     {
-      "key": "n1-1104",
-      "sequence_no": 1104,
+      "key": "n1-1102",
+      "sequence_no": 1102,
       "word": "何方",
       "reading": "どなた",
       "meaning_ko": "",
@@ -3060,8 +3008,8 @@
       }
     },
     {
-      "key": "n1-1105",
-      "sequence_no": 1105,
+      "key": "n1-1103",
+      "sequence_no": 1103,
       "word": "訴え",
       "reading": "うったえ",
       "meaning_ko": "소 | 호소",
@@ -3091,8 +3039,8 @@
       }
     },
     {
-      "key": "n1-1106",
-      "sequence_no": 1106,
+      "key": "n1-1104",
+      "sequence_no": 1104,
       "word": "衝撃",
       "reading": "しょうげき",
       "meaning_ko": "쇼크 | 충격",
@@ -3122,8 +3070,8 @@
       }
     },
     {
-      "key": "n1-1107",
-      "sequence_no": 1107,
+      "key": "n1-1105",
+      "sequence_no": 1105,
       "word": "孤児",
       "reading": "こじ",
       "meaning_ko": "고아",
@@ -3153,8 +3101,8 @@
       }
     },
     {
-      "key": "n1-1108",
-      "sequence_no": 1108,
+      "key": "n1-1106",
+      "sequence_no": 1106,
       "word": "繊維",
       "reading": "せんい",
       "meaning_ko": "섬유",
@@ -3184,8 +3132,8 @@
       }
     },
     {
-      "key": "n1-1109",
-      "sequence_no": 1109,
+      "key": "n1-1107",
+      "sequence_no": 1107,
       "word": "思考",
       "reading": "しこう",
       "meaning_ko": "사고 | 생각",
@@ -3215,8 +3163,8 @@
       }
     },
     {
-      "key": "n1-1110",
-      "sequence_no": 1110,
+      "key": "n1-1108",
+      "sequence_no": 1108,
       "word": "仕掛け",
       "reading": "しかけ",
       "meaning_ko": "",
@@ -3236,8 +3184,8 @@
       }
     },
     {
-      "key": "n1-1111",
-      "sequence_no": 1111,
+      "key": "n1-1109",
+      "sequence_no": 1109,
       "word": "負傷",
       "reading": "ふしょう",
       "meaning_ko": "부상",
@@ -3267,8 +3215,8 @@
       }
     },
     {
-      "key": "n1-1112",
-      "sequence_no": 1112,
+      "key": "n1-1110",
+      "sequence_no": 1110,
       "word": "日向",
       "reading": "ひなた",
       "meaning_ko": "양지",
@@ -3298,8 +3246,8 @@
       }
     },
     {
-      "key": "n1-1113",
-      "sequence_no": 1113,
+      "key": "n1-1111",
+      "sequence_no": 1111,
       "word": "道場",
       "reading": "どうじょう",
       "meaning_ko": "도장",
@@ -3329,8 +3277,8 @@
       }
     },
     {
-      "key": "n1-1114",
-      "sequence_no": 1114,
+      "key": "n1-1112",
+      "sequence_no": 1112,
       "word": "厳密",
       "reading": "げんみつ",
       "meaning_ko": "엄밀함",
@@ -3350,8 +3298,8 @@
       }
     },
     {
-      "key": "n1-1115",
-      "sequence_no": 1115,
+      "key": "n1-1113",
+      "sequence_no": 1113,
       "word": "成年",
       "reading": "せいねん",
       "meaning_ko": "성년",
@@ -3381,8 +3329,8 @@
       }
     },
     {
-      "key": "n1-1116",
-      "sequence_no": 1116,
+      "key": "n1-1114",
+      "sequence_no": 1114,
       "word": "破損",
       "reading": "はそん",
       "meaning_ko": "파손",
@@ -3412,8 +3360,8 @@
       }
     },
     {
-      "key": "n1-1117",
-      "sequence_no": 1117,
+      "key": "n1-1115",
+      "sequence_no": 1115,
       "word": "滅ぼす",
       "reading": "ほろぼす",
       "meaning_ko": "망치다 | 쓰러뜨리다 | 쓰러트리다 | 파멸시키다",
@@ -3443,8 +3391,8 @@
       }
     },
     {
-      "key": "n1-1118",
-      "sequence_no": 1118,
+      "key": "n1-1116",
+      "sequence_no": 1116,
       "word": "犯す",
       "reading": "おかす",
       "meaning_ko": "짓다 | 범하다 | 저지르다 | 무너뜨리다 | 무너트리다",
@@ -3474,8 +3422,8 @@
       }
     },
     {
-      "key": "n1-1119",
-      "sequence_no": 1119,
+      "key": "n1-1117",
+      "sequence_no": 1117,
       "word": "貧乏",
       "reading": "びんぼう",
       "meaning_ko": "가난 | 빈곤 | 옹색",
@@ -3505,8 +3453,8 @@
       }
     },
     {
-      "key": "n1-1120",
-      "sequence_no": 1120,
+      "key": "n1-1118",
+      "sequence_no": 1118,
       "word": "趣旨",
       "reading": "しゅし",
       "meaning_ko": "취지",
@@ -3536,8 +3484,8 @@
       }
     },
     {
-      "key": "n1-1121",
-      "sequence_no": 1121,
+      "key": "n1-1119",
+      "sequence_no": 1119,
       "word": "閉鎖",
       "reading": "へいさ",
       "meaning_ko": "폐쇄",
@@ -3567,8 +3515,8 @@
       }
     },
     {
-      "key": "n1-1122",
-      "sequence_no": 1122,
+      "key": "n1-1120",
+      "sequence_no": 1120,
       "word": "襲う",
       "reading": "おそう",
       "meaning_ko": "덮치다 | 퍼붓다 | 휩쓸다",
@@ -3598,8 +3546,8 @@
       }
     },
     {
-      "key": "n1-1123",
-      "sequence_no": 1123,
+      "key": "n1-1121",
+      "sequence_no": 1121,
       "word": "徒歩",
       "reading": "とほ",
       "meaning_ko": "걷기 | 도보",
@@ -3629,8 +3577,8 @@
       }
     },
     {
-      "key": "n1-1124",
-      "sequence_no": 1124,
+      "key": "n1-1122",
+      "sequence_no": 1122,
       "word": "施す",
       "reading": "ほどこす",
       "meaning_ko": "내다 | 베풀다",
@@ -3660,8 +3608,8 @@
       }
     },
     {
-      "key": "n1-1125",
-      "sequence_no": 1125,
+      "key": "n1-1123",
+      "sequence_no": 1123,
       "word": "妊娠",
       "reading": "にんしん",
       "meaning_ko": "임신 | 잉태",
@@ -3691,8 +3639,8 @@
       }
     },
     {
-      "key": "n1-1126",
-      "sequence_no": 1126,
+      "key": "n1-1124",
+      "sequence_no": 1124,
       "word": "織物",
       "reading": "おりもの",
       "meaning_ko": "직물",
@@ -3722,8 +3670,8 @@
       }
     },
     {
-      "key": "n1-1127",
-      "sequence_no": 1127,
+      "key": "n1-1125",
+      "sequence_no": 1125,
       "word": "遂げる",
       "reading": "とげる",
       "meaning_ko": "이루다 | -아 내다 | -어 내다 | -여 내다",
@@ -3753,8 +3701,8 @@
       }
     },
     {
-      "key": "n1-1128",
-      "sequence_no": 1128,
+      "key": "n1-1126",
+      "sequence_no": 1126,
       "word": "平方",
       "reading": "へいほう",
       "meaning_ko": "제곱",
@@ -3784,8 +3732,8 @@
       }
     },
     {
-      "key": "n1-1129",
-      "sequence_no": 1129,
+      "key": "n1-1127",
+      "sequence_no": 1127,
       "word": "乏しい",
       "reading": "とぼしい",
       "meaning_ko": "빈곤하다 | 빈약하다",
@@ -3815,8 +3763,8 @@
       }
     },
     {
-      "key": "n1-1130",
-      "sequence_no": 1130,
+      "key": "n1-1128",
+      "sequence_no": 1128,
       "word": "襲撃",
       "reading": "しゅうげき",
       "meaning_ko": "공습 | 습격",
@@ -3846,8 +3794,8 @@
       }
     },
     {
-      "key": "n1-1131",
-      "sequence_no": 1131,
+      "key": "n1-1129",
+      "sequence_no": 1129,
       "word": "見込み",
       "reading": "みこみ",
       "meaning_ko": "싹 | 가량 | 가망 | 싹수 | 희망 | 가망성 | 기대치",
@@ -3877,8 +3825,8 @@
       }
     },
     {
-      "key": "n1-1132",
-      "sequence_no": 1132,
+      "key": "n1-1130",
+      "sequence_no": 1130,
       "word": "削減",
       "reading": "さくげん",
       "meaning_ko": "삭감, 감축",
@@ -3908,8 +3856,8 @@
       }
     },
     {
-      "key": "n1-1133",
-      "sequence_no": 1133,
+      "key": "n1-1131",
+      "sequence_no": 1131,
       "word": "貧困",
       "reading": "ひんこん",
       "meaning_ko": "빈곤",
@@ -3939,8 +3887,8 @@
       }
     },
     {
-      "key": "n1-1134",
-      "sequence_no": 1134,
+      "key": "n1-1132",
+      "sequence_no": 1132,
       "word": "取り締まり",
       "reading": "とりしまり",
       "meaning_ko": "단속",
@@ -3970,8 +3918,8 @@
       }
     },
     {
-      "key": "n1-1135",
-      "sequence_no": 1135,
+      "key": "n1-1133",
+      "sequence_no": 1133,
       "word": "街道",
       "reading": "かいどう",
       "meaning_ko": "가도",
@@ -4001,8 +3949,8 @@
       }
     },
     {
-      "key": "n1-1136",
-      "sequence_no": 1136,
+      "key": "n1-1134",
+      "sequence_no": 1134,
       "word": "浮かぶ",
       "reading": "うかぶ",
       "meaning_ko": "뜨다 | 피다 | 실리다 | 어리다 | 너울지다 | 떠오르다 | 배어나다 | 피어나다 | 피어오르다",
@@ -4032,8 +3980,8 @@
       }
     },
     {
-      "key": "n1-1137",
-      "sequence_no": 1137,
+      "key": "n1-1135",
+      "sequence_no": 1135,
       "word": "収益",
       "reading": "しゅうえき",
       "meaning_ko": "수익",
@@ -4063,8 +4011,8 @@
       }
     },
     {
-      "key": "n1-1138",
-      "sequence_no": 1138,
+      "key": "n1-1136",
+      "sequence_no": 1136,
       "word": "避難",
       "reading": "ひなん",
       "meaning_ko": "대피 | 피난 | 피란 | 피신 | 지청구",
@@ -4094,8 +4042,8 @@
       }
     },
     {
-      "key": "n1-1139",
-      "sequence_no": 1139,
+      "key": "n1-1137",
+      "sequence_no": 1137,
       "word": "掲げる",
       "reading": "かかげる",
       "meaning_ko": "내걸다, 제시하다",
@@ -4125,8 +4073,8 @@
       }
     },
     {
-      "key": "n1-1140",
-      "sequence_no": 1140,
+      "key": "n1-1138",
+      "sequence_no": 1138,
       "word": "営む",
       "reading": "いとなむ",
       "meaning_ko": "지내다 | 영위하다",
@@ -4156,8 +4104,8 @@
       }
     },
     {
-      "key": "n1-1141",
-      "sequence_no": 1141,
+      "key": "n1-1139",
+      "sequence_no": 1139,
       "word": "情け",
       "reading": "なさけ",
       "meaning_ko": "정",
@@ -4187,8 +4135,8 @@
       }
     },
     {
-      "key": "n1-1142",
-      "sequence_no": 1142,
+      "key": "n1-1140",
+      "sequence_no": 1140,
       "word": "取り分け",
       "reading": "とりわけ",
       "meaning_ko": "유달리",
@@ -4218,8 +4166,8 @@
       }
     },
     {
-      "key": "n1-1143",
-      "sequence_no": 1143,
+      "key": "n1-1141",
+      "sequence_no": 1141,
       "word": "可哀想",
       "reading": "かわいそう",
       "meaning_ko": "",
@@ -4239,8 +4187,8 @@
       }
     },
     {
-      "key": "n1-1144",
-      "sequence_no": 1144,
+      "key": "n1-1142",
+      "sequence_no": 1142,
       "word": "振動",
       "reading": "しんどう",
       "meaning_ko": "진동",
@@ -4270,8 +4218,8 @@
       }
     },
     {
-      "key": "n1-1145",
-      "sequence_no": 1145,
+      "key": "n1-1143",
+      "sequence_no": 1143,
       "word": "振興",
       "reading": "しんこう",
       "meaning_ko": "진흥",
@@ -4301,8 +4249,8 @@
       }
     },
     {
-      "key": "n1-1146",
-      "sequence_no": 1146,
+      "key": "n1-1144",
+      "sequence_no": 1144,
       "word": "打",
       "reading": "ダース",
       "meaning_ko": "도깨비방망이",
@@ -4331,8 +4279,8 @@
       }
     },
     {
-      "key": "n1-1147",
-      "sequence_no": 1147,
+      "key": "n1-1145",
+      "sequence_no": 1145,
       "word": "密か",
       "reading": "ひそか",
       "meaning_ko": "",
@@ -4352,8 +4300,8 @@
       }
     },
     {
-      "key": "n1-1148",
-      "sequence_no": 1148,
+      "key": "n1-1146",
+      "sequence_no": 1146,
       "word": "強める",
       "reading": "つよめる",
       "meaning_ko": "",
@@ -4373,8 +4321,8 @@
       }
     },
     {
-      "key": "n1-1149",
-      "sequence_no": 1149,
+      "key": "n1-1147",
+      "sequence_no": 1147,
       "word": "手本",
       "reading": "てほん",
       "meaning_ko": "본 | 예 | 거울 | 견본 | 모범 | 본때 | 표본 | 표상 | 본보기",
@@ -4404,8 +4352,8 @@
       }
     },
     {
-      "key": "n1-1150",
-      "sequence_no": 1150,
+      "key": "n1-1148",
+      "sequence_no": 1148,
       "word": "詐欺",
       "reading": "さぎ",
       "meaning_ko": "기만 | 사기 | 협잡",
@@ -4435,8 +4383,8 @@
       }
     },
     {
-      "key": "n1-1151",
-      "sequence_no": 1151,
+      "key": "n1-1149",
+      "sequence_no": 1149,
       "word": "分散",
       "reading": "ぶんさん",
       "meaning_ko": "분산",
@@ -4466,8 +4414,8 @@
       }
     },
     {
-      "key": "n1-1152",
-      "sequence_no": 1152,
+      "key": "n1-1150",
+      "sequence_no": 1150,
       "word": "衣装",
       "reading": "いしょう",
       "meaning_ko": "옷 | 의상",
@@ -4497,8 +4445,8 @@
       }
     },
     {
-      "key": "n1-1153",
-      "sequence_no": 1153,
+      "key": "n1-1151",
+      "sequence_no": 1151,
       "word": "小売",
       "reading": "こうり",
       "meaning_ko": "소매",
@@ -4528,8 +4476,8 @@
       }
     },
     {
-      "key": "n1-1154",
-      "sequence_no": 1154,
+      "key": "n1-1152",
+      "sequence_no": 1152,
       "word": "赴任",
       "reading": "ふにん",
       "meaning_ko": "부임",
@@ -4559,8 +4507,8 @@
       }
     },
     {
-      "key": "n1-1155",
-      "sequence_no": 1155,
+      "key": "n1-1153",
+      "sequence_no": 1153,
       "word": "悪者",
       "reading": "わるもの",
       "meaning_ko": "악당",
@@ -4590,8 +4538,8 @@
       }
     },
     {
-      "key": "n1-1156",
-      "sequence_no": 1156,
+      "key": "n1-1154",
+      "sequence_no": 1154,
       "word": "添える",
       "reading": "そえる",
       "meaning_ko": "대다 | 딸리다 | 보태다 | 곁들이다",
@@ -4621,8 +4569,8 @@
       }
     },
     {
-      "key": "n1-1157",
-      "sequence_no": 1157,
+      "key": "n1-1155",
+      "sequence_no": 1155,
       "word": "申し込み",
       "reading": "もうしこみ",
       "meaning_ko": "",
@@ -4642,8 +4590,8 @@
       }
     },
     {
-      "key": "n1-1158",
-      "sequence_no": 1158,
+      "key": "n1-1156",
+      "sequence_no": 1156,
       "word": "済ます",
       "reading": "すます",
       "meaning_ko": "끄다 | 끊다 | 끝내다 | 끝맺다 | 때우다 | 마치다 | 필하다 | 끝마치다 | 끝장내다",
@@ -4673,8 +4621,8 @@
       }
     },
     {
-      "key": "n1-1159",
-      "sequence_no": 1159,
+      "key": "n1-1157",
+      "sequence_no": 1157,
       "word": "住",
       "reading": "じゅう",
       "meaning_ko": "",
@@ -4694,8 +4642,8 @@
       }
     },
     {
-      "key": "n1-1160",
-      "sequence_no": 1160,
+      "key": "n1-1158",
+      "sequence_no": 1158,
       "word": "好意",
       "reading": "こうい",
       "meaning_ko": "선의 | 호의",
@@ -4725,8 +4673,8 @@
       }
     },
     {
-      "key": "n1-1161",
-      "sequence_no": 1161,
+      "key": "n1-1159",
+      "sequence_no": 1159,
       "word": "反する",
       "reading": "はんする",
       "meaning_ko": "반하다 | 어기다 | 어긋나다",
@@ -4756,8 +4704,8 @@
       }
     },
     {
-      "key": "n1-1162",
-      "sequence_no": 1162,
+      "key": "n1-1160",
+      "sequence_no": 1160,
       "word": "祈り",
       "reading": "いのり",
       "meaning_ko": "기도 | 축수 | 축원",
@@ -4787,8 +4735,8 @@
       }
     },
     {
-      "key": "n1-1163",
-      "sequence_no": 1163,
+      "key": "n1-1161",
+      "sequence_no": 1161,
       "word": "幽霊",
       "reading": "ゆうれい",
       "meaning_ko": "유령",
@@ -4818,8 +4766,8 @@
       }
     },
     {
-      "key": "n1-1164",
-      "sequence_no": 1164,
+      "key": "n1-1162",
+      "sequence_no": 1162,
       "word": "規格",
       "reading": "きかく",
       "meaning_ko": "규격",
@@ -4849,8 +4797,8 @@
       }
     },
     {
-      "key": "n1-1165",
-      "sequence_no": 1165,
+      "key": "n1-1163",
+      "sequence_no": 1163,
       "word": "人目",
       "reading": "じんもく",
       "meaning_ko": "",
@@ -4870,8 +4818,8 @@
       }
     },
     {
-      "key": "n1-1166",
-      "sequence_no": 1166,
+      "key": "n1-1164",
+      "sequence_no": 1164,
       "word": "告げる",
       "reading": "つげる",
       "meaning_ko": "대다 | 고하다 | 이르다",
@@ -4901,8 +4849,8 @@
       }
     },
     {
-      "key": "n1-1167",
-      "sequence_no": 1167,
+      "key": "n1-1165",
+      "sequence_no": 1165,
       "word": "アマチュア",
       "reading": "アマチュア",
       "meaning_ko": "풋내기 | 아마추어",
@@ -4933,8 +4881,8 @@
       }
     },
     {
-      "key": "n1-1168",
-      "sequence_no": 1168,
+      "key": "n1-1166",
+      "sequence_no": 1166,
       "word": "奉仕",
       "reading": "ほうし",
       "meaning_ko": "봉사",
@@ -4964,8 +4912,8 @@
       }
     },
     {
-      "key": "n1-1169",
-      "sequence_no": 1169,
+      "key": "n1-1167",
+      "sequence_no": 1167,
       "word": "奨励",
       "reading": "しょうれい",
       "meaning_ko": "장려",
@@ -4995,8 +4943,8 @@
       }
     },
     {
-      "key": "n1-1170",
-      "sequence_no": 1170,
+      "key": "n1-1168",
+      "sequence_no": 1168,
       "word": "満たす",
       "reading": "みたす",
       "meaning_ko": "메우다 | 채우다 | 충족하다 | 만족시키다 | 충족시키다",
@@ -5026,8 +4974,8 @@
       }
     },
     {
-      "key": "n1-1171",
-      "sequence_no": 1171,
+      "key": "n1-1169",
+      "sequence_no": 1169,
       "word": "手遅れ",
       "reading": "ておくれ",
       "meaning_ko": "",
@@ -5047,8 +4995,8 @@
       }
     },
     {
-      "key": "n1-1172",
-      "sequence_no": 1172,
+      "key": "n1-1170",
+      "sequence_no": 1170,
       "word": "拒絶",
       "reading": "きょぜつ",
       "meaning_ko": "거절, 거부",
@@ -5078,8 +5026,8 @@
       }
     },
     {
-      "key": "n1-1173",
-      "sequence_no": 1173,
+      "key": "n1-1171",
+      "sequence_no": 1171,
       "word": "潜水",
       "reading": "せんすい",
       "meaning_ko": "잠수",
@@ -5109,8 +5057,8 @@
       }
     },
     {
-      "key": "n1-1174",
-      "sequence_no": 1174,
+      "key": "n1-1172",
+      "sequence_no": 1172,
       "word": "革新",
       "reading": "かくしん",
       "meaning_ko": "혁신",
@@ -5140,8 +5088,8 @@
       }
     },
     {
-      "key": "n1-1175",
-      "sequence_no": 1175,
+      "key": "n1-1173",
+      "sequence_no": 1173,
       "word": "白状",
       "reading": "はくじょう",
       "meaning_ko": "자백",
@@ -5171,8 +5119,8 @@
       }
     },
     {
-      "key": "n1-1176",
-      "sequence_no": 1176,
+      "key": "n1-1174",
+      "sequence_no": 1174,
       "word": "誤る",
       "reading": "あやまる",
       "meaning_ko": "그르다 | 그르치다 | 그릇되다 | 실수하다 | 잘못되다 | 잘못하다",
@@ -5202,8 +5150,8 @@
       }
     },
     {
-      "key": "n1-1177",
-      "sequence_no": 1177,
+      "key": "n1-1175",
+      "sequence_no": 1175,
       "word": "賠償",
       "reading": "ばいしょう",
       "meaning_ko": "배상",
@@ -5233,8 +5181,8 @@
       }
     },
     {
-      "key": "n1-1178",
-      "sequence_no": 1178,
+      "key": "n1-1176",
+      "sequence_no": 1176,
       "word": "最早",
       "reading": "もはや",
       "meaning_ko": "이제",
@@ -5264,8 +5212,8 @@
       }
     },
     {
-      "key": "n1-1179",
-      "sequence_no": 1179,
+      "key": "n1-1177",
+      "sequence_no": 1177,
       "word": "畳",
       "reading": "じょう",
       "meaning_ko": "",
@@ -5285,8 +5233,8 @@
       }
     },
     {
-      "key": "n1-1180",
-      "sequence_no": 1180,
+      "key": "n1-1178",
+      "sequence_no": 1178,
       "word": "意欲",
       "reading": "いよく",
       "meaning_ko": "의욕",
@@ -5316,8 +5264,8 @@
       }
     },
     {
-      "key": "n1-1181",
-      "sequence_no": 1181,
+      "key": "n1-1179",
+      "sequence_no": 1179,
       "word": "交わす",
       "reading": "かわす",
       "meaning_ko": "나누다 | 주고받다",
@@ -5347,8 +5295,8 @@
       }
     },
     {
-      "key": "n1-1182",
-      "sequence_no": 1182,
+      "key": "n1-1180",
+      "sequence_no": 1180,
       "word": "命中",
       "reading": "めいちゅう",
       "meaning_ko": "명중 | 적중",
@@ -5378,8 +5326,8 @@
       }
     },
     {
-      "key": "n1-1183",
-      "sequence_no": 1183,
+      "key": "n1-1181",
+      "sequence_no": 1181,
       "word": "上回る",
       "reading": "うわまわる",
       "meaning_ko": "웃돌다 | 상회하다",
@@ -5409,8 +5357,8 @@
       }
     },
     {
-      "key": "n1-1184",
-      "sequence_no": 1184,
+      "key": "n1-1182",
+      "sequence_no": 1182,
       "word": "滅亡",
       "reading": "めつぼう",
       "meaning_ko": "멸망",
@@ -5440,8 +5388,8 @@
       }
     },
     {
-      "key": "n1-1185",
-      "sequence_no": 1185,
+      "key": "n1-1183",
+      "sequence_no": 1183,
       "word": "手数",
       "reading": "てかず",
       "meaning_ko": "",
@@ -5461,39 +5409,8 @@
       }
     },
     {
-      "key": "n1-1186",
-      "sequence_no": 1186,
-      "word": "重役",
-      "reading": "おもやく",
-      "meaning_ko": "중역",
-      "meaning_ja": "責任の重い役割。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1336770",
-        "meaning_en": "heavy responsibilities, director",
-        "curated_file": null,
-        "curated_original_key": null,
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "009.xml",
-          "meaning_ko": "중역",
-          "definition_ko": "책임이 큰 역할.",
-          "meaning_ja_source": "じゅうやく・おもやく【重役】。たいやく【大役】"
-        }
-      }
-    },
-    {
-      "key": "n1-1187",
-      "sequence_no": 1187,
+      "key": "n1-1184",
+      "sequence_no": 1184,
       "word": "引き起こす",
       "reading": "ひきおこす",
       "meaning_ko": "벌이다 | 야기하다 | 일으키다",
@@ -5523,8 +5440,8 @@
       }
     },
     {
-      "key": "n1-1188",
-      "sequence_no": 1188,
+      "key": "n1-1185",
+      "sequence_no": 1185,
       "word": "携わる",
       "reading": "たずさわる",
       "meaning_ko": "몸담다",
@@ -5554,8 +5471,8 @@
       }
     },
     {
-      "key": "n1-1189",
-      "sequence_no": 1189,
+      "key": "n1-1186",
+      "sequence_no": 1186,
       "word": "突破",
       "reading": "とっぱ",
       "meaning_ko": "돌파",
@@ -5585,8 +5502,8 @@
       }
     },
     {
-      "key": "n1-1190",
-      "sequence_no": 1190,
+      "key": "n1-1187",
+      "sequence_no": 1187,
       "word": "費やす",
       "reading": "ついやす",
       "meaning_ko": "먹다 | 쓰다",
@@ -5616,8 +5533,8 @@
       }
     },
     {
-      "key": "n1-1191",
-      "sequence_no": 1191,
+      "key": "n1-1188",
+      "sequence_no": 1188,
       "word": "固める",
       "reading": "かためる",
       "meaning_ko": "닦다 | 굳히다 | 다지다 | 뭉치다 | 다독대다 | 다독이다 | 부르쥐다 | 다독거리다 | 다독다독하다",
@@ -5647,8 +5564,8 @@
       }
     },
     {
-      "key": "n1-1192",
-      "sequence_no": 1192,
+      "key": "n1-1189",
+      "sequence_no": 1189,
       "word": "抗争",
       "reading": "こうそう",
       "meaning_ko": "항쟁",
@@ -5678,8 +5595,8 @@
       }
     },
     {
-      "key": "n1-1193",
-      "sequence_no": 1193,
+      "key": "n1-1190",
+      "sequence_no": 1190,
       "word": "装備",
       "reading": "そうび",
       "meaning_ko": "장비",
@@ -5709,8 +5626,8 @@
       }
     },
     {
-      "key": "n1-1194",
-      "sequence_no": 1194,
+      "key": "n1-1191",
+      "sequence_no": 1191,
       "word": "民俗",
       "reading": "みんぞく",
       "meaning_ko": "민속",
@@ -5740,8 +5657,8 @@
       }
     },
     {
-      "key": "n1-1195",
-      "sequence_no": 1195,
+      "key": "n1-1192",
+      "sequence_no": 1192,
       "word": "冒頭",
       "reading": "ぼうとう",
       "meaning_ko": "벽두 | 서두 | 말머리 | 앞머리 | 첫머리",
@@ -5771,8 +5688,8 @@
       }
     },
     {
-      "key": "n1-1196",
-      "sequence_no": 1196,
+      "key": "n1-1193",
+      "sequence_no": 1193,
       "word": "暴風",
       "reading": "ぼうふう",
       "meaning_ko": "폭풍",
@@ -5802,8 +5719,8 @@
       }
     },
     {
-      "key": "n1-1197",
-      "sequence_no": 1197,
+      "key": "n1-1194",
+      "sequence_no": 1194,
       "word": "アンケート",
       "reading": "アンケート",
       "meaning_ko": "앙케트",
@@ -5834,8 +5751,8 @@
       }
     },
     {
-      "key": "n1-1198",
-      "sequence_no": 1198,
+      "key": "n1-1195",
+      "sequence_no": 1195,
       "word": "脂肪",
       "reading": "しぼう",
       "meaning_ko": "지방",
@@ -5865,8 +5782,8 @@
       }
     },
     {
-      "key": "n1-1199",
-      "sequence_no": 1199,
+      "key": "n1-1196",
+      "sequence_no": 1196,
       "word": "繁栄",
       "reading": "はんえい",
       "meaning_ko": "번영",
@@ -5896,8 +5813,8 @@
       }
     },
     {
-      "key": "n1-1200",
-      "sequence_no": 1200,
+      "key": "n1-1197",
+      "sequence_no": 1197,
       "word": "全盛",
       "reading": "ぜんせい",
       "meaning_ko": "전성",
@@ -5927,8 +5844,8 @@
       }
     },
     {
-      "key": "n1-1201",
-      "sequence_no": 1201,
+      "key": "n1-1198",
+      "sequence_no": 1198,
       "word": "弱",
       "reading": "じゃく",
       "meaning_ko": "약-",
@@ -5958,8 +5875,8 @@
       }
     },
     {
-      "key": "n1-1202",
-      "sequence_no": 1202,
+      "key": "n1-1199",
+      "sequence_no": 1199,
       "word": "嫉妬",
       "reading": "しっと",
       "meaning_ko": "샘 | 강짜 | 질투 | 투기",
@@ -5989,8 +5906,8 @@
       }
     },
     {
-      "key": "n1-1203",
-      "sequence_no": 1203,
+      "key": "n1-1200",
+      "sequence_no": 1200,
       "word": "面目",
       "reading": "めんぼく",
       "meaning_ko": "낯 | 면목 | 얼굴",
@@ -6020,8 +5937,8 @@
       }
     },
     {
-      "key": "n1-1204",
-      "sequence_no": 1204,
+      "key": "n1-1201",
+      "sequence_no": 1201,
       "word": "愚か",
       "reading": "おろか",
       "meaning_ko": "",
@@ -6041,8 +5958,8 @@
       }
     },
     {
-      "key": "n1-1205",
-      "sequence_no": 1205,
+      "key": "n1-1202",
+      "sequence_no": 1202,
       "word": "市街",
       "reading": "しがい",
       "meaning_ko": "시가",
@@ -6072,8 +5989,8 @@
       }
     },
     {
-      "key": "n1-1206",
-      "sequence_no": 1206,
+      "key": "n1-1203",
+      "sequence_no": 1203,
       "word": "専ら",
       "reading": "もっぱら",
       "meaning_ko": "오로지, 주로",
@@ -6103,8 +6020,8 @@
       }
     },
     {
-      "key": "n1-1207",
-      "sequence_no": 1207,
+      "key": "n1-1204",
+      "sequence_no": 1204,
       "word": "溢れる",
       "reading": "あふれる",
       "meaning_ko": "넘다 | 넘치다 | 쏟아지다 | 넘쳐흐르다 | 흘러넘치다",
@@ -6134,8 +6051,8 @@
       }
     },
     {
-      "key": "n1-1208",
-      "sequence_no": 1208,
+      "key": "n1-1205",
+      "sequence_no": 1205,
       "word": "一向",
       "reading": "ひたすら",
       "meaning_ko": "",
@@ -6155,8 +6072,8 @@
       }
     },
     {
-      "key": "n1-1209",
-      "sequence_no": 1209,
+      "key": "n1-1206",
+      "sequence_no": 1206,
       "word": "爆弾",
       "reading": "ばくだん",
       "meaning_ko": "폭탄",
@@ -6186,8 +6103,8 @@
       }
     },
     {
-      "key": "n1-1210",
-      "sequence_no": 1210,
+      "key": "n1-1207",
+      "sequence_no": 1207,
       "word": "用件",
       "reading": "ようけん",
       "meaning_ko": "볼일 | 용건",
@@ -6217,8 +6134,8 @@
       }
     },
     {
-      "key": "n1-1211",
-      "sequence_no": 1211,
+      "key": "n1-1208",
+      "sequence_no": 1208,
       "word": "持続",
       "reading": "じぞく",
       "meaning_ko": "지속",
@@ -6248,8 +6165,8 @@
       }
     },
     {
-      "key": "n1-1212",
-      "sequence_no": 1212,
+      "key": "n1-1209",
+      "sequence_no": 1209,
       "word": "逃亡",
       "reading": "とうぼう",
       "meaning_ko": "도망 | 줄행랑",
@@ -6279,8 +6196,8 @@
       }
     },
     {
-      "key": "n1-1213",
-      "sequence_no": 1213,
+      "key": "n1-1210",
+      "sequence_no": 1210,
       "word": "攻め",
       "reading": "せめ",
       "meaning_ko": "공세",
@@ -6310,8 +6227,8 @@
       }
     },
     {
-      "key": "n1-1214",
-      "sequence_no": 1214,
+      "key": "n1-1211",
+      "sequence_no": 1211,
       "word": "国産",
       "reading": "こくさん",
       "meaning_ko": "국산 | 국내산",
@@ -6341,8 +6258,8 @@
       }
     },
     {
-      "key": "n1-1215",
-      "sequence_no": 1215,
+      "key": "n1-1212",
+      "sequence_no": 1212,
       "word": "貫く",
       "reading": "つらぬく",
       "meaning_ko": "뚫다 | 꿰뚫다 | 지키다 | 견지하다 | 관철하다",
@@ -6372,8 +6289,8 @@
       }
     },
     {
-      "key": "n1-1216",
-      "sequence_no": 1216,
+      "key": "n1-1213",
+      "sequence_no": 1213,
       "word": "浜辺",
       "reading": "はまべ",
       "meaning_ko": "갯가 | 바닷가",
@@ -6403,8 +6320,8 @@
       }
     },
     {
-      "key": "n1-1217",
-      "sequence_no": 1217,
+      "key": "n1-1214",
+      "sequence_no": 1214,
       "word": "打撃",
       "reading": "だげき",
       "meaning_ko": "타격 | 방망이",
@@ -6434,8 +6351,8 @@
       }
     },
     {
-      "key": "n1-1218",
-      "sequence_no": 1218,
+      "key": "n1-1215",
+      "sequence_no": 1215,
       "word": "受け継ぐ",
       "reading": "うけつぐ",
       "meaning_ko": "계승하다 | 물려받다 | 이어받다",
@@ -6465,8 +6382,8 @@
       }
     },
     {
-      "key": "n1-1219",
-      "sequence_no": 1219,
+      "key": "n1-1216",
+      "sequence_no": 1216,
       "word": "催す",
       "reading": "もよおす",
       "meaning_ko": "베풀다 | 지내다 | 주최하다 | 불러일으키다",
@@ -6496,8 +6413,8 @@
       }
     },
     {
-      "key": "n1-1220",
-      "sequence_no": 1220,
+      "key": "n1-1217",
+      "sequence_no": 1217,
       "word": "過労",
       "reading": "かろう",
       "meaning_ko": "과로",
@@ -6527,8 +6444,8 @@
       }
     },
     {
-      "key": "n1-1221",
-      "sequence_no": 1221,
+      "key": "n1-1218",
+      "sequence_no": 1218,
       "word": "改修",
       "reading": "かいしゅう",
       "meaning_ko": "개수, 보수",
@@ -6548,8 +6465,8 @@
       }
     },
     {
-      "key": "n1-1222",
-      "sequence_no": 1222,
+      "key": "n1-1219",
+      "sequence_no": 1219,
       "word": "云々",
       "reading": "うんぬん",
       "meaning_ko": "",
@@ -6569,8 +6486,8 @@
       }
     },
     {
-      "key": "n1-1223",
-      "sequence_no": 1223,
+      "key": "n1-1220",
+      "sequence_no": 1220,
       "word": "絶望",
       "reading": "ぜつぼう",
       "meaning_ko": "절망",
@@ -6600,8 +6517,8 @@
       }
     },
     {
-      "key": "n1-1224",
-      "sequence_no": 1224,
+      "key": "n1-1221",
+      "sequence_no": 1221,
       "word": "旦那",
       "reading": "だんな",
       "meaning_ko": "남편 | 상전 | 양반 | 주인",
@@ -6631,8 +6548,8 @@
       }
     },
     {
-      "key": "n1-1225",
-      "sequence_no": 1225,
+      "key": "n1-1222",
+      "sequence_no": 1222,
       "word": "紳士",
       "reading": "しんし",
       "meaning_ko": "신사 | 양반",
@@ -6662,8 +6579,8 @@
       }
     },
     {
-      "key": "n1-1226",
-      "sequence_no": 1226,
+      "key": "n1-1223",
+      "sequence_no": 1223,
       "word": "一筋",
       "reading": "ひとすじ",
       "meaning_ko": "가닥 | 외길 | 한길 | 외골수 | 외줄기",
@@ -6693,8 +6610,8 @@
       }
     },
     {
-      "key": "n1-1227",
-      "sequence_no": 1227,
+      "key": "n1-1224",
+      "sequence_no": 1224,
       "word": "威力",
       "reading": "いりょく",
       "meaning_ko": "위력",
@@ -6724,8 +6641,8 @@
       }
     },
     {
-      "key": "n1-1228",
-      "sequence_no": 1228,
+      "key": "n1-1225",
+      "sequence_no": 1225,
       "word": "子息",
       "reading": "しそく",
       "meaning_ko": "자식",
@@ -6755,8 +6672,8 @@
       }
     },
     {
-      "key": "n1-1229",
-      "sequence_no": 1229,
+      "key": "n1-1226",
+      "sequence_no": 1226,
       "word": "込める",
       "reading": "こめる",
       "meaning_ko": "넣다 | 담다 | 싣다 | 재다 | 재우다",
@@ -6786,8 +6703,8 @@
       }
     },
     {
-      "key": "n1-1230",
-      "sequence_no": 1230,
+      "key": "n1-1227",
+      "sequence_no": 1227,
       "word": "誠",
       "reading": "まこと",
       "meaning_ko": "진실",
@@ -6817,8 +6734,8 @@
       }
     },
     {
-      "key": "n1-1231",
-      "sequence_no": 1231,
+      "key": "n1-1228",
+      "sequence_no": 1228,
       "word": "完璧",
       "reading": "かんぺき",
       "meaning_ko": "완벽",
@@ -6848,8 +6765,8 @@
       }
     },
     {
-      "key": "n1-1232",
-      "sequence_no": 1232,
+      "key": "n1-1229",
+      "sequence_no": 1229,
       "word": "沿う",
       "reading": "そう",
       "meaning_ko": "타다 | 따르다 | 따라가다 | 따라오다",
@@ -6879,8 +6796,8 @@
       }
     },
     {
-      "key": "n1-1233",
-      "sequence_no": 1233,
+      "key": "n1-1230",
+      "sequence_no": 1230,
       "word": "家来",
       "reading": "けらい",
       "meaning_ko": "",
@@ -6900,8 +6817,8 @@
       }
     },
     {
-      "key": "n1-1234",
-      "sequence_no": 1234,
+      "key": "n1-1231",
+      "sequence_no": 1231,
       "word": "優美",
       "reading": "ゆうび",
       "meaning_ko": "",
@@ -6921,8 +6838,8 @@
       }
     },
     {
-      "key": "n1-1235",
-      "sequence_no": 1235,
+      "key": "n1-1232",
+      "sequence_no": 1232,
       "word": "重複",
       "reading": "じゅうふく",
       "meaning_ko": "중복",
@@ -6952,8 +6869,8 @@
       }
     },
     {
-      "key": "n1-1236",
-      "sequence_no": 1236,
+      "key": "n1-1233",
+      "sequence_no": 1233,
       "word": "格差",
       "reading": "かくさ",
       "meaning_ko": "격차",
@@ -6983,8 +6900,8 @@
       }
     },
     {
-      "key": "n1-1237",
-      "sequence_no": 1237,
+      "key": "n1-1234",
+      "sequence_no": 1234,
       "word": "短縮",
       "reading": "たんしゅく",
       "meaning_ko": "단축",
@@ -7014,8 +6931,8 @@
       }
     },
     {
-      "key": "n1-1238",
-      "sequence_no": 1238,
+      "key": "n1-1235",
+      "sequence_no": 1235,
       "word": "守備",
       "reading": "しゅび",
       "meaning_ko": "수비",
@@ -7045,8 +6962,8 @@
       }
     },
     {
-      "key": "n1-1239",
-      "sequence_no": 1239,
+      "key": "n1-1236",
+      "sequence_no": 1236,
       "word": "観衆",
       "reading": "かんしゅう",
       "meaning_ko": "관객 | 관중",
@@ -7076,8 +6993,8 @@
       }
     },
     {
-      "key": "n1-1240",
-      "sequence_no": 1240,
+      "key": "n1-1237",
+      "sequence_no": 1237,
       "word": "辿る",
       "reading": "たどる",
       "meaning_ko": "좇다 | 더듬다",
@@ -7107,8 +7024,8 @@
       }
     },
     {
-      "key": "n1-1241",
-      "sequence_no": 1241,
+      "key": "n1-1238",
+      "sequence_no": 1238,
       "word": "悩み",
       "reading": "なやみ",
       "meaning_ko": "고민 | 가슴앓이",
@@ -7138,8 +7055,8 @@
       }
     },
     {
-      "key": "n1-1242",
-      "sequence_no": 1242,
+      "key": "n1-1239",
+      "sequence_no": 1239,
       "word": "首脳",
       "reading": "しゅのう",
       "meaning_ko": "수뇌",
@@ -7169,8 +7086,8 @@
       }
     },
     {
-      "key": "n1-1243",
-      "sequence_no": 1243,
+      "key": "n1-1240",
+      "sequence_no": 1240,
       "word": "新興",
       "reading": "しんこう",
       "meaning_ko": "신흥 | 진작",
@@ -7200,8 +7117,8 @@
       }
     },
     {
-      "key": "n1-1244",
-      "sequence_no": 1244,
+      "key": "n1-1241",
+      "sequence_no": 1241,
       "word": "達者",
       "reading": "たっしゃ",
       "meaning_ko": "",
@@ -7221,8 +7138,8 @@
       }
     },
     {
-      "key": "n1-1245",
-      "sequence_no": 1245,
+      "key": "n1-1242",
+      "sequence_no": 1242,
       "word": "任す",
       "reading": "まかす",
       "meaning_ko": "",
@@ -7242,8 +7159,8 @@
       }
     },
     {
-      "key": "n1-1246",
-      "sequence_no": 1246,
+      "key": "n1-1243",
+      "sequence_no": 1243,
       "word": "階層",
       "reading": "かいそう",
       "meaning_ko": "층 | -층 | 계층 | 층위",
@@ -7273,8 +7190,8 @@
       }
     },
     {
-      "key": "n1-1247",
-      "sequence_no": 1247,
+      "key": "n1-1244",
+      "sequence_no": 1244,
       "word": "無論",
       "reading": "むろん",
       "meaning_ko": "물론",
@@ -7304,8 +7221,8 @@
       }
     },
     {
-      "key": "n1-1248",
-      "sequence_no": 1248,
+      "key": "n1-1245",
+      "sequence_no": 1245,
       "word": "沈黙",
       "reading": "ちんもく",
       "meaning_ko": "침묵",
@@ -7335,8 +7252,8 @@
       }
     },
     {
-      "key": "n1-1249",
-      "sequence_no": 1249,
+      "key": "n1-1246",
+      "sequence_no": 1246,
       "word": "喫茶",
       "reading": "きっさ",
       "meaning_ko": "",
@@ -7356,8 +7273,8 @@
       }
     },
     {
-      "key": "n1-1250",
-      "sequence_no": 1250,
+      "key": "n1-1247",
+      "sequence_no": 1247,
       "word": "手錠",
       "reading": "てじょう",
       "meaning_ko": "수갑 | 쇠고랑 | 은팔찌",
@@ -7387,8 +7304,8 @@
       }
     },
     {
-      "key": "n1-1251",
-      "sequence_no": 1251,
+      "key": "n1-1248",
+      "sequence_no": 1248,
       "word": "損失",
       "reading": "そんしつ",
       "meaning_ko": "손실",
@@ -7418,8 +7335,8 @@
       }
     },
     {
-      "key": "n1-1252",
-      "sequence_no": 1252,
+      "key": "n1-1249",
+      "sequence_no": 1249,
       "word": "簡易",
       "reading": "かんい",
       "meaning_ko": "간이",
@@ -7449,8 +7366,8 @@
       }
     },
     {
-      "key": "n1-1253",
-      "sequence_no": 1253,
+      "key": "n1-1250",
+      "sequence_no": 1250,
       "word": "皇居",
       "reading": "こうきょ",
       "meaning_ko": "",
@@ -7470,8 +7387,8 @@
       }
     },
     {
-      "key": "n1-1254",
-      "sequence_no": 1254,
+      "key": "n1-1251",
+      "sequence_no": 1251,
       "word": "崇拝",
       "reading": "すうはい",
       "meaning_ko": "경배 | 숭배 | 숭상 | 추앙",
@@ -7501,8 +7418,8 @@
       }
     },
     {
-      "key": "n1-1255",
-      "sequence_no": 1255,
+      "key": "n1-1252",
+      "sequence_no": 1252,
       "word": "干渉",
       "reading": "かんしょう",
       "meaning_ko": "간섭 | 간여 | 상관 | 아랑곳",
@@ -7532,8 +7449,8 @@
       }
     },
     {
-      "key": "n1-1256",
-      "sequence_no": 1256,
+      "key": "n1-1253",
+      "sequence_no": 1253,
       "word": "征服",
       "reading": "せいふく",
       "meaning_ko": "정복",
@@ -7563,8 +7480,8 @@
       }
     },
     {
-      "key": "n1-1257",
-      "sequence_no": 1257,
+      "key": "n1-1254",
+      "sequence_no": 1254,
       "word": "捜索",
       "reading": "そうさく",
       "meaning_ko": "검색 | 색출 | 수색",
@@ -7594,8 +7511,8 @@
       }
     },
     {
-      "key": "n1-1258",
-      "sequence_no": 1258,
+      "key": "n1-1255",
+      "sequence_no": 1255,
       "word": "構える",
       "reading": "かまえる",
       "meaning_ko": "두다 | 앉다 | 꾸미다 | 차리다 | 취하다",
@@ -7625,8 +7542,8 @@
       }
     },
     {
-      "key": "n1-1259",
-      "sequence_no": 1259,
+      "key": "n1-1256",
+      "sequence_no": 1256,
       "word": "深める",
       "reading": "ふかめる",
       "meaning_ko": "다지다",
@@ -7656,8 +7573,8 @@
       }
     },
     {
-      "key": "n1-1260",
-      "sequence_no": 1260,
+      "key": "n1-1257",
+      "sequence_no": 1257,
       "word": "待遇",
       "reading": "たいぐう",
       "meaning_ko": "대우 | 처우",
@@ -7687,8 +7604,8 @@
       }
     },
     {
-      "key": "n1-1261",
-      "sequence_no": 1261,
+      "key": "n1-1258",
+      "sequence_no": 1258,
       "word": "履歴",
       "reading": "りれき",
       "meaning_ko": "내력 | 이력",
@@ -7718,8 +7635,8 @@
       }
     },
     {
-      "key": "n1-1262",
-      "sequence_no": 1262,
+      "key": "n1-1259",
+      "sequence_no": 1259,
       "word": "アラブ",
       "reading": "アラブ",
       "meaning_ko": "아랍",
@@ -7750,8 +7667,8 @@
       }
     },
     {
-      "key": "n1-1263",
-      "sequence_no": 1263,
+      "key": "n1-1260",
+      "sequence_no": 1260,
       "word": "昆虫",
       "reading": "こんちゅう",
       "meaning_ko": "곤충",
@@ -7781,8 +7698,8 @@
       }
     },
     {
-      "key": "n1-1264",
-      "sequence_no": 1264,
+      "key": "n1-1261",
+      "sequence_no": 1261,
       "word": "うんざり",
       "reading": "うんざり",
       "meaning_ko": "질색 | 넌덜머리 | 지긋지긋",
@@ -7813,8 +7730,8 @@
       }
     },
     {
-      "key": "n1-1265",
-      "sequence_no": 1265,
+      "key": "n1-1262",
+      "sequence_no": 1262,
       "word": "勝る",
       "reading": "まさる",
       "meaning_ko": "낫다",
@@ -7844,8 +7761,8 @@
       }
     },
     {
-      "key": "n1-1266",
-      "sequence_no": 1266,
+      "key": "n1-1263",
+      "sequence_no": 1263,
       "word": "取り扱う",
       "reading": "とりあつかう",
       "meaning_ko": "다루다 | 만지다 | 취급하다",
@@ -7875,8 +7792,8 @@
       }
     },
     {
-      "key": "n1-1267",
-      "sequence_no": 1267,
+      "key": "n1-1264",
+      "sequence_no": 1264,
       "word": "模型",
       "reading": "もけい",
       "meaning_ko": "모형",
@@ -7906,8 +7823,8 @@
       }
     },
     {
-      "key": "n1-1268",
-      "sequence_no": 1268,
+      "key": "n1-1265",
+      "sequence_no": 1265,
       "word": "共存",
       "reading": "きょうそん",
       "meaning_ko": "공존",
@@ -7936,8 +7853,8 @@
       }
     },
     {
-      "key": "n1-1269",
-      "sequence_no": 1269,
+      "key": "n1-1266",
+      "sequence_no": 1266,
       "word": "前途",
       "reading": "ぜんと",
       "meaning_ko": "앞길 | 전도 | 진로",
@@ -7967,8 +7884,8 @@
       }
     },
     {
-      "key": "n1-1270",
-      "sequence_no": 1270,
+      "key": "n1-1267",
+      "sequence_no": 1267,
       "word": "痛む",
       "reading": "いたむ",
       "meaning_ko": "썩다 | 상하다 | 쑤시다 | 아프다",
@@ -7998,8 +7915,8 @@
       }
     },
     {
-      "key": "n1-1271",
-      "sequence_no": 1271,
+      "key": "n1-1268",
+      "sequence_no": 1268,
       "word": "短気",
       "reading": "たんき",
       "meaning_ko": "",
@@ -8019,8 +7936,8 @@
       }
     },
     {
-      "key": "n1-1272",
-      "sequence_no": 1272,
+      "key": "n1-1269",
+      "sequence_no": 1269,
       "word": "良心",
       "reading": "りょうしん",
       "meaning_ko": "양심",
@@ -8050,8 +7967,8 @@
       }
     },
     {
-      "key": "n1-1273",
-      "sequence_no": 1273,
+      "key": "n1-1270",
+      "sequence_no": 1270,
       "word": "延べ",
       "reading": "のべ",
       "meaning_ko": "연 | 연-",
@@ -8081,8 +7998,8 @@
       }
     },
     {
-      "key": "n1-1274",
-      "sequence_no": 1274,
+      "key": "n1-1271",
+      "sequence_no": 1271,
       "word": "妨害",
       "reading": "ぼうがい",
       "meaning_ko": "깽판 | 방해",
@@ -8112,8 +8029,8 @@
       }
     },
     {
-      "key": "n1-1275",
-      "sequence_no": 1275,
+      "key": "n1-1272",
+      "sequence_no": 1272,
       "word": "製法",
       "reading": "せいほう",
       "meaning_ko": "제조법",
@@ -8143,8 +8060,8 @@
       }
     },
     {
-      "key": "n1-1276",
-      "sequence_no": 1276,
+      "key": "n1-1273",
+      "sequence_no": 1273,
       "word": "質素",
       "reading": "しっそ",
       "meaning_ko": "검소",
@@ -8174,8 +8091,8 @@
       }
     },
     {
-      "key": "n1-1277",
-      "sequence_no": 1277,
+      "key": "n1-1274",
+      "sequence_no": 1274,
       "word": "緩やか",
       "reading": "ゆるやか",
       "meaning_ko": "",
@@ -8195,8 +8112,8 @@
       }
     },
     {
-      "key": "n1-1278",
-      "sequence_no": 1278,
+      "key": "n1-1275",
+      "sequence_no": 1275,
       "word": "圧迫",
       "reading": "あっぱく",
       "meaning_ko": "압박",
@@ -8226,8 +8143,8 @@
       }
     },
     {
-      "key": "n1-1279",
-      "sequence_no": 1279,
+      "key": "n1-1276",
+      "sequence_no": 1276,
       "word": "付き合う",
       "reading": "つきあう",
       "meaning_ko": "겪다 | 알다 | 트다 | 사귀다 | 지내다 | 교제하다 | 부대끼다",
@@ -8257,8 +8174,8 @@
       }
     },
     {
-      "key": "n1-1280",
-      "sequence_no": 1280,
+      "key": "n1-1277",
+      "sequence_no": 1277,
       "word": "忠告",
       "reading": "ちゅうこく",
       "meaning_ko": "주의 | 충고 | 충언",
@@ -8288,8 +8205,8 @@
       }
     },
     {
-      "key": "n1-1281",
-      "sequence_no": 1281,
+      "key": "n1-1278",
+      "sequence_no": 1278,
       "word": "群集",
       "reading": "ぐんしゅう",
       "meaning_ko": "군집",
@@ -8319,8 +8236,8 @@
       }
     },
     {
-      "key": "n1-1282",
-      "sequence_no": 1282,
+      "key": "n1-1279",
+      "sequence_no": 1279,
       "word": "導く",
       "reading": "みちびく",
       "meaning_ko": "이끌다 | 가져가다 | 가져오다 | 인도하다 | 지도하다",
@@ -8350,8 +8267,8 @@
       }
     },
     {
-      "key": "n1-1283",
-      "sequence_no": 1283,
+      "key": "n1-1280",
+      "sequence_no": 1280,
       "word": "細胞",
       "reading": "さいぼう",
       "meaning_ko": "세포",
@@ -8381,8 +8298,8 @@
       }
     },
     {
-      "key": "n1-1284",
-      "sequence_no": 1284,
+      "key": "n1-1281",
+      "sequence_no": 1281,
       "word": "引き上げる",
       "reading": "ひきあげる",
       "meaning_ko": "올리다 | 치키다 | 올려놓다 | 인상하다 | 추스르다 | 끌어올리다",
@@ -8412,8 +8329,8 @@
       }
     },
     {
-      "key": "n1-1285",
-      "sequence_no": 1285,
+      "key": "n1-1282",
+      "sequence_no": 1282,
       "word": "追い込む",
       "reading": "おいこむ",
       "meaning_ko": "몰다 | 몰아가다 | 몰아넣다 | 몰아붙이다 | 밀어붙이다",
@@ -8443,8 +8360,8 @@
       }
     },
     {
-      "key": "n1-1286",
-      "sequence_no": 1286,
+      "key": "n1-1283",
+      "sequence_no": 1283,
       "word": "赴く",
       "reading": "おもむく",
       "meaning_ko": "향하다, 가다",
@@ -8474,8 +8391,8 @@
       }
     },
     {
-      "key": "n1-1287",
-      "sequence_no": 1287,
+      "key": "n1-1284",
+      "sequence_no": 1284,
       "word": "恥",
       "reading": "はじ",
       "meaning_ko": "욕 | 수치 | 창피 | 치욕 | 부끄럼 | 치욕감 | 부끄러움",
@@ -8505,8 +8422,8 @@
       }
     },
     {
-      "key": "n1-1288",
-      "sequence_no": 1288,
+      "key": "n1-1285",
+      "sequence_no": 1285,
       "word": "救援",
       "reading": "きゅうえん",
       "meaning_ko": "구원 | 구조 | 구호",
@@ -8536,8 +8453,8 @@
       }
     },
     {
-      "key": "n1-1289",
-      "sequence_no": 1289,
+      "key": "n1-1286",
+      "sequence_no": 1286,
       "word": "法廷",
       "reading": "ほうてい",
       "meaning_ko": "법정",
@@ -8567,8 +8484,8 @@
       }
     },
     {
-      "key": "n1-1290",
-      "sequence_no": 1290,
+      "key": "n1-1287",
+      "sequence_no": 1287,
       "word": "蝶",
       "reading": "ちょう",
       "meaning_ko": "나비",
@@ -8598,8 +8515,8 @@
       }
     },
     {
-      "key": "n1-1291",
-      "sequence_no": 1291,
+      "key": "n1-1288",
+      "sequence_no": 1288,
       "word": "消去",
       "reading": "しょうきょ",
       "meaning_ko": "소거",
@@ -8629,8 +8546,8 @@
       }
     },
     {
-      "key": "n1-1292",
-      "sequence_no": 1292,
+      "key": "n1-1289",
+      "sequence_no": 1289,
       "word": "沿岸",
       "reading": "えんがん",
       "meaning_ko": "연안",
@@ -8660,8 +8577,8 @@
       }
     },
     {
-      "key": "n1-1293",
-      "sequence_no": 1293,
+      "key": "n1-1290",
+      "sequence_no": 1290,
       "word": "休戦",
       "reading": "きゅうせん",
       "meaning_ko": "휴전",
@@ -8691,8 +8608,8 @@
       }
     },
     {
-      "key": "n1-1294",
-      "sequence_no": 1294,
+      "key": "n1-1291",
+      "sequence_no": 1291,
       "word": "自首",
       "reading": "じしゅ",
       "meaning_ko": "자수",
@@ -8722,8 +8639,8 @@
       }
     },
     {
-      "key": "n1-1295",
-      "sequence_no": 1295,
+      "key": "n1-1292",
+      "sequence_no": 1292,
       "word": "申告",
       "reading": "しんこく",
       "meaning_ko": "신고",
@@ -8753,8 +8670,8 @@
       }
     },
     {
-      "key": "n1-1296",
-      "sequence_no": 1296,
+      "key": "n1-1293",
+      "sequence_no": 1293,
       "word": "一心",
       "reading": "いっしん",
       "meaning_ko": "일념 | 일심 | 한마음",
@@ -8784,8 +8701,8 @@
       }
     },
     {
-      "key": "n1-1297",
-      "sequence_no": 1297,
+      "key": "n1-1294",
+      "sequence_no": 1294,
       "word": "没収",
       "reading": "ぼっしゅう",
       "meaning_ko": "몰수 | 압수",
@@ -8815,8 +8732,8 @@
       }
     },
     {
-      "key": "n1-1298",
-      "sequence_no": 1298,
+      "key": "n1-1295",
+      "sequence_no": 1295,
       "word": "返答",
       "reading": "へんとう",
       "meaning_ko": "답 | 대꾸 | 대답 | 말대답",
@@ -8846,8 +8763,8 @@
       }
     },
     {
-      "key": "n1-1299",
-      "sequence_no": 1299,
+      "key": "n1-1296",
+      "sequence_no": 1296,
       "word": "運送",
       "reading": "うんそう",
       "meaning_ko": "운송",
@@ -8877,8 +8794,8 @@
       }
     },
     {
-      "key": "n1-1300",
-      "sequence_no": 1300,
+      "key": "n1-1297",
+      "sequence_no": 1297,
       "word": "花粉",
       "reading": "かふん",
       "meaning_ko": "꽃가루",
@@ -8908,8 +8825,8 @@
       }
     },
     {
-      "key": "n1-1301",
-      "sequence_no": 1301,
+      "key": "n1-1298",
+      "sequence_no": 1298,
       "word": "質疑",
       "reading": "しつぎ",
       "meaning_ko": "질의",
@@ -8939,8 +8856,8 @@
       }
     },
     {
-      "key": "n1-1302",
-      "sequence_no": 1302,
+      "key": "n1-1299",
+      "sequence_no": 1299,
       "word": "繁殖",
       "reading": "はんしょく",
       "meaning_ko": "번식",
@@ -8970,8 +8887,8 @@
       }
     },
     {
-      "key": "n1-1303",
-      "sequence_no": 1303,
+      "key": "n1-1300",
+      "sequence_no": 1300,
       "word": "吐く",
       "reading": "つく",
       "meaning_ko": "",
@@ -8991,8 +8908,8 @@
       }
     },
     {
-      "key": "n1-1304",
-      "sequence_no": 1304,
+      "key": "n1-1301",
+      "sequence_no": 1301,
       "word": "納入",
       "reading": "のうにゅう",
       "meaning_ko": "납입 | 불입",
@@ -9022,8 +8939,8 @@
       }
     },
     {
-      "key": "n1-1305",
-      "sequence_no": 1305,
+      "key": "n1-1302",
+      "sequence_no": 1302,
       "word": "了承",
       "reading": "りょうしょう",
       "meaning_ko": "양해, 승지",
@@ -9053,8 +8970,8 @@
       }
     },
     {
-      "key": "n1-1306",
-      "sequence_no": 1306,
+      "key": "n1-1303",
+      "sequence_no": 1303,
       "word": "証",
       "reading": "あかし",
       "meaning_ko": "간증 | 정표 | 증거",
@@ -9084,8 +9001,8 @@
       }
     },
     {
-      "key": "n1-1307",
-      "sequence_no": 1307,
+      "key": "n1-1304",
+      "sequence_no": 1304,
       "word": "下位",
       "reading": "かい",
       "meaning_ko": "하위 | 아랫자리",
@@ -9115,8 +9032,8 @@
       }
     },
     {
-      "key": "n1-1308",
-      "sequence_no": 1308,
+      "key": "n1-1305",
+      "sequence_no": 1305,
       "word": "土木",
       "reading": "どぼく",
       "meaning_ko": "토목 | 토목 공사",
@@ -9146,8 +9063,8 @@
       }
     },
     {
-      "key": "n1-1309",
-      "sequence_no": 1309,
+      "key": "n1-1306",
+      "sequence_no": 1306,
       "word": "彼方",
       "reading": "あちら",
       "meaning_ko": "저곳 | 저기 | 저쪽 | 저편 | 조쪽",
@@ -9177,8 +9094,8 @@
       }
     },
     {
-      "key": "n1-1310",
-      "sequence_no": 1310,
+      "key": "n1-1307",
+      "sequence_no": 1307,
       "word": "承諾",
       "reading": "しょうだく",
       "meaning_ko": "승낙",
@@ -9208,8 +9125,8 @@
       }
     },
     {
-      "key": "n1-1311",
-      "sequence_no": 1311,
+      "key": "n1-1308",
+      "sequence_no": 1308,
       "word": "疲労",
       "reading": "ひろう",
       "meaning_ko": "피곤 | 피로",
@@ -9239,8 +9156,8 @@
       }
     },
     {
-      "key": "n1-1312",
-      "sequence_no": 1312,
+      "key": "n1-1309",
+      "sequence_no": 1309,
       "word": "配列",
       "reading": "はいれつ",
       "meaning_ko": "배열",
@@ -9270,8 +9187,8 @@
       }
     },
     {
-      "key": "n1-1313",
-      "sequence_no": 1313,
+      "key": "n1-1310",
+      "sequence_no": 1310,
       "word": "真珠",
       "reading": "しんじゅ",
       "meaning_ko": "진주",
@@ -9301,8 +9218,8 @@
       }
     },
     {
-      "key": "n1-1314",
-      "sequence_no": 1314,
+      "key": "n1-1311",
+      "sequence_no": 1311,
       "word": "木綿",
       "reading": "きわた",
       "meaning_ko": "",
@@ -9322,8 +9239,8 @@
       }
     },
     {
-      "key": "n1-1315",
-      "sequence_no": 1315,
+      "key": "n1-1312",
+      "sequence_no": 1312,
       "word": "疑惑",
       "reading": "ぎわく",
       "meaning_ko": "의혹",
@@ -9353,8 +9270,8 @@
       }
     },
     {
-      "key": "n1-1316",
-      "sequence_no": 1316,
+      "key": "n1-1313",
+      "sequence_no": 1313,
       "word": "家主",
       "reading": "いえぬし",
       "meaning_ko": "주인집 | 집주인",
@@ -9384,8 +9301,8 @@
       }
     },
     {
-      "key": "n1-1317",
-      "sequence_no": 1317,
+      "key": "n1-1314",
+      "sequence_no": 1314,
       "word": "破棄",
       "reading": "はき",
       "meaning_ko": "파기",
@@ -9415,8 +9332,8 @@
       }
     },
     {
-      "key": "n1-1318",
-      "sequence_no": 1318,
+      "key": "n1-1315",
+      "sequence_no": 1315,
       "word": "驚き",
       "reading": "おどろき",
       "meaning_ko": "경이 | 기겁 | 놀람 | 놀라움",
@@ -9446,8 +9363,8 @@
       }
     },
     {
-      "key": "n1-1319",
-      "sequence_no": 1319,
+      "key": "n1-1316",
+      "sequence_no": 1316,
       "word": "原点",
       "reading": "げんてん",
       "meaning_ko": "원점",
@@ -9477,8 +9394,8 @@
       }
     },
     {
-      "key": "n1-1320",
-      "sequence_no": 1320,
+      "key": "n1-1317",
+      "sequence_no": 1317,
       "word": "真相",
       "reading": "しんそう",
       "meaning_ko": "진상",
@@ -9508,8 +9425,8 @@
       }
     },
     {
-      "key": "n1-1321",
-      "sequence_no": 1321,
+      "key": "n1-1318",
+      "sequence_no": 1318,
       "word": "ほっと",
       "reading": "ほっと",
       "meaning_ko": "턱 | 푹푹",
@@ -9540,8 +9457,8 @@
       }
     },
     {
-      "key": "n1-1322",
-      "sequence_no": 1322,
+      "key": "n1-1319",
+      "sequence_no": 1319,
       "word": "叫び",
       "reading": "さけび",
       "meaning_ko": "고함 | 외침",
@@ -9571,8 +9488,8 @@
       }
     },
     {
-      "key": "n1-1323",
-      "sequence_no": 1323,
+      "key": "n1-1320",
+      "sequence_no": 1320,
       "word": "便宜",
       "reading": "べんぎ",
       "meaning_ko": "편의",
@@ -9602,8 +9519,8 @@
       }
     },
     {
-      "key": "n1-1324",
-      "sequence_no": 1324,
+      "key": "n1-1321",
+      "sequence_no": 1321,
       "word": "漂う",
       "reading": "ただよう",
       "meaning_ko": "끼다 | 돌다 | 감돌다 | 깃들다 | 떠가다 | 떠돌다 | 떠오다 | 서리다 | 어리다 | 풍기다 | 휘돌다 | 흐르다 | 떠다니다 | 표류하다 | 떠돌아다니다",
@@ -9633,8 +9550,8 @@
       }
     },
     {
-      "key": "n1-1325",
-      "sequence_no": 1325,
+      "key": "n1-1322",
+      "sequence_no": 1322,
       "word": "絡む",
       "reading": "からむ",
       "meaning_ko": "",
@@ -9654,8 +9571,8 @@
       }
     },
     {
-      "key": "n1-1326",
-      "sequence_no": 1326,
+      "key": "n1-1323",
+      "sequence_no": 1323,
       "word": "態々",
       "reading": "わざわざ",
       "meaning_ko": "",
@@ -9675,8 +9592,8 @@
       }
     },
     {
-      "key": "n1-1327",
-      "sequence_no": 1327,
+      "key": "n1-1324",
+      "sequence_no": 1324,
       "word": "鳥居",
       "reading": "とりい",
       "meaning_ko": "",
@@ -9696,8 +9613,8 @@
       }
     },
     {
-      "key": "n1-1328",
-      "sequence_no": 1328,
+      "key": "n1-1325",
+      "sequence_no": 1325,
       "word": "いっそ",
       "reading": "いっそ",
       "meaning_ko": "숫제 | 차라리",
@@ -9728,8 +9645,8 @@
       }
     },
     {
-      "key": "n1-1329",
-      "sequence_no": 1329,
+      "key": "n1-1326",
+      "sequence_no": 1326,
       "word": "賢明",
       "reading": "けんめい",
       "meaning_ko": "현명",
@@ -9759,8 +9676,8 @@
       }
     },
     {
-      "key": "n1-1330",
-      "sequence_no": 1330,
+      "key": "n1-1327",
+      "sequence_no": 1327,
       "word": "私有",
       "reading": "しゆう",
       "meaning_ko": "사유",
@@ -9790,8 +9707,8 @@
       }
     },
     {
-      "key": "n1-1331",
-      "sequence_no": 1331,
+      "key": "n1-1328",
+      "sequence_no": 1328,
       "word": "気まぐれ",
       "reading": "きまぐれ",
       "meaning_ko": "기분파",
@@ -9821,8 +9738,8 @@
       }
     },
     {
-      "key": "n1-1332",
-      "sequence_no": 1332,
+      "key": "n1-1329",
+      "sequence_no": 1329,
       "word": "辞退",
       "reading": "じたい",
       "meaning_ko": "사퇴",
@@ -9852,8 +9769,8 @@
       }
     },
     {
-      "key": "n1-1333",
-      "sequence_no": 1333,
+      "key": "n1-1330",
+      "sequence_no": 1330,
       "word": "拘束",
       "reading": "こうそく",
       "meaning_ko": "결박 | 구속",
@@ -9883,8 +9800,8 @@
       }
     },
     {
-      "key": "n1-1334",
-      "sequence_no": 1334,
+      "key": "n1-1331",
+      "sequence_no": 1331,
       "word": "黒字",
       "reading": "くろじ",
       "meaning_ko": "흑자",
@@ -9914,8 +9831,8 @@
       }
     },
     {
-      "key": "n1-1335",
-      "sequence_no": 1335,
+      "key": "n1-1332",
+      "sequence_no": 1332,
       "word": "国交",
       "reading": "こっこう",
       "meaning_ko": "국교",
@@ -9945,8 +9862,8 @@
       }
     },
     {
-      "key": "n1-1336",
-      "sequence_no": 1336,
+      "key": "n1-1333",
+      "sequence_no": 1333,
       "word": "柔軟",
       "reading": "じゅうなん",
       "meaning_ko": "유연함, 융통성 있음",
@@ -9966,8 +9883,8 @@
       }
     },
     {
-      "key": "n1-1337",
-      "sequence_no": 1337,
+      "key": "n1-1334",
+      "sequence_no": 1334,
       "word": "尽きる",
       "reading": "つきる",
       "meaning_ko": "되다 | 끝나다 | 다하다 | 마르다 | 떨어지다",
@@ -9997,8 +9914,8 @@
       }
     },
     {
-      "key": "n1-1338",
-      "sequence_no": 1338,
+      "key": "n1-1335",
+      "sequence_no": 1335,
       "word": "侮辱",
       "reading": "ぶじょく",
       "meaning_ko": "곤욕 | 모욕",
@@ -10028,8 +9945,8 @@
       }
     },
     {
-      "key": "n1-1339",
-      "sequence_no": 1339,
+      "key": "n1-1336",
+      "sequence_no": 1336,
       "word": "アルミ",
       "reading": "アルミ",
       "meaning_ko": "알루미늄",
@@ -10060,8 +9977,8 @@
       }
     },
     {
-      "key": "n1-1340",
-      "sequence_no": 1340,
+      "key": "n1-1337",
+      "sequence_no": 1337,
       "word": "結束",
       "reading": "けっそく",
       "meaning_ko": "결속 | 단결",
@@ -10091,8 +10008,8 @@
       }
     },
     {
-      "key": "n1-1341",
-      "sequence_no": 1341,
+      "key": "n1-1338",
+      "sequence_no": 1338,
       "word": "頼み",
       "reading": "たのみ",
       "meaning_ko": "당부 | 부탁 | 의지",
@@ -10122,8 +10039,8 @@
       }
     },
     {
-      "key": "n1-1342",
-      "sequence_no": 1342,
+      "key": "n1-1339",
+      "sequence_no": 1339,
       "word": "麻痺",
       "reading": "まひ",
       "meaning_ko": "마비",
@@ -10153,8 +10070,8 @@
       }
     },
     {
-      "key": "n1-1343",
-      "sequence_no": 1343,
+      "key": "n1-1340",
+      "sequence_no": 1340,
       "word": "諸君",
       "reading": "しょくん",
       "meaning_ko": "제군",
@@ -10184,8 +10101,8 @@
       }
     },
     {
-      "key": "n1-1344",
-      "sequence_no": 1344,
+      "key": "n1-1341",
+      "sequence_no": 1341,
       "word": "いいえ",
       "reading": "いいえ",
       "meaning_ko": "아뇨 | 아니요 | 천만에",
@@ -10216,8 +10133,8 @@
       }
     },
     {
-      "key": "n1-1345",
-      "sequence_no": 1345,
+      "key": "n1-1342",
+      "sequence_no": 1342,
       "word": "悟る",
       "reading": "さとる",
       "meaning_ko": "알다 | 깨닫다 | 깨치다 | 도통하다 | 터득하다",
@@ -10247,8 +10164,8 @@
       }
     },
     {
-      "key": "n1-1346",
-      "sequence_no": 1346,
+      "key": "n1-1343",
+      "sequence_no": 1343,
       "word": "良好",
       "reading": "りょうこう",
       "meaning_ko": "",
@@ -10268,8 +10185,8 @@
       }
     },
     {
-      "key": "n1-1347",
-      "sequence_no": 1347,
+      "key": "n1-1344",
+      "sequence_no": 1344,
       "word": "仕掛ける",
       "reading": "しかける",
       "meaning_ko": "놓다",
@@ -10299,8 +10216,8 @@
       }
     },
     {
-      "key": "n1-1348",
-      "sequence_no": 1348,
+      "key": "n1-1345",
+      "sequence_no": 1345,
       "word": "控える",
       "reading": "ひかえる",
       "meaning_ko": "삼가다 | 앞두다 | 죽이다",
@@ -10330,8 +10247,8 @@
       }
     },
     {
-      "key": "n1-1349",
-      "sequence_no": 1349,
+      "key": "n1-1346",
+      "sequence_no": 1346,
       "word": "落ち着き",
       "reading": "おちつき",
       "meaning_ko": "침착",
@@ -10361,8 +10278,8 @@
       }
     },
     {
-      "key": "n1-1350",
-      "sequence_no": 1350,
+      "key": "n1-1347",
+      "sequence_no": 1347,
       "word": "見渡す",
       "reading": "みわたす",
       "meaning_ko": "건너보다 | 내다보다 | 전망하다 | 건너다보다",
@@ -10392,8 +10309,8 @@
       }
     },
     {
-      "key": "n1-1351",
-      "sequence_no": 1351,
+      "key": "n1-1348",
+      "sequence_no": 1348,
       "word": "強行",
       "reading": "きょうこう",
       "meaning_ko": "강행",
@@ -10423,8 +10340,8 @@
       }
     },
     {
-      "key": "n1-1352",
-      "sequence_no": 1352,
+      "key": "n1-1349",
+      "sequence_no": 1349,
       "word": "絶える",
       "reading": "たえる",
       "meaning_ko": "끊기다 | 끊이다 | 끊어지다 | 넘어가다 | 단절되다 | 떨어지다",
@@ -10454,8 +10371,8 @@
       }
     },
     {
-      "key": "n1-1353",
-      "sequence_no": 1353,
+      "key": "n1-1350",
+      "sequence_no": 1350,
       "word": "軍艦",
       "reading": "ぐんかん",
       "meaning_ko": "군함",
@@ -10485,8 +10402,8 @@
       }
     },
     {
-      "key": "n1-1354",
-      "sequence_no": 1354,
+      "key": "n1-1351",
+      "sequence_no": 1351,
       "word": "取り戻す",
       "reading": "とりもどす",
       "meaning_ko": "찾다 | 건지다 | 돌리다 | 되잡다 | 되찾다 | 살리다 | 차리다 | 돌이키다 | 찾아가다",
@@ -10516,8 +10433,8 @@
       }
     },
     {
-      "key": "n1-1355",
-      "sequence_no": 1355,
+      "key": "n1-1352",
+      "sequence_no": 1352,
       "word": "診療",
       "reading": "しんりょう",
       "meaning_ko": "진료",
@@ -10547,8 +10464,8 @@
       }
     },
     {
-      "key": "n1-1356",
-      "sequence_no": 1356,
+      "key": "n1-1353",
+      "sequence_no": 1353,
       "word": "勤勉",
       "reading": "きんべん",
       "meaning_ko": "근면",
@@ -10578,8 +10495,8 @@
       }
     },
     {
-      "key": "n1-1357",
-      "sequence_no": 1357,
+      "key": "n1-1354",
+      "sequence_no": 1354,
       "word": "軽蔑",
       "reading": "けいべつ",
       "meaning_ko": "경멸 | 능멸",
@@ -10609,8 +10526,8 @@
       }
     },
     {
-      "key": "n1-1358",
-      "sequence_no": 1358,
+      "key": "n1-1355",
+      "sequence_no": 1355,
       "word": "間柄",
       "reading": "あいだがら",
       "meaning_ko": "사이",
@@ -10640,8 +10557,8 @@
       }
     },
     {
-      "key": "n1-1359",
-      "sequence_no": 1359,
+      "key": "n1-1356",
+      "sequence_no": 1356,
       "word": "肝心",
       "reading": "かんじん",
       "meaning_ko": "요체",
@@ -10671,8 +10588,8 @@
       }
     },
     {
-      "key": "n1-1360",
-      "sequence_no": 1360,
+      "key": "n1-1357",
+      "sequence_no": 1357,
       "word": "明後日",
       "reading": "あさって",
       "meaning_ko": "모레 | 낼모레 | 내일모레",
@@ -10702,8 +10619,8 @@
       }
     },
     {
-      "key": "n1-1361",
-      "sequence_no": 1361,
+      "key": "n1-1358",
+      "sequence_no": 1358,
       "word": "指図",
       "reading": "さしず",
       "meaning_ko": "명",
@@ -10733,8 +10650,8 @@
       }
     },
     {
-      "key": "n1-1362",
-      "sequence_no": 1362,
+      "key": "n1-1359",
+      "sequence_no": 1359,
       "word": "残酷",
       "reading": "ざんこく",
       "meaning_ko": "잔악 | 잔혹 | 참혹",
@@ -10764,8 +10681,8 @@
       }
     },
     {
-      "key": "n1-1363",
-      "sequence_no": 1363,
+      "key": "n1-1360",
+      "sequence_no": 1360,
       "word": "着目",
       "reading": "ちゃくもく",
       "meaning_ko": "착안",
@@ -10795,8 +10712,8 @@
       }
     },
     {
-      "key": "n1-1364",
-      "sequence_no": 1364,
+      "key": "n1-1361",
+      "sequence_no": 1361,
       "word": "仏像",
       "reading": "ぶつぞう",
       "meaning_ko": "부처 | 불상",
@@ -10826,8 +10743,8 @@
       }
     },
     {
-      "key": "n1-1365",
-      "sequence_no": 1365,
+      "key": "n1-1362",
+      "sequence_no": 1362,
       "word": "志望",
       "reading": "しぼう",
       "meaning_ko": "지망 | 지원",
@@ -10857,8 +10774,8 @@
       }
     },
     {
-      "key": "n1-1366",
-      "sequence_no": 1366,
+      "key": "n1-1363",
+      "sequence_no": 1363,
       "word": "万人",
       "reading": "ばんじん",
       "meaning_ko": "만인",
@@ -10888,8 +10805,8 @@
       }
     },
     {
-      "key": "n1-1367",
-      "sequence_no": 1367,
+      "key": "n1-1364",
+      "sequence_no": 1364,
       "word": "練る",
       "reading": "ねる",
       "meaning_ko": "개다 | 닦다 | 짜다 | 다듬다 | 으깨다 | 치대다 | 반죽하다",
@@ -10919,8 +10836,8 @@
       }
     },
     {
-      "key": "n1-1368",
-      "sequence_no": 1368,
+      "key": "n1-1365",
+      "sequence_no": 1365,
       "word": "家出",
       "reading": "いえで",
       "meaning_ko": "가출 | 출가",
@@ -10950,8 +10867,8 @@
       }
     },
     {
-      "key": "n1-1369",
-      "sequence_no": 1369,
+      "key": "n1-1366",
+      "sequence_no": 1366,
       "word": "夜行",
       "reading": "やぎょう",
       "meaning_ko": "",
@@ -10971,8 +10888,8 @@
       }
     },
     {
-      "key": "n1-1370",
-      "sequence_no": 1370,
+      "key": "n1-1367",
+      "sequence_no": 1367,
       "word": "懸賞",
       "reading": "けんしょう",
       "meaning_ko": "현상",
@@ -11002,8 +10919,8 @@
       }
     },
     {
-      "key": "n1-1371",
-      "sequence_no": 1371,
+      "key": "n1-1368",
+      "sequence_no": 1368,
       "word": "歩み",
       "reading": "あゆみ",
       "meaning_ko": "발 | 걸음 | 행보 | 발걸음",
@@ -11033,8 +10950,8 @@
       }
     },
     {
-      "key": "n1-1372",
-      "sequence_no": 1372,
+      "key": "n1-1369",
+      "sequence_no": 1369,
       "word": "鮮やか",
       "reading": "あざやか",
       "meaning_ko": "",
@@ -11054,8 +10971,8 @@
       }
     },
     {
-      "key": "n1-1373",
-      "sequence_no": 1373,
+      "key": "n1-1370",
+      "sequence_no": 1370,
       "word": "収まる",
       "reading": "おさまる",
       "meaning_ko": "삭다 | 잦다 | 갈앉다 | 가라앉다 | 잦아들다 | 잦아지다",
@@ -11085,8 +11002,8 @@
       }
     },
     {
-      "key": "n1-1374",
-      "sequence_no": 1374,
+      "key": "n1-1371",
+      "sequence_no": 1371,
       "word": "弁解",
       "reading": "べんかい",
       "meaning_ko": "변명 | 핑계",
@@ -11116,8 +11033,8 @@
       }
     },
     {
-      "key": "n1-1375",
-      "sequence_no": 1375,
+      "key": "n1-1372",
+      "sequence_no": 1372,
       "word": "短歌",
       "reading": "たんか",
       "meaning_ko": "",
@@ -11137,8 +11054,8 @@
       }
     },
     {
-      "key": "n1-1376",
-      "sequence_no": 1376,
+      "key": "n1-1373",
+      "sequence_no": 1373,
       "word": "憂鬱",
       "reading": "ゆううつ",
       "meaning_ko": "우울",
@@ -11168,8 +11085,8 @@
       }
     },
     {
-      "key": "n1-1377",
-      "sequence_no": 1377,
+      "key": "n1-1374",
+      "sequence_no": 1374,
       "word": "免除",
       "reading": "めんじょ",
       "meaning_ko": "면제",
@@ -11199,8 +11116,8 @@
       }
     },
     {
-      "key": "n1-1378",
-      "sequence_no": 1378,
+      "key": "n1-1375",
+      "sequence_no": 1375,
       "word": "裸足",
       "reading": "はだし",
       "meaning_ko": "맨발",
@@ -11230,8 +11147,8 @@
       }
     },
     {
-      "key": "n1-1379",
-      "sequence_no": 1379,
+      "key": "n1-1376",
+      "sequence_no": 1376,
       "word": "突く",
       "reading": "つつく",
       "meaning_ko": "",
@@ -11251,8 +11168,8 @@
       }
     },
     {
-      "key": "n1-1380",
-      "sequence_no": 1380,
+      "key": "n1-1377",
+      "sequence_no": 1377,
       "word": "陳列",
       "reading": "ちんれつ",
       "meaning_ko": "진열",
@@ -11282,8 +11199,8 @@
       }
     },
     {
-      "key": "n1-1381",
-      "sequence_no": 1381,
+      "key": "n1-1378",
+      "sequence_no": 1378,
       "word": "一々",
       "reading": "いちいち",
       "meaning_ko": "",
@@ -11303,8 +11220,8 @@
       }
     },
     {
-      "key": "n1-1382",
-      "sequence_no": 1382,
+      "key": "n1-1379",
+      "sequence_no": 1379,
       "word": "アクセル",
       "reading": "アクセル",
       "meaning_ko": "액셀",
@@ -11335,8 +11252,8 @@
       }
     },
     {
-      "key": "n1-1383",
-      "sequence_no": 1383,
+      "key": "n1-1380",
+      "sequence_no": 1380,
       "word": "歩む",
       "reading": "あゆむ",
       "meaning_ko": "걷다 | 행보하다",
@@ -11366,8 +11283,8 @@
       }
     },
     {
-      "key": "n1-1384",
-      "sequence_no": 1384,
+      "key": "n1-1381",
+      "sequence_no": 1381,
       "word": "倹約",
       "reading": "けんやく",
       "meaning_ko": "검약 | 알뜰",
@@ -11397,8 +11314,8 @@
       }
     },
     {
-      "key": "n1-1385",
-      "sequence_no": 1385,
+      "key": "n1-1382",
+      "sequence_no": 1382,
       "word": "閲覧",
       "reading": "えつらん",
       "meaning_ko": "열람",
@@ -11428,8 +11345,8 @@
       }
     },
     {
-      "key": "n1-1386",
-      "sequence_no": 1386,
+      "key": "n1-1383",
+      "sequence_no": 1383,
       "word": "雛",
       "reading": "ひな",
       "meaning_ko": "새끼 | 병아리",
@@ -11459,8 +11376,8 @@
       }
     },
     {
-      "key": "n1-1387",
-      "sequence_no": 1387,
+      "key": "n1-1384",
+      "sequence_no": 1384,
       "word": "明瞭",
       "reading": "めいりょう",
       "meaning_ko": "명료함",
@@ -11480,8 +11397,8 @@
       }
     },
     {
-      "key": "n1-1388",
-      "sequence_no": 1388,
+      "key": "n1-1385",
+      "sequence_no": 1385,
       "word": "栄える",
       "reading": "さかえる",
       "meaning_ko": "번영하다",
@@ -11511,8 +11428,8 @@
       }
     },
     {
-      "key": "n1-1389",
-      "sequence_no": 1389,
+      "key": "n1-1386",
+      "sequence_no": 1386,
       "word": "免れる",
       "reading": "まぬかれる",
       "meaning_ko": "벗다 | 면하다 | 피하다 | 모면하다 | 벗어나다",
@@ -11542,8 +11459,8 @@
       }
     },
     {
-      "key": "n1-1390",
-      "sequence_no": 1390,
+      "key": "n1-1387",
+      "sequence_no": 1387,
       "word": "傍ら",
       "reading": "かたわら",
       "meaning_ko": "측근 | 한편",
@@ -11573,8 +11490,8 @@
       }
     },
     {
-      "key": "n1-1391",
-      "sequence_no": 1391,
+      "key": "n1-1388",
+      "sequence_no": 1388,
       "word": "追跡",
       "reading": "ついせき",
       "meaning_ko": "추적",
@@ -11604,8 +11521,8 @@
       }
     },
     {
-      "key": "n1-1392",
-      "sequence_no": 1392,
+      "key": "n1-1389",
+      "sequence_no": 1389,
       "word": "豊作",
       "reading": "ほうさく",
       "meaning_ko": "풍작",
@@ -11635,8 +11552,8 @@
       }
     },
     {
-      "key": "n1-1393",
-      "sequence_no": 1393,
+      "key": "n1-1390",
+      "sequence_no": 1390,
       "word": "願書",
       "reading": "がんしょ",
       "meaning_ko": "원서 | 지원서",
@@ -11666,8 +11583,8 @@
       }
     },
     {
-      "key": "n1-1394",
-      "sequence_no": 1394,
+      "key": "n1-1391",
+      "sequence_no": 1391,
       "word": "貯蓄",
       "reading": "ちょちく",
       "meaning_ko": "저축",
@@ -11697,8 +11614,8 @@
       }
     },
     {
-      "key": "n1-1395",
-      "sequence_no": 1395,
+      "key": "n1-1392",
+      "sequence_no": 1392,
       "word": "養う",
       "reading": "やしなう",
       "meaning_ko": "기르다 | 먹이다 | 키우다 | 사육하다 | 양성하다",
@@ -11728,8 +11645,8 @@
       }
     },
     {
-      "key": "n1-1396",
-      "sequence_no": 1396,
+      "key": "n1-1393",
+      "sequence_no": 1393,
       "word": "等級",
       "reading": "とうきゅう",
       "meaning_ko": "급 | 단 | 급수 | 등급",
@@ -11759,8 +11676,8 @@
       }
     },
     {
-      "key": "n1-1397",
-      "sequence_no": 1397,
+      "key": "n1-1394",
+      "sequence_no": 1394,
       "word": "適宜",
       "reading": "てきぎ",
       "meaning_ko": "적절히, 수시로",
@@ -11780,8 +11697,8 @@
       }
     },
     {
-      "key": "n1-1398",
-      "sequence_no": 1398,
+      "key": "n1-1395",
+      "sequence_no": 1395,
       "word": "既婚",
       "reading": "きこん",
       "meaning_ko": "기혼",
@@ -11811,8 +11728,8 @@
       }
     },
     {
-      "key": "n1-1399",
-      "sequence_no": 1399,
+      "key": "n1-1396",
+      "sequence_no": 1396,
       "word": "偏見",
       "reading": "へんけん",
       "meaning_ko": "편견 | 색안경",
@@ -11842,8 +11759,8 @@
       }
     },
     {
-      "key": "n1-1400",
-      "sequence_no": 1400,
+      "key": "n1-1397",
+      "sequence_no": 1397,
       "word": "始発",
       "reading": "しはつ",
       "meaning_ko": "시발 | 첫차 | 시발점",
@@ -11873,8 +11790,8 @@
       }
     },
     {
-      "key": "n1-1401",
-      "sequence_no": 1401,
+      "key": "n1-1398",
+      "sequence_no": 1398,
       "word": "募る",
       "reading": "つのる",
       "meaning_ko": "더하다 | 모으다 | 쌓이다 | 얹히다 | 모금하다 | 모집하다",
@@ -11904,8 +11821,8 @@
       }
     },
     {
-      "key": "n1-1402",
-      "sequence_no": 1402,
+      "key": "n1-1399",
+      "sequence_no": 1399,
       "word": "逃す",
       "reading": "のがす",
       "meaning_ko": "놓치다",
@@ -11935,8 +11852,8 @@
       }
     },
     {
-      "key": "n1-1403",
-      "sequence_no": 1403,
+      "key": "n1-1400",
+      "sequence_no": 1400,
       "word": "海峡",
       "reading": "かいきょう",
       "meaning_ko": "해협",
@@ -11966,8 +11883,8 @@
       }
     },
     {
-      "key": "n1-1404",
-      "sequence_no": 1404,
+      "key": "n1-1401",
+      "sequence_no": 1401,
       "word": "冠",
       "reading": "かん",
       "meaning_ko": "관",
@@ -11997,8 +11914,8 @@
       }
     },
     {
-      "key": "n1-1405",
-      "sequence_no": 1405,
+      "key": "n1-1402",
+      "sequence_no": 1402,
       "word": "未開",
       "reading": "みかい",
       "meaning_ko": "미개",
@@ -12028,8 +11945,8 @@
       }
     },
     {
-      "key": "n1-1406",
-      "sequence_no": 1406,
+      "key": "n1-1403",
+      "sequence_no": 1403,
       "word": "仰ぐ",
       "reading": "あおぐ",
       "meaning_ko": "우러르다 | 우러러보다",
@@ -12059,8 +11976,8 @@
       }
     },
     {
-      "key": "n1-1407",
-      "sequence_no": 1407,
+      "key": "n1-1404",
+      "sequence_no": 1404,
       "word": "勧告",
       "reading": "かんこく",
       "meaning_ko": "권고",
@@ -12090,8 +12007,8 @@
       }
     },
     {
-      "key": "n1-1408",
-      "sequence_no": 1408,
+      "key": "n1-1405",
+      "sequence_no": 1405,
       "word": "引き取る",
       "reading": "ひきとる",
       "meaning_ko": "거두다 | 거둬들이다 | 거두어들이다",
@@ -12121,8 +12038,8 @@
       }
     },
     {
-      "key": "n1-1409",
-      "sequence_no": 1409,
+      "key": "n1-1406",
+      "sequence_no": 1406,
       "word": "細菌",
       "reading": "さいきん",
       "meaning_ko": "세균",
@@ -12152,8 +12069,8 @@
       }
     },
     {
-      "key": "n1-1410",
-      "sequence_no": 1410,
+      "key": "n1-1407",
+      "sequence_no": 1407,
       "word": "不吉",
       "reading": "ふきつ",
       "meaning_ko": "",
@@ -12173,8 +12090,8 @@
       }
     },
     {
-      "key": "n1-1411",
-      "sequence_no": 1411,
+      "key": "n1-1408",
+      "sequence_no": 1408,
       "word": "恵み",
       "reading": "めぐみ",
       "meaning_ko": "은혜",
@@ -12204,8 +12121,8 @@
       }
     },
     {
-      "key": "n1-1412",
-      "sequence_no": 1412,
+      "key": "n1-1409",
+      "sequence_no": 1409,
       "word": "守衛",
       "reading": "しゅえい",
       "meaning_ko": "수위",
@@ -12235,8 +12152,8 @@
       }
     },
     {
-      "key": "n1-1413",
-      "sequence_no": 1413,
+      "key": "n1-1410",
+      "sequence_no": 1410,
       "word": "抽選",
       "reading": "ちゅうせん",
       "meaning_ko": "추첨 | 제비뽑기",
@@ -12266,8 +12183,8 @@
       }
     },
     {
-      "key": "n1-1414",
-      "sequence_no": 1414,
+      "key": "n1-1411",
+      "sequence_no": 1411,
       "word": "沸騰",
       "reading": "ふっとう",
       "meaning_ko": "",
@@ -12287,8 +12204,8 @@
       }
     },
     {
-      "key": "n1-1415",
-      "sequence_no": 1415,
+      "key": "n1-1412",
+      "sequence_no": 1412,
       "word": "内陸",
       "reading": "ないりく",
       "meaning_ko": "내륙 | 내지",
@@ -12318,8 +12235,8 @@
       }
     },
     {
-      "key": "n1-1416",
-      "sequence_no": 1416,
+      "key": "n1-1413",
+      "sequence_no": 1413,
       "word": "有様",
       "reading": "ありさま",
       "meaning_ko": "짝 | 모양 | 몰골",
@@ -12349,8 +12266,8 @@
       }
     },
     {
-      "key": "n1-1417",
-      "sequence_no": 1417,
+      "key": "n1-1414",
+      "sequence_no": 1414,
       "word": "和風",
       "reading": "わふう",
       "meaning_ko": "",
@@ -12370,8 +12287,8 @@
       }
     },
     {
-      "key": "n1-1418",
-      "sequence_no": 1418,
+      "key": "n1-1415",
+      "sequence_no": 1415,
       "word": "引き受ける",
       "reading": "ひきうける",
       "meaning_ko": "맡다 | 지다 | 도맡다 | 인수하다",
@@ -12401,8 +12318,8 @@
       }
     },
     {
-      "key": "n1-1419",
-      "sequence_no": 1419,
+      "key": "n1-1416",
+      "sequence_no": 1416,
       "word": "脅迫",
       "reading": "きょうはく",
       "meaning_ko": "엄포 | 협박 | 으름장 | 주먹다짐",
@@ -12432,8 +12349,8 @@
       }
     },
     {
-      "key": "n1-1420",
-      "sequence_no": 1420,
+      "key": "n1-1417",
+      "sequence_no": 1417,
       "word": "漏らす",
       "reading": "もらす",
       "meaning_ko": "내다 | 쏟다 | 빼먹다 | 지리다 | 누락하다 | 누적하다 | 발설하다 | 빠뜨리다 | 빠트리다 | 탈루하다 | 터뜨리다 | 터트리다",
@@ -12463,8 +12380,8 @@
       }
     },
     {
-      "key": "n1-1421",
-      "sequence_no": 1421,
+      "key": "n1-1418",
+      "sequence_no": 1418,
       "word": "賭け",
       "reading": "かけ",
       "meaning_ko": "",
@@ -12484,8 +12401,8 @@
       }
     },
     {
-      "key": "n1-1422",
-      "sequence_no": 1422,
+      "key": "n1-1419",
+      "sequence_no": 1419,
       "word": "控除",
       "reading": "こうじょ",
       "meaning_ko": "공제",
@@ -12515,8 +12432,8 @@
       }
     },
     {
-      "key": "n1-1423",
-      "sequence_no": 1423,
+      "key": "n1-1420",
+      "sequence_no": 1420,
       "word": "無口",
       "reading": "むくち",
       "meaning_ko": "과묵",
@@ -12546,8 +12463,8 @@
       }
     },
     {
-      "key": "n1-1424",
-      "sequence_no": 1424,
+      "key": "n1-1421",
+      "sequence_no": 1421,
       "word": "未熟",
       "reading": "みじゅく",
       "meaning_ko": "미숙 | 미성숙",
@@ -12577,8 +12494,8 @@
       }
     },
     {
-      "key": "n1-1425",
-      "sequence_no": 1425,
+      "key": "n1-1422",
+      "sequence_no": 1422,
       "word": "明かす",
       "reading": "あかす",
       "meaning_ko": "캐다 | 밝히다 | 새우다 | 밝혀내다 | 밤새우다 | 밤샘하다 | 채근하다 | 천명하다",
@@ -12608,8 +12525,8 @@
       }
     },
     {
-      "key": "n1-1426",
-      "sequence_no": 1426,
+      "key": "n1-1423",
+      "sequence_no": 1423,
       "word": "潜る",
       "reading": "くぐる",
       "meaning_ko": "뚫다",
@@ -12639,8 +12556,8 @@
       }
     },
     {
-      "key": "n1-1427",
-      "sequence_no": 1427,
+      "key": "n1-1424",
+      "sequence_no": 1424,
       "word": "望ましい",
       "reading": "のぞましい",
       "meaning_ko": "바람직하다 | 소망스럽다 | 바람직스럽다",
@@ -12670,8 +12587,8 @@
       }
     },
     {
-      "key": "n1-1428",
-      "sequence_no": 1428,
+      "key": "n1-1425",
+      "sequence_no": 1425,
       "word": "下地",
       "reading": "したじ",
       "meaning_ko": "바탕 | 밑바탕",
@@ -12701,8 +12618,8 @@
       }
     },
     {
-      "key": "n1-1429",
-      "sequence_no": 1429,
+      "key": "n1-1426",
+      "sequence_no": 1426,
       "word": "目覚める",
       "reading": "めざめる",
       "meaning_ko": "깨다 | 틔다 | 깨나다 | 깨닫다 | 깨이다 | 깨치다 | 눈뜨다 | 뜨이다 | 트이다 | 각성되다 | 기상하다 | 깨어나다",
@@ -12732,8 +12649,8 @@
       }
     },
     {
-      "key": "n1-1430",
-      "sequence_no": 1430,
+      "key": "n1-1427",
+      "sequence_no": 1427,
       "word": "今更",
       "reading": "いまさら",
       "meaning_ko": "새삼스레 | 새삼스럽다",
@@ -12763,8 +12680,8 @@
       }
     },
     {
-      "key": "n1-1431",
-      "sequence_no": 1431,
+      "key": "n1-1428",
+      "sequence_no": 1428,
       "word": "手分け",
       "reading": "てわけ",
       "meaning_ko": "",
@@ -12784,8 +12701,8 @@
       }
     },
     {
-      "key": "n1-1432",
-      "sequence_no": 1432,
+      "key": "n1-1429",
+      "sequence_no": 1429,
       "word": "ニュアンス",
       "reading": "ニュアンス",
       "meaning_ko": "어감 | 음영 | 뉘앙스",
@@ -12816,8 +12733,8 @@
       }
     },
     {
-      "key": "n1-1433",
-      "sequence_no": 1433,
+      "key": "n1-1430",
+      "sequence_no": 1430,
       "word": "捕虜",
       "reading": "ほりょ",
       "meaning_ko": "포로",
@@ -12847,8 +12764,8 @@
       }
     },
     {
-      "key": "n1-1434",
-      "sequence_no": 1434,
+      "key": "n1-1431",
+      "sequence_no": 1431,
       "word": "滑稽",
       "reading": "こっけい",
       "meaning_ko": "익살 | 우스개 | 우스갯말 | 우스갯소리",
@@ -12878,8 +12795,8 @@
       }
     },
     {
-      "key": "n1-1435",
-      "sequence_no": 1435,
+      "key": "n1-1432",
+      "sequence_no": 1432,
       "word": "雑貨",
       "reading": "ざっか",
       "meaning_ko": "잡화",
@@ -12909,8 +12826,8 @@
       }
     },
     {
-      "key": "n1-1436",
-      "sequence_no": 1436,
+      "key": "n1-1433",
+      "sequence_no": 1433,
       "word": "形勢",
       "reading": "けいせい",
       "meaning_ko": "판세 | 형국 | 형세 | 형편",
@@ -12940,8 +12857,8 @@
       }
     },
     {
-      "key": "n1-1437",
-      "sequence_no": 1437,
+      "key": "n1-1434",
+      "sequence_no": 1434,
       "word": "水田",
       "reading": "すいでん",
       "meaning_ko": "무논",
@@ -12971,8 +12888,8 @@
       }
     },
     {
-      "key": "n1-1438",
-      "sequence_no": 1438,
+      "key": "n1-1435",
+      "sequence_no": 1435,
       "word": "雨天",
       "reading": "うてん",
       "meaning_ko": "",
@@ -12992,8 +12909,8 @@
       }
     },
     {
-      "key": "n1-1439",
-      "sequence_no": 1439,
+      "key": "n1-1436",
+      "sequence_no": 1436,
       "word": "奮闘",
       "reading": "ふんとう",
       "meaning_ko": "분투",
@@ -13023,8 +12940,8 @@
       }
     },
     {
-      "key": "n1-1440",
-      "sequence_no": 1440,
+      "key": "n1-1437",
+      "sequence_no": 1437,
       "word": "水源",
       "reading": "すいげん",
       "meaning_ko": "",
@@ -13044,8 +12961,8 @@
       }
     },
     {
-      "key": "n1-1441",
-      "sequence_no": 1441,
+      "key": "n1-1438",
+      "sequence_no": 1438,
       "word": "取り除く",
       "reading": "とりのぞく",
       "meaning_ko": "빼다 | 뽑다 | 치다 | 쳐내다 | 제거하다",
@@ -13075,8 +12992,8 @@
       }
     },
     {
-      "key": "n1-1442",
-      "sequence_no": 1442,
+      "key": "n1-1439",
+      "sequence_no": 1439,
       "word": "巧み",
       "reading": "たくみ",
       "meaning_ko": "",
@@ -13096,8 +13013,8 @@
       }
     },
     {
-      "key": "n1-1443",
-      "sequence_no": 1443,
+      "key": "n1-1440",
+      "sequence_no": 1440,
       "word": "獣",
       "reading": "けだもの",
       "meaning_ko": "짐승",
@@ -13127,8 +13044,8 @@
       }
     },
     {
-      "key": "n1-1444",
-      "sequence_no": 1444,
+      "key": "n1-1441",
+      "sequence_no": 1441,
       "word": "大概",
       "reading": "たいがい",
       "meaning_ko": "대개 | 얼추",
@@ -13158,8 +13075,8 @@
       }
     },
     {
-      "key": "n1-1445",
-      "sequence_no": 1445,
+      "key": "n1-1442",
+      "sequence_no": 1442,
       "word": "採択",
       "reading": "さいたく",
       "meaning_ko": "채택",
@@ -13189,8 +13106,8 @@
       }
     },
     {
-      "key": "n1-1446",
-      "sequence_no": 1446,
+      "key": "n1-1443",
+      "sequence_no": 1443,
       "word": "匹敵",
       "reading": "ひってき",
       "meaning_ko": "필적",
@@ -13220,8 +13137,8 @@
       }
     },
     {
-      "key": "n1-1447",
-      "sequence_no": 1447,
+      "key": "n1-1444",
+      "sequence_no": 1444,
       "word": "公募",
       "reading": "こうぼ",
       "meaning_ko": "공모",
@@ -13251,8 +13168,8 @@
       }
     },
     {
-      "key": "n1-1448",
-      "sequence_no": 1448,
+      "key": "n1-1445",
+      "sequence_no": 1445,
       "word": "到底",
       "reading": "とうてい",
       "meaning_ko": "도저히",
@@ -13282,8 +13199,8 @@
       }
     },
     {
-      "key": "n1-1449",
-      "sequence_no": 1449,
+      "key": "n1-1446",
+      "sequence_no": 1446,
       "word": "腐敗",
       "reading": "ふはい",
       "meaning_ko": "부패",
@@ -13313,8 +13230,8 @@
       }
     },
     {
-      "key": "n1-1450",
-      "sequence_no": 1450,
+      "key": "n1-1447",
+      "sequence_no": 1447,
       "word": "整列",
       "reading": "せいれつ",
       "meaning_ko": "정렬",
@@ -13344,8 +13261,8 @@
       }
     },
     {
-      "key": "n1-1451",
-      "sequence_no": 1451,
+      "key": "n1-1448",
+      "sequence_no": 1448,
       "word": "岩石",
       "reading": "がんせき",
       "meaning_ko": "바위 | 암석",
@@ -13375,8 +13292,8 @@
       }
     },
     {
-      "key": "n1-1452",
-      "sequence_no": 1452,
+      "key": "n1-1449",
+      "sequence_no": 1449,
       "word": "救い",
       "reading": "すくい",
       "meaning_ko": "구출",
@@ -13406,8 +13323,8 @@
       }
     },
     {
-      "key": "n1-1453",
-      "sequence_no": 1453,
+      "key": "n1-1450",
+      "sequence_no": 1450,
       "word": "立ち寄る",
       "reading": "たちよる",
       "meaning_ko": "거치다 | 다니다 | 들르다 | 다녀가다",
@@ -13437,8 +13354,8 @@
       }
     },
     {
-      "key": "n1-1454",
-      "sequence_no": 1454,
+      "key": "n1-1451",
+      "sequence_no": 1451,
       "word": "中和",
       "reading": "ちゅうわ",
       "meaning_ko": "중화",
@@ -13468,8 +13385,8 @@
       }
     },
     {
-      "key": "n1-1455",
-      "sequence_no": 1455,
+      "key": "n1-1452",
+      "sequence_no": 1452,
       "word": "墜落",
       "reading": "ついらく",
       "meaning_ko": "추락",
@@ -13499,8 +13416,8 @@
       }
     },
     {
-      "key": "n1-1456",
-      "sequence_no": 1456,
+      "key": "n1-1453",
+      "sequence_no": 1453,
       "word": "保養",
       "reading": "ほよう",
       "meaning_ko": "보양 | 조리 | 몸조리",
@@ -13530,8 +13447,8 @@
       }
     },
     {
-      "key": "n1-1457",
-      "sequence_no": 1457,
+      "key": "n1-1454",
+      "sequence_no": 1454,
       "word": "製鉄",
       "reading": "せいてつ",
       "meaning_ko": "",
@@ -13551,8 +13468,8 @@
       }
     },
     {
-      "key": "n1-1458",
-      "sequence_no": 1458,
+      "key": "n1-1455",
+      "sequence_no": 1455,
       "word": "腕前",
       "reading": "うでまえ",
       "meaning_ko": "기능 | 솜씨 | 수단 | 일손 | 손재간 | 손재주 | 테크닉 | 한가락",
@@ -13582,8 +13499,8 @@
       }
     },
     {
-      "key": "n1-1459",
-      "sequence_no": 1459,
+      "key": "n1-1456",
+      "sequence_no": 1456,
       "word": "滑らか",
       "reading": "なめらか",
       "meaning_ko": "매끈히 | 매끈매끈",
@@ -13613,8 +13530,8 @@
       }
     },
     {
-      "key": "n1-1460",
-      "sequence_no": 1460,
+      "key": "n1-1457",
+      "sequence_no": 1457,
       "word": "真上",
       "reading": "まうえ",
       "meaning_ko": "",
@@ -13634,8 +13551,8 @@
       }
     },
     {
-      "key": "n1-1461",
-      "sequence_no": 1461,
+      "key": "n1-1458",
+      "sequence_no": 1458,
       "word": "負債",
       "reading": "ふさい",
       "meaning_ko": "부채",
@@ -13665,8 +13582,8 @@
       }
     },
     {
-      "key": "n1-1462",
-      "sequence_no": 1462,
+      "key": "n1-1459",
+      "sequence_no": 1459,
       "word": "安静",
       "reading": "あんせい",
       "meaning_ko": "안정",
@@ -13696,8 +13613,8 @@
       }
     },
     {
-      "key": "n1-1463",
-      "sequence_no": 1463,
+      "key": "n1-1460",
+      "sequence_no": 1460,
       "word": "騙す",
       "reading": "だます",
       "meaning_ko": "속이다 | 후리다",
@@ -13727,8 +13644,8 @@
       }
     },
     {
-      "key": "n1-1464",
-      "sequence_no": 1464,
+      "key": "n1-1461",
+      "sequence_no": 1461,
       "word": "模索",
       "reading": "もさく",
       "meaning_ko": "모색",
@@ -13758,8 +13675,8 @@
       }
     },
     {
-      "key": "n1-1465",
-      "sequence_no": 1465,
+      "key": "n1-1462",
+      "sequence_no": 1462,
       "word": "操縦",
       "reading": "そうじゅう",
       "meaning_ko": "조종",
@@ -13789,8 +13706,8 @@
       }
     },
     {
-      "key": "n1-1466",
-      "sequence_no": 1466,
+      "key": "n1-1463",
+      "sequence_no": 1463,
       "word": "禁物",
       "reading": "きんもつ",
       "meaning_ko": "금물",
@@ -13820,8 +13737,8 @@
       }
     },
     {
-      "key": "n1-1467",
-      "sequence_no": 1467,
+      "key": "n1-1464",
+      "sequence_no": 1464,
       "word": "突如",
       "reading": "とつじょ",
       "meaning_ko": "돌연 | 돌연히 | 불현듯 | 불현듯이",
@@ -13851,8 +13768,8 @@
       }
     },
     {
-      "key": "n1-1468",
-      "sequence_no": 1468,
+      "key": "n1-1465",
+      "sequence_no": 1465,
       "word": "出血",
       "reading": "しゅっけつ",
       "meaning_ko": "출혈",
@@ -13882,8 +13799,8 @@
       }
     },
     {
-      "key": "n1-1469",
-      "sequence_no": 1469,
+      "key": "n1-1466",
+      "sequence_no": 1466,
       "word": "同級",
       "reading": "どうきゅう",
       "meaning_ko": "동급",
@@ -13913,8 +13830,8 @@
       }
     },
     {
-      "key": "n1-1470",
-      "sequence_no": 1470,
+      "key": "n1-1467",
+      "sequence_no": 1467,
       "word": "定まる",
       "reading": "さだまる",
       "meaning_ko": "",
@@ -13934,8 +13851,8 @@
       }
     },
     {
-      "key": "n1-1471",
-      "sequence_no": 1471,
+      "key": "n1-1468",
+      "sequence_no": 1468,
       "word": "誘惑",
       "reading": "ゆうわく",
       "meaning_ko": "꾐 | 꼬임 | 시험 | 유혹",
@@ -13965,8 +13882,8 @@
       }
     },
     {
-      "key": "n1-1472",
-      "sequence_no": 1472,
+      "key": "n1-1469",
+      "sequence_no": 1469,
       "word": "暴露",
       "reading": "ばくろ",
       "meaning_ko": "폭로",
@@ -13996,8 +13913,8 @@
       }
     },
     {
-      "key": "n1-1473",
-      "sequence_no": 1473,
+      "key": "n1-1470",
+      "sequence_no": 1470,
       "word": "頑丈",
       "reading": "がんじょう",
       "meaning_ko": "",
@@ -14017,8 +13934,8 @@
       }
     },
     {
-      "key": "n1-1474",
-      "sequence_no": 1474,
+      "key": "n1-1471",
+      "sequence_no": 1471,
       "word": "原形",
       "reading": "げんけい",
       "meaning_ko": "원형",
@@ -14048,8 +13965,8 @@
       }
     },
     {
-      "key": "n1-1475",
-      "sequence_no": 1475,
+      "key": "n1-1472",
+      "sequence_no": 1472,
       "word": "内乱",
       "reading": "ないらん",
       "meaning_ko": "국란 | 내란",
@@ -14079,8 +13996,8 @@
       }
     },
     {
-      "key": "n1-1476",
-      "sequence_no": 1476,
+      "key": "n1-1473",
+      "sequence_no": 1473,
       "word": "荒廃",
       "reading": "こうはい",
       "meaning_ko": "퇴락 | 황폐",
@@ -14110,8 +14027,8 @@
       }
     },
     {
-      "key": "n1-1477",
-      "sequence_no": 1477,
+      "key": "n1-1474",
+      "sequence_no": 1474,
       "word": "乗り込む",
       "reading": "のりこむ",
       "meaning_ko": "오르다 | 올라타다",
@@ -14141,8 +14058,8 @@
       }
     },
     {
-      "key": "n1-1478",
-      "sequence_no": 1478,
+      "key": "n1-1475",
+      "sequence_no": 1475,
       "word": "でかい",
       "reading": "でかい",
       "meaning_ko": "",
@@ -14162,8 +14079,8 @@
       }
     },
     {
-      "key": "n1-1479",
-      "sequence_no": 1479,
+      "key": "n1-1476",
+      "sequence_no": 1476,
       "word": "円滑",
       "reading": "えんかつ",
       "meaning_ko": "원활",
@@ -14193,8 +14110,8 @@
       }
     },
     {
-      "key": "n1-1480",
-      "sequence_no": 1480,
+      "key": "n1-1477",
+      "sequence_no": 1477,
       "word": "富む",
       "reading": "とむ",
       "meaning_ko": "",
@@ -14214,8 +14131,8 @@
       }
     },
     {
-      "key": "n1-1481",
-      "sequence_no": 1481,
+      "key": "n1-1478",
+      "sequence_no": 1478,
       "word": "打ち込む",
       "reading": "うちこむ",
       "meaning_ko": "박다 | 파다 | 파고들다 | 파묻히다",
@@ -14245,8 +14162,8 @@
       }
     },
     {
-      "key": "n1-1482",
-      "sequence_no": 1482,
+      "key": "n1-1479",
+      "sequence_no": 1479,
       "word": "普遍",
       "reading": "ふへん",
       "meaning_ko": "보편",
@@ -14276,8 +14193,8 @@
       }
     },
     {
-      "key": "n1-1483",
-      "sequence_no": 1483,
+      "key": "n1-1480",
+      "sequence_no": 1480,
       "word": "見合い",
       "reading": "みあい",
       "meaning_ko": "선 | 맞선 | 중매",
@@ -14307,8 +14224,8 @@
       }
     },
     {
-      "key": "n1-1484",
-      "sequence_no": 1484,
+      "key": "n1-1481",
+      "sequence_no": 1481,
       "word": "欲望",
       "reading": "よくぼう",
       "meaning_ko": "욕망",
@@ -14338,8 +14255,8 @@
       }
     },
     {
-      "key": "n1-1485",
-      "sequence_no": 1485,
+      "key": "n1-1482",
+      "sequence_no": 1482,
       "word": "身振り",
       "reading": "みぶり",
       "meaning_ko": "모션 | 몸짓",
@@ -14369,8 +14286,8 @@
       }
     },
     {
-      "key": "n1-1486",
-      "sequence_no": 1486,
+      "key": "n1-1483",
+      "sequence_no": 1483,
       "word": "土俵",
       "reading": "どひょう",
       "meaning_ko": "",
@@ -14390,8 +14307,8 @@
       }
     },
     {
-      "key": "n1-1487",
-      "sequence_no": 1487,
+      "key": "n1-1484",
+      "sequence_no": 1484,
       "word": "きっちり",
       "reading": "きっちり",
       "meaning_ko": "꼭 | 딱 | 딱딱",
@@ -14422,8 +14339,8 @@
       }
     },
     {
-      "key": "n1-1488",
-      "sequence_no": 1488,
+      "key": "n1-1485",
+      "sequence_no": 1485,
       "word": "行き違い",
       "reading": "いきちがい",
       "meaning_ko": "",
@@ -14443,8 +14360,8 @@
       }
     },
     {
-      "key": "n1-1489",
-      "sequence_no": 1489,
+      "key": "n1-1486",
+      "sequence_no": 1486,
       "word": "手際",
       "reading": "てぎわ",
       "meaning_ko": "수법 | 손재간 | 손재주",
@@ -14474,8 +14391,8 @@
       }
     },
     {
-      "key": "n1-1490",
-      "sequence_no": 1490,
+      "key": "n1-1487",
+      "sequence_no": 1487,
       "word": "好ましい",
       "reading": "このましい",
       "meaning_ko": "",
@@ -14495,8 +14412,8 @@
       }
     },
     {
-      "key": "n1-1491",
-      "sequence_no": 1491,
+      "key": "n1-1488",
+      "sequence_no": 1488,
       "word": "均衡",
       "reading": "きんこう",
       "meaning_ko": "균형 | 평형",
@@ -14526,8 +14443,8 @@
       }
     },
     {
-      "key": "n1-1492",
-      "sequence_no": 1492,
+      "key": "n1-1489",
+      "sequence_no": 1489,
       "word": "逃走",
       "reading": "とうそう",
       "meaning_ko": "도주 | 뺑소니",
@@ -14557,8 +14474,8 @@
       }
     },
     {
-      "key": "n1-1493",
-      "sequence_no": 1493,
+      "key": "n1-1490",
+      "sequence_no": 1490,
       "word": "締め切り",
       "reading": "しめきり",
       "meaning_ko": "마감",
@@ -14588,8 +14505,8 @@
       }
     },
     {
-      "key": "n1-1494",
-      "sequence_no": 1494,
+      "key": "n1-1491",
+      "sequence_no": 1491,
       "word": "頑固",
       "reading": "がんこ",
       "meaning_ko": "옹고집",
@@ -14619,8 +14536,8 @@
       }
     },
     {
-      "key": "n1-1495",
-      "sequence_no": 1495,
+      "key": "n1-1492",
+      "sequence_no": 1492,
       "word": "新築",
       "reading": "しんちく",
       "meaning_ko": "새집 | 신축",
@@ -14650,8 +14567,8 @@
       }
     },
     {
-      "key": "n1-1496",
-      "sequence_no": 1496,
+      "key": "n1-1493",
+      "sequence_no": 1493,
       "word": "仕上げる",
       "reading": "しあげる",
       "meaning_ko": "걷다 | 짓다 | 여물다 | 다듬질하다 | 마무리하다 | 끝마무리하다",
@@ -14681,8 +14598,8 @@
       }
     },
     {
-      "key": "n1-1497",
-      "sequence_no": 1497,
+      "key": "n1-1494",
+      "sequence_no": 1494,
       "word": "脅かす",
       "reading": "おどかす",
       "meaning_ko": "겁주다 | 으르다 | 위협하다",
@@ -14712,8 +14629,8 @@
       }
     },
     {
-      "key": "n1-1498",
-      "sequence_no": 1498,
+      "key": "n1-1495",
+      "sequence_no": 1495,
       "word": "簡潔",
       "reading": "かんけつ",
       "meaning_ko": "간결함",
@@ -14733,8 +14650,8 @@
       }
     },
     {
-      "key": "n1-1499",
-      "sequence_no": 1499,
+      "key": "n1-1496",
+      "sequence_no": 1496,
       "word": "悲鳴",
       "reading": "ひめい",
       "meaning_ko": "고함 | 비명",
@@ -14764,8 +14681,8 @@
       }
     },
     {
-      "key": "n1-1500",
-      "sequence_no": 1500,
+      "key": "n1-1497",
+      "sequence_no": 1497,
       "word": "じっくり",
       "reading": "じっくり",
       "meaning_ko": "잘 | 푹 | 곰곰 | 푹푹",
@@ -14792,6 +14709,99 @@
           "meaning_ko": "잘 | 푹 | 곰곰 | 푹푹",
           "definition_ko": "생각이 매우 깊고 조심스럽게. | 충분히 익도록 삶거나 고거나 끓이는 모양. | 여러 방면으로 깊이 생각하는 모양. | 충분히 익을 정도로 몹시 끓이거나 삶는 모양.",
           "meaning_ja_source": "じゅうぶんに【十分に】。じっくり | じっくり"
+        }
+      }
+    },
+    {
+      "key": "n1-1498",
+      "sequence_no": 1498,
+      "word": "手引き",
+      "reading": "てびき",
+      "meaning_ko": "인도 | 지침 | 지침서 | 길라잡이",
+      "meaning_ja": "ある目的や方向に向かって教え導くこと。 | 道や場所を案内すること。 | ある仕事や行動などの方向や方法を教えてくれる規則や法則。 | ある仕事のやり方や方向などを記録した書物。 | 道を案内してくれる人。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "",
+      "example_ko": "",
+      "review_status": "needs_examples",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1598410",
+        "meaning_en": "guidance, guide, introduction",
+        "curated_file": null,
+        "curated_original_key": null,
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "인도 | 지침 | 지침서 | 길라잡이",
+          "definition_ko": "어떤 목적이나 방향으로 남을 이끌어 지도함. | 길이나 장소를 안내함. | 어떤 일이나 행동 등의 방향이나 방법을 알려 주는 규칙이나 법칙. | 어떤 일을 하는 방법이나 방향 등을 적어 놓은 책. | 길을 안내해 주는 사람.",
+          "meaning_ja_source": "みちびき【導き】。てびき【手引き】。しどう【指導】 | みちびき【導き】。てびき【手引き】 | ししんしょ【指針書】。てびき【手引き】。マニュアル | てびき【手引き】"
+        }
+      }
+    },
+    {
+      "key": "n1-1499",
+      "sequence_no": 1499,
+      "word": "並列",
+      "reading": "へいれつ",
+      "meaning_ko": "병렬",
+      "meaning_ja": "並ぶこと。また、並べつらねること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "",
+      "example_ko": "",
+      "review_status": "needs_examples",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1508530",
+        "meaning_en": "arrangement, parallel, abreast",
+        "curated_file": null,
+        "curated_original_key": null,
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "병렬",
+          "definition_ko": "나란히 늘어섬. 또는 나란히 늘어놓음.",
+          "meaning_ja_source": "へいれつ【並列】"
+        }
+      }
+    },
+    {
+      "key": "n1-1500",
+      "sequence_no": 1500,
+      "word": "猛烈",
+      "reading": "もうれつ",
+      "meaning_ko": "극렬",
+      "meaning_ja": "きわめて荒々しくて激しいこと。",
+      "part_of_speech": "な形容詞",
+      "example_ja": "",
+      "example_ko": "",
+      "review_status": "needs_examples",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1534100",
+        "meaning_en": "violent, vehement, rage",
+        "curated_file": null,
+        "curated_original_key": null,
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "극렬",
+          "definition_ko": "매우 심하게 사납고 세참.",
+          "meaning_ja_source": "げきれつ【激烈】。もうれつ【猛烈】"
         }
       }
     }

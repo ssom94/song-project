@@ -1,22 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T19:16:46.232Z",
+  "generatedAt": "2026-09-03T19:56:28.781Z",
   "rawN1": 3427,
-  "uniqueValidBeforeCutoff": 3412,
+  "uniqueValidBeforeCutoff": 3398,
   "selected": 3000,
   "rejected": 427,
   "rejectedByReason": {
+    "disallowed_reading_tag_ok": 6,
     "missing_jmdict_seq": 14,
+    "noncanonical_word_reading_pair": 7,
+    "disallowed_reading_tag_sk": 1,
     "invalid_headword": 1,
-    "below_frequency_cutoff": 412
+    "below_frequency_cutoff": 398
   },
   "selectedQuality": {
     "canonicalJmdictMatches": 3000,
     "commonJmdictEntries": 2955,
-    "withCorpusFrequency": 2290,
-    "withSubtitleFrequency": 1365,
-    "withWebFrequency": 2009,
-    "withWikipediaFrequency": 2486
+    "disallowedReadingVariants": 0,
+    "withCorpusFrequency": 2286,
+    "withSubtitleFrequency": 1362,
+    "withWebFrequency": 2006,
+    "withWikipediaFrequency": 2481
   },
   "sourceUrls": {
     "jlpt": "https://raw.githubusercontent.com/jkindrix/japanese-language-data/main/data/enrichment/jlpt-classifications.json",
