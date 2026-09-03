@@ -6,6 +6,7 @@ const PROD = path.join(ROOT, 'data/jlpt/production');
 const CANDIDATE_FILE = path.join(PROD, 'candidates/n1-source-3000.json');
 const KRDICT_FILE = path.join(PROD, 'candidates/krdict-n1-matches.json');
 const LEGACY_DIR = path.join(ROOT, 'data/jlpt/daily_words');
+const CURATION_DIR = path.join(PROD, 'curation/words');
 const OUT_DIR = path.join(PROD, 'candidates/word-drafts');
 const REPORT_FILE = path.join(PROD, 'candidates/word-enrichment-report.json');
 
@@ -48,6 +49,25 @@ function legacyRecords() {
   return byIdentity;
 }
 
+function curatedRecords() {
+  const byKey = new Map();
+  if (!fs.existsSync(CURATION_DIR)) return byKey;
+
+  for (const name of fs.readdirSync(CURATION_DIR).filter(v => v.endsWith('.json')).sort()) {
+    const file = path.join(CURATION_DIR, name);
+    const parsed = readJson(file);
+    for (const item of parsed.words ?? []) {
+      if (!item?.key) throw new Error(`Missing key in ${file}`);
+      if (byKey.has(item.key)) throw new Error(`Duplicate curated key ${item.key}`);
+      byKey.set(item.key, {
+        ...item,
+        source_file: `data/jlpt/production/curation/words/${name}`,
+      });
+    }
+  }
+  return byKey;
+}
+
 function splitMeaning(value) {
   return String(value ?? '')
     .split(/[|｜]/)
@@ -59,6 +79,7 @@ function splitMeaning(value) {
 const candidateDoc = readJson(CANDIDATE_FILE);
 const krdictDoc = fs.existsSync(KRDICT_FILE) ? readJson(KRDICT_FILE) : { matches: {} };
 const legacy = legacyRecords();
+const curated = curatedRecords();
 const krdictMatches = krdictDoc.matches ?? {};
 
 const records = [];
@@ -66,6 +87,7 @@ const report = {
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
   candidateCount: candidateDoc.candidates?.length ?? 0,
+  curatedOverrides: 0,
   legacyExactMatches: 0,
   krdictExactMatches: 0,
   sourceBackedKoreanGlosses: 0,
@@ -74,29 +96,38 @@ const report = {
   needsExamples: 0,
   needsKoreanGloss: 0,
   unresolvedKeys: [],
-  note: 'Draft artifacts only. They must not be promoted to production/words until semantic/example review and production validation pass.',
+  note: 'Draft artifacts only. Curated overrides are manually reviewed, but the complete 3,000-word set must still pass semantic/example review and production validation before promotion.',
 };
 
 for (const candidate of candidateDoc.candidates ?? []) {
   const legacyItem = legacy.get(identity(candidate.word, candidate.reading));
+  const curatedItem = curated.get(candidate.key) ?? null;
   const kr = krdictMatches[candidate.key] ?? null;
 
+  if (curatedItem) {
+    if (identity(curatedItem.word, curatedItem.reading) !== identity(candidate.word, candidate.reading)) {
+      throw new Error(`Curated identity mismatch for ${candidate.key}: ${curatedItem.word}/${curatedItem.reading} != ${candidate.word}/${candidate.reading}`);
+    }
+    report.curatedOverrides += 1;
+  }
   if (legacyItem) report.legacyExactMatches += 1;
   if (kr) report.krdictExactMatches += 1;
 
-  const meaningKo = legacyItem
-    ? splitMeaning(legacyItem.meaning)
-    : (kr?.meaning_ko?.trim() || '');
-  const meaningJa = kr?.definition_ja?.trim() || '';
-  const exampleJa = legacyItem?.example_ja?.trim() || '';
-  const exampleKo = legacyItem?.example_ko?.trim() || '';
+  const meaningKo = curatedItem?.meaning_ko?.trim()
+    || (legacyItem ? splitMeaning(legacyItem.meaning) : '')
+    || kr?.meaning_ko?.trim()
+    || '';
+  const meaningJa = curatedItem?.meaning_ja?.trim() || kr?.definition_ja?.trim() || '';
+  const exampleJa = curatedItem?.example_ja?.trim() || legacyItem?.example_ja?.trim() || '';
+  const exampleKo = curatedItem?.example_ko?.trim() || legacyItem?.example_ko?.trim() || '';
+  const partOfSpeech = curatedItem?.part_of_speech?.trim() || legacyItem?.part || candidate.part_of_speech || '';
 
   if (meaningKo) report.sourceBackedKoreanGlosses += 1;
   if (exampleJa && exampleKo) report.withCuratedExamples += 1;
 
   let reviewStatus;
   if (meaningKo && exampleJa && exampleKo) {
-    reviewStatus = 'ready_for_final_review';
+    reviewStatus = curatedItem ? 'curated_ready_for_final_review' : 'ready_for_final_review';
     report.readyForFinalReview += 1;
   } else if (meaningKo) {
     reviewStatus = 'needs_examples';
@@ -114,7 +145,7 @@ for (const candidate of candidateDoc.candidates ?? []) {
     reading: candidate.reading,
     meaning_ko: meaningKo,
     meaning_ja: meaningJa,
-    part_of_speech: legacyItem?.part || candidate.part_of_speech || '',
+    part_of_speech: partOfSpeech,
     example_ja: exampleJa,
     example_ko: exampleKo,
     review_status: reviewStatus,
@@ -122,6 +153,7 @@ for (const candidate of candidateDoc.candidates ?? []) {
       candidate_source: candidate.source,
       jmdict_seq: candidate.jmdict_seq,
       meaning_en: candidate.meaning_en,
+      curated_file: curatedItem?.source_file ?? null,
       legacy_curated_file: legacyItem?.source_file ?? null,
       krdict: kr ? {
         score: kr.score,
@@ -133,6 +165,12 @@ for (const candidate of candidateDoc.candidates ?? []) {
       } : null,
     },
   });
+}
+
+for (const key of curated.keys()) {
+  if (!records.some(item => item.key === key)) {
+    throw new Error(`Curated key not present in current candidate corpus: ${key}`);
+  }
 }
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -154,10 +192,12 @@ fs.writeFileSync(REPORT_FILE, `${JSON.stringify(report, null, 2)}\n`);
 
 console.log(JSON.stringify({
   candidateCount: report.candidateCount,
+  curatedOverrides: report.curatedOverrides,
   legacyExactMatches: report.legacyExactMatches,
   krdictExactMatches: report.krdictExactMatches,
   sourceBackedKoreanGlosses: report.sourceBackedKoreanGlosses,
   withCuratedExamples: report.withCuratedExamples,
+  readyForFinalReview: report.readyForFinalReview,
   needsExamples: report.needsExamples,
   needsKoreanGloss: report.needsKoreanGloss,
 }, null, 2));
