@@ -8555,7 +8555,7 @@
       "definition_ja": "単語の本来の形。また、その単語が成立した由来や起源。",
       "source_file": "007.xml"
     },
-    "n1-1507": {
+    "n1-2864": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -8567,7 +8567,7 @@
       "definition_ja": "性格が円満でなくて、扱いにくいさま。",
       "source_file": "007.xml"
     },
-    "n1-2864": {
+    "n1-1507": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -13158,7 +13158,7 @@
       "definition_ja": "忠義に満ちていて正直で誠実なこと。",
       "source_file": "010.xml"
     },
-    "n1-1052": {
+    "n1-0977": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -13170,7 +13170,7 @@
       "definition_ja": "物を使用したり販売などの対象にすること。",
       "source_file": "010.xml"
     },
-    "n1-0977": {
+    "n1-1052": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -19825,32 +19825,6 @@
         "source_file": "008.xml"
       }
     ],
-    "n1-0249": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "보관",
-        "definition_ko": "물건을 맡아 간직하여 둠.",
-        "meaning_ja_source": "ほかん【保管】",
-        "definition_ja": "ものを預かって、保存しておくこと。",
-        "source_file": "005.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "갈무리",
-        "definition_ko": "무엇을 잘 정리하여 보관함.",
-        "meaning_ja_source": "かたづけ【片付け】。しまつ【始末】。せいり【整理】。ほかん【保管】",
-        "definition_ja": "何かをよく片付けて保管すること。",
-        "source_file": "001.xml"
-      }
-    ],
     "n1-0231": [
       {
         "score": 5,
@@ -19898,6 +19872,32 @@
         "definition_ko": "일을 잘 처리하여 끝냄.",
         "meaning_ja_source": "かたづけ【片付け】。しまつ【始末】。しめくくり【締め括り】",
         "definition_ja": "物事をよく処理して終えること。",
+        "source_file": "001.xml"
+      }
+    ],
+    "n1-0249": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "보관",
+        "definition_ko": "물건을 맡아 간직하여 둠.",
+        "meaning_ja_source": "ほかん【保管】",
+        "definition_ja": "ものを預かって、保存しておくこと。",
+        "source_file": "005.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "갈무리",
+        "definition_ko": "무엇을 잘 정리하여 보관함.",
+        "meaning_ja_source": "かたづけ【片付け】。しまつ【始末】。せいり【整理】。ほかん【保管】",
+        "definition_ja": "何かをよく片付けて保管すること。",
         "source_file": "001.xml"
       }
     ],
@@ -21749,68 +21749,6 @@
         "source_file": "008.xml"
       }
     ],
-    "n1-2160": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "쏟다",
-        "definition_ko": "정성을 다해 어떠한 일에 열중하거나 집중하다.",
-        "meaning_ja_source": "そそぐ【注ぐ】。かたむける【傾ける】",
-        "definition_ja": "心を込めて何かに熱中したり集中したりする。",
-        "source_file": "006.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "비끼다",
-        "definition_ko": "몸을 약간 기운 방향으로 움직이다.",
-        "meaning_ja_source": "かたむける【傾ける】。そらす【逸らす】",
-        "definition_ja": "体を少し斜めに動かす。",
-        "source_file": "005.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "기울이다",
-        "definition_ko": "비스듬하게 한쪽이 낮아지거나 비뚤어지게 하다.",
-        "meaning_ja_source": "かたむける【傾ける】",
-        "definition_ja": "一方を低くしたり歪ませたりして斜めにする。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "기울이다",
-        "definition_ko": "정성이나 노력을 한데 모으다.",
-        "meaning_ja_source": "かたむける【傾ける】",
-        "definition_ja": "心や力などを集中させる。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "갸우뚱하다",
-        "definition_ko": "물체가 한쪽으로 약간 기울어지다. 또는 그렇게 하다.",
-        "meaning_ja_source": "かたむく【傾く】。かたむける【傾ける】",
-        "definition_ja": "物が一方にやや傾いている。また、そうする。",
-        "source_file": "001.xml"
-      }
-    ],
     "n1-2104": [
       {
         "score": 3,
@@ -22031,6 +21969,68 @@
         "meaning_ja_source": "かたむく【傾く】。つぶれる【潰れる】",
         "definition_ja": "状況や暮らし向きなどが更に悪くなる。",
         "source_file": "007.xml"
+      }
+    ],
+    "n1-2160": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "쏟다",
+        "definition_ko": "정성을 다해 어떠한 일에 열중하거나 집중하다.",
+        "meaning_ja_source": "そそぐ【注ぐ】。かたむける【傾ける】",
+        "definition_ja": "心を込めて何かに熱中したり集中したりする。",
+        "source_file": "006.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "비끼다",
+        "definition_ko": "몸을 약간 기운 방향으로 움직이다.",
+        "meaning_ja_source": "かたむける【傾ける】。そらす【逸らす】",
+        "definition_ja": "体を少し斜めに動かす。",
+        "source_file": "005.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "기울이다",
+        "definition_ko": "비스듬하게 한쪽이 낮아지거나 비뚤어지게 하다.",
+        "meaning_ja_source": "かたむける【傾ける】",
+        "definition_ja": "一方を低くしたり歪ませたりして斜めにする。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "기울이다",
+        "definition_ko": "정성이나 노력을 한데 모으다.",
+        "meaning_ja_source": "かたむける【傾ける】",
+        "definition_ja": "心や力などを集中させる。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "갸우뚱하다",
+        "definition_ko": "물체가 한쪽으로 약간 기울어지다. 또는 그렇게 하다.",
+        "meaning_ja_source": "かたむく【傾く】。かたむける【傾ける】",
+        "definition_ja": "物が一方にやや傾いている。また、そうする。",
+        "source_file": "001.xml"
       }
     ],
     "n1-1744": [
@@ -22613,44 +22613,6 @@
         "source_file": "005.xml"
       }
     ],
-    "n1-1172": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "거부",
-        "definition_ko": "요구나 제안 등을 받아들이지 않음.",
-        "meaning_ja_source": "きょひ【拒否】。ことわり【断り】。きょぜつ【拒絶】",
-        "definition_ja": "要求や提案などを受け入れないこと。",
-        "source_file": "001.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "거절",
-        "definition_ko": "다른 사람의 부탁이나 제안, 선물 등을 받아들이지 않음.",
-        "meaning_ja_source": "きょぜつ【拒絶】。きょひ【拒否】。ことわり【断わり】。えんりょ【遠慮】",
-        "definition_ja": "人からの頼みや提案、贈り物などを受け入れないこと。",
-        "source_file": "001.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "딱지",
-        "definition_ko": "(속된 말로) 남자와 여자가 서로 사귀기 전에 둘 중 하나가 상대를 단호하게 거절하는 것.",
-        "meaning_ja_source": "きょぜつ【拒絶】。はねつけ【撥ね付け】",
-        "definition_ja": "男女が交際する前に、片方が相手を冷たく拒絶することを俗にいう語。",
-        "source_file": "003.xml"
-      }
-    ],
     "n1-1021": [
       {
         "score": 5,
@@ -22687,6 +22649,44 @@
         "meaning_ja_source": "きょぜつ【拒絶】。きょひ【拒否】。ことわり【断わり】。えんりょ【遠慮】",
         "definition_ja": "人からの頼みや提案、贈り物などを受け入れないこと。",
         "source_file": "001.xml"
+      }
+    ],
+    "n1-1172": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "거부",
+        "definition_ko": "요구나 제안 등을 받아들이지 않음.",
+        "meaning_ja_source": "きょひ【拒否】。ことわり【断り】。きょぜつ【拒絶】",
+        "definition_ja": "要求や提案などを受け入れないこと。",
+        "source_file": "001.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "거절",
+        "definition_ko": "다른 사람의 부탁이나 제안, 선물 등을 받아들이지 않음.",
+        "meaning_ja_source": "きょぜつ【拒絶】。きょひ【拒否】。ことわり【断わり】。えんりょ【遠慮】",
+        "definition_ja": "人からの頼みや提案、贈り物などを受け入れないこと。",
+        "source_file": "001.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "딱지",
+        "definition_ko": "(속된 말로) 남자와 여자가 서로 사귀기 전에 둘 중 하나가 상대를 단호하게 거절하는 것.",
+        "meaning_ja_source": "きょぜつ【拒絶】。はねつけ【撥ね付け】",
+        "definition_ja": "男女が交際する前に、片方が相手を冷たく拒絶することを俗にいう語。",
+        "source_file": "003.xml"
       }
     ],
     "n1-2470": [
@@ -23666,80 +23666,6 @@
         "source_file": "001.xml"
       }
     ],
-    "n1-1496": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "걷다",
-        "definition_ko": "하던 일을 끝내거나 멈추다.",
-        "meaning_ja_source": "しあげる【仕上げる】。やめる【止める】",
-        "definition_ja": "やっていることを終えたり中断したりする。",
-        "source_file": "001.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "짓다",
-        "definition_ko": "해 온 일이나 말 등의 끝을 내다.",
-        "meaning_ja_source": "まとめる【纏める】。しめくくる【締めくくる】。しあげる【仕上げる】。だす【出す】",
-        "definition_ja": "作業や文章などを完成させる。",
-        "source_file": "009.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "여물다",
-        "definition_ko": "일이나 말 등을 매듭지어 끝마치다.",
-        "meaning_ja_source": "しあげる【仕上げる】",
-        "definition_ja": "仕事や言葉などを最後の段階までしおえる。",
-        "source_file": "007.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "다듬질하다",
-        "definition_ko": "새기거나 만든 물건을 마지막으로 손질하다.",
-        "meaning_ja_source": "しあげる【仕上げる】",
-        "definition_ja": "刻んだり作ったりしたものを最後に手入れする。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "마무리하다",
-        "definition_ko": "일을 끝내다.",
-        "meaning_ja_source": "しあげる【仕上げる】",
-        "definition_ja": "仕事を終える。",
-        "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "끝마무리하다",
-        "definition_ko": "일의 마지막 과정이나 내용을 끝맺다.",
-        "meaning_ja_source": "しあげる【仕上げる】。しめくくる【締め括る】。けっちゃくをつける【決着を付ける】。しゅうけつする【終結する】",
-        "definition_ja": "仕事の最後の過程や内容を終える。",
-        "source_file": "002.xml"
-      }
-    ],
     "n1-0982": [
       {
         "score": 3,
@@ -23960,6 +23886,80 @@
         "meaning_ja_source": "さえぎる【遮る】。とめる【止める】。さまたげる【妨げる】",
         "definition_ja": "先へ進まないようにしたり、行われないようにしたりする。",
         "source_file": "004.xml"
+      }
+    ],
+    "n1-1496": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "걷다",
+        "definition_ko": "하던 일을 끝내거나 멈추다.",
+        "meaning_ja_source": "しあげる【仕上げる】。やめる【止める】",
+        "definition_ja": "やっていることを終えたり中断したりする。",
+        "source_file": "001.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "짓다",
+        "definition_ko": "해 온 일이나 말 등의 끝을 내다.",
+        "meaning_ja_source": "まとめる【纏める】。しめくくる【締めくくる】。しあげる【仕上げる】。だす【出す】",
+        "definition_ja": "作業や文章などを完成させる。",
+        "source_file": "009.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "여물다",
+        "definition_ko": "일이나 말 등을 매듭지어 끝마치다.",
+        "meaning_ja_source": "しあげる【仕上げる】",
+        "definition_ja": "仕事や言葉などを最後の段階までしおえる。",
+        "source_file": "007.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "다듬질하다",
+        "definition_ko": "새기거나 만든 물건을 마지막으로 손질하다.",
+        "meaning_ja_source": "しあげる【仕上げる】",
+        "definition_ja": "刻んだり作ったりしたものを最後に手入れする。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "마무리하다",
+        "definition_ko": "일을 끝내다.",
+        "meaning_ja_source": "しあげる【仕上げる】",
+        "definition_ja": "仕事を終える。",
+        "source_file": "004.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "끝마무리하다",
+        "definition_ko": "일의 마지막 과정이나 내용을 끝맺다.",
+        "meaning_ja_source": "しあげる【仕上げる】。しめくくる【締め括る】。けっちゃくをつける【決着を付ける】。しゅうけつする【終結する】",
+        "definition_ja": "仕事の最後の過程や内容を終える。",
+        "source_file": "002.xml"
       }
     ],
     "n1-1139": [
@@ -25432,32 +25432,6 @@
         "source_file": "005.xml"
       }
     ],
-    "n1-0283": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "견지",
-        "definition_ko": "무엇을 바라보거나 판단하는 입장.",
-        "meaning_ja_source": "かんてん【観点】。してん【視点】。みかた【見方】。けんち【見地】",
-        "definition_ja": "何かを見つめたり判断する立場。",
-        "source_file": "001.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "시각",
-        "definition_ko": "무엇을 보고 이해하고 판단하는 관점.",
-        "meaning_ja_source": "しかく【視角】。してん【視点】",
-        "definition_ja": "何かを見て理解し判断する観点。",
-        "source_file": "006.xml"
-      }
-    ],
     "n1-0275": [
       {
         "score": 5,
@@ -25482,6 +25456,32 @@
         "meaning_ja_source": "かんてん【観点】",
         "definition_ja": "物事や現象を見て考える個人の立場または態度。",
         "source_file": "001.xml"
+      }
+    ],
+    "n1-0283": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "견지",
+        "definition_ko": "무엇을 바라보거나 판단하는 입장.",
+        "meaning_ja_source": "かんてん【観点】。してん【視点】。みかた【見方】。けんち【見地】",
+        "definition_ja": "何かを見つめたり判断する立場。",
+        "source_file": "001.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "시각",
+        "definition_ko": "무엇을 보고 이해하고 판단하는 관점.",
+        "meaning_ja_source": "しかく【視角】。してん【視点】",
+        "definition_ja": "何かを見て理解し判断する観点。",
+        "source_file": "006.xml"
       }
     ],
     "n1-1215": [
@@ -29933,32 +29933,6 @@
         "source_file": "011.xml"
       }
     ],
-    "n1-0880": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "과장",
-        "definition_ko": "사실에 비해 지나치게 크거나 좋게 부풀려 나타냄.",
-        "meaning_ja_source": "こちょう【誇張】。おおげさ【大げさ】",
-        "definition_ja": "実際より過度に大きくまたは大げさに表現すること。",
-        "source_file": "001.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "허풍",
-        "definition_ko": "실제보다 지나치게 부풀려 믿기 어려운 말이나 행동.",
-        "meaning_ja_source": "ほら【法螺】。こちょう【誇張】。おおぶろしき【大風呂敷】",
-        "definition_ja": "物事を実際より大げさにして、信頼できない言葉や行動。",
-        "source_file": "011.xml"
-      }
-    ],
     "n1-1094": [
       {
         "score": 5,
@@ -29995,6 +29969,32 @@
         "meaning_ja_source": "おおげさ【大げさ】。はで【派手】",
         "definition_ja": "仰々しいほど度を越していること。",
         "source_file": "007.xml"
+      }
+    ],
+    "n1-0880": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "과장",
+        "definition_ko": "사실에 비해 지나치게 크거나 좋게 부풀려 나타냄.",
+        "meaning_ja_source": "こちょう【誇張】。おおげさ【大げさ】",
+        "definition_ja": "実際より過度に大きくまたは大げさに表現すること。",
+        "source_file": "001.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "허풍",
+        "definition_ko": "실제보다 지나치게 부풀려 믿기 어려운 말이나 행동.",
+        "meaning_ja_source": "ほら【法螺】。こちょう【誇張】。おおぶろしき【大風呂敷】",
+        "definition_ja": "物事を実際より大げさにして、信頼できない言葉や行動。",
+        "source_file": "011.xml"
       }
     ],
     "n1-1036": [
@@ -32562,6 +32562,92 @@
         "source_file": "002.xml"
       }
     ],
+    "n1-1960": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "그르다",
+        "definition_ko": "어떤 일이나 형편이 좋지 않게 되거나 잘못되다.",
+        "meaning_ja_source": "まちがう【間違う】。あやまる【誤る】",
+        "definition_ja": "ある事や状況が悪くなったり正しくなくなったりする。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "틀리다",
+        "definition_ko": "계산이나 답, 사실 등이 맞지 않다.",
+        "meaning_ja_source": "まちがう【間違う】。まちがえる【間違える】",
+        "definition_ja": "計算・答え・事実などが合っていない。",
+        "source_file": "010.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "그르치다",
+        "definition_ko": "어떤 일이나 형편을 좋지 않게 하거나 잘못되게 하다.",
+        "meaning_ja_source": "まちがう【間違う】。まちがえる【間違える】。あやまる【誤る】。しそこなう【仕損なう】",
+        "definition_ja": "ある事や状況を悪くしたりやり損なったりする。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "그릇되다",
+        "definition_ko": "어떤 일이 옳지 못하거나 사리에 맞지 아니하다.",
+        "meaning_ja_source": "まちがう【間違う】。あやまる【誤る】",
+        "definition_ja": "あることが正しくなかったり道理に外れたりする。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "그릇되다",
+        "definition_ko": "어떤 일이나 형편이 좋지 않게 되거나 잘못되다.",
+        "meaning_ja_source": "まちがう【間違う】。あやまる【誤る】",
+        "definition_ja": "ある事や状況が悪くなったり正しくなかったりする。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "잘못되다",
+        "definition_ko": "일이 틀리거나 실패하게 되다.",
+        "meaning_ja_source": "まちがう【間違う】。まちがえる【間違える】。あやまる【誤る・謬る】",
+        "definition_ja": "やりそこなったり失敗したりするようになる。",
+        "source_file": "008.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "잘못하다",
+        "definition_ko": "적당하지 아니하게 하다.",
+        "meaning_ja_source": "まちがえる【間違える】。まちがう【間違う】。あやまる【誤る・謬る】",
+        "definition_ja": "やり方などが適当でない。",
+        "source_file": "008.xml"
+      }
+    ],
     "n1-1176": [
       {
         "score": 5,
@@ -32645,92 +32731,6 @@
         "definition_ko": "사람이 옳지 못하게 되거나 나쁘게 되다.",
         "meaning_ja_source": "あやまる【誤る・謬る】。しくじる",
         "definition_ja": "正しい道筋から外れたり失敗したりするようになる。",
-        "source_file": "008.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "잘못하다",
-        "definition_ko": "적당하지 아니하게 하다.",
-        "meaning_ja_source": "まちがえる【間違える】。まちがう【間違う】。あやまる【誤る・謬る】",
-        "definition_ja": "やり方などが適当でない。",
-        "source_file": "008.xml"
-      }
-    ],
-    "n1-1960": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "그르다",
-        "definition_ko": "어떤 일이나 형편이 좋지 않게 되거나 잘못되다.",
-        "meaning_ja_source": "まちがう【間違う】。あやまる【誤る】",
-        "definition_ja": "ある事や状況が悪くなったり正しくなくなったりする。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "틀리다",
-        "definition_ko": "계산이나 답, 사실 등이 맞지 않다.",
-        "meaning_ja_source": "まちがう【間違う】。まちがえる【間違える】",
-        "definition_ja": "計算・答え・事実などが合っていない。",
-        "source_file": "010.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "그르치다",
-        "definition_ko": "어떤 일이나 형편을 좋지 않게 하거나 잘못되게 하다.",
-        "meaning_ja_source": "まちがう【間違う】。まちがえる【間違える】。あやまる【誤る】。しそこなう【仕損なう】",
-        "definition_ja": "ある事や状況を悪くしたりやり損なったりする。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "그릇되다",
-        "definition_ko": "어떤 일이 옳지 못하거나 사리에 맞지 아니하다.",
-        "meaning_ja_source": "まちがう【間違う】。あやまる【誤る】",
-        "definition_ja": "あることが正しくなかったり道理に外れたりする。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "그릇되다",
-        "definition_ko": "어떤 일이나 형편이 좋지 않게 되거나 잘못되다.",
-        "meaning_ja_source": "まちがう【間違う】。あやまる【誤る】",
-        "definition_ja": "ある事や状況が悪くなったり正しくなかったりする。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "잘못되다",
-        "definition_ko": "일이 틀리거나 실패하게 되다.",
-        "meaning_ja_source": "まちがう【間違う】。まちがえる【間違える】。あやまる【誤る・謬る】",
-        "definition_ja": "やりそこなったり失敗したりするようになる。",
         "source_file": "008.xml"
       },
       {
@@ -34127,7 +34127,7 @@
         "source_file": "011.xml"
       }
     ],
-    "n1-0726": [
+    "n1-0894": [
       {
         "score": 5,
         "reasons": [
@@ -34153,7 +34153,7 @@
         "source_file": "008.xml"
       }
     ],
-    "n1-0894": [
+    "n1-0726": [
       {
         "score": 5,
         "reasons": [
@@ -39319,6 +39319,32 @@
         "source_file": "010.xml"
       }
     ],
+    "n1-1860": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "나",
+        "definition_ko": "말하는 사람이 친구나 아랫사람에게 자기를 가리키는 말.",
+        "meaning_ja_source": "わたし【私】。ぼく【僕】。おれ【俺】。じぶん【自分】",
+        "definition_ja": "話し手が友人や目下の人に対し、自分をさす語。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "내",
+        "definition_ko": "‘나’에 조사 ‘가’가 붙을 때의 형태.",
+        "meaning_ja_source": "わたし【私】。ぼく【僕】。おれ【俺】。じぶん【自分】",
+        "definition_ja": "一人称代名詞「나」に主格助詞「가」があとにつく場合の形。",
+        "source_file": "002.xml"
+      }
+    ],
     "n1-0959": [
       {
         "score": 3,
@@ -39440,32 +39466,6 @@
         "meaning_ja_source": "わたくし【私】。じぶん【自分】",
         "definition_ja": "話し手が目上の人に自分に関することを親しんでいう語。",
         "source_file": "008.xml"
-      }
-    ],
-    "n1-1860": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "나",
-        "definition_ko": "말하는 사람이 친구나 아랫사람에게 자기를 가리키는 말.",
-        "meaning_ja_source": "わたし【私】。ぼく【僕】。おれ【俺】。じぶん【自分】",
-        "definition_ja": "話し手が友人や目下の人に対し、自分をさす語。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "내",
-        "definition_ko": "‘나’에 조사 ‘가’가 붙을 때의 형태.",
-        "meaning_ja_source": "わたし【私】。ぼく【僕】。おれ【俺】。じぶん【自分】",
-        "definition_ja": "一人称代名詞「나」に主格助詞「가」があとにつく場合の形。",
-        "source_file": "002.xml"
       }
     ],
     "n1-2134": [
@@ -41334,116 +41334,6 @@
         "source_file": "011.xml"
       }
     ],
-    "n1-2400": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "내놓다",
-        "definition_ko": "어떤 목적을 위하여 희생하다.",
-        "meaning_ja_source": "さしだす【差し出す】。なげだす【投げ出す】",
-        "definition_ja": "ある目的のために犠牲になる。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "던지다",
-        "definition_ko": "자기 몸을 떨어지게 하거나 어떤 곳에 뛰어들다.",
-        "meaning_ja_source": "なげる【投げる】。なげだす【投げ出す】",
-        "definition_ja": "体をほうり出したり、飛び込んだりする。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "던지다",
-        "definition_ko": "함부로 아무 데나 놓거나 버리다.",
-        "meaning_ja_source": "なげだす【投げ出す】。ほうりだす【放り出す】。ほったらかす",
-        "definition_ja": "無造作に置いたり捨てたりする。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "던지다",
-        "definition_ko": "목숨이나 재물 등을 아끼지 않고 내놓거나 바치다.",
-        "meaning_ja_source": "とうじる【投じる】。なげだす【投げ出す】",
-        "definition_ja": "命や財物などを惜しまずにつぎ込む。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "던지다",
-        "definition_ko": "일 등을 중도에 그만두다.",
-        "meaning_ja_source": "なげる【投げる】。なげだす【投げ出す】。とうじる【投じる】",
-        "definition_ja": "仕事などを中途でやめる。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "내던지다",
-        "definition_ko": "일정한 목적을 위하여 자신을 희생하다.",
-        "meaning_ja_source": "なげだす【投げ出す】",
-        "definition_ja": "一定の目的のために自分を犠牲にする。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "내어놓다",
-        "definition_ko": "어떤 목적을 위하여 희생하다.",
-        "meaning_ja_source": "さしだす【差し出す】。なげだす【投げ出す】",
-        "definition_ja": "ある目的のために犠牲になる。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "팽개치다",
-        "definition_ko": "짜증이 나거나 마음에 들지 않아 물건을 내던지거나 내버리다.",
-        "meaning_ja_source": "ほうりなげる【放り投げる】。ほうりだす【放り出す】。なげだす【投げ出す】",
-        "definition_ja": "嫌になったり気に入らなくて物を投げたり捨てたりする。",
-        "source_file": "010.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "팽개치다",
-        "definition_ko": "하던 일 등을 중간에 그만두거나, 돌보던 것에 대한 책임을 다하지 않고 버리다.",
-        "meaning_ja_source": "ほうりなげる【放り投げる】。ほうりだす【放り出す】。なげだす【投げ出す】",
-        "definition_ja": "物事を途中でやめる。また、任されていたことに責任を果たさず、やめてしまう。",
-        "source_file": "010.xml"
-      }
-    ],
     "n1-2047": [
       {
         "score": 5,
@@ -41552,6 +41442,116 @@
         "meaning_ja_source": "はっしんする【発信する】。おくりだす【送り出す】。さしだす【差し出す】",
         "definition_ja": "郵便や電信、電波などを送る。",
         "source_file": "004.xml"
+      }
+    ],
+    "n1-2400": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "내놓다",
+        "definition_ko": "어떤 목적을 위하여 희생하다.",
+        "meaning_ja_source": "さしだす【差し出す】。なげだす【投げ出す】",
+        "definition_ja": "ある目的のために犠牲になる。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "던지다",
+        "definition_ko": "자기 몸을 떨어지게 하거나 어떤 곳에 뛰어들다.",
+        "meaning_ja_source": "なげる【投げる】。なげだす【投げ出す】",
+        "definition_ja": "体をほうり出したり、飛び込んだりする。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "던지다",
+        "definition_ko": "함부로 아무 데나 놓거나 버리다.",
+        "meaning_ja_source": "なげだす【投げ出す】。ほうりだす【放り出す】。ほったらかす",
+        "definition_ja": "無造作に置いたり捨てたりする。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "던지다",
+        "definition_ko": "목숨이나 재물 등을 아끼지 않고 내놓거나 바치다.",
+        "meaning_ja_source": "とうじる【投じる】。なげだす【投げ出す】",
+        "definition_ja": "命や財物などを惜しまずにつぎ込む。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "던지다",
+        "definition_ko": "일 등을 중도에 그만두다.",
+        "meaning_ja_source": "なげる【投げる】。なげだす【投げ出す】。とうじる【投じる】",
+        "definition_ja": "仕事などを中途でやめる。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "내던지다",
+        "definition_ko": "일정한 목적을 위하여 자신을 희생하다.",
+        "meaning_ja_source": "なげだす【投げ出す】",
+        "definition_ja": "一定の目的のために自分を犠牲にする。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "내어놓다",
+        "definition_ko": "어떤 목적을 위하여 희생하다.",
+        "meaning_ja_source": "さしだす【差し出す】。なげだす【投げ出す】",
+        "definition_ja": "ある目的のために犠牲になる。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "팽개치다",
+        "definition_ko": "짜증이 나거나 마음에 들지 않아 물건을 내던지거나 내버리다.",
+        "meaning_ja_source": "ほうりなげる【放り投げる】。ほうりだす【放り出す】。なげだす【投げ出す】",
+        "definition_ja": "嫌になったり気に入らなくて物を投げたり捨てたりする。",
+        "source_file": "010.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "팽개치다",
+        "definition_ko": "하던 일 등을 중간에 그만두거나, 돌보던 것에 대한 책임을 다하지 않고 버리다.",
+        "meaning_ja_source": "ほうりなげる【放り投げる】。ほうりだす【放り出す】。なげだす【投げ出す】",
+        "definition_ja": "物事を途中でやめる。また、任されていたことに責任を果たさず、やめてしまう。",
+        "source_file": "010.xml"
       }
     ],
     "n1-1124": [
@@ -42118,32 +42118,6 @@
         "source_file": "002.xml"
       }
     ],
-    "n1-1688": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "내리막",
-        "definition_ko": "기운이나 기세가 약해지는 상황.",
-        "meaning_ja_source": "くだりざか【下り坂】。こうたい【後退】。したび【下火】",
-        "definition_ja": "勢いが衰えていく状況。",
-        "source_file": "002.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "내리막길",
-        "definition_ko": "기운이나 기세가 약해지는 시기나 단계.",
-        "meaning_ja_source": "くだりざか【下り坂】。こうたい【後退】。したび【下火】",
-        "definition_ja": "勢いが衰えていく時期や段階。",
-        "source_file": "002.xml"
-      }
-    ],
     "n1-0452": [
       {
         "score": 5,
@@ -42252,6 +42226,32 @@
         "meaning_ja_source": "こうたい【後退】",
         "definition_ja": "本来の状態より劣ったり衰えたりすること。",
         "source_file": "003.xml"
+      }
+    ],
+    "n1-1688": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "내리막",
+        "definition_ko": "기운이나 기세가 약해지는 상황.",
+        "meaning_ja_source": "くだりざか【下り坂】。こうたい【後退】。したび【下火】",
+        "definition_ja": "勢いが衰えていく状況。",
+        "source_file": "002.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "내리막길",
+        "definition_ko": "기운이나 기세가 약해지는 시기나 단계.",
+        "meaning_ja_source": "くだりざか【下り坂】。こうたい【後退】。したび【下火】",
+        "definition_ja": "勢いが衰えていく時期や段階。",
+        "source_file": "002.xml"
       }
     ],
     "n1-2205": [
@@ -44884,68 +44884,6 @@
         "source_file": "003.xml"
       }
     ],
-    "n1-1760": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "님",
-        "definition_ko": "그 사람을 높여 이르는 말.",
-        "meaning_ja_source": "さん。さま【様】",
-        "definition_ja": "その人を敬って呼ぶ語。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "-님",
-        "definition_ko": "‘높임’의 뜻을 더하는 접미사.",
-        "meaning_ja_source": "さま【様】",
-        "definition_ja": "「敬う」意を付加する接尾辞。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "-님",
-        "definition_ko": "'그 대상을 사람처럼 표현하여 높임'의 뜻을 더하는 접미사.",
-        "meaning_ja_source": "さま【様】",
-        "definition_ja": "「その対象を人間のように表現して敬う」という意を付加する接尾辞。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "-님",
-        "definition_ko": "‘높임’과 ‘존경’의 뜻을 더하는 접미사.",
-        "meaning_ja_source": "さま【様】",
-        "definition_ja": "「敬称と尊敬」の意を付加する接尾辞。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "보기 좋게",
-        "definition_ko": "남이 안 좋은 일을 당한 것을 보고 기분 좋아하며 비꼬는 뜻으로 하는 말.",
-        "meaning_ja_source": "様(さま)を見ろ。ざまあ見ろ",
-        "definition_ja": "人が不運に遭ったのを見て、喜びながら皮肉る意味で言う言葉。",
-        "source_file": "005.xml"
-      }
-    ],
     "n1-1736": [
       {
         "score": 6,
@@ -45141,6 +45079,68 @@
         "meaning_ja_source": "せんせい【先生】。さん",
         "definition_ja": "名字や役職などにつけて、敬っていう語。",
         "source_file": "006.xml"
+      }
+    ],
+    "n1-1760": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "님",
+        "definition_ko": "그 사람을 높여 이르는 말.",
+        "meaning_ja_source": "さん。さま【様】",
+        "definition_ja": "その人を敬って呼ぶ語。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "-님",
+        "definition_ko": "‘높임’의 뜻을 더하는 접미사.",
+        "meaning_ja_source": "さま【様】",
+        "definition_ja": "「敬う」意を付加する接尾辞。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "-님",
+        "definition_ko": "'그 대상을 사람처럼 표현하여 높임'의 뜻을 더하는 접미사.",
+        "meaning_ja_source": "さま【様】",
+        "definition_ja": "「その対象を人間のように表現して敬う」という意を付加する接尾辞。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "-님",
+        "definition_ko": "‘높임’과 ‘존경’의 뜻을 더하는 접미사.",
+        "meaning_ja_source": "さま【様】",
+        "definition_ja": "「敬称と尊敬」の意を付加する接尾辞。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "보기 좋게",
+        "definition_ko": "남이 안 좋은 일을 당한 것을 보고 기분 좋아하며 비꼬는 뜻으로 하는 말.",
+        "meaning_ja_source": "様(さま)を見ろ。ざまあ見ろ",
+        "definition_ja": "人が不運に遭ったのを見て、喜びながら皮肉る意味で言う言葉。",
+        "source_file": "005.xml"
       }
     ],
     "n1-2504": [
@@ -47561,44 +47561,6 @@
         "source_file": "004.xml"
       }
     ],
-    "n1-2638": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "대번",
-        "definition_ko": "한 번에 곧바로.",
-        "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】",
-        "definition_ja": "一度に直ちに。",
-        "source_file": "003.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "즉각",
-        "definition_ko": "바로 당장.",
-        "meaning_ja_source": "そっこく【即刻】。そくじ【即時】。そくざに【即座に】。すぐさま",
-        "definition_ja": "今すぐ。",
-        "source_file": "009.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "대번에",
-        "definition_ko": "한 번에 곧바로.",
-        "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】",
-        "definition_ja": "一度に直ちに。",
-        "source_file": "003.xml"
-      }
-    ],
     "n1-0991": [
       {
         "score": 5,
@@ -47707,6 +47669,44 @@
         "meaning_ja_source": "つど【都度】。そのつど【其の都度】。ただちに【直ちに】。すぐ【直ぐ】",
         "definition_ja": "物事が行われるたびごと。",
         "source_file": "009.xml"
+      }
+    ],
+    "n1-2638": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "대번",
+        "definition_ko": "한 번에 곧바로.",
+        "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】",
+        "definition_ja": "一度に直ちに。",
+        "source_file": "003.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "즉각",
+        "definition_ko": "바로 당장.",
+        "meaning_ja_source": "そっこく【即刻】。そくじ【即時】。そくざに【即座に】。すぐさま",
+        "definition_ja": "今すぐ。",
+        "source_file": "009.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "대번에",
+        "definition_ko": "한 번에 곧바로.",
+        "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】",
+        "definition_ja": "一度に直ちに。",
+        "source_file": "003.xml"
       }
     ],
     "n1-2344": [
@@ -56561,6 +56561,80 @@
         "source_file": "010.xml"
       }
     ],
+    "n1-1071": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "벗다",
+        "definition_ko": "어려운 처지나 상황, 고통스러운 상태 등을 감당하지 않게 되다.",
+        "meaning_ja_source": "ぬけだす【抜け出す】。だっする【脱する】。のがれる【逃れる】",
+        "definition_ja": "困難な状況や苦しい状態などから離れ出る。",
+        "source_file": "005.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "면하다",
+        "definition_ko": "책임이나 의무를 지지 않게 되다.",
+        "meaning_ja_source": "まぬかれる【免れる】。のがれる【逃れる】",
+        "definition_ja": "責任や義務を負わなくなる。",
+        "source_file": "004.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "면하다",
+        "definition_ko": "어떤 일을 당하지 않게 되다.",
+        "meaning_ja_source": "まぬかれる【免れる】。のがれる【逃れる】",
+        "definition_ja": "好ましくない状況に置かれないようになる。",
+        "source_file": "004.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "면하다",
+        "definition_ko": "어떤 어려운 상태나 처지에서 벗어나다.",
+        "meaning_ja_source": "まぬかれる【免れる】。のがれる【逃れる】",
+        "definition_ja": "困難な状況から抜け出す。",
+        "source_file": "004.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "피하다",
+        "definition_ko": "원치 않은 일을 당하거나 어려운 일이 일어나지 않게 하다.",
+        "meaning_ja_source": "さける【避ける】。よける【避ける】。のがれる【逃れる】。まぬかれる【免れる】",
+        "definition_ja": "好ましくないことに遭ったり困難なことが起こったりしないようにする。",
+        "source_file": "010.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "벗어나다",
+        "definition_ko": "맡은 일이나 할 일을 더 이상 하지 않게 되다.",
+        "meaning_ja_source": "のがれる【逃れる】。まぬかれる【免れる】",
+        "definition_ja": "引き受けた仕事ややるべきことをこれ以上やらなくなる。",
+        "source_file": "005.xml"
+      }
+    ],
     "n1-1389": [
       {
         "score": 5,
@@ -56633,80 +56707,6 @@
         "meaning_ja_source": "まぬかれる【免れる】",
         "definition_ja": "知恵をしぼって、運良く厳しい状況や責任などから逃れる。",
         "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "벗어나다",
-        "definition_ko": "맡은 일이나 할 일을 더 이상 하지 않게 되다.",
-        "meaning_ja_source": "のがれる【逃れる】。まぬかれる【免れる】",
-        "definition_ja": "引き受けた仕事ややるべきことをこれ以上やらなくなる。",
-        "source_file": "005.xml"
-      }
-    ],
-    "n1-1071": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "벗다",
-        "definition_ko": "어려운 처지나 상황, 고통스러운 상태 등을 감당하지 않게 되다.",
-        "meaning_ja_source": "ぬけだす【抜け出す】。だっする【脱する】。のがれる【逃れる】",
-        "definition_ja": "困難な状況や苦しい状態などから離れ出る。",
-        "source_file": "005.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "면하다",
-        "definition_ko": "책임이나 의무를 지지 않게 되다.",
-        "meaning_ja_source": "まぬかれる【免れる】。のがれる【逃れる】",
-        "definition_ja": "責任や義務を負わなくなる。",
-        "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "면하다",
-        "definition_ko": "어떤 일을 당하지 않게 되다.",
-        "meaning_ja_source": "まぬかれる【免れる】。のがれる【逃れる】",
-        "definition_ja": "好ましくない状況に置かれないようになる。",
-        "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "면하다",
-        "definition_ko": "어떤 어려운 상태나 처지에서 벗어나다.",
-        "meaning_ja_source": "まぬかれる【免れる】。のがれる【逃れる】",
-        "definition_ja": "困難な状況から抜け出す。",
-        "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "피하다",
-        "definition_ko": "원치 않은 일을 당하거나 어려운 일이 일어나지 않게 하다.",
-        "meaning_ja_source": "さける【避ける】。よける【避ける】。のがれる【逃れる】。まぬかれる【免れる】",
-        "definition_ja": "好ましくないことに遭ったり困難なことが起こったりしないようにする。",
-        "source_file": "010.xml"
       },
       {
         "score": 5,
@@ -57529,44 +57529,6 @@
         "source_file": "007.xml"
       }
     ],
-    "n1-2495": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "몸",
-        "definition_ko": "사람이나 동물의 모습을 이루는 머리부터 발까지의 전체. 또는 그것의 상태.",
-        "meaning_ja_source": "からだ【体・身体】。しんたい【身体】",
-        "definition_ja": "人間や動物の姿を成す、頭から足までの全体。また、それの状態。",
-        "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "몸뚱이",
-        "definition_ko": "사람이나 동물의 팔, 다리, 머리를 제외한 몸.",
-        "meaning_ja_source": "からだ【体・身体】。しんたい【身体】。み【身】",
-        "definition_ja": "人間や動物の手足と頭を除いた胴体。",
-        "source_file": "004.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "몸뚱이",
-        "definition_ko": "(속된 말로) 몸.",
-        "meaning_ja_source": "からだ【体・身体】。しんたい【身体】。み【身】",
-        "definition_ja": "からだを俗にいう語。",
-        "source_file": "004.xml"
-      }
-    ],
     "n1-2873": [
       {
         "score": 3,
@@ -57660,6 +57622,44 @@
         "score": 3,
         "reasons": [
           "surface_exact"
+        ],
+        "meaning_ko": "몸뚱이",
+        "definition_ko": "(속된 말로) 몸.",
+        "meaning_ja_source": "からだ【体・身体】。しんたい【身体】。み【身】",
+        "definition_ja": "からだを俗にいう語。",
+        "source_file": "004.xml"
+      }
+    ],
+    "n1-2495": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "몸",
+        "definition_ko": "사람이나 동물의 모습을 이루는 머리부터 발까지의 전체. 또는 그것의 상태.",
+        "meaning_ja_source": "からだ【体・身体】。しんたい【身体】",
+        "definition_ja": "人間や動物の姿を成す、頭から足までの全体。また、それの状態。",
+        "source_file": "004.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "몸뚱이",
+        "definition_ko": "사람이나 동물의 팔, 다리, 머리를 제외한 몸.",
+        "meaning_ja_source": "からだ【体・身体】。しんたい【身体】。み【身】",
+        "definition_ja": "人間や動物の手足と頭を除いた胴体。",
+        "source_file": "004.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
         ],
         "meaning_ko": "몸뚱이",
         "definition_ko": "(속된 말로) 몸.",
@@ -69731,6 +69731,44 @@
         "source_file": "007.xml"
       }
     ],
+    "n1-1799": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "어쩜",
+        "definition_ko": "도대체 어떻게 해서.",
+        "meaning_ja_source": "どうして。なんて【何て】",
+        "definition_ja": "信じられないほどのことで、一体どうすれば。",
+        "source_file": "007.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "어쩜",
+        "definition_ko": "뜻밖의 일로 놀라거나 감탄할 때 나오는 소리.",
+        "meaning_ja_source": "なんと【何と】。なんて【何て】",
+        "definition_ja": "予想外のことで驚いたり感心したりしたときに発する声。",
+        "source_file": "007.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "어쩌면",
+        "definition_ko": "따지거나 감탄할 때 내는 소리.",
+        "meaning_ja_source": "なんと【何と】。なんて【何て】。どうして",
+        "definition_ja": "言い詰めたり感心したりしたときに発する声。",
+        "source_file": "007.xml"
+      }
+    ],
     "n1-2483": [
       {
         "score": 5,
@@ -69779,44 +69817,6 @@
         "meaning_ja_source": "なんと【何と】。じつに【実に】",
         "definition_ja": "思ったよりはるかに多かったり大きかったりするさま。",
         "source_file": "008.xml"
-      }
-    ],
-    "n1-1799": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "어쩜",
-        "definition_ko": "도대체 어떻게 해서.",
-        "meaning_ja_source": "どうして。なんて【何て】",
-        "definition_ja": "信じられないほどのことで、一体どうすれば。",
-        "source_file": "007.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "어쩜",
-        "definition_ko": "뜻밖의 일로 놀라거나 감탄할 때 나오는 소리.",
-        "meaning_ja_source": "なんと【何と】。なんて【何て】",
-        "definition_ja": "予想外のことで驚いたり感心したりしたときに発する声。",
-        "source_file": "007.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "어쩌면",
-        "definition_ko": "따지거나 감탄할 때 내는 소리.",
-        "meaning_ja_source": "なんと【何と】。なんて【何て】。どうして",
-        "definition_ja": "言い詰めたり感心したりしたときに発する声。",
-        "source_file": "007.xml"
       }
     ],
     "n1-0968": [
@@ -76035,32 +76035,6 @@
         "source_file": "010.xml"
       }
     ],
-    "n1-0326": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "출생",
-        "definition_ko": "세상에 태어남.",
-        "meaning_ja_source": "しゅっしょう・しゅっせい【出生】。しゅっせ【出世】",
-        "definition_ja": "この世に生まれ出ること。",
-        "source_file": "010.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "태생",
-        "definition_ko": "어떠한 곳에 태어남.",
-        "meaning_ja_source": "うまれ【生まれ】。しゅっしん【出身】。しゅっしょう・しゅっせい【出生】",
-        "definition_ja": "ある地域に生まれること。",
-        "source_file": "010.xml"
-      }
-    ],
     "n1-0418": [
       {
         "score": 5,
@@ -76084,6 +76058,32 @@
         "definition_ko": "사회적으로 높은 지위에 오르거나 유명하게 됨.",
         "meaning_ja_source": "しゅっせ【出世】",
         "definition_ja": "社会的に高い地位についたり有名になること。",
+        "source_file": "010.xml"
+      }
+    ],
+    "n1-0326": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "출생",
+        "definition_ko": "세상에 태어남.",
+        "meaning_ja_source": "しゅっしょう・しゅっせい【出生】。しゅっせ【出世】",
+        "definition_ja": "この世に生まれ出ること。",
+        "source_file": "010.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "태생",
+        "definition_ko": "어떠한 곳에 태어남.",
+        "meaning_ja_source": "うまれ【生まれ】。しゅっしん【出身】。しゅっしょう・しゅっせい【出生】",
+        "definition_ja": "ある地域に生まれること。",
         "source_file": "010.xml"
       }
     ],
@@ -77908,6 +77908,44 @@
         "source_file": "011.xml"
       }
     ],
+    "n1-2810": [
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "행여",
+        "definition_ko": "어쩌다가 혹시.",
+        "meaning_ja_source": "ひょっとしたら。もしかしたら【若しかしたら】。もしかすると【若しかすると】",
+        "definition_ja": "万が一。",
+        "source_file": "011.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "혹시",
+        "definition_ko": "그러리라 생각하지만 분명하지 않아 말하기를 망설일 때 쓰는 말.",
+        "meaning_ja_source": "もしかして【若しかして】。もしかしたら【若しかしたら】。もしかすると【若しかすると】。ひょっとして",
+        "definition_ja": "そうであろうと思うものの、はっきりしていなくて言い渋る時に用いる語。",
+        "source_file": "011.xml"
+      },
+      {
+        "score": 5,
+        "reasons": [
+          "surface_exact",
+          "reading_exact"
+        ],
+        "meaning_ko": "행여나",
+        "definition_ko": "(강조하는 말로) 어쩌다가 혹시.",
+        "meaning_ja_source": "ひょっとしたら。もしかしたら【若しかしたら】。もしかすると【若しかすると】",
+        "definition_ja": "万が一を強調していう語。",
+        "source_file": "011.xml"
+      }
+    ],
     "n1-2624": [
       {
         "score": 5,
@@ -77943,44 +77981,6 @@
         "definition_ko": "짐작대로 어쩌면.",
         "meaning_ja_source": "もし【若し】。もしかしたら【若しかしたら】。ひょっとしたら",
         "definition_ja": "予想通り、もしかしたら。",
-        "source_file": "011.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "혹시",
-        "definition_ko": "그러리라 생각하지만 분명하지 않아 말하기를 망설일 때 쓰는 말.",
-        "meaning_ja_source": "もしかして【若しかして】。もしかしたら【若しかしたら】。もしかすると【若しかすると】。ひょっとして",
-        "definition_ja": "そうであろうと思うものの、はっきりしていなくて言い渋る時に用いる語。",
-        "source_file": "011.xml"
-      },
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "행여나",
-        "definition_ko": "(강조하는 말로) 어쩌다가 혹시.",
-        "meaning_ja_source": "ひょっとしたら。もしかしたら【若しかしたら】。もしかすると【若しかすると】",
-        "definition_ja": "万が一を強調していう語。",
-        "source_file": "011.xml"
-      }
-    ],
-    "n1-2810": [
-      {
-        "score": 5,
-        "reasons": [
-          "surface_exact",
-          "reading_exact"
-        ],
-        "meaning_ko": "행여",
-        "definition_ko": "어쩌다가 혹시.",
-        "meaning_ja_source": "ひょっとしたら。もしかしたら【若しかしたら】。もしかすると【若しかすると】",
-        "definition_ja": "万が一。",
         "source_file": "011.xml"
       },
       {
