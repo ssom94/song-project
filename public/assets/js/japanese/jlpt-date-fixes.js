@@ -3,7 +3,7 @@
 	const DASHBOARD_API = '/api/public/japanese/jlpt/dashboard';
 	const FIX_SCRIPT = '/assets/js/japanese/jlpt-word-pagination-fix.js?v=20260902-1';
 	const PREPARED_RANGES = [
-		{ from: '2026-09-07', to: '2026-11-30', questions: 21 },
+		{ from: '2026-09-07', to: '2027-02-28', questions: 21 },
 	];
 	const isJa = document.body.dataset.blogLanguage === 'ja';
 	const t = (ko, ja) => isJa ? ja : ko;
@@ -102,20 +102,20 @@
 
 	async function inspectDate(date) {
 		if (cache.has(date)) return cache.get(date);
+		const prepared = preparedQuestionCount(date);
+		if (prepared > 0) {
+			const result = Promise.resolve({ available: true, count: prepared });
+			cache.set(date, result);
+			return result;
+		}
 		const promise = fetch(`${PRACTICE_API}?date=${encodeURIComponent(date)}`, { credentials: 'same-origin', cache: 'no-store' })
 			.then(async (response) => {
 				const data = await response.json().catch(() => null);
-				if (response.ok && data?.ok) {
-					const count = questionCount(data);
-					return { available: count > 0, count };
-				}
-				const fallback = preparedQuestionCount(date);
-				return { available: fallback > 0, count: fallback };
+				if (!response.ok || !data?.ok) return { available: false, count: 0 };
+				const count = questionCount(data);
+				return { available: count > 0, count };
 			})
-			.catch(() => {
-				const fallback = preparedQuestionCount(date);
-				return { available: fallback > 0, count: fallback };
-			});
+			.catch(() => ({ available: false, count: 0 }));
 		cache.set(date, promise);
 		return promise;
 	}
@@ -139,10 +139,10 @@
 		const progress = progressByDate.get(date) || {};
 		const rawStatus = progress.status || cell.dataset.status || 'not_started';
 		const percent = Math.max(0, Math.min(100, Number(progress.progressPercent || 0)));
-		if (rawStatus === 'completed') return { state: 'completed', text: t('완료 100%', '完了 100%') };
+		if (rawStatus === 'completed') return { state: 'completed', text: t('학습완료', '学習完了') };
 		if (rawStatus === 'in_progress' || percent > 0) return { state: 'in_progress', text: t(`학습중 ${percent}%`, `学習中 ${percent}%`) };
 		if (date < today) return { state: 'missed', text: t('미학습', '未学習') };
-		return { state: 'upcoming', text: t('학습일전', '学習日前') };
+		return { state: 'upcoming', text: t('학습일 전', '学習日前') };
 	}
 
 	async function decorateCell(cell) {
