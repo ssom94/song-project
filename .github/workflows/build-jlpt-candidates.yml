@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/jlpt/prepare-production-candidates.mjs'
+      - 'scripts/jlpt/enrich-from-krdict.py'
       - '.github/workflows/build-jlpt-candidates.yml'
       - 'data/jlpt/production/sources.json'
   workflow_dispatch:
@@ -19,9 +20,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
-      - name: Checkout
+      - name: Checkout song-project
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -34,6 +35,19 @@ jobs:
       - name: Build deterministic 3,000-word candidate set
         run: node scripts/jlpt/prepare-production-candidates.mjs
 
+      - name: Checkout pinned Korean Learners Dictionary data
+        uses: actions/checkout@v4
+        with:
+          repository: spellcheck-ko/korean-dict-nikl
+          ref: 42c0d01889f34536e9cf94fe57f62bd2055b1bde
+          path: .cache/korean-dict-nikl
+          sparse-checkout: krdict
+          sparse-checkout-cone-mode: true
+          fetch-depth: 1
+
+      - name: Reverse-match official Japanese translations to Korean glosses
+        run: python3 scripts/jlpt/enrich-from-krdict.py --krdict-dir .cache/korean-dict-nikl/krdict
+
       - name: Commit generated candidate artifacts
         run: |
           if [ -z "$(git status --porcelain -- data/jlpt/production/candidates)" ]; then
@@ -43,5 +57,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/jlpt/production/candidates
-          git commit -m 'data: refresh JLPT N1 production candidates'
+          git commit -m 'data: refresh JLPT N1 candidate enrichment'
           git push
