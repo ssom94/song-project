@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "range": "0041-0050",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Obsolete/suspect identities are intentionally left uncurated for corpus replacement rather than promoted.",
+  "words": [
+    {"key":"n1-0041","word":"指揮","reading":"しき","meaning_ko":"지휘","meaning_ja":"集団や組織の活動を統率し、目的に向けて動かすこと。","part_of_speech":"サ変名詞","example_ja":"現場責任者が救助活動を指揮し、各班に具体的な役割を割り当てた。","example_ko":"현장 책임자가 구조 활동을 지휘하고 각 조에 구체적인 역할을 배정했다。"},
+    {"key":"n1-0042","word":"美術","reading":"びじゅつ","meaning_ko":"미술","meaning_ja":"絵画や彫刻など、視覚的な形で美を表現する芸術。","part_of_speech":"普通名詞","example_ja":"この美術館では近代美術を中心に国内外の作品を展示している。","example_ko":"이 미술관에서는 근대 미술을 중심으로 국내외 작품을 전시하고 있다。"},
+    {"key":"n1-0043","word":"弁護","reading":"べんご","meaning_ko":"변호","meaning_ja":"人の立場や権利を守るため、その事情や正当性を説明してかばうこと。","part_of_speech":"サ変名詞","example_ja":"弁護士は被告人を弁護するため、証拠と証言を一つずつ検討した。","example_ko":"변호사는 피고인을 변호하기 위해 증거와 증언을 하나씩 검토했다。"},
+    {"key":"n1-0044","word":"捜査","reading":"そうさ","meaning_ko":"수사","meaning_ja":"犯罪の事実や犯人を明らかにするため、警察や検察などが証拠を集めて調べること。","part_of_speech":"サ変名詞","example_ja":"警察は防犯カメラの映像を分析しながら事件の捜査を進めている。","example_ko":"경찰은 방범카메라 영상을 분석하면서 사건 수사를 진행하고 있다。"},
+    {"key":"n1-0045","word":"危機","reading":"きき","meaning_ko":"위기","meaning_ja":"悪い結果につながる可能性が高く、重大な対応を迫られる危険な局面。","part_of_speech":"普通名詞","example_ja":"会社は経営危機を乗り越えるため、不採算事業の見直しに着手した。","example_ko":"회사는 경영 위기를 극복하기 위해 적자 사업 재검토에 착수했다。"},
+    {"key":"n1-0046","word":"採用","reading":"さいよう","meaning_ko":"채용; 채택","meaning_ja":"人を選んで雇うこと。また、意見や方法などを取り上げて用いること。","part_of_speech":"サ変名詞","example_ja":"新しい評価制度の採用に先立ち、全社員を対象とした説明会が開かれた。","example_ko":"새 평가 제도 채택에 앞서 전 직원을 대상으로 설명회가 열렸다。"},
+    {"key":"n1-0047","word":"改革","reading":"かいかく","meaning_ko":"개혁","meaning_ja":"制度や組織などの問題点を改め、よりよい状態へ大きく変えること。","part_of_speech":"サ変名詞","example_ja":"行政改革を進めるには、手続きの簡素化だけでなく組織そのものの見直しも必要だ。","example_ko":"행정 개혁을 추진하려면 절차 간소화뿐 아니라 조직 자체의 재검토도 필요하다。"},
+    {"key":"n1-0048","word":"支持","reading":"しじ","meaning_ko":"지지","meaning_ja":"人や意見、方針などに賛成し、その立場を支えること。","part_of_speech":"サ変名詞","example_ja":"その政策は若い世代から幅広い支持を集めている。","example_ko":"그 정책은 젊은 세대로부터 폭넓은 지지를 얻고 있다。"},
+    {"key":"n1-0049","word":"派遣","reading":"はけん","meaning_ko":"파견; 파송","meaning_ja":"一定の任務を与えて、人をある場所へ送り出すこと。","part_of_speech":"サ変名詞","example_ja":"会社は新工場の立ち上げ支援のため、経験豊富な技術者を現地へ派遣した。","example_ko":"회사는 새 공장 가동 지원을 위해 경험 많은 기술자를 현지로 파견했다。"},
+    {"key":"n1-0050","word":"同意","reading":"どうい","meaning_ko":"동의","meaning_ja":"他人の意見や提案を認め、賛成すること。","part_of_speech":"サ変名詞","example_ja":"個人情報を第三者に提供する場合は、原則として本人の同意が必要だ。","example_ko":"개인정보를 제3자에게 제공할 경우 원칙적으로 본인의 동의가 필요하다。"}
+  ]
+}
