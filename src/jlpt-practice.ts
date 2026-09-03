@@ -1,6 +1,5 @@
 import { handleGetPublicJapaneseJlptPractice as handleGetPublicJapaneseJlptPracticeLegacy } from './jlpt-practice-legacy';
 import { resolveLearningAdmin } from './japanese-learning';
-import { ensureDefaultJlptStudyPlan } from './jlpt-study';
 
 export * from './jlpt-practice-legacy';
 
@@ -14,7 +13,7 @@ interface ScheduledPreviewWordRow {
 	sort_order: number | null;
 }
 
-async function loadScheduledPreviewWords(db: D1Database, planId: number, studyDate: string) {
+async function loadScheduledPreviewWords(db: D1Database, adminId: number, studyDate: string) {
 	const result = await db.prepare(`
 		SELECT
 			w.id,
@@ -24,18 +23,22 @@ async function loadScheduledPreviewWords(db: D1Database, planId: number, studyDa
 			w.meaning_ja,
 			dw.item_kind,
 			c.sort_order
-		FROM japanese_jlpt_daily_sessions AS ds
+		FROM japanese_jlpt_study_plans AS p
+		JOIN japanese_jlpt_daily_sessions AS ds
+			ON ds.plan_id = p.id AND ds.study_date = ?2
 		JOIN japanese_jlpt_daily_words AS dw ON dw.session_id = ds.id
 		JOIN japanese_words AS w ON w.id = dw.word_id AND w.deleted_at IS NULL
 		LEFT JOIN japanese_jlpt_curriculum_words AS c
-			ON c.plan_id = ds.plan_id AND c.word_id = w.id
-		WHERE ds.plan_id = ?1 AND ds.study_date = ?2
+			ON c.plan_id = p.id AND c.word_id = w.id
+		WHERE p.admin_id = ?1
+			AND p.plan_code = 'N1_2027_JUL'
+			AND p.is_active = 1
 		ORDER BY
 			CASE dw.item_kind WHEN 'review' THEN 0 ELSE 1 END,
 			COALESCE(c.sort_order, 2147483647),
 			w.id ASC
 		LIMIT 40
-	`).bind(planId, studyDate).all<ScheduledPreviewWordRow>();
+	`).bind(adminId, studyDate).all<ScheduledPreviewWordRow>();
 	return result.results.map((row, index) => ({
 		id: row.id,
 		word: row.word,
@@ -51,9 +54,9 @@ async function loadScheduledPreviewWords(db: D1Database, planId: number, studyDa
  * Public selected-date practice wrapper.
  *
  * The legacy handler still owns question/grammar/reading serialization and grading keys.
- * For vocabulary, a prepared date must reflect the actual daily schedule, including review
- * words. Reading japanese_jlpt_daily_sessions -> japanese_jlpt_daily_words is bounded by the
- * indexed plan/date session lookup and avoids the old introduced_on-only blind spot.
+ * For vocabulary, a prepared date reflects the actual daily schedule, including review
+ * words. The lookup is bounded by the active plan + indexed study_date/session keys and
+ * avoids the old introduced_on-only blind spot without calendar-wide per-date queries.
  */
 export async function handleGetPublicJapaneseJlptPractice(request: Request, env: Env): Promise<Response> {
 	const response = await handleGetPublicJapaneseJlptPracticeLegacy(request, env);
@@ -70,8 +73,7 @@ export async function handleGetPublicJapaneseJlptPractice(request: Request, env:
 	try {
 		const admin = await resolveLearningAdmin(request, env.song_project_db);
 		if (admin.adminId) {
-			const plan = await ensureDefaultJlptStudyPlan(env.song_project_db, admin.adminId);
-			const words = await loadScheduledPreviewWords(env.song_project_db, plan.id, data.studyDate);
+			const words = await loadScheduledPreviewWords(env.song_project_db, admin.adminId, data.studyDate);
 			if (words.length) data.words = words;
 		}
 	} catch (error) {
