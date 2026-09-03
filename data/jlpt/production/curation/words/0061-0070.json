@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "range": "0061-0070",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Over-merged KRDICT senses are narrowed to the actual Japanese headword, and common JLPT-relevant senses missing from KRDICT are restored when supported by the headword identity.",
+  "words": [
+    {"key":"n1-0061","word":"開催","reading":"かいさい","meaning_ko":"개최","meaning_ja":"集会・行事・試合などを計画して開くこと。","part_of_speech":"サ変名詞","example_ja":"国際会議は来年五月に東京で開催される予定だ。","example_ko":"국제회의는 내년 5월에 도쿄에서 개최될 예정이다。"},
+    {"key":"n1-0062","word":"内部","reading":"ないぶ","meaning_ko":"내부; 안쪽; 조직 내부","meaning_ja":"物や組織などの内側、またはその範囲。","part_of_speech":"普通名詞","example_ja":"調査委員会は事故原因だけでなく、組織内部の管理体制も検証した。","example_ko":"조사위원회는 사고 원인뿐 아니라 조직 내부의 관리 체계도 검증했다。"},
+    {"key":"n1-0063","word":"予想","reading":"よそう","meaning_ko":"예상; 예측","meaning_ja":"将来起こることや結果について、前もって見当をつけること。","part_of_speech":"サ変名詞","example_ja":"予想を上回る応募があったため、受付期間を早めに終了した。","example_ko":"예상을 웃도는 응모가 있어 접수 기간을 일찍 종료했다。"},
+    {"key":"n1-0064","word":"登録","reading":"とうろく","meaning_ko":"등록","meaning_ja":"氏名や情報などを所定の帳簿・名簿・システムに記載して正式に扱える状態にすること。","part_of_speech":"サ変名詞","example_ja":"サービスを利用するには、事前にメールアドレスを登録する必要がある。","example_ko":"서비스를 이용하려면 사전에 이메일 주소를 등록해야 한다。"},
+    {"key":"n1-0065","word":"伝説","reading":"でんせつ","meaning_ko":"전설","meaning_ja":"昔から人々の間で語り伝えられてきた話。","part_of_speech":"普通名詞","example_ja":"この湖には、昔から巨大な魚がすむという伝説が残っている。","example_ko":"이 호수에는 예부터 거대한 물고기가 산다는 전설이 남아 있다。"},
+    {"key":"n1-0066","word":"軍事","reading":"ぐんじ","meaning_ko":"군사","meaning_ja":"軍隊・兵器・戦争など、軍に関する事柄。","part_of_speech":"普通名詞","example_ja":"両国は緊張の高まりを受け、軍事面での対話を再開した。","example_ko":"양국은 긴장이 고조됨에 따라 군사 분야의 대화를 재개했다。"},
+    {"key":"n1-0067","word":"監視","reading":"かんし","meaning_ko":"감시; 주시","meaning_ja":"異常や違反などがないか、注意して継続的に見守ること。","part_of_speech":"サ変名詞","example_ja":"システムは二十四時間監視され、異常が検知されると担当者に通知される。","example_ko":"시스템은 24시간 감시되며 이상이 감지되면 담당자에게 통지된다。"},
+    {"key":"n1-0068","word":"手配","reading":"てはい","meaning_ko":"수배; 준비; 주선","meaning_ja":"必要な人・物・手段などを前もって準備したり取り決めたりすること。また、警察が容疑者などを捜して逮捕できるよう関係先に連絡すること。","part_of_speech":"サ変名詞","example_ja":"出張が決まったので、担当者に航空券と宿泊先の手配を依頼した。","example_ko":"출장이 결정되어 담당자에게 항공권과 숙박 장소의 준비를 부탁했다。"},
+    {"key":"n1-0069","word":"固定","reading":"こてい","meaning_ko":"고정","meaning_ja":"動いたり変化したりしないよう一定の位置・状態に保つこと。","part_of_speech":"サ変名詞","example_ja":"作業中に部品が動かないよう、専用の器具でしっかり固定する。","example_ko":"작업 중 부품이 움직이지 않도록 전용 기구로 단단히 고정한다。"},
+    {"key":"n1-0070","word":"戦闘","reading":"せんとう","meaning_ko":"전투","meaning_ja":"軍隊などが武器を用いて敵と戦うこと。","part_of_speech":"サ変名詞","example_ja":"停戦合意が発効し、国境付近で続いていた戦闘はいったん収まった。","example_ko":"정전 합의가 발효되어 국경 부근에서 계속되던 전투가 일단 진정되었다。"}
+  ]
+}
