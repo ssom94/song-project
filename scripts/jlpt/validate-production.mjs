@@ -228,6 +228,7 @@ function validateDaily(day, where, manifest, corpus, introduced, signatures) {
 
   const typeCounts = new Map();
   const questionedWords = new Set();
+  const isPostCorpusReviewDay = newWordKeys.length === 0;
   vocabQuestions.forEach((question, index) => {
     const qWhere = `${where}.vocabQuestions[${index}]`;
     const type = normalized(question?.type);
@@ -235,8 +236,13 @@ function validateDaily(day, where, manifest, corpus, introduced, signatures) {
     typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
     const wordKey = normalized(question?.wordKey);
     if (!corpus.has(wordKey)) fail(`${qWhere}.wordKey`, `unknown word key: ${wordKey}`);
-    if (wordKey && !newWordKeys.includes(wordKey)) fail(`${qWhere}.wordKey`, 'production vocabulary questions must target one of the day\'s new words');
-    if (questionedWords.has(wordKey)) fail(`${qWhere}.wordKey`, 'a daily new word may be the target of at most one vocabulary MCQ');
+    if (wordKey && !isPostCorpusReviewDay && !newWordKeys.includes(wordKey)) {
+      fail(`${qWhere}.wordKey`, 'new-word phase vocabulary questions must target one of the day\'s new words');
+    }
+    if (wordKey && isPostCorpusReviewDay && !introduced.has(wordKey)) {
+      fail(`${qWhere}.wordKey`, 'post-corpus vocabulary questions may target only words introduced on an earlier study day');
+    }
+    if (questionedWords.has(wordKey)) fail(`${qWhere}.wordKey`, 'a vocabulary target may appear in at most one MCQ per day');
     if (wordKey) questionedWords.add(wordKey);
     const checked = validateQuestion(question, qWhere, date, signatures);
     if (type === 'kanji_reading' && checked && corpus.has(wordKey)) {
