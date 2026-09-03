@@ -8,6 +8,7 @@
     "start": "npm run dev",
     "test": "vitest",
     "cf-typegen": "wrangler types",
+    "jlpt:validate": "node scripts/jlpt/validate-production.mjs",
     "db:migrate:local": "wrangler d1 migrations apply song-project-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply song-project-db --remote",
     "seed:test:local": "wrangler d1 execute song-project-db --local --file=./seeds/test_data.sql",
