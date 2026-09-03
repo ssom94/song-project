@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0001-0020",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit.",
+  "words": [
+    {"key":"n1-0001","word":"教え","reading":"おしえ","meaning_ko":"가르침","meaning_ja":"教えること。また、教えられた内容や教訓。","part_of_speech":"普通名詞","example_ja":"祖父の教えを守り、どんなときも約束を破らないようにしている。","example_ko":"할아버지의 가르침을 지켜 어떤 때에도 약속을 어기지 않으려고 한다。"},
+    {"key":"n1-0002","word":"一部","reading":"いちぶ","meaning_ko":"일부; 한 부분","meaning_ja":"全体の中のある部分。","part_of_speech":"普通名詞・副詞的用法","example_ja":"資料の一部に誤りが見つかったため、該当箇所を修正した。","example_ko":"자료의 일부에서 오류가 발견되어 해당 부분을 수정했다。"},
+    {"key":"n1-0003","word":"事業","reading":"じぎょう","meaning_ko":"사업","meaning_ja":"一定の目的のために継続して行う仕事や経営活動。","part_of_speech":"普通名詞","example_ja":"会社は海外事業を拡大するため、新しい拠点を設けた。","example_ko":"회사는 해외 사업을 확대하기 위해 새로운 거점을 마련했다。"},
+    {"key":"n1-0004","word":"開発","reading":"かいはつ","meaning_ko":"개발","meaning_ja":"土地・資源・技術・製品などを実用化し、価値を高めること。","part_of_speech":"サ変名詞","example_ja":"新しい医療機器の開発には、長期間の試験と検証が必要だ。","example_ko":"새로운 의료기기 개발에는 장기간의 시험과 검증이 필요하다。"},
+    {"key":"n1-0005","word":"行為","reading":"こうい","meaning_ko":"행위","meaning_ja":"人が意思をもって行う行動。","part_of_speech":"普通名詞","example_ja":"他人の個人情報を無断で公開する行為は認められない。","example_ko":"타인의 개인정보를 무단으로 공개하는 행위는 용납될 수 없다。"},
+    {"key":"n1-0006","word":"不明","reading":"ふめい","meaning_ko":"불명; 불명확함","meaning_ja":"明らかでなく、はっきり分からないこと。","part_of_speech":"名詞・な形容詞","example_ja":"事故の詳しい原因は依然として不明のままだ。","example_ko":"사고의 자세한 원인은 여전히 밝혀지지 않은 상태다。"},
+    {"key":"n1-0007","word":"保護","reading":"ほご","meaning_ko":"보호","meaning_ja":"危険や損害を受けないように守ること。","part_of_speech":"サ変名詞","example_ja":"希少な動植物を保護するため、この地域への立ち入りが制限されている。","example_ko":"희귀한 동식물을 보호하기 위해 이 지역의 출입이 제한되어 있다。"},
+    {"key":"n1-0008","word":"施設","reading":"しせつ","meaning_ko":"시설","meaning_ja":"特定の目的のために設けられた建物や設備。","part_of_speech":"普通名詞","example_ja":"この施設は災害時に一時避難所として利用される。","example_ko":"이 시설은 재해 시 임시 대피소로 이용된다。"},
+    {"key":"n1-0009","word":"及び","reading":"および","meaning_ko":"및; 그리고","meaning_ja":"複数の事柄を並べて結ぶ語。『そして』『ならびに』の意。","part_of_speech":"接続詞","example_ja":"申請には本人確認書類及び住所を確認できる書類が必要です。","example_ko":"신청에는 본인 확인 서류 및 주소를 확인할 수 있는 서류가 필요합니다。"},
+    {"key":"n1-0010","word":"発生","reading":"はっせい","meaning_ko":"발생","meaning_ja":"出来事や現象が起こること。また、新たに生じること。","part_of_speech":"サ変名詞","example_ja":"システム障害が発生したため、一部のサービスを停止した。","example_ko":"시스템 장애가 발생하여 일부 서비스를 중단했다。"},
+    {"key":"n1-0011","word":"指摘","reading":"してき","meaning_ko":"지적","meaning_ja":"問題点などを具体的に取り上げて示すこと。","part_of_speech":"サ変名詞","example_ja":"専門家は報告書のデータに矛盾があると指摘した。","example_ko":"전문가는 보고서의 데이터에 모순이 있다고 지적했다。"},
+    {"key":"n1-0012","word":"作り","reading":"つくり","meaning_ko":"만듦새; 구조; 꾸밈새","meaning_ja":"物の構造や出来上がり方、外見上の構成。","part_of_speech":"普通名詞","example_ja":"この鞄は作りが丈夫なので、長く使えそうだ。","example_ko":"이 가방은 만듦새가 튼튼해서 오래 사용할 수 있을 것 같다。"},
+    {"key":"n1-0013","word":"動き","reading":"うごき","meaning_ko":"움직임; 동향","meaning_ja":"人や物の動作、または状況・社会などの変化や動向。","part_of_speech":"普通名詞","example_ja":"市場の動きを慎重に見ながら、投資の時期を判断する必要がある。","example_ko":"시장의 움직임을 신중히 살피면서 투자 시기를 판단할 필요가 있다。"},
+    {"key":"n1-0014","word":"向け","reading":"むけ","meaning_ko":"~용; ~대상; ~을 위한","meaning_ja":"特定の人・用途・方向などを対象としていること。","part_of_speech":"接尾的名詞","example_ja":"この教材は日本語を初めて学ぶ人向けに作られている。","example_ko":"이 교재는 일본어를 처음 배우는 사람을 대상으로 만들어졌다。"},
+    {"key":"n1-0015","word":"過ぎ","reading":"すぎ","meaning_ko":"지남; ~가 지난 때","meaning_ja":"ある時刻・時期を越えたこと、またはその直後。","part_of_speech":"接尾的名詞","example_ja":"会議が長引き、会社を出たのは九時過ぎだった。","example_ko":"회의가 길어져 회사를 나온 것은 아홉 시가 조금 지난 뒤였다。"},
+    {"key":"n1-0016","word":"持ち","reading":"もち","meaning_ko":"지속성; 오래감; 보유·담당","meaning_ja":"物が長く使える程度、または持つこと・受け持つこと。","part_of_speech":"普通名詞・接尾的用法","example_ja":"この電池は持ちがよく、一度充電すれば二日ほど使える。","example_ko":"이 배터리는 오래가서 한 번 충전하면 이틀 정도 사용할 수 있다。"},
+    {"key":"n1-0017","word":"仕様","reading":"しよう","meaning_ko":"사양; 규격; 방식","meaning_ja":"製品やシステムなどに定められた構造・性能・処理方法。","part_of_speech":"普通名詞","example_ja":"顧客の要望に合わせて、システムの仕様を一部変更した。","example_ko":"고객의 요구에 맞추어 시스템 사양을 일부 변경했다。"},
+    {"key":"n1-0018","word":"政策","reading":"せいさく","meaning_ko":"정책","meaning_ja":"政府や組織が目的を実現するために定める方針や手段。","part_of_speech":"普通名詞","example_ja":"政府は少子化対策として新たな支援政策を発表した。","example_ko":"정부는 저출산 대책으로 새로운 지원 정책을 발표했다。"},
+    {"key":"n1-0019","word":"提供","reading":"ていきょう","meaning_ko":"제공","meaning_ja":"必要とされる物・情報・サービスなどを差し出すこと。","part_of_speech":"サ変名詞","example_ja":"利用者に正確な情報を提供することが、このサービスの役割だ。","example_ko":"이용자에게 정확한 정보를 제공하는 것이 이 서비스의 역할이다。"},
+    {"key":"n1-0020","word":"対応","reading":"たいおう","meaning_ko":"대응; 대처; 응대","meaning_ja":"状況や相手に応じて適切に処置・応答すること。","part_of_speech":"サ変名詞","example_ja":"問い合わせが急増したため、担当者を増やして対応することになった。","example_ko":"문의가 급증하여 담당자를 늘려 대응하기로 했다。"}
+  ]
+}
