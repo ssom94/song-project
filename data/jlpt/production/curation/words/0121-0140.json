@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0121-0140",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Over-merged Korean senses are narrowed to common JLPT-relevant usage.",
+  "words": [
+    {"key":"n1-0121","word":"対処","reading":"たいしょ","meaning_ko":"대처; 대응","meaning_ja":"問題や困難な状況に対して、状況に合った方法で処理すること。","part_of_speech":"サ変名詞","example_ja":"障害が発生した際に迅速に対処できるよう、手順書を事前に整備しておく。","example_ko":"장애가 발생했을 때 신속히 대처할 수 있도록 절차서를 미리 정비해 둔다."},
+    {"key":"n1-0122","word":"勤務","reading":"きんむ","meaning_ko":"근무","meaning_ja":"職場に属し、定められた仕事や職務に従事すること。","part_of_speech":"サ変名詞","example_ja":"彼は本社勤務を経て、今年から海外支社で働くことになった。","example_ko":"그는 본사 근무를 거쳐 올해부터 해외 지사에서 일하게 되었다."},
+    {"key":"n1-0123","word":"業務","reading":"ぎょうむ","meaning_ko":"업무","meaning_ja":"職場や組織で担当して行う仕事。","part_of_speech":"普通名詞","example_ja":"新しいシステムの導入によって、定型的な業務にかかる時間が大幅に減った。","example_ko":"새 시스템 도입으로 정형적인 업무에 걸리는 시간이 크게 줄었다."},
+    {"key":"n1-0124","word":"上司","reading":"じょうし","meaning_ko":"상사","meaning_ja":"職場や組織で、自分より職位や立場が上の人。","part_of_speech":"普通名詞","example_ja":"判断に迷ったため、まず上司に状況を報告して指示を仰いだ。","example_ko":"판단이 어려워 우선 상사에게 상황을 보고하고 지시를 구했다."},
+    {"key":"n1-0125","word":"革命","reading":"かくめい","meaning_ko":"혁명; 획기적 변화","meaning_ja":"政治・社会の制度や仕組みを根本から大きく変えること。また、比喩的に技術や方法の画期的な変化にもいう。","part_of_speech":"サ変名詞","example_ja":"通信技術の発達は、人々の情報交換の方法に革命をもたらした。","example_ko":"통신기술의 발달은 사람들이 정보를 주고받는 방식에 혁명적인 변화를 가져왔다."},
+    {"key":"n1-0126","word":"事項","reading":"じこう","meaning_ko":"사항; 항목","meaning_ja":"ある物事を構成する個々の項目や内容。","part_of_speech":"普通名詞","example_ja":"申請前に注意事項をよく読み、必要な書類がそろっているか確認してください。","example_ko":"신청 전에 주의 사항을 잘 읽고 필요한 서류가 모두 갖춰졌는지 확인해 주세요."},
+    {"key":"n1-0127","word":"暴力","reading":"ぼうりょく","meaning_ko":"폭력","meaning_ja":"人を傷つけたり強制したりするために、身体的な力などを不当に用いること。","part_of_speech":"普通名詞","example_ja":"意見が対立しても、暴力によって相手を従わせることは許されない。","example_ko":"의견이 대립하더라도 폭력으로 상대를 굴복시키는 것은 용납될 수 없다."},
+    {"key":"n1-0128","word":"昇進","reading":"しょうしん","meaning_ko":"승진","meaning_ja":"職場で現在より高い役職や地位に上がること。","part_of_speech":"サ変名詞","example_ja":"管理職への昇進を機に、チーム全体の成果にも責任を持つ立場になった。","example_ko":"관리직으로 승진하면서 팀 전체의 성과에도 책임을 지는 입장이 되었다."},
+    {"key":"n1-0129","word":"自信","reading":"じしん","meaning_ko":"자신감; 확신","meaning_ja":"自分の能力や判断、物事の結果などを確かだと信じる気持ち。","part_of_speech":"普通名詞","example_ja":"何度も練習を重ねたことで、本番でも落ち着いて話せる自信がついた。","example_ko":"여러 번 연습을 거듭하면서 실전에서도 침착하게 말할 수 있다는 자신감이 생겼다."},
+    {"key":"n1-0130","word":"概念","reading":"がいねん","meaning_ko":"개념","meaning_ja":"物事の共通する性質をまとめて捉えた、一般的な意味や考え。","part_of_speech":"普通名詞","example_ja":"専門用語を理解するには、まずその背景にある基本概念を押さえる必要がある。","example_ko":"전문용어를 이해하려면 먼저 그 배경에 있는 기본 개념을 파악할 필요가 있다."},
+    {"key":"n1-0131","word":"内閣","reading":"ないかく","meaning_ko":"내각","meaning_ja":"内閣総理大臣と国務大臣によって構成され、国の行政を担う最高の合議機関。","part_of_speech":"普通名詞","example_ja":"新しい内閣は、経済対策を最優先課題として掲げた。","example_ko":"새 내각은 경제 대책을 최우선 과제로 내세웠다."},
+    {"key":"n1-0132","word":"了解","reading":"りょうかい","meaning_ko":"이해; 승낙; 알겠음","meaning_ja":"事情や内容を理解し、それを受け入れること。また、連絡などに対して理解した旨を示すこと。","part_of_speech":"サ変名詞","example_ja":"日程変更の件は了解しました。関係者にもこちらから連絡します。","example_ko":"일정 변경 건은 이해했습니다. 관계자에게도 제가 연락하겠습니다."},
+    {"key":"n1-0133","word":"暗殺","reading":"あんさつ","meaning_ko":"암살","meaning_ja":"政治家など重要な人物を、ひそかに計画して殺害すること。","part_of_speech":"サ変名詞","example_ja":"その事件をきっかけに、要人暗殺を防ぐための警備体制が強化された。","example_ko":"그 사건을 계기로 요인 암살을 막기 위한 경비 체계가 강화되었다."},
+    {"key":"n1-0134","word":"世代","reading":"せだい","meaning_ko":"세대","meaning_ja":"ほぼ同じ時期に生まれ、似た社会的経験を共有する人々の層。親子の年代差を表す単位としても用いる。","part_of_speech":"普通名詞","example_ja":"世代によって情報の集め方が異なるため、広報手段も一つに絞れない。","example_ko":"세대에 따라 정보를 모으는 방식이 달라 홍보 수단도 하나로 한정할 수 없다."},
+    {"key":"n1-0135","word":"創造","reading":"そうぞう","meaning_ko":"창조; 창출","meaning_ja":"それまで存在しなかった新しいものや価値を作り出すこと。","part_of_speech":"サ変名詞","example_ja":"既存の技術を組み合わせることで、新しい価値を創造することが期待されている。","example_ko":"기존 기술을 조합해 새로운 가치를 창출하는 것이 기대되고 있다."},
+    {"key":"n1-0136","word":"分離","reading":"ぶんり","meaning_ko":"분리","meaning_ja":"一つになっているものを分けて離すこと。また、分かれて離れること。","part_of_speech":"サ変名詞","example_ja":"個人情報を一般の業務データから分離して管理する仕組みに変更した。","example_ko":"개인정보를 일반 업무 데이터와 분리해 관리하는 구조로 변경했다."},
+    {"key":"n1-0137","word":"定義","reading":"ていぎ","meaning_ko":"정의; 정의하다","meaning_ja":"言葉や概念が何を意味するか、その範囲や内容を明確に定めること。また、その内容。","part_of_speech":"サ変名詞","example_ja":"議論を始める前に、ここでいう『成功』の定義を共有しておく必要がある。","example_ko":"논의를 시작하기 전에 여기서 말하는 '성공'의 정의를 공유해 둘 필요가 있다."},
+    {"key":"n1-0138","word":"確立","reading":"かくりつ","meaning_ko":"확립; 정립","meaning_ja":"制度・方法・理論・立場などを、確かなものとしてしっかり成立させること。","part_of_speech":"サ変名詞","example_ja":"再発を防ぐには、個人の注意だけでなく組織的な確認手順を確立する必要がある。","example_ko":"재발을 막으려면 개인의 주의뿐 아니라 조직적인 확인 절차를 확립할 필요가 있다."},
+    {"key":"n1-0139","word":"合併","reading":"がっぺい","meaning_ko":"합병","meaning_ja":"二つ以上の会社・団体・組織などが一つにまとまること。また、一つにまとめること。","part_of_speech":"サ変名詞","example_ja":"両社は競争力を高めるため、来年四月に合併することで合意した。","example_ko":"두 회사는 경쟁력을 높이기 위해 내년 4월에 합병하기로 합의했다."},
+    {"key":"n1-0140","word":"現地","reading":"げんち","meaning_ko":"현지; 현장 지역","meaning_ja":"実際にその出来事や活動が行われている場所・地域。","part_of_speech":"普通名詞","example_ja":"正確な被害状況を確認するため、調査員を現地に派遣した。","example_ko":"정확한 피해 상황을 확인하기 위해 조사원을 현지에 파견했다."}
+  ]
+}
