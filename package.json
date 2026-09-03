@@ -11,6 +11,7 @@
     "jlpt:validate": "node scripts/jlpt/validate-production.mjs",
     "jlpt:validate-production": "node scripts/jlpt/validate-production.mjs",
     "jlpt:build-production": "node scripts/jlpt/build-production-migration.mjs",
+    "jlpt:build-word-drafts": "node scripts/jlpt/build-word-enrichment-drafts.mjs",
     "d1:lint-migrations": "node scripts/d1/lint-migrations.mjs",
     "db:migrate:local": "wrangler d1 migrations apply song-project-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply song-project-db --remote",
