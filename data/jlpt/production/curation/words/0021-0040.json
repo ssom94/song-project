@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "range": "0021-0040",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Obsolete/suspect identities are intentionally left uncurated for corpus replacement rather than promoted.",
+  "words": [
+    {"key":"n1-0021","word":"交渉","reading":"こうしょう","meaning_ko":"교섭; 협상","meaning_ja":"利害や意見の異なる相手と話し合い、条件や結論を調整すること。","part_of_speech":"サ変名詞","example_ja":"労使双方は賃金改定について交渉を続けている。","example_ko":"노사 양측은 임금 개정에 대해 협상을 계속하고 있다。"},
+    {"key":"n1-0022","word":"殺人","reading":"さつじん","meaning_ko":"살인","meaning_ja":"人を故意に殺すこと。","part_of_speech":"普通名詞","example_ja":"警察は殺人事件として捜査を進め、目撃情報を集めている。","example_ko":"경찰은 살인 사건으로 수사를 진행하며 목격 정보를 모으고 있다。"},
+    {"key":"n1-0023","word":"調べ","reading":"しらべ","meaning_ko":"조사; 조사함","meaning_ja":"物事を詳しく調査・確認すること。","part_of_speech":"普通名詞","example_ja":"詳しい調べによって、故障の原因が部品の劣化だと分かった。","example_ko":"자세한 조사를 통해 고장의 원인이 부품 노후화라는 것을 알게 되었다。"},
+    {"key":"n1-0024","word":"現場","reading":"げんじょう","meaning_ko":"현장; 사건 현장","meaning_ja":"事件や事故などが実際に起きた場所。","part_of_speech":"普通名詞","example_ja":"捜査員は現場に残されたわずかな痕跡を慎重に調べた。","example_ko":"수사관은 현장에 남은 작은 흔적을 신중하게 조사했다。"},
+    {"key":"n1-0025","word":"選挙","reading":"せんきょ","meaning_ko":"선거","meaning_ja":"投票によって代表者や役員などを選ぶこと。","part_of_speech":"サ変名詞","example_ja":"今回の選挙では若年層の投票率が大きな焦点となっている。","example_ko":"이번 선거에서는 젊은 층의 투표율이 큰 쟁점이 되고 있다。"},
+    {"key":"n1-0027","word":"真実","reading":"しんじつ","meaning_ko":"진실; 사실","meaning_ja":"偽りのない本当の事実。","part_of_speech":"普通名詞・な形容詞","example_ja":"複数の証言を照合しなければ、事件の真実にはたどり着けない。","example_ko":"여러 증언을 대조하지 않으면 사건의 진실에 도달할 수 없다。"},
+    {"key":"n1-0028","word":"自己","reading":"じこ","meaning_ko":"자기; 자신","meaning_ja":"その人自身。自分自身。","part_of_speech":"普通名詞","example_ja":"自己の利益だけでなく、社会全体への影響も考える必要がある。","example_ko":"자신의 이익뿐 아니라 사회 전체에 미치는 영향도 생각할 필요가 있다。"},
+    {"key":"n1-0029","word":"規模","reading":"きぼ","meaning_ko":"규모; 범위","meaning_ja":"物事の大きさや広がりの程度。","part_of_speech":"普通名詞","example_ja":"予想を上回る規模の災害となり、広い地域で停電が続いた。","example_ko":"예상을 웃도는 규모의 재해가 되어 넓은 지역에서 정전이 계속되었다。"},
+    {"key":"n1-0030","word":"資金","reading":"しきん","meaning_ko":"자금","meaning_ja":"事業や活動など、特定の目的のために用いる金銭。","part_of_speech":"普通名詞","example_ja":"研究を継続するには、来年度の資金を早めに確保しなければならない。","example_ko":"연구를 계속하려면 내년도 자금을 조기에 확보해야 한다。"},
+    {"key":"n1-0031","word":"理論","reading":"りろん","meaning_ko":"이론","meaning_ja":"事実や現象を筋道立てて説明するために体系化された考え。","part_of_speech":"普通名詞","example_ja":"この理論は実験結果とも一致しており、多くの研究者に支持されている。","example_ko":"이 이론은 실험 결과와도 일치하여 많은 연구자의 지지를 받고 있다。"},
+    {"key":"n1-0032","word":"距離","reading":"きょり","meaning_ko":"거리; 간격","meaning_ja":"二つの地点や物の間がどれだけ離れているかを表す長さ。","part_of_speech":"普通名詞","example_ja":"駅から会場までかなり距離があるため、バスを利用したほうがよい。","example_ko":"역에서 행사장까지 거리가 꽤 있어서 버스를 이용하는 편이 좋다。"},
+    {"key":"n1-0033","word":"保険","reading":"ほけん","meaning_ko":"보험","meaning_ja":"事故・病気・災害などに備え、一定の負担と引き換えに補償を受ける制度。","part_of_speech":"普通名詞","example_ja":"海外赴任に備えて、補償内容の広い保険に加入した。","example_ko":"해외 부임에 대비해 보장 범위가 넓은 보험에 가입했다。"},
+    {"key":"n1-0034","word":"勝利","reading":"しょうり","meaning_ko":"승리","meaning_ja":"戦いや試合などで相手に勝つこと。","part_of_speech":"サ変名詞","example_ja":"チームは最後まで集中力を切らさず、接戦の末に勝利を収めた。","example_ko":"팀은 끝까지 집중력을 잃지 않고 접전 끝에 승리를 거두었다。"},
+    {"key":"n1-0035","word":"投資","reading":"とうし","meaning_ko":"투자","meaning_ja":"将来の利益や成果を期待して、資金・時間・労力などを投入すること。","part_of_speech":"サ変名詞","example_ja":"短期的な利益だけでなく、人材育成への投資も企業の成長には欠かせない。","example_ko":"단기 이익뿐 아니라 인재 육성에 대한 투자도 기업 성장에는 필수적이다。"},
+    {"key":"n1-0036","word":"文書","reading":"ぶんしょ","meaning_ko":"문서; 문건","meaning_ja":"文字で内容を記録したもの。特に、保存・伝達・証明などに用いる書類。","part_of_speech":"普通名詞","example_ja":"契約条件を変更する場合は、口頭ではなく文書で合意を残してください。","example_ko":"계약 조건을 변경할 경우 구두가 아니라 문서로 합의를 남겨 주세요。"},
+    {"key":"n1-0037","word":"治療","reading":"ちりょう","meaning_ko":"치료","meaning_ja":"病気やけがを治すために、医学的な処置を行うこと。","part_of_speech":"サ変名詞","example_ja":"早期に適切な治療を受ければ、回復までの期間を短くできる可能性がある。","example_ko":"조기에 적절한 치료를 받으면 회복 기간을 줄일 가능성이 있다。"},
+    {"key":"n1-0038","word":"参照","reading":"さんしょう","meaning_ko":"참조; 참고","meaning_ja":"他の資料や情報と照らし合わせ、参考にすること。","part_of_speech":"サ変名詞","example_ja":"申請方法の詳細については、公式サイトの案内を参照してください。","example_ko":"신청 방법의 자세한 내용은 공식 사이트 안내를 참고해 주세요。"},
+    {"key":"n1-0039","word":"確保","reading":"かくほ","meaning_ko":"확보","meaning_ja":"必要なものを確実に手に入れ、使える状態にしておくこと。","part_of_speech":"サ変名詞","example_ja":"災害時でも通信手段を確保できるよう、複数の回線を用意している。","example_ko":"재해 시에도 통신 수단을 확보할 수 있도록 여러 회선을 준비하고 있다。"},
+    {"key":"n1-0040","word":"通常","reading":"つうじょう","meaning_ko":"통상; 보통; 일반적으로","meaning_ja":"特別な事情がない普通の状態。また、一般的には。","part_of_speech":"普通名詞・副詞","example_ja":"通常は三営業日以内に結果を通知しますが、繁忙期は遅れる場合があります。","example_ko":"통상은 영업일 기준 3일 이내에 결과를 통지하지만, 성수기에는 늦어질 수 있습니다。"}
+  ]
+}
