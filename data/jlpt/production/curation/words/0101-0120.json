@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0101-0120",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Over-merged Korean senses are narrowed to common JLPT-relevant usage. Entries without a KRDICT exact match are manually reconciled against the JMdict candidate identity.",
+  "words": [
+    {"key":"n1-0101","word":"復活","reading":"ふっかつ","meaning_ko":"부활; 재개; 회복","meaning_ja":"一度失われたり衰えたりしたものが、再び元の状態や活動を取り戻すこと。死者が生き返る意でも用いる。","part_of_speech":"サ変名詞","example_ja":"利用者の要望を受け、廃止されていた夜間便が来月から復活する。","example_ko":"이용자들의 요청을 받아 폐지됐던 야간편이 다음 달부터 부활한다."},
+    {"key":"n1-0102","word":"業者","reading":"ぎょうしゃ","meaning_ko":"업자; 사업자; 업체","meaning_ja":"特定の事業を営む個人や会社。特に、仕事を請け負ったり商品・サービスを提供したりする者。","part_of_speech":"普通名詞","example_ja":"工事を依頼する前に、複数の業者から見積もりを取ることにした。","example_ko":"공사를 의뢰하기 전에 여러 업체에서 견적을 받기로 했다."},
+    {"key":"n1-0103","word":"条約","reading":"じょうやく","meaning_ko":"조약","meaning_ja":"国家間などで、権利や義務について正式に取り決めた国際的な合意。","part_of_speech":"普通名詞","example_ja":"両国は長期にわたる交渉の末、新たな環境保護条約に署名した。","example_ko":"양국은 오랜 협상 끝에 새로운 환경보호 조약에 서명했다."},
+    {"key":"n1-0104","word":"成果","reading":"せいか","meaning_ko":"성과; 결실","meaning_ja":"努力や活動の結果として得られた、価値のある結果。","part_of_speech":"普通名詞","example_ja":"研究の成果を社会に還元するため、企業との共同開発を始めた。","example_ko":"연구 성과를 사회에 환원하기 위해 기업과 공동 개발을 시작했다."},
+    {"key":"n1-0105","word":"民主","reading":"みんしゅ","meaning_ko":"민주; 민주주의적 원리","meaning_ja":"政治において国民を主権者とし、その意思に基づいて社会を運営しようとする考え方や原理。","part_of_speech":"普通名詞","example_ja":"民主的な手続きを守るには、少数意見にも耳を傾ける必要がある。","example_ko":"민주적인 절차를 지키려면 소수 의견에도 귀를 기울일 필요가 있다."},
+    {"key":"n1-0106","word":"展示","reading":"てんじ","meaning_ko":"전시","meaning_ja":"品物や作品などを、人に見せるために並べて公開すること。","part_of_speech":"サ変名詞","example_ja":"博物館では、発掘された資料を年代順に展示している。","example_ko":"박물관에서는 발굴된 자료를 연대순으로 전시하고 있다."},
+    {"key":"n1-0107","word":"職員","reading":"しょくいん","meaning_ko":"직원; 교직원·공무원 등의 직원","meaning_ja":"学校・役所・施設など一定の組織に所属し、その仕事を担当する人。","part_of_speech":"普通名詞","example_ja":"避難訓練では、職員が利用者を安全な場所まで誘導した。","example_ko":"대피 훈련에서는 직원들이 이용자를 안전한 장소까지 유도했다."},
+    {"key":"n1-0108","word":"独自","reading":"どくじ","meaning_ko":"독자적; 고유함","meaning_ja":"他とは異なり、そのものだけに特有の方法・性質・立場を持つこと。","part_of_speech":"名詞・な形容詞","example_ja":"この会社は独自の技術を生かし、海外市場でも高い評価を得ている。","example_ko":"이 회사는 독자적인 기술을 살려 해외 시장에서도 높은 평가를 받고 있다."},
+    {"key":"n1-0109","word":"起こす","reading":"おこす","meaning_ko":"일으키다; 발생시키다; 깨우다","meaning_ja":"眠っている人を目覚めさせたり、物事・現象・事件などを生じさせたりする。","part_of_speech":"五段動詞","example_ja":"小さな確認不足が重大な事故を起こす可能性もある。","example_ko":"작은 확인 부족이 중대한 사고를 일으킬 가능성도 있다."},
+    {"key":"n1-0110","word":"規定","reading":"きてい","meaning_ko":"규정; 규정하다","meaning_ja":"規則として内容や条件を定めること。また、その定められた内容。","part_of_speech":"サ変名詞","example_ja":"個人情報は社内規定に従って管理し、目的外には利用してはならない。","example_ko":"개인정보는 사내 규정에 따라 관리하고 목적 외에는 이용해서는 안 된다."},
+    {"key":"n1-0111","word":"一切","reading":"いっさい","meaning_ko":"일절; 일체; 전부","meaning_ja":"すべてのこと。多く否定表現とともに用いて、『まったく何も』の意を表す。","part_of_speech":"普通名詞・副詞","example_ja":"試験中は、携帯電話などの電子機器を一切使用してはいけない。","example_ko":"시험 중에는 휴대전화 등의 전자기기를 일절 사용해서는 안 된다."},
+    {"key":"n1-0112","word":"箇所","reading":"かしょ","meaning_ko":"곳; 부분; 개소","meaning_ja":"ある場所や文章などの中の特定の部分。場所を数える際にも用いる。","part_of_speech":"普通名詞・助数詞的用法","example_ja":"申請書に記入漏れの箇所が二つあるので、提出前に修正してください。","example_ko":"신청서에 빠진 부분이 두 군데 있으니 제출 전에 수정해 주세요."},
+    {"key":"n1-0113","word":"貴族","reading":"きぞく","meaning_ko":"귀족","meaning_ja":"歴史上、特権的な高い身分や社会的地位を持った階級、またはその階級に属する人。","part_of_speech":"普通名詞","example_ja":"この城はかつて有力な貴族の住居として使われていた。","example_ko":"이 성은 과거 유력한 귀족의 거처로 사용되었다."},
+    {"key":"n1-0114","word":"民族","reading":"みんぞく","meaning_ko":"민족","meaning_ja":"言語・文化・歴史・生活習慣などを共有し、集団としての意識を持つ人々。","part_of_speech":"普通名詞","example_ja":"この地域には異なる民族が暮らし、それぞれ独自の文化を受け継いでいる。","example_ko":"이 지역에는 서로 다른 민족이 살며 각자의 고유한 문화를 이어가고 있다."},
+    {"key":"n1-0115","word":"獲得","reading":"かくとく","meaning_ko":"획득","meaning_ja":"努力や競争などを通じて、求めていたものを手に入れること。","part_of_speech":"サ変名詞","example_ja":"新規顧客を獲得するため、サービス内容を全面的に見直した。","example_ko":"신규 고객을 확보하기 위해 서비스 내용을 전면적으로 재검토했다."},
+    {"key":"n1-0116","word":"企画","reading":"きかく","meaning_ko":"기획; 기획안","meaning_ja":"目的を実現するため、事業・行事・製品などの内容や方法を計画すること。また、その計画。","part_of_speech":"サ変名詞","example_ja":"若手社員が企画したイベントが予想以上の来場者を集めた。","example_ko":"젊은 직원이 기획한 행사가 예상보다 많은 방문객을 모았다."},
+    {"key":"n1-0117","word":"作戦","reading":"さくせん","meaning_ko":"작전; 전략","meaning_ja":"目的を達成するために立てる具体的な方法や計画。軍事行動の計画にも用いる。","part_of_speech":"普通名詞","example_ja":"競合との差を明確にする作戦が功を奏し、新商品の売上が伸びた。","example_ko":"경쟁사와의 차이를 분명히 하는 전략이 효과를 내 신상품 매출이 늘었다."},
+    {"key":"n1-0118","word":"向き","reading":"むき","meaning_ko":"방향; 적합함; ~용","meaning_ja":"向いている方向。また、人や用途に適していることを表す。","part_of_speech":"普通名詞・接尾語的用法","example_ja":"この教材は説明が丁寧なので、初めて学ぶ人向きだ。","example_ko":"이 교재는 설명이 친절해서 처음 배우는 사람에게 적합하다."},
+    {"key":"n1-0119","word":"防衛","reading":"ぼうえい","meaning_ko":"방위; 방어","meaning_ja":"外部からの攻撃や侵略を防ぎ、自国・組織・立場などを守ること。","part_of_speech":"サ変名詞","example_ja":"政府は周辺情勢の変化を踏まえ、防衛体制の見直しを進めている。","example_ko":"정부는 주변 정세 변화를 고려해 방위 체계 재검토를 추진하고 있다."},
+    {"key":"n1-0120","word":"運営","reading":"うんえい","meaning_ko":"운영; 경영","meaning_ja":"組織・施設・事業などが目的を達成できるよう、管理しながら動かしていくこと。","part_of_speech":"サ変名詞","example_ja":"限られた予算で施設を安定して運営するには、業務の効率化が必要だ。","example_ko":"제한된 예산으로 시설을 안정적으로 운영하려면 업무 효율화가 필요하다."}
+  ]
+}
