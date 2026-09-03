@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "generatedFor": "song-project JLPT N1 production corpus",
+  "policy": {
+    "jlptClassificationIsOfficial": false,
+    "classificationNote": "The JLPT has not published an official vocabulary list for the current N1-N5 system. N1 membership is based on the Waller community list and is cross-checked against JMdict identity data.",
+    "copyrightRule": "Only sources with compatible reuse terms are used. Proprietary Japanese-Korean dictionary dumps are excluded.",
+    "editorialRule": "Korean glosses and project example text are project editorial content unless a row explicitly records a reusable upstream source. User-authored workbook values take precedence when the same word+reading is present."
+  },
+  "sources": [
+    {
+      "id": "waller-n1-via-stephenmk",
+      "role": ["N1 candidate membership", "jmdict sequence", "reading cross-check", "English gloss hint"],
+      "project": "stephenmk/yomitan-jlpt-vocab",
+      "path": "original_data/n1.csv",
+      "upstream": "Jonathan Waller JLPT Resources (tanos.co.uk)",
+      "license": "CC-BY 4.0 for original Waller data; redistributed under CC-BY-SA 4.0 by stephenmk",
+      "expectedCandidateCount": 3427,
+      "notes": "Community classification, not JLPT-official. Never imported blindly; malformed, duplicate, or identity-inconsistent entries are rejected before the final 3,000-word corpus is frozen."
+    },
+    {
+      "id": "jmdict-normalized",
+      "role": ["canonical dictionary identity", "writing/reading validation", "part-of-speech evidence"],
+      "project": "jkindrix/japanese-language-data",
+      "upstream": "scriptin/jmdict-simplified / EDRDG JMdict",
+      "paths": ["data/core/words.json", "data/enrichment/jlpt-classifications.json"],
+      "license": "jmdict-simplified distribution format CC-BY-SA 4.0; underlying JMdict data under the EDRDG/JMdict license",
+      "notes": "Join Waller vocabulary through jmdict_seq where possible; the production corpus stores only the fields needed by song-project."
+    },
+    {
+      "id": "jkindrix-n1-grammar",
+      "role": ["N1 grammar candidate bank", "formation/nuance cross-check", "Japanese example seed"],
+      "project": "jkindrix/japanese-language-data",
+      "path": "grammar-curated/n1.json",
+      "license": "Repository data distributed under CC-BY-SA 4.0; grammar prose/examples are project-original curation from general grammar knowledge",
+      "expectedCandidateCount": 139,
+      "notes": "All upstream entries are marked draft, so song-project performs its own production checks and does not represent them as native-speaker-reviewed."
+    },
+    {
+      "id": "user-curated-workbooks",
+      "role": ["Korean gloss override", "part-of-speech override", "Japanese/Korean example override"],
+      "files": [
+        "song-project_일본어단어추가_001-100.xlsx",
+        "song-project_일본어단어추가_101-200_N2.xlsx",
+        "song-project_일본어단어추가_301-400_N2.xlsx"
+      ],
+      "license": "User-authored/private project input",
+      "notes": "About 299 unique rows after normalization. N2-labeled rows are not promoted to N1 merely because they appear in a workbook; they are used only when the same word+reading independently qualifies for the N1 production candidate set."
+    }
+  ],
+  "excludedSources": [
+    {
+      "source": "Naver Japanese/Korean dictionary dumps or converted Yomitan dictionaries",
+      "reason": "Proprietary/reuse terms are not suitable as a production redistribution source for this repository."
+    },
+    {
+      "source": "Unverified old synthetic song-project seed rows",
+      "reason": "Contained generated-looking or duplicate vocabulary and cannot be treated as a trusted lexical source."
+    }
+  ],
+  "requiredAttribution": [
+    "Jonathan Waller JLPT Resources / tanos.co.uk",
+    "stephenmk/yomitan-jlpt-vocab",
+    "EDRDG JMdict via scriptin/jmdict-simplified and jkindrix/japanese-language-data",
+    "jkindrix/japanese-language-data for the N1 grammar candidate bank"
+  ]
+}
