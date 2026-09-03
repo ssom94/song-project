@@ -8,15 +8,17 @@
       "word": "教え",
       "reading": "おしえ",
       "meaning_ko": "가르침",
-      "meaning_ja": "知らないことを教えて悟るようにすること。また、その内容。",
+      "meaning_ja": "教えること。また、教えられた内容や教訓。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "祖父の教えを守り、どんなときも約束を破らないようにしている。",
+      "example_ko": "할아버지의 가르침을 지켜 어떤 때에도 약속을 어기지 않으려고 한다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1236890",
         "meaning_en": "teachings, precept, lesson, doctrine",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0001",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -36,16 +38,18 @@
       "sequence_no": 2,
       "word": "一部",
       "reading": "いちぶ",
-      "meaning_ko": "일부",
-      "meaning_ja": "ある部分。また、全体の中のわずかな部分。",
-      "part_of_speech": "副詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "meaning_ko": "일부; 한 부분",
+      "meaning_ja": "全体の中のある部分。",
+      "part_of_speech": "普通名詞・副詞的用法",
+      "example_ja": "資料の一部に誤りが見つかったため、該当箇所を修正した。",
+      "example_ko": "자료의 일부에서 오류가 발견되어 해당 부분을 수정했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1166180",
         "meaning_en": "1. one copy e.g. of a document, 2. a part, partly, some",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0002",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -66,15 +70,17 @@
       "word": "事業",
       "reading": "じぎょう",
       "meaning_ko": "사업",
-      "meaning_ja": "経済的な利益を得るために、ある組職を経営すること。",
+      "meaning_ja": "一定の目的のために継続して行う仕事や経営活動。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "会社は海外事業を拡大するため、新しい拠点を設けた。",
+      "example_ko": "회사는 해외 사업을 확대하기 위해 새로운 거점을 마련했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1313670",
         "meaning_en": "project, enterprise, business, industry, operations",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0003",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -95,15 +101,17 @@
       "word": "開発",
       "reading": "かいはつ",
       "meaning_ko": "개발",
-      "meaning_ja": "土地や天然資源などを利用しやすくしたり、役立つようにすること。",
+      "meaning_ja": "土地・資源・技術・製品などを実用化し、価値を高めること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "新しい医療機器の開発には、長期間の試験と検証が必要だ。",
+      "example_ko": "새로운 의료기기 개발에는 장기간의 시험과 검증이 필요하다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1202880",
         "meaning_en": "development, exploitation",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0004",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -123,16 +131,18 @@
       "sequence_no": 5,
       "word": "行為",
       "reading": "こうい",
-      "meaning_ko": "일 | 행위",
-      "meaning_ja": "人の行動。 | 人が意志をもってする行い。",
+      "meaning_ko": "행위",
+      "meaning_ja": "人が意思をもって行う行動。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "他人の個人情報を無断で公開する行為は認められない。",
+      "example_ko": "타인의 개인정보를 무단으로 공개하는 행위는 용납될 수 없다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1281830",
         "meaning_en": "act, deed, conduct",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0005",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -152,16 +162,18 @@
       "sequence_no": 6,
       "word": "不明",
       "reading": "ふめい",
-      "meaning_ko": "불명",
-      "meaning_ja": "明らかになっていないため、はっきり分からないこと。",
-      "part_of_speech": "な形容詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "meaning_ko": "불명; 불명확함",
+      "meaning_ja": "明らかでなく、はっきり分からないこと。",
+      "part_of_speech": "名詞・な形容詞",
+      "example_ja": "事故の詳しい原因は依然として不明のままだ。",
+      "example_ko": "사고의 자세한 원인은 여전히 밝혀지지 않은 상태다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1495060",
         "meaning_en": "unknown, obscure, indistinct, uncertain, ambiguous, ignorant, lack of wisdom, anonymous, unidentified",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0006",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -182,15 +194,17 @@
       "word": "保護",
       "reading": "ほご",
       "meaning_ko": "보호",
-      "meaning_ja": "危なかったり、困ることがないように守ること。",
+      "meaning_ja": "危険や損害を受けないように守ること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "希少な動植物を保護するため、この地域への立ち入りが制限されている。",
+      "example_ko": "희귀한 동식물을 보호하기 위해 이 지역의 출입이 제한되어 있다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1513530",
         "meaning_en": "care, protection, shelter, guardianship, favor, patronage",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0007",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -211,15 +225,17 @@
       "word": "施設",
       "reading": "しせつ",
       "meaning_ko": "시설",
-      "meaning_ja": "ある目的のために建物や道具、機械、装置などの物をつくること。また、そのつくられた物。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "meaning_ja": "特定の目的のために設けられた建物や設備。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "この施設は災害時に一時避難所として利用される。",
+      "example_ko": "이 시설은 재해 시 임시 대피소로 이용된다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1310410",
         "meaning_en": "institution, establishment, facility, (army) engineer",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0008",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -239,16 +255,18 @@
       "sequence_no": 9,
       "word": "及び",
       "reading": "および",
-      "meaning_ko": "급 | 및",
-      "meaning_ja": "そして、またはその他に。 | そしてまた。",
+      "meaning_ko": "및; 그리고",
+      "meaning_ja": "複数の事柄を並べて結ぶ語。『そして』『ならびに』の意。",
       "part_of_speech": "接続詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "申請には本人確認書類及び住所を確認できる書類が必要です。",
+      "example_ko": "신청에는 본인 확인 서류 및 주소를 확인할 수 있는 서류가 필요합니다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1228140",
         "meaning_en": "and, as well as",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0009",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -269,15 +287,17 @@
       "word": "発生",
       "reading": "はっせい",
       "meaning_ko": "발생",
-      "meaning_ja": "物事が起こること。",
+      "meaning_ja": "出来事や現象が起こること。また、新たに生じること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "システム障害が発生したため、一部のサービスを停止した。",
+      "example_ko": "시스템 장애가 발생하여 일부 서비스를 중단했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1477620",
         "meaning_en": "outbreak, spring forth, occurrence, incidence, origin",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0010",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -298,15 +318,17 @@
       "word": "指摘",
       "reading": "してき",
       "meaning_ko": "지적",
-      "meaning_ja": "何かを具体的に取り上げ、はっきり指し示すこと。",
+      "meaning_ja": "問題点などを具体的に取り上げて示すこと。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "専門家は報告書のデータに矛盾があると指摘した。",
+      "example_ko": "전문가는 보고서의 데이터에 모순이 있다고 지적했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1309940",
         "meaning_en": "pointing out, identification",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0011",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -326,16 +348,18 @@
       "sequence_no": 12,
       "word": "作り",
       "reading": "つくり",
-      "meaning_ko": "조성 | 꾸밈새",
-      "meaning_ja": "作り上げること。 | 雰囲気や流れなどを作ること。 | 整えた形。",
+      "meaning_ko": "만듦새; 구조; 꾸밈새",
+      "meaning_ja": "物の構造や出来上がり方、外見上の構成。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "この鞄は作りが丈夫なので、長く使えそうだ。",
+      "example_ko": "이 가방은 만듦새가 튼튼해서 오래 사용할 수 있을 것 같다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1297250",
         "meaning_en": "make-up, sliced raw fish",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0012",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -355,16 +379,18 @@
       "sequence_no": 13,
       "word": "動き",
       "reading": "うごき",
-      "meaning_ko": "동향 | 모션 | 움직임",
-      "meaning_ja": "特定の人や物の動き。 | ある行動をする前に予め用意する動きや身振り。 | 姿勢や席などが変わること。 | 考えや感情が変わること。 | ある目的で活動すること。 | ある状況や現象が変わること。",
+      "meaning_ko": "움직임; 동향",
+      "meaning_ja": "人や物の動作、または状況・社会などの変化や動向。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "市場の動きを慎重に見ながら、投資の時期を判断する必要がある。",
+      "example_ko": "시장의 움직임을 신중히 살피면서 투자 시기를 판단할 필요가 있다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1451180",
         "meaning_en": "movement, activity, trend, development, change",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0013",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -384,16 +410,18 @@
       "sequence_no": 14,
       "word": "向け",
       "reading": "むけ",
-      "meaning_ko": "",
-      "meaning_ja": "",
-      "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "meaning_ko": "~용; ~대상; ~을 위한",
+      "meaning_ja": "特定の人・用途・方向などを対象としていること。",
+      "part_of_speech": "接尾的名詞",
+      "example_ja": "この教材は日本語を初めて学ぶ人向けに作られている。",
+      "example_ko": "이 교재는 일본어를 처음 배우는 사람을 대상으로 만들어졌다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1277090",
         "meaning_en": "for ~, oriented towards ~",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0014",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -403,16 +431,18 @@
       "sequence_no": 15,
       "word": "過ぎ",
       "reading": "すぎ",
-      "meaning_ko": "",
-      "meaning_ja": "",
-      "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "meaning_ko": "지남; ~가 지난 때",
+      "meaning_ja": "ある時刻・時期を越えたこと、またはその直後。",
+      "part_of_speech": "接尾的名詞",
+      "example_ja": "会議が長引き、会社を出たのは九時過ぎだった。",
+      "example_ko": "회의가 길어져 회사를 나온 것은 아홉 시가 조금 지난 뒤였다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1195960",
         "meaning_en": "past, after",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0015",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -422,16 +452,18 @@
       "sequence_no": 16,
       "word": "持ち",
       "reading": "もち",
-      "meaning_ko": "",
-      "meaning_ja": "",
-      "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "meaning_ko": "지속성; 오래감; 보유·담당",
+      "meaning_ja": "物が長く使える程度、または持つこと・受け持つこと。",
+      "part_of_speech": "普通名詞・接尾的用法",
+      "example_ja": "この電池は持ちがよく、一度充電すれば二日ほど使える。",
+      "example_ko": "이 배터리는 오래가서 한 번 충전하면 이틀 정도 사용할 수 있다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1612060",
         "meaning_en": "1. hold, charge, keep possession, in charge, 2. wear, durability, life, draw, 3. usage (suff)",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0016",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -441,16 +473,18 @@
       "sequence_no": 17,
       "word": "仕様",
       "reading": "しよう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "사양; 규격; 방식",
+      "meaning_ja": "製品やシステムなどに定められた構造・性能・処理方法。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "顧客の要望に合わせて、システムの仕様を一部変更した。",
+      "example_ko": "고객의 요구에 맞추어 시스템 사양을 일부 변경했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1305500",
         "meaning_en": "way, method, resource, remedy, (technical) specification",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0017",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -461,15 +495,17 @@
       "word": "政策",
       "reading": "せいさく",
       "meaning_ko": "정책",
-      "meaning_ja": "政治的な目的を達成するための方法。",
+      "meaning_ja": "政府や組織が目的を実現するために定める方針や手段。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "政府は少子化対策として新たな支援政策を発表した。",
+      "example_ko": "정부는 저출산 대책으로 새로운 지원 정책을 발표했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1375950",
         "meaning_en": "political measures, policy",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0018",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -489,16 +525,18 @@
       "sequence_no": 19,
       "word": "提供",
       "reading": "ていきょう",
-      "meaning_ko": "공여 | 제공",
-      "meaning_ja": "ある物や利益などを相手に与えるようにすること。 | 何かを差し出したり手渡したりすること。",
+      "meaning_ko": "제공",
+      "meaning_ja": "必要とされる物・情報・サービスなどを差し出すこと。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "利用者に正確な情報を提供することが、このサービスの役割だ。",
+      "example_ko": "이용자에게 정확한 정보를 제공하는 것이 이 서비스의 역할이다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1436360",
         "meaning_en": "offer, tender, program sponsoring, furnishing",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0019",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -518,16 +556,18 @@
       "sequence_no": 20,
       "word": "対応",
       "reading": "たいおう",
-      "meaning_ko": "대응 | 응대",
-      "meaning_ja": "物事や状況に適当な行動を取ること。 | ある二つのものが互いにペアになること。 | 相手の呼び出し、質問、要求などの受け答えをすること。",
+      "meaning_ko": "대응; 대처; 응대",
+      "meaning_ja": "状況や相手に応じて適切に処置・応答すること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "問い合わせが急増したため、担当者を増やして対応することになった。",
+      "example_ko": "문의가 급증하여 담당자를 늘려 대응하기로 했다。",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1409840",
         "meaning_en": "interaction, correspondence, coping with, dealing with",
+        "curated_file": "data/jlpt/production/curation/words/0001-0020.json",
+        "curated_original_key": "n1-0020",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -557,6 +597,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1272110",
         "meaning_en": "negotiations, discussions, connection",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -586,6 +628,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1299100",
         "meaning_en": "murder",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -615,6 +659,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1429050",
         "meaning_en": "preparation, investigation, inspection",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -634,6 +680,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1263760",
         "meaning_en": "actual spot, scene, scene of the crime",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -653,6 +701,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1392190",
         "meaning_en": "election",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -682,6 +732,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1581400",
         "meaning_en": "another person, unrelated person, outsider, stranger",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -701,6 +753,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1363780",
         "meaning_en": "truth, reality",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -730,6 +784,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1317580",
         "meaning_en": "self, oneself",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -759,6 +815,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223090",
         "meaning_en": "scale, scope, plan, structure",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -788,6 +846,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1312700",
         "meaning_en": "funds, capital",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -817,6 +877,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1550160",
         "meaning_en": "theory",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -846,6 +908,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1232920",
         "meaning_en": "distance, range",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -875,6 +939,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1513440",
         "meaning_en": "insurance, guarantee",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -904,6 +970,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1346240",
         "meaning_en": "victory, triumph, conquest, success, win",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -933,6 +1001,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1447230",
         "meaning_en": "investment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -962,6 +1032,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1583840",
         "meaning_en": "document, writing, letter, note, records, archives",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -991,6 +1063,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1316890",
         "meaning_en": "medical treatment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1020,6 +1094,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1302410",
         "meaning_en": "reference, consultation, consultation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1049,6 +1125,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1205920",
         "meaning_en": "guarantee, ensure, maintain, insure, secure",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1078,6 +1156,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1433280",
         "meaning_en": "common, general, usually",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1107,6 +1187,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1386060",
         "meaning_en": "establishment, creation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1136,6 +1218,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1309700",
         "meaning_en": "command, direction",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1165,6 +1249,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1486440",
         "meaning_en": "art, fine arts",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1194,6 +1280,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1512830",
         "meaning_en": "defense, pleading, advocacy",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1223,6 +1311,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1399660",
         "meaning_en": "search (esp. in criminal investigations), investigation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1252,6 +1342,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1218450",
         "meaning_en": "crisis",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1281,6 +1373,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1294890",
         "meaning_en": "use, adopt",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-14.json",
         "krdict": {
           "score": 5,
@@ -1310,6 +1404,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1200780",
         "meaning_en": "reform, reformation, innovation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1339,6 +1435,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1310150",
         "meaning_en": "support, maintenance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1368,6 +1466,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1471130",
         "meaning_en": "dispatch, send",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1397,6 +1497,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1451850",
         "meaning_en": "agreement, consent, same meaning, same opinion, approval",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1426,6 +1528,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1375930",
         "meaning_en": "administration, political power",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1455,6 +1559,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1273370",
         "meaning_en": "presenting to the public",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1484,6 +1590,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1421060",
         "meaning_en": "local",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1513,6 +1621,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1258220",
         "meaning_en": "power, authority, influence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1542,6 +1652,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1477350",
         "meaning_en": "utterance, speech, proposal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1571,6 +1683,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1386050",
         "meaning_en": "establishment, institution",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1600,6 +1714,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1480210",
         "meaning_en": "reaction, response",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1629,6 +1745,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1265760",
         "meaning_en": "ancient times",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1658,6 +1776,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1282440",
         "meaning_en": "purchase, buy",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1687,6 +1807,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1467550",
         "meaning_en": "recognition, cognizance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-13.json",
         "krdict": {
           "score": 5,
@@ -1716,6 +1838,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1202710",
         "meaning_en": "holding a meeting, open an exhibition",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1745,6 +1869,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1459030",
         "meaning_en": "interior, inside, internal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1774,6 +1900,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1543130",
         "meaning_en": "expectation, anticipation, prediction, forecast",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1803,6 +1931,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1444810",
         "meaning_en": "registration, register, entry, record",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1832,6 +1962,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1442100",
         "meaning_en": "tradition, legend, folklore",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1861,6 +1993,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1248080",
         "meaning_en": "military affairs",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1890,6 +2024,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1213680",
         "meaning_en": "observation, guarding, inspection, surveillance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1919,6 +2055,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1328260",
         "meaning_en": "arrangement, search (by police)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1948,6 +2086,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1266650",
         "meaning_en": "fixation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -1977,6 +2117,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1390420",
         "meaning_en": "battle, fight, combat",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2006,6 +2148,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1409420",
         "meaning_en": "personal experience",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2035,6 +2179,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1282010",
         "meaning_en": "administration",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2064,6 +2210,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1408100",
         "meaning_en": "diversity, variety",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2093,6 +2241,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1353450",
         "meaning_en": "rising, ascending, climbing",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2122,6 +2272,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1472100",
         "meaning_en": "abolition, repeal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2151,6 +2303,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1386440",
         "meaning_en": "persuasion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2180,6 +2334,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1309800",
         "meaning_en": "indication, instruction, directions",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2209,6 +2365,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1473150",
         "meaning_en": "arrangement (of resources), disposition",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2238,6 +2396,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1375150",
         "meaning_en": "influence, power, might, strength, potency, force, energy",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2267,6 +2427,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1173030",
         "meaning_en": "fate",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2296,6 +2458,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1531870",
         "meaning_en": "honor, credit, prestige",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2325,6 +2489,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1602120",
         "meaning_en": "every day, daily, day after day",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -2344,6 +2510,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1386090",
         "meaning_en": "establishment, foundation, institution",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2373,6 +2541,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1483410",
         "meaning_en": "blame, attack, criticism",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2402,6 +2572,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1452400",
         "meaning_en": "fellow, companion, comrade",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2431,6 +2603,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223280",
         "meaning_en": "describing, descriptor",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2460,6 +2634,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1515730",
         "meaning_en": "information, report",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2489,6 +2665,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1241850",
         "meaning_en": "urgent, pressing, emergency",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2518,6 +2696,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1546780",
         "meaning_en": "claim, demand, request, application",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2547,6 +2727,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1575990",
         "meaning_en": "single word",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2576,6 +2758,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1366060",
         "meaning_en": "advance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2605,6 +2789,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1397350",
         "meaning_en": "lovely, dreamy, beautiful, great, fantastic, superb, cool, capital",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -2624,6 +2810,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1208970",
         "meaning_en": "stock (company)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2653,6 +2841,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1173800",
         "meaning_en": "reflection, image",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2682,6 +2872,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1342490",
         "meaning_en": "disposal, dealing, punishment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2711,6 +2903,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1499350",
         "meaning_en": "subordinate person",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2740,6 +2934,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1421090",
         "meaning_en": "hell",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2769,6 +2965,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1235550",
         "meaning_en": "association, society, organization",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2798,6 +2996,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1312690",
         "meaning_en": "qualifications, requirements, capabilities",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2827,6 +3027,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1250360",
         "meaning_en": "formation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2856,6 +3058,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1500700",
         "meaning_en": "revival (e.g. musical), restoration",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2885,6 +3089,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1239440",
         "meaning_en": "trader, merchant",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2914,6 +3120,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1356580",
         "meaning_en": "treaty, pact",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2943,6 +3151,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1375650",
         "meaning_en": "results, fruits",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -2972,6 +3182,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1528790",
         "meaning_en": "democratic, the head of the nation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3001,6 +3213,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1440610",
         "meaning_en": "exhibition, display",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3030,6 +3244,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1357490",
         "meaning_en": "staff member, personnel",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3059,6 +3275,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1455810",
         "meaning_en": "original, peculiar, characteristic",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3088,6 +3306,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223660",
         "meaning_en": "to raise, to cause, to wake someone",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3117,6 +3337,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223060",
         "meaning_en": "regulation, provisions",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3146,6 +3368,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1164170",
         "meaning_en": "all, everything, without exception, the whole, entirely, absolutely",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3175,6 +3399,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1590250",
         "meaning_en": "passage, place, point, part",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -3194,6 +3420,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223550",
         "meaning_en": "noble, aristocrat",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3223,6 +3451,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1604740",
         "meaning_en": "people, race, nation, racial customs, folk customs",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3252,6 +3482,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1205750",
         "meaning_en": "acquisition, possession",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3281,6 +3513,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1218150",
         "meaning_en": "planning, project",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3310,6 +3544,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1297800",
         "meaning_en": "military or naval operations, tactics, strategy",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3339,6 +3575,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1277040",
         "meaning_en": "direction, situation, exposure, aspect, suitability",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -3358,6 +3596,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1520200",
         "meaning_en": "defense, protection, self-defense",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3387,6 +3627,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1172690",
         "meaning_en": "management, administration, operation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3416,6 +3658,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1410070",
         "meaning_en": "deal with, cope",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3445,6 +3689,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1241070",
         "meaning_en": "service, duty, work",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3474,6 +3720,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1239540",
         "meaning_en": "business, affairs, duties, work",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3503,6 +3751,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1353260",
         "meaning_en": "superior authorities, boss",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3532,6 +3782,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1206500",
         "meaning_en": "revolution",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3561,6 +3813,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1313910",
         "meaning_en": "matter, item, facts",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3590,6 +3844,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1519590",
         "meaning_en": "violence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3619,6 +3875,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1349780",
         "meaning_en": "promotion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3648,6 +3906,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1317970",
         "meaning_en": "self-confidence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3677,6 +3937,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1204480",
         "meaning_en": "general idea, concept, notion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3706,6 +3968,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1457910",
         "meaning_en": "cabinet, (government) ministry",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3735,6 +3999,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1553310",
         "meaning_en": "comprehension, consent, understanding, roger (on the radio)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3764,6 +4030,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1154520",
         "meaning_en": "assassination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3793,6 +4061,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1374190",
         "meaning_en": "generation, the world, the age",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3822,6 +4092,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1398560",
         "meaning_en": "creation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3851,6 +4123,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1504370",
         "meaning_en": "separation, detachment, segregation, isolation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3880,6 +4154,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1435530",
         "meaning_en": "definition",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3909,6 +4185,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1206030",
         "meaning_en": "establishment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3938,6 +4216,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1578970",
         "meaning_en": "combination, union, amalgamation, consolidation, merger, coalition, fusion, annexation, affiliation, incorpor",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3967,6 +4247,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1263860",
         "meaning_en": "actual place, local",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -3996,6 +4278,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1453790",
         "meaning_en": "introduction, bringing in, leading in",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4025,6 +4309,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1351900",
         "meaning_en": "symbol",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4054,6 +4340,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1559790",
         "meaning_en": "commonwealth, federation of states",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4083,6 +4371,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1329660",
         "meaning_en": "receiving, acceptance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4112,6 +4402,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1499540",
         "meaning_en": "class, group, category, department, field, branch",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4141,6 +4433,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1467280",
         "meaning_en": "appointment, nomination, ordination, commission, designation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4170,6 +4464,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1539390",
         "meaning_en": "preference, priority",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4199,6 +4495,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1400560",
         "meaning_en": "dispute, strife, quarrel, dissension, conflict, rivalry, contest",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4228,6 +4526,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1596240",
         "meaning_en": "exclusive use, personal use",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4257,6 +4557,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343310",
         "meaning_en": "attached to, belong to",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4286,6 +4588,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1467260",
         "meaning_en": "duty, function, office, mission, task",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4315,6 +4619,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223010",
         "meaning_en": "regulation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4344,6 +4650,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1306680",
         "meaning_en": "administration of justice",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4373,6 +4681,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1236350",
         "meaning_en": "obligation, coercion, compulsion, enforcement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4402,6 +4712,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1203040",
         "meaning_en": "class, rank, grade",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4431,6 +4743,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1439090",
         "meaning_en": "genius, prodigy, natural gift",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4460,6 +4774,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1216050",
         "meaning_en": "participation, taking part in, participating in, being concerned in",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4489,6 +4805,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1262070",
         "meaning_en": "principle, general rule",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4518,6 +4836,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1559700",
         "meaning_en": "colleagues, company, a lot",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4547,6 +4867,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1416260",
         "meaning_en": "achievement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4576,6 +4898,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1522370",
         "meaning_en": "seriousness, truth, sanctity",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4605,6 +4929,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1264670",
         "meaning_en": "limit, restriction",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4634,6 +4960,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1335400",
         "meaning_en": "up to now, so far, traditional",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4663,6 +4991,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1469660",
         "meaning_en": "fuel",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4692,6 +5022,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449760",
         "meaning_en": "integration, unification, synthesis",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4721,6 +5053,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1478520",
         "meaning_en": "judicial decision, judgement, sentence, decree",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4750,6 +5084,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1541710",
         "meaning_en": "1. influence, prominence, 2. potent",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4779,6 +5115,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1428240",
         "meaning_en": "challenge, defiance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4808,6 +5146,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1498740",
         "meaning_en": "arms, armament, armed",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4837,6 +5177,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1377660",
         "meaning_en": "just, justifiable, right, due, proper, equitable, reasonable, legitimate, lawful",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -4856,6 +5198,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1599290",
         "meaning_en": "alliance, union, league",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4885,6 +5229,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1605460",
         "meaning_en": "mansion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4914,6 +5260,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1250390",
         "meaning_en": "form, shape, figure",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -4943,6 +5291,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1258130",
         "meaning_en": "power, authority, jurisdiction",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-08.json",
         "krdict": {
           "score": 5,
@@ -4972,6 +5322,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1212470",
         "meaning_en": "infection, contagion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5001,6 +5353,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1466290",
         "meaning_en": "obtaining, coming to hand",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5030,6 +5384,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1258090",
         "meaning_en": "authority, power, influence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
         "krdict": {
           "score": 5,
@@ -5059,6 +5415,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1351640",
         "meaning_en": "evidence, testimony",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5088,6 +5446,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1396530",
         "meaning_en": "measure, step",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-09.json",
         "krdict": {
           "score": 5,
@@ -5117,6 +5477,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1151470",
         "meaning_en": "deterioration, growing worse, aggravation, degeneration, corruption",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5146,6 +5508,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1596380",
         "meaning_en": "synthesis, coordination, putting together, integration, composite",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5175,6 +5539,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1410020",
         "meaning_en": "opposition, antagonism",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5204,6 +5570,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1199470",
         "meaning_en": "collection, recovery",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5233,6 +5601,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1630190",
         "meaning_en": "republicanism, cooperation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5262,6 +5632,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1238380",
         "meaning_en": "excitement, stimulation, agitation, arousal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5291,6 +5663,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1298000",
         "meaning_en": "action, operation, effect, function",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5320,6 +5694,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1506320",
         "meaning_en": "arms, weapons, ordinance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5349,6 +5725,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1213810",
         "meaning_en": "nursing, (army) nurse",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5378,6 +5756,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1278860",
         "meaning_en": "protest, objection",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5407,6 +5787,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223230",
         "meaning_en": "mention, entry",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5436,6 +5818,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1558800",
         "meaning_en": "love, love-making, passion, emotion, affections",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5465,6 +5849,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1338290",
         "meaning_en": "performance, stage appearance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5494,6 +5880,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1292960",
         "meaning_en": "playback, regeneration, resuscitation, return to life, rebirth, reincarnation, narrow escape, reclamation, r",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5523,6 +5911,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1523130",
         "meaning_en": "instinct",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5552,6 +5942,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1432670",
         "meaning_en": "exile, banishment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5581,6 +5973,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1263210",
         "meaning_en": "decrease, reduction, decline",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5610,6 +6004,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1267860",
         "meaning_en": "employment (long term), hire",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5639,6 +6035,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1235570",
         "meaning_en": "conference, consultation, discussion, negotiation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5668,6 +6066,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1554720",
         "meaning_en": "area, domain, territory, field, region, regime",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5697,6 +6097,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1371200",
         "meaning_en": "guess, conjecture",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-10.json",
         "krdict": {
           "score": 5,
@@ -5726,6 +6128,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1481090",
         "meaning_en": "insurrection, mutiny, rebellion, revolt, uprising",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5755,6 +6159,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1269510",
         "meaning_en": "regret, repentance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5784,6 +6190,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1371140",
         "meaning_en": "propulsion, driving force",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-10.json",
         "krdict": {
           "score": 5,
@@ -5813,6 +6221,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1470740",
         "meaning_en": "agricultural land",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5842,6 +6252,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1310810",
         "meaning_en": "death penalty, capital punishment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5871,6 +6283,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1580490",
         "meaning_en": "passenger",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -5890,6 +6304,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1250610",
         "meaning_en": "appearance (e.g. article in paper)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5919,6 +6335,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1366000",
         "meaning_en": "evolution, progress",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5948,6 +6366,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1286320",
         "meaning_en": "national or state border",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -5977,6 +6397,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1153340",
         "meaning_en": "stress, pressure",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6006,6 +6428,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1254370",
         "meaning_en": "decision, determination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6035,6 +6459,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1414050",
         "meaning_en": "general public",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6064,6 +6490,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1252310",
         "meaning_en": "warning, admonition, vigilance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6093,6 +6521,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1367760",
         "meaning_en": "man of talent",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6122,6 +6552,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1205870",
         "meaning_en": "conviction, confidence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6151,6 +6583,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1277250",
         "meaning_en": "elevation, rise, improvement, advancement, progress",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6180,6 +6614,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1198500",
         "meaning_en": "interview, audience",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6209,6 +6645,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1595070",
         "meaning_en": "acquaintance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6238,6 +6676,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1598750",
         "meaning_en": "old people, the aged",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6267,6 +6707,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1278100",
         "meaning_en": "work, construction, handicraft, maneuvering",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6296,6 +6738,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1385450",
         "meaning_en": "touch, contact",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6325,6 +6769,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1581710",
         "meaning_en": "daytime, during the day",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6354,6 +6800,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1380340",
         "meaning_en": "Bible, scriptures",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6383,6 +6831,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1174680",
         "meaning_en": "hero, great man",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6412,6 +6862,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "2848289",
         "meaning_en": "origin, source, foundation, root, base, principle",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6441,6 +6893,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1321170",
         "meaning_en": "substance, essence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6470,6 +6924,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1397220",
         "meaning_en": "raw materials, subject matter",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6499,6 +6955,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1173090",
         "meaning_en": "making use of, application, investment, practical use",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6528,6 +6986,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449790",
         "meaning_en": "rule, reign, government, governing",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 3,
@@ -6556,6 +7016,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1307620",
         "meaning_en": "management, dealing, settlement, cleaning up afterwards",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6585,6 +7047,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1552440",
         "meaning_en": "circulation of money or goods, flow of water or air, distribution",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6614,6 +7078,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1448800",
         "meaning_en": "usual, common, ordinary, natural, reasonable, obvious",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6643,6 +7109,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1456400",
         "meaning_en": "reader",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6672,6 +7140,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1544380",
         "meaning_en": "place, room, margin, scope",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6701,6 +7171,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1490580",
         "meaning_en": "quality",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6730,6 +7202,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1580270",
         "meaning_en": "trader, shopkeeper, merchant",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -6749,6 +7223,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1562600",
         "meaning_en": "planet",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6778,6 +7254,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1472730",
         "meaning_en": "back, rear",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6807,6 +7285,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1407370",
         "meaning_en": "another side, different direction, (on) the other hand",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6836,6 +7316,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1389680",
         "meaning_en": "declaration, proclamation, announcement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6865,6 +7347,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1284550",
         "meaning_en": "agreement, consent, mutual understanding",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6894,6 +7378,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1561850",
         "meaning_en": "logic",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6923,6 +7409,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1369280",
         "meaning_en": "people, public",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -6942,6 +7430,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1376910",
         "meaning_en": "justice, right, righteousness, correct meaning",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -6971,6 +7461,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1420650",
         "meaning_en": "intellectual",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7000,6 +7492,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1591140",
         "meaning_en": "origin, beginning, rise",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7029,6 +7523,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1360380",
         "meaning_en": "judging, inspection, examination, investigation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7058,6 +7554,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1513320",
         "meaning_en": "charge, custody, safekeeping, deposit, storage",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7087,6 +7585,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1438340",
         "meaning_en": "ceiling, ceiling price",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7116,6 +7616,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1167450",
         "meaning_en": "a series, a chain, a ream (of paper)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7145,6 +7647,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1012210",
         "meaning_en": "fidelity, faithfulness",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7174,6 +7678,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1366730",
         "meaning_en": "personality, character, individuality",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7203,6 +7709,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1351660",
         "meaning_en": "witness",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7232,6 +7740,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1594040",
         "meaning_en": "end, finishing touches, being finished",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7261,6 +7771,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1501060",
         "meaning_en": "welfare, well-being",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7290,6 +7802,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1254220",
         "meaning_en": "decision, determination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7319,6 +7833,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1199030",
         "meaning_en": "cancellation, rescinding, release, calling off",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7348,6 +7864,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1357580",
         "meaning_en": "professional duties",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7377,6 +7895,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1429310",
         "meaning_en": "cooking",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7406,6 +7926,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1530380",
         "meaning_en": "wireless, radio",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7435,6 +7957,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1441080",
         "meaning_en": "convert, divert",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7464,6 +7988,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1312750",
         "meaning_en": "property, fortune, means, assets",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7493,6 +8019,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1251250",
         "meaning_en": "passage, expiration, progress",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7522,6 +8050,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1349070",
         "meaning_en": "minority, few",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7551,6 +8081,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1463650",
         "meaning_en": "the body, the flesh",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7580,6 +8112,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1417780",
         "meaning_en": "sole, independence, single, solo (flight)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7609,6 +8143,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1579510",
         "meaning_en": "1. execution, enforcing, carrying out",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 3,
@@ -7637,6 +8173,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1546670",
         "meaning_en": "primary factor, main cause",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7666,6 +8204,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1367960",
         "meaning_en": "hostage, prisoner",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7695,6 +8235,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1452410",
         "meaning_en": "same mind, comrade, kindred soul",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7724,6 +8266,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1515700",
         "meaning_en": "remuneration, recompense, reward, toll",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7753,6 +8297,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1404040",
         "meaning_en": "side, flank, sidelight, lateral",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7782,6 +8328,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1455870",
         "meaning_en": "monopoly",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7811,6 +8359,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1215000",
         "meaning_en": "point of view",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7840,6 +8390,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1321260",
         "meaning_en": "practice, put into practice",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7869,6 +8421,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1575870",
         "meaning_en": "dependence, dependent, reliance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7898,6 +8452,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1342470",
         "meaning_en": "treatment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7927,6 +8483,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1202830",
         "meaning_en": "reclamation (of wasteland), cultivation, pioneer",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7956,6 +8514,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1235730",
         "meaning_en": "arrangement, pact, agreement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -7985,6 +8545,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1522310",
         "meaning_en": "propriety, fundamental rules",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -8004,6 +8566,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1513750",
         "meaning_en": "conservative, maintaining",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8033,6 +8597,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1312130",
         "meaning_en": "opinion, point of view, visual point",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8062,6 +8628,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1176950",
         "meaning_en": "production (e.g. play), direction",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8091,6 +8659,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1514590",
         "meaning_en": "assistance, support, aid, auxiliary",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8120,6 +8690,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1451310",
         "meaning_en": "motive, incentive",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8149,6 +8721,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1576760",
         "meaning_en": "yellow",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8178,6 +8752,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1174790",
         "meaning_en": "health, hygiene, sanitation, medical",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8207,6 +8783,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1425160",
         "meaning_en": "poisoning",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8236,6 +8814,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1292590",
         "meaning_en": "rebuilding, reconstruction, rehabilitation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8265,6 +8845,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1366080",
         "meaning_en": "advance, step forward",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8294,6 +8876,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1545830",
         "meaning_en": "style, form, pattern",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8323,6 +8907,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1278010",
         "meaning_en": "engineering",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8352,6 +8938,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1516580",
         "meaning_en": "abandonment, renunciation, abdication (responsibility right)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8381,6 +8969,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1325450",
         "meaning_en": "organization, sponsorship",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8410,6 +9000,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1158440",
         "meaning_en": "emigration, immigration, emigrant, immigrant",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8439,6 +9031,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1397820",
         "meaning_en": "obstruction, check, hindrance, prevention, interdiction",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
         "krdict": {
           "score": 5,
@@ -8468,6 +9062,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1547290",
         "meaning_en": "suppression",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8497,6 +9093,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1522620",
         "meaning_en": "essence, true nature, reality",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8526,6 +9124,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1205880",
         "meaning_en": "definition (math), decision, settlement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8555,6 +9155,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1595200",
         "meaning_en": "aggression, invasion, raid",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8584,6 +9186,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1251640",
         "meaning_en": "expenses, cost, outlay",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8613,6 +9217,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1237010",
         "meaning_en": "subject, curriculum",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8642,6 +9248,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1521770",
         "meaning_en": "pastor, minister, clergyman",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8671,6 +9279,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1505060",
         "meaning_en": "dispute, trouble, strife",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8700,6 +9310,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1495290",
         "meaning_en": "badness, delinquent, inferiority, failure",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8729,6 +9341,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449820",
         "meaning_en": "regulation, control",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8758,6 +9372,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1389610",
         "meaning_en": "occupation, capture, possession, have a room to oneself",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8787,6 +9403,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1220940",
         "meaning_en": "mechanism, organization",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8816,6 +9434,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1403780",
         "meaning_en": "promotion, acceleration, encouragement, facilitation, spurring on",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-08.json",
         "krdict": {
           "score": 5,
@@ -8845,6 +9465,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1431990",
         "meaning_en": "wages",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8874,6 +9496,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1484060",
         "meaning_en": "(private) secretary",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8903,6 +9527,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1580230",
         "meaning_en": "advice, suggestion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8932,6 +9558,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1287210",
         "meaning_en": "U.N., United Nations",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8961,6 +9589,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1531620",
         "meaning_en": "name",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -8990,6 +9620,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1261570",
         "meaning_en": "atom",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9019,6 +9651,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1205040",
         "meaning_en": "every kind, all sorts",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9048,6 +9682,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1356320",
         "meaning_en": "state of things, condition, situation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9077,6 +9713,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1517030",
         "meaning_en": "form, method, system",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9106,6 +9744,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1431540",
         "meaning_en": "confrontation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9135,6 +9775,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1314050",
         "meaning_en": "prior, beforehand, in advance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9164,6 +9806,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1401100",
         "meaning_en": "confrontation, facing, between ourselves, no third party, tete-a-tete",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 3,
@@ -9192,6 +9836,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1201140",
         "meaning_en": "improvement, reform",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9221,6 +9867,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1403080",
         "meaning_en": "strife, riot, rebellion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9250,6 +9898,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343360",
         "meaning_en": "income, earnings",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9279,6 +9929,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1580050",
         "meaning_en": "birth",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9308,6 +9960,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1516600",
         "meaning_en": "radiation, emission",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -9327,6 +9981,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1334340",
         "meaning_en": "fullness, completion, perfection, substantiality, enrichment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9356,6 +10012,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343560",
         "meaning_en": "masses, common people",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9385,6 +10043,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1266850",
         "meaning_en": "isolation, loneliness, solitude",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9414,6 +10074,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1584270",
         "meaning_en": "text (of document), body (of letter)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9443,6 +10105,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1500750",
         "meaning_en": "revival, renaissance, reconstruction",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9472,6 +10136,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1166870",
         "meaning_en": "one side, one phase, front page, the other hand, the whole surface",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9501,6 +10167,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1361960",
         "meaning_en": "new face, newcomer",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9530,6 +10198,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1328380",
         "meaning_en": "technique",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9559,6 +10229,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1454870",
         "meaning_en": "privilege, special right",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9588,6 +10260,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1281250",
         "meaning_en": "sail, voyage",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9617,6 +10291,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1414870",
         "meaning_en": "full width, large scale, drastic",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9646,6 +10322,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1587030",
         "meaning_en": "excuse, explanation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9675,6 +10353,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1156160",
         "meaning_en": "consign (goods (for sale) to a firm), entrust (person with something), commit",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
         "krdict": {
           "score": 5,
@@ -9704,6 +10384,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1158280",
         "meaning_en": "migration, immigration",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9733,6 +10415,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1470720",
         "meaning_en": "farm (agriculture)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9762,6 +10446,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1533440",
         "meaning_en": "interview",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9791,6 +10477,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1251120",
         "meaning_en": "1. details, whole story, sequence of events, particulars, how it started, how things got this way, 2. c",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -9810,6 +10498,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1339010",
         "meaning_en": "(child)birth, delivery, production (of goods)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9839,6 +10529,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1198110",
         "meaning_en": "intervention",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
         "krdict": {
           "score": 5,
@@ -9868,6 +10560,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1436400",
         "meaning_en": "presentation, exhibit, suggest, citation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9897,6 +10591,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1208410",
         "meaning_en": "vigor, active",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -9916,6 +10612,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1327020",
         "meaning_en": "choice of subject, collecting data",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9945,6 +10643,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1366160",
         "meaning_en": "progress, development",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -9974,6 +10674,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343210",
         "meaning_en": "whereabouts",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10003,6 +10705,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1427150",
         "meaning_en": "well-known, noted, celebrated",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10032,6 +10736,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1286060",
         "meaning_en": "confession, acknowledgement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10061,6 +10767,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1352190",
         "meaning_en": "1. slope, advance income, crop yield, ascent, rise, advance, death, spinning, completion, stop, finish, after",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10090,6 +10798,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1413500",
         "meaning_en": "great cost",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10119,6 +10829,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1592290",
         "meaning_en": "combination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10148,6 +10860,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1599260",
         "meaning_en": "magnificent, grand, impressive",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -10167,6 +10881,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1214530",
         "meaning_en": "relief, mitigation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-12.json",
         "krdict": {
           "score": 5,
@@ -10196,6 +10912,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1380540",
         "meaning_en": "declaration, statement, proclamation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10225,6 +10943,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1306160",
         "meaning_en": "mission, errand, message",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10254,6 +10974,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1374940",
         "meaning_en": "uniform",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10283,6 +11005,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1335320",
         "meaning_en": "engaging, pursuing, following",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -10302,6 +11026,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1254900",
         "meaning_en": "formation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10331,6 +11057,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1452720",
         "meaning_en": "sympathy, compassion, sympathize, pity, feel for",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10360,6 +11088,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1604040",
         "meaning_en": "closing years (period days), last stage",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10389,6 +11119,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1604610",
         "meaning_en": "perspective, unobstructed view, outlook, forecast, prospect, insight",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10418,6 +11150,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1556100",
         "meaning_en": "analogous",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10447,6 +11181,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1491400",
         "meaning_en": "indispensable, essential",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10476,6 +11212,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1600910",
         "meaning_en": "discussion, conference",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10505,6 +11243,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1393680",
         "meaning_en": "preamble, premise, reason, prerequisite",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10534,6 +11274,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1239460",
         "meaning_en": "achievement, performance, results, work, contribution",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10563,6 +11305,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1352700",
         "meaning_en": "high and low, up and down, unloading and loading, praising and blaming",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10592,6 +11336,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1264960",
         "meaning_en": "individuality, personality, idiosyncrasy",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10621,6 +11367,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1226880",
         "meaning_en": "scenario",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10650,6 +11398,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1406190",
         "meaning_en": "duration, continuance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10679,6 +11429,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1447300",
         "meaning_en": "throw, investment, making (an electrical circuit)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10708,6 +11460,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1325840",
         "meaning_en": "subject, main constituent",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10737,6 +11491,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1542600",
         "meaning_en": "financing, loan",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10766,6 +11522,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1530940",
         "meaning_en": "useless, futility, needlessness, unnecessariness",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10795,6 +11553,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1251690",
         "meaning_en": "personal history, career",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10824,6 +11584,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1360360",
         "meaning_en": "deliberation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10853,6 +11615,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1158240",
         "meaning_en": "switching over to",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10882,6 +11646,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1212170",
         "meaning_en": "management, (executive) staff, leaders",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10911,6 +11677,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1497450",
         "meaning_en": "flighty, fickle, wanton, unfaithful",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10940,6 +11708,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1234430",
         "meaning_en": "communism",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -10959,6 +11729,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1553140",
         "meaning_en": "passenger (transport)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -10988,6 +11760,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1374870",
         "meaning_en": "enactment, establishment, creation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11017,6 +11791,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1196010",
         "meaning_en": "fault, error, indiscretion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11046,6 +11822,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1156720",
         "meaning_en": "disposition, spirit, willpower, obstinacy, backbone, appetite",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11075,6 +11853,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1159380",
         "meaning_en": "historic ruins (remains relics)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11104,6 +11884,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1180030",
         "meaning_en": "subscription, application",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11133,6 +11915,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1352590",
         "meaning_en": "superior (rank not class), higher order (e.g. byte), host computer (of connected device)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11162,6 +11946,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1273280",
         "meaning_en": "public performance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11191,6 +11977,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1443220",
         "meaning_en": "source of electricity, power (button on TV etc.)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11220,6 +12008,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1279930",
         "meaning_en": "flood",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11249,6 +12039,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1377390",
         "meaning_en": "normalcy, normality, normal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11278,6 +12070,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1198760",
         "meaning_en": "conversation, conference, discussion, interview",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11307,6 +12101,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1286890",
         "meaning_en": "realm",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11336,6 +12132,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1294160",
         "meaning_en": "the very best",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11365,6 +12163,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1228470",
         "meaning_en": "palace",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11394,6 +12194,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1408510",
         "meaning_en": "compromise, giving in",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-09.json",
         "krdict": {
           "score": 5,
@@ -11423,6 +12225,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1390280",
         "meaning_en": "tactics",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11452,6 +12256,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1602700",
         "meaning_en": "attached, belonging, affiliated, annexed, associated, subordinate, incidental, dependent, auxiliary",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11481,6 +12287,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1490140",
         "meaning_en": "depiction, description, portrayal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11510,6 +12318,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1401070",
         "meaning_en": "market price, speculation, estimation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11539,6 +12349,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1504510",
         "meaning_en": "split, division, break up",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11568,6 +12380,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1326040",
         "meaning_en": "person in charge, responsible official",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11597,6 +12411,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1321360",
         "meaning_en": "truth, fact",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11626,6 +12442,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1360820",
         "meaning_en": "feeling, sensation, mood",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 3,
@@ -11654,6 +12472,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1502540",
         "meaning_en": "goods, materials",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11683,6 +12503,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1439080",
         "meaning_en": "paradise, heaven, Kingdom of Heaven",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11712,6 +12534,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343250",
         "meaning_en": "possession, owning",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11741,6 +12565,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1292640",
         "meaning_en": "reappearance, reproduction, return, revival",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11770,6 +12596,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1381180",
         "meaning_en": "sincere, honest, faithful",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11799,6 +12627,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1480890",
         "meaning_en": "repelling, rebound, recover, oppose",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11828,6 +12658,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1511450",
         "meaning_en": "change, fluctuation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11857,6 +12689,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1356330",
         "meaning_en": "passion, enthusiasm, zeal",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11886,6 +12720,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1339340",
         "meaning_en": "promotion, successful career, eminence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11915,6 +12751,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1414500",
         "meaning_en": "bold, daring, audacious",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11944,6 +12782,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1424900",
         "meaning_en": "interruption, suspension, break",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -11973,6 +12813,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1513250",
         "meaning_en": "to keep, to preserve, to hold, to retain, to maintain, to support, to sustain, to last, to endure, to keep we",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12002,6 +12844,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1409760",
         "meaning_en": "physical strength",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12031,6 +12875,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1424040",
         "meaning_en": "relay, hook-up",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12060,6 +12906,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1364400",
         "meaning_en": "truth",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12089,6 +12937,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1419230",
         "meaning_en": "unity, union, combination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12118,6 +12968,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1587200",
         "meaning_en": "intention, idea, inclination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12147,6 +12999,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1327810",
         "meaning_en": "process, procedure, protocol",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12176,6 +13030,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1559870",
         "meaning_en": "league, union, alliance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12205,6 +13061,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1554790",
         "meaning_en": "dominion, territory, possession",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12234,6 +13092,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1354480",
         "meaning_en": "landing, disembarkation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12263,6 +13123,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1352670",
         "meaning_en": "performance (e.g. music)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12292,6 +13154,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1254320",
         "meaning_en": "decision of a contest, finals (in sports)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12321,6 +13185,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1516780",
         "meaning_en": "leave as is, leave to chance, leave alone, neglect",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12350,6 +13216,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1222510",
         "meaning_en": "indication, market trend, worry",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -12369,6 +13237,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1251700",
         "meaning_en": "course, route, channel",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12398,6 +13268,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1236980",
         "meaning_en": "teaching staff",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12427,6 +13299,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1359340",
         "meaning_en": "believer, adherent, devotee, Christian",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12456,6 +13330,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1529930",
         "meaning_en": "invalid, no effect, unavailable",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12485,6 +13361,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1181860",
         "meaning_en": "gold",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12514,6 +13392,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1229150",
         "meaning_en": "relief, aid, rescue, salvation, help",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12543,6 +13423,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1455800",
         "meaning_en": "dictatorship, despotism",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12572,6 +13454,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449860",
         "meaning_en": "reaching, attaining, arrival",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12601,6 +13485,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1451330",
         "meaning_en": "trend, tendency, movement, attitude",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12630,6 +13516,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1444870",
         "meaning_en": "en route, half way",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -12649,6 +13537,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1537470",
         "meaning_en": "wild",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12678,6 +13568,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1473210",
         "meaning_en": "consideration, concern, forethought",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-09.json",
         "krdict": {
           "score": 5,
@@ -12707,6 +13599,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1412770",
         "meaning_en": "mess, spoiled, (come to) nothing",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12736,6 +13630,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1231810",
         "meaning_en": "residence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12765,6 +13661,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1542020",
         "meaning_en": "guidance, leading, induction, introduction, incitement, inducement",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-14.json",
         "krdict": {
           "score": 5,
@@ -12794,6 +13692,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1519520",
         "meaning_en": "insurrection, rebellion, revolt, riot, uprising",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12823,6 +13723,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1325980",
         "meaning_en": "main leadership",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12852,6 +13754,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1269880",
         "meaning_en": "retreat, backspace (BS)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12881,6 +13785,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1587150",
         "meaning_en": "rearing, training, nurture, cultivation, promotion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12910,6 +13816,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1411390",
         "meaning_en": "extermination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12939,6 +13847,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1350990",
         "meaning_en": "illumination",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12968,6 +13878,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1265000",
         "meaning_en": "particular case",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -12997,6 +13909,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1538040",
         "meaning_en": "post, managerial position, official position",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -13016,6 +13930,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1494120",
         "meaning_en": "injustice, impropriety, unreasonableness, undeservedness, unfair, invalid",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13045,6 +13961,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1314240",
         "meaning_en": "matter, thing, affair, circumstance",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -13064,6 +13982,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1364730",
         "meaning_en": "holiness, sacredness, dignity",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13093,6 +14013,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1225920",
         "meaning_en": "duty, sense of duty, honor, decency, courtesy, debt of gratitude, social obligation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13122,6 +14044,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1254770",
         "meaning_en": "combination, union",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13151,6 +14075,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1190120",
         "meaning_en": "manufacturing, processing, treatment",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13180,6 +14106,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1429330",
         "meaning_en": "harmony",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13209,6 +14137,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1550010",
         "meaning_en": "reason, sense",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13238,6 +14168,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1477290",
         "meaning_en": "excavation, exhumation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13267,6 +14199,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1327560",
         "meaning_en": "on hand, at hand, at home",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13296,6 +14230,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1546830",
         "meaning_en": "demand for, request",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13325,6 +14261,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1370160",
         "meaning_en": "quick, fast, rapid, swift, prompt",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-08.json",
         "krdict": {
           "score": 5,
@@ -13354,6 +14292,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1317490",
         "meaning_en": "self-conscious",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13383,6 +14323,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1445890",
         "meaning_en": "(corporate) bankruptcy, insolvency",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13412,6 +14354,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1387640",
         "meaning_en": "preceding, going first",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13441,6 +14385,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1198060",
         "meaning_en": "nursing",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
         "krdict": null
       }
@@ -13460,6 +14406,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1596570",
         "meaning_en": "frankness, candour, openheartedness",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -13479,6 +14427,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1246000",
         "meaning_en": "hunger",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13508,6 +14458,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1244120",
         "meaning_en": "section (of track etc)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13537,6 +14489,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1597250",
         "meaning_en": "exploration, expedition",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13566,6 +14520,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1310060",
         "meaning_en": "orders, instructions, directive",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13595,6 +14551,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1454780",
         "meaning_en": "special permission, patent",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13624,6 +14582,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1247290",
         "meaning_en": "ruler, monarch",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13653,6 +14613,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1537430",
         "meaning_en": "ambition, aspiration, designs, treachery",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13682,6 +14644,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1492460",
         "meaning_en": "absence",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13711,6 +14675,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1530600",
         "meaning_en": "without permission, without notice",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13740,6 +14706,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1271510",
         "meaning_en": "guard, convoy, escort",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13769,6 +14737,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1155650",
         "meaning_en": "still, as yet",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -13788,6 +14758,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1263630",
         "meaning_en": "present, current, in operation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13817,6 +14789,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1600460",
         "meaning_en": "transfer (trains buses etc.)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13846,6 +14820,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1503630",
         "meaning_en": "numerator, molecule",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13875,6 +14851,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449980",
         "meaning_en": "debate, discussion",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13904,6 +14882,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1205760",
         "meaning_en": "game, spoils, trophy",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13933,6 +14913,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1376740",
         "meaning_en": "correct, right, correct interpretation (answer solution)",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13962,6 +14944,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1531830",
         "meaning_en": "register of names",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13991,6 +14975,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1296470",
         "meaning_en": "stockpile, stock",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14020,6 +15006,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1366200",
         "meaning_en": "course, route",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14049,6 +15037,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1402550",
         "meaning_en": "running a wheeled vehicle (e.g. car), traveling",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14078,6 +15068,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1312140",
         "meaning_en": "field of vision, outlook",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14107,6 +15099,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1304290",
         "meaning_en": "oxidation",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -14126,6 +15120,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1212140",
         "meaning_en": "main line, trunk line",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14155,6 +15151,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1478660",
         "meaning_en": "judgement, decision, award, verdict",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14184,6 +15182,8 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1204700",
         "meaning_en": "corresponding, answering to, coming under",
+        "curated_file": null,
+        "curated_original_key": null,
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
