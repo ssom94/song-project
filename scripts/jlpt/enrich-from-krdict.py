@@ -10,20 +10,24 @@ Language under CC BY-SA 2.0 KR. Its Japanese translation fields let us reverse-m
 Japanese headwords to concise Korean dictionary headwords/definitions without using
 proprietary dictionary dumps or treating generic machine translation as authority.
 
-The official downloadable XML has changed structure over time, so the parser is
-intentionally feature-driven: it understands both simple trans_* element names and
-LMF-style <feat att="..." val="..."> nodes and preserves only high-confidence exact
-surface/reading matches.
+The official downloadable XML has changed structure over time and some archived
+exports contain isolated malformed tokens. The parser is intentionally
+feature-driven and recovery-enabled: it understands both simple trans_* element
+names and LMF-style <feat att="..." val="..."> nodes, skips only malformed XML
+fragments reported by libxml2, and preserves high-confidence exact surface/reading
+matches.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
+import sys
 import unicodedata
 from collections import defaultdict
 from pathlib import Path
-from xml.etree import ElementTree as ET
+
+from lxml import etree as ET
 
 
 def norm(value: object) -> str:
@@ -31,6 +35,8 @@ def norm(value: object) -> str:
 
 
 def local(tag: str) -> str:
+    if not isinstance(tag, str):
+        return ""
     return tag.rsplit("}", 1)[-1].lower()
 
 
@@ -210,11 +216,23 @@ def candidate_match(candidate: dict, translated_word: str) -> tuple[bool, int, l
 
 
 def iter_lexical_entries(xml_file: Path):
-    context = ET.iterparse(xml_file, events=("end",))
+    # The pinned KRDICT mirror contains a small number of malformed XML tokens.
+    # libxml2's recover mode preserves surrounding valid entries instead of aborting
+    # the entire dictionary at the first broken byte/tag. We still emit the parser
+    # diagnostics so data-quality regressions remain visible in CI logs.
+    context = ET.iterparse(str(xml_file), events=("end",), recover=True, huge_tree=True)
     for _, elem in context:
         if local(elem.tag) in {"lexicalentry", "item", "entry"}:
             yield elem
             elem.clear()
+    errors = list(context.error_log)
+    if errors:
+        print(
+            f"KRDICT recovery: {xml_file.name}: {len(errors)} malformed XML fragment(s) recovered; "
+            f"first={errors[0]}",
+            file=sys.stderr,
+            flush=True,
+        )
 
 
 def main() -> None:
