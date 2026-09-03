@@ -26,18 +26,28 @@
       "sequence_no": 502,
       "word": "再会",
       "reading": "さいかい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "상봉 | 재회 | 해후",
+      "meaning_ja": "めぐり会うこと。 | 再び会うこと。また、2度目に会うこと。 | 長く離れていた人に思いがけなく出会うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1292390",
         "meaning_en": "another meeting, meeting again, reunion",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "상봉 | 재회 | 해후",
+          "definition_ko": "서로 만남. | 다시 만남. 또는 두 번째로 만남. | 오랫동안 헤어졌다가 뜻밖에 다시 만남.",
+          "meaning_ja_source": "さいかい【再会】 | めぐりあい【巡りあい】。さいかい【再会】。かいこう【邂逅】"
+        }
       }
     },
     {
@@ -132,18 +142,28 @@
       "sequence_no": 506,
       "word": "対決",
       "reading": "たいけつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "대결 | 맞대결",
+      "meaning_ja": "両者が面と向かって優劣や勝敗の決着をつけること。 | 両者が相対して戦うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1410000",
         "meaning_en": "confrontation, showdown",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "대결 | 맞대결",
+          "definition_ko": "둘이 서로 맞서서 우열이나 승패를 가림. | 서로 맞서서 대결함.",
+          "meaning_ja_source": "たいけつ【対決】。たいりつ【対立】。たいこう【対抗】 | たいけつ【対決】"
+        }
       }
     },
     {
@@ -238,18 +258,28 @@
       "sequence_no": 510,
       "word": "相応",
       "reading": "そうおう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "값 | 상응",
+      "meaning_ja": "ある物事に合致する価値や役割。 | 互いに釣り合いが取れていること。 | 互いの考えが通じ合うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1400840",
         "meaning_en": "suitability, fitness",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "값 | 상응",
+          "definition_ko": "어떠한 것에 합당하게 맞는 가치나 구실. | 서로 알맞게 어울림. | 서로 생각하는 바가 통함.",
+          "meaning_ja_source": "そうおう【相応】"
+        }
       }
     },
     {
@@ -286,18 +316,28 @@
       "sequence_no": 512,
       "word": "偽造",
       "reading": "ぎぞう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "위조 | 조작",
+      "meaning_ja": "人をだますために本物そっくりの物品や文書を作ること。 | 本物に似せて物を作ること。また、そのように作った物。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1224580",
         "meaning_en": "forgery, falsification, fabrication, counterfeiting",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "위조 | 조작",
+          "definition_ko": "남을 속이려고 물건이나 문서를 진짜처럼 만듦. | 진짜를 본떠서 가짜를 만듦. 또는 그렇게 만든 물건.",
+          "meaning_ja_source": "ぎぞう【偽造】。がんぞう【贋造】 | ぎぞう【偽造】。ぎぞうひん【偽造品】。にせもの【偽物・贋物】"
+        }
       }
     },
     {
@@ -334,18 +374,28 @@
       "sequence_no": 514,
       "word": "運賃",
       "reading": "うんちん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "운임 | 교통비 | 운송료 | 운송비",
+      "meaning_ja": "人や物の運搬に対する報酬としてやり取りする金銭。 | 交通機関を利用するのにかかる費用。 | 人や物品などを乗り物を使って運ぶときに、その報酬として支払ったり支払われる料金。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1172820",
         "meaning_en": "freight rates, shipping expenses, fare",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "운임 | 교통비 | 운송료 | 운송비",
+          "definition_ko": "사람을 태워 보내거나 물건을 실어 보내는 일에 대한 보수로 주거나 받는 돈. | 교통 기관을 이용하는 데 드는 비용.",
+          "meaning_ja_source": "うんちん【運賃】 | こうつうひ【交通費】。うんちん【運賃】。のりちん【乗り賃】 | うんそうりょう【運送料】。うんそうちん【運送賃】。うんちん【運賃】"
+        }
       }
     },
     {
@@ -353,18 +403,28 @@
       "sequence_no": 515,
       "word": "動揺",
       "reading": "どうよう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "동요 | 바람 | 요동",
+      "meaning_ja": "物体があちらこちらに揺れ動くこと。 | 考えや心が決まらず、変わり続けること。 | ある制度や状況が安定しなくて混乱すること。 | 揺れ動く気持ちや平静さを失った考えを比喩的にいう語。 | 揺れ動くこと。また、揺れ動かすこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1451630",
         "meaning_en": "disturbance, unrest, shaking, trembling, pitching, rolling, oscillation, agitation, excitement, commotion",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "동요 | 바람 | 요동",
+          "definition_ko": "물체가 이리저리 흔들림. | 생각이나 마음이 정해지지 않고 자꾸 달라짐. | 어떤 제도나 상황이 안정되지 않아 혼란스러움. | (비유적으로) 들뜬 마음이나 일어난 생각. | 흔들려 움직임. 또는 흔들어 움직임.",
+          "meaning_ja_source": "どうよう【動揺】 | ゆらぎ【揺らぎ】。ようどう【揺動】。どうよう【動揺】"
+        }
       }
     },
     {
@@ -459,18 +519,28 @@
       "sequence_no": 519,
       "word": "異論",
       "reading": "いろん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "이견 | 이론",
+      "meaning_ja": "違った意見。また、互いに一致しない意見。 | 異なる理論や意見。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1158150",
         "meaning_en": "different opinion, objection",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "이견 | 이론",
+          "definition_ko": "어떠한 의견에 대한 다른 의견. 또는 서로 다른 의견. | 다른 이론이나 의견.",
+          "meaning_ja_source": "いけん【異見】。いろん【異論】 | いろん【異論】"
+        }
       }
     },
     {
@@ -700,18 +770,28 @@
       "sequence_no": 528,
       "word": "行進",
       "reading": "こうしん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "행군 | 행진",
+      "meaning_ja": "多くの人が隊列を組んで長距離を移動すること。 | 多くの人が隊列を組んで進むこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1281980",
         "meaning_en": "march, parade",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "011.xml",
+          "meaning_ko": "행군 | 행진",
+          "definition_ko": "여러 사람이 줄을 지어 먼 거리를 이동함. | 여럿이 줄을 지어 앞으로 걸어감.",
+          "meaning_ja_source": "こうしん【行進】"
+        }
       }
     },
     {
@@ -893,18 +973,28 @@
       "sequence_no": 535,
       "word": "反撃",
       "reading": "はんげき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "반격 | 역공",
+      "meaning_ja": "相手の攻撃に対し、攻め返すこと。 | 攻撃されていた側が、相手に攻めかえすこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1480340",
         "meaning_en": "counterattack, counteroffensive, counterblow",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "반격 | 역공",
+          "definition_ko": "상대의 공격을 맞받아 다시 공격함. | 공격을 받던 쪽이 거꾸로 상대방을 공격함.",
+          "meaning_ja_source": "はんげき【反撃】 | ぎゃくこうげき【逆攻撃】。ぎゃくこう【逆攻】。はんげき【反撃】。はんこう【反攻】"
+        }
       }
     },
     {
@@ -912,18 +1002,28 @@
       "sequence_no": 536,
       "word": "自立",
       "reading": "じりつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "자립 | 자생",
+      "meaning_ja": "他人の支配や助けなしに、自分の力で生きていくこと。 | 自らの力で生きていくこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1318880",
         "meaning_en": "independence, self-reliance",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "자립 | 자생",
+          "definition_ko": "남에게 매이거나 의지하지 않고 자기 힘으로 살아감. | 자기의 힘으로 살아감.",
+          "meaning_ja_source": "じりつ【自立】"
+        }
       }
     },
     {
@@ -979,18 +1079,28 @@
       "sequence_no": 539,
       "word": "逆転",
       "reading": "ぎゃくてん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "반전 | 역전",
+      "meaning_ja": "機械などが反対の方向に回ったり転んだりすること。 | 事件、物事などの流れや形勢がそれまでとは反対になること。 | 事の成り行きや順位などが反対の状況になること。また、事の成り行きや順位などを反対の状況にかえること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1227170",
         "meaning_en": "(sudden) change, reversal, turn-around, coming from behind (baseball)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "반전 | 역전",
+          "definition_ko": "기계 등이 반대 방향으로 돌거나 구름. | 사건, 일 등의 흐름이나 형세가 뒤바뀜. | 형세나 순위 등이 반대의 상황으로 바뀜. 또는 형세나 순위 등을 반대의 상황으로 바꿈.",
+          "meaning_ja_source": "ぎゃくてん【逆転】"
+        }
       }
     },
     {
@@ -1278,18 +1388,28 @@
       "sequence_no": 550,
       "word": "物体",
       "reading": "ぶったい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "물건 | 물체",
+      "meaning_ja": "一定の形を持つ物質。 | 具体的な形をもって存在するもの。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1502680",
         "meaning_en": "body, object",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "물건 | 물체",
+          "definition_ko": "일정한 모양을 갖춘 어떤 물질. | 구체적인 형태를 가지고 존재하는 것.",
+          "meaning_ja_source": "もの【物】。ぶったい【物体】。ぶっぴん【物品】 | ぶったい【物体】"
+        }
       }
     },
     {
@@ -1384,18 +1504,28 @@
       "sequence_no": 554,
       "word": "創立",
       "reading": "そうりつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "창단 | 창립",
+      "meaning_ja": "団体を新しく作ること。 | 機関や団体などを新たに作って建てること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1398640",
         "meaning_en": "establishment, founding, organization",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "창단 | 창립",
+          "definition_ko": "단체를 새로 만듦. | 기관이나 단체 등을 새로 만들어 세움.",
+          "meaning_ja_source": "せつりつ【設立】。そうせつ【創設】。そうりつ【創立】。じゅりつ【樹立】 | そうりつ【創立】。せつりつ【設立】"
+        }
       }
     },
     {
@@ -1519,18 +1649,28 @@
       "sequence_no": 559,
       "word": "返済",
       "reading": "へんさい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "변상 | 변제 | 보상 | 상환",
+      "meaning_ja": "借りた金を返すこと。 | 借りたものや借金を返すこと。 | 借りた金銭やもらったものを返すこと。 | 借りた金や物を相手に返すこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1512210",
         "meaning_en": "repayment",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "변상 | 변제 | 보상 | 상환",
+          "definition_ko": "남에게 빌린 돈을 갚음. | 남에게 진 빚을 갚음. | 남에게 진 빚이나 받은 물건을 갚음. | 빌린 돈이나 물건 등을 갚거나 돌려줌.",
+          "meaning_ja_source": "へんさい【返済】 | しょうかん【償還】。へんさい【返済】。へんきゃく【返却】"
+        }
       }
     },
     {
@@ -1625,18 +1765,28 @@
       "sequence_no": 563,
       "word": "着手",
       "reading": "ちゃくしゅ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "개시 | 착수",
+      "meaning_ja": "行動やことなどを初めて始めること。 | 新しい事を始めること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1423060",
         "meaning_en": "embarkation, launch",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "개시 | 착수",
+          "definition_ko": "행동이나 일 등을 처음 시작함. | 새로운 일을 시작함.",
+          "meaning_ja_source": "かいし【開始】。スタート。ちゃくしゅ【着手】 | ちゃくしゅ【着手】"
+        }
       }
     },
     {
@@ -1760,18 +1910,28 @@
       "sequence_no": 568,
       "word": "細工",
       "reading": "さいく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "세공 | 세공품",
+      "meaning_ja": "手先を使って精密に作ること。また、そのように作る工芸。 | 手先を使って精密に作った工芸品。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1295610",
         "meaning_en": "work, craftsmanship, tactics, trick",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "세공 | 세공품",
+          "definition_ko": "손으로 정밀하게 만듦. 또는 그런 공예. | 손으로 정밀하게 만든 물건.",
+          "meaning_ja_source": "さいく【細工】 | さいく【細工】。さいくひん【細工品】"
+        }
       }
     },
     {
@@ -1895,18 +2055,28 @@
       "sequence_no": 573,
       "word": "布告",
       "reading": "ふこく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "공고 | 포고",
+      "meaning_ja": "官庁や団体である内容を広く知らせること。 | 広く一般に告げ知らせること。 | 国が決定したことを公式に広く知らせること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1496860",
         "meaning_en": "edict, ordinance, proclamation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "공고 | 포고",
+          "definition_ko": "관청이나 단체에서 어떤 내용을 널리 알림. | 세상 사람들에게 널리 알림. | 나라에서 결정한 일을 공식적으로 널리 알림.",
+          "meaning_ja_source": "こうこく【公告】。こうふ【公布】。ふこく【布告】 | ふこく【布告】"
+        }
       }
     },
     {
@@ -1914,18 +2084,28 @@
       "sequence_no": 574,
       "word": "生理",
       "reading": "せいり",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "생리 | 월경 | 달거리",
+      "meaning_ja": "生物が生命を維持していくために体が機能・作用する原理。 | 人の生活習慣や本性。 | 医学で、大人の女性の子宮から周期的に血が出る生理的現象。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1379580",
         "meaning_en": "physiology, menses",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "생리 | 월경 | 달거리",
+          "definition_ko": "생물의 목숨을 이어 나가기 위해 몸이 기능하거나 작용하는 원리. | 사람의 생활 습관이나 본성. | 의학에서, 성숙한 여성의 자궁에서 주기적으로 피가 나오는 현상.",
+          "meaning_ja_source": "せいり【生理】 | げっけい【月経】。せいり【生理】。メンス | せいり【生理】。げっけい【月経】。メンス"
+        }
       }
     },
     {
@@ -1933,18 +2113,28 @@
       "sequence_no": 575,
       "word": "世帯",
       "reading": "せたい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "가구 | 세대",
+      "meaning_ja": "住居や生活を同じくする人たちの集団。 | 住居や生活を同じくする人たちの集団を数える単位。 | 住居を同じくする者の集まり。 | 住居を同じくする者の集まりを数える単位。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1374170",
         "meaning_en": "household",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "가구 | 세대",
+          "definition_ko": "한 집에서 함께 사는 사람들의 집단. | 한 집에서 함께 사는 사람들의 집단을 세는 단위. | 한 집에서 같이 사는 사람들의 집단. | 한 집에서 같이 사는 사람들의 집단을 세는 단위.",
+          "meaning_ja_source": "しょたい【所帯・世帯】。せたい【世帯】 | しょたい【所帯】。せたい【世帯】 | せたい【世帯】"
+        }
       }
     },
     {
@@ -2068,18 +2258,28 @@
       "sequence_no": 580,
       "word": "教訓",
       "reading": "きょうくん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "교훈 | 메시지",
+      "meaning_ja": "行動に役立つことや指針になることを教えること。 | 文学や芸術作品で訴えようとする思想や教訓。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1237080",
         "meaning_en": "lesson, precept, moral instruction",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "교훈 | 메시지",
+          "definition_ko": "행동에 도움이나 지침이 되는 것을 가르침. | 문학이나 예술 작품에서 나타내고자 하는 사상이나 교훈.",
+          "meaning_ja_source": "きょうくん【教訓】 | しそう【思想】。きょうくん【教訓】"
+        }
       }
     },
     {
@@ -2116,18 +2316,28 @@
       "sequence_no": 582,
       "word": "共感",
       "reading": "きょうかん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "공감 | 소통",
+      "meaning_ja": "他人の気持ちや感情について自分も同じく感じること。 | 誤解がなく、意思や考えがよく通じ合うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1234370",
         "meaning_en": "sympathy, response",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "공감 | 소통",
+          "definition_ko": "다른 사람의 마음이나 생각에 대해 자신도 그렇다고 똑같이 느낌. | 오해가 없도록 뜻이나 생각이 서로 잘 통함.",
+          "meaning_ja_source": "きょうかん【共感】 | そつう【疎通・疏通】。きょうかん【共感】"
+        }
       }
     },
     {
@@ -2337,18 +2547,28 @@
       "sequence_no": 591,
       "word": "一括",
       "reading": "いっかつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "일괄 | 한목 | 일괄적",
+      "meaning_ja": "別々に離れている様々な事柄を一つにまとめること。 | まとめて一度にすること。 | 別々に離れている様々な事柄を一つにまとめるさま。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1161470",
         "meaning_en": "all together, batch, one lump, one bundle, summing up",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "일괄 | 한목 | 일괄적",
+          "definition_ko": "따로 떨어져 있는 여러 가지 것들을 한데 묶음. | 한꺼번에 몰아서 함. | 따로 떨어져 있는 여러 가지 것을 한데 묶는 것. | 따로 떨어져 있는 여러 가지 것을 한데 묶는.",
+          "meaning_ja_source": "いっかつ【一括】 | ひとまとめ【一纏め】。いっかつ【一括】"
+        }
       }
     },
     {
@@ -2597,18 +2817,28 @@
       "sequence_no": 601,
       "word": "中枢",
       "reading": "ちゅうすう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "기간 | 중앙 | 중추 | 중추 신경",
+      "meaning_ja": "ある分野で最も基本となり中心をなす部分。 | 中心となる重要な場所。 | 政府機関が位置していて国の中心となる都市。 | 物事の中心となる重要な部分。 | 神経線維を通して受けた刺激をとらえて統制し、それを筋肉などに伝える、神経器官の中心的役割を果たす部分。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1424660",
         "meaning_en": "centre, pivot, mainstay, nucleus, backbone, central figure, pillar, key man",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "기간 | 중앙 | 중추 | 중추 신경",
+          "definition_ko": "어떤 분야에서 가장 기본이 되거나 중심이 되는 부분. | 중심이 되는 중요한 곳. | 정부가 있어 나라의 중심이 되는 도시. | 어떤 것의 중심이 되는 중요한 부분. | 신경 섬유를 통해 들어오는 자극을 받고 통제하며 다시 근육 등에 전달하는, 신경 기관의 중심 부분.",
+          "meaning_ja_source": "きかん【基幹】。ちゅうすう【中枢】。かくしん【核心】 | ちゅうおう【中央】。ちゅうしん【中心】。ちゅうすう【中枢】。ちゅうかく【中核】 | ちゅうおう【中央】。ちゅうすう【中枢】 | ちゅうすう【中枢】 | ちゅうすう【中枢】。ちゅうすうしんけい【中枢神経】。しんけいちゅうすう【神経中枢】"
+        }
       }
     },
     {
@@ -2761,18 +2991,28 @@
       "sequence_no": 607,
       "word": "気楽",
       "reading": "きらく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "태평 | 편안",
+      "meaning_ja": "心の中に何の心配もないこと。 | 心身が安定していて気持ちが良いこと。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1222010",
         "meaning_en": "at ease, comfortable",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "태평 | 편안",
+          "definition_ko": "마음에 아무 걱정이 없음. | 몸이나 마음이 편하고 좋음.",
+          "meaning_ja_source": "たいへい【太平】。へいわ【平和】。のんき【呑気】。きらく【気楽】 | きらく【気楽】。ここちよさ【心地よさ】。へいあん【平安】"
+        }
       }
     },
     {
@@ -2828,18 +3068,28 @@
       "sequence_no": 610,
       "word": "公認",
       "reading": "こうにん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "공인 | 공천",
+      "meaning_ja": "国家・公共団体・社会で、ある行動や物事などを正式に認めること。 | 多くの人々が公に認めること。 | 政党で選挙に出馬する候補者を公式に推薦して立てること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1274450",
         "meaning_en": "official recognition, authorization, licence, accreditation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "공인 | 공천",
+          "definition_ko": "국가, 공공 단체, 사회에서 정식으로 인정함. | 널리 많은 사람들이 인정함. | 정당에서 선거에 출마할 후보자를 공식적으로 추천하여 내세움.",
+          "meaning_ja_source": "こうにん【公認】"
+        }
       }
     },
     {
@@ -2905,18 +3155,28 @@
       "sequence_no": 613,
       "word": "本体",
       "reading": "ほんたい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "몸 | 몸체 | 본체 | 정체",
+      "meaning_ja": "物の基本を成す部分。 | 物体で最も中心となる部分。 | 腕や足などを除いた生物の胴体の部分。 | 機械などの主になる部分。 | 人や物の本来の姿や特性。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1522950",
         "meaning_en": "substance, real form, object of worship",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "몸 | 몸체 | 본체 | 정체",
+          "definition_ko": "물건의 기본을 이루는 부분. | 물체에서 가장 중심을 이루는 부분. | 팔, 다리 등을 제외한 생물의 몸 부분. | 기계 등의 중심 부분. | 사람이나 사물의 본모습이나 본디의 특성.",
+          "meaning_ja_source": "どうたい【胴体】。ほんたい【本体】 | ほんたい【本体】 | しょうたい【正体】。ほんたい【本体】。えたい【得体】"
+        }
       }
     },
     {
@@ -2924,18 +3184,28 @@
       "sequence_no": 614,
       "word": "河川",
       "reading": "かせん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "강 | 하천",
+      "meaning_ja": "海に入り込む広くて長い水の流れ。 | 大小の川。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1193520",
         "meaning_en": "rivers",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "강 | 하천",
+          "definition_ko": "넓고 길게 흘러 바다로 들어가는 물줄기. | 강과 시내.",
+          "meaning_ja_source": "かわ【河・川】。たいが【大河】。かせん【河川】 | かせん【河川】"
+        }
       }
     },
     {
@@ -3107,18 +3377,28 @@
       "sequence_no": 621,
       "word": "割り当て",
       "reading": "わりあて",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "치 | 할당",
+      "meaning_ja": "一定の取り分や分け前。 | 全体をいくつかに分けて、それぞれにあてがうこと。また、それぞれの分。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1606820",
         "meaning_en": "allotment, assignment, allocation, quota, rationing",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "치 | 할당",
+          "definition_ko": "일정한 몫이나 양. | 각자의 몫을 갈라 나눔. 또는 그 몫.",
+          "meaning_ja_source": "ぶん【分】。ぶんりょう【分量】。わりあて【割り当て】 | わりあて【割り当て】。わりふり【割り振り】"
+        }
       }
     },
     {
@@ -3203,18 +3483,28 @@
       "sequence_no": 625,
       "word": "与党",
       "reading": "よとう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "여당 | 집권당",
+      "meaning_ja": "政党政治において、大統領を輩出したり議会で議席を最も多く占めている政党。 | 政権を握った政党。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1544870",
         "meaning_en": "government party, (ruling) party in power, government",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "여당 | 집권당",
+          "definition_ko": "정당 정치에서, 대통령을 내거나 의회에서 의석을 가장 많이 차지하고 있는 당. | 정권을 잡은 정당.",
+          "meaning_ja_source": "よとう【与党】。せいけんよとう【政権与党】。せいけんとう【政権党】 | よとう【与党】。しっけんとう【執権党】"
+        }
       }
     },
     {
@@ -3222,18 +3512,28 @@
       "sequence_no": 626,
       "word": "山脈",
       "reading": "さんみゃく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "산맥 | 줄기",
+      "meaning_ja": "山々が長く連なって脈状をなしているもの。 | 水や山などの一筋の流れ。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1303190",
         "meaning_en": "mountain range",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "산맥 | 줄기",
+          "definition_ko": "여러 산들이 길게 이어져 큰 줄기를 이루고 있는 것. | 물이나 산 등의 뻗어 나가는 갈래.",
+          "meaning_ja_source": "さんみゃく【山脈】 | すじ【筋】。やまなみ【山並み】。さんみゃく【山脈】"
+        }
       }
     },
     {
@@ -3270,18 +3570,28 @@
       "sequence_no": 628,
       "word": "孤立",
       "reading": "こりつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "고립 | 고립화",
+      "meaning_ja": "人との交流や他地域との疎通ができず他から離れてつながりのないこと。 | 他地域や他人と交流できず、単独の状態になること。また、そのようにさせること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1266860",
         "meaning_en": "isolation, helplessness",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "고립 | 고립화",
+          "definition_ko": "다른 곳이나 사람과 교류하지 못하고 혼자 따로 떨어짐. | 다른 곳이나 사람과 교류하지 못하고 혼자 따로 떨어지게 됨. 또는 그렇게 되게 함.",
+          "meaning_ja_source": "こりつ【孤立】 | こりつか【孤立化】。こりつ【孤立】。ふうじこめ【封じ込め】"
+        }
       }
     },
     {
@@ -3337,18 +3647,28 @@
       "sequence_no": 631,
       "word": "本音",
       "reading": "ほんね",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "속말 | 실속 | 진의 | 속마음",
+      "meaning_ja": "本心からいう言葉。 | 実際に思っていること。 | 心の中に抱いている本当の意向や考え。 | 表に出さない本当の気持ち。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1522250",
         "meaning_en": "real intention, motive",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "속말 | 실속 | 진의 | 속마음",
+          "definition_ko": "진심에서 우러나오는 말. | 실제로 품고 있는 마음. | 속에 품고 있는 본래의 뜻이나 생각. | 겉으로 드러나지 않은 실제의 마음.",
+          "meaning_ja_source": "ほんね【本音】 | ほんしん【本心】。ほんね【本音】 | しんい【真意】。ほんしん【本心】。ほんい【本意】。ほんね【本音】 | ないしん【内心】。ほんしん【本心】。ほんね【本音】。しんちゅう【心中】。こころのうち【心のうち】"
+        }
       }
     },
     {
@@ -3385,18 +3705,28 @@
       "sequence_no": 633,
       "word": "時折",
       "reading": "ときおり",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "때로 | 가다가 | 간간이 | 때때로 | 이따금 | 가끔가다 | 시시때때로",
+      "meaning_ja": "場合によって。 | たまに。 | ある物事を続けている間にたまに。 | 時間を置いて、ときおり。 | 場合によって、たまに。 | まれに。 | あまり頻繁でなくたまに。 | 「時々」を強調していう語。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1598670",
         "meaning_en": "sometimes",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "때로 | 가다가 | 간간이 | 때때로 | 이따금 | 가끔가다 | 시시때때로",
+          "definition_ko": "경우에 따라서. | 이따금 한 번씩. | 어떤 일을 계속하는 동안에 어쩌다가 가끔. | 시간적 간격을 두고 얼마쯤 있다가 가끔씩. | 경우에 따라서 가끔. | 어쩌다가 가끔. | 자주 그러지는 않고 어쩌다가. | (강조하는 말로) 때때로.",
+          "meaning_ja_source": "ときどき【時時】。ときに【時に】。ときおり【時折】。ときには【時には】 | ときどき【時時】。ときに【時に】。ときおり【時折】 | たまに。たまには。ときおり【時折】。時たま【時たま】 | ときどき【時時】。ときおり【時折】。ときたま【時たま】 | たまに【偶に】。ときおり【時折】 | ときどき【時々】。ときおり【時折】。ときたま【時たま】 | ときどき【時時】。ときおり【時折】"
+        }
       }
     },
     {
@@ -3781,18 +4111,28 @@
       "sequence_no": 647,
       "word": "樹立",
       "reading": "じゅりつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "수립 | 창단",
+      "meaning_ja": "国家・政府・制度などを立てること。 | 団体を新しく作ること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1330410",
         "meaning_en": "establish, create",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "수립 | 창단",
+          "definition_ko": "국가, 정부나 제도, 계획 등을 세움. | 단체를 새로 만듦.",
+          "meaning_ja_source": "じゅりつ【樹立】 | せつりつ【設立】。そうせつ【創設】。そうりつ【創立】。じゅりつ【樹立】"
+        }
       }
     },
     {
@@ -3829,18 +4169,28 @@
       "sequence_no": 649,
       "word": "実情",
       "reading": "じつじょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "실정 | 진정",
+      "meaning_ja": "実際の事情や都合。 | 本当の事情。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1595260",
         "meaning_en": "real condition, actual circumstances, actual state of affairs",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "실정 | 진정",
+          "definition_ko": "실제 사정이나 형편. | 진실한 사정.",
+          "meaning_ja_source": "じつじょう【実情】 | じつじょう【実情】。じっそう【実相】"
+        }
       }
     },
     {
@@ -3848,18 +4198,28 @@
       "sequence_no": 650,
       "word": "家畜",
       "reading": "かちく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "가축 | 집짐승",
+      "meaning_ja": "人間の生活に役立たせる目的で家で飼育する動物。 | 人がその生産物を利用して利益を得るために家で飼育する動物。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1192240",
         "meaning_en": "domestic animals, livestock, cattle",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "가축 | 집짐승",
+          "definition_ko": "사람이 생활에 도움을 얻으려고 집에서 기르는 짐승.",
+          "meaning_ja_source": "かちく【家畜】"
+        }
       }
     },
     {
@@ -3944,18 +4304,28 @@
       "sequence_no": 654,
       "word": "外観",
       "reading": "がいかん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "외관 | 외모 | 외양 | 외형 | 체모 | 체재 | 체제 | 겉모습 | 겉모양 | 겉보기 | 생김새",
+      "meaning_ja": "外側から見える様子。 | 表に見える、人の様子。 | 外から見えるようす。 | 事物を外から見た形。 | 外に現れる事情。 | 必要なものが揃って出来上がった姿。 | 成り立って作られた模様や形式。 | 外から見える姿。 | 外から見える模様。 | うわべの様子。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1203460",
         "meaning_en": "appearance, exterior, facade",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "외관 | 외모 | 외양 | 외형 | 체모 | 체재 | 체제 | 겉모습 | 겉모양 | 겉보기 | 생김새",
+          "definition_ko": "겉으로 보이는 모양. | 사람의 겉으로 보이는 모양. | 겉으로 드러나 보이는 모양. | 사물의 겉모양. | 겉으로 드러난 형편. | 갖추어진 모양. | 생기거나 이루어진 모양이나 형식. | 겉으로 드러나 보이는 모습. | 겉으로 보이는 모습. | 생긴 모양.",
+          "meaning_ja_source": "がいかん【外観】。みかけ【見かけ】。うわべ【上辺】。がいけん【外見】 | がいぼう【外貌】。がいかん【外観】 | がいけん【外見】。がいかん【外観】。がいめん【外面】 | がいけい【外形】。がいかん【外観】。うわべ【上辺】 | かたち【形】。かっこう【格好】。がいけい【外形】。がいかん【外観】。がいけん【外見】 | ていさい【体裁】。けいしき【形式】。かたち【形】。がいけん【外見】。がいかん【外観】 | がいぼう【外貌】。見かけ【みかけ】。がいかん【外観】 | 見かけ【みかけ】。がいかん【外観】 | がいぼう【外貌】。がいけん【外見】。がいかん【外観】。かたち【形】。もよう【模様】"
+        }
       }
     },
     {
@@ -4050,18 +4420,29 @@
       "sequence_no": 658,
       "word": "あっさり",
       "reading": "あっさり",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "담담히 | 시원시원",
+      "meaning_ja": "味が塩辛くも脂っこくもなく、あっさりして薄く。 | 性格が良くて活発であるさま。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1000360",
         "meaning_en": "easily, readily, quickly",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 6,
+          "reasons": [
+            "surface_exact",
+            "reading_exact",
+            "kana_identity"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "담담히 | 시원시원",
+          "definition_ko": "맛이 짜거나 느끼하지 않고 산뜻하고 싱겁게. | 성격이 좋고 활발한 모양.",
+          "meaning_ja_source": "たんたんと【淡々と】。あっさり | からっと。さばさば。さっぱり。あっさり"
+        }
       }
     },
     {
@@ -4157,7 +4538,7 @@
       "word": "蓄積",
       "reading": "ちくせき",
       "meaning_ko": "축적",
-      "meaning_ja": "",
+      "meaning_ja": "物事が繰り返し重なり積もること。また、重ね積むこと。 | 知識・経験・金銭などを蓄えること。また、その蓄えたもの。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
@@ -4167,7 +4548,17 @@
         "jmdict_seq": "1422440",
         "meaning_en": "accumulation, accumulate, store",
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-12.json",
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "누적 | 축적",
+          "definition_ko": "계속 반복되어 쌓임. 또는 계속 반복하여 쌓음. | 지식, 경험, 돈 등을 모아서 쌓음. 또는 모아서 쌓은 것.",
+          "meaning_ja_source": "るいせき【累積】。るいか【累加】。ちくせき【蓄積】。しゅうせき【集積】 | ちくせき【蓄積】"
+        }
       }
     },
     {
@@ -4233,18 +4624,28 @@
       "sequence_no": 665,
       "word": "反射",
       "reading": "はんしゃ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "반사 | 반사 작용",
+      "meaning_ja": "光や電波などが他の物体の表面にぶつかり、その向きが反対方向に変わること。 | 刺激に対し、体が無意識に一定の反応を示す現象。 | 光や電波などの波動が他の物体の表面に当たって進行方向を反対に変える現象。 | 刺激に対して身体が無意識的に一定の反応を見せる現象。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1480420",
         "meaning_en": "reflection, reverberation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "반사 | 반사 작용",
+          "definition_ko": "빛이나 전파 등이 다른 물체의 표면에 부딪쳐서 나아가던 방향이 반대 방향으로 바뀌는 현상. | 자극에 대하여 신체가 무의식적으로 일정한 반응을 하는 현상. | 빛이나 전파 등이 다른 물체의 표면에 부딪쳐서 나아가던 방향이 반대 방향으로 바뀌는 것. | 자극에 대하여 신체가 무의식적으로 일정한 반응을 하는 것.",
+          "meaning_ja_source": "はんしゃ【反射】 | はんしゃ【反射】。はんしゃさよう【反射作用】"
+        }
       }
     },
     {
@@ -4252,18 +4653,28 @@
       "sequence_no": 666,
       "word": "潜入",
       "reading": "せんにゅう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "잠입 | 침투",
+      "meaning_ja": "こっそりと入り込むこと。 | ある場所にこっそり忍び込むこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1391360",
         "meaning_en": "infiltration, sneaking in",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "잠입 | 침투",
+          "definition_ko": "아무도 모르게 숨어 들어감. | 어떤 곳에 몰래 숨어 들어감.",
+          "meaning_ja_source": "せんにゅう【潜入】 | しんとう【浸透】。せんにゅう【潜入】"
+        }
       }
     },
     {
@@ -4358,18 +4769,28 @@
       "sequence_no": 670,
       "word": "色彩",
       "reading": "しきさい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "색 | 빛깔 | 색깔 | 색채",
+      "meaning_ja": "普通の人や物とは異なる特性。 | 光を受けて現れる物体の色。 | 光を受けた物体から表れる光や色。 | 著しく表れる性格。または思想の傾向。 | 物体が光を受けて現れる色。 | 物事を表現したりそれに対する態度などに表れる思想や性質。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1357720",
         "meaning_en": "colour, hue, tints",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "색 | 빛깔 | 색깔 | 색채",
+          "definition_ko": "보통의 사람이나 사물과는 다른 특성. | 빛을 받아 나타나는 물체의 색. | 빛을 받아 물체가 나타내는 빛이나 색. | 뚜렷이 드러나는 성격 또는 사상의 경향. | 물체가 빛을 받아 나타내는 색깔. | 사물을 표현하거나 그것을 대하는 태도 등에서 나타나는 사상이나 성질.",
+          "meaning_ja_source": "いろ【色】。しきさい【色彩】。こせい【個性】 | いろ【色】。しきさい【色彩】 | しきさい【色彩】"
+        }
       }
     },
     {
@@ -4523,7 +4944,7 @@
       "word": "配分",
       "reading": "はいぶん",
       "meaning_ko": "배분",
-      "meaning_ja": "",
+      "meaning_ja": "おのおのの分け前に分けること。 | 分けて配ること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
@@ -4533,7 +4954,17 @@
         "jmdict_seq": "1473200",
         "meaning_en": "distribution, allotment",
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "배분 | 분배",
+          "definition_ko": "각각의 몫으로 나눔. | 몫에 따라 나눔.",
+          "meaning_ja_source": "はいぶん【配分】 | ぶんぱい【分配】。はいぶん【配分】"
+        }
       }
     },
     {
@@ -4570,18 +5001,28 @@
       "sequence_no": 678,
       "word": "無茶",
       "reading": "むちゃ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "엉터리 | 천방지축",
+      "meaning_ja": "筋の通らない言動。また、その言動をする人。 | 予想がつかないほどてんぱって愚かに振る舞うこと。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1530670",
         "meaning_en": "absurd, unreasonable, excessive, rash, absurdity, nonsense",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "엉터리 | 천방지축",
+          "definition_ko": "엉뚱한 말이나 행동. 또는 그런 말이나 행동을 하는 사람. | 종잡을 수 없게 덤벙이며 어리석게 구는 일.",
+          "meaning_ja_source": "でたらめ【出鱈目】。むちゃ【無茶】 | むちゃ【無茶】"
+        }
       }
     },
     {
@@ -4618,18 +5059,28 @@
       "sequence_no": 680,
       "word": "合間",
       "reading": "あいま",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "새 | 짬 | 참 | 고새 | 그간 | 막간 | 사이 | 고사이 | 그동안 | 자투리 | 사이사이",
+      "meaning_ja": "物と物、または場所と場所との間の距離や空間。 | 何かをする時間的な隙や余裕。 | 何かをする途中で他の事をすることができる時間的な余裕。 | 仕事の合間の休憩時間。 | 少し離れたある時から、別のある時までの非常に短い間。 | 少し離れたある時から、別のある時までの比較的短い間。 | 物事が途切れて、一休みする間。 | 物と物まで、または場所と場所までの距離や空間。 | すでに話した分だけの期間。また、再び会ったり連絡するまでの一定の期間。 | 一定の基準に及ばないほど小さい部分。 | ある物事がとぎれる間の短い時間。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1284670",
         "meaning_en": "interval",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "새 | 짬 | 참 | 고새 | 그간 | 막간 | 사이 | 고사이 | 그동안 | 자투리 | 사이사이",
+          "definition_ko": "한 물체에서 다른 물체까지 또는 한곳에서 다른 곳까지의 거리나 공간. | 어떤 일을 할 시간적인 틈이나 여유. | 어떤 일을 하다가 다른 일을 할 수 있는 시간적 여유. | 일을 하다가 잠깐 쉬는 동안. | 조금 멀어진 어느 때부터 다른 어느 때까지의 매우 짧은 동안. | 조금 멀어진 어느 때부터 다른 어느 때까지의 비교적 짧은 동안. | 어떤 일이 잠깐 중단되어 쉬는 동안. | 앞에서 이미 이야기한 만큼의 기간. 또는 다시 만나거나 연락하기까지의 일정한 기간. | 일정한 기준에 미치지 못할 정도로 작거나 적은 조각. | 어떤 일을 하는 도중 가끔씩 생기는 틈.",
+          "meaning_ja_source": "あいだ【間】。かんかく【間隔】。あいま【合間】。へだたり【隔たり】 | ひま【暇】。あいま【合間】 | やすみ【休み】。ひま【暇】。あいま【合間】 | そのあいだ・そのかん【その間】。あいま【合間】 | あいま【合間】 | あいだ・ま【間】。かんかく【間隔】。あいま【合間】 | きれはし【切れ端】。あいま【合間】 | あいま【合間】。ひま【暇】。たえま【絶え間】"
+        }
       }
     },
     {
@@ -4906,18 +5357,28 @@
       "sequence_no": 691,
       "word": "伝言",
       "reading": "でんごん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "전언 | 메시지",
+      "meaning_ja": "言葉を伝えること。また、その言葉。 | ある事実を報告・主張・警告するために特別に伝える言葉。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1582180",
         "meaning_en": "verbal message, rumor, word",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "전언 | 메시지",
+          "definition_ko": "말을 전함. 또는 그 말. | 어떤 사실을 알리거나 주장하거나 경고하기 위해 특별히 전하는 말.",
+          "meaning_ja_source": "でんごん【伝言】 | メッセージ。でんごん【伝言】"
+        }
       }
     },
     {
@@ -5070,18 +5531,28 @@
       "sequence_no": 697,
       "word": "生計",
       "reading": "せいけい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "살길 | 살림 | 생계 | 살림살이",
+      "meaning_ja": "生きていくための方法や手段。 | 一家をなして暮らしていくこと。 | 生きていくための生活の方法やその暮らし向き。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1378920",
         "meaning_en": "livelihood, living",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "살길 | 살림 | 생계 | 살림살이",
+          "definition_ko": "살아가기 위한 방법이나 수단. | 한 가정을 이루어 살아가는 일. | 살림을 꾸리고 살아가는 방법이나 형편. | 한 가정을 이루어 살아감.",
+          "meaning_ja_source": "せいけい【生計】 | かけい【家計】。せいけい【生計】。くらし【暮らし】 | せいけい【生計】。くらし【暮らし】。かっけい【活計】"
+        }
       }
     },
     {
@@ -5234,18 +5705,28 @@
       "sequence_no": 703,
       "word": "合唱",
       "reading": "がっしょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "합창 | 코러스",
+      "meaning_ja": "複数の人が声を合わせて同じ歌を歌うこと。また、その歌。 | 音の高低によって分かれた声部を、複数の人が同時に歌うこと。また、その歌。 | 複数の人が音の高低に応じて複数の声部に分かれ、各パートの音が調和を成すように歌を歌うこと。また、そのような歌。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1284870",
         "meaning_en": "chorus, singing in a chorus",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "011.xml",
+          "meaning_ko": "합창 | 코러스",
+          "definition_ko": "여러 사람이 목소리를 맞추어 함께 노래를 부름. 또는 그 노래. | 여러 사람이 소리의 높낮이에 따라 음을 나누어 소리가 어울리도록 노래를 부름. 또는 그 노래.",
+          "meaning_ja_source": "がっしょう【合唱】 | がっしょう【合唱】。コーラス | コーラス。がっしょう【合唱】。がっしょうきょく【合唱曲】"
+        }
       }
     },
     {
@@ -5388,18 +5869,28 @@
       "sequence_no": 709,
       "word": "補充",
       "reading": "ほじゅう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "벌충 | 보충 | 충당",
+      "meaning_ja": "損したものや不足しているものを補うこと。 | 足りないものを補うこと。 | 不足しているものを補うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1514580",
         "meaning_en": "supplementation, supplement, replenishment, replenishing",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "벌충 | 보충 | 충당",
+          "definition_ko": "손해 입은 것이나 모자라는 것을 보태어 채움. | 부족한 것을 보태어 채움. | 모자라는 것을 채워 넣음.",
+          "meaning_ja_source": "ほじゅう【補充】 | じゅうとう【充当】。ほじゅう【補充】"
+        }
       }
     },
     {
@@ -5407,18 +5898,28 @@
       "sequence_no": 710,
       "word": "楽譜",
       "reading": "がくふ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "악곡 | 악보",
+      "meaning_ja": "曲調を記した紙。 | 歌曲または楽曲を、数々の文字や音符などを用いて記録したもの。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1207490",
         "meaning_en": "score (music)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "악곡 | 악보",
+          "definition_ko": "곡조를 표시한 부호. | 음악의 곡조를 여러 가지 글자나 음표 등을 써서 기록한 것.",
+          "meaning_ja_source": "がくふ【楽譜】。スコア | がくふ【楽譜】"
+        }
       }
     },
     {
@@ -5474,18 +5975,28 @@
       "sequence_no": 713,
       "word": "有益",
       "reading": "ゆうえき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "유익 | 플러스",
+      "meaning_ja": "ためになって役に立つこと。 | 利益やためになること。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1541120",
         "meaning_en": "beneficial, profitable",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "유익 | 플러스",
+          "definition_ko": "이롭거나 도움이 될 만함. | 이익이나 도움.",
+          "meaning_ja_source": "ゆうえき【有益】 | プラス。ゆうえき【有益】"
+        }
       }
     },
     {
@@ -5521,18 +6032,28 @@
       "sequence_no": 715,
       "word": "心情",
       "reading": "しんじょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "맘 | 심정",
+      "meaning_ja": "人間の体内で感じたり、考えたりするなど、精神的な働きをするところ。 | 心の中にある感情や思い。 | 気を遣う態度。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1360720",
         "meaning_en": "mentality",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "맘 | 심정",
+          "definition_ko": "사람의 몸 안에서 느끼거나 생각하는 등의 정신적인 활동을 하는 곳. | 마음속에 가지고 있는 감정과 생각. | 마음을 쓰는 태도.",
+          "meaning_ja_source": "せいしん【精神】。しんじょう【心情】 | しんじょう【心情】 | しんじょう【心情】。こころづかい【心遣い】"
+        }
       }
     },
     {
@@ -5685,18 +6206,28 @@
       "sequence_no": 721,
       "word": "風習",
       "reading": "ふうしゅう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "풍 | 풍속 | 풍습",
+      "meaning_ja": "ある時代の流行や習慣。 | ある時代・集団がもつ、独特な文化様式や形式。 | ある社会に昔から伝わる生活上のならわし。 | 当時の流行りや習慣。 | 風俗と習慣。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1499890",
         "meaning_en": "custom",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "풍 | 풍속 | 풍습",
+          "definition_ko": "한 시대의 유행과 습관. | 한 시대나 한 집단이 지니는 독특한 문화의 양식이나 형식. | 사회에 속한 사람들에게 옛날부터 전해 오는 생활 습관. | 당시의 유행과 습관. | 풍속과 습관.",
+          "meaning_ja_source": "ふう【風】。ふうしゅう【風習】 | ふうしゅう【風習】。しゅうかん【習慣】。ならわし【習わし・慣わし】 | ふうぞく【風俗】。ふうしゅう【風習】 | ふうしゅう【風習】。しきたり【仕来り】"
+        }
       }
     },
     {
@@ -5704,18 +6235,28 @@
       "sequence_no": 722,
       "word": "衣類",
       "reading": "いるい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "의류 | 옷가지",
+      "meaning_ja": "ティーシャツやシャツ、ズボンなど、すべての種類の服。 | 幾種類の服。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1613280",
         "meaning_en": "clothes, clothing, garments",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "의류 | 옷가지",
+          "definition_ko": "티셔츠나 남방, 바지 등 모든 종류의 옷. | 몇 가지의 옷.",
+          "meaning_ja_source": "いるい【衣類】。いふく【衣服】 | いるい【衣類】。いふく【衣服】。ふく【服】"
+        }
       }
     },
     {
@@ -5723,18 +6264,28 @@
       "sequence_no": 723,
       "word": "小銭",
       "reading": "こぜに",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "돈푼 | 잔돈",
+      "meaning_ja": "すぐ数えられるくらい、さほど多くない金。 | 小さい単位の金。 | 小額の金。 | 細々と使われる金。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1348470",
         "meaning_en": "coins, small change",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "돈푼 | 잔돈",
+          "definition_ko": "금방 셀 수 있을 만큼 그다지 많지 않은 돈. | 단위가 작은 돈. | 얼마 안 되는 돈. | 자질구레하게 쓰는 돈.",
+          "meaning_ja_source": "はしたがね【端金】。はしたぜに【端銭】。こぜに【小銭】 | こぜに【小銭】"
+        }
       }
     },
     {
@@ -5771,18 +6322,28 @@
       "sequence_no": 725,
       "word": "人柄",
       "reading": "ひとがら",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "품 | 인간 | 인성 | 인품 | 사람됨 | 인간성",
+      "meaning_ja": "言動にあらわれる態度や人となり。 | 一定の資格や人格を持つ存在。 | 人の性質や品性。 | 人として備わっている生まれつきの性質や品格、ひととなり。 | 人の持った気前や性格。 | その人に備わっている性質や品性。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1369200",
         "meaning_en": "personality, character, personal appearance, gentility",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "품 | 인간 | 인성 | 인품 | 사람됨 | 인간성",
+          "definition_ko": "말이나 행동에서 드러나는 태도나 됨됨이. | 일정한 자격이나 인격을 갖춘 존재. | 사람의 성질이나 됨됨이. | 사람으로서 갖추고 있는 타고난 성품이나 됨됨이. | 사람이 지닌 마음씨나 성품.",
+          "meaning_ja_source": "ひん【品】。ひとがら【人柄】 | にんげん【人間】。じんかく【人格】。ひとがら【人柄】 | ひとがら【人柄】 | ひとがら【人柄】。じんぴん【人品】 | ひととなり【人となり】。ひとがら【人柄】。にんげんせい【人間性】"
+        }
       }
     },
     {
@@ -5790,18 +6351,28 @@
       "sequence_no": 726,
       "word": "利子",
       "reading": "りし",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "금리 | 이자",
+      "meaning_ja": "金融機関で借りた金や預金につく利子。また、その比率。 | 金銭を借りた代価として支払う一定の比率の金銭。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1549560",
         "meaning_en": "interest (bank)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "금리 | 이자",
+          "definition_ko": "금융 기관에서 빌린 돈이나 예금에 붙는 이자 또는 그 비율. | 남에게 돈을 빌려 쓰고 그 대가로 일정하게 내는 돈.",
+          "meaning_ja_source": "きんり【金利】。りそく【利息】。りし【利子】 | りし【利子】。りそく【利息】"
+        }
       }
     },
     {
@@ -5886,18 +6457,28 @@
       "sequence_no": 730,
       "word": "同等",
       "reading": "どうとう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "대등 | 동등",
+      "meaning_ja": "ある一方の力や能力に優劣がなく、似ていること。 | 等級や程度が同じであること。または、そのような等級や程度。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1453190",
         "meaning_en": "equality, equal, same rights, same rank",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "대등 | 동등",
+          "definition_ko": "어느 한쪽의 힘이나 능력이 낫거나 못하지 않고 서로 비슷함. | 등급이나 정도가 같음. 또는 그런 등급이나 정도.",
+          "meaning_ja_source": "たいとう【対等】。どうとう【同等】 | どうとう【同等】"
+        }
       }
     },
     {
@@ -5934,18 +6515,28 @@
       "sequence_no": 732,
       "word": "原油",
       "reading": "げんゆ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "기름 | 원유",
+      "meaning_ja": "地中から採掘され、主に自動車や工場の燃料として使う黒色の液体。 | 不純物を除去していない、地中から採掘された状態の油。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1262430",
         "meaning_en": "crude oil",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "기름 | 원유",
+          "definition_ko": "땅속에서 나며 주로 자동차나 공장의 연료로 쓰는 검은색의 액체. | 불순물을 걸러 내지 않은, 땅속에서 뽑아낸 상태 그대로의 기름.",
+          "meaning_ja_source": "あぶら【油】。げんゆ【原油】。せきゆ【石油】 | げんゆ【原油】"
+        }
       }
     },
     {
@@ -5953,18 +6544,28 @@
       "sequence_no": 733,
       "word": "有望",
       "reading": "ゆうぼう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "싹 | 유망",
+      "meaning_ja": "ある仕事や人がこれから成功しそうな感じ。 | 将来うまくいきそうな望みや見込みがあること。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1541600",
         "meaning_en": "good prospects, full of hope, promising",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "싹 | 유망",
+          "definition_ko": "어떤 일이나 사람이 앞으로 잘될 것 같은 낌새. | 앞으로 잘될 것 같은 희망이나 가능성이 있음.",
+          "meaning_ja_source": "みこみ【見込み】。ゆうぼう【有望】。しょうらいせい【将来性】 | ゆうぼう【有望】"
+        }
       }
     },
     {
@@ -5972,18 +6573,28 @@
       "sequence_no": 734,
       "word": "満月",
       "reading": "まんげつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "만월 | 둥근달 | 보름달",
+      "meaning_ja": "完全の円に見える月。 | 陰暦の15日を前後して丸くなった月。 | 陰暦の15日の夜に出る丸い月。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1526770",
         "meaning_en": "full moon",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "만월 | 둥근달 | 보름달",
+          "definition_ko": "모양이 완전히 둥글게 된 달. | 음력 보름을 전후하여 둥그렇게 된 달. | 음력 15일 밤에 뜨는 둥근 달.",
+          "meaning_ja_source": "まんげつ【満月】。じゅうごやのつき【十五夜の月】。もちづき【望月】 | まるいつき【丸い月・円い月】。まどかなつき【円な月】。まんげつ【満月】 | もちづき・ぼうげつ【望月】。まんげつ【満月】"
+        }
       }
     },
     {
@@ -6107,18 +6718,28 @@
       "sequence_no": 739,
       "word": "論議",
       "reading": "ろんぎ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "논술 | 논의",
+      "meaning_ja": "あるテーマについて意見を論理的に述べたり書くこと。 | ある問題についてお互い意見を述べて論じ合うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1561660",
         "meaning_en": "discussion",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "논술 | 논의",
+          "definition_ko": "어떤 주제에 대한 의견을 논리에 맞게 말하거나 적음. | 어떤 문제에 대해 서로 의견을 말하며 의논함.",
+          "meaning_ja_source": "ろんじゅつ【論述】。ろんぎ【論議】。ろんべん【論弁】 | ろんぎ【論議・論義】。はなしあい【話し合い】。とうぎ【討議】。ディスカッション"
+        }
       }
     },
     {
@@ -6155,18 +6776,28 @@
       "sequence_no": 741,
       "word": "電線",
       "reading": "でんせん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "전선 | 전깃줄",
+      "meaning_ja": "電気の流れる線。 | 電気が流れる線。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1443570",
         "meaning_en": "electric line",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "전선 | 전깃줄",
+          "definition_ko": "전기가 흐르는 선.",
+          "meaning_ja_source": "でんせん【電線】"
+        }
       }
     },
     {
@@ -6174,18 +6805,28 @@
       "sequence_no": 742,
       "word": "陶器",
       "reading": "とうき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "사기 | 옹기",
+      "meaning_ja": "泥や鉱物などの粉で作って焼いた、白くて光沢のある器。また、その材料で作った物。 | 土を練って成形して素焼きした器物。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1450610",
         "meaning_en": "pottery, ceramics",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "사기 | 옹기",
+          "definition_ko": "진흙이나 광물 등의 가루로 빚어서 구운 희고 매끄러운 그릇. 또는 그 재료로 만든 물건. | 진흙으로 만들어 구운 그릇.",
+          "meaning_ja_source": "じき【磁器】。とうき【陶器】。せともの【瀬戸物】 | どき・かわらけ【土器】。とうき【陶器】"
+        }
       }
     },
     {
@@ -6280,18 +6921,28 @@
       "sequence_no": 746,
       "word": "主観",
       "reading": "しゅかん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "주관 | 줏대 | 중심",
+      "meaning_ja": "自分ひとりだけの考えや観点。 | 他人の意見に左右されず、自分の立場や考えを守り抜き、主張する性質。 | 確固たる自分の意見や考え。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1325180",
         "meaning_en": "subjectivity, subject, ego",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "주관 | 줏대 | 중심",
+          "definition_ko": "자기만의 생각이나 관점. | 자기의 처지나 생각을 꿋꿋이 지키고 내세우는 성질. | 확고한 자신의 의견이나 생각.",
+          "meaning_ja_source": "しゅかん【主観】 | ていけん【定見】。ほね【骨】。しゅたいせい【主体性】。しゅかん【主観】 | ちゅうしん【中心】。ていけん【定見】。しゅかん【主観】"
+        }
       }
     },
     {
@@ -6424,18 +7075,28 @@
       "sequence_no": 752,
       "word": "土台",
       "reading": "どだい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "땅 | 기반 | 기틀 | 밀알 | 지반 | 축대 | 토대 | 디딤돌 | 밑거름",
+      "meaning_ja": "権利を享受するか、仕事をしながら暮らすことのできる環境や基盤。 | 何かをするために基礎になる土台。 | 物事の基本になる条件や土台。 | (比喩的に)ある事柄を成し遂げる上で、小さな礎になること。 | 物事の基礎や根拠になるもと。 | 土や石などを高く平たく築いた土台。 | 建築物の最も下の支えの部分。 | (比喩的に)物事の基礎となるもの。 | (比喩的に)重要な事を成し遂げる礎になること。 | ある事柄を成し遂げる上で基礎になる要素。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1445450",
         "meaning_en": "foundation, base, basis",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "땅 | 기반 | 기틀 | 밀알 | 지반 | 축대 | 토대 | 디딤돌 | 밑거름",
+          "definition_ko": "권리를 누리거나 일을 하며 지낼 수 있는 환경이나 기반. | 무엇을 하기 위해서 기초가 되는 바탕. | 어떤 일의 기본이 되는 조건이나 바탕. | (비유적으로) 어떤 일을 이루는 데 있어 작은 바탕이 되는 것. | 일을 이루는 기초나 근거가 되는 바탕. | 흙이나 돌 등을 높고 평평하게 쌓아 올린 것. | 건물을 지탱하는, 건물의 제일 밑부분. | (비유적으로) 어떤 일이나 사물의 바탕이 되는 기초. | (비유적으로) 중요한 일을 이루는 바탕이 되는 것. | 어떤 일을 이루는 데 기초가 되는 요소.",
+          "meaning_ja_source": "どだい【土台】 | きばん【基盤】。どだい【土台】 | こんぽん【根本】。こんげん【根源】。どだい【土台】 | いしずえ【礎】。どだい【土台】 | じばん【地盤】。どだい【土台】 | どだい【土台】。きそ【基礎】。いしずえ【礎】 | もと【基】。どだい【土台】。きばん【基盤】。いしずえ【礎】 | きそ【基礎】。どだい【土台】"
+        }
       }
     },
     {
@@ -6520,18 +7181,28 @@
       "sequence_no": 756,
       "word": "元来",
       "reading": "がんらい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "본디 | 본래 | 본시 | 워낙 | 원래 | 원체",
+      "meaning_ja": "物事の初め。 | 最初から。また、根本から。 | 初めから。 | 継承されたり伝わったりしてきた何かの初め。 | 一番初めから。また、根本から。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1261080",
         "meaning_en": "originally, primarily, essentially, logically, naturally",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "본디 | 본래 | 본시 | 워낙 | 원래 | 원체",
+          "definition_ko": "전하여 내려온 그 처음. | 맨 처음부터. 또는 근본부터. | 원래부터. | 어떤 것이 이어지거나 전해 내려온 맨 처음.",
+          "meaning_ja_source": "もともと【元々】。がんらい【元来】。ほんらい【本来】 | ほんらい【本来】。がんらい【元来】。もともと【元元】 | もともと【元々】。がんらい【元来】。そもそも | がんらい【元来】。もともと【元元】 | もともと【元々】。そもそも。がんらい【元来】"
+        }
       }
     },
     {
@@ -6703,18 +7374,28 @@
       "sequence_no": 763,
       "word": "暗示",
       "reading": "あんじ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "귀띔 | 암시",
+      "meaning_ja": "ある事柄について相手が分かるように、予めそれとなく言うこと。 | 直接示されないように、それとなく知らせること。また、その内容。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1154550",
         "meaning_en": "hint, suggestion",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "귀띔 | 암시",
+          "definition_ko": "어떤 일에 대해 상대방이 알 수 있도록 미리 슬그머니 말해 줌. | 직접 드러나지 않게 가만히 알림. 또는 그 내용.",
+          "meaning_ja_source": "ほのめかし【仄めかし】。あんじ【暗示】 | あんじ【暗示】"
+        }
       }
     },
     {
@@ -6751,18 +7432,28 @@
       "sequence_no": 765,
       "word": "周期",
       "reading": "しゅうき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "돌 | 주기",
+      "meaning_ja": "特定の日がめぐってくるとき、その回数を数える単位。 | 同じ現象や特徴が1度現れて、次に現れるまでの期間。 | 回転する物体が一回りして最初の位置に戻るまでの期間。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1331090",
         "meaning_en": "cycle, period",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "돌 | 주기",
+          "definition_ko": "특정한 날이 해마다 돌아올 때, 그 횟수를 세는 단위. | 같은 현상이나 특징이 한 번 나타나고 다음에 다시 나타나기까지의 기간. | 회전하는 물체가 한 번 돌아서 원래의 위치로 오기까지의 기간.",
+          "meaning_ja_source": "しゅうき【周期】。しゅうねん【周年】 | しゅうき【周期】"
+        }
       }
     },
     {
@@ -6818,18 +7509,28 @@
       "sequence_no": 768,
       "word": "集計",
       "reading": "しゅうけい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "계 | 집계",
+      "meaning_ja": "ひとつにまとめて計算すること。また、そのように計算した値。 | すでに合計した数を寄せ集めて合計すること。また、その合計。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1333640",
         "meaning_en": "totalization, aggregate",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "계 | 집계",
+          "definition_ko": "한데 합하여 계산함. 또는 그렇게 계산한 값. | 이미 계산된 것들을 한데 모아서 계산함. 또는 그런 계산.",
+          "meaning_ja_source": "けい【計】。ごうけい【合計】。そうけい【総計】。しゅうけい【集計】 | しゅうけい【集計】"
+        }
       }
     },
     {
@@ -6866,18 +7567,28 @@
       "sequence_no": 770,
       "word": "肥料",
       "reading": "ひりょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "거름 | 비료",
+      "meaning_ja": "植物がよく育つように地にまいたり、混ぜる物質。 | 農業をするとき、土壌を肥沃にして作物の生育をよくするために施す物質。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1484310",
         "meaning_en": "manure, fertilizer",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "거름 | 비료",
+          "definition_ko": "식물이 잘 자라도록 땅에 뿌리거나 섞는 물질. | 농사를 지을 때 땅을 기름지게 만들어 식물이 잘 자라게 하려고 뿌리는 물질.",
+          "meaning_ja_source": "ひりょう【肥料】"
+        }
       }
     },
     {
@@ -6972,18 +7683,28 @@
       "sequence_no": 774,
       "word": "一息",
       "reading": "ひといき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "한숨 | 한걸음",
+      "meaning_ja": "休んだり寝たりする短い時間。 | 途中で休むことなく、一気に進んだり動いたりすること。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1164390",
         "meaning_en": "puffy, a breath, a pause, an effort",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "011.xml",
+          "meaning_ko": "한숨 | 한걸음",
+          "definition_ko": "쉬거나 잠을 자는 짧은 시간. | 쉬지 않고 한 번에 가는 걸음이나 움직임.",
+          "meaning_ja_source": "ひといき【一息】。ひとやすみ【一休み】。ひとねむり【一眠り・一睡り】 | ひとはしり【一走り】。ひといき【一息】"
+        }
       }
     },
     {
@@ -6991,18 +7712,28 @@
       "sequence_no": 775,
       "word": "議決",
       "reading": "ぎけつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "결의 | 의결",
+      "meaning_ja": "会議で多数の人の意見を集めて決定すること。 | ある事柄について合議して決定すること。また、その決定。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1226050",
         "meaning_en": "resolution, decision, vote",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "결의 | 의결",
+          "definition_ko": "회의에서 여러 사람의 의견을 모아 결정함. | 어떤 일에 대해 의논하여 결정함. 또는 그런 결정.",
+          "meaning_ja_source": "けつぎ【決議】。ぎけつ【議決】 | ぎけつ【議決】"
+        }
       }
     },
     {
@@ -7039,18 +7770,28 @@
       "sequence_no": 777,
       "word": "家計",
       "reading": "かけい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "가계 | 살림 | 살림살이",
+      "meaning_ja": "経済単位としての家庭。 | 一家の経済生活をやりくりする方法または暮らし向き。 | 暮しに伴う収入や支出の状態。 | 一家をなして暮らしていくこと。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1191910",
         "meaning_en": "household economy, family finances",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "가계 | 살림 | 살림살이",
+          "definition_ko": "경제 단위로서의 가정. | 한 집안의 경제를 이끌어 나가는 방법이나 형편. | 한 집안이 살아가는 데 따른 수입과 지출의 상태. | 한 가정을 이루어 살아가는 일. | 한 가정을 이루어 살아감.",
+          "meaning_ja_source": "かけい【家計】 | かけい【家計】。せいけい【生計】。くらし【暮らし】"
+        }
       }
     },
     {
@@ -7058,18 +7799,28 @@
       "sequence_no": 778,
       "word": "反響",
       "reading": "はんきょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "반향 | 울림 | 파장",
+      "meaning_ja": "ある出来事や現象が世界に影響を与えたことによる反応。 | 障害物にぶつかった音が反射し、再び聞こえる現象。 | 音が何かにぶつかって、再び聞こえる現象。また、その音。 | (比喩的に)衝撃的な出来事が及ぼす影響。また、その影響の程度や期間。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1480310",
         "meaning_en": "echo, reverberation, repercussion, reaction, influence",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "반향 | 울림 | 파장",
+          "definition_ko": "어떤 사건이나 현상이 세상에 영향을 미치어 생겨나는 반응. | 장애물에 부딪친 소리가 반사하여 다시 들리는 현상. | 소리가 무엇에 부딪혀 다시 울려 나오는 현상. 또는 그 소리. | (비유적으로) 충격적인 일이 미치는 영향. 또는 그 영향이 미치는 정도나 동안.",
+          "meaning_ja_source": "はんきょう【反響】 | ひびき【響き】。はんきょう【反響】"
+        }
       }
     },
     {
@@ -7125,18 +7876,28 @@
       "sequence_no": 781,
       "word": "様相",
       "reading": "ようそう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "상황 | 양상 | 양태",
+      "meaning_ja": "出来事が進行していく状態や姿。 | 事物・現象の模様や状態。 | ある模様や状態。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1545840",
         "meaning_en": "aspect",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "상황 | 양상 | 양태",
+          "definition_ko": "일이 진행되어 가는 형편이나 모양. | 사물이나 현상의 모양이나 상태. | 어떤 모양이나 상태.",
+          "meaning_ja_source": "じょうきょう【状況】。ようす【様子】。ようたい【様態】。ようそう【様相】。ありさま | ようそう【様相】 | ようたい【様態】。ようそう【様相】"
+        }
       }
     },
     {
@@ -7144,18 +7905,28 @@
       "sequence_no": 782,
       "word": "富豪",
       "reading": "ふごう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "갑부 | 대부 | 부자 | 부호 | 천석꾼",
+      "meaning_ja": "非常に財産の多い金持ち。 | 大変財産の多いお金持ち。 | 財産を多く持っている人。 | 財産が多くて、権力のある人。 | (比喩的に)米千石の収穫があるほど土地と財産を多く所有した金持ち。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1496780",
         "meaning_en": "wealthy person, millionaire",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "갑부 | 대부 | 부자 | 부호 | 천석꾼",
+          "definition_ko": "대단한 큰 부자. | 매우 부유한 부자. | 재산이 많은 사람. | 재산이 많고 권력이 있는 사람. | (비유적으로) 곡식 천 석을 거둘 만큼 땅과 재산을 많이 가진 부자.",
+          "meaning_ja_source": "おおがねもち【大金持ち】。ざいさんか【財産家】。富豪【ふごう】 | おおがねもち【大金持(ち)】。ふごう【富豪】 | かねもち【金持ち】。ものもち【物持ち】。ふごう【富豪】 | ふごう【富豪】 | おおかねもち【大金持ち】。ふごう【富豪】"
+        }
       }
     },
     {
@@ -7346,18 +8117,28 @@
       "sequence_no": 790,
       "word": "万能",
       "reading": "ばんのう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "만능 | 전천후 | 만병통치",
+      "meaning_ja": "全てのことに優れていること。また、そのようなこと。 | どんな条件や状況でも機能できること。 | 一つの処方であらゆる病気を治すこと。 | (比喩的に)一つの対策があらゆる場合に効果をもたらすこと。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1584530",
         "meaning_en": "all-purpose, almighty, omnipotent",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "만능 | 전천후 | 만병통치",
+          "definition_ko": "모든 일을 다 능숙하게 할 수 있음. 또는 그런 것. | 어떠한 조건이나 상황에도 제 기능을 다할 수 있음. | 한 가지 처방으로 모든 병을 다 고침. | (비유적으로) 한 가지 대책이 여러 가지 경우에 두루 효과를 나타냄.",
+          "meaning_ja_source": "ばんのう【万能】 | ばんのう【万能】。まんのう【万能】"
+        }
       }
     },
     {
@@ -7529,18 +8310,28 @@
       "sequence_no": 797,
       "word": "台本",
       "reading": "だいほん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "각본 | 극본 | 대본",
+      "meaning_ja": "演劇や映画を作るため、俳優のせりふ・動作、場面などを詳しく記したもの。 | (比喩的に)あることをしようとして前もって決めておいた計画。 | 映画や演劇、ドラマを作るために書いた文。 | 演劇や映画などで、せりふやト書きなどを書き入れた本。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1412760",
         "meaning_en": "libretto, scenario",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "각본 | 극본 | 대본",
+          "definition_ko": "영화나 연극을 만들기 위하여 배우의 대사와 동작, 장면에 대하여 자세히 적은 글. | (비유적으로) 어떤 일을 하려고 미리 정해 놓은 계획. | 영화나 연극, 드라마를 만들기 위해 쓴 글. | 연극이나 영화에서, 대사나 장면의 설명 등을 적어 놓은 글.",
+          "meaning_ja_source": "きゃくほん【脚本】。すじがき【筋書き】。だいほん【台本】 | きゃくほん【脚本】。だいほん【台本】 | だいほん【台本】。きゃくほん【脚本】。シナリオ"
+        }
       }
     },
     {
@@ -7635,18 +8426,28 @@
       "sequence_no": 801,
       "word": "労力",
       "reading": "ろうりょく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "노력 | 노동력",
+      "meaning_ja": "力を尽くして働くこと。 | 仕事をするのに費やされる人間の精神的かつ肉体的な能力。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1560650",
         "meaning_en": "labour, effort, toil, trouble",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "노력 | 노동력",
+          "definition_ko": "힘을 들여 일함. | 일을 하는 데 쓰이는 사람의 정신적이고 육체적인 능력.",
+          "meaning_ja_source": "ろうりょく【労力】。くろう【苦労】。じんりょく【尽力】 | ろうどうりょく【労働力】。ろうりょく【労力】"
+        }
       }
     },
     {
@@ -7741,18 +8542,28 @@
       "sequence_no": 805,
       "word": "成熟",
       "reading": "せいじゅく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "성숙 | 성숙하다",
+      "meaning_ja": "穀物や果物、動物などの生物が十分に大きくなること。 | 身体や心が十分に成長して大人らしくなること。 | 経験を積んで慣れること。 | ある社会現象が発展できるような条件や状態が十分に整っていること。 | 心と体が成長して大人っぽくなる。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1375730",
         "meaning_en": "maturity, ripeness",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "성숙 | 성숙하다",
+          "definition_ko": "곡식이나 과일, 동물 등의 생물이 충분히 자람. | 몸과 마음이 자라서 어른스럽게 됨. | 경험이나 습관을 쌓아 익숙해짐. | 어떤 사회 현상이 발전할 수 있도록 조건이나 상태가 충분히 마련됨. | 몸과 마음이 자라서 어른 같은 데가 있다.",
+          "meaning_ja_source": "せいじゅく【成熟】 | せいじゅく【成熟】。じゅくれん【熟練】 | せいじゅく【成熟】する"
+        }
       }
     },
     {
@@ -7827,18 +8638,28 @@
       "sequence_no": 809,
       "word": "一変",
       "reading": "いっぺん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "급변 | 일변",
+      "meaning_ja": "状況や状態が急に変わること。 | すっかり変わること。また、変えること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1166420",
         "meaning_en": "complete change, about-face",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "급변 | 일변",
+          "definition_ko": "상황이나 상태가 갑자기 달라짐. | 매우 달라짐. 또는 달라지게 함.",
+          "meaning_ja_source": "きゅうへん【急変】。げきへん【激変】。いっぺん【一変】 | いっぺん【一変】"
+        }
       }
     },
     {
@@ -7874,18 +8695,28 @@
       "sequence_no": 811,
       "word": "人情",
       "reading": "にんじょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "인심 | 인정",
+      "meaning_ja": "気の毒な人の世話をし、助ける心。 | 人間が本来もっている心。 | 人に対する思いやりや温かい心。 | 世の中の人々の心。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1368180",
         "meaning_en": "humanity, empathy, kindness, sympathy, human nature, common sense, customs and manners",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "인심 | 인정",
+          "definition_ko": "불쌍한 사람을 살피고 도와주는 마음. | 사람이 본래 가지고 있는 마음. | 남을 생각하고 도와주는 따뜻한 마음. | 세상 사람들의 마음.",
+          "meaning_ja_source": "にんじょう【人情】。じょう【情】 | にんじょう【人情】"
+        }
       }
     },
     {
@@ -8057,18 +8888,28 @@
       "sequence_no": 818,
       "word": "津波",
       "reading": "つなみ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "해일 | 쓰나미",
+      "meaning_ja": "急に海水の水位が高まり陸地に侵入すること。また、その現象。 | 地震や火山の噴火などによって生じる大きな波。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1432220",
         "meaning_en": "tsunami, tidal wave",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "011.xml",
+          "meaning_ko": "해일 | 쓰나미",
+          "definition_ko": "갑자기 바닷물이 크게 일어서 육지로 넘쳐 들어오는 것. 또는 그런 현상. | 지진이나 화산 폭발 등으로 인해 생기는 큰 해일.",
+          "meaning_ja_source": "つなみ【津波】。たかしお【高潮】 | つなみ【津波】"
+        }
       }
     },
     {
@@ -8105,18 +8946,28 @@
       "sequence_no": 820,
       "word": "不振",
       "reading": "ふしん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "부진 | 침체",
+      "meaning_ja": "物事の勢いや力が良い方向へ進まず、活発でないこと。 | 物事に発展の動きが見られず、その場に停滞していること。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1493150",
         "meaning_en": "dullness, depression, slump, stagnation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "부진 | 침체",
+          "definition_ko": "어떤 일이 좋은 쪽으로 이루어지는 기세나 힘 등이 활발하지 않음. | 어떤 일이나 사물 등이 발전하지 못하고 제자리에 머무름.",
+          "meaning_ja_source": "ふしん【不振】 | ちんたい【沈滞】。ふしん【不振】。ていめい【低迷】"
+        }
       }
     },
     {
@@ -8346,18 +9197,28 @@
       "sequence_no": 829,
       "word": "引き分け",
       "reading": "ひきわけ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "무 | 무승부",
+      "meaning_ja": "スポーツの試合で、引き分けの回数を数える単位。 | 競技や賭け事で、双方が勝ち負けなしに終わること。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1169120",
         "meaning_en": "a draw (in competition), tie game",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "무 | 무승부",
+          "definition_ko": "운동 경기에서, 비긴 횟수를 세는 단위. | 경기나 내기에서, 어느 한쪽이 이기거나 지지 않고 서로 비김.",
+          "meaning_ja_source": "ひきわけ【引き分け】"
+        }
       }
     },
     {
@@ -8423,18 +9284,28 @@
       "sequence_no": 832,
       "word": "全滅",
       "reading": "ぜんめつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "격멸 | 전멸",
+      "meaning_ja": "戦争や戦闘で敵を攻撃してなくすこと。 | 残らず死んだり滅びたりすること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1396240",
         "meaning_en": "annihilation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "격멸 | 전멸",
+          "definition_ko": "전쟁이나 전투에서 적을 공격하여 없앰. | 모두 다 죽거나 망하여 없어짐.",
+          "meaning_ja_source": "げきめつ【撃滅】。ぜんめつ【全滅】。かいめつ【壊滅】 | ぜんめつ【全滅】"
+        }
       }
     },
     {
@@ -8442,18 +9313,28 @@
       "sequence_no": 833,
       "word": "起点",
       "reading": "きてん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "기점 | 출발점",
+      "meaning_ja": "あることが初めて始まる時間や所。 | ある場所から離れていく地点。 | 物事が始まる地点。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223860",
         "meaning_en": "starting point",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "기점 | 출발점",
+          "definition_ko": "어떤 일이 처음 시작되는 시간이나 곳. | 어떤 곳을 떠나는 지점. | 어떤 일이 시작되는 지점.",
+          "meaning_ja_source": "きてん【起点】 | しゅっぱつてん【出発点】。きてん【起点】。しゅったつてん【出立点】"
+        }
       }
     },
     {
@@ -8489,18 +9370,28 @@
       "sequence_no": 835,
       "word": "体格",
       "reading": "たいかく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "몸집 | 체격 | 체구 | 허우대",
+      "meaning_ja": "体の大きさや肉付き。 | 筋肉や骨組みなどで現れる身体の形。 | 身体の大きさやかさ。 | 外部に表れた身体の様子。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1409310",
         "meaning_en": "physique, constitution",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "몸집 | 체격 | 체구 | 허우대",
+          "definition_ko": "몸의 크기나 부피. | 근육과 뼈 등으로 나타나는 몸 전체의 겉모습. | 겉으로 보이는 몸 전체의 모습.",
+          "meaning_ja_source": "たいかく【体格】。からだつき【体付き】 | たいく【体躯】。たいかく【体格】。からだ【体】。からだつき【体付き】 | たいかく【体格】。かっぷく【恰幅】。ふうさい【風采】"
+        }
       }
     },
     {
@@ -8508,18 +9399,28 @@
       "sequence_no": 836,
       "word": "樹木",
       "reading": "じゅもく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "나무 | 수목",
+      "meaning_ja": "しっかりした幹に枝と葉がついた、数年間にわたって育つ植物。 | 地面に生えている木。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1330400",
         "meaning_en": "trees and shrubs, arbour",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "나무 | 수목",
+          "definition_ko": "단단한 줄기에 가지와 잎이 달린, 여러 해 동안 자라는 식물. | 살아 있는 나무.",
+          "meaning_ja_source": "き【木・樹】。じゅもく【樹木】 | じゅもく【樹木】"
+        }
       }
     },
     {
@@ -8527,18 +9428,28 @@
       "sequence_no": 837,
       "word": "原文",
       "reading": "げんぶん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "본문 | 원문",
+      "meaning_ja": "注釈をつけた対象になる元の文章。 | 訳したり直したりしていない元の文章。 | 書き写したり翻訳したり書き直したりする前の、元の文章。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1262340",
         "meaning_en": "the text, original",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "본문 | 원문",
+          "definition_ko": "주석을 붙인 대상이 되는 원래의 글. | 번역하거나 고치지 않은 원래의 글. | 다른 곳에 옮겨 적거나 다른 나라 말로 바꾸거나 고치고 다듬은 글이 아닌 원래의 글.",
+          "meaning_ja_source": "ほんぶん【本文】。げんぶん【原文】 | げんぶん【原文】"
+        }
       }
     },
     {
@@ -8749,18 +9660,28 @@
       "sequence_no": 845,
       "word": "討議",
       "reading": "とうぎ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "논의 | 토의",
+      "meaning_ja": "ある問題についてお互い意見を述べて論じ合うこと。 | 複数の人が、ある事柄について細かく意見を述べ合うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449960",
         "meaning_en": "debate, discussion",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "논의 | 토의",
+          "definition_ko": "어떤 문제에 대해 서로 의견을 말하며 의논함. | 여러 사람이 어떤 문제에 대해 자세히 따지고 의논함.",
+          "meaning_ja_source": "ろんぎ【論議・論義】。はなしあい【話し合い】。とうぎ【討議】。ディスカッション | とうぎ【討議】。ディスカッション"
+        }
       }
     },
     {
@@ -8825,18 +9746,28 @@
       "sequence_no": 849,
       "word": "体裁",
       "reading": "ていさい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "체면 | 체재 | 체제 | 체통",
+      "meaning_ja": "世間に対する堂々たる立場や面目。 | 成り立って作られた模様や形式。 | 社会的地位や身分相応の体面。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1409480",
         "meaning_en": "decency, style, form, appearance, show, get-up, format",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "체면 | 체재 | 체제 | 체통",
+          "definition_ko": "남을 대하기에 떳떳한 입장이나 얼굴. | 생기거나 이루어진 모양이나 형식. | 자신의 사회적 지위나 신분에 알맞는 체면.",
+          "meaning_ja_source": "たいめん【体面】。せけんてい【世間体 】。めんつ【面子】。めんもく【面目】。ていさい【体裁】 | ていさい【体裁】。けいしき【形式】。かたち【形】。がいけん【外見】。がいかん【外観】 | ていさい【体裁】。たいめん【体面】。ひんい【品位】"
+        }
       }
     },
     {
@@ -8844,18 +9775,28 @@
       "sequence_no": 850,
       "word": "融通",
       "reading": "ゆうずう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "융통 | 주변 | 주변머리",
+      "meaning_ja": "金や物などを他の所から借りたり、手に入れたりして使うこと。 | うまく行くように手助けをしたり、柔軟に処理したりすること。また、その能力。 | うまく行くように手助けをしたり、柔軟に処理したりすることを俗にいう語。また、その能力。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1584900",
         "meaning_en": "lending (money), accommodation, adaptability, versatility, finance",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "융통 | 주변 | 주변머리",
+          "definition_ko": "돈이나 물건 등을 다른 곳에서 빌리거나 구해서 씀. | 일이 잘되도록 중간에서 힘쓰거나 일을 융통성 있게 함. 또는 그런 재주. | (속된 말로) 일이 잘되도록 중간에서 힘쓰거나 일을 융통성 있게 함. 또는 그런 재주.",
+          "meaning_ja_source": "ゆうずう【融通】。やりくり【遣り繰り】 | ゆうずう・ゆうづう・ゆずう【融通】"
+        }
       }
     },
     {
@@ -8863,18 +9804,28 @@
       "sequence_no": 851,
       "word": "前例",
       "reading": "ぜんれい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "선례 | 전례",
+      "meaning_ja": "以前にあった事で、これから何かをするうえで見本や参考になる例。 | 以前にあった事例。 | 昔からのしきたり。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1394190",
         "meaning_en": "precedent",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "선례 | 전례",
+          "definition_ko": "이전에 있었던 일로, 어떤 일을 하는 데 본보기나 참고가 되는 예. | 이전에 있었던 사례. | 이전부터 전해 내려오는 관습.",
+          "meaning_ja_source": "せんれい【先例】。ぜんれい【前例】 | ぜんれい【前例】。せんれい【先例】"
+        }
       }
     },
     {
@@ -8959,18 +9910,28 @@
       "sequence_no": 855,
       "word": "口頭",
       "reading": "こうとう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "구두 | 구술",
+      "meaning_ja": "口で話す言葉。 | 口で述べること。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1276710",
         "meaning_en": "oral",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "구두 | 구술",
+          "definition_ko": "입으로 하는 말. | 입으로 말함.",
+          "meaning_ja_source": "こうとう【口頭】 | こうじゅつ【口述】。こうとう【口頭】。オーラル"
+        }
       }
     },
     {
@@ -9007,18 +9968,28 @@
       "sequence_no": 857,
       "word": "味わい",
       "reading": "あじわい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "맛깔 | 감칠맛",
+      "meaning_ja": "食べ物の味。 | おいしい料理を食べ終えた後、口に残る非常にいい感じ。 | 感動を与えて人の心を引き寄せる力。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1527000",
         "meaning_en": "flavour, meaning, significance",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "맛깔 | 감칠맛",
+          "definition_ko": "음식의 맛. | 맛있는 음식을 먹고 난 뒤에 입에 남는 아주 좋은 느낌. | 감동을 주어 사람의 마음을 끌어당기는 힘.",
+          "meaning_ja_source": "あじわい【味わい】。もちあじ【持ち味】 | こあじ【小味】。あじわい【味わい】 | あじわい【味わい】"
+        }
       }
     },
     {
@@ -9074,18 +10045,28 @@
       "sequence_no": 860,
       "word": "賛美",
       "reading": "さんび",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "찬미 | 찬송",
+      "meaning_ja": "美しいものや立派なものを高く評価して褒め称えること。 | 美しくて立派な徳行を褒め称えること。 | キリスト教で、神様の愛と恩恵を表現して褒め称える歌。 | キリスト教で、神様の恩恵を褒め称えること。また、そのこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1304240",
         "meaning_en": "praise, adoration, glorification",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "찬미 | 찬송",
+          "definition_ko": "아름답고 훌륭한 것 등을 높여 말하며 칭찬함. | 아름답고 훌륭한 덕행을 기리고 칭찬함. | 기독교에서, 하나님의 사랑과 은혜를 드러내고 기리는 노래. | 기독교에서, 하나님의 은혜를 기리고 칭찬함. 또는 그런 일.",
+          "meaning_ja_source": "さんび【賛美・讚美】"
+        }
       }
     },
     {
@@ -9170,18 +10151,28 @@
       "sequence_no": 864,
       "word": "不服",
       "reading": "ふふく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "거역 | 불복",
+      "meaning_ja": "目上の人の意見や命令などに従わず逆らうこと。 | 命令や決定に従わないこと。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1494700",
         "meaning_en": "dissatisfaction, discontent, disapproval, objection, complaint, protest, disagreement",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "거역 | 불복",
+          "definition_ko": "윗사람의 뜻이나 명령 등을 따르지 않고 거스름. | 명령이나 결정을 따르지 않음.",
+          "meaning_ja_source": "きょひ【拒否】。ふふくじゅう【不服従】。ふふく【不服】 | ふふく【不服】"
+        }
       }
     },
     {
@@ -9285,18 +10276,28 @@
       "sequence_no": 869,
       "word": "責務",
       "reading": "せきむ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "책무 | 책임",
+      "meaning_ja": "担当している事に対する責任や任務。 | 引き受けた仕事や義務。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1383230",
         "meaning_en": "duty, obligation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "책무 | 책임",
+          "definition_ko": "맡은 일에 따른 책임이나 임무. | 맡은 일이나 의무.",
+          "meaning_ja_source": "せきむ【責務】。つとめ【務め】 | せきにん【責任】。せきむ【責務】"
+        }
       }
     },
     {
@@ -9304,18 +10305,28 @@
       "sequence_no": 870,
       "word": "喜劇",
       "reading": "きげき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "희극 | 코미디",
+      "meaning_ja": "笑いを中心にして人間と社会の問題点を軽快に面白く扱った演劇や劇の形式。 | 人に笑われるほどの事件。 | 人を笑わせる面白い内容の演劇やドラマ。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1218810",
         "meaning_en": "comedy, funny show",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "011.xml",
+          "meaning_ko": "희극 | 코미디",
+          "definition_ko": "웃음을 중심으로 하여 인간과 사회의 문제점을 경쾌하고 재미있게 다룬 연극이나 극 형식. | 남의 웃음거리가 될 만한 일이나 사건. | 재미있고 웃기는 내용의 연극이나 드라마.",
+          "meaning_ja_source": "きげき【喜劇】 | コメディー。コメディ。きげき【喜劇】"
+        }
       }
     },
     {
@@ -9323,18 +10334,28 @@
       "sequence_no": 871,
       "word": "堤防",
       "reading": "ていぼう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "둑 | 강둑 | 방죽 | 제방",
+      "meaning_ja": "河川や湖の水があふれるのを防ぐため、石や土などを高く積み上げて作った長い丘。 | 河川の氾濫を防ぐために、土や石などを積み上げたものを川沿いに長く建てた構造物。 | 水が押し寄せることを防ぐために築いた土手。 | 川や海、湖などがあふれ出ることを防ぐために、土や石、コンクリートなどを盛り上げて作った施設。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1435350",
         "meaning_en": "bank, weir",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "둑 | 강둑 | 방죽 | 제방",
+          "definition_ko": "하천이나 호수의 물이 흘러넘치는 것을 막기 위해서 돌이나 흙 등으로 높이 막아 쌓은 긴 언덕. | 강물이 넘치지 않게 하려고 흙과 돌 등으로 강을 따라 길게 쌓아 올린 둑. | 물이 밀려드는 것을 막기 위해 쌓은 둑. | 강이나 바다, 호수 등의 물이 넘쳐흐르는 것을 막기 위해 흙이나 돌, 콘크리트 등을 쌓아 만든 시설.",
+          "meaning_ja_source": "つつみ【堤】。ていぼう【堤防】。どて【土手】 | ていぼう【堤防】。つつみ【堤】 | どて【土手】。ていぼう【堤防】。つつみ【堤】"
+        }
       }
     },
     {
@@ -9342,18 +10363,28 @@
       "sequence_no": 872,
       "word": "野外",
       "reading": "やがい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "노천 | 야외 | 옥외",
+      "meaning_ja": "四方が遮られたところのない室外や道。 | 都市から少し離れた野原。 | 家や建物の外。 | 建物の外。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1537270",
         "meaning_en": "fields, outskirts, open air, suburbs",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "노천 | 야외 | 옥외",
+          "definition_ko": "사방이 뚫린 바깥이나 길. | 도시에서 조금 떨어져 있는 들판. | 집이나 건물의 밖. | 건물의 바깥.",
+          "meaning_ja_source": "ろてん【露天】。のてん【野天】。おくがい【屋外】。やがい【野外】 | やがい【野外】。こうがい【郊外】 | やがい【野外】。おくがい【屋外】 | おくがい【屋外】。やがい【野外】"
+        }
       }
     },
     {
@@ -9361,18 +10392,28 @@
       "sequence_no": 873,
       "word": "対比",
       "reading": "たいひ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "대비 | 대조",
+      "meaning_ja": "二つのものの違いを調べるため、両者を比べること。また、その比較。 | 二つ以上の事物を照らし合わせて比べること。 | 互いに違ってその差が際立つこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1410260",
         "meaning_en": "contrast, comparison",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "대비 | 대조",
+          "definition_ko": "두 가지의 차이를 알아보기 위해 서로 비교함. 또는 그런 비교. | 둘 이상의 것을 맞대어 같고 다름을 살펴봄. | 서로 달라서 대비가 됨.",
+          "meaning_ja_source": "たいひ【対比】。ひかく【比較】 | たいしょう【対照】。しょうごう【照合】。たいひ【対比】 | たいしょう【対照】。たいひ【対比】。コントラスト"
+        }
       }
     },
     {
@@ -9399,18 +10440,28 @@
       "sequence_no": 875,
       "word": "就業",
       "reading": "しゅうぎょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "취업 | 취직",
+      "meaning_ja": "一定の職業を得て職場に行くこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1331590",
         "meaning_en": "employment, starting work",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "취업 | 취직",
+          "definition_ko": "일정한 직업을 얻어 직장에 나감.",
+          "meaning_ja_source": "しゅうぎょう【就業】。しゅうしょく【就職】。しゅうろう【就労】 | しゅうしょく【就職】。しゅうぎょう【就業】。しゅうろう【就労】"
+        }
       }
     },
     {
@@ -9534,18 +10585,28 @@
       "sequence_no": 880,
       "word": "誇張",
       "reading": "こちょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "과장 | 허풍",
+      "meaning_ja": "実際より過度に大きくまたは大げさに表現すること。 | 物事を実際より大げさにして、信頼できない言葉や行動。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1267820",
         "meaning_en": "exaggeration",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "과장 | 허풍",
+          "definition_ko": "사실에 비해 지나치게 크거나 좋게 부풀려 나타냄. | 실제보다 지나치게 부풀려 믿기 어려운 말이나 행동.",
+          "meaning_ja_source": "こちょう【誇張】。おおげさ【大げさ】 | ほら【法螺】。こちょう【誇張】。おおぶろしき【大風呂敷】"
+        }
       }
     },
     {
@@ -9591,18 +10652,28 @@
       "sequence_no": 883,
       "word": "下痢",
       "reading": "げり",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "설사 | 설사병",
+      "meaning_ja": "腸の消化機能に異常が生じて水分量の多い糞便を排泄すること。また、その糞便。 | 腸の消化機能に異常が生じて水分量の多い糞便を排泄すること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1186540",
         "meaning_en": "diarrhoea",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "설사 | 설사병",
+          "definition_ko": "장에서 음식물을 소화하는 데에 이상이 생겨 물기가 많은 똥을 눔. 또는 그런 똥. | 장에서 음식물을 소화하는 데에 이상이 생겨 물기가 많은 똥을 누는 병.",
+          "meaning_ja_source": "げり【下痢】。はらくだり【腹下り】。くだりはら・くだりばら【下り腹】 | げり【下痢】。げりしょう【下痢症】。はらくだり【腹下り】。くだりはら・くだりばら【下り腹】"
+        }
       }
     },
     {
@@ -9610,18 +10681,28 @@
       "sequence_no": 884,
       "word": "初版",
       "reading": "しょはん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "원본 | 초판",
+      "meaning_ja": "何度も印刷して出版した本の中で、最初に印刷して出版した本。 | 出版された書物の最初の版。また、その出版物。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343030",
         "meaning_en": "first edition",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "원본 | 초판",
+          "definition_ko": "여러 번 인쇄하여 발행한 책 중에서 가장 처음 인쇄하여 발행한 책. | 책의 첫 출판. 또는 그 출판물.",
+          "meaning_ja_source": "しょかん【初刊】。しょはん【初版】 | しょはん【初版】。だいいっぱん【第一版】"
+        }
       }
     },
     {
@@ -9658,18 +10739,28 @@
       "sequence_no": 886,
       "word": "概略",
       "reading": "がいりゃく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "개략 | 대강 | 대략 | 줄거리",
+      "meaning_ja": "ある出来事や事件の内容を簡略にまとめること。 | 詳しくない、簡単なあらすじ。 | 文章の内容や物語の中心になるだいたいの内容。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1204510",
         "meaning_en": "outline, summary, gist, in brief",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "개략 | 대강 | 대략 | 줄거리",
+          "definition_ko": "어떤 일이나 사건의 내용을 짧게 줄임. | 자세하지 않고 간단한 줄거리. | 자세하지 않은 간단한 줄거리. | 글의 내용이나 이야기의 중심이 되는 내용.",
+          "meaning_ja_source": "がいりゃく【概略】 | たいこう【大綱】。あらまし。たいよう【大要】。だいたい【大体】。がいりゃく【概略】 | だいたい【大体】。たいこう【大綱】。あらまし。たいよう【大要】。がいりゃく【概略】 | あらすじ【粗筋】。あらまし。がいりゃく【概略】。ストーリー。こうがい【梗概】。たいよう【大要】"
+        }
       }
     },
     {
@@ -9677,18 +10768,28 @@
       "sequence_no": 887,
       "word": "定食",
       "reading": "ていしょく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "백반 | 정식",
+      "meaning_ja": "食堂で、ご飯に汁物といくつかのおかずをつけて売るメニュー。 | 食堂で、あらかじめ献立と値段を決めて販売する食事。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1435650",
         "meaning_en": "set meal, special (of the day)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "백반 | 정식",
+          "definition_ko": "식당에서 쌀밥에 국과 몇 가지의 반찬을 차려 파는 한 상의 음식. | 식당에서 일정한 값을 정해 놓고 차려서 파는 음식.",
+          "meaning_ja_source": "ていしょく【定食】"
+        }
       }
     },
     {
@@ -9773,18 +10874,28 @@
       "sequence_no": 891,
       "word": "感触",
       "reading": "かんしょく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "감촉 | 질감 | 촉감",
+      "meaning_ja": "何かが肌に触って生じる感じ。 | ある材料から受ける独特の感じ。 | 何かが肌に触れた時に生じる感覚。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1212440",
         "meaning_en": "sense of touch, feeling, sensation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "감촉 | 질감 | 촉감",
+          "definition_ko": "어떤 것이 피부에 닿아서 생기는 느낌. | 어떤 재료에서 느껴지는 독특한 느낌.",
+          "meaning_ja_source": "かんしょく【感触】 | しつかん【質感】 。かんしょく【感触】。さわり【触り】 | しょっかん【触感】。かんしょく【感触】。さわり【触り】。はだざわり【肌触り】"
+        }
       }
     },
     {
@@ -9792,18 +10903,28 @@
       "sequence_no": 892,
       "word": "非行",
       "reading": "ひこう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "비행 | 탈선",
+      "meaning_ja": "道義・規範にはずれた間違えた行動。 | 言葉や行動などが正しい道から外れ、悪い方向にそれること。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1484870",
         "meaning_en": "delinquency, misconduct",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "비행 | 탈선",
+          "definition_ko": "도덕이나 규범에서 벗어나는 잘못된 행동. | 말이나 행동 등이 나쁜 방향으로 빗나감.",
+          "meaning_ja_source": "ひこう【非行】 | だっせん【脱線】。ひこう【非行】"
+        }
       }
     },
     {
@@ -9840,18 +10961,28 @@
       "sequence_no": 894,
       "word": "利息",
       "reading": "りそく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "금리 | 이자",
+      "meaning_ja": "金融機関で借りた金や預金につく利子。また、その比率。 | 金銭を借りた代価として支払う一定の比率の金銭。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1549600",
         "meaning_en": "interest (bank)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "금리 | 이자",
+          "definition_ko": "금융 기관에서 빌린 돈이나 예금에 붙는 이자 또는 그 비율. | 남에게 돈을 빌려 쓰고 그 대가로 일정하게 내는 돈.",
+          "meaning_ja_source": "きんり【金利】。りそく【利息】。りし【利子】 | りし【利子】。りそく【利息】"
+        }
       }
     },
     {
@@ -9984,18 +11115,28 @@
       "sequence_no": 900,
       "word": "大方",
       "reading": "おおかた",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "대충 | 얼추 | 대부분",
+      "meaning_ja": "基本的なものだけを取る程度に。 | かなりの程度で大分。 | 半分を大きく上回って全体に近い程度に。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1415020",
         "meaning_en": "perhaps, almost all, majority",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "대충 | 얼추 | 대부분",
+          "definition_ko": "기본적인 것을 추리는 정도로. | 어지간한 정도로 대충. | 절반이 훨씬 넘어 전체에 가깝게.",
+          "meaning_ja_source": "おおまかに【大まかに】。だいたい【大体】。おおかた【大方】。おおよそ【大凡】。およそ【凡そ】 | だいたい【大体】。ほとんど【殆ど】。たいがい【大概】。おおかた【大方】。ほぼ | たいはん【大半】。ほとんど【殆ど】。おおかた【大方】。だいぶぶん【大部分】"
+        }
       }
     },
     {
@@ -10061,18 +11202,28 @@
       "sequence_no": 903,
       "word": "朗読",
       "reading": "ろうどく",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "낭독 | 낭송",
+      "meaning_ja": "文章を声に出して読み上げること。 | 詩や文章などを声を出して読み上げること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1560730",
         "meaning_en": "reading aloud, recitation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "낭독 | 낭송",
+          "definition_ko": "글을 소리 내어 읽음. | 시나 문장 등을 소리 내어 읽음.",
+          "meaning_ja_source": "ろうどく【朗読】 | ろうしょう【朗誦】。ろうどく【朗読"
+        }
       }
     },
     {
@@ -10273,18 +11424,28 @@
       "sequence_no": 911,
       "word": "左利き",
       "reading": "ひだりきき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "애주가 | 왼손잡이",
+      "meaning_ja": "酒を飲むのを非常に好む人。 | 右手より左手のほうをよく使う人。または、右手より左手のほうがよくきく人。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1601860",
         "meaning_en": "left-handedness, sake drinker, left-hander",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "애주가 | 왼손잡이",
+          "definition_ko": "술을 매우 좋아하는 사람. | 오른손보다 왼손을 더 많이 쓰거나 잘 쓰는 사람.",
+          "meaning_ja_source": "あいしゅか【愛酒家】。さけずき【酒好き】。さとう【左党】。ひだりきき【左利き】 | ひだりきき【左利き】"
+        }
       }
     },
     {
@@ -10397,18 +11558,28 @@
       "sequence_no": 916,
       "word": "着工",
       "reading": "ちゃっこう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "기공 | 착공",
+      "meaning_ja": "大きい規模の工事を始めること。 | 工事を始めること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1423030",
         "meaning_en": "start of (construction) work",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "기공 | 착공",
+          "definition_ko": "큰 규모의 공사를 시작함. | 공사를 시작함.",
+          "meaning_ja_source": "きこう【起工】。ちゃっこう【着工】 | ちゃっこう【着工】"
+        }
       }
     },
     {
@@ -10416,18 +11587,28 @@
       "sequence_no": 917,
       "word": "期日",
       "reading": "きじつ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "날 | 기일 | 기한 | 시일 | 제때 | 제날짜",
+      "meaning_ja": "何らかの理由で定められた日。 | 決まった日にちや期限。 | あらかじめ決めておいた時期。 | 決まっている時間や日付。 | 決めておいた時。 | 前もって定められた日や、何かが行われるべき日。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1220610",
         "meaning_en": "fixed date, settlement date",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "날 | 기일 | 기한 | 시일 | 제때 | 제날짜",
+          "definition_ko": "어떠한 이유로 정해 놓은 하루. | 정해진 날짜나 기한. | 미리 정해 놓은 시기. | 특정하게 정해진 시간이나 날짜. | 정해 놓은 때. | 미리 정해져 있거나 어떤 일이 이루어져야 할 날짜.",
+          "meaning_ja_source": "きじつ【期日】 | きじつ【期日】。きげん【期限】。ひにち【日にち】 | きげん【期限】。きじつ【期日】。にちげん【日限】 | じじつ【時日】。きじつ【期日】 | ていじ・じょうじ【定時】。きじつ・きにち【期日】 | きじつ・きにち・ごじつ【期日】"
+        }
       }
     },
     {
@@ -10435,18 +11616,28 @@
       "sequence_no": 918,
       "word": "星座",
       "reading": "せいざ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "성좌 | 별자리",
+      "meaning_ja": "複数の星が天球上につながっている様子に、それに類似した動物・もの・神話中の人物の名前をつけたもの。 | 複数の星がつながっている様子を、それと似た動物・物・神話の中の人物の名と結びつけたもの。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1376360",
         "meaning_en": "constellation",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "성좌 | 별자리",
+          "definition_ko": "여러 개의 별들이 이어진 모습에 그와 비슷하게 생긴 동물, 물건, 신화 속 인물의 이름을 붙인 것.",
+          "meaning_ja_source": "せいざ【星座】"
+        }
       }
     },
     {
@@ -10454,18 +11645,28 @@
       "sequence_no": 919,
       "word": "着席",
       "reading": "ちゃくせき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "좌정 | 착석",
+      "meaning_ja": "席につくこと。座につくこと。 | 席に座ること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1423130",
         "meaning_en": "sit down, seat",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "좌정 | 착석",
+          "definition_ko": "자리를 잡고 앉거나 자리를 잡음. | 자리에 앉음.",
+          "meaning_ja_source": "ちゃくせき【着席】。ちゃくざ【着座】 | ちゃくせき【着席】"
+        }
       }
     },
     {
@@ -10473,18 +11674,28 @@
       "sequence_no": 920,
       "word": "平常",
       "reading": "へいじょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "평상 | 평시",
+      "meaning_ja": "特別なことのない、いつもと同じであること。 | 特別なことのない、普通の時。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1507420",
         "meaning_en": "normal, usual",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "평상 | 평시",
+          "definition_ko": "특별한 일이 없는 보통 때.",
+          "meaning_ja_source": "へいじょう【平常】。ふだん【普段】 | へいじ【平時】。ふだん【普段】。へいじょう【平常】"
+        }
       }
     },
     {
@@ -10550,18 +11761,28 @@
       "sequence_no": 923,
       "word": "境遇",
       "reading": "きょうぐう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "경우 | 처지",
+      "meaning_ja": "行なってしかるべき正しい道理。 | 置かれている条件や状況。 | 自分が置かれている状況や状態。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1236000",
         "meaning_en": "environment, circumstances",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "경우 | 처지",
+          "definition_ko": "당연히 행하여야 할 바른 이치. | 놓여 있는 조건이나 형편. | 처하여 있는 형편이나 사정.",
+          "meaning_ja_source": "きょうぐう【境遇】 | きょうぐう【境遇】。きょうがい【境涯】。みのうえ【身の上】 | きょうぐう【境遇】。たちば【立場】。かんきょう【環境】"
+        }
       }
     },
     {
@@ -10617,18 +11838,28 @@
       "sequence_no": 926,
       "word": "長編",
       "reading": "ちょうへん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "장편 | 장편 소설",
+      "meaning_ja": "内容が長くて複雑な小説、詩、映画など。 | 構成が複雑で、その内容や主題が幅広く、登場人物も多様な、長い小説。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1430110",
         "meaning_en": "long (e.g. novel film)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "장편 | 장편 소설",
+          "definition_ko": "내용이 길고 복잡한 소설, 시, 영화 등. | 구성이 복잡하고 다루는 내용이나 주제가 넓으며 등장인물도 다양한 긴 소설.",
+          "meaning_ja_source": "ちょうへん【長編・長篇】 | ちょうへん【長編・長篇】。ちょうへんしょうせつ【長編小説】 | ちょうへんしょうせつ【長編小説】。ちょうへん【長編・長篇】"
+        }
       }
     },
     {
@@ -10723,18 +11954,28 @@
       "sequence_no": 930,
       "word": "本場",
       "reading": "ほんば",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "고장 | 본고장 | 본바닥",
+      "meaning_ja": "ある品物が多く出たり、または何かで有名な地域。 | ある活動や生産が初めて行われ、受け継がれている地域。 | ある物事の中心と根本になるところ。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1522690",
         "meaning_en": "home, habitat, center, best place, genuine",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "고장 | 본고장 | 본바닥",
+          "definition_ko": "어떤 물건이 많이 나거나 무엇으로 유명한 지역. | 어떤 활동이나 생산이 처음 이루어지고 전해져 내려오는 지역. | 어떤 일의 중심과 근본이 되는 곳.",
+          "meaning_ja_source": "ほんば【本場】。さんち【産地】 | ほんば【本場】"
+        }
       }
     },
     {
@@ -10742,18 +11983,28 @@
       "sequence_no": 931,
       "word": "歓声",
       "reading": "かんせい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "환성 | 환호성",
+      "meaning_ja": "喜びを抑えきれずに叫ぶ声。 | 嬉しくて大声で叫ぶ声。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1213000",
         "meaning_en": "cheer, shout of joy",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "011.xml",
+          "meaning_ko": "환성 | 환호성",
+          "definition_ko": "기쁘고 반가워서 지르는 소리. | 기뻐서 크게 외치는 소리.",
+          "meaning_ja_source": "かんせい【歓声】 | かんこのこえ【歓呼の声】。かんせい【歓声】"
+        }
       }
     },
     {
@@ -10790,18 +12041,28 @@
       "sequence_no": 933,
       "word": "断然",
       "reading": "だんぜん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "단연 | 단연코 | 단연히",
+      "meaning_ja": "何かの順位や水準、度合などが確実に判断できるぐらい明確に。 | 順位や水準、度合などが確実に判断できるぐらい明確に。 | どんなことがあっても、絶対に。 | 何があっても必ず。 | 揺れたりためらったりせずに。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1419690",
         "meaning_en": "firmly, absolutely, definitely",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "단연 | 단연코 | 단연히",
+          "definition_ko": "무엇의 순위나 수준, 정도 등이 확실히 판단이 될 만큼 뚜렷하게. | 순위나 수준, 정도 등이 확실히 판단이 될 만큼 뚜렷하게. | 어떤 경우에도 절대로. | 무슨 일이 있어도 꼭. | 흔들리거나 망설이지 않고.",
+          "meaning_ja_source": "だんぜん【断然】 | だんぜん【断然】。けっして【決して】。だんじて【断じて】 | だんぜん【断然】。だんじて【断じて】"
+        }
       }
     },
     {
@@ -10809,18 +12070,28 @@
       "sequence_no": 934,
       "word": "観覧",
       "reading": "かんらん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "감상 | 관람",
+      "meaning_ja": "芸術作品や景色などを楽しみ、理解して評価すること。 | 公演・展示・スポーツ試合などを見ること。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1215040",
         "meaning_en": "viewing",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "감상 | 관람",
+          "definition_ko": "예술 작품이나 경치 등을 즐기고 이해하면서 평가함. | 공연, 전시, 운동 경기 등을 봄.",
+          "meaning_ja_source": "かんしょう【鑑賞】。かんしょう【観賞】。かんらん【観覧】 | かんらん【観覧】"
+        }
       }
     },
     {
@@ -11001,18 +12272,28 @@
       "sequence_no": 942,
       "word": "前置き",
       "reading": "まえおき",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "서두 | 서설 | 소개말",
+      "meaning_ja": "事や談話のはじめの部分。 | つまらなくて無駄な話を述べ続けること。 | 知らない事実や内容がよく分かるように紹介する言葉。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1393630",
         "meaning_en": "preface, introduction",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "서두 | 서설 | 소개말",
+          "definition_ko": "일이나 말이 시작되는 부분. | 쓸데없이 지루하게 말을 늘어놓음. | 모르는 사실이나 내용을 잘 알도록 소개하는 말.",
+          "meaning_ja_source": "ぼうとう【冒頭】。まえおき【前置き】 | まえおき【前置き】 | しょうかいのことば【紹介の言葉】。まえおき【前置き】"
+        }
       }
     },
     {
@@ -11116,18 +12397,28 @@
       "sequence_no": 947,
       "word": "無駄遣い",
       "reading": "むだづかい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "낭비 | 허비 | 흥청망청",
+      "meaning_ja": "金銭・時間・物などを大事にせずむだに使うこと。 | 何の甲斐や利益のないことに金や物・時間などを使うこと。 | 金や物などをむやみやたらに使うこと。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1530520",
         "meaning_en": "waste money on, squander money on, flog a dead horse",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "낭비 | 허비 | 흥청망청",
+          "definition_ko": "돈, 시간, 물건 등을 헛되이 함부로 씀. | 아무 보람이나 이득이 없이 씀. | 돈이나 물건 등을 마구 쓰는 모양.",
+          "meaning_ja_source": "ろうひ【浪費】。むだづかい【無駄遣い】 | むだづかい【無駄遣い】。ろうひ【浪費】。つぶし【潰し】 | むだづかい【無駄遣い】。さんざい【散財】"
+        }
       }
     },
     {
@@ -11183,18 +12474,28 @@
       "sequence_no": 950,
       "word": "使い道",
       "reading": "つかいみち",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "소용 | 쓰임 | 쓸모 | 용도 | 사용처 | 쓰임새",
+      "meaning_ja": "用いて利益になること。 | 材料や道具、手段が実際に使われるところ。またはその用途。 | 使う価値。 | 使われる分野や部分。 | 使われる所や目的。 | 物やお金などを使った場所や目的。 | 使われる程度。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1305900",
         "meaning_en": "use",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "소용 | 쓰임 | 쓸모 | 용도 | 사용처 | 쓰임새",
+          "definition_ko": "어떤 이익이나 쓸모. | 재료나 도구, 수단이 실제로 사용되는 곳. 또는 그 용도. | 쓸 만한 가치. | 쓰이게 될 분야나 부분. | 쓰이는 곳이나 목적. | 물건이나 돈 등을 사용한 곳이나 목적. | 쓰임의 정도.",
+          "meaning_ja_source": "しょよう【所用】。つかいみち【使い道】 | つかいみち【使い道】 | つかいみち【使い道】。やく【役】。とりえ【取り柄】 | つかいみち【使い道】。ようと【用途】。つかいどころ【使い所】 | ようと【用途】。つかいみち【使い道・使い途】 | つかいみち【使い道】。つかいどころ【使いどころ】。しと【使途】"
+        }
       }
     },
     {
@@ -11202,18 +12503,28 @@
       "sequence_no": 951,
       "word": "利潤",
       "reading": "りじゅん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "이윤 | 이익",
+      "meaning_ja": "商売でもうけた金。 | 企業の総収益から製品の生産にかかった費用などを差し引いた純利益。 | 一定期間稼いだ金額から関連費用を差し引いた残りの金額。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1549580",
         "meaning_en": "profit, returns",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "이윤 | 이익",
+          "definition_ko": "장사를 해서 번 돈. | 기업의 총수익에서 제품 생산에 들어간 비용 등을 빼고 남는 순이익. | 일정 기간 벌어들인 돈에서 그 돈을 버는 데 쓴 비용을 뺀 나머지 금액.",
+          "meaning_ja_source": "りじゅん【利潤】。りえき【利益】 | りじゅん【利潤】 | りえき【利益】。りじゅん【利潤】。もうけ【儲け】"
+        }
       }
     },
     {
@@ -11221,18 +12532,28 @@
       "sequence_no": 952,
       "word": "短大",
       "reading": "たんだい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "전문대 | 전문 대학",
+      "meaning_ja": "職業人を養成することを目的に、専門的な理論や技術を教授・研究する高等教育機関。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1418780",
         "meaning_en": "junior college",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "전문대 | 전문 대학",
+          "definition_ko": "직업인을 양성하기 위해 전문적인 이론과 기술을 가르치고 연구하는 고등 교육 기관.",
+          "meaning_ja_source": "たんだい【短大】。たんきだいがく【短期大学】 | たんきだいがく【短期大学】。たんだい【短大】"
+        }
       }
     },
     {
@@ -11365,18 +12686,28 @@
       "sequence_no": 958,
       "word": "沢山",
       "reading": "たくさん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "많이 | 잔뜩",
+      "meaning_ja": "数や量、程度などが一定の基準を超えて。 | 限界に至るまで。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1415870",
         "meaning_en": "many, a lot, much",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "많이 | 잔뜩",
+          "definition_ko": "수나 양, 정도 등이 일정한 기준보다 넘게. | 한계에 이를 때까지 가득.",
+          "meaning_ja_source": "おおく【多く】。たくさん【沢山】。かずおおく【数多く】。ゆたかに【豊かに】 | いっぱい【一杯】。たくさん【沢山】"
+        }
       }
     },
     {
@@ -11403,18 +12734,28 @@
       "sequence_no": 960,
       "word": "終わる",
       "reading": "おわる",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "끝나다 | 다하다 | 파하다 | 끝장나다 | 넘어가다 | 완료되다 | 지나가다",
+      "meaning_ja": "物事が最後までなされる。 | 決まった期間が過ぎる。 | ある場所がこれ以上つながらない。 | 学校や会社などでその日になすべきことがすべて行われる。 | ある現象や時が終わる。 | 続いていたことが、そこでなくなる。また、続けてきたことを済ませる。 | 物事が完全にしまいになる。 | 本来の状態が崩れてなくなる。 | ある事件や状況が無事に終わりになる。 | 完全に終わる。 | ある事や事件が終わる。",
       "part_of_speech": "五段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1589600",
         "meaning_en": "to finish, to close",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "끝나다 | 다하다 | 파하다 | 끝장나다 | 넘어가다 | 완료되다 | 지나가다",
+          "definition_ko": "일이 마지막까지 이루어지다. | 정해진 기간이 모두 지나가다. | 어떤 곳이 더 이상 이어지지 않다. | 학교나 회사 등에서 그날 맡은 일이 다 이루어지다. | 어떤 현상이나 때가 끝나다. | 어떤 일이 끝나다. 또는 어떤 일을 끝내거나 그만두다. | 일이 완전히 끝나다. | 본래의 상태가 무너져 없어지다. | 어떤 사건이나 상황이 별일 없이 지나가다. | 완전히 끝마쳐지다. | 어떤 일이나 사건이 끝나다.",
+          "meaning_ja_source": "おわる【終わる】。すむ【済む】 | おわる【終わる】。すむ【済む】。きれる【切れる】。あける【開ける】 | おわる【終わる】。つきる【尽きる】 | おわる【終わる】。すぎる【過ぎる】 | おわる【終わる】。おえる【終える】 | おわる【終わる】。だめになる【駄目になる】。だいなしになる【台無しになる】 | すむ【済む】。おわる【終わる】 | かんりょうする【完了する】。おわる【終わる】 | すぎる【過ぎる】。すぎゆく【過ぎ行く】。すぎさる【過ぎ去る】。おわる【終わる】"
+        }
       }
     },
     {
@@ -11470,18 +12811,29 @@
       "sequence_no": 963,
       "word": "アップ",
       "reading": "アップ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "업로드 | 클로즈업 | 준비 운동",
+      "meaning_ja": "インターネットなどの通信回線を通して他のコンピューターシステムにファイルや資料を送ること。 | 映画やテレビで、背景または人物の一部を画面いっぱいに拡大して映す技法。 | 本格的な運動や競技に入る前に身体の柔軟性をよくするために行う軽い運動。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1016610",
         "meaning_en": "up",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 6,
+          "reasons": [
+            "surface_exact",
+            "reading_exact",
+            "kana_identity"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "업로드 | 클로즈업 | 준비 운동",
+          "definition_ko": "컴퓨터 통신망을 통하여 다른 컴퓨터 시스템에 파일이나 자료를 보내는 일. | 영화나 텔레비전에서, 화면에 배경이나 인물의 일부를 크게 나타내는 기법. | 운동이나 경기를 본격적으로 하기 전에 몸을 풀기 위해 하는 가벼운 운동.",
+          "meaning_ja_source": "アップロード。アップ | クローズアップ。おおうつし【大写し】。アップ | じゅんびたいそう【準備体操】。じゅんびうんどう【準備運動】。ウォーミング・アップ。ウォームアップ"
+        }
       }
     },
     {
@@ -11556,18 +12908,28 @@
       "sequence_no": 967,
       "word": "面白い",
       "reading": "おもしろい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "우습다 | 재밌다 | 재미나다 | 재미있다",
+      "meaning_ja": "楽しくて、笑える。 | 楽しくて愉快な気持である。",
       "part_of_speech": "い形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1533580",
         "meaning_en": "interesting, amusing",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "우습다 | 재밌다 | 재미나다 | 재미있다",
+          "definition_ko": "재미가 있어 웃을 만하다. | 즐겁고 유쾌한 느낌이 있다. | 즐겁고 유쾌한 기분이 나다.",
+          "meaning_ja_source": "こっけいだ【滑稽だ】。おもしろい【面白い】。たのしい【楽しい】 | おもしろい【面白い】。おもしろおかしい【面白おかしい】。おかしい【可笑しい】"
+        }
       }
     },
     {
@@ -11575,18 +12937,28 @@
       "sequence_no": 968,
       "word": "何故",
       "reading": "なぜ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "왜 | 어찌",
+      "meaning_ja": "どういう理由で。また、何ゆえ。 | ある事実に対して確認を要求する時にいう語。 | どんな理由で。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1577120",
         "meaning_en": "why, how",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "왜 | 어찌",
+          "definition_ko": "무슨 이유로. 또는 어째서. | 어떤 사실에 대해 확인을 요구할 때 쓰는 말. | 어떤 이유로.",
+          "meaning_ja_source": "なぜ【何故】。どうして。なんで【何で】 | どうして。なぜ【何故】"
+        }
       }
     },
     {
@@ -11594,18 +12966,28 @@
       "sequence_no": 969,
       "word": "所謂",
       "reading": "いわゆる",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "세칭 | 소위 | 이른바",
+      "meaning_ja": "世間一般に言われること。 | 世間で言われているように。 | 世間一般に言われる通り。",
       "part_of_speech": "その他",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1343150",
         "meaning_en": "the so-called, so to speak",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "세칭 | 소위 | 이른바",
+          "definition_ko": "세상에서 흔히 말함. | 사람들이 흔히 말하는 바대로.",
+          "meaning_ja_source": "いわゆる【所謂】 | いわゆる 【所謂】"
+        }
       }
     },
     {
@@ -11661,7 +13043,7 @@
       "word": "伴う",
       "reading": "ともなう",
       "meaning_ko": "수반하다, 동반하다",
-      "meaning_ja": "",
+      "meaning_ja": "どこかに行ったり来たりする時、誰かと同行する。 | 二人以上が一緒にする。 | 何かが一緒に起ったり、あることを他のことと一緒にしたりする。 | 人や動物を自分と一緒にいさせる。 | 人の後でその人について行く。 | ある物事に付随して別の物事が起こる。 | 一緒に連れ立って行く。 | あるものや現象がともに現れる。 | 何かをしたり、どこかに行くことを共にする。 | あることの結果として現れる。 | 先に出たものの後を追っていく。 | ある物事とともに起こる。また、そうさせる。 | 誰かについて一緒に出る。",
       "part_of_speech": "五段動詞",
       "example_ja": "",
       "example_ko": "",
@@ -11671,7 +13053,17 @@
         "jmdict_seq": "1478370",
         "meaning_en": "to accompany, to bring with, to be accompanied by, to be involved in",
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-08.json",
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "달다 | 더불다 | 데리다 | 따르다 | 대동하다 | 동반되다 | 동반하다 | 뒤따르다 | 따라가다 | 따라오다 | 수반하다 | 따라나서다",
+          "definition_ko": "어디를 가거나 올 때 누구를 따르게 하다. | 둘 이상이 함께하다. | 어떤 것이 함께 일어나거나 어떤 것을 다른 것과 같이하다. | 어떤 사람이나 동물을 자기와 함께 있게 하다. | 다른 사람의 뒤에서 그가 가는 대로 같이 가다. | 어떤 일이 다른 일과 함께 일어나다. | 같이 데리고 가다. | 어떤 일이나 현상이 함께 나타나다. | 어떤 일을 하거나 어디를 가는 것을 함께 하다. | 어떤 일에 따른 결과로 나오다. | 앞에서 가는 것을 뒤에서 그대로 쫓아가다. | 어떤 일이 다른 일과 함께 일어나게 되다. | 어떤 일과 함께 생기다. 또는 그렇게 되게 하다. | 남이 가는 대로 같이 나서다.",
+          "meaning_ja_source": "つれる【連れる】。ともなう【伴う】 | ともなう【伴う】 | おう【追う】。したがう【従う】。ともなう【伴う】 | つれる【連れる】。どうこうする【同行する】。ともなう【伴う】 | どうはんする【同伴する】。ともなう【伴う】 | ともなう【伴う】。ふずいする【付随する】 | ついていく【付いて行く】。したがう【従う】。ともなう【伴う】 | ずいはんする【随伴する】。ともなう【伴う】"
+        }
       }
     },
     {
@@ -11679,18 +13071,28 @@
       "sequence_no": 973,
       "word": "一寸",
       "reading": "ちょっと",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "좀 | 자칫 | 잠깐 | 조금",
+      "meaning_ja": "分量や程度が少ないさま。 | 時間が短いさま。 | 主に頼んだり同意を得たりする時、雰囲気をやわらかくするためにいう語。 | 比較的に少し。 | ごく短い間。 | ごく短い間に。 | 少ない分量や少ない程度。 | 短い間。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1163940",
         "meaning_en": "(ateji) (adv int) (uk) just a minute, a short time, a while, just a little, somewhat, easily, readily, rath",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "좀 | 자칫 | 잠깐 | 조금",
+          "definition_ko": "분량이나 정도가 적게. | 시간이 짧게. | 주로 부탁이나 동의를 구할 때 부드러운 느낌을 주기 위해 넣는 말. | 비교적 조금. | 아주 짧은 시간 동안. | 아주 짧은 시간 동안에. | 적은 분량이나 적은 정도. | 짧은 시간 동안.",
+          "meaning_ja_source": "すこし【少し】。わずか【僅か・纔か】。ちょっと【一寸・鳥渡】 | ちょっと【一寸・鳥渡】 | ちょっと【一寸・鳥渡】。やや【稍・漸】 | ちょっと【一寸・鳥渡】。すこし【少し】。つかのま【束の間】 | ちょっと【一寸・鳥渡】。すこし【少し】"
+        }
       }
     },
     {
@@ -11699,7 +13101,7 @@
       "word": "極めて",
       "reading": "きわめて",
       "meaning_ko": "지극히, 매우",
-      "meaning_ja": "",
+      "meaning_ja": "この上ないほど、とても。 | とても非常に。 | 普通以上にとても。 | 非常に甚だしくて物凄く。 | 普通よりずっとひどい程度に。 | 天候や気温などが、一定水準を超えるところがあるように。 | ある模様や状態が極致に達しているところがあるように。 | 意志や心が、とても大きくて強いところがあるように。 | 驚くほど極めて甚だしくて物凄く。",
       "part_of_speech": "副詞",
       "example_ja": "",
       "example_ko": "",
@@ -11709,7 +13111,17 @@
         "jmdict_seq": "1240200",
         "meaning_en": "exceedingly, extremely",
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-09.json",
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "극히 | 되게 | 마냥 | 무지 | 대단히 | 지독히 | 무지무지 | 지독스레",
+          "definition_ko": "더할 수 없이, 매우. | 아주 몹시. | 보통 이상으로 몹시. | 매우 엄청나고 대단하게. | 보통의 정도보다 훨씬 더하게. | 날씨나 기온 등이 일정한 정도를 넘은 정도로. | 어떤 모양이나 상태 등이 극에 달한 정도로. | 의지나 마음이 매우 크고 강하게. | 놀랄 만큼 매우 대단하거나 엄청나게. | 날씨나 기온 등이 일정한 정도를 넘은 데가 있게. | 어떤 모양이나 상태 등이 극에 달한 데가 있게. | 의지나 마음이 매우 크고 강한 데가 있게.",
+          "meaning_ja_source": "きわめて【極めて】 | ひじょうに【非常に】。きわめて【極めて】。たいへん【大変】 | ひじょうに【非常に】。きわめて【極めて】。たいへん【大変】。すごく【凄く】。ものすごく【物凄く】 | とてもひどく。きわめて【極めて】。ものすごく【物凄く】。はなはだしく【甚だしく】 | きわめて【極めて】。ものすごく【物凄く】。はなはだしく【甚だしく】"
+        }
       }
     },
     {
@@ -11784,18 +13196,28 @@
       "sequence_no": 978,
       "word": "記す",
       "reading": "しるす",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "적다 | 표시하다",
+      "meaning_ja": "ある内容を文章で表す。 | 帳簿や日記などを記録する。 | 知らせたい内容を表し示す。",
       "part_of_speech": "五段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1223140",
         "meaning_en": "to note, to write down",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "008.xml",
+          "meaning_ko": "적다 | 표시하다",
+          "definition_ko": "어떤 내용을 글로 쓰다. | 장부나 일기 등을 쓰다. | 어떤 사항을 알리는 내용을 겉에 드러내 보이다.",
+          "meaning_ja_source": "かく【書く】。しるす【記す】 | かく【書く】。しるす【記す】。つける【付ける】 | ひょうじする【表示する】。しるす【記す】"
+        }
       }
     },
     {
@@ -11803,18 +13225,28 @@
       "sequence_no": 979,
       "word": "行",
       "reading": "ぎょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "줄 | 행 | 글줄 | 수행",
+      "meaning_ja": "文字の縦または横の並び。 | 横または縦に並べられた文書を数える単位。 | 文字などの、縦または横の並び。 | 縦または横に並べた文章を数える単位。 | いくつかの文字を書き並べてできた一列。 | 仏教で、仏陀の教えを実践し、道義を修めること。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1281690",
         "meaning_en": "line, row, verse",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "줄 | 행 | 글줄 | 수행",
+          "definition_ko": "글을 가로나 세로로 늘어놓은 것. | 가로나 세로로 늘어놓은 글을 세는 단위. | 여러 글자를 이어서 써서 이루어진 줄. | 불교에서, 부처의 가르침을 실천하고 도를 닦음.",
+          "meaning_ja_source": "ぎょう【行】。くだり【行】 | ぎょう・くだり【行】 | ぎょう【行】 | しゅぎょう【修行】。ぎょう【行】"
+        }
       }
     },
     {
@@ -11851,18 +13283,28 @@
       "sequence_no": 981,
       "word": "落ちる",
       "reading": "おちる",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "가다 | 죽다 | 줄다 | 지다 | 치다 | 내리다 | 물먹다 | 밀리다 | 빠지다 | 털리다 | 내려가다 | 내려서다 | 내려앉다 | 내려오다 | 떨어지다 | 벗어지다 | 탈락하다 | 미끄러지다",
+      "meaning_ja": "傷んだり、変質したりする。 | 垢や染みがきれいに取れる。 | 元の特徴が変わって現れなくなる。 | 数や量が元の水準より少なくなる。 | 力や勢力などが元の水準より弱くなる。 | 花や葉が枯れて下に落ちる。 | ついていたしみなどが、それを洗う過程で消えていく。 | 水が一ヶ所に集まって落下する。 | 雷や稲妻などが大きな音を立てて光と共に落ちる。 | 肉や腫れなどが減る。 | 値段や数値、成績などが前より低くなる。また、そうする。 | 何かに失敗したり困難なことに遭ったりする。 | 底や表面の汚れが擦られて、削られたり取れたりする。 | 染まったり付いたりしていたものが流されてなくなる。 | 順番を抜かしたり、入るべきものが入っていなかったりする。 | 肉や体重などが減る。 | 水やくぼみなどに落ちて中に入る。 | 困難な状況に置かれる。 | もっともらしい言葉や誘いにだまされる。 | 何かに夢中になる。 | 何かに付いているものが取り外される。 | 水準や等級が低くなる。 | 音の高さが低くなる。 | 等級や地位などが高い方から低い方に移される。 | 地位が低くなる。 | 上から下へ移動する。 | ある状態や境遇に置かれる。 | 我が軍の地域や城などが敵に占められる。 | 他のより水準が低い。 | 試験や選挙、選抜などに合格できない。 | ぶら下がったり付いたりしていた物が分かれたり落とされたりする。 | 持ち物が落とされる。 | 値段、気温、水準などが低くなる。 | 病気や習慣などがなくなる。 | 日や月が西の方に傾く。 | 利益が残る。 | あったり生じたりした物事がなくなる。 | 垢やしみなどが消えてきれいになる。 | ある範囲や順位の中に入ることに失敗して抜け落ちる。 | 選ばれた対象に入れなかった、または試験で落ちることを俗にいう語。",
       "part_of_speech": "一段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1548550",
         "meaning_en": "to fail (e.g. exam), to fall down, to drop",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "가다 | 죽다 | 줄다 | 지다 | 치다 | 내리다 | 물먹다 | 밀리다 | 빠지다 | 털리다 | 내려가다 | 내려서다 | 내려앉다 | 내려오다 | 떨어지다 | 벗어지다 | 탈락하다 | 미끄러지다",
+          "definition_ko": "상하거나 변질되다. | 때나 얼룩이 잘 지워지다. | 원래 가지고 있던 특징이 변하여 드러나지 않다. | 수나 양이 원래보다 적어지다. | 힘이나 세력 등이 원래보다 못하게 되다. | 꽃이나 잎이 시들어 떨어지다. | 묻어 있던 얼룩 같은 것이 닦여 없어지다. | 물이 한데 모여 떨어지다. | 천둥, 번개 등이 큰 소리나 빛을 내며 일어나다. | 살이나 부은 것이 빠지다. | 값이나 수치 또는 성적 등이 이전보다 떨어지거나 낮아지다. 또는 그렇게 하다. | 어떤 일에 실패하거나 곤란한 일을 당하다. | 바닥이나 겉 부분의 지저분한 것이 문질러져서 깎이거나 닦이다. | 물들거나 묻어 있던 것이 씻기어 없어지다. | 차례를 빠뜨리거나 들어 있어야 할 것이 들어 있지 않다. | 살이나 몸무게 등이 줄어들다. | 물이나 구덩이 등의 속으로 떨어져 잠겨 들어가다. | 곤란한 상황에 놓이다. | 그럴듯한 말이나 꼬임에 속아 넘어가다. | 무엇에 정신이 지나치게 쏠리다. | 달려 있거나 붙어 있는 것 등이 떨어지다. | 수준이나 등급을 위에서 아래로 옮기다. | 음의 높이가 낮아지다. | 등급이나 지위 등이 높은 쪽에서 낮은 쪽으로 옮아가다. | 낮은 지위로 자리를 옮겨 앉다. | 높은 지위에 있다가 낮은 지위로 오다. | 위에서 아래로 내려지다. | 어떤 상태나 처지에 빠지다. | 아군의 지역이나 성 등이 적에게 넘어가게 되다. | 다른 것보다 수준이 낮거나 못하다. | 시험이나 선거, 선발 등에 뽑히지 못하다. | 달렸거나 붙었던 것이 갈라지거나 떼어지다. | 가지고 있던 것이 흘러서 빠지다. | 값, 기온, 수준 등이 낮아지거나 내려가다. | 병이나 습관 등이 없어지다. | 해나 달이 서쪽으로 지다. | 이익이 남다. | 있거나 생겼던 것이 없어지다. | 때나 기미 등이 없어져서 말끔하게 되다. | 범위에 포함되지 못하고 떨어지거나 빠지다. | (속된 말로) 뽑히거나 골라진 대상 가운데에 들지 못하거나 시험에서 떨어지다.",
+          "meaning_ja_source": "かわる【変わる】。おちる【落ちる】 | ぬける【抜ける】。おちる【落ちる】 | なくなる【無くなる】。おちる【落ちる】 | へる【減る】。げんしょうする【減少する】。さがる【下がる】。おちる【落ちる】 | へる【減る】。げんしょうする【減少する】。おちる【落ちる】 | ちる【散る】。おちる【落ちる】 | おちる【落ちる】。とれる【取れる】。きえる【消える】 | おちる【落ちる】 | なる【鳴る】。ひかる【光る】。おちる【落ちる】 | おちる【落ちる】。ひく【引く】 | さげる【下げる】。さがる【下がる】。おちる【落ちる】。おとす【落とす】 | いっぱいくう【一杯食う】。やられる【遣られる】。おちる【落ちる】 | おちる【落ちる】。とれる【取れる】。あせる【褪せる】 | ぬける【抜ける】。おちる【落ちる】。もれる【漏れる】。かける【欠ける】 | おちる【落ちる】。やせる【痩せる】 | おちる【落ちる】。おちこむ【落ち込む】。おちいる【陥る・落ち入る】。おぼれる【溺れる】 | おちる【落ちる】。おちいる【陥る・落ち入る】 | おちる【落ちる】。おぼれる【溺れる】。ふける【耽る】 | おちる【落ちる】。たたきおとされる【叩き落とされる】。とれる【取れる】 | さがる【下がる】。おちる【落ちる】 | おちる【落ちる】。おろされる【下ろされる】 | おちる【落ちる】。おちいる【陥る】 | おちる【落ちる】。かんらくする【陥落する】 | おちる【落ちる】。おとる【劣る】 | おちる【落ちる】。とれる【取れる】。はなれる【離れる】。きれる【切れる】 | おちる【落ちる】。さがる【下がる】 | おちる【落ちる】。なおる【直る】 | おちる【落ちる】。しずむ【沈む】 | おちる【落ちる】。もうかる【儲かる】 | おちる【落ちる】。おとろえる【衰える】 | おちる【落ちる】。とれる【取れる】 | だつらくする【脱落する】。おちる【落ちる】 | すべる【滑る】。おちる【落ちる】"
+        }
       }
     },
     {
@@ -11889,18 +13331,28 @@
       "sequence_no": 983,
       "word": "答え",
       "reading": "こたえ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "답 | 답변 | 대꾸 | 대답 | 해답 | 말대답",
+      "meaning_ja": "呼びかけに対して言葉で応じること。また、その言葉。 | 質問や問題が要求することを明らかにして言うこと。また、その言葉。 | 問いや手紙などに対して応じること。また、その反応。 | 質問に対して答えること。また、その答え。 | 人の話を聞いて反応していう言葉。短い答え。 | 問いや要求に対して該当することを言うこと。また、その言葉。 | ある問題や現象を解決したり説明したりする方案。 | 質問や問題を解くこと。また、その結果。 | 問いに対して直ちに答えること。また、その答え。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1449530",
         "meaning_en": "answer, response",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "답 | 답변 | 대꾸 | 대답 | 해답 | 말대답",
+          "definition_ko": "부르는 말에 대해 어떤 말을 함. 또는 그런 말. | 질문이나 문제가 요구하는 것을 밝혀 말함. 또는 그런 말. | 물음이나 편지 등에 대해 반응함. 또는 그런 반응. | 질문에 대해 대답함. 또는 그런 대답. | 남의 말을 듣고 반응하여 하는 말. 짧은 대답. | 부르는 말에 대해 어떤 말을 함. 또는 그 말. | 묻거나 요구하는 것에 해당하는 것을 말함. 또는 그런 말. | 어떤 문제나 현상을 해결하거나 설명하는 방안. | 질문이나 문제를 풀이함. 또는 그런 것. | 묻는 말을 곧바로 받아서 대답함. 또는 그 대답.",
+          "meaning_ja_source": "こたえ【答え】。へんとう【返答】。へんじ【返事】 | こたえ【答え】。かいとう【解答】 | とうべん【答弁】。こたえ【答え】 | へんじ【返事】。こたえ【答え】。へんとう【返答】 | こたえ【答え】。かいとう【回答】 | かいとう【解答】。こたえ【答え】 | こたえ【答え】。へんとう【返答】"
+        }
       }
     },
     {
@@ -11938,18 +13390,28 @@
       "sequence_no": 985,
       "word": "取っ手",
       "reading": "とって",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "귀 | 꼭지 | 핸들 | 문고리 | 손잡이",
+      "meaning_ja": "壺や器などを持ち上げるために作った取っ手。 | 道具や器の上や端に付いて、持ち上げるときにつまむ凸の部分。 | 手で何かを開けたり、持ち上げたり、つかんだりするためについている部分。 | ドアの開閉に用いるつまみ。 | あるものを手でつかみやすくするために取り付けた部分。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1598780",
         "meaning_en": "handle, grip, knob",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "002.xml",
+          "meaning_ko": "귀 | 꼭지 | 핸들 | 문고리 | 손잡이",
+          "definition_ko": "항아리나 그릇 등을 들 수 있도록 만든 손잡이. | 도구나 그릇의 맨 위나 끝에 달려 있어 잡을 때 쓰이는 볼록한 부분. | 손으로 어떤 것을 열거나 들거나 붙잡을 수 있도록 덧붙여 놓은 부분. | 문을 열고 닫거나 잠그는 데 쓰는 쇠로 만든 고리. | 어떤 물건을 손으로 잡기 쉽게 만들어 붙인 부분.",
+          "meaning_ja_source": "みみ【耳】。とって【取っ手】 | つまみ【摘み・撮み】。とって【取っ手】 | とって【取っ手】。もちて【持ち手】 | ひきて【引き手】。とって【取っ手】 | とって【取っ手】。にぎりて【握り手】。つまみ。ハンドル"
+        }
       }
     },
     {
@@ -11957,18 +13419,28 @@
       "sequence_no": 986,
       "word": "及ぶ",
       "reading": "およぶ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "닿다 | 오다 | 걸치다 | 당하다 | 미치다 | 올라오다",
+      "meaning_ja": "影響や範囲があるところや対象に至る。 | 力や能力などが届く。 | 長さや深さがある程度まで達するか届く。 | 一定の期間や範囲内で続いたり影響を及ぼしたりする。 | 相手や状況に耐えられたり対抗して勝ち抜いたりする。 | ある基準や水準などに達する。 | 影響や作用などが対象に加わる。また、それを加える。 | 下の方から上の方に上がってくる。",
       "part_of_speech": "五段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1228170",
         "meaning_en": "to reach, to come up to, to amount to, to befall, to happen to, to extend, to match, to equal",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "닿다 | 오다 | 걸치다 | 당하다 | 미치다 | 올라오다",
+          "definition_ko": "영향이나 범위가 어떠한 곳이나 대상에 이르다. | 힘이나 능력 등이 미치다. | 길이나 깊이가 어떤 정도에 이르거나 닿다. | 일정한 기간이나 범위 내에서 이어지거나 영향을 미치다. | 상대나 상황을 감당하거나 맞서서 이겨 내다. | 어떤 기준이나 수준 등에 닿거나 이르다. | 영향이나 작용 등이 대상에 가해지다. 또는 그것을 가하다. | 아래쪽에서 위쪽을 향하여 오다.",
+          "meaning_ja_source": "とどく【届く】。およぶ【及ぶ】 | およぶ【及ぶ】 | くる【来る】。およぶ【及ぶ】。たっする【達する】。とどく【届く】 | わたる【渡る】。およぶ【及ぶ】。またがる【跨る】 | かなう【敵う】。およぶ【及ぶ】。ひってきする【匹敵する】 | およぶ【及ぶ】 。およぼす【及ぼす】"
+        }
       }
     },
     {
@@ -12005,18 +13477,29 @@
       "sequence_no": 988,
       "word": "あら",
       "reading": "あら",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "아 | 어 | 원 | 막- | 아유 | 아이 | 어머 | 에구 | 왕- | 요런 | 이런 | 이야 | 저런 | 허물 | 아이고 | 어머나 | 어머머 | 어이구 | 어이쿠",
+      "meaning_ja": "驚き、うろたえ、焦りなどの感情を表す時に発する語。 | 喜びや感動を表す時に発する語。 | 意外なことで驚いた時や、不愉快な時にいう語。 | 「粗い」または「質の悪い」という意を付加する接頭辞。 | 「手当たり次第」という意を付加する接頭辞。 | 痛かったり辛かったり驚いたり呆れたりしたときに発する声。 | 誰かに会って嬉しいときや非常に気分がいいときに発する声。 | 予想外のことにより驚いたり感心したりしたときに発する声。 | 痛みを感じたり、苦労したり、驚いたり、呆れたりした時に発する語。 | 懐かしかったり嬉しかったりする時に発する語。 | 「非常に大きい」、また「非常に粗い」という意を添加する接頭辞。 | 意外なことで驚いた時や、気の毒なことを見たり聞いたりした時にいう語。 | 意外なことや残念なことを見たり聞いたりした時に発する語。 | 驚き、喜び、怒りなどの感情を表したり、急に力を入れたりする時に発する語。 | 嘲笑を買うような言動。 | 懐かしかったり嬉しかったりしてたまらない時に発する語。 | 予想外のことにより驚いたり感心したりしたときに強調して発する声。 | 予想外のことにより驚いたり感心したりしたときにしきりに発する声。 | 痛みを感じたり、苦労したり、腹が立ったり、呆れたりした時に発する語。",
       "part_of_speech": "感動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1000520",
         "meaning_en": "oh, ah, saw-edged perch (Niphon spinosus)",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 6,
+          "reasons": [
+            "surface_exact",
+            "reading_exact",
+            "kana_identity"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "아 | 어 | 원 | 막- | 아유 | 아이 | 어머 | 에구 | 왕- | 요런 | 이런 | 이야 | 저런 | 허물 | 아이고 | 어머나 | 어머머 | 어이구 | 어이쿠",
+          "definition_ko": "놀라움, 당황함, 초조함, 다급함의 느낌을 나타낼 때 내는 소리. | 기쁨이나 감동의 느낌을 나타낼 때 내는 소리. | 예상하지 못한 일로 놀라거나 기분이 불쾌할 때 내는 소리. | ‘거친’ 또는 ‘품질이 낮은’의 뜻을 더하는 접두사. | ‘닥치는 대로 하는’의 뜻을 더하는 접두사. | 아프거나 힘들거나 놀라거나 기막힐 때 내는 소리. | 반갑거나 기분이 좋아서 어쩔 줄을 모를 때 내는 소리. | 예상하지 못한 일로 갑자기 놀라거나 감탄할 때 내는 소리. | 매우 아프거나 힘들거나 놀라거나 기막힐 때 내는 소리. | 매우 반갑거나 좋을 때 내는 소리. | '매우 큰' 또는 '매우 굵은'의 뜻을 더하는 접두사. | 뜻밖에 놀라운 일이나 안타까운 일을 보거나 들었을 때 하는 말. | 놀라움, 기쁨, 화남 등의 느낌을 나타내거나 갑자기 힘을 쓸 때 내는 소리. | 남에게 비웃음을 살 만한 말이나 행동. | 예상하지 못한 일로 갑자기 놀라거나 감탄할 때 강조해서 내는 소리. | 예상하지 못한 일로 갑자기 놀라거나 감탄할 때 잇따라 내는 소리. | 매우 아프거나 힘들거나 분하거나 기막힐 때 내는 소리.",
+          "meaning_ja_source": "あ。あら。や。おお。わあ | あ。あら。おお。わあ | まあ。あら。なんて | やす【安】。あら【粗】 | あら【荒】 | ふう。ああ。あら | あら。ああ | あら。まあ | あ。あら。やれやれ。まあ | あら【粗】 | こりゃ。これはこれは。あら。まあ。おやおや | あら。あれ。や | わあ。あら。あれ。おお | けってん【欠点】。あら【荒・粗】"
+        }
       }
     },
     {
@@ -12043,18 +13526,28 @@
       "sequence_no": 990,
       "word": "証拠",
       "reading": "しょうこ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "증거 | 증빙 | 증거물 | 증거품",
+      "meaning_ja": "ある出来事や事実を確認できる根拠。 | 裁判において事実認定のために必要なもの。 | 信用できる根拠とすること。また、その証拠。 | ある出来事や事実を確認できる根拠となるもの。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1351600",
         "meaning_en": "evidence, proof",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "증거 | 증빙 | 증거물 | 증거품",
+          "definition_ko": "어떤 사건이나 사실을 확인할 수 있는 근거. | 법에서 재판의 사실을 인정하기 위해 필요한 것. | 믿을 수 있는 증거로 삼음. 또는 그 증거. | 어떤 사건이나 사실을 확인할 수 있는 근거가 되는 물건.",
+          "meaning_ja_source": "しょうこ【証拠】。あかし【証】。しるし【印】 | しょうこ【証拠】 | しょうひょう【証憑】。しょうこ【証拠】 | しょうこ【証拠】。しょうこぶつ【証拠物】。あかし【証し】。しるし【印】 | しょうこ【証拠】。しょうこひん【証拠品】。あかし【証し】。しるし【印】"
+        }
       }
     },
     {
@@ -12062,18 +13555,28 @@
       "sequence_no": 991,
       "word": "直ぐ",
       "reading": "すぐ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "대번 | 바로 | 쉬이 | 얼른 | 이내 | 대번에 | 제때제때",
+      "meaning_ja": "一度に直ちに。 | 間を置かずにすぐ。 | 時間的・空間的にとても近く。 | あることが起こる可能性が多く。 | 直ちに、遠くない将来に。 | 時間を長引かせることなくすぐ。 | 直ちに。また、時間を置かずに。 | 物事が行われるたびごと。",
       "part_of_speech": "な形容詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1430610",
         "meaning_en": "immediately, soon, easily, right (near), honest, upright",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "대번 | 바로 | 쉬이 | 얼른 | 이내 | 대번에 | 제때제때",
+          "definition_ko": "한 번에 곧바로. | 시간 차를 두지 않고 곧장. | 시간적으로나 공간적으로 아주 가까이. | 어떤 일이 일어날 가능성이 많게. | 금방이나 길지 않은 시간 후에. | 시간을 오래 끌지 않고 바로. | 그때 곧. 또는 때를 늦추지 않고 바로. | 일이 있는 바로 그때마다.",
+          "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】 | すぐ【直ぐ】。ただちに【直ちに】。さっそく【早速】 | すぐ【直ぐ】 | すぐ【直ぐ】。とおからず【遠からず】 | すぐ【直ぐ】。はやく【早く】。ただちに【直ちに】。すみやかに【速やかに】。すばやく【素早く】 | すぐ【直ぐ】。たちまち【忽ち】。まもなく【間も無く】 | つど【都度】。そのつど【其の都度】。ただちに【直ちに】。すぐ【直ぐ】"
+        }
       }
     },
     {
@@ -12082,7 +13585,7 @@
       "word": "負担",
       "reading": "ふたん",
       "meaning_ko": "부담",
-      "meaning_ja": "",
+      "meaning_ja": "心の中で感じる喜び・苦痛・責任感などの度合い。 | 仕事や責任、義務を引き受けること。 | 金を払ったり、払う義務を負ったりすること。 | あることをする時に感じる重い気持ち。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
@@ -12092,7 +13595,17 @@
         "jmdict_seq": "1498130",
         "meaning_en": "burden, charge, responsibility",
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-11.json",
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "무게 | 부담",
+          "definition_ko": "마음으로 느끼는 기쁨, 고통, 책임감 등의 정도. | 일을 맡거나 책임, 의무를 짐. | 돈을 내거나 값을 지불하는 책임을 짐. | 어떤 일을 할 때 느끼는 어려운 마음.",
+          "meaning_ja_source": "に【荷】。ふたん【負担】 | ふたん【負担】 | ふたん【負担】。おもに【重荷】"
+        }
       }
     },
     {
@@ -12100,18 +13613,28 @@
       "sequence_no": 993,
       "word": "携帯",
       "reading": "けいたい",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "폰 | 휴대 | 핸드폰 | 휴대폰 | 휴대 전화",
+      "meaning_ja": "持ち歩きながら使用できる小型の無線電話機。 | ある物を手に持ったり、身につけて持ち運ぶこと。 | 持ち歩きながら使用できる、小型の無線電話機。",
       "part_of_speech": "サ変名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1250680",
         "meaning_en": "carrying something",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "폰 | 휴대 | 핸드폰 | 휴대폰 | 휴대 전화",
+          "definition_ko": "들고 다니면서 사용할 수 있는 작은 무선 전화기. | 어떤 물건을 손에 들거나 몸에 지니고 다님.",
+          "meaning_ja_source": "けいたいでんわ【携帯電話】。けいたい【携帯】。ケータイ | けいたい【携帯】"
+        }
       }
     },
     {
@@ -12119,18 +13642,28 @@
       "sequence_no": 994,
       "word": "怒り",
       "reading": "いかり",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "골 | 성 | 약 | 열 | 화 | 노염 | 분노 | 분통 | 역정 | 노여움 | 분노심",
+      "meaning_ja": "気にさわったり、気に入らないことで怒ること。 | 不愉快になり、腹が立って悔しい感情。 | からかわれたりして、腹が立つ感情。 | 非常に怒っている状態。 | 不機嫌になったり怒ったりする感情。 | とても不快で、怒りの感情。 | ひどく怒ること。 | ひどく悔しくて腹が立つこと。 | 非常に不愉快で気に障ることがあって腹をたてること。 | 怒りの気持ち。",
       "part_of_speech": "普通名詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1445670",
         "meaning_en": "anger, hatred",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "골 | 성 | 약 | 열 | 화 | 노염 | 분노 | 분통 | 역정 | 노여움 | 분노심",
+          "definition_ko": "비위에 거슬리거나 언짢은 일로 내는 화. | 기분이 나쁘거나 화가 나고 분한 감정. | 놀림을 받거나 하여 화가 나는 감정. | 매우 화가 난 상태. | 몹시 못마땅하거나 노여워하는 감정. | 몹시 불쾌하여 화가 난 감정. | 몹시 화를 냄. | 몹시 억울하여 화가 나는 마음. | 기분이 몹시 언짢거나 기분이 좋지 않아서 내는 화. | 몹시 화가 난 마음.",
+          "meaning_ja_source": "いかり【怒り】。いきどおり【憤り】。りっぷく【立腹】 | いかり【怒り】。りっぷく【立腹】。いきどおり【憤り】。ふんがい【憤慨】 | いかり【怒り】 | いかり【怒り】。こうふん【興奮】 | いかり【怒り】。いきどおり【憤り】。はらだち【腹立ち】 | ふんど【憤怒】。いかり【怒り】 | いきどおり【憤り】。いかり【怒り】 | いかり【怒り】。いきどおり【憤り】"
+        }
       }
     },
     {
@@ -12138,18 +13671,28 @@
       "sequence_no": 995,
       "word": "落とす",
       "reading": "おとす",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "빼다 | 잃다 | 낮추다 | 내리다 | 놓치다 | 늦추다 | 떨구다 | 벗기다 | 줄이다 | 지우다 | 흘리다 | 내려받다 | 내리깔다 | 내리뜨다 | 누적하다 | 빠뜨리다 | 빠트리다 | 내려뜨리다 | 내려트리다 | 떨어뜨리다 | 떨어트리다",
+      "meaning_ja": "垢や汚れなどを洗って取り除く。 | 力や気力などが体から無くなる。 | 体重などを減らす。 | 持っていた物が知らないうちになくなって、これ以上持たなくなる。 | 数値を基準に及ばないようにする。 | 水準や質を基準に及ばないようにする。 | 身分や地位などを他の対象より低くする。 | 音を音階の低い方に下げたり、振動数を少なくしたりする。 | 値段や数値、成績などが前より低くなる。また、そうする。 | 握ったりつかんだりしていた物を間違って放してしまう。 | 速度を遅くする。 | 視線を下に向ける。 | 上にあったものを下に下がるようにする。 | 持ち物をなくす。 | 価格などを低くする。 | 価値、地位、名誉などを失わせる。 | 試験や選抜などに合格させなかったり選抜しなかったりする。 | 表面を擦ってはぎ取る。 | 物の長さ、広さ、かさなどを元の水準より小さくする。 | 物事の状態を元の水準に至らないようにする。 | 書いたり描いたりしたもの、痕跡などを道具を利用して見えないように取り除く。 | ある対象から、付いている物を洗ったり拭いたりして取り除く。 | 下に傾かせて落したり、低い所に移動させる。 | 命が消えるようにする。 | 不注意で、物などをなくす。 | コンピュータなどからファイルや資料を落として保存する。 | 瞼を下ろして瞳を覆って、視線を下の方に向ける。 | 声を静かで低く出す。 | 視線を下の方に向ける。 | 情報などを記録で抜かす。 | 水やくぼみなどの深いところに落ち込ませる。 | ある状態や状況に陥らせる。 | 持っているものを失う。 | 備えるべきものを備えていない。 | 持っていたものを失う。 | 上にある物や手に握っている物を垂れるようにしたり落ちるようにしたりする。 | 上にあった物を下に下がるようにする。 | 何かの程度や水準を低くする。 | 価格や気温などの数値を低くなるようにする。 | 視線や体の一部を下に向ける。 | 価値、名声、地位、品質などの程度や水準を低くしたり損なったりする。",
       "part_of_speech": "五段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1589260",
         "meaning_en": "to drop, to lose, to let fall",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "005.xml",
+          "meaning_ko": "빼다 | 잃다 | 낮추다 | 내리다 | 놓치다 | 늦추다 | 떨구다 | 벗기다 | 줄이다 | 지우다 | 흘리다 | 내려받다 | 내리깔다 | 내리뜨다 | 누적하다 | 빠뜨리다 | 빠트리다 | 내려뜨리다 | 내려트리다 | 떨어뜨리다 | 떨어트리다",
+          "definition_ko": "때나 얼룩 등을 빨거나 씻어서 없애다. | 힘이나 기운 등을 몸에서 없어지게 하다. | 살이나 몸무게 등을 줄이다. | 가지고 있던 물건이 자신도 모르게 없어져 더 이상 가지지 못하게 되다. | 수치를 기준에 미치지 못하게 하다. | 수준이나 질을 기준에 미치지 못하게 하다. | 신분이나 지위 등을 다른 대상보다 아래에 있게 하다. | 소리를 음의 차례에서 아래쪽으로 내리거나 진동수가 작게 하다. | 값이나 수치 또는 성적 등이 이전보다 떨어지거나 낮아지다. 또는 그렇게 하다. | 손에 잡거나 쥐고 있던 것을 잘못하여 놓아 버리다. | 속도를 느리게 하다. | 시선을 아래로 향하다. | 위에 있던 것을 아래로 내려가게 하다. | 지니고 있던 것을 흘리거나 빠뜨리다. | 값이나 금액을 낮추다. | 가치, 지위, 명예 등을 잃게 하다. | 시험이나 선발 등에 붙거나 뽑히지 못하게 하다. | 표면을 문질러 긁어 내다. | 어떤 물체의 길이, 넓이, 부피 등을 원래보다 작게 하다. | 어떤 상태를 원래의 정도에 미치지 못하게 하다. | 쓰거나 그린 것 또는 흔적 등을 도구를 사용해 안 보이게 없애다. | 묻거나 붙은 것을 닦거나 씻어 없어지게 하다. | 아래로 기울여 떨어뜨리거나 놓다. | 목숨이 끊어지게 하다. | 부주의로 물건 등을 엉뚱한 곳에 떨어뜨리다. | 컴퓨터 등에서 파일이나 자료를 받아 내리다. | 눈꺼풀을 내려 눈동자를 덮고 시선이 아래로 향하게 하다. | 목소리를 조용하고 낮게 내다. | 눈을 아래쪽을 향하여 뜨다. | 정보 등을 기록에서 빠뜨리다. | 물이나 구덩이 등의 깊은 곳에 빠지게 하다. | 어떤 상태나 처지에 놓이게 하다. | 가지고 있던 것을 흘려서 잃어버리다. | 갖추어야 할 것을 갖추지 않다. | 위에 있는 것이나 손에 쥔 것을 아래로 내려서 떨어뜨리다. | 무엇의 정도나 수준을 낮게 하다. | 가격이나 기온 등의 수치를 낮아지게 하다. | 시선이나 몸의 한 부분을 아래를 향하게 하다. | 시선을 아래로 향하게 하다. | 가치, 명성, 지위, 품질 등의 정도나 수준을 낮게 하거나 손상시키다.",
+          "meaning_ja_source": "とりのぞく【取り除く】。おとす【落とす】 | ぬく【抜く】。おとす【落とす】 | へらす【減らす】。おとす【落とす】 | うしなう【失う】。わすれる【忘れる】。なくす【無くす】。おとす【落とす】。ふんしつする【紛失する】 | さげる【下げる】。おとす【落とす】 | さげる【下げる】。おとす【落とす | さげる【下げる】。さがる【下がる】。おちる【落ちる】。おとす【落とす】 | おとす【落とす】 | おくらせる【遅らせる】。おとす【落とす】 | おとす【落とす】。さげる【下げる】。ひきさげる【引き下げる】 | おとす【落とす】。きずつける【傷付ける】 | おとす【落とす】。ふごうかくにする【不合格にする】。らくだいさせる【落第させる】 | おとす【落とす】。はがす【剥がす】 | へらす【減らす】。げんしょうさせる【減少させる】。さげる【下げる】。おとす【落とす】。よわめる【弱める】。おとろえさせる【衰えさせる】 | へらす【減らす】。げんしょうさせる【減少させる】。さげる【下げる】。おとす【落とす】。おとろえさせる【衰えさせる】 | けす【消す】。おとす【落とす】。なくす | おとす【落とす】。たつ【絶つ】 | ダウンロードする。おとす【落とす】 | ふせる【伏せる】。おとす【落とす】 | もらす【漏らす】。おとす【落とす】 | おとす【落とす】。おとしいれる【陥れる・落し入れる】 | おとす【落とす】。もらす【漏らす】。おきわすれる【置き忘れる】 | ぶらさげる【ぶら下げる】。たらす【垂らす】。おとす【落とす】 | おとす【落とす】。さげる【下げる】。げらくさせる【下落させる】 | おとす【落とす】。たれる【垂れる】"
+        }
       }
     },
     {
@@ -12215,18 +13758,28 @@
       "sequence_no": 998,
       "word": "果たす",
       "reading": "はたす",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "풀다 | 끝맺다 | 다하다 | 끝마치다",
+      "meaning_ja": "心のわだかまりを解決して取り除くか、心に抱いていたことを実現させる。 | 仕事や話をまとめて終わらせる。 | 物事を成し遂げる。 | 仕事や話を終わらせる。",
       "part_of_speech": "五段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1192850",
         "meaning_en": "to accomplish, to fulfill, to carry out, to achieve",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "010.xml",
+          "meaning_ko": "풀다 | 끝맺다 | 다하다 | 끝마치다",
+          "definition_ko": "마음속에 맺힌 것을 해결하여 없애거나 마음속에 품고 있는 것을 이루다. | 일이나 말을 마무리하여 끝내다. | 어떤 일을 완전히 이루다. | 일이나 말을 끝내다.",
+          "meaning_ja_source": "はらす【晴らす】。ほぐす【解す】。はたす【果たす】 | おえる【終える】。すます【済ます】。はたす【果たす】。しめくくる【締めくくる】 | つくす【尽くす】。はたす【果たす】 | おえる【終える】。すます【済ます】。はたす【果たす】"
+        }
       }
     },
     {
@@ -12234,18 +13787,28 @@
       "sequence_no": 999,
       "word": "設ける",
       "reading": "もうける",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "놓다 | 두다 | 만들다 | 차리다",
+      "meaning_ja": "ある所に機械や装置、構造物などを設置する。 | 軍隊の陣営などを設置する。 | 職責・組織・機構などを設ける。 | 法律や規則などを決める。 | 機関や団体を組織する。 | 時間などをわざと生じさせる。 | 世帯や店、会社などを新たに作る。",
       "part_of_speech": "一段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1386000",
         "meaning_en": "to create, to establish",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "놓다 | 두다 | 만들다 | 차리다",
+          "definition_ko": "어떤 곳에 기계나 장치, 구조물 등을 설치하다. | 군대의 진영 등을 설치하다. | 직책, 조직, 기구 등을 설치하다. | 법이나 규칙 등을 정하다. | 기관이나 단체를 조직하다. | 시간 등을 억지로 생기게 하다. | 살림이나 가게, 회사 등을 새로 마련하다.",
+          "meaning_ja_source": "おく【置く】。もうける【設ける】 | せっちする【設置する】。かまえる【構える】。もうける【設ける】 | もうける【設ける】。せっちする【設置する】。おく【置く】 | つくる【作る】。もうける【設ける】。せいていする【制定する】 | つくる【作る】。もうける【設ける】 | かまえる【構える】。もうける【設ける】。ひらく【開く】"
+        }
       }
     },
     {
@@ -12253,18 +13816,28 @@
       "sequence_no": 1000,
       "word": "訪れる",
       "reading": "おとずれる",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "오다 | 찾다 | 찾아가다 | 찾아들다 | 찾아보다 | 찾아오다",
+      "meaning_ja": "ある対象に、ある状態が現れる。 | ある人に会うかある地域を見るために関連した場所に行く。 | 人に会うか、仕事をしに行く。 | 休憩したり用件があってどこかに行く。 | ある感情や状態、現象などが生じる。 | ある人のいる所に行って、その人に会う。 | (比喩的に)ある時期が再び巡ってくる。",
       "part_of_speech": "一段動詞",
       "example_ja": "",
       "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "review_status": "needs_examples",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1518080",
         "meaning_en": "to visit",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "오다 | 찾다 | 찾아가다 | 찾아들다 | 찾아보다 | 찾아오다",
+          "definition_ko": "어떤 대상에 어떤 상태가 나타나다. | 어떤 사람을 만나거나 어떤 곳을 보러 관련된 장소로 가다. | 사람을 만나거나 어떤 일을 하러 가다. | 쉬거나 볼일을 보러 어떤 곳으로 가다. | 어떠한 감정이나 상태, 현상 등이 생겨나다. | 어떤 사람이 있는 곳에 가서 그 사람을 만나다. | (비유적으로) 어떤 시기가 다시 돌아오다.",
+          "meaning_ja_source": "くる【来る】。おとずれる【訪れる】 | たずねる【訪ねる】。おとずれる【訪れる】。ほうもんする【訪問する】 | あいにいく【会いに行く】。たずねていく【訪ねて行く】。おとずれる【訪れる】。ほうもんする【訪問する】 | やってくる【やって来る】。たずねる【訪ねる】。おとずれる【訪れる】 | やってくる【やって来る】。おとずれる【訪れる】"
+        }
       }
     }
   ]
