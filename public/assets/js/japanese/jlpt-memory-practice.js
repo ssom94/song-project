@@ -17,11 +17,13 @@
 			#jlpt-study-detail.is-memory-mode .jlpt-memory-answer-fields{display:grid}
 			.jlpt-memory-answer-field{display:grid;gap:5px;min-width:0}
 			.jlpt-memory-answer-field label{display:grid;gap:5px;color:#59677b;font-size:11px;font-weight:700}
-			.jlpt-memory-answer-input{width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid #cdd7e4;border-radius:9px;background:#fff;font:inherit;font-size:13px;outline:none}
+			.jlpt-memory-answer-input{width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid #cdd7e4;border-radius:9px;background:#fff;font:inherit;font-size:13px;outline:none;transition:border-color .15s ease,background-color .15s ease,box-shadow .15s ease}
 			.jlpt-memory-answer-input:focus{border-color:#708bb7;box-shadow:0 0 0 3px rgba(73,103,151,.12)}
-			.jlpt-memory-answer-input.is-correct{border-color:#58a071;background:#f2fbf5}
+			.jlpt-memory-answer-input.is-correct,.jlpt-memory-answer-input.is-correct:focus{border-color:#79b990;background:#f1faf4;box-shadow:0 0 0 3px rgba(70,145,98,.08)}
+			.jlpt-memory-answer-input.is-wrong,.jlpt-memory-answer-input.is-wrong:focus{border-color:#dfa7a7;background:#fff3f3;box-shadow:0 0 0 3px rgba(184,80,80,.06)}
 			.jlpt-memory-practice-check{min-height:17px;font-size:11px;font-weight:700;color:#7a8798}
 			.jlpt-memory-practice-check.is-correct{color:#287a58}
+			.jlpt-memory-practice-check.is-wrong{color:#a75d5d}
 			.jlpt-memory-practice-active .jlpt-preview-word-grid > [data-memory-word] > span,
 			.jlpt-memory-practice-active .jlpt-preview-word-grid > [data-memory-word] > small,
 			.jlpt-memory-practice-active .jlpt-archive-word[data-memory-word] > small{visibility:hidden}
@@ -71,9 +73,12 @@
 			const normalize = type === 'reading' ? normalizeReading : normalizeBase;
 			const typed = normalize(input.value);
 			const correct = Boolean(typed) && expected.includes(typed);
+			const wrong = Boolean(typed) && !correct;
 			input.classList.toggle('is-correct', correct);
+			input.classList.toggle('is-wrong', wrong);
 			result.classList.toggle('is-correct', correct);
-			result.textContent = correct ? t('✓ 정답입니다.', '✓ 正解です。') : (typed ? t('다시 입력해 보세요.', 'もう一度入力してください。') : '');
+			result.classList.toggle('is-wrong', wrong);
+			result.textContent = correct ? t('✓ 정답입니다.', '✓ 正解です。') : (wrong ? t('다시 입력해 보세요.', 'もう一度入力してください。') : '');
 			const fields = [...host.querySelectorAll('.jlpt-memory-answer-input')];
 			host.classList.toggle('is-memory-input-complete', fields.length > 0 && fields.every((node) => node.classList.contains('is-correct')));
 		});
