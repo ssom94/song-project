@@ -1,0 +1,47 @@
+name: Build JLPT N1 candidates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/jlpt/prepare-production-candidates.mjs'
+      - '.github/workflows/build-jlpt-candidates.yml'
+      - 'data/jlpt/production/sources.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-jlpt-n1-candidates
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build deterministic 3,000-word candidate set
+        run: node scripts/jlpt/prepare-production-candidates.mjs
+
+      - name: Commit generated candidate artifacts
+        run: |
+          if git diff --quiet -- data/jlpt/production/candidates; then
+            echo 'No candidate changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/jlpt/production/candidates
+          git commit -m 'data: refresh JLPT N1 production candidates'
+          git push
