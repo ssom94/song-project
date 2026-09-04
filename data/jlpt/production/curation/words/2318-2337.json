@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2318-2337",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2318","word":"何卒","reading":"なにとぞ","meaning_ko":"아무쪼록; 부디; 제발","meaning_ja":"相手に強く願い頼む気持ちを丁寧に表す語。どうか。","part_of_speech":"副詞","example_ja":"今後とも何卒よろしくお願い申し上げます。","example_ko":"앞으로도 아무쪼록 잘 부탁드립니다.","note":"ビジネス文書・改まった依頼でよく使われる。"},
+    {"key":"n1-2319","word":"揺らぐ","reading":"ゆらぐ","meaning_ko":"흔들리다; 동요하다; 불안정해지다","meaning_ja":"物がゆらゆらと動く。また、信念・地位・状態などが不安定になる。","part_of_speech":"五段動詞","example_ja":"どんな批判を受けても、彼の決意は揺らがなかった。","example_ko":"어떤 비판을 받아도 그의 결심은 흔들리지 않았다."},
+    {"key":"n1-2320","word":"嘴","reading":"くちばし","meaning_ko":"부리; 새의 주둥이","meaning_ja":"鳥の口にある、硬く突き出した部分。","part_of_speech":"普通名詞","example_ja":"鳥は長い嘴を使って水中の餌を取った。","example_ko":"새는 긴 부리를 이용해 물속의 먹이를 잡았다.","note":"現代では通常『くちばし』と仮名で書くことも多い。"},
+    {"key":"n1-2321","word":"余暇","reading":"よか","meaning_ko":"여가; 자유 시간","meaning_ja":"仕事・学業などから離れて自由に使える時間。","part_of_speech":"普通名詞","example_ja":"余暇を利用して資格の勉強を始めた。","example_ko":"여가 시간을 이용해 자격증 공부를 시작했다."},
+    {"key":"n1-2322","word":"裂ける","reading":"さける","meaning_ko":"찢어지다; 갈라지다; 터지다","meaning_ja":"一つにつながっていた物に切れ目が入り、二つ以上に分かれる。","part_of_speech":"一段動詞","example_ja":"古くなった袋が重さに耐えられず裂けてしまった。","example_ko":"낡은 봉지가 무게를 견디지 못하고 찢어졌다."},
+    {"key":"n1-2323","word":"緩む","reading":"ゆるむ","meaning_ko":"느슨해지다; 풀리다; 완화되다","meaning_ja":"締まっていたものがゆるくなる。また、緊張・規律などが弱くなる。","part_of_speech":"五段動詞","example_ja":"長く使っているうちに、ねじが少し緩んできた。","example_ko":"오랫동안 사용하다 보니 나사가 조금 느슨해졌다.","note":"候補KOにあった『놀다』等の直訳的表現を除き、中心義を自然な韓国語に整理。"},
+    {"key":"n1-2324","word":"緩める","reading":"ゆるめる","meaning_ko":"느슨하게 하다; 늦추다; 완화하다; 풀다","meaning_ja":"締まっているものをゆるくする。また、速度・緊張・規制などを弱める。","part_of_speech":"一段動詞","example_ja":"苦しくなったので、ネクタイを少し緩めた。","example_ko":"답답해져서 넥타이를 조금 느슨하게 풀었다."},
+    {"key":"n1-2325","word":"貝殻","reading":"かいがら","meaning_ko":"조개껍데기; 조가비","meaning_ja":"貝の体を覆っている硬い殻。","part_of_speech":"普通名詞","example_ja":"浜辺で色のきれいな貝殻を拾った。","example_ko":"해변에서 색이 예쁜 조개껍데기를 주웠다."},
+    {"key":"n1-2326","word":"夜更け","reading":"よふけ","meaning_ko":"깊은 밤; 늦은 밤","meaning_ja":"夜がかなり遅くなったころ。","part_of_speech":"普通名詞","example_ja":"夜更けまで隣の部屋から話し声が聞こえていた。","example_ko":"늦은 밤까지 옆방에서 이야기 소리가 들렸다."},
+    {"key":"n1-2327","word":"差し支える","reading":"さしつかえる","meaning_ko":"지장을 주다; 방해가 되다; 곤란을 초래하다","meaning_ja":"仕事・行動などを進めるうえで支障になる。","part_of_speech":"一段動詞","example_ja":"業務に差し支えるほどの体調不良なら、無理せず休んでください。","example_ko":"업무에 지장이 생길 정도로 몸이 좋지 않다면 무리하지 말고 쉬세요."},
+    {"key":"n1-2328","word":"甘える","reading":"あまえる","meaning_ko":"응석부리다; 어리광부리다; 남의 호의에 기대다","meaning_ja":"相手の愛情・親切を頼りに、わがままに振る舞ったり遠慮なく頼ったりする。","part_of_speech":"一段動詞","example_ja":"いつまでも親に甘えてばかりはいられない。","example_ko":"언제까지나 부모에게 의지하며 응석만 부릴 수는 없다."},
+    {"key":"n1-2329","word":"不評","reading":"ふひょう","meaning_ko":"악평; 평판이 나쁨; 인기 없음","meaning_ja":"評判・評価が悪いこと。人々に好まれていないこと。","part_of_speech":"普通名詞","example_ja":"新しい料金制度は利用者から不評だった。","example_ko":"새로운 요금 제도는 이용자들에게 평판이 좋지 않았다."},
+    {"key":"n1-2330","word":"物足りない","reading":"ものたりない","meaning_ko":"아쉽다; 뭔가 부족하다; 만족스럽지 않다","meaning_ja":"何かが不足していて、十分に満足できない。","part_of_speech":"い形容詞","example_ja":"料理はおいしかったが、量が少なくて少し物足りなかった。","example_ko":"요리는 맛있었지만 양이 적어서 조금 아쉬웠다."},
+    {"key":"n1-2331","word":"未練","reading":"みれん","meaning_ko":"미련; 아쉬움; 마음을 떨치지 못함","meaning_ja":"諦めるべきことへの思いを断ち切れず、心が残っていること。","part_of_speech":"名詞・な形容詞","example_ja":"前の仕事に未練はなく、新しい環境で頑張りたい。","example_ko":"이전 일에 미련은 없고 새로운 환경에서 열심히 하고 싶다."},
+    {"key":"n1-2332","word":"苛める","reading":"いじめる","meaning_ko":"괴롭히다; 못살게 굴다; 따돌리며 괴롭히다","meaning_ja":"弱い立場の人などに、言葉・行動で苦痛や不快感を与える。","part_of_speech":"一段動詞","example_ja":"弱い人を苛める行為は決して許されない。","example_ko":"약한 사람을 괴롭히는 행위는 절대로 용납되지 않는다.","note":"現代では通常『いじめる』と仮名で書く。候補KOの多数の周辺語を中心義『괴롭히다』へ整理。"},
+    {"key":"n1-2333","word":"実費","reading":"じっぴ","meaning_ko":"실비; 실제로 든 비용","meaning_ja":"実際に必要となった費用。","part_of_speech":"普通名詞","example_ja":"交通費は会社が実費で精算してくれる。","example_ko":"교통비는 회사가 실제로 든 비용만큼 정산해 준다."},
+    {"key":"n1-2334","word":"ずるずる","reading":"ずるずる","meaning_ko":"질질; 계속 미루며; 흐지부지 계속","meaning_ja":"物を引きずるさま。また、好ましくない状態をはっきり終わらせず長引かせるさま。","part_of_speech":"副詞","example_ja":"結論を出さないまま、話し合いをずるずる続けるべきではない。","example_ko":"결론을 내리지 않은 채 논의를 질질 끌어서는 안 된다.","note":"候補の擬音的KRDICT語義は広すぎるため、JMdictの dragging / unwanted situation の主要用法に整理。候補品詞『な形容詞』も『副詞』へ修正。"},
+    {"key":"n1-2335","word":"割り算","reading":"わりざん","meaning_ko":"나눗셈; 나누기","meaning_ja":"ある数を別の数で割る計算。除法。","part_of_speech":"サ変名詞","example_ja":"小学校で掛け算の次に割り算を習った。","example_ko":"초등학교에서 곱셈 다음으로 나눗셈을 배웠다."},
+    {"key":"n1-2336","word":"片思い","reading":"かたおもい","meaning_ko":"짝사랑","meaning_ja":"自分だけが相手を恋しく思い、相手からは同じ気持ちを返されていないこと。","part_of_speech":"普通名詞","example_ja":"高校時代、同じクラスの人に三年間片思いしていた。","example_ko":"고등학교 시절 같은 반 사람을 3년 동안 짝사랑했다."},
+    {"key":"n1-2337","word":"休める","reading":"やすめる","meaning_ko":"쉬게 하다; 쉬다; 사용을 멈추다","meaning_ja":"体・手足・道具などを休ませる。また、使用・活動を一時止める。","part_of_speech":"一段動詞","example_ja":"疲れを感じたら、少し目を閉じて体を休めるといい。","example_ko":"피로를 느끼면 잠시 눈을 감고 몸을 쉬게 하는 것이 좋다.","note":"候補KO『묵히다』は一部用法のみのため、JMdictの rest/suspend の中心義を補完。"}
+  ]
+}
