@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0781-0800",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and reading variants are noted where useful.",
+  "words": [
+    {"key":"n1-0781","word":"変遷","reading":"へんせん","meaning_ko":"변천; 변화 과정","meaning_ja":"時代の流れとともに、状態・制度・考え方などが移り変わること。","part_of_speech":"サ変名詞","example_ja":"この展示では都市の景観がどのように変遷してきたかを写真で紹介している。","example_ko":"이 전시에서는 도시 경관이 어떻게 변천해 왔는지를 사진으로 소개하고 있다."},
+    {"key":"n1-0782","word":"気軽","reading":"きがる","meaning_ko":"가벼운 마음; 부담 없음; 편하게","meaning_ja":"深く心配したり遠慮したりせず、楽な気持ちで行動できるさま。","part_of_speech":"な形容詞","example_ja":"分からないことがあれば、気軽に担当者へ相談してください。","example_ko":"모르는 것이 있으면 부담 없이 담당자에게 상담해 주세요."},
+    {"key":"n1-0783","word":"外来","reading":"がいらい","meaning_ko":"외래; 외부에서 들어옴","meaning_ja":"外部・外国から入ってくること。また、病院で入院せず診察を受けること。","part_of_speech":"普通名詞","example_ja":"外来植物の増加が地域の生態系に影響を及ぼしている。","example_ko":"외래 식물의 증가가 지역 생태계에 영향을 미치고 있다."},
+    {"key":"n1-0784","word":"音色","reading":"ねいろ","meaning_ko":"음색","meaning_ja":"声・楽器などが持つ、音の質や独特の響き。","part_of_speech":"普通名詞","example_ja":"同じ曲でも楽器が違えば、音色によって印象が大きく変わる。","example_ko":"같은 곡이라도 악기가 다르면 음색에 따라 인상이 크게 달라진다."},
+    {"key":"n1-0785","word":"公然","reading":"こうぜん","meaning_ko":"공공연히; 숨김없이","meaning_ja":"隠すことなく、周囲に知られる形ではっきり行うさま。","part_of_speech":"副詞","example_ja":"規則に反する行為が公然と行われている状況は見過ごせない。","example_ko":"규칙에 어긋나는 행위가 공공연히 이루어지는 상황은 묵과할 수 없다."},
+    {"key":"n1-0786","word":"近郊","reading":"きんこう","meaning_ko":"근교; 도시 주변 지역","meaning_ja":"都市の中心部から比較的近い周辺地域。","part_of_speech":"普通名詞","example_ja":"都心の家賃が高いため、近郊から通勤する人も多い。","example_ko":"도심 집세가 비싸서 근교에서 통근하는 사람도 많다."},
+    {"key":"n1-0787","word":"排水","reading":"はいすい","meaning_ko":"배수; 물을 빼냄","meaning_ja":"不要な水・たまった水を外へ流し出すこと。","part_of_speech":"サ変名詞","example_ja":"大雨に備えて、道路の排水設備を点検する作業が行われた。","example_ko":"폭우에 대비해 도로 배수 설비를 점검하는 작업이 실시되었다."},
+    {"key":"n1-0788","word":"万能","reading":"ばんのう","meaning_ko":"만능; 무엇에나 쓸 수 있음","meaning_ja":"あらゆることに優れ、さまざまな目的・状況に対応できるさま。","part_of_speech":"な形容詞","example_ja":"便利な技術であっても万能ではなく、使い方によっては欠点もある。","example_ko":"편리한 기술이라도 만능은 아니며 사용법에 따라 단점도 있다."},
+    {"key":"n1-0789","word":"優勢","reading":"ゆうせい","meaning_ko":"우세; 더 유리함","meaning_ja":"相手より勢力・能力・状況などが勝っていて有利であること。","part_of_speech":"な形容詞","example_ja":"序盤は相手が優勢だったが、後半に流れが大きく変わった。","example_ko":"초반에는 상대가 우세했지만 후반에 흐름이 크게 바뀌었다."},
+    {"key":"n1-0790","word":"転落","reading":"てんらく","meaning_ko":"추락; 전락","meaning_ja":"高い所から落ちること。また、地位・状態などが悪い方向へ急に下がること。","part_of_speech":"サ変名詞","example_ja":"会社は主力商品の不振をきっかけに赤字へ転落した。","example_ko":"회사는 주력 상품 부진을 계기로 적자로 전락했다."},
+    {"key":"n1-0791","word":"心中","reading":"しんじゅう","meaning_ko":"동반자살; 함께 자살함","meaning_ja":"二人以上の者が、申し合わせて一緒に自殺すること。","part_of_speech":"サ変名詞","example_ja":"その古典作品は、社会に追い詰められた男女の心中を題材にしている。","example_ko":"그 고전 작품은 사회에 몰린 남녀의 동반자살을 소재로 하고 있다.","note":"『心中』には『しんちゅう』と読んで『心の中』を表す別義もある。本項目は『しんじゅう』。"},
+    {"key":"n1-0792","word":"補強","reading":"ほきょう","meaning_ko":"보강; 강도를 높임","meaning_ja":"不足している部分を補い、強度・能力などをさらに強くすること。","part_of_speech":"サ変名詞","example_ja":"地震対策として、古い建物の柱を補強する工事が進められている。","example_ko":"지진 대책으로 오래된 건물의 기둥을 보강하는 공사가 진행되고 있다."},
+    {"key":"n1-0793","word":"化合","reading":"かごう","meaning_ko":"화합; 화학적으로 결합함","meaning_ja":"二つ以上の元素・物質が化学的に結びつき、別の性質を持つ物質になること。","part_of_speech":"サ変名詞","example_ja":"水素と酸素が一定の条件で化合すると水が生じる。","example_ko":"수소와 산소가 일정한 조건에서 화합하면 물이 생긴다."},
+    {"key":"n1-0794","word":"方策","reading":"ほうさく","meaning_ko":"방책; 해결 방안","meaning_ja":"問題を解決したり目的を達成したりするための方法・手段。","part_of_speech":"普通名詞","example_ja":"人口減少への有効な方策を自治体と住民が共同で検討している。","example_ko":"인구 감소에 대한 효과적인 방책을 지자체와 주민이 함께 검토하고 있다."},
+    {"key":"n1-0795","word":"台本","reading":"だいほん","meaning_ko":"대본; 각본","meaning_ja":"演劇・映画・番組などで、せりふや動作・進行を書いたもの。","part_of_speech":"普通名詞","example_ja":"出演者は本番前に台本を読み合わせ、せりふのタイミングを確認した。","example_ko":"출연자들은 본방송 전에 대본을 맞춰 읽으며 대사 타이밍을 확인했다."},
+    {"key":"n1-0796","word":"定年","reading":"ていねん","meaning_ko":"정년","meaning_ja":"勤務先の規定などによって、退職することと定められている年齢。","part_of_speech":"普通名詞","example_ja":"定年後も経験を生かして働き続ける人が増えている。","example_ko":"정년 후에도 경험을 살려 계속 일하는 사람이 늘고 있다."},
+    {"key":"n1-0797","word":"天体","reading":"てんたい","meaning_ko":"천체","meaning_ja":"恒星・惑星・衛星など、宇宙空間に存在する物体。","part_of_speech":"普通名詞","example_ja":"望遠鏡を使えば、肉眼では見えない暗い天体も観測できる。","example_ko":"망원경을 사용하면 맨눈으로 보이지 않는 어두운 천체도 관측할 수 있다."},
+    {"key":"n1-0798","word":"増強","reading":"ぞうきょう","meaning_ko":"증강; 강화","meaning_ja":"人員・設備・能力などを増やして、全体の力を強くすること。","part_of_speech":"サ変名詞","example_ja":"問い合わせの増加に対応するため、サポート要員を増強した。","example_ko":"문의 증가에 대응하기 위해 지원 인력을 증강했다."},
+    {"key":"n1-0799","word":"労力","reading":"ろうりょく","meaning_ko":"노력; 수고; 노동력","meaning_ja":"仕事や作業のために費やす身体的・精神的な力。","part_of_speech":"普通名詞","example_ja":"自動化によって、単純作業にかかる時間と労力を大幅に減らせた。","example_ko":"자동화로 단순 작업에 드는 시간과 노력을 크게 줄일 수 있었다."},
+    {"key":"n1-0800","word":"打開","reading":"だかい","meaning_ko":"타개; 돌파구를 엶","meaning_ja":"行き詰まった困難な状況を切り開き、解決への道を作ること。","part_of_speech":"サ変名詞","example_ja":"売上低迷を打開するため、会社は新しい市場への進出を決めた。","example_ko":"매출 침체를 타개하기 위해 회사는 새로운 시장 진출을 결정했다."}
+  ]
+}
