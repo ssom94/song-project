@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2258-2277",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2258","word":"老衰","reading":"ろうすい","meaning_ko":"노쇠; 노화로 쇠약해짐","meaning_ja":"年を取ることで心身の機能や体力が衰えること。","part_of_speech":"サ変名詞","example_ja":"祖父は高齢になり、少しずつ老衰が進んでいる。","example_ko":"할아버지는 고령이 되어 조금씩 노쇠가 진행되고 있다."},
+    {"key":"n1-2259","word":"取り寄せる","reading":"とりよせる","meaning_ko":"주문해서 받아오다; 다른 곳에서 가져오게 하다","meaning_ja":"品物・資料などを注文したり依頼したりして、別の場所から手元に届けさせる。","part_of_speech":"一段動詞","example_ja":"店に在庫がなかったので、別の支店から商品を取り寄せてもらった。","example_ko":"가게에 재고가 없어서 다른 지점에서 상품을 주문해 받아오게 했다."},
+    {"key":"n1-2260","word":"叶える","reading":"かなえる","meaning_ko":"이루어 주다; 소원을 실현시키다","meaning_ja":"願い・希望・要求などを実現させる。","part_of_speech":"一段動詞","example_ja":"いつか両親を海外旅行に連れて行くという夢を叶えたい。","example_ko":"언젠가 부모님을 해외여행에 모시고 가겠다는 꿈을 이루고 싶다.","note":"自動詞『叶う』に対する他動詞。"},
+    {"key":"n1-2261","word":"起伏","reading":"きふく","meaning_ko":"기복; 높낮이; 변화의 굴곡","meaning_ja":"土地などに高低があること。また、物事の変化に上がり下がりがあること。","part_of_speech":"普通名詞","example_ja":"このコースは起伏が激しく、初心者には少しきつい。","example_ko":"이 코스는 기복이 심해서 초보자에게는 조금 힘들다."},
+    {"key":"n1-2262","word":"きっぱり","reading":"きっぱり","meaning_ko":"단호하게; 딱 잘라; 명확하게","meaning_ja":"態度・発言などを迷いなく、はっきりと示すさま。","part_of_speech":"副詞","example_ja":"彼は無理な依頼をきっぱり断った。","example_ko":"그는 무리한 부탁을 단호하게 거절했다.","note":"候補の品詞『サ変名詞』は不適切なため『副詞』に修正。"},
+    {"key":"n1-2263","word":"助詞","reading":"じょし","meaning_ko":"조사; 일본어 문법의 조사","meaning_ja":"語に付いて、他の語との文法的関係や話し手の意味・気持ちなどを示す品詞。","part_of_speech":"普通名詞","example_ja":"日本語では『は』と『が』という助詞の使い分けが難しい。","example_ko":"일본어에서는 'は'와 'が'라는 조사의 구분이 어렵다."},
+    {"key":"n1-2264","word":"短波","reading":"たんぱ","meaning_ko":"단파; 단파 전파","meaning_ja":"波長が比較的短い電波。一般に短波放送などに利用される。","part_of_speech":"普通名詞","example_ja":"短波放送は遠く離れた地域でも受信できることがある。","example_ko":"단파 방송은 멀리 떨어진 지역에서도 수신할 수 있는 경우가 있다."},
+    {"key":"n1-2265","word":"渦","reading":"うず","meaning_ko":"소용돌이; 소용돌이치는 상태","meaning_ja":"水・空気などが回転しながら中心へ巻き込むように動く状態。また、比喩的に激しい動きや混乱の中心。","part_of_speech":"普通名詞","example_ja":"川の曲がり角に大きな渦ができていた。","example_ko":"강의 굽이진 곳에 큰 소용돌이가 생겨 있었다."},
+    {"key":"n1-2266","word":"切ない","reading":"せつない","meaning_ko":"애달프다; 애틋하다; 가슴이 아프다","meaning_ja":"悲しさ・寂しさなどで胸が締め付けられるようにつらい。","part_of_speech":"い形容詞","example_ja":"別れの場面を見ると、切ない気持ちになる。","example_ko":"이별 장면을 보면 애달픈 마음이 든다."},
+    {"key":"n1-2267","word":"剃る","reading":"する","meaning_ko":"깎다; 면도하다","meaning_ja":"刃物などで髪・ひげ・体毛を根元近くから切り取る。","part_of_speech":"五段動詞","example_ja":"毎朝、出勤前にひげを剃る。","example_ko":"매일 아침 출근 전에 수염을 면도한다.","note":"『そる』とも読む。候補見出しの読み『する』に合わせて収録。"},
+    {"key":"n1-2268","word":"碌な","reading":"ろくな","meaning_ko":"제대로 된; 변변한; 괜찮은","meaning_ja":"満足できる、まともな、十分な、という意味で、通常は否定表現を伴う。","part_of_speech":"連体詞","example_ja":"忙しくて、今日はろくな食事をしていない。","example_ko":"바빠서 오늘은 변변한 식사를 하지 못했다.","note":"現代では通常『ろくな』と仮名で書き、『ろくな～ない』の形で使うことが多い。"},
+    {"key":"n1-2269","word":"窮乏","reading":"きゅうぼう","meaning_ko":"궁핍; 빈곤","meaning_ja":"生活に必要な物資・金銭などが不足し、非常に苦しい状態にあること。","part_of_speech":"サ変名詞","example_ja":"戦後、多くの人々が深刻な窮乏生活を送った。","example_ko":"전후 많은 사람들이 심각한 궁핍 생활을 했다."},
+    {"key":"n1-2270","word":"ご無沙汰","reading":"ごぶさた","meaning_ko":"오랫동안 연락하지 못함; 오래 찾아뵙지 못함","meaning_ja":"長い間、訪問・連絡・便りなどをしないでいること。","part_of_speech":"サ変名詞","example_ja":"長い間ご無沙汰してしまい、申し訳ありません。","example_ko":"오랫동안 연락드리지 못해 죄송합니다.","note":"挨拶では『ご無沙汰しております』が非常によく使われる。"},
+    {"key":"n1-2271","word":"過多","reading":"かた","meaning_ko":"과다; 지나치게 많음","meaning_ja":"数量・程度などが必要以上に多いこと。","part_of_speech":"名詞・な形容詞","example_ja":"情報過多になると、かえって判断が難しくなることがある。","example_ko":"정보가 과다하면 오히려 판단하기 어려워질 수 있다."},
+    {"key":"n1-2272","word":"引き下げる","reading":"ひきさげる","meaning_ko":"낮추다; 인하하다; 끌어내리다","meaning_ja":"価格・水準・地位などを低くする。また、いったん出したものを取り下げる。","part_of_speech":"一段動詞","example_ja":"会社は来月から商品の価格を引き下げると発表した。","example_ko":"회사는 다음 달부터 상품 가격을 인하한다고 발표했다."},
+    {"key":"n1-2273","word":"打ち切る","reading":"うちきる","meaning_ko":"중단하다; 끝내다; 종결하다","meaning_ja":"続いている仕事・交渉・放送などを途中で終わらせる。","part_of_speech":"五段動詞","example_ja":"両社は条件が合わず、交渉を打ち切った。","example_ko":"양사는 조건이 맞지 않아 협상을 중단했다."},
+    {"key":"n1-2274","word":"不景気","reading":"ふけいき","meaning_ko":"불경기; 경기 침체","meaning_ja":"経済活動が停滞し、生産・消費・雇用などが低調な状態。","part_of_speech":"名詞・な形容詞","example_ja":"不景気の影響で売り上げが大きく落ち込んだ。","example_ko":"불경기의 영향으로 매출이 크게 감소했다."},
+    {"key":"n1-2275","word":"重んじる","reading":"おもんじる","meaning_ko":"중시하다; 존중하다; 소중히 여기다","meaning_ja":"価値が高く重要なものとして大切に扱う。尊重する。","part_of_speech":"一段動詞","example_ja":"この会社は社員同士の信頼関係を重んじている。","example_ko":"이 회사는 직원 간의 신뢰 관계를 중시한다."},
+    {"key":"n1-2276","word":"大水","reading":"おおみず","meaning_ko":"큰물; 홍수; 불어난 물","meaning_ja":"大雨などによって川の水が大量に増えること。また、その水。","part_of_speech":"普通名詞","example_ja":"大雨で川が大水になり、周辺の道路が冠水した。","example_ko":"폭우로 강물이 크게 불어나 주변 도로가 침수됐다."},
+    {"key":"n1-2277","word":"考古学","reading":"こうこがく","meaning_ko":"고고학","meaning_ja":"遺跡・遺物などの物的資料から過去の人類の生活・文化を研究する学問。","part_of_speech":"普通名詞","example_ja":"彼女は大学で考古学を専攻し、古代の遺跡を研究している。","example_ko":"그녀는 대학에서 고고학을 전공하며 고대 유적을 연구하고 있다."}
+  ]
+}
