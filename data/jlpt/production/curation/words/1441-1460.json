@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1441-1460",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1441","word":"大概","reading":"たいがい","meaning_ko":"대개; 대부분; 적당한 정도","meaning_ja":"ほとんど・たいてい。また、『大概にする』の形で、度を越さず適当なところでやめる意にも使う。","part_of_speech":"副詞","example_ja":"この種のトラブルは大概、設定の見落としが原因になっている。","example_ko":"이런 종류의 문제는 대개 설정 누락이 원인이 되고 있다."},
+    {"key":"n1-1442","word":"採択","reading":"さいたく","meaning_ko":"채택; 선택하여 받아들임","meaning_ja":"複数の案・提案・決議などから一つを選び、正式に取り上げること。","part_of_speech":"サ変名詞","example_ja":"委員会では修正案が多数決で採択された。","example_ko":"위원회에서는 수정안이 다수결로 채택됐다."},
+    {"key":"n1-1443","word":"匹敵","reading":"ひってき","meaning_ko":"필적; 맞먹음","meaning_ja":"能力・価値・規模などが相手とほぼ同じ程度で、肩を並べること。","part_of_speech":"サ変名詞","example_ja":"新製品の性能は海外の高級機種に匹敵する水準に達した。","example_ko":"신제품 성능은 해외 고급 기종에 필적하는 수준에 도달했다."},
+    {"key":"n1-1444","word":"公募","reading":"こうぼ","meaning_ko":"공모; 공개 모집","meaning_ja":"資格・作品・人材などを、広く一般に知らせて募集すること。","part_of_speech":"サ変名詞","example_ja":"市は新しいロゴのデザインを一般から公募している。","example_ko":"시는 새로운 로고 디자인을 일반에 공모하고 있다."},
+    {"key":"n1-1445","word":"到底","reading":"とうてい","meaning_ko":"도저히; 아무리 해도","meaning_ja":"どう考えても実現・理解・受容などができないことを強く表す副詞。多く否定表現とともに使う。","part_of_speech":"副詞","example_ja":"この人数では今日中に全件を確認するのは到底無理だ。","example_ko":"이 인원으로는 오늘 안에 전 건을 확인하는 것은 도저히 무리다."},
+    {"key":"n1-1446","word":"腐敗","reading":"ふはい","meaning_ko":"부패; 썩음; 조직의 타락","meaning_ja":"有機物が微生物などの作用で腐ること。また比喩的に、組織・政治などが不正によって堕落すること。","part_of_speech":"サ変名詞","example_ja":"食品の腐敗を防ぐため、低温で保存する必要がある。","example_ko":"식품 부패를 막기 위해 저온으로 보관할 필요가 있다."},
+    {"key":"n1-1447","word":"整列","reading":"せいれつ","meaning_ko":"정렬; 줄을 맞춤","meaning_ja":"一定の順序・間隔で、きちんと列を作って並ぶこと。また、並べること。","part_of_speech":"サ変名詞","example_ja":"参加者は係員の指示に従って二列に整列した。","example_ko":"참가자들은 담당자의 지시에 따라 두 줄로 정렬했다."},
+    {"key":"n1-1448","word":"岩石","reading":"がんせき","meaning_ko":"암석","meaning_ja":"地殻などを構成する、鉱物の集合からなる固い物質。","part_of_speech":"普通名詞","example_ja":"地質調査では岩石の種類や年代を詳しく調べる。","example_ko":"지질 조사에서는 암석의 종류와 연대를 자세히 조사한다."},
+    {"key":"n1-1449","word":"救い","reading":"すくい","meaning_ko":"구원; 구제; 위안이 되는 것","meaning_ja":"危険・苦しみ・困難などから助け出すこと。また、絶望の中で支えや希望となるもの。","part_of_speech":"普通名詞","example_ja":"厳しい状況の中で、仲間からの言葉が唯一の救いだった。","example_ko":"힘든 상황 속에서 동료의 말이 유일한 위안이었다."},
+    {"key":"n1-1450","word":"立ち寄る","reading":"たちよる","meaning_ko":"들르다; 잠깐 방문하다","meaning_ja":"目的地へ行く途中などで、別の場所に短時間寄る。","part_of_speech":"五段動詞","example_ja":"帰宅する前にスーパーへ立ち寄って夕食の材料を買った。","example_ko":"귀가하기 전에 슈퍼에 들러 저녁 재료를 샀다."},
+    {"key":"n1-1451","word":"中和","reading":"ちゅうわ","meaning_ko":"중화","meaning_ja":"性質の異なるものを作用させ、互いの強い性質を弱めたり中間的な状態にしたりすること。化学では酸と塩基の反応などをいう。","part_of_speech":"サ変名詞","example_ja":"酸性の排水は処理設備で中和してから放流される。","example_ko":"산성 폐수는 처리 설비에서 중화한 뒤 방류된다."},
+    {"key":"n1-1452","word":"墜落","reading":"ついらく","meaning_ko":"추락","meaning_ja":"航空機・物体・人などが高い所から急激に落ちること。","part_of_speech":"サ変名詞","example_ja":"事故調査委員会は航空機が墜落した原因を調べている。","example_ko":"사고조사위원회는 항공기가 추락한 원인을 조사하고 있다."},
+    {"key":"n1-1453","word":"保養","reading":"ほよう","meaning_ko":"보양; 요양; 휴양","meaning_ja":"疲労・病気などから回復するため、体を休めて健康を養うこと。","part_of_speech":"サ変名詞","example_ja":"医師の勧めで数日間温泉地に滞在し、保養することにした。","example_ko":"의사의 권유로 며칠간 온천 지역에 머물며 요양하기로 했다."},
+    {"key":"n1-1454","word":"製鉄","reading":"せいてつ","meaning_ko":"제철; 철을 생산함","meaning_ja":"鉄鉱石などから鉄を取り出し、鉄鋼材料を製造すること。","part_of_speech":"サ変名詞","example_ja":"この地域は古くから製鉄業を中心に発展してきた。","example_ko":"이 지역은 예로부터 제철업을 중심으로 발전해 왔다."},
+    {"key":"n1-1455","word":"腕前","reading":"うでまえ","meaning_ko":"솜씨; 실력; 기량","meaning_ja":"技能・技術をどの程度上手に使えるかという実力。","part_of_speech":"普通名詞","example_ja":"料理人は鮮やかな包丁さばきで見事な腕前を披露した。","example_ko":"요리사는 능숙한 칼솜씨로 훌륭한 실력을 보여 주었다."},
+    {"key":"n1-1456","word":"滑らか","reading":"なめらか","meaning_ko":"매끄러움; 부드러움","meaning_ja":"表面に凹凸が少なくすべすべしているさま。また、動き・話し方・処理などが途切れず自然なさま。","part_of_speech":"な形容詞","example_ja":"処理速度を改善したことで、画面の動きが以前より滑らかになった。","example_ko":"처리 속도를 개선해 화면 움직임이 이전보다 부드러워졌다."},
+    {"key":"n1-1457","word":"真上","reading":"まうえ","meaning_ko":"바로 위; 정수리 위쪽","meaning_ja":"ある物・場所のちょうど垂直方向の上。","part_of_speech":"普通名詞","example_ja":"太陽がほぼ真上に来る時間帯は日差しが特に強い。","example_ko":"태양이 거의 바로 위에 오는 시간대에는 햇빛이 특히 강하다."},
+    {"key":"n1-1458","word":"負債","reading":"ふさい","meaning_ko":"부채; 갚아야 할 채무","meaning_ja":"企業・個人などが他者に対して返済・支払いの義務を負っている金銭上の債務。","part_of_speech":"普通名詞","example_ja":"事業拡大のために借入金が増え、会社の負債も大きくなった。","example_ko":"사업 확대를 위해 차입금이 늘어 회사의 부채도 커졌다."},
+    {"key":"n1-1459","word":"安静","reading":"あんせい","meaning_ko":"안정; 움직이지 않고 쉬는 상태","meaning_ja":"病気・けがなどの回復のため、心身を静かに保ち無理に動かないこと。","part_of_speech":"普通名詞","example_ja":"手術後はしばらく安静にして過ごすよう医師から言われた。","example_ko":"수술 후에는 한동안 안정을 취하라고 의사에게 들었다."},
+    {"key":"n1-1460","word":"騙す","reading":"だます","meaning_ko":"속이다; 기만하다","meaning_ja":"嘘・偽りの説明などによって、相手に事実と違うことを信じ込ませる。","part_of_speech":"五段動詞","example_ja":"本物の銀行を装って利用者を騙す詐欺メールが増えている。","example_ko":"실제 은행을 사칭해 이용자를 속이는 사기 메일이 늘고 있다."}
+  ]
+}
