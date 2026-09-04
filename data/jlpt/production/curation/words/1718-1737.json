@@ -4,7 +4,7 @@
   "reviewedBy": "openai-assisted-manual-review",
   "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
   "words": [
-    {"key":"n1-1718","word":"余り","reading":"あんまり","meaning_ko":"너무; 그다지; 별로","meaning_ja":"『あまり』の口語的な形。程度が 지나치게 크다는 뜻으로도, 부정 표현과 함께 '그다지'라는 뜻으로도 쓴다.","part_of_speech":"副詞","example_ja":"あんまり無理をすると、かえって仕事の効率が落ちるよ。","example_ko":"너무 무리하면 오히려 일의 효율이 떨어져.","note":"現代では通常『あんまり』と仮名で書く。『余り』の標準的な読みは「あまり」。"},
+    {"key":"n1-1718","word":"余り","reading":"あんまり","meaning_ko":"너무; 그다지; 별로","meaning_ja":"『あまり』の口語的な形。程度が大きすぎることを表し、否定表現とともに『それほど』の意でも用いる。","part_of_speech":"副詞","example_ja":"あんまり無理をすると、かえって仕事の効率が落ちるよ。","example_ko":"너무 무리하면 오히려 일의 효율이 떨어져.","note":"現代では通常『あんまり』と仮名で書く。『余り』の標準的な読みは「あまり」。"},
     {"key":"n1-1719","word":"殆ど","reading":"ほとんど","meaning_ko":"거의; 대부분","meaning_ja":"全部に近い程度であること。また、否定表現とともに、ほぼ全くそうでないことを表す。","part_of_speech":"副詞","example_ja":"移行作業はほとんど終わり、残っているのは最終確認だけだ。","example_ko":"이행 작업은 거의 끝났고 남은 것은 최종 확인뿐이다.","note":"現代では『ほとんど』と仮名で書くことが多い。"},
     {"key":"n1-1720","word":"軍","reading":"いくさ","meaning_ko":"전쟁; 싸움","meaning_ja":"戦い・戦争を表す古風・文語的な語。","part_of_speech":"普通名詞","example_ja":"古い物語には、領地をめぐって軍が起こった経緯が描かれている。","example_ko":"옛이야기에는 영지를 둘러싸고 전쟁이 일어난 경위가 묘사되어 있다.","note":"現代の日常語では通常『戦（いくさ）』や『戦争』を用いる。『軍』を「いくさ」と読むのは古風。"},
     {"key":"n1-1721","word":"殊に","reading":"ことに","meaning_ko":"특히; 유난히","meaning_ja":"ほかと比べて特に。とりわけ。","part_of_speech":"副詞","example_ja":"今年の夏は暑かったが、八月後半は殊に厳しい暑さが続いた。","example_ko":"올여름은 더웠지만 8월 후반은 특히 심한 더위가 계속됐다."},
@@ -21,8 +21,8 @@
     {"key":"n1-1732","word":"付き","reading":"つき","meaning_ko":"~이 딸림; 부착됨; 조건이 붙음","meaning_ja":"名詞の後について、それが付属している・伴っていることを表す。","part_of_speech":"その他","example_ja":"この物件は家具付きなので、入居後すぐに生活を始められる。","example_ko":"이 집은 가구가 딸려 있어서 입주 후 바로 생활을 시작할 수 있다.","note":"『条件付き』『家具付き』など複合語での使用が中心。最終コーパス監査で学習価値を再判定する。"},
     {"key":"n1-1733","word":"員","reading":"いん","meaning_ko":"~원; 구성원","meaning_ja":"ある組織・職務に属する人を表す語。多くは複合語の後部に用いる。","part_of_speech":"その他","example_ja":"調査員は対象地域の住民から聞き取りを行った。","example_ko":"조사원은 대상 지역 주민들을 상대로 청취 조사를 실시했다.","note":"『職員』『委員』『調査員』など複合語での使用が中心。最終コーパス監査で学習価値を再判定する。"},
     {"key":"n1-1734","word":"作","reading":"さく","meaning_ko":"작품; 제작물; ~작","meaning_ja":"作ったもの・作品を表す語。また、作者や制作時期などを示す語の後について用いる。","part_of_speech":"普通名詞","example_ja":"今回展示されるのは、作家が晩年に完成させた代表作である。","example_ko":"이번에 전시되는 것은 작가가 만년에 완성한 대표작이다."},
-    {"key":"n1-1735","word":"像","reading":"ぞう","meaning_ko":"상; 형상; 이미지","meaning_ja":"人・物の姿をかたどったもの。また、心に描かれる姿・イメージ。","part_of_speech":"普通名詞","example_ja":"調査結果から、若者が理想とする働き方の像が少しずつ見えてきた。","example_ko":"조사 결과를 통해 젊은 층이 이상적으로 생각하는 일하는 방식의 모습이 조금씩 드러났다."},
+    {"key":"n1-1735","word":"像","reading":"ぞう","meaning_ko":"상; 형상; 이미지","meaning_ja":"人・物の姿をかたどったもの。また、心に描かれる姿・イメージ。","part_of_speech":"普通名詞","example_ja":"新しい望遠鏡は、従来より鮮明な像を映し出すことができる。","example_ko":"새 망원경은 기존보다 선명한 상을 비출 수 있다."},
     {"key":"n1-1736","word":"実","reading":"じつ","meaning_ko":"실제; 진실; 사실","meaning_ja":"表面や名目に対する、実際の内容・真実。『実は』の形では、事実を打ち明ける時にも用いる。","part_of_speech":"普通名詞","example_ja":"形式を整えるだけでなく、実のある議論を重ねる必要がある。","example_ko":"형식만 갖출 것이 아니라 내실 있는 논의를 거듭할 필요가 있다."},
-    {"key":"n1-1737","word":"本の","reading":"ほんの","meaning_ko":"불과; 아주 조금의; 그저","meaning_ja":"数量・程度がごくわずかであることを強調する連体表現。","part_of_speech":"連体詞","example_ja":"ほんの数分の遅れが、後の工程全体に大きな影響を及ぼした。","example_ko":"불과 몇 분의 지연이 이후 공정 전체에 큰 영향을 미쳤다.","note":"現代では通常『ほんの』と仮名で書く。"}
+    {"key":"n1-1737","word":"本の","reading":"ほんの","meaning_ko":"불과; 아주 조금의; 그저","meaning_ja":"数量・程度がごくわずかであることを強調する連体表現。","part_of_speech":"連体詞","example_ja":"ほんの数分の遅れが、後の工程全体に大きな影響を及ぼした。","example_ko":"불과 몇 분의 지연이 이후 공정 전체에 큰 영향을 미쳤다.","note":"現代では通常『ほんの』と仮名で書く。最終コーパス監査で表記の学習価値を再判定する。"}
   ]
 }
