@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0681-0700",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage; nonstandard source readings are normalized when general JLPT usage clearly differs.",
+  "words": [
+    {"key":"n1-0681","word":"盛大","reading":"せいだい","meaning_ko":"성대함; 규모가 크고 화려함","meaning_ja":"行事・催しなどの規模が大きく、にぎやかで立派なさま。","part_of_speech":"な形容詞","example_ja":"創立百周年を記念する式典が、国内外から多くの来賓を招いて盛大に開かれた。","example_ko":"창립 100주년 기념식이 국내외 많은 내빈을 초청해 성대하게 열렸다."},
+    {"key":"n1-0682","word":"未定","reading":"みてい","meaning_ko":"미정; 아직 정해지지 않음","meaning_ja":"予定・方法・担当などがまだ決まっていないこと。","part_of_speech":"な形容詞","example_ja":"公開日は未定だが、開発状況は毎月報告する予定だ。","example_ko":"공개일은 미정이지만 개발 상황은 매달 보고할 예정이다."},
+    {"key":"n1-0683","word":"落下","reading":"らっか","meaning_ko":"낙하; 떨어짐","meaning_ja":"高い所にある物が低い所へ落ちること。","part_of_speech":"サ変名詞","example_ja":"強風で看板が落下する危険があるため、周辺への立ち入りが禁止された。","example_ko":"강풍으로 간판이 낙하할 위험이 있어 주변 출입이 금지되었다."},
+    {"key":"n1-0684","word":"飼育","reading":"しいく","meaning_ko":"사육; 길러 기름","meaning_ja":"動物を人の管理下で飼い、育てること。","part_of_speech":"サ変名詞","example_ja":"研究施設では動物を飼育する環境について厳しい基準が設けられている。","example_ko":"연구시설에서는 동물을 사육하는 환경에 엄격한 기준이 마련되어 있다."},
+    {"key":"n1-0685","word":"宿命","reading":"しゅくめい","meaning_ko":"숙명; 피하기 어려운 운명","meaning_ja":"生まれた時から定められているかのように、避けることができない運命。","part_of_speech":"普通名詞","example_ja":"変化への対応は、技術企業にとって避けられない宿命とも言える。","example_ko":"변화에 대한 대응은 기술 기업에게 피할 수 없는 숙명이라고도 할 수 있다."},
+    {"key":"n1-0686","word":"地形","reading":"ちけい","meaning_ko":"지형","meaning_ja":"山・谷・平野など、地表が形作る起伏や形状。","part_of_speech":"普通名詞","example_ja":"この地域は地形が複雑なため、短い距離でも気候が大きく異なる。","example_ko":"이 지역은 지형이 복잡해서 짧은 거리에서도 기후가 크게 다르다.","note":"Production JLPT reading normalized to the standard general-use reading ちけい. The candidate source carried the rare/non-general reading じぎょう, which is unsuitable for ordinary JLPT vocabulary study."},
+    {"key":"n1-0687","word":"斜面","reading":"しゃめん","meaning_ko":"사면; 비탈면","meaning_ja":"水平ではなく、傾いている地面・面。","part_of_speech":"普通名詞","example_ja":"大雨が続いたため、山の斜面で土砂崩れが起きる危険が高まっている。","example_ko":"폭우가 계속돼 산비탈에서 산사태가 일어날 위험이 높아지고 있다."},
+    {"key":"n1-0688","word":"規範","reading":"きはん","meaning_ko":"규범; 행동 기준","meaning_ja":"社会・集団の中で行動や判断の基準として守るべき原則。","part_of_speech":"普通名詞","example_ja":"技術者には法律だけでなく、職業上の倫理規範を守る責任もある。","example_ko":"기술자는 법률뿐 아니라 직업상의 윤리 규범을 지킬 책임도 있다."},
+    {"key":"n1-0689","word":"伝言","reading":"でんごん","meaning_ko":"전언; 전달 메시지","meaning_ja":"その場にいない相手へ、別の人を通じて言葉・用件を伝えること。また、その内容。","part_of_speech":"サ変名詞","example_ja":"担当者が不在だったので、折り返し連絡してほしいと伝言を残した。","example_ko":"담당자가 부재중이라 다시 연락해 달라는 전언을 남겼다."},
+    {"key":"n1-0690","word":"登校","reading":"とうこう","meaning_ko":"등교; 학교에 감","meaning_ja":"児童・生徒などが学校へ行くこと。","part_of_speech":"サ変名詞","example_ja":"大雪のため、午前中は登校を見合わせるよう学校から連絡があった。","example_ko":"폭설 때문에 오전에는 등교를 보류하라는 연락이 학교에서 왔다."},
+    {"key":"n1-0691","word":"加入","reading":"かにゅう","meaning_ko":"가입; 조직·보험 등에 들어감","meaning_ja":"団体・制度・保険・サービスなどに新たに加わること。","part_of_speech":"サ変名詞","example_ja":"入社後は会社の健康保険に加入するための手続きが必要になる。","example_ko":"입사 후에는 회사 건강보험에 가입하기 위한 절차가 필요하다."},
+    {"key":"n1-0692","word":"関税","reading":"かんぜい","meaning_ko":"관세","meaning_ja":"外国から輸入する商品などに対して国が課す税金。","part_of_speech":"普通名詞","example_ja":"関税が引き下げられれば、輸入品の価格にも影響が出る可能性がある。","example_ko":"관세가 인하되면 수입품 가격에도 영향이 생길 가능성이 있다."},
+    {"key":"n1-0693","word":"分配","reading":"ぶんぱい","meaning_ko":"분배; 나누어 배정함","meaning_ja":"利益・物資・資源などを複数の相手に分けて配ること。","part_of_speech":"サ変名詞","example_ja":"利益をどのように分配するかは、共同事業を始める前に決めておくべきだ。","example_ko":"이익을 어떻게 분배할지는 공동사업을 시작하기 전에 정해두어야 한다."},
+    {"key":"n1-0694","word":"結晶","reading":"けっしょう","meaning_ko":"결정; 결정체","meaning_ja":"原子・分子・イオンなどが規則正しく並んで一定の形を作った固体。また比喩的に、努力の成果。","part_of_speech":"普通名詞","example_ja":"この受賞作は、研究者たちの長年にわたる努力の結晶だ。","example_ko":"이 수상작은 연구자들의 오랜 노력의 결정체다."},
+    {"key":"n1-0695","word":"生計","reading":"せいけい","meaning_ko":"생계; 생활을 유지하는 수단","meaning_ja":"生活を維持していくための収入・手段や暮らし向き。","part_of_speech":"普通名詞","example_ja":"退職後は小さな店を経営して生計を立てている。","example_ko":"퇴직 후에는 작은 가게를 운영하며 생계를 꾸리고 있다."},
+    {"key":"n1-0696","word":"目録","reading":"もくろく","meaning_ko":"목록; 목록집","meaning_ja":"品名・作品名・資料名などを一定の順序でまとめた一覧。","part_of_speech":"普通名詞","example_ja":"博物館は所蔵資料の目録をデジタル化し、一般公開を始めた。","example_ko":"박물관은 소장 자료 목록을 디지털화해 일반 공개를 시작했다."},
+    {"key":"n1-0697","word":"火星","reading":"かせい","meaning_ko":"화성","meaning_ja":"太陽系で太陽から四番目を公転する惑星。","part_of_speech":"普通名詞","example_ja":"将来の火星探査に向けて、長期間の有人滞在を想定した実験が進められている。","example_ko":"미래의 화성 탐사를 위해 장기간 유인 체류를 가정한 실험이 진행되고 있다."},
+    {"key":"n1-0698","word":"強硬","reading":"きょうこう","meaning_ko":"강경; 타협하지 않는 태도","meaning_ja":"主張・態度などが非常に強く、妥協・譲歩をしないさま。","part_of_speech":"な形容詞","example_ja":"相手側が強硬な姿勢を崩さず、交渉は再び中断した。","example_ko":"상대 측이 강경한 태도를 굽히지 않아 협상은 다시 중단됐다."},
+    {"key":"n1-0699","word":"入浴","reading":"にゅうよく","meaning_ko":"입욕; 목욕함","meaning_ja":"風呂・浴槽などに入って身体を洗ったり温めたりすること。","part_of_speech":"サ変名詞","example_ja":"高齢者が入浴する際は、急な温度変化に十分注意する必要がある。","example_ko":"고령자가 목욕할 때는 급격한 온도 변화에 충분히 주의할 필요가 있다."},
+    {"key":"n1-0700","word":"補償","reading":"ほしょう","meaning_ko":"보상; 손실을 메움","meaning_ja":"損害・損失・不利益などを金銭その他で埋め合わせること。","part_of_speech":"サ変名詞","example_ja":"工事の遅延によって生じた損害をどこまで補償するか、契約内容を確認した。","example_ko":"공사 지연으로 생긴 손해를 어디까지 보상할지 계약 내용을 확인했다."}
+  ]
+}
