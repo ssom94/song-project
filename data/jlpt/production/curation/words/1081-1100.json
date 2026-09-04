@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1081-1100",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-1081","word":"欠く","reading":"かく","meaning_ko":"결여하다; 빠뜨리다; 부족하다","meaning_ja":"必要なものを持っていない。また、必要な要素を抜く・失う。","part_of_speech":"五段動詞","example_ja":"客観的な根拠を欠く主張は、説得力を持ちにくい。","example_ko":"객관적인 근거가 결여된 주장은 설득력을 갖기 어렵다."},
+    {"key":"n1-1082","word":"廃棄","reading":"はいき","meaning_ko":"폐기","meaning_ja":"不要になった物・資料などを捨て、使用しないよう処分すること。","part_of_speech":"サ変名詞","example_ja":"保存期限を過ぎた機密文書は、規程に従って安全に廃棄する。","example_ko":"보존 기한이 지난 기밀 문서는 규정에 따라 안전하게 폐기한다."},
+    {"key":"n1-1083","word":"アプローチ","reading":"アプローチ","meaning_ko":"접근; 접근법; 접근하다","meaning_ja":"対象に近づくこと。また、問題を解決するための方法・考え方。","part_of_speech":"サ変名詞","example_ja":"同じ問題でも、技術面と運用面では異なるアプローチが必要になる。","example_ko":"같은 문제라도 기술 측면과 운영 측면에서는 다른 접근법이 필요하다."},
+    {"key":"n1-1084","word":"番目","reading":"ばんめ","meaning_ko":"~번째","meaning_ja":"順序・順位を表す語。数詞に付けて『一番目』『三番目』などと使う。","part_of_speech":"その他","example_ja":"三番目の選択肢が最も条件に合っている。","example_ko":"세 번째 선택지가 조건에 가장 잘 맞는다."},
+    {"key":"n1-1085","word":"審判","reading":"しんぱん","meaning_ko":"심판; 판정; 심판원","meaning_ja":"競技で規則に基づいて判定すること・その人。また、物事の是非を判断すること。","part_of_speech":"サ変名詞","example_ja":"審判は映像を確認したうえで、最初の判定を変更した。","example_ko":"심판은 영상을 확인한 뒤 최초 판정을 변경했다.","note":"候補資料の『しんばん』から標準読み『しんぱん』へ修正。"},
+    {"key":"n1-1086","word":"唱える","reading":"となえる","meaning_ko":"주장하다; 외치다; 읊다","meaning_ja":"意見・主義などを強く主張する。また、決まった文句・祈りなどを声に出して言う。","part_of_speech":"一段動詞","example_ja":"研究者は従来の説に疑問を唱え、新しい解釈を提示した。","example_ko":"연구자는 기존 학설에 의문을 제기하고 새로운 해석을 제시했다."},
+    {"key":"n1-1087","word":"弾く","reading":"はじく","meaning_ko":"튕기다; 튀겨 내다; 물리치다","meaning_ja":"指などで物を勢いよくはね飛ばす。また、水などを表面で受け付けずはね返す。","part_of_speech":"五段動詞","example_ja":"この素材は水を弾くため、雨天用の衣類にも使われている。","example_ko":"이 소재는 물을 튕겨 내기 때문에 우천용 의류에도 사용된다.","note":"楽器を演奏する『弾く』は通常『ひく』。このキーは『はじく』。"},
+    {"key":"n1-1088","word":"動員","reading":"どういん","meaning_ko":"동원","meaning_ja":"目的のために多くの人・物資・組織などを集めて活動させること。","part_of_speech":"サ変名詞","example_ja":"復旧作業には全国の拠点から技術者が動員された。","example_ko":"복구 작업에는 전국 거점에서 기술자가 동원됐다."},
+    {"key":"n1-1089","word":"極端","reading":"きょくたん","meaning_ko":"극단; 극단적임","meaning_ja":"考え・状態・程度などが一方に大きく偏っているさま。","part_of_speech":"な形容詞","example_ja":"一つの事例だけを見て極端な結論を出すのは危険だ。","example_ko":"한 가지 사례만 보고 극단적인 결론을 내리는 것은 위험하다."},
+    {"key":"n1-1090","word":"マスコミ","reading":"マスコミ","meaning_ko":"매스컴; 대중매체; 언론","meaning_ja":"新聞・テレビ・雑誌など、不特定多数に情報を伝える報道機関・媒体の総称。","part_of_speech":"普通名詞","example_ja":"事件への関心が高まり、現場には多くのマスコミ関係者が集まった。","example_ko":"사건에 대한 관심이 높아져 현장에 많은 언론 관계자가 모였다."},
+    {"key":"n1-1091","word":"収容","reading":"しゅうよう","meaning_ko":"수용; 시설 등에 넣음","meaning_ja":"人・物を一定の施設・場所の中に入れること。また、そこに入れられる容量。","part_of_speech":"サ変名詞","example_ja":"避難所には最大で五百人を収容できる設備が整っている。","example_ko":"대피소에는 최대 500명을 수용할 수 있는 설비가 갖춰져 있다."},
+    {"key":"n1-1092","word":"大げさ","reading":"おおげさ","meaning_ko":"과장됨; 유난스러움","meaning_ja":"実際の程度以上に大きく、重大そうに表現するさま。","part_of_speech":"な形容詞","example_ja":"小さな失敗を必要以上に大げさに扱うべきではない。","example_ko":"작은 실패를 필요 이상으로 과장해서 다뤄서는 안 된다."},
+    {"key":"n1-1093","word":"写し","reading":"うつし","meaning_ko":"사본; 복사본","meaning_ja":"原本を書き写したり複製したりしたもの。","part_of_speech":"普通名詞","example_ja":"本人確認のため、身分証明書の写しを提出してください。","example_ko":"본인 확인을 위해 신분증 사본을 제출해 주세요."},
+    {"key":"n1-1094","word":"度々","reading":"たびたび","meaning_ko":"자주; 여러 번","meaning_ja":"同じことが何度も繰り返されるさま。","part_of_speech":"副詞","example_ja":"同じ障害が度々発生しているため、根本原因の調査が必要だ。","example_ko":"같은 장애가 자주 발생하고 있어 근본 원인 조사가 필요하다."},
+    {"key":"n1-1095","word":"次いで","reading":"ついで","meaning_ko":"이어서; 그다음으로","meaning_ja":"ある物事のすぐ後に続いて。順位・順序がその次であることを表す。","part_of_speech":"副詞","example_ja":"売上は国内市場が最も多く、次いで北米市場となっている。","example_ko":"매출은 국내 시장이 가장 많고 그다음이 북미 시장이다."},
+    {"key":"n1-1096","word":"頻繁","reading":"ひんぱん","meaning_ko":"빈번함; 잦음","meaning_ja":"同じことが短い間隔で何度も起こるさま。","part_of_speech":"な形容詞","example_ja":"仕様変更が頻繁だと、開発側の負担が大きくなる。","example_ko":"사양 변경이 빈번하면 개발 측의 부담이 커진다."},
+    {"key":"n1-1097","word":"受け入れる","reading":"うけいれる","meaning_ko":"받아들이다; 수용하다","meaning_ja":"人・意見・事実・文化などを拒まず認め、自分の側に取り入れる。","part_of_speech":"一段動詞","example_ja":"異なる意見を受け入れる姿勢が、建設的な議論には欠かせない。","example_ko":"다른 의견을 받아들이는 자세가 건설적인 논의에는 필수적이다."},
+    {"key":"n1-1098","word":"辞職","reading":"じしょく","meaning_ko":"사직; 직책에서 물러남","meaning_ja":"自分の意思で職務・役職を辞めること。","part_of_speech":"サ変名詞","example_ja":"責任を取る形で社長が辞職する意向を表明した。","example_ko":"책임을 지는 형태로 사장이 사직 의사를 밝혔다."},
+    {"key":"n1-1099","word":"耐える","reading":"たえる","meaning_ko":"견디다; 버티다","meaning_ja":"苦痛・圧力・厳しい条件などに負けず、持ちこたえる。","part_of_speech":"一段動詞","example_ja":"この建物は強い地震にも耐えられるよう設計されている。","example_ko":"이 건물은 강한 지진에도 견딜 수 있도록 설계돼 있다."},
+    {"key":"n1-1100","word":"退学","reading":"たいがく","meaning_ko":"퇴학; 자퇴","meaning_ja":"学校を途中で辞めること。また、学校側の処分によって辞めさせられること。","part_of_speech":"サ変名詞","example_ja":"経済的な理由で退学を考える学生を支援する制度が設けられた。","example_ko":"경제적인 이유로 자퇴를 고민하는 학생을 지원하는 제도가 마련됐다."}
+  ]
+}
