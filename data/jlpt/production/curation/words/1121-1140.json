@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1121-1140",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and noisy cross-dictionary matches are discarded.",
+  "words": [
+    {"key":"n1-1121","word":"徒歩","reading":"とほ","meaning_ko":"도보; 걸어서 감","meaning_ja":"乗り物を使わず、歩いて移動すること。","part_of_speech":"普通名詞","example_ja":"駅から会場までは徒歩で約十分かかる。","example_ko":"역에서 행사장까지는 도보로 약 10분 걸린다."},
+    {"key":"n1-1122","word":"施す","reading":"ほどこす","meaning_ko":"베풀다; 실시하다; 가하다","meaning_ja":"人に恩恵を与える。また、処置・加工・装飾・肥料などを加える。","part_of_speech":"五段動詞","example_ja":"建物には耐震補強が施され、安全性が高められた。","example_ko":"건물에는 내진 보강이 실시되어 안전성이 높아졌다."},
+    {"key":"n1-1123","word":"妊娠","reading":"にんしん","meaning_ko":"임신","meaning_ja":"女性・雌の体内に胎児が宿り、育っている状態になること。","part_of_speech":"サ変名詞","example_ja":"妊娠中は体調の変化に合わせて無理のない生活を送ることが大切だ。","example_ko":"임신 중에는 몸 상태 변화에 맞춰 무리하지 않는 생활을 하는 것이 중요하다."},
+    {"key":"n1-1124","word":"織物","reading":"おりもの","meaning_ko":"직물; 짠 천","meaning_ja":"縦糸と横糸を組み合わせて織った布。","part_of_speech":"普通名詞","example_ja":"この地域では伝統的な織物の技術が今も受け継がれている。","example_ko":"이 지역에서는 전통 직물 기술이 지금도 계승되고 있다."},
+    {"key":"n1-1125","word":"遂げる","reading":"とげる","meaning_ko":"이루다; 완수하다","meaning_ja":"目標・任務・発展などを最後まで成し遂げ、結果を得る。","part_of_speech":"一段動詞","example_ja":"長年の研究が実を結び、ついに大きな成果を遂げた。","example_ko":"오랜 연구가 결실을 맺어 마침내 큰 성과를 이루었다."},
+    {"key":"n1-1126","word":"平方","reading":"へいほう","meaning_ko":"제곱; 평방","meaning_ja":"同じ数を二度掛け合わせること。また、面積の単位を表すときにも用いる語。","part_of_speech":"普通名詞","example_ja":"この部屋の面積はおよそ二十平方メートルだ。","example_ko":"이 방의 면적은 약 20제곱미터다."},
+    {"key":"n1-1127","word":"乏しい","reading":"とぼしい","meaning_ko":"부족하다; 빈약하다","meaning_ja":"必要な量・内容・経験・資源などが十分にない。","part_of_speech":"い形容詞","example_ja":"経験が乏しい段階では、判断を急がず周囲に確認した方がよい。","example_ko":"경험이 부족한 단계에서는 판단을 서두르지 말고 주변에 확인하는 편이 좋다."},
+    {"key":"n1-1128","word":"襲撃","reading":"しゅうげき","meaning_ko":"습격; 급작스러운 공격","meaning_ja":"相手・場所などを不意に襲って攻撃すること。","part_of_speech":"サ変名詞","example_ja":"警備当局は施設への襲撃に備えて警戒を強化した。","example_ko":"경비 당국은 시설 습격에 대비해 경계를 강화했다."},
+    {"key":"n1-1129","word":"見込み","reading":"みこみ","meaning_ko":"가망; 전망; 예상","meaning_ja":"将来そうなる可能性・期待。また、あらかじめ立てた予想。","part_of_speech":"普通名詞","example_ja":"部品の調達が進み、予定どおり納品できる見込みだ。","example_ko":"부품 조달이 진행되어 예정대로 납품할 전망이다."},
+    {"key":"n1-1130","word":"削減","reading":"さくげん","meaning_ko":"삭감; 감축","meaning_ja":"数量・費用・人員・排出量などを減らすこと。","part_of_speech":"サ変名詞","example_ja":"電力消費を削減するため、設備の運転方法を見直した。","example_ko":"전력 소비를 줄이기 위해 설비 운전 방식을 재검토했다."},
+    {"key":"n1-1131","word":"貧困","reading":"ひんこん","meaning_ko":"빈곤","meaning_ja":"生活に必要な所得・資源が不足し、暮らしが困難な状態。","part_of_speech":"普通名詞","example_ja":"子どもの貧困を減らすには教育と生活の両面から支援が必要だ。","example_ko":"아동 빈곤을 줄이려면 교육과 생활 양면에서 지원이 필요하다."},
+    {"key":"n1-1132","word":"取り締まり","reading":"とりしまり","meaning_ko":"단속; 규제 집행","meaning_ja":"法律・規則に違反する行為がないか監視し、違反者を検挙・処分すること。","part_of_speech":"普通名詞","example_ja":"事故を減らすため、危険運転の取り締まりが強化された。","example_ko":"사고를 줄이기 위해 위험 운전에 대한 단속이 강화되었다."},
+    {"key":"n1-1133","word":"街道","reading":"かいどう","meaning_ko":"가도; 주요 도로","meaning_ja":"昔から都市・地域を結ぶ主要な道路。","part_of_speech":"普通名詞","example_ja":"古い街道沿いには江戸時代の町並みが一部残っている。","example_ko":"옛 가도를 따라 에도 시대의 거리 풍경이 일부 남아 있다."},
+    {"key":"n1-1134","word":"浮かぶ","reading":"うかぶ","meaning_ko":"뜨다; 떠오르다","meaning_ja":"水面・空中などに浮いている。また、考え・記憶・表情などが心や顔に現れる。","part_of_speech":"五段動詞","example_ja":"問題点を整理しているうちに、新しい解決策が頭に浮かんだ。","example_ko":"문제점을 정리하다 보니 새로운 해결책이 머릿속에 떠올랐다."},
+    {"key":"n1-1135","word":"収益","reading":"しゅうえき","meaning_ko":"수익; 사업에서 얻는 이익","meaning_ja":"事業・投資などによって得られる収入や利益。","part_of_speech":"普通名詞","example_ja":"広告収入が増え、事業全体の収益も改善した。","example_ko":"광고 수입이 늘어 사업 전체의 수익도 개선되었다."},
+    {"key":"n1-1136","word":"避難","reading":"ひなん","meaning_ko":"피난; 대피","meaning_ja":"災害・事故・戦争などの危険を避け、安全な場所へ移動すること。","part_of_speech":"サ変名詞","example_ja":"警報が鳴ったら、案内に従って速やかに避難してください。","example_ko":"경보가 울리면 안내에 따라 신속히 대피해 주세요."},
+    {"key":"n1-1137","word":"掲げる","reading":"かかげる","meaning_ko":"내걸다; 내세우다; 제시하다","meaning_ja":"旗・看板などを高く上げる。また、目標・理念・方針などを公に示す。","part_of_speech":"一段動詞","example_ja":"会社は『安全第一』を最優先の方針として掲げている。","example_ko":"회사는 '안전 제일'을 최우선 방침으로 내세우고 있다."},
+    {"key":"n1-1138","word":"営む","reading":"いとなむ","meaning_ko":"영위하다; 운영하다; 치르다","meaning_ja":"生活・商売・事業などを続けて行う。また、儀式などを執り行う。","part_of_speech":"五段動詞","example_ja":"祖父はこの町で長年、小さな商店を営んできた。","example_ko":"할아버지는 이 마을에서 오랫동안 작은 상점을 운영해 왔다."},
+    {"key":"n1-1139","word":"情け","reading":"なさけ","meaning_ko":"인정; 자비; 연민","meaning_ja":"他人の苦しみ・事情を思いやる心。人情や慈悲。","part_of_speech":"普通名詞","example_ja":"困っている人に情けをかけるだけでなく、自立につながる支援も必要だ。","example_ko":"곤란한 사람에게 인정을 베푸는 것뿐 아니라 자립으로 이어지는 지원도 필요하다."},
+    {"key":"n1-1140","word":"取り分け","reading":"とりわけ","meaning_ko":"특히; 유달리","meaning_ja":"多くの中でも特に。格別に。","part_of_speech":"副詞","example_ja":"今年の夏は例年より暑く、八月は取り分け厳しい暑さだった。","example_ko":"올여름은 예년보다 더웠고 8월은 특히 더위가 심했다."}
+  ]
+}
