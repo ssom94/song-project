@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const CURATION_DIR = path.join(ROOT, 'data', 'jlpt', 'production', 'curation', 'words');
-const DRAFT_DIR = path.join(ROOT, 'data', 'jlpt', 'production', 'candidates', 'word-drafts');
+const CANDIDATE_FILE = path.join(ROOT, 'data', 'jlpt', 'production', 'candidates', 'n1-source-3000.json');
 
 const normalize = (value = '') => String(value).normalize('NFKC').trim();
 const normalizeReading = (value = '') => normalize(value).replace(/[\u30a1-\u30f6]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
@@ -98,10 +98,10 @@ for (const [reading, group] of readingMap.entries()) {
 }
 
 const sourceByKey = new Map();
-if (fs.existsSync(DRAFT_DIR)) {
-  for (const name of fs.readdirSync(DRAFT_DIR).filter(v => v.endsWith('.json')).sort()) {
-    const doc = readJson(path.join(DRAFT_DIR, name));
-    for (const item of doc.words ?? []) if (item?.key && !sourceByKey.has(item.key)) sourceByKey.set(item.key, item);
+if (fs.existsSync(CANDIDATE_FILE)) {
+  const doc = readJson(CANDIDATE_FILE);
+  for (const item of doc.candidates ?? []) {
+    if (item?.key && !sourceByKey.has(item.key)) sourceByKey.set(item.key, item);
   }
 }
 
