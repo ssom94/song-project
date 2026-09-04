@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1301-1320",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage and unusual readings are noted where useful.",
+  "words": [
+    {"key":"n1-1301","word":"納入","reading":"のうにゅう","meaning_ko":"납입; 납품","meaning_ja":"金銭を納めること。また、注文された品物を指定先へ納めること。","part_of_speech":"サ変名詞","example_ja":"機器は今月末までに顧客へ納入する予定だ。","example_ko":"기기는 이달 말까지 고객에게 납품할 예정이다."},
+    {"key":"n1-1302","word":"了承","reading":"りょうしょう","meaning_ko":"양해; 승낙; 이해하고 받아들임","meaning_ja":"事情・内容を理解したうえで受け入れ、認めること。","part_of_speech":"サ変名詞","example_ja":"日程変更について参加者全員の了承を得た。","example_ko":"일정 변경에 대해 참가자 전원의 양해를 얻었다."},
+    {"key":"n1-1303","word":"証","reading":"あかし","meaning_ko":"증거; 증표; 증명","meaning_ja":"ある事実・気持ち・関係などが本当であることを示す証拠・しるし。","part_of_speech":"普通名詞","example_ja":"長年続いた協力関係の証として記念品が贈られた。","example_ko":"오랫동안 이어진 협력 관계의 증표로 기념품이 전달되었다."},
+    {"key":"n1-1304","word":"下位","reading":"かい","meaning_ko":"하위; 낮은 순위","meaning_ja":"順位・位置・等級などが低いこと。また、その位置。","part_of_speech":"普通名詞","example_ja":"下位のチームでも終盤に大きく順位を上げる可能性はある。","example_ko":"하위 팀이라도 막판에 순위를 크게 올릴 가능성은 있다."},
+    {"key":"n1-1305","word":"土木","reading":"どぼく","meaning_ko":"토목; 토목 공사","meaning_ja":"道路・橋・河川・堤防など、土地や公共基盤を整備する工事・技術分野。","part_of_speech":"普通名詞","example_ja":"大雨に備えて河川周辺の土木工事が進められている。","example_ko":"폭우에 대비해 하천 주변 토목 공사가 진행되고 있다."},
+    {"key":"n1-1306","word":"彼方","reading":"あちら","meaning_ko":"저쪽; 저곳; 저분","meaning_ja":"話し手・聞き手から離れた場所・方向・人を丁寧に指す語。","part_of_speech":"普通名詞","example_ja":"受付はあちらの建物の一階にございます。","example_ko":"접수처는 저쪽 건물 1층에 있습니다.","note":"通常は仮名で『あちら』と書くことが多い。"},
+    {"key":"n1-1307","word":"承諾","reading":"しょうだく","meaning_ko":"승낙; 동의","meaning_ja":"相手からの依頼・提案・申し出などを受け入れること。","part_of_speech":"サ変名詞","example_ja":"本人の承諾を得ずに写真を公開してはいけない。","example_ko":"본인의 승낙 없이 사진을 공개해서는 안 된다."},
+    {"key":"n1-1308","word":"疲労","reading":"ひろう","meaning_ko":"피로","meaning_ja":"仕事・運動・精神的負担などによって心身の力が低下し、疲れること。","part_of_speech":"普通名詞","example_ja":"長時間勤務による疲労が判断力の低下につながることがある。","example_ko":"장시간 근무로 인한 피로가 판단력 저하로 이어질 수 있다."},
+    {"key":"n1-1309","word":"配列","reading":"はいれつ","meaning_ko":"배열; 일정한 순서로 배치함","meaning_ja":"要素を一定の順序・規則に従って並べること。また、その並び。","part_of_speech":"サ変名詞","example_ja":"画面サイズに応じてボタンの配列を変更する。","example_ko":"화면 크기에 따라 버튼 배열을 변경한다."},
+    {"key":"n1-1310","word":"真珠","reading":"しんじゅ","meaning_ko":"진주","meaning_ja":"貝の体内に形成される、光沢を持つ丸い宝石。","part_of_speech":"普通名詞","example_ja":"その地域では真珠の養殖が重要な産業になっている。","example_ko":"그 지역에서는 진주 양식이 중요한 산업이 되어 있다."},
+    {"key":"n1-1311","word":"木綿","reading":"きわた","meaning_ko":"목화솜; 면화","meaning_ja":"ワタの実から採れる綿。また、その綿を生じる植物を指す古い・限定的な読み。","part_of_speech":"普通名詞","example_ja":"昔は木綿を栽培し、糸にして織物を作っていた。","example_ko":"예전에는 목화를 재배해 실로 만들어 직물을 짰다.","note":"『木綿』は一般には『もめん』と読む。『きわた』は植物・綿を指す読みとして扱う。"},
+    {"key":"n1-1312","word":"疑惑","reading":"ぎわく","meaning_ko":"의혹","meaning_ja":"事実ではないかと疑われること。また、その疑い。","part_of_speech":"普通名詞","example_ja":"会計処理をめぐる疑惑について第三者委員会が調査を始めた。","example_ko":"회계 처리를 둘러싼 의혹에 대해 제3자 위원회가 조사를 시작했다."},
+    {"key":"n1-1313","word":"家主","reading":"いえぬし","meaning_ko":"집주인; 가옥의 소유자","meaning_ja":"家・貸家の所有者。","part_of_speech":"普通名詞","example_ja":"修理費の負担について家主と相談することになった。","example_ko":"수리비 부담에 대해 집주인과 상담하기로 했다.","note":"貸家の所有者には『やぬし』『おおや』も一般的。"},
+    {"key":"n1-1314","word":"破棄","reading":"はき","meaning_ko":"파기; 폐기","meaning_ja":"契約・約束・文書などを無効にする。また、不要なものを捨てること。","part_of_speech":"サ変名詞","example_ja":"機密資料は規定に従って安全に破棄しなければならない。","example_ko":"기밀 자료는 규정에 따라 안전하게 폐기해야 한다."},
+    {"key":"n1-1315","word":"驚き","reading":"おどろき","meaning_ko":"놀람; 놀라움","meaning_ja":"予想外のことに接して強くびっくりすること。また、その感情。","part_of_speech":"普通名詞","example_ja":"予想を大きく上回る結果に、会場から驚きの声が上がった。","example_ko":"예상을 크게 웃도는 결과에 행사장에서 놀라움의 목소리가 나왔다."},
+    {"key":"n1-1316","word":"原点","reading":"げんてん","meaning_ko":"원점; 출발점","meaning_ja":"物事が始まった最初の地点・基本となる考え。数学では座標の基準点。","part_of_speech":"普通名詞","example_ja":"問題が複雑になったときこそ、企画の原点に戻って考えたい。","example_ko":"문제가 복잡해졌을 때일수록 기획의 원점으로 돌아가 생각하고 싶다."},
+    {"key":"n1-1317","word":"真相","reading":"しんそう","meaning_ko":"진상; 실제 사실","meaning_ja":"事件・問題などの偽りのない本当の事情・姿。","part_of_speech":"普通名詞","example_ja":"事故の真相を明らかにするため、関係者への聞き取りが続いている。","example_ko":"사고의 진상을 밝히기 위해 관계자 면담이 계속되고 있다."},
+    {"key":"n1-1318","word":"ほっと","reading":"ほっと","meaning_ko":"안도하여 마음이 놓이는 모양","meaning_ja":"緊張・心配などが解けて安心するさま。","part_of_speech":"副詞","example_ja":"検査結果に問題がないと聞いて、家族全員がほっとした。","example_ko":"검사 결과에 문제가 없다는 말을 듣고 가족 모두가 안도했다."},
+    {"key":"n1-1319","word":"叫び","reading":"さけび","meaning_ko":"외침; 고함","meaning_ja":"大声で叫ぶこと。また、強い感情・要求を表す声や訴え。","part_of_speech":"普通名詞","example_ja":"助けを求める叫びを聞き、近くにいた人が消防へ通報した。","example_ko":"도움을 청하는 외침을 듣고 근처에 있던 사람이 소방에 신고했다."},
+    {"key":"n1-1320","word":"便宜","reading":"べんぎ","meaning_ko":"편의; 편리하도록 해 주는 조치","meaning_ja":"都合がよく便利であること。また、物事がしやすいよう取り計らうこと。","part_of_speech":"普通名詞","example_ja":"利用者の便宜を図り、窓口の受付時間を延長した。","example_ko":"이용자의 편의를 도모해 창구 접수 시간을 연장했다."}
+  ]
+}
