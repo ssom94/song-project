@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0841-0860",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0841","word":"給食","reading":"きゅうしょく","meaning_ko":"급식","meaning_ja":"学校・施設などで、一定の人に食事を提供すること。また、その食事。","part_of_speech":"サ変名詞","example_ja":"学校では栄養バランスを考えた給食が毎日提供されている。","example_ko":"학교에서는 영양 균형을 고려한 급식이 매일 제공되고 있다."},
+    {"key":"n1-0842","word":"無能","reading":"むのう","meaning_ko":"무능; 능력이 없음","meaning_ja":"必要な能力・才能がなく、役割や仕事を十分に果たせないさま。","part_of_speech":"な形容詞","example_ja":"一度の失敗だけで相手を無能だと決めつけるのは適切ではない。","example_ko":"한 번의 실패만으로 상대를 무능하다고 단정하는 것은 적절하지 않다."},
+    {"key":"n1-0843","word":"討議","reading":"とうぎ","meaning_ko":"토의; 논의","meaning_ja":"複数の人が一つの問題について意見を出し合い、詳しく議論すること。","part_of_speech":"サ変名詞","example_ja":"委員会では新制度の課題について二時間にわたり討議した。","example_ko":"위원회에서는 새 제도의 과제에 대해 두 시간에 걸쳐 토의했다."},
+    {"key":"n1-0844","word":"簡素","reading":"かんそ","meaning_ko":"간소함; 소박하고 단순함","meaning_ja":"飾りや無駄が少なく、単純で質素なさま。","part_of_speech":"な形容詞","example_ja":"申請手続きを簡素にして、利用者の負担を減らす方針だ。","example_ko":"신청 절차를 간소하게 해 이용자 부담을 줄일 방침이다."},
+    {"key":"n1-0845","word":"痛感","reading":"つうかん","meaning_ko":"통감; 절실히 느낌","meaning_ja":"ある事実・重要性などを、身にしみて強く感じること。","part_of_speech":"サ変名詞","example_ja":"今回の失敗を通して、事前確認の重要性を改めて痛感した。","example_ko":"이번 실패를 통해 사전 확인의 중요성을 다시 절실히 느꼈다."},
+    {"key":"n1-0846","word":"不調","reading":"ふちょう","meaning_ko":"부진; 상태가 좋지 않음","meaning_ja":"体調・機械・業績・交渉などの状態がよくなく、思うように進まないさま。","part_of_speech":"な形容詞","example_ja":"システムの不調が続いたため、予防保守の計画を見直すことになった。","example_ko":"시스템 상태 불량이 계속되어 예방보수 계획을 재검토하게 되었다."},
+    {"key":"n1-0847","word":"体裁","reading":"ていさい","meaning_ko":"체재; 형식; 체면","meaning_ja":"外から見た形式・見た目・整い方。また、世間に対する体面。","part_of_speech":"普通名詞","example_ja":"内容は変えず、報告書の体裁だけを社内基準に合わせて整えた。","example_ko":"내용은 바꾸지 않고 보고서 형식만 사내 기준에 맞게 정리했다."},
+    {"key":"n1-0848","word":"融通","reading":"ゆうずう","meaning_ko":"융통; 융통성; 자금 마련","meaning_ja":"状況に応じて柔軟に対応すること。また、金銭・物資を必要な所へ回して用立てること。","part_of_speech":"サ変名詞","example_ja":"小さな変更なら現場の判断で融通を利かせられる仕組みにしたい。","example_ko":"작은 변경이라면 현장 판단으로 융통성 있게 대응할 수 있는 구조로 만들고 싶다."},
+    {"key":"n1-0849","word":"前例","reading":"ぜんれい","meaning_ko":"전례; 선례","meaning_ja":"以前に起きた同種の事例で、後の判断・処理の参考となるもの。","part_of_speech":"普通名詞","example_ja":"前例がない案件だからこそ、判断の根拠を明確に残す必要がある。","example_ko":"전례가 없는 안건이기 때문에 판단 근거를 명확히 남길 필요가 있다."},
+    {"key":"n1-0850","word":"単一","reading":"たんいつ","meaning_ko":"단일; 하나뿐임","meaning_ja":"複数ではなく、一つだけで成り立っているさま。","part_of_speech":"な形容詞","example_ja":"単一の原因だけで複雑な社会問題を説明することは難しい。","example_ko":"단일 원인만으로 복잡한 사회 문제를 설명하기는 어렵다."},
+    {"key":"n1-0851","word":"故人","reading":"こじん","meaning_ko":"고인; 세상을 떠난 사람","meaning_ja":"亡くなった人。","part_of_speech":"普通名詞","example_ja":"式典では故人の功績を振り返り、黙とうがささげられた。","example_ko":"식전에서는 고인의 공적을 되돌아보며 묵념을 올렸다."},
+    {"key":"n1-0852","word":"学芸","reading":"がくげい","meaning_ko":"학예; 학문과 예술","meaning_ja":"学問と芸術。また、それらに関する知識・技能。","part_of_speech":"普通名詞","example_ja":"博物館の学芸員は展示資料の調査や保存にも携わっている。","example_ko":"박물관 학예사는 전시 자료 조사와 보존에도 관여하고 있다."},
+    {"key":"n1-0853","word":"口頭","reading":"こうとう","meaning_ko":"구두; 말로 함","meaning_ja":"書面ではなく、口で話して伝えること。","part_of_speech":"普通名詞","example_ja":"重要な変更は口頭だけで済ませず、必ず記録を残してください。","example_ko":"중요한 변경은 구두로만 끝내지 말고 반드시 기록을 남겨 주세요."},
+    {"key":"n1-0854","word":"是正","reading":"ぜせい","meaning_ko":"시정; 바로잡음","meaning_ja":"誤り・不公平・不適切な状態を正しく改めること。","part_of_speech":"サ変名詞","example_ja":"監査で指摘された問題を是正するため、業務手順を変更した。","example_ko":"감사에서 지적된 문제를 시정하기 위해 업무 절차를 변경했다."},
+    {"key":"n1-0855","word":"味わい","reading":"あじわい","meaning_ko":"맛; 풍미; 깊은 멋","meaning_ja":"食べ物・飲み物の味や風味。また、作品・経験などから感じられる深い趣。","part_of_speech":"普通名詞","example_ja":"古い木材を生かした店内には、新築にはない独特の味わいがある。","example_ko":"오래된 목재를 살린 가게 내부에는 신축 건물에는 없는 독특한 멋이 있다."},
+    {"key":"n1-0856","word":"自我","reading":"じが","meaning_ko":"자아","meaning_ja":"自分自身を他者と区別し、一個の存在として意識する心・自己意識。","part_of_speech":"普通名詞","example_ja":"成長するにつれて自我が芽生え、自分の考えを強く主張するようになる。","example_ko":"성장하면서 자아가 싹트고 자신의 생각을 강하게 주장하게 된다."},
+    {"key":"n1-0857","word":"手軽","reading":"てがる","meaning_ko":"간편함; 손쉽게 할 수 있음","meaning_ja":"手間・時間・費用があまりかからず、簡単にできるさま。","part_of_speech":"な形容詞","example_ja":"スマートフォンで手軽に予約できるため、利用者が急増した。","example_ko":"스마트폰으로 간편하게 예약할 수 있어 이용자가 급증했다."},
+    {"key":"n1-0858","word":"賛美","reading":"さんび","meaning_ko":"찬미; 높이 칭송함","meaning_ja":"優れたもの・美しいもの・価値あるものを褒めたたえること。","part_of_speech":"サ変名詞","example_ja":"この詩は自然の美しさを賛美すると同時に、人間の弱さも描いている。","example_ko":"이 시는 자연의 아름다움을 찬미하는 동시에 인간의 나약함도 그리고 있다."},
+    {"key":"n1-0859","word":"代弁","reading":"だいべん","meaning_ko":"대변; 대신 말함","meaning_ja":"本人・集団に代わって、その考え・要求・気持ちなどを述べること。","part_of_speech":"サ変名詞","example_ja":"代表者は現場の職員の意見を代弁して、経営陣に改善を求めた。","example_ko":"대표자는 현장 직원의 의견을 대변해 경영진에 개선을 요구했다."},
+    {"key":"n1-0860","word":"味覚","reading":"みかく","meaning_ko":"미각","meaning_ja":"舌などで甘味・酸味・苦味などの味を感じる感覚。","part_of_speech":"普通名詞","example_ja":"体調によって味覚が変わり、普段と違う味に感じることもある。","example_ko":"몸 상태에 따라 미각이 달라져 평소와 다른 맛으로 느껴질 때도 있다."}
+  ]
+}
