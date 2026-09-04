@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2978-2997",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2978","word":"産出","reading":"さんしゅつ","meaning_ko":"산출; 생산; 산출량","meaning_ja":"物資などを生産すること。また、その産物や産出量。","part_of_speech":"サ変名詞","example_ja":"この地域では良質な石炭を産出する。","example_ko":"이 지역에서는 양질의 석탄을 산출한다."},
+    {"key":"n1-2979","word":"修学","reading":"しゅうがく","meaning_ko":"수학; 학문을 배움","meaning_ja":"学問や技術などを学び修めること。","part_of_speech":"サ変名詞","example_ja":"海外で専門分野を修学した。","example_ko":"해외에서 전문 분야를 배웠다."},
+    {"key":"n1-2980","word":"申し分","reading":"もうしぶん","meaning_ko":"불만; 흠; 부족한 점","meaning_ja":"不満に思う点、欠点として指摘したい点。","part_of_speech":"普通名詞","example_ja":"性能も価格も申し分ない。","example_ko":"성능도 가격도 흠잡을 데가 없다.","note":"『申し分ない』の形で非常によく使う。"},
+    {"key":"n1-2981","word":"用法","reading":"ようほう","meaning_ko":"용법; 사용법","meaning_ja":"物や語句などの使い方。","part_of_speech":"普通名詞","example_ja":"この薬の正しい用法を確認してください。","example_ko":"이 약의 올바른 용법을 확인해 주세요."},
+    {"key":"n1-2982","word":"照合","reading":"しょうごう","meaning_ko":"대조; 조회; 대조 확인","meaning_ja":"二つ以上の資料・情報などを照らし合わせて確かめること。","part_of_speech":"サ変名詞","example_ja":"申請書の内容を本人確認書類と照合した。","example_ko":"신청서 내용을 본인 확인 서류와 대조했다."},
+    {"key":"n1-2983","word":"教職","reading":"きょうしょく","meaning_ko":"교직; 교원 직업","meaning_ja":"学校などで学生・生徒を教える職業。","part_of_speech":"普通名詞","example_ja":"大学卒業後、教職に就いた。","example_ko":"대학 졸업 후 교직에 종사했다."},
+    {"key":"n1-2984","word":"気品","reading":"きひん","meaning_ko":"기품; 품격","meaning_ja":"人や物から感じられる上品で格調の高い雰囲気。","part_of_speech":"普通名詞","example_ja":"彼女の立ち居振る舞いには気品がある。","example_ko":"그녀의 몸가짐에는 기품이 있다.","note":"候補の英語 gloss『aroma』は誤り。中心義は dignity/refinement/elegance。"},
+    {"key":"n1-2985","word":"気流","reading":"きりゅう","meaning_ko":"기류; 공기의 흐름","meaning_ja":"空気の流れ。","part_of_speech":"普通名詞","example_ja":"上昇気流が発生している。","example_ko":"상승 기류가 발생하고 있다."},
+    {"key":"n1-2986","word":"転校","reading":"てんこう","meaning_ko":"전학","meaning_ja":"在籍している学校から別の学校へ移ること。","part_of_speech":"サ変名詞","example_ja":"父の転勤で来月転校することになった。","example_ko":"아버지의 전근 때문에 다음 달 전학하게 되었다."},
+    {"key":"n1-2987","word":"幾多","reading":"いくた","meaning_ko":"수많은; 여러 많은","meaning_ja":"数が非常に多いこと。多くの。","part_of_speech":"普通名詞・連体詞的表現","example_ja":"幾多の困難を乗り越えて成功した。","example_ko":"수많은 어려움을 극복하고 성공했다."},
+    {"key":"n1-2988","word":"来場","reading":"らいじょう","meaning_ko":"내장; 행사장에 옴; 방문","meaning_ja":"会場・催し物の場所へ来ること。","part_of_speech":"サ変名詞","example_ja":"本日は多くの方にご来場いただいた。","example_ko":"오늘은 많은 분이 행사장을 찾아 주셨다.","note":"『ご来場』の形で案内・イベント文脈に頻出。"},
+    {"key":"n1-2989","word":"盛る","reading":"さかる","meaning_ko":"번성하다; 한창이다; 동물이 발정하다","meaning_ja":"勢いが盛んになる。繁栄する。また、動物が発情する。","part_of_speech":"五段動詞","example_ja":"春になると多くの花が盛る。","example_ko":"봄이 되면 많은 꽃이 한창 핀다.","note":"同じ『盛る』でも『もる』は『盛り付ける・薬を飲ませる』など別読み・別義。"},
+    {"key":"n1-2990","word":"ひょっと","reading":"ひょっと","meaning_ko":"혹시; 어쩌면; 우연히","meaning_ja":"もしかすると。何かの拍子に偶然。","part_of_speech":"副詞","example_ja":"ひょっとすると、彼も参加するかもしれない。","example_ko":"어쩌면 그도 참가할지도 모른다.","note":"候補KRDICTの『불쑥/삐죽』はこのJMdict語義 possibly/accidentally とは不一致のため除外。『ひょっとすると』が代表的。"},
+    {"key":"n1-2991","word":"蒸留","reading":"じょうりゅう","meaning_ko":"증류","meaning_ja":"液体を加熱して蒸気にし、それを冷却して再び液体として分離すること。","part_of_speech":"サ変名詞","example_ja":"海水を蒸留して淡水を得る。","example_ko":"바닷물을 증류해 담수를 얻는다."},
+    {"key":"n1-2992","word":"整然","reading":"せいぜん","meaning_ko":"정연함; 질서정연함","meaning_ja":"秩序正しく、きちんと整っているさま。","part_of_speech":"な形容詞・副詞","example_ja":"資料が棚に整然と並べられている。","example_ko":"자료가 선반에 질서정연하게 놓여 있다.","note":"候補POS『副詞』のみでは狭い。『整然と』の副詞用法と状態を表す用法がある。"},
+    {"key":"n1-2993","word":"慣用","reading":"かんよう","meaning_ko":"관용; 관습적으로 사용함","meaning_ja":"長い間、習慣として広く使われていること。","part_of_speech":"サ変名詞","example_ja":"この表現は慣用的に使われている。","example_ko":"이 표현은 관용적으로 사용되고 있다."},
+    {"key":"n1-2994","word":"切開","reading":"せっかい","meaning_ko":"절개; 절개 수술","meaning_ja":"刃物などで切り開くこと。特に、手術で身体の一部を切り開くこと。","part_of_speech":"サ変名詞","example_ja":"医師は患部を切開して処置した。","example_ko":"의사는 환부를 절개해 처치했다.","note":"候補英義の clearing land より、現代語では医療・切り開く意味が中心。"},
+    {"key":"n1-2995","word":"汚れる","reading":"けがれる","meaning_ko":"더럽혀지다; 오염되다; 명예가 훼손되다","meaning_ja":"清らかさ・純粋さ・名誉などが失われる。","part_of_speech":"一段動詞","example_ja":"不正によって組織の名誉が汚れた。","example_ko":"부정행위로 조직의 명예가 더럽혀졌다.","note":"『よごれる』は物理的な汚れに広く使い、『けがれる』は精神的・宗教的・名誉上の汚れにも使う。"},
+    {"key":"n1-2996","word":"課外","reading":"かがい","meaning_ko":"과외; 정규 과정 밖","meaning_ja":"定められた授業・課程・勤務などの範囲外であること。","part_of_speech":"普通名詞","example_ja":"放課後に課外活動へ参加した。","example_ko":"방과 후에 과외 활동에 참가했다.","note":"韓国語の『과외』は 사교육 의미로도 흔하지만, 여기서는 extracurricular/outside the curriculum 의미。"},
+    {"key":"n1-2997","word":"立方","reading":"たちかた","meaning_ko":"다치카타; 무용을 담당하는 게이샤","meaning_ja":"芸者のうち、踊りを担当する者。地方（じかた）に対する語。","part_of_speech":"普通名詞","example_ja":"宴席では立方が舞を披露した。","example_ko":"연회 자리에서는 춤 담당 게이샤가 춤을 선보였다.","note":"芸能・花柳界の専門語。数学の『立方（りっぽう）』とは別語。"}
+  ]
+}
