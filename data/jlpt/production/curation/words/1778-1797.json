@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1778-1797",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-1778","word":"蔵","reading":"くら","meaning_ko":"창고; 곳간; 저장고","meaning_ja":"物品・穀物・酒などを保管するための建物。","part_of_speech":"普通名詞","example_ja":"古い蔵を改装し、地域の資料を展示する施設として活用している。","example_ko":"오래된 창고를 개조해 지역 자료를 전시하는 시설로 활용하고 있다."},
+    {"key":"n1-1779","word":"節","reading":"せつ","meaning_ko":"절; 구절; 부분; 시기","meaning_ja":"文章・歌などを区切った一部分。また、ある時期・折を表すこともある。","part_of_speech":"普通名詞","example_ja":"契約書のこの節には、解約時の手続きが詳しく定められている。","example_ko":"계약서의 이 절에는 해약 시의 절차가 자세히 규정되어 있다."},
+    {"key":"n1-1780","word":"如何","reading":"いかが","meaning_ko":"어떠한가; 어떻게; 어떻습니까","meaning_ja":"状態・意見などを丁寧に尋ねる語。また、相手に何かを勧めるときにも用いる。","part_of_speech":"副詞","example_ja":"こちらの案で進めたいと考えていますが、皆様のご意見はいかがでしょうか。","example_ko":"이 안으로 진행하고자 하는데 여러분의 의견은 어떠신가요?","note":"現代では通常『いかが』と仮名で書く。"},
+    {"key":"n1-1781","word":"ショー","reading":"ショー","meaning_ko":"쇼; 공연; 볼거리","meaning_ja":"観客に見せることを目的とした舞台・催し・見世物。","part_of_speech":"普通名詞","example_ja":"新製品の発表会では、映像と音楽を組み合わせたショーが披露された。","example_ko":"신제품 발표회에서는 영상과 음악을 결합한 쇼가 선보였다."},
+    {"key":"n1-1782","word":"スピード","reading":"スピード","meaning_ko":"속도; 속력; 진행 속도","meaning_ja":"物が動く速さ。また、仕事・変化・処理などが進む速さ。","part_of_speech":"普通名詞","example_ja":"市場の変化のスピードが速いため、意思決定にも迅速さが求められる。","example_ko":"시장 변화 속도가 빠르기 때문에 의사결정에도 신속함이 요구된다."},
+    {"key":"n1-1783","word":"掛け","reading":"かけ","meaning_ko":"외상; 후불 거래","meaning_ja":"代金をその場で払わず、後日まとめて支払う取引。掛け売り。","part_of_speech":"普通名詞","example_ja":"この店では法人客に限り、月末締めの掛けで取引できる。","example_ko":"이 가게에서는 법인 고객에 한해 월말 마감 후불 거래가 가능하다.","note":"JMdict候補の credit の意味に限定。『〜かけ』の未完了表現とは別。"},
+    {"key":"n1-1784","word":"サイズ","reading":"サイズ","meaning_ko":"크기; 치수; 사이즈","meaning_ja":"物の大きさ・寸法。特に衣服や靴などの規格上の大きさ。","part_of_speech":"普通名詞","example_ja":"画面サイズに応じてレイアウトが自動的に変わるよう設計されている。","example_ko":"화면 크기에 따라 레이아웃이 자동으로 바뀌도록 설계되어 있다."},
+    {"key":"n1-1785","word":"レース","reading":"レース","meaning_ko":"경주; 레이스; 레이스 천","meaning_ja":"速さや順位を競う競走。また、糸を透かし模様に編んだ布・編み物。","part_of_speech":"普通名詞","example_ja":"最終レースでは最後の直線で順位が大きく入れ替わった。","example_ko":"마지막 레이스에서는 최종 직선 구간에서 순위가 크게 뒤바뀌었다.","note":"英語 race と lace に由来する同音異義の外来語。"},
+    {"key":"n1-1786","word":"群","reading":"ぐん","meaning_ko":"군; 집단; 무리","meaning_ja":"共通する性質を持つものをまとめた集団・まとまり。","part_of_speech":"普通名詞","example_ja":"調査では回答者を年齢群ごとに分け、傾向の違いを比較した。","example_ko":"조사에서는 응답자를 연령군별로 나누어 경향 차이를 비교했다.","note":"『企業群』『症候群』『年齢群』など複合語でも多く用いる。"},
+    {"key":"n1-1787","word":"タイム","reading":"タイム","meaning_ko":"기록 시간; 타임; 경기 중단 시간","meaning_ja":"競技で記録された所要時間。また、競技を一時中断するタイムアウトの略としても用いる。","part_of_speech":"普通名詞","example_ja":"選手は自己ベストを二秒更新するタイムでゴールした。","example_ko":"선수는 개인 최고 기록을 2초 단축한 기록으로 결승선을 통과했다."},
+    {"key":"n1-1788","word":"古","reading":"いにしえ","meaning_ko":"옛날; 예전; 고대","meaning_ja":"遠い昔。古い時代。","part_of_speech":"普通名詞","example_ja":"この土地には、いにしえから伝わる祭りが今も残っている。","example_ko":"이 지역에는 옛날부터 전해 내려오는 축제가 지금도 남아 있다.","note":"文章語・古風な表現。現代では『いにしえ』と仮名で書くことも多い。"},
+    {"key":"n1-1789","word":"果て","reading":"はて","meaning_ko":"끝; 끝자락; 종말","meaning_ja":"物事・場所・時間などの最終の所。行き着く先。","part_of_speech":"普通名詞","example_ja":"長い交渉の果てに、双方はようやく合意に達した。","example_ko":"긴 협상의 끝에 양측은 마침내 합의에 도달했다."},
+    {"key":"n1-1790","word":"仮令","reading":"たとえ","meaning_ko":"설령; 비록","meaning_ja":"仮にある条件を認めたとしても、後に続く結論は変わらないことを示す。","part_of_speech":"副詞","example_ja":"たとえ時間がかかっても、原因を曖昧なままにしてはいけない。","example_ko":"설령 시간이 걸리더라도 원인을 애매한 채로 두어서는 안 된다.","note":"現代では通常『たとえ』と仮名で書く。『たとえ〜ても／でも』の形が典型。"},
+    {"key":"n1-1791","word":"庁","reading":"ちょう","meaning_ko":"청; 행정기관","meaning_ja":"特定の行政事務を担当する官公庁・行政機関を表す語。","part_of_speech":"普通名詞","example_ja":"詳しい統計は担当する庁の公式サイトで公開されている。","example_ko":"자세한 통계는 담당 청의 공식 사이트에 공개되어 있다.","note":"『気象庁』『文化庁』など機関名の後部で使われることが多い。"},
+    {"key":"n1-1792","word":"酷い","reading":"ひどい","meaning_ko":"심하다; 지독하다; 너무하다; 형편없다","meaning_ja":"程度が非常に激しい。また、状態・扱い・内容などが非常に悪い。","part_of_speech":"い形容詞","example_ja":"予想以上にひどい渋滞で、会場への到着が一時間以上遅れた。","example_ko":"예상보다 심한 정체 때문에 행사장 도착이 한 시간 넘게 늦어졌다.","note":"現代では通常『ひどい』と仮名で書く。"},
+    {"key":"n1-1793","word":"園","reading":"えん","meaning_ko":"원; 정원·시설을 나타내는 말","meaning_ja":"庭園・公園・幼稚園・動物園など、一定の目的を持つ場所・施設を表す語。","part_of_speech":"普通名詞","example_ja":"園内では希少な植物を保護するため、一部区域への立ち入りが制限されている。","example_ko":"원내에서는 희귀 식물을 보호하기 위해 일부 구역 출입이 제한되어 있다.","note":"『公園』『動物園』『幼稚園』など複合語での使用が中心。"},
+    {"key":"n1-1794","word":"園","reading":"その","meaning_ko":"정원; 동산; 원림","meaning_ja":"草木を植えて整えた庭・園地。文章語・古風な語。","part_of_speech":"普通名詞","example_ja":"物語には四季折々の花が咲く美しい園が描かれている。","example_ko":"이야기에는 사계절마다 꽃이 피는 아름다운 정원이 묘사되어 있다.","note":"『園（えん）』とは読みと用法が異なる。現代の日常語では限定的。"},
+    {"key":"n1-1795","word":"冊","reading":"さつ","meaning_ko":"권; 책을 세는 단위","meaning_ja":"本・雑誌・ノートなど、とじたものを数える助数詞。","part_of_speech":"その他","example_ja":"参考資料として関連する専門書を三冊借りた。","example_ko":"참고 자료로 관련 전문서적 세 권을 빌렸다.","note":"助数詞。単独より数詞とともに用いる。"},
+    {"key":"n1-1796","word":"警部","reading":"けいぶ","meaning_ko":"경부; 일본 경찰의 계급 중 하나","meaning_ja":"日本の警察官の階級の一つで、警視の下、警部補の上に位置する。","part_of_speech":"普通名詞","example_ja":"現場の捜査を指揮する警部が記者会見で状況を説明した。","example_ko":"현장 수사를 지휘하는 경부가 기자회견에서 상황을 설명했다."},
+    {"key":"n1-1797","word":"著","reading":"ちょ","meaning_ko":"저; 저작; ~의 저서","meaning_ja":"著作・著述を表す語。作者名の後について、その人が書いたことを示す場合が多い。","part_of_speech":"普通名詞","example_ja":"この理論は田中氏著の入門書で分かりやすく解説されている。","example_ko":"이 이론은 다나카 씨가 쓴 입문서에서 알기 쉽게 설명되어 있다.","note":"『○○著』の形で著者を示す用法が多い。"}
+  ]
+}
