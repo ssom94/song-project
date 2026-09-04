@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1521-1540",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1521","word":"寒気","reading":"かんき","meaning_ko":"한기; 찬 공기","meaning_ja":"冷たい空気。また、周囲に感じられる冷えた気配。","part_of_speech":"普通名詞","example_ja":"窓を開けると強い寒気が室内に流れ込んできた。","example_ko":"창문을 여니 강한 찬 공기가 실내로 들어왔다.","note":"『さむけ』と読む場合は、発熱などで感じる 오한・悪寒の意味になる。"},
+    {"key":"n1-1522","word":"ゆとり","reading":"ゆとり","meaning_ko":"여유; 여력","meaning_ja":"時間・金銭・空間・気持ちなどに余裕があり、差し迫っていない状態。","part_of_speech":"普通名詞","example_ja":"納期に少しゆとりを持たせて、確認作業の時間を確保した。","example_ko":"납기에 조금 여유를 두어 확인 작업 시간을 확보했다."},
+    {"key":"n1-1523","word":"軍備","reading":"ぐんび","meaning_ko":"군비; 군사 장비와 준비","meaning_ja":"戦争・防衛に備えて整える兵器・施設・兵力などの軍事的な装備。","part_of_speech":"普通名詞","example_ja":"政府は周辺情勢を踏まえ、軍備のあり方を見直している。","example_ko":"정부는 주변 정세를 고려해 군비의 방향을 재검토하고 있다."},
+    {"key":"n1-1524","word":"汚す","reading":"けがす","meaning_ko":"더럽히다; 훼손하다; 모독하다","meaning_ja":"名誉・神聖さ・純潔さなど、本来大切にすべき価値を傷つける。","part_of_speech":"五段動詞","example_ja":"事実ではない発言で故人の名誉を汚すべきではない。","example_ko":"사실이 아닌 발언으로 고인의 명예를 훼손해서는 안 된다.","note":"物理的に 더럽히다 の意味では通常『よごす』と読む。"},
+    {"key":"n1-1525","word":"逆立ち","reading":"さかだち","meaning_ko":"물구나무서기","meaning_ja":"両手などを地面につき、足を上にして体を逆さに立てること。","part_of_speech":"サ変名詞","example_ja":"子どもたちは体育の授業で壁を使って逆立ちを練習した。","example_ko":"아이들은 체육 시간에 벽을 이용해 물구나무서기를 연습했다."},
+    {"key":"n1-1526","word":"覆面","reading":"ふくめん","meaning_ko":"복면; 신원을 숨김","meaning_ja":"顔を布などで覆って素顔を隠すこと。また、正体を明かさず活動すること。","part_of_speech":"普通名詞","example_ja":"覆面の男が店に押し入り、警察が行方を追っている。","example_ko":"복면을 쓴 남자가 가게에 침입해 경찰이 행방을 쫓고 있다."},
+    {"key":"n1-1527","word":"素早い","reading":"すばやい","meaning_ko":"재빠르다; 신속하다; 민첩하다","meaning_ja":"動作・判断・対応などが非常に速く、無駄がない。","part_of_speech":"い形容詞","example_ja":"障害を最小限に抑えられたのは、担当者の素早い対応のおかげだ。","example_ko":"장애를 최소화할 수 있었던 것은 담당자의 신속한 대응 덕분이다."},
+    {"key":"n1-1528","word":"兆し","reading":"きざし","meaning_ko":"조짐; 징조; 기미","meaning_ja":"ある出来事・変化が起こりそうだと感じさせる気配。","part_of_speech":"普通名詞","example_ja":"長く低迷していた市場にも回復の兆しが見え始めた。","example_ko":"오랫동안 침체했던 시장에도 회복 조짐이 보이기 시작했다."},
+    {"key":"n1-1529","word":"購買","reading":"こうばい","meaning_ko":"구매; 구입","meaning_ja":"商品・物品などを金銭を支払って買うこと。","part_of_speech":"サ変名詞","example_ja":"原材料の購買を一元化し、調達コストを削減した。","example_ko":"원자재 구매를 일원화해 조달 비용을 줄였다."},
+    {"key":"n1-1530","word":"氾濫","reading":"はんらん","meaning_ko":"범람; 넘쳐남","meaning_ja":"川などの水が増えて堤防を越え、周囲にあふれ出ること。また比喩的に、物事が過度に出回ること。","part_of_speech":"サ変名詞","example_ja":"豪雨で川が氾濫し、周辺の道路が冠水した。","example_ko":"폭우로 강이 범람해 주변 도로가 침수되었다."},
+    {"key":"n1-1531","word":"修士","reading":"しゅうし","meaning_ko":"석사; 석사 학위","meaning_ja":"大学院の修士課程などを修了した者に授与される学位。","part_of_speech":"普通名詞","example_ja":"彼女は大学院で情報工学を学び、修士の学位を取得した。","example_ko":"그녀는 대학원에서 정보공학을 공부해 석사 학위를 취득했다."},
+    {"key":"n1-1532","word":"逃げ出す","reading":"にげだす","meaning_ko":"도망치다; 달아나다","meaning_ja":"危険・責任・嫌な状況などから急いで逃げ始め、その場を離れる。","part_of_speech":"五段動詞","example_ja":"大きな音に驚いた犬が庭から逃げ出してしまった。","example_ko":"큰 소리에 놀란 개가 마당에서 도망쳐 버렸다."},
+    {"key":"n1-1533","word":"親善","reading":"しんぜん","meaning_ko":"친선; 우호 증진","meaning_ja":"国・団体・人どうしが互いに親しみ、友好的な関係を深めること。","part_of_speech":"普通名詞","example_ja":"両国の学生による親善交流会が毎年開かれている。","example_ko":"양국 학생들의 친선 교류회가 매년 열리고 있다."},
+    {"key":"n1-1534","word":"垂れる","reading":"たれる","meaning_ko":"늘어지다; 드리워지다; 떨어지다","meaning_ja":"物の一部が下向きに長く下がる。また、液体が上から下へ少しずつ落ちる。","part_of_speech":"一段動詞","example_ja":"雨にぬれた枝が重みで道路側へ垂れている。","example_ko":"비에 젖은 가지가 무게 때문에 도로 쪽으로 늘어져 있다."},
+    {"key":"n1-1535","word":"感度","reading":"かんど","meaning_ko":"감도; 민감도","meaning_ja":"光・音・電波などの刺激を機器や感覚がどの程度敏感に受け取るかを表す度合い。","part_of_speech":"普通名詞","example_ja":"暗い場所で撮影するため、カメラの感度を上げた。","example_ko":"어두운 곳에서 촬영하기 위해 카메라 감도를 높였다."},
+    {"key":"n1-1536","word":"驚異","reading":"きょうい","meaning_ko":"경이; 놀라운 것","meaning_ja":"常識では考えにくいほど非常に優れ、驚かされること。また、そのような事物。","part_of_speech":"普通名詞","example_ja":"この十年間の技術進歩はまさに驚異と言える。","example_ko":"지난 10년간의 기술 발전은 정말 경이라고 할 수 있다."},
+    {"key":"n1-1537","word":"温和","reading":"おんわ","meaning_ko":"온화함; 온순함","meaning_ja":"性格・態度・気候などが穏やかで、激しさがないさま。","part_of_speech":"な形容詞","example_ja":"普段は温和な上司だが、安全に関する規則には厳しい。","example_ko":"평소에는 온화한 상사지만 안전 관련 규칙에는 엄격하다."},
+    {"key":"n1-1538","word":"雑談","reading":"ざつだん","meaning_ko":"잡담; 가벼운 대화","meaning_ja":"特に決まった目的・テーマを設けず、気軽に話すこと。","part_of_speech":"サ変名詞","example_ja":"会議の前に少し雑談をしたことで、場の緊張が和らいだ。","example_ko":"회의 전에 잠깐 잡담을 해서 분위기의 긴장이 풀렸다."},
+    {"key":"n1-1539","word":"沈没","reading":"ちんぼつ","meaning_ko":"침몰; 가라앉음","meaning_ja":"船などが水中に沈んで姿を消すこと。","part_of_speech":"サ変名詞","example_ja":"事故で損傷した船は港へ戻る途中で沈没した。","example_ko":"사고로 파손된 배는 항구로 돌아오던 중 침몰했다."},
+    {"key":"n1-1540","word":"模倣","reading":"もほう","meaning_ko":"모방; 흉내 냄","meaning_ja":"他人の行動・作品・方法などをまねて同じようにすること。","part_of_speech":"サ変名詞","example_ja":"成功例を単純に模倣するだけでは、同じ成果が出るとは限らない。","example_ko":"성공 사례를 단순히 모방하기만 해서는 같은 성과가 나온다고 할 수 없다."}
+  ]
+}
