@@ -22,17 +22,30 @@ if (ranked.length !== 3000) throw new Error(`Expected 3000 candidates, got ${ran
 const currentByIdentity = new Map(ranked.map(item => [identity(item.word, item.reading), item]));
 const curatedByKey = new Map();
 const curatedIdentityToKey = new Map();
+const duplicateKeys = [];
+const duplicateIdentities = [];
 
 for (const name of fs.readdirSync(CURATION_DIR).filter(v => v.endsWith('.json')).sort()) {
   const doc = readJson(path.join(CURATION_DIR, name));
   for (const item of doc.words ?? []) {
     if (!item?.key || !item?.word || !item?.reading) throw new Error(`Malformed curated row in ${name}`);
     const id = identity(item.word, item.reading);
-    if (curatedByKey.has(item.key)) throw new Error(`Duplicate curated key ${item.key}`);
-    if (curatedIdentityToKey.has(id)) throw new Error(`Duplicate curated identity ${item.word}/${item.reading}`);
-    curatedByKey.set(item.key, item);
-    curatedIdentityToKey.set(id, item.key);
+    if (curatedByKey.has(item.key)) {
+      duplicateKeys.push({ key: item.key, first: curatedByKey.get(item.key).__file, second: name });
+      continue;
+    }
+    if (curatedIdentityToKey.has(id)) {
+      const first = curatedIdentityToKey.get(id);
+      duplicateIdentities.push({ word: item.word, reading: item.reading, firstKey: first.key, firstFile: first.file, secondKey: item.key, secondFile: name });
+    }
+    curatedByKey.set(item.key, { ...item, __file: name });
+    if (!curatedIdentityToKey.has(id)) curatedIdentityToKey.set(id, { key: item.key, file: name });
   }
+}
+
+if (duplicateKeys.length || duplicateIdentities.length) {
+  console.error(JSON.stringify({ duplicateKeys, duplicateIdentities }, null, 2));
+  throw new Error(`Curation duplicates found: ${duplicateKeys.length} duplicate keys, ${duplicateIdentities.length} duplicate identities.`);
 }
 
 const used = new Set(curatedIdentityToKey.keys());
