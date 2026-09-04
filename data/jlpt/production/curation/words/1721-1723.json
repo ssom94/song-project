@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "range": "1721-1723",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. This short shard intentionally stops before a candidate-quality reranking boundary.",
+  "words": [
+    {"key":"n1-1721","word":"懲りる","reading":"こりる","meaning_ko":"질리다; 혼이 나서 다시는 하고 싶지 않게 되다","meaning_ja":"失敗・苦痛などを経験し、同じことはもうしたくないと思うようになる。","part_of_speech":"一段動詞","example_ja":"一度大きな損をして懲りたので、今は契約内容を必ず確認している。","example_ko":"한번 큰 손해를 보고 질려서 지금은 계약 내용을 반드시 확인한다."},
+    {"key":"n1-1722","word":"弾む","reading":"はずむ","meaning_ko":"튀다; 활기를 띠다; 들뜨다","meaning_ja":"物が勢いよく跳ねる。また、会話・気持ちなどが活発になって盛り上がる。","part_of_speech":"五段動詞","example_ja":"共通の趣味が見つかると、初対面でも会話が弾んだ。","example_ko":"공통 취미를 찾자 초면인데도 대화가 활기를 띠었다."},
+    {"key":"n1-1723","word":"月謝","reading":"げっしゃ","meaning_ko":"월 수강료; 월사금","meaning_ja":"塾・習い事などに毎月支払う授業料。","part_of_speech":"普通名詞","example_ja":"子どもの習い事が増え、毎月の月謝もかなりの額になった。","example_ko":"아이의 학원이 늘어 매달 내는 수강료도 꽤 큰 금액이 됐다."}
+  ]
+}
