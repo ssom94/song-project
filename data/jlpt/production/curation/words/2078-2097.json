@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2078-2097",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2078","word":"タレント","reading":"タレント","meaning_ko":"방송인; 연예인; 탤런트","meaning_ja":"テレビなどのメディアに出演して活動する芸能人・著名人。","part_of_speech":"普通名詞","example_ja":"人気タレントが番組の司会を務めた。","example_ko":"인기 방송인이 프로그램 진행을 맡았다.","note":"日本語では俳優だけでなくテレビ等で活動する芸能人を広く指す。"},
+    {"key":"n1-2079","word":"粉末","reading":"ふんまつ","meaning_ko":"분말; 가루","meaning_ja":"細かく砕かれて粉状になったもの。","part_of_speech":"普通名詞","example_ja":"薬を粉末にして水に溶かした。","example_ko":"약을 가루로 만들어 물에 녹였다."},
+    {"key":"n1-2080","word":"凌ぐ","reading":"しのぐ","meaning_ko":"능가하다; 견디다; 넘기다","meaning_ja":"他より優れる。また、困難・暑さ・寒さなどを耐えて切り抜ける。","part_of_speech":"五段動詞","example_ja":"今年の売上は昨年を凌ぐ勢いだ。","example_ko":"올해 매출은 작년을 능가할 기세다.","note":"候補KRDICTは『능가하다』のみだがJMdictには『견디다・위기를 넘기다』の主要義もある。"},
+    {"key":"n1-2081","word":"転居","reading":"てんきょ","meaning_ko":"전거; 이사; 거처를 옮김","meaning_ja":"住居を別の場所へ移すこと。","part_of_speech":"サ変名詞","example_ja":"転居したので市役所で住所変更の手続きをした。","example_ko":"이사해서 시청에서 주소 변경 절차를 밟았다."},
+    {"key":"n1-2082","word":"果てる","reading":"はてる","meaning_ko":"끝나다; 다하다; 죽다","meaning_ja":"物事が終わる。力などが尽きる。また、命が終わる。","part_of_speech":"一段動詞","example_ja":"長い旅の途中で力が果てそうになった。","example_ko":"긴 여행 도중 힘이 다할 것 같았다."},
+    {"key":"n1-2083","word":"喋る","reading":"しゃべる","meaning_ko":"말하다; 수다 떨다; 떠들다","meaning_ja":"人と話す。特に、気軽に多く話す。","part_of_speech":"五段動詞","example_ja":"友達と三時間も喋っていた。","example_ko":"친구와 세 시간이나 수다를 떨었다."},
+    {"key":"n1-2084","word":"カクテル","reading":"カクテル","meaning_ko":"칵테일","meaning_ja":"複数の酒や飲料などを混ぜて作る飲み物。","part_of_speech":"普通名詞","example_ja":"バーで果物を使ったカクテルを注文した。","example_ko":"바에서 과일을 사용한 칵테일을 주문했다."},
+    {"key":"n1-2085","word":"漏れる","reading":"もれる","meaning_ko":"새다; 누설되다; 빠지다; 누락되다","meaning_ja":"液体・気体・光・音などが隙間から外へ出る。また、秘密が知られたり、必要なものが抜けたりする。","part_of_speech":"一段動詞","example_ja":"会議の内容が外部に漏れてしまった。","example_ko":"회의 내용이 외부에 새어 나가고 말았다."},
+    {"key":"n1-2086","word":"筒","reading":"つつ","meaning_ko":"통; 원통; 관","meaning_ja":"中が空洞になった細長い円筒形のもの。","part_of_speech":"普通名詞","example_ja":"紙を丸めて筒の形にした。","example_ko":"종이를 말아 원통 모양으로 만들었다."},
+    {"key":"n1-2087","word":"漠然","reading":"ばくぜん","meaning_ko":"막연함; 모호함","meaning_ja":"内容・範囲などがはっきりせず、ぼんやりしているさま。","part_of_speech":"な形容詞・副詞","example_ja":"将来について漠然とした不安を感じている。","example_ko":"장래에 대해 막연한 불안을 느끼고 있다.","note":"候補の『副詞』だけでなく『漠然とした』の連体用法も重要。"},
+    {"key":"n1-2088","word":"横綱","reading":"よこづな","meaning_ko":"요코즈나; 스모 최고 등급의 선수","meaning_ja":"大相撲で力士の最高位。","part_of_speech":"普通名詞","example_ja":"彼はついに横綱へ昇進した。","example_ko":"그는 마침내 요코즈나로 승진했다."},
+    {"key":"n1-2089","word":"未婚","reading":"みこん","meaning_ko":"미혼","meaning_ja":"まだ結婚していないこと。","part_of_speech":"普通名詞・な形容詞","example_ja":"この調査では未婚者の割合も調べている。","example_ko":"이 조사에서는 미혼자의 비율도 조사하고 있다."},
+    {"key":"n1-2090","word":"玄人","reading":"くろうと","meaning_ko":"전문가; 프로; 숙련자","meaning_ja":"ある分野に熟達した専門家・職業人。","part_of_speech":"普通名詞","example_ja":"玄人が見ても完成度の高い作品だ。","example_ko":"전문가가 봐도 완성도가 높은 작품이다.","note":"古い用法に芸者等を指す意味もあるが、現代の基本義『expert/professional』を採用。"},
+    {"key":"n1-2091","word":"情","reading":"じょう","meaning_ko":"정; 감정; 인정","meaning_ja":"人が物事に感じる気持ち。また、人を思いやる心。","part_of_speech":"普通名詞","example_ja":"長く一緒に働くうちに情が移った。","example_ko":"오랫동안 함께 일하다 보니 정이 들었다."},
+    {"key":"n1-2092","word":"ポジション","reading":"ポジション","meaning_ko":"포지션; 위치; 역할","meaning_ja":"位置・立場・役割。特にスポーツで選手が担当する位置や役割。","part_of_speech":"普通名詞","example_ja":"チーム内で自分のポジションを理解することが大切だ。","example_ko":"팀 안에서 자신의 역할을 이해하는 것이 중요하다."},
+    {"key":"n1-2093","word":"茎","reading":"くき","meaning_ko":"줄기; 대","meaning_ja":"植物で根から上に伸び、葉・花などを支える部分。","part_of_speech":"普通名詞","example_ja":"花の茎を短く切って花瓶に入れた。","example_ko":"꽃줄기를 짧게 잘라 꽃병에 넣었다.","note":"候補の『나무줄기』は広すぎるため植物のstem/stalkに限定。"},
+    {"key":"n1-2094","word":"合議","reading":"ごうぎ","meaning_ko":"합의; 협의; 여러 사람이 의논함","meaning_ja":"複数の人が集まって相談し、意見をまとめること。","part_of_speech":"サ変名詞","example_ja":"重要な案件は委員全員の合議で決める。","example_ko":"중요한 안건은 위원 전원의 협의로 결정한다."},
+    {"key":"n1-2095","word":"一律","reading":"いちりつ","meaning_ko":"일률적임; 획일적임; 동일하게","meaning_ja":"すべてを同じ基準・方法で扱うこと。","part_of_speech":"普通名詞・な形容詞","example_ja":"料金を一律千円に設定した。","example_ko":"요금을 일률적으로 1,000엔으로 정했다."},
+    {"key":"n1-2096","word":"解く","reading":"ほどく","meaning_ko":"풀다; 끄르다; 풀어헤치다","meaning_ja":"結び目・縛ったもの・もつれなどをゆるめて元の状態に戻す。","part_of_speech":"五段動詞","example_ja":"靴ひもの結び目を解いた。","example_ko":"신발끈의 매듭을 풀었다.","note":"読み『ほどく』。『とく（問題を解く等）』とは読み・用法を区別。"},
+    {"key":"n1-2097","word":"洋風","reading":"ようふう","meaning_ko":"서양풍; 서양식","meaning_ja":"西洋の様式・雰囲気を取り入れたさま。","part_of_speech":"普通名詞・な形容詞","example_ja":"古い家を洋風に改装した。","example_ko":"오래된 집을 서양식으로 개조했다."}
+  ]
+}
