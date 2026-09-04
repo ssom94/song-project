@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0641-0660",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and misleading glosses are removed.",
+  "words": [
+    {"key":"n1-0641","word":"直感","reading":"ちょっかん","meaning_ko":"직감; 직관적으로 느낌","meaning_ja":"考えを段階的に進める前に、感覚的・瞬間的に本質や答えをとらえること。","part_of_speech":"サ変名詞","example_ja":"最初の違和感を直感だけで片づけず、データを確認して原因を探った。","example_ko":"처음 느낀 위화감을 직감만으로 넘기지 않고 데이터를 확인해 원인을 찾았다."},
+    {"key":"n1-0642","word":"視察","reading":"しさつ","meaning_ko":"시찰; 현장 점검 방문","meaning_ja":"現場を訪れ、実際の状況・運営・設備などを見て調べること。","part_of_speech":"サ変名詞","example_ja":"自治体の担当者が工場を視察し、安全対策の実施状況を確認した。","example_ko":"지자체 담당자가 공장을 시찰해 안전 대책의 실시 상황을 확인했다."},
+    {"key":"n1-0643","word":"協調","reading":"きょうちょう","meaning_ko":"협조; 조화롭게 협력함","meaning_ja":"互いに立場を調整し、力を合わせて調和を保つこと。","part_of_speech":"サ変名詞","example_ja":"複数部署が協調して対応しなければ、全社的な障害は短時間で解決できない。","example_ko":"여러 부서가 협조해 대응하지 않으면 전사 장애를 단시간에 해결할 수 없다."},
+    {"key":"n1-0644","word":"一帯","reading":"いったい","meaning_ko":"일대; 주변 지역 전체","meaning_ja":"ある場所を中心として、その周囲に広がる地域全体。","part_of_speech":"普通名詞","example_ja":"大雨の影響で駅周辺一帯が冠水し、交通が一時まひした。","example_ko":"폭우의 영향으로 역 주변 일대가 침수돼 교통이 한때 마비되었다."},
+    {"key":"n1-0645","word":"樹立","reading":"じゅりつ","meaning_ko":"수립; 세움","meaning_ja":"国家・政権・制度・記録などを新たに打ち立てること。","part_of_speech":"サ変名詞","example_ja":"両国は長年の交渉を経て、正式な外交関係を樹立した。","example_ko":"양국은 오랜 협상을 거쳐 정식 외교 관계를 수립했다."},
+    {"key":"n1-0646","word":"主権","reading":"しゅけん","meaning_ko":"주권","meaning_ja":"国家の政治や方針を最終的に決定する最高の権力。","part_of_speech":"普通名詞","example_ja":"主権を尊重しながら国際協力を進めることが外交の基本原則とされる。","example_ko":"주권을 존중하면서 국제 협력을 추진하는 것이 외교의 기본 원칙으로 여겨진다."},
+    {"key":"n1-0647","word":"実情","reading":"じつじょう","meaning_ko":"실정; 실제 사정","meaning_ja":"表面からは分かりにくい、実際の事情・状態。","part_of_speech":"普通名詞","example_ja":"制度を改める前に、現場の実情を詳しく調査する必要がある。","example_ko":"제도를 고치기 전에 현장의 실정을 자세히 조사할 필요가 있다."},
+    {"key":"n1-0648","word":"家畜","reading":"かちく","meaning_ko":"가축","meaning_ja":"人が食料・労働・原料などに利用するために飼育する動物。","part_of_speech":"普通名詞","example_ja":"感染症の拡大を防ぐため、家畜の移動が一時的に制限された。","example_ko":"감염병 확산을 막기 위해 가축 이동이 일시적으로 제한되었다."},
+    {"key":"n1-0649","word":"財源","reading":"ざいげん","meaning_ko":"재원; 자금의 출처","meaning_ja":"事業・政策などに必要な費用をまかなうための資金の出所。","part_of_speech":"普通名詞","example_ja":"新たな福祉制度を導入するには、安定した財源を確保しなければならない。","example_ko":"새 복지 제도를 도입하려면 안정적인 재원을 확보해야 한다."},
+    {"key":"n1-0650","word":"用品","reading":"ようひん","meaning_ko":"용품; 특정 목적에 쓰는 물품","meaning_ja":"特定の目的・用途のために使う道具や物品。","part_of_speech":"普通名詞","example_ja":"災害用品は一か所にまとめ、家族全員が場所を把握しておくとよい。","example_ko":"재난 용품은 한곳에 모아 두고 가족 모두가 위치를 알아두는 것이 좋다."},
+    {"key":"n1-0651","word":"議題","reading":"ぎだい","meaning_ko":"의제; 회의 안건","meaning_ja":"会議・討論で取り上げ、話し合う対象となる事柄。","part_of_speech":"普通名詞","example_ja":"次回の会議では、予算配分と人員配置を主要な議題として扱う。","example_ko":"다음 회의에서는 예산 배분과 인원 배치를 주요 의제로 다룬다."},
+    {"key":"n1-0652","word":"外観","reading":"がいかん","meaning_ko":"외관; 겉모습","meaning_ja":"建物・物体などを外から見たときの形や様子。","part_of_speech":"普通名詞","example_ja":"歴史的な外観を残しながら、建物内部だけを現代的に改修した。","example_ko":"역사적인 외관은 남기면서 건물 내부만 현대적으로 개수했다."},
+    {"key":"n1-0653","word":"知性","reading":"ちせい","meaning_ko":"지성; 이해·판단 능력","meaning_ja":"物事を理解し、考え、判断する知的な能力。","part_of_speech":"普通名詞","example_ja":"豊富な知識だけでなく、それを適切に使う知性も専門家には求められる。","example_ko":"풍부한 지식뿐 아니라 그것을 적절히 활용하는 지성도 전문가에게 요구된다."},
+    {"key":"n1-0654","word":"必然","reading":"ひつぜん","meaning_ko":"필연; 반드시 그렇게 됨","meaning_ja":"原因・条件から見て、そうなる以外にあり得ないこと。","part_of_speech":"普通名詞","example_ja":"需要が急増した一方で供給が減れば、価格上昇はある意味で必然だ。","example_ko":"수요가 급증한 반면 공급이 줄면 가격 상승은 어떤 의미에서는 필연이다."},
+    {"key":"n1-0655","word":"正規","reading":"せいき","meaning_ko":"정규; 정식","meaning_ja":"正式な規則・手続き・基準に従っていること。","part_of_speech":"その他","example_ja":"正規の手続きを経ずに設定を変更すると、監査で問題になる可能性がある。","example_ko":"정규 절차를 거치지 않고 설정을 변경하면 감사에서 문제가 될 수 있다."},
+    {"key":"n1-0656","word":"あっさり","reading":"あっさり","meaning_ko":"담백하게; 쉽게; 미련 없이","meaning_ja":"味・性格などがしつこくなく淡泊なさま。また、意外なほど簡単に物事が進むさま。","part_of_speech":"副詞","example_ja":"難航すると予想された交渉は、双方が条件を譲ったことで意外にあっさりまとまった。","example_ko":"난항이 예상됐던 협상은 양측이 조건을 양보하면서 의외로 쉽게 타결됐다."},
+    {"key":"n1-0657","word":"分担","reading":"ぶんたん","meaning_ko":"분담; 나누어 맡음","meaning_ja":"仕事・責任・費用などを複数の人や組織で分けて受け持つこと。","part_of_speech":"サ変名詞","example_ja":"調査と資料作成を分担したことで、予定より早く報告書を完成できた。","example_ko":"조사와 자료 작성을 분담해 예정 보다 빨리 보고서를 완성할 수 있었다."},
+    {"key":"n1-0658","word":"未知","reading":"みち","meaning_ko":"미지; 아직 알려지지 않음","meaning_ja":"まだ知られていないこと、または経験したことがないこと。","part_of_speech":"普通名詞","example_ja":"未知の感染症に備えるには、平時から柔軟な医療体制を整えておく必要がある。","example_ko":"미지의 감염병에 대비하려면 평소부터 유연한 의료 체계를 갖춰둘 필요가 있다."},
+    {"key":"n1-0659","word":"好評","reading":"こうひょう","meaning_ko":"호평; 좋은 평가","meaning_ja":"多くの人から良い評価を受けること、またその評価。","part_of_speech":"普通名詞","example_ja":"新しい検索機能は操作が分かりやすいと利用者から好評を得ている。","example_ko":"새 검색 기능은 조작이 알기 쉽다는 점에서 이용자들에게 호평을 받고 있다."},
+    {"key":"n1-0660","word":"蓄積","reading":"ちくせき","meaning_ko":"축적; 쌓임","meaning_ja":"知識・経験・資金・データなどが少しずつたまり、増えていくこと。また、ためること。","part_of_speech":"サ変名詞","example_ja":"長年蓄積された利用データを分析し、需要予測の精度を高めた。","example_ko":"오랫동안 축적된 이용 데이터를 분석해 수요 예측의 정확도를 높였다."}
+  ]
+}
