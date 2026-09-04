@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2618-2637",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2618","word":"誤魔化す","reading":"ごまかす","meaning_ko":"속이다; 얼버무리다; 속여 넘기다","meaning_ja":"事実を隠したり、話をそらしたりして相手を欺く。","part_of_speech":"五段動詞","example_ja":"質問の核心を誤魔化さずに答えてください。","example_ko":"질문의 핵심을 얼버무리지 말고 대답해 주세요.","note":"候補KO『뻥치다』は俗語的すぎるため中心義へ修正。"},
+    {"key":"n1-2619","word":"卯","reading":"ぼう","meaning_ko":"묘; 십이지의 네 번째 토끼띠","meaning_ja":"十二支の第四。兎に当て、方角では東、時刻では午前五時から七時ごろを表す。","part_of_speech":"普通名詞","example_ja":"古い暦では卯の刻という表現が使われた。","example_ko":"옛 달력에서는 묘시라는 표현이 사용되었다.","note":"一般的な訓読みは『う』。候補読み『ぼう』は漢音的・特殊。"},
+    {"key":"n1-2620","word":"しみじみ","reading":"しみじみ","meaning_ko":"절실히; 새삼스럽게; 깊이","meaning_ja":"心に深く感じ入るさま。じっくりと味わうさま。","part_of_speech":"副詞","example_ja":"家族のありがたさをしみじみ感じた。","example_ko":"가족의 소중함을 새삼 깊이 느꼈다."},
+    {"key":"n1-2621","word":"桟橋","reading":"さんきょう","meaning_ko":"잔교; 부두; 선착장","meaning_ja":"船の乗り降りや荷物の積み下ろしのため、水上へ突き出して設けた橋状の施設。","part_of_speech":"普通名詞","example_ja":"船が桟橋に着いた。","example_ko":"배가 선착장에 도착했다.","note":"一般的な読みは『さんばし』。『さんきょう』は特殊な読み。"},
+    {"key":"n1-2622","word":"碁盤","reading":"ごばん","meaning_ko":"바둑판","meaning_ja":"囲碁を打つための盤。","part_of_speech":"普通名詞","example_ja":"祖父は古い碁盤を大切に使っている。","example_ko":"할아버지는 오래된 바둑판을 소중히 사용하고 계신다."},
+    {"key":"n1-2623","word":"分母","reading":"ぶんぼ","meaning_ko":"분모","meaning_ja":"分数で横線の下にある数・式。","part_of_speech":"普通名詞","example_ja":"分母をそろえてから計算する。","example_ko":"분모를 통일한 뒤 계산한다."},
+    {"key":"n1-2624","word":"縁談","reading":"えんだん","meaning_ko":"혼담; 결혼 이야기","meaning_ja":"結婚について持ち上がる話・相談。","part_of_speech":"普通名詞","example_ja":"親戚から縁談を持ちかけられた。","example_ko":"친척에게서 혼담을 제안받았다."},
+    {"key":"n1-2625","word":"嘗める","reading":"なめる","meaning_ko":"핥다; 맛보다; 얕보다","meaning_ja":"舌で触れる。また、苦労を経験したり、相手を軽く見たりする。","part_of_speech":"一段動詞","example_ja":"子どもがアイスをゆっくり嘗めている。","example_ko":"아이가 아이스크림을 천천히 핥고 있다.","note":"現代では『舐める』『なめる』が一般的。JMdictの experience/make light of の比喩義も補完。"},
+    {"key":"n1-2626","word":"遮る","reading":"さえぎる","meaning_ko":"가로막다; 막다; 차단하다","meaning_ja":"進行・視線・光・音などを途中で妨げ、通らないようにする。","part_of_speech":"五段動詞","example_ja":"厚い雲が日差しを遮った。","example_ko":"두꺼운 구름이 햇빛을 가렸다."},
+    {"key":"n1-2627","word":"漕ぐ","reading":"こぐ","meaning_ko":"노를 젓다; 페달을 밟다; 그네를 구르다","meaning_ja":"櫓・オールを動かして船を進める。また、自転車のペダルやブランコを動かす。","part_of_speech":"五段動詞","example_ja":"二人でボートを漕いで湖を渡った。","example_ko":"둘이서 보트의 노를 저어 호수를 건넜다."},
+    {"key":"n1-2628","word":"レディー","reading":"レディー","meaning_ko":"숙녀; 여성","meaning_ja":"教養・礼儀を備えた女性。一般に女性を丁寧に指すこともある。","part_of_speech":"普通名詞","example_ja":"レディー向けの衣料品売り場は二階です。","example_ko":"여성용 의류 매장은 2층입니다."},
+    {"key":"n1-2629","word":"トーン","reading":"トーン","meaning_ko":"톤; 말투; 색조; 음조","meaning_ja":"音・声・色・文章などの調子や全体的な雰囲気。","part_of_speech":"普通名詞","example_ja":"もう少し柔らかいトーンで説明したほうがいい。","example_ko":"조금 더 부드러운 말투로 설명하는 편이 좋다."},
+    {"key":"n1-2630","word":"手掛かり","reading":"てがかり","meaning_ko":"실마리; 단서; 단초","meaning_ja":"問題・事件などを解決するための糸口となるもの。","part_of_speech":"普通名詞","example_ja":"警察は現場で重要な手掛かりを見つけた。","example_ko":"경찰은 현장에서 중요한 단서를 발견했다."},
+    {"key":"n1-2631","word":"メロディー","reading":"メロディー","meaning_ko":"멜로디; 선율","meaning_ja":"音の高低・長短が連なってできる旋律。","part_of_speech":"普通名詞","example_ja":"この曲はメロディーが覚えやすい。","example_ko":"이 곡은 멜로디가 외우기 쉽다."},
+    {"key":"n1-2632","word":"空しい","reading":"むなしい","meaning_ko":"허무하다; 헛되다; 공허하다","meaning_ja":"成果・価値・手応えがなく、心が満たされない。","part_of_speech":"い形容詞","example_ja":"努力が全く評価されず、空しい気持ちになった。","example_ko":"노력이 전혀 평가받지 못해 허무한 기분이 들었다."},
+    {"key":"n1-2633","word":"掬う","reading":"すくう","meaning_ko":"뜨다; 퍼내다; 건져 올리다","meaning_ja":"水・粉などを手や道具で下から受けて取り上げる。","part_of_speech":"五段動詞","example_ja":"両手で水を掬って顔を洗った。","example_ko":"두 손으로 물을 떠서 얼굴을 씻었다."},
+    {"key":"n1-2634","word":"華々しい","reading":"はなばなしい","meaning_ko":"화려하다; 눈부시다; 장대하다","meaning_ja":"非常に華やかで目立ち、立派である。","part_of_speech":"い形容詞","example_ja":"彼は華々しいデビューを飾った。","example_ko":"그는 화려한 데뷔를 장식했다."},
+    {"key":"n1-2635","word":"研ぐ","reading":"とぐ","meaning_ko":"갈다; 연마하다; 쌀을 씻다","meaning_ja":"刃物などをこすって鋭くする。また、米を水で洗う。","part_of_speech":"五段動詞","example_ja":"料理の前に包丁を研いだ。","example_ko":"요리 전에 식칼을 갈았다.","note":"JMdictの wash rice 用法も重要。"},
+    {"key":"n1-2636","word":"弱まる","reading":"よわまる","meaning_ko":"약해지다; 누그러지다; 감소하다","meaning_ja":"力・勢い・程度などが弱くなる。","part_of_speech":"五段動詞","example_ja":"夕方になると雨の勢いが弱まった。","example_ko":"저녁이 되자 비의 기세가 약해졌다.","note":"候補KO『여위다』は中心義から外れるため整理。"},
+    {"key":"n1-2637","word":"絶つ","reading":"たつ","meaning_ko":"끊다; 단절하다; 끊어 버리다","meaning_ja":"続いている関係・習慣・交通などを完全に切る。","part_of_speech":"五段動詞","example_ja":"悪い習慣を絶つために生活を見直した。","example_ko":"나쁜 습관을 끊기 위해 생활을 다시 점검했다."}
+  ]
+}
