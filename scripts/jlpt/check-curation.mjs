@@ -136,6 +136,6 @@ const report = {
 
 console.log(JSON.stringify(report, null, 2));
 
-if (malformed.length || duplicateKeys.length || duplicateIdentities.length || missingRequired.length || missingKeys.length) {
+if (malformed.length || duplicateKeys.length || duplicateIdentities.length || missingRequired.length || missingKeys.length || sourceDrift.length) {
   process.exitCode = 1;
 }
