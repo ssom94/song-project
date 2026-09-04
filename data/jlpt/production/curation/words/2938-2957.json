@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2938-2957",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2938","word":"一人でに","reading":"ひとりでに","meaning_ko":"저절로; 자연히","meaning_ja":"人が手を加えなくても自然にそうなるさま。","part_of_speech":"副詞","example_ja":"しばらくすると扉が一人でに開いた。","example_ko":"잠시 후 문이 저절로 열렸다."},
+    {"key":"n1-2939","word":"冷やかす","reading":"ひやかす","meaning_ko":"놀리다; 야유하다; 구경만 하다","meaning_ja":"からかったり、買う気もなく店を見て回ったりする。","part_of_speech":"五段動詞","example_ja":"友人の失敗をいつまでも冷やかすのはよくない。","example_ko":"친구의 실수를 계속 놀리는 것은 좋지 않다.","note":"『冷やす』とは別語義。"},
+    {"key":"n1-2940","word":"百科辞典","reading":"ひゃっかじてん","meaning_ko":"백과사전","meaning_ja":"幅広い分野の知識を項目別に解説した辞典。","part_of_speech":"普通名詞","example_ja":"分からない言葉を百科辞典で調べた。","example_ko":"모르는 단어를 백과사전에서 찾아봤다."},
+    {"key":"n1-2941","word":"ぶかぶか","reading":"ぶかぶか","meaning_ko":"헐렁헐렁; 너무 큰","meaning_ja":"服や靴などが大きすぎて、体に合わずゆるいさま。","part_of_speech":"副詞・な形容詞","example_ja":"この靴は私にはぶかぶかだ。","example_ko":"이 신발은 나에게 너무 헐렁하다.","note":"候補KRDICTの『할딱할딱/헐떡헐떡』は不適切なので除外。"},
+    {"key":"n1-2942","word":"打付ける","reading":"ぶつける","meaning_ko":"부딪치다; 들이받다; 세게 부딪히게 하다","meaning_ja":"物を勢いよく他の物に当てる。","part_of_speech":"一段動詞","example_ja":"机の角に膝をぶつけてしまった。","example_ko":"책상 모서리에 무릎을 부딪쳤다.","note":"通常は『ぶつける』と仮名で書く。"},
+    {"key":"n1-2943","word":"文","reading":"ふみ","meaning_ko":"편지; 글","meaning_ja":"手紙。また、文章・書き物。","part_of_speech":"普通名詞","example_ja":"遠く離れた友へ文をしたためた。","example_ko":"멀리 떨어진 친구에게 편지를 썼다.","note":"古風・文語的な語。"},
+    {"key":"n1-2944","word":"ぺこぺこ","reading":"ぺこぺこ","meaning_ko":"몹시 배고픈; 굽신굽신","meaning_ja":"非常に空腹なさま。また、人にへつらって頭を下げるさま。","part_of_speech":"副詞・な形容詞","example_ja":"朝から何も食べていないのでお腹がぺこぺこだ。","example_ko":"아침부터 아무것도 먹지 않아 배가 몹시 고프다."},
+    {"key":"n1-2945","word":"膨脹","reading":"ぼうちょう","meaning_ko":"팽창; 부풀어 오름; 확대","meaning_ja":"体積・規模などが大きくなること。","part_of_speech":"サ変名詞","example_ja":"温められた空気は膨脹する。","example_ko":"가열된 공기는 팽창한다.","note":"現代表記では『膨張』が一般的。"},
+    {"key":"n1-2946","word":"真に","reading":"まことに","meaning_ko":"참으로; 정말로; 진실로","meaning_ja":"本当に。心から。","part_of_speech":"副詞","example_ja":"ご協力いただき、真にありがとうございます。","example_ko":"협력해 주셔서 진심으로 감사합니다."},
+    {"key":"n1-2947","word":"真っ二つ","reading":"まっぷたつ","meaning_ko":"정확히 둘로; 두 동강","meaning_ja":"完全に二つに分かれること。","part_of_speech":"普通名詞・副詞","example_ja":"板が真っ二つに割れた。","example_ko":"판자가 정확히 두 동강 났다."},
+    {"key":"n1-2948","word":"ミセス","reading":"ミセス","meaning_ko":"미세스; 기혼 여성; Mrs.","meaning_ja":"英語 Mrs. に由来する、既婚女性への敬称。","part_of_speech":"普通名詞","example_ja":"英語では既婚女性にミセスを使うことがある。","example_ko":"영어에서는 기혼 여성에게 미세스를 쓰는 경우가 있다."},
+    {"key":"n1-2949","word":"見積り","reading":"みつもり","meaning_ko":"견적; 예상액","meaning_ja":"費用・数量などを前もって計算すること。また、その結果。","part_of_speech":"普通名詞","example_ja":"工事会社から見積りを取った。","example_ko":"공사업체에서 견적을 받았다.","note":"『見積もり』表記も一般的。"},
+    {"key":"n1-2950","word":"見舞","reading":"みまい","meaning_ko":"문병; 위문; 안부 방문","meaning_ja":"病気・災害などに遭った人を訪ね、慰めること。","part_of_speech":"普通名詞","example_ja":"入院した友人の見舞いに行った。","example_ko":"입원한 친구의 문병을 갔다.","note":"通常は『見舞い』と書く。"},
+    {"key":"n1-2951","word":"目覚しい","reading":"めざましい","meaning_ko":"눈부시다; 현저하다; 놀랍다","meaning_ja":"驚くほど立派で、著しい。","part_of_speech":"い形容詞","example_ja":"この分野では技術の進歩が目覚ましい。","example_ko":"이 분야에서는 기술 발전이 눈부시다.","note":"通常は『目覚ましい』と書く。"},
+    {"key":"n1-2952","word":"愛でたい","reading":"めでたい","meaning_ko":"경사스럽다; 축하할 만하다","meaning_ja":"喜び祝うべきことである。縁起がよい。","part_of_speech":"い形容詞","example_ja":"結婚というめでたい知らせが届いた。","example_ko":"결혼이라는 경사스러운 소식이 전해졌다.","note":"通常は『めでたい』『目出度い』などと表記。"},
+    {"key":"n1-2953","word":"目盛","reading":"めもり","meaning_ko":"눈금; 눈금 표시","meaning_ja":"計器・物差しなどに数量を示すため付けた線や印。","part_of_speech":"普通名詞","example_ja":"温度計の目盛を確認した。","example_ko":"온도계의 눈금을 확인했다.","note":"通常は『目盛り』と書く。"},
+    {"key":"n1-2954","word":"申出","reading":"もうしで","meaning_ko":"신청; 제의; 요청; 신고","meaning_ja":"自分の意思・希望・要求などを相手に申し出ること。また、その内容。","part_of_speech":"普通名詞","example_ja":"本人から異動の申出があった。","example_ko":"본인에게서 이동 요청이 있었다.","note":"通常は『申し出』と書く。"},
+    {"key":"n1-2955","word":"藻掻く","reading":"もがく","meaning_ko":"몸부림치다; 발버둥치다; 애쓰다","meaning_ja":"苦しんで手足を激しく動かす。また、困難から抜け出そうと必死に努力する。","part_of_speech":"五段動詞","example_ja":"状況を変えようと必死にもがいた。","example_ko":"상황을 바꾸려고 필사적으로 발버둥쳤다.","note":"通常は『もがく』と仮名で書く。"},
+    {"key":"n1-2956","word":"齎らす","reading":"もたらす","meaning_ko":"가져오다; 초래하다","meaning_ja":"物や結果・影響などを持ってくる。生じさせる。","part_of_speech":"五段動詞","example_ja":"新しい技術は社会に大きな変化をもたらした。","example_ko":"새로운 기술은 사회에 큰 변화를 가져왔다.","note":"通常は『もたらす』と仮名で書く。"},
+    {"key":"n1-2957","word":"物体ない","reading":"もったいない","meaning_ko":"아깝다; 아까워서 버리기 어렵다; 과분하다","meaning_ja":"物の価値を十分に生かさず惜しい。また、自分には過分である。","part_of_speech":"い形容詞","example_ja":"まだ使えるのに捨てるのはもったいない。","example_ko":"아직 쓸 수 있는데 버리는 것은 아깝다.","note":"通常は『もったいない』『勿体ない』表記。候補の『物体ない』は特殊・非標準的表記。"}
+  ]
+}
