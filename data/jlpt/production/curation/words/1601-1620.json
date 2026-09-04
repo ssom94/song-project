@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1601-1620",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1601","word":"飲み込む","reading":"のみこむ","meaning_ko":"삼키다; 이해하다; 말을 참다","meaning_ja":"口に入れた物をのどの奥へ送る。また、事情・意味を理解したり、言おうとした言葉を抑えたりする。","part_of_speech":"五段動詞","example_ja":"複雑な仕組みでも図で説明されると内容を飲み込みやすい。","example_ko":"복잡한 구조라도 그림으로 설명되면 내용을 이해하기 쉽다."},
+    {"key":"n1-1602","word":"爆破","reading":"ばくは","meaning_ko":"폭파","meaning_ja":"爆発物などを使って建物・設備・岩盤などを破壊すること。","part_of_speech":"サ変名詞","example_ja":"老朽化した建物は周辺の安全を確保したうえで爆破された。","example_ko":"노후화한 건물은 주변 안전을 확보한 뒤 폭파되었다."},
+    {"key":"n1-1603","word":"許容","reading":"きょよう","meaning_ko":"허용; 용인","meaning_ja":"一定の範囲・条件の中で認め、受け入れること。","part_of_speech":"サ変名詞","example_ja":"この装置は数ミリ程度の誤差までなら許容できる。","example_ko":"이 장치는 수 밀리미터 정도의 오차까지는 허용할 수 있다."},
+    {"key":"n1-1604","word":"浪費","reading":"ろうひ","meaning_ko":"낭비; 허비","meaning_ja":"金銭・時間・資源などを、必要のないことにむだに使うこと。","part_of_speech":"サ変名詞","example_ja":"会議の目的を明確にしないと、参加者の時間を浪費することになる。","example_ko":"회의 목적을 명확히 하지 않으면 참가자들의 시간을 낭비하게 된다."},
+    {"key":"n1-1605","word":"採集","reading":"さいしゅう","meaning_ko":"채집","meaning_ja":"研究・観察などのため、植物・昆虫・鉱物などを集めること。","part_of_speech":"サ変名詞","example_ja":"研究者は山中で植物の標本を採集した。","example_ko":"연구자는 산속에서 식물 표본을 채집했다."},
+    {"key":"n1-1606","word":"読み上げる","reading":"よみあげる","meaning_ko":"소리 내어 읽다; 낭독하다","meaning_ja":"書かれた文章・数字・名前などを声に出して読む。","part_of_speech":"一段動詞","example_ja":"司会者が受賞者の名前を一人ずつ読み上げた。","example_ko":"사회자가 수상자 이름을 한 명씩 소리 내어 읽었다."},
+    {"key":"n1-1607","word":"根回し","reading":"ねまわし","meaning_ko":"사전 조율; 물밑 작업","meaning_ja":"計画・提案を円滑に進めるため、正式な決定の前に関係者へ説明し、理解・同意を得ておくこと。","part_of_speech":"サ変名詞","example_ja":"大きな制度変更なので、会議の前に関係部署へ根回しをしておいた。","example_ko":"큰 제도 변경이라 회의 전에 관계 부서와 사전 조율을 해 두었다."},
+    {"key":"n1-1608","word":"勧誘","reading":"かんゆう","meaning_ko":"권유; 가입 권유; 모집","meaning_ja":"人に参加・加入・購入などをするようすすめること。","part_of_speech":"サ変名詞","example_ja":"駅前で投資商品の勧誘を受けたが、その場では契約しなかった。","example_ko":"역 앞에서 투자 상품 가입 권유를 받았지만 그 자리에서는 계약하지 않았다."},
+    {"key":"n1-1609","word":"街頭","reading":"がいとう","meaning_ko":"가두; 길거리","meaning_ja":"町の道路上や、人通りの多い通り。","part_of_speech":"普通名詞","example_ja":"候補者は駅前で街頭演説を行った。","example_ko":"후보자는 역 앞에서 가두연설을 했다."},
+    {"key":"n1-1610","word":"尿","reading":"にょう","meaning_ko":"소변; 오줌","meaning_ja":"腎臓で作られ、体内の老廃物とともに排出される液体。","part_of_speech":"普通名詞","example_ja":"健康診断では血液だけでなく尿の検査も行われた。","example_ko":"건강검진에서는 혈액뿐 아니라 소변 검사도 실시되었다."},
+    {"key":"n1-1611","word":"加味","reading":"かみ","meaning_ko":"가미; 요소를 더해 고려함","meaning_ja":"ある要素を付け加えること。特に、判断・計画などに別の事情を取り入れて考えること。","part_of_speech":"サ変名詞","example_ja":"経験年数だけでなく、実績や適性も加味して人員を配置する。","example_ko":"경력 연수뿐 아니라 실적과 적성도 가미해 인원을 배치한다."},
+    {"key":"n1-1612","word":"憎しみ","reading":"にくしみ","meaning_ko":"미움; 증오","meaning_ja":"人・物事を強く憎む感情。","part_of_speech":"普通名詞","example_ja":"憎しみをぶつけ合っても問題の解決にはつながらない。","example_ko":"서로 증오를 쏟아내도 문제 해결로 이어지지 않는다."},
+    {"key":"n1-1613","word":"露骨","reading":"ろこつ","meaning_ko":"노골적임; 숨김없음","meaning_ja":"考え・欲望・不快感などを隠さず、あまりにもはっきり表すさま。","part_of_speech":"な形容詞","example_ja":"特定の会社だけを優遇する露骨な対応には批判が集まった。","example_ko":"특정 회사만 우대하는 노골적인 대응에 비판이 모였다."},
+    {"key":"n1-1614","word":"アンコール","reading":"アンコール","meaning_ko":"앙코르; 재공연 요청","meaning_ja":"公演の終了後、観客が拍手などで追加の演奏・上演を求めること。また、その追加公演。","part_of_speech":"普通名詞","example_ja":"大きな拍手に応え、歌手はアンコールでもう一曲歌った。","example_ko":"큰 박수에 응해 가수는 앙코르로 한 곡을 더 불렀다."},
+    {"key":"n1-1615","word":"閉口","reading":"へいこう","meaning_ko":"질림; 곤란해함; 두 손 듦","meaning_ja":"相手・状況に困り果てて、どうにもならないと感じること。","part_of_speech":"サ変名詞","example_ja":"毎日のように届く迷惑メールの多さには閉口している。","example_ko":"매일같이 오는 스팸 메일의 양에는 정말 질려 있다."},
+    {"key":"n1-1616","word":"磁器","reading":"じき","meaning_ko":"자기; 도자기류","meaning_ja":"陶石などを高温で焼いて作る、白く硬く吸水性の低い焼き物。","part_of_speech":"普通名詞","example_ja":"この地方は白い磁器の生産地として古くから知られている。","example_ko":"이 지방은 흰 자기 생산지로 예전부터 알려져 있다."},
+    {"key":"n1-1617","word":"偏る","reading":"かたよる","meaning_ko":"치우치다; 편중되다","meaning_ja":"考え・数量・配置などが一方に寄り、均衡を欠く。","part_of_speech":"五段動詞","example_ja":"情報源が一つに偏ると、判断も偏りやすくなる。","example_ko":"정보원이 하나에 치우치면 판단도 편향되기 쉽다."},
+    {"key":"n1-1618","word":"教習","reading":"きょうしゅう","meaning_ko":"교습; 실기 교육","meaning_ja":"知識・技能を実際に教え、身につけさせること。特に運転などの技能教育に多く用いる。","part_of_speech":"サ変名詞","example_ja":"免許を取るため、自動車学校で運転教習を受けている。","example_ko":"면허를 따기 위해 자동차 학원에서 운전 교습을 받고 있다."},
+    {"key":"n1-1619","word":"苦しめる","reading":"くるしめる","meaning_ko":"괴롭히다; 고통을 주다","meaning_ja":"人に肉体的・精神的な苦痛を与える。また、問題などが人を悩ませる。","part_of_speech":"一段動詞","example_ja":"長引く物価上昇が家計を苦しめている。","example_ko":"장기화된 물가 상승이 가계를 괴롭히고 있다."},
+    {"key":"n1-1620","word":"過疎","reading":"かそ","meaning_ko":"과소화; 인구 과소","meaning_ja":"人口が大きく減り、地域社会の維持に必要な人数が不足している状態。","part_of_speech":"普通名詞","example_ja":"山間部では過疎と高齢化が同時に進んでいる。","example_ko":"산간 지역에서는 인구 과소화와 고령화가 동시에 진행되고 있다."}
+  ]
+}
