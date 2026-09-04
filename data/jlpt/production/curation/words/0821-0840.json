@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0821-0840",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0821","word":"密度","reading":"みつど","meaning_ko":"밀도","meaning_ja":"一定の体積・面積・空間の中に、物質・人・情報などがどの程度集中しているかを表す度合い。物理では単位体積あたりの質量。","part_of_speech":"普通名詞","example_ja":"都市部では人口密度が高く、交通や住宅の問題が起こりやすい。","example_ko":"도시 지역은 인구 밀도가 높아 교통과 주택 문제가 생기기 쉽다."},
+    {"key":"n1-0822","word":"値引き","reading":"ねびき","meaning_ko":"할인; 가격 인하","meaning_ja":"商品の価格を、もとの値段より安くすること。","part_of_speech":"サ変名詞","example_ja":"展示品だったため、通常価格から二割値引きして販売された。","example_ko":"전시품이었기 때문에 정상가에서 20% 할인해 판매되었다."},
+    {"key":"n1-0823","word":"連休","reading":"れんきゅう","meaning_ko":"연휴","meaning_ja":"休日が二日以上続くこと。また、その続いた休日。","part_of_speech":"普通名詞","example_ja":"大型連休には高速道路や観光地の混雑が予想される。","example_ko":"긴 연휴에는 고속도로와 관광지의 혼잡이 예상된다."},
+    {"key":"n1-0824","word":"健在","reading":"けんざい","meaning_ko":"건재; 여전히 활약함","meaning_ja":"健康で無事に暮らしていること。また、能力・勢力などが衰えず、今も十分に活躍していること。","part_of_speech":"な形容詞","example_ja":"引退して十年たっても、その作家の人気は今なお健在だ。","example_ko":"은퇴한 지 10년이 지나도 그 작가의 인기는 여전히 건재하다."},
+    {"key":"n1-0825","word":"見地","reading":"けんち","meaning_ko":"견지; 관점; 입장","meaning_ja":"物事を考えたり判断したりするときの立場・観点。","part_of_speech":"普通名詞","example_ja":"安全性の見地から、この設備は定期的に交換する必要がある。","example_ko":"안전성의 관점에서 이 설비는 정기적으로 교체할 필요가 있다."},
+    {"key":"n1-0826","word":"重宝","reading":"じゅうほう","meaning_ko":"매우 유용함; 소중히 여김","meaning_ja":"便利で役に立つものとして大切に使うこと。また、非常に便利で役立つさま。","part_of_speech":"サ変名詞","example_ja":"この小型の翻訳端末は海外出張でとても重宝している。","example_ko":"이 소형 번역 단말기는 해외 출장에서 매우 유용하게 쓰고 있다."},
+    {"key":"n1-0827","word":"引き分け","reading":"ひきわけ","meaning_ko":"무승부","meaning_ja":"試合・勝負で、双方の得点や成績が同じで勝敗が決まらないこと。","part_of_speech":"普通名詞","example_ja":"試合は延長戦でも決着がつかず、引き分けに終わった。","example_ko":"경기는 연장전에서도 승부가 나지 않아 무승부로 끝났다."},
+    {"key":"n1-0828","word":"還元","reading":"かんげん","meaning_ko":"환원; 되돌려 줌","meaning_ja":"もとの状態・形に戻すこと。また、利益・成果などを関係者や社会へ返すこと。化学では酸化物などから酸素を取り除く反応もいう。","part_of_speech":"サ変名詞","example_ja":"企業は事業で得た利益の一部を地域社会へ還元している。","example_ko":"기업은 사업에서 얻은 이익 일부를 지역사회에 환원하고 있다."},
+    {"key":"n1-0829","word":"晴天","reading":"せいてん","meaning_ko":"맑은 날씨; 청명한 하늘","meaning_ja":"雲が少なく、よく晴れた天気。","part_of_speech":"普通名詞","example_ja":"大会当日は晴天に恵まれ、予定どおりすべての競技が行われた。","example_ko":"대회 당일은 맑은 날씨를 만나 예정대로 모든 경기가 진행되었다."},
+    {"key":"n1-0830","word":"全滅","reading":"ぜんめつ","meaning_ko":"전멸; 전부 소멸함","meaning_ja":"集団・生物・設備などが残らず失われたり、すべて駄目になったりすること。","part_of_speech":"サ変名詞","example_ja":"長雨の影響で畑の作物がほぼ全滅し、農家は大きな被害を受けた。","example_ko":"장마의 영향으로 밭의 작물이 거의 전멸해 농가가 큰 피해를 입었다."},
+    {"key":"n1-0831","word":"起点","reading":"きてん","meaning_ko":"기점; 출발점","meaning_ja":"道路・路線・物事などが始まる地点・基準となる点。","part_of_speech":"普通名詞","example_ja":"この駅を起点にして、山間部へ向かうバス路線が三本伸びている。","example_ko":"이 역을 기점으로 산간 지역으로 향하는 버스 노선 세 개가 뻗어 있다."},
+    {"key":"n1-0832","word":"消耗","reading":"しょうもう","meaning_ko":"소모; 닳아 없어짐","meaning_ja":"使うことによって物・体力・気力などが減り、弱ったりなくなったりすること。","part_of_speech":"サ変名詞","example_ja":"長時間の緊張が続き、選手たちは体力も精神力も大きく消耗していた。","example_ko":"장시간 긴장이 이어져 선수들은 체력과 정신력을 크게 소모하고 있었다.","note":"候補データの『しょうこう』は誤読のため、標準的な『しょうもう』へ修正。"},
+    {"key":"n1-0833","word":"体格","reading":"たいかく","meaning_ko":"체격; 몸집","meaning_ja":"身長・骨格・肉付きなどから見た身体全体のつくり。","part_of_speech":"普通名詞","example_ja":"彼は大柄な体格だが、動きは非常に素早い。","example_ko":"그는 큰 체격이지만 움직임은 매우 빠르다."},
+    {"key":"n1-0834","word":"樹木","reading":"じゅもく","meaning_ko":"수목; 나무","meaning_ja":"木本植物の総称。幹や枝を持ち、長年にわたって生育する木。","part_of_speech":"普通名詞","example_ja":"公園では老朽化した樹木の安全点検が定期的に行われている。","example_ko":"공원에서는 노후한 수목의 안전 점검이 정기적으로 이루어지고 있다."},
+    {"key":"n1-0835","word":"原文","reading":"げんぶん","meaning_ko":"원문","meaning_ja":"翻訳・要約・書き換えなどをする前の、もとの文章。","part_of_speech":"普通名詞","example_ja":"翻訳だけで意味が曖昧な場合は、原文を確認したほうがよい。","example_ko":"번역만으로 의미가 모호한 경우에는 원문을 확인하는 편이 좋다."},
+    {"key":"n1-0836","word":"野党","reading":"やとう","meaning_ko":"야당","meaning_ja":"議会政治で、現在政権を担当していない政党。","part_of_speech":"普通名詞","example_ja":"野党は政府案に反対し、修正案を国会に提出した。","example_ko":"야당은 정부안에 반대하며 수정안을 국회에 제출했다."},
+    {"key":"n1-0837","word":"同調","reading":"どうちょう","meaning_ko":"동조; 보조를 맞춤","meaning_ja":"他人の意見・主張・行動などに賛成して、それに合わせること。","part_of_speech":"サ変名詞","example_ja":"周囲の意見に安易に同調せず、自分で根拠を確かめることが大切だ。","example_ko":"주변 의견에 쉽게 동조하지 말고 스스로 근거를 확인하는 것이 중요하다."},
+    {"key":"n1-0838","word":"無言","reading":"むごん","meaning_ko":"무언; 말이 없음","meaning_ja":"何も言葉を発しないこと。","part_of_speech":"普通名詞","example_ja":"彼は質問に答えず、無言のまま部屋を出ていった。","example_ko":"그는 질문에 답하지 않고 아무 말 없이 방을 나갔다."},
+    {"key":"n1-0839","word":"吟味","reading":"ぎんみ","meaning_ko":"음미; 꼼꼼히 검토함","meaning_ja":"内容・品質・条件などを細かく調べ、十分に検討すること。","part_of_speech":"サ変名詞","example_ja":"複数の案を十分に吟味したうえで、最も現実的な方法を選んだ。","example_ko":"여러 안을 충분히 검토한 뒤 가장 현실적인 방법을 선택했다."},
+    {"key":"n1-0840","word":"期末","reading":"きまつ","meaning_ko":"기말; 기간의 끝","meaning_ja":"一定の期間・学期・会計年度などの終わり。","part_of_speech":"普通名詞","example_ja":"期末試験の結果は来週オンラインで発表される。","example_ko":"기말시험 결과는 다음 주 온라인으로 발표된다."}
+  ]
+}
