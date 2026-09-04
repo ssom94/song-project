@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1341-1360",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1341","word":"いいえ","reading":"いいえ","meaning_ko":"아니요; 아닙니다","meaning_ja":"相手の問い・依頼・推測などを丁寧に否定するときに使う応答語。","part_of_speech":"感動詞","example_ja":"『こちらが初めてですか』『いいえ、以前にも来たことがあります』。","example_ko":"'여기는 처음이세요?' '아니요, 전에도 온 적이 있습니다.'"},
+    {"key":"n1-1342","word":"悟る","reading":"さとる","meaning_ko":"깨닫다; 알아차리다","meaning_ja":"物事の本質・真理・事情などを深く理解する。また、状況から何かを察知する。","part_of_speech":"五段動詞","example_ja":"説明を聞くうちに、自分の思い込みが原因だったと悟った。","example_ko":"설명을 듣는 동안 자신의 선입견이 원인이었다는 것을 깨달았다."},
+    {"key":"n1-1343","word":"良好","reading":"りょうこう","meaning_ko":"양호함; 상태가 좋음","meaning_ja":"状態・関係・成績・品質などがよく、問題が少ないさま。","part_of_speech":"な形容詞","example_ja":"試験運転の結果、システムは良好な状態で稼働している。","example_ko":"시험 운전 결과 시스템은 양호한 상태로 가동되고 있다."},
+    {"key":"n1-1344","word":"仕掛ける","reading":"しかける","meaning_ko":"장치를 설치하다; 일을 걸다; 시작하다","meaning_ja":"目的のために装置・罠などを設ける。また、相手に働きかけたり、ある行為を始めたりする。","part_of_speech":"一段動詞","example_ja":"攻撃を仕掛ける前に、相手の動きを慎重に分析した。","example_ko":"공격을 걸기 전에 상대의 움직임을 신중히 분석했다."},
+    {"key":"n1-1345","word":"控える","reading":"ひかえる","meaning_ko":"삼가다; 줄이다; 앞두다","meaning_ja":"行動・量・発言などを抑える。また、予定された時期・出来事が近くに迫っている。","part_of_speech":"一段動詞","example_ja":"健康診断を翌日に控え、夜遅い食事を控えることにした。","example_ko":"건강검진을 다음 날 앞두고 늦은 밤 식사를 삼가기로 했다."},
+    {"key":"n1-1346","word":"落ち着き","reading":"おちつき","meaning_ko":"침착함; 차분함","meaning_ja":"感情や態度が安定していて、慌てず静かであること。","part_of_speech":"普通名詞","example_ja":"障害発生時ほど、担当者には落ち着きのある対応が求められる。","example_ko":"장애 발생 시일수록 담당자에게는 침착한 대응이 요구된다."},
+    {"key":"n1-1347","word":"見渡す","reading":"みわたす","meaning_ko":"둘러보다; 멀리까지 바라보다","meaning_ja":"高い所や広い場所などから、周囲や遠くまで広く眺める。","part_of_speech":"五段動詞","example_ja":"展望台から市街地を見渡すと、川の流れまでよく見えた。","example_ko":"전망대에서 시가지를 둘러보니 강의 흐름까지 잘 보였다."},
+    {"key":"n1-1348","word":"強行","reading":"きょうこう","meaning_ko":"강행; 무리하게 실행함","meaning_ja":"反対・困難・危険などがあっても、予定や方針を押し切って実行すること。","part_of_speech":"サ変名詞","example_ja":"悪天候の中でイベントを強行した判断には批判が集まった。","example_ko":"악천후 속에서 행사를 강행한 판단에 비판이 쏟아졌다."},
+    {"key":"n1-1349","word":"絶える","reading":"たえる","meaning_ko":"끊기다; 사라지다; 끝나다","meaning_ja":"続いていたものが途中でなくなり、それ以上続かなくなる。","part_of_speech":"一段動詞","example_ja":"この地域では長年受け継がれてきた伝統が絶えつつある。","example_ko":"이 지역에서는 오랫동안 이어진 전통이 끊길 위기에 있다."},
+    {"key":"n1-1350","word":"軍艦","reading":"ぐんかん","meaning_ko":"군함","meaning_ja":"海軍に所属し、戦闘・警戒などの軍事目的で用いられる船。","part_of_speech":"普通名詞","example_ja":"港には歴史資料として保存された旧軍艦が展示されている。","example_ko":"항구에는 역사 자료로 보존된 옛 군함이 전시되어 있다."},
+    {"key":"n1-1351","word":"取り戻す","reading":"とりもどす","meaning_ko":"되찾다; 회복하다","meaning_ja":"失った物・地位・信頼・健康・状態などを再び自分のもの、または元の状態に戻す。","part_of_speech":"五段動詞","example_ja":"品質改善を続け、少しずつ顧客の信頼を取り戻した。","example_ko":"품질 개선을 계속해 조금씩 고객의 신뢰를 되찾았다."},
+    {"key":"n1-1352","word":"診療","reading":"しんりょう","meaning_ko":"진료","meaning_ja":"医師が患者を診察し、必要な治療を行うこと。","part_of_speech":"サ変名詞","example_ja":"この診療所では休日も午前中に診療を行っている。","example_ko":"이 진료소에서는 휴일에도 오전 중 진료를 한다."},
+    {"key":"n1-1353","word":"勤勉","reading":"きんべん","meaning_ko":"근면함; 성실히 노력함","meaning_ja":"仕事・勉強などにまじめに励み、怠けず努力を続けるさま。","part_of_speech":"な形容詞","example_ja":"彼は勤勉な姿勢を評価され、重要な業務を任された。","example_ko":"그는 근면한 태도를 평가받아 중요한 업무를 맡았다."},
+    {"key":"n1-1354","word":"軽蔑","reading":"けいべつ","meaning_ko":"경멸; 업신여김","meaning_ja":"相手を価値の低いものと見て、見下し尊重しないこと。","part_of_speech":"サ変名詞","example_ja":"職業を理由に人を軽蔑するような態度は許されない。","example_ko":"직업을 이유로 사람을 경멸하는 태도는 용납될 수 없다."},
+    {"key":"n1-1355","word":"間柄","reading":"あいだがら","meaning_ko":"사이; 관계","meaning_ja":"人と人との関係。特に親しさ・立場などから見た関係性。","part_of_speech":"普通名詞","example_ja":"二人は仕事上だけでなく、家族ぐるみで付き合う間柄だ。","example_ko":"두 사람은 업무뿐 아니라 가족끼리도 교류하는 사이다."},
+    {"key":"n1-1356","word":"肝心","reading":"かんじん","meaning_ko":"가장 중요함; 핵심","meaning_ja":"物事の中で最も重要で、欠かすことのできないさま。","part_of_speech":"な形容詞","example_ja":"機能を増やすことより、肝心なのは安定して動くことだ。","example_ko":"기능을 늘리는 것보다 중요한 것은 안정적으로 동작하는 것이다."},
+    {"key":"n1-1357","word":"明後日","reading":"あさって","meaning_ko":"모레","meaning_ja":"明日の次の日。","part_of_speech":"普通名詞","example_ja":"明後日の午前中までに資料を提出してください。","example_ko":"모레 오전까지 자료를 제출해 주세요."},
+    {"key":"n1-1358","word":"指図","reading":"さしず","meaning_ko":"지시; 명령","meaning_ja":"人に何をどのようにするか具体的に命じたり指示したりすること。","part_of_speech":"サ変名詞","example_ja":"現場を知らない人が細かく指図すると、かえって作業が混乱する。","example_ko":"현장을 모르는 사람이 세세하게 지시하면 오히려 작업이 혼란스러워진다."},
+    {"key":"n1-1359","word":"残酷","reading":"ざんこく","meaning_ko":"잔혹함; 무자비함","meaning_ja":"人や動物に対して情けがなく、ひどく苦しめるようなさま。","part_of_speech":"な形容詞","example_ja":"戦争が市民にもたらした残酷な現実が記録に残されている。","example_ko":"전쟁이 시민에게 가져온 잔혹한 현실이 기록에 남아 있다."},
+    {"key":"n1-1360","word":"着目","reading":"ちゃくもく","meaning_ko":"주목; 착안","meaning_ja":"重要・特徴的だと思う点に特に注意を向けること。","part_of_speech":"サ変名詞","example_ja":"研究チームは利用者の行動変化に着目して分析を進めた。","example_ko":"연구팀은 이용자의 행동 변화에 주목해 분석을 진행했다."}
+  ]
+}
