@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0701-0720",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage; nonstandard source readings are normalized when general JLPT usage clearly differs.",
+  "words": [
+    {"key":"n1-0701","word":"合唱","reading":"がっしょう","meaning_ko":"합창; 여러 사람이 함께 노래함","meaning_ja":"複数の人が声を合わせ、同じ曲または複数の声部を同時に歌うこと。","part_of_speech":"サ変名詞","example_ja":"卒業式では生徒全員が校歌を合唱し、会場から大きな拍手が起こった。","example_ko":"졸업식에서는 전 학생이 교가를 합창해 행사장에서 큰 박수가 나왔다."},
+    {"key":"n1-0702","word":"収支","reading":"しゅうし","meaning_ko":"수지; 수입과 지출","meaning_ja":"収入と支出。また、その差し引きの状態。","part_of_speech":"普通名詞","example_ja":"事業の収支を毎月確認し、赤字が続く部門の原因を分析している。","example_ko":"사업의 수지를 매달 확인하고 적자가 계속되는 부문의 원인을 분석하고 있다."},
+    {"key":"n1-0703","word":"展望","reading":"てんぼう","meaning_ko":"전망; 앞날에 대한 예상; 조망","meaning_ja":"遠くまで見渡すこと。また、将来の成り行きについて見通すこと。","part_of_speech":"サ変名詞","example_ja":"報告書では市場の現状だけでなく、今後五年間の展望についても述べている。","example_ko":"보고서에서는 시장의 현황뿐 아니라 향후 5년의 전망에 대해서도 서술하고 있다."},
+    {"key":"n1-0704","word":"生死","reading":"せいし","meaning_ko":"생사; 삶과 죽음","meaning_ja":"生きることと死ぬこと。命にかかわる重大な状態。","part_of_speech":"普通名詞","example_ja":"災害直後の数時間は、被災者の生死を左右する重要な時間だ。","example_ko":"재난 직후 몇 시간은 피해자의 생사를 좌우하는 중요한 시간이다."},
+    {"key":"n1-0705","word":"独創","reading":"どくそう","meaning_ko":"독창; 새로운 것을 독자적으로 만들어 냄","meaning_ja":"他人のまねではなく、自分自身の考えで新しいものを生み出すこと。","part_of_speech":"サ変名詞","example_ja":"既存技術を組み合わせただけでなく、独創的な発想を加えた点が高く評価された。","example_ko":"기존 기술을 조합한 것뿐 아니라 독창적인 발상을 더한 점이 높게 평가되었다."},
+    {"key":"n1-0706","word":"動力","reading":"どうりょく","meaning_ko":"동력; 기계를 움직이는 힘","meaning_ja":"機械・乗り物などを動かすために利用されるエネルギー・力。","part_of_speech":"普通名詞","example_ja":"この装置は電力ではなく圧縮空気を動力として作動する。","example_ko":"이 장치는 전력이 아니라 압축 공기를 동력으로 작동한다."},
+    {"key":"n1-0707","word":"補充","reading":"ほじゅう","meaning_ko":"보충; 부족한 것을 채움","meaning_ja":"不足した人員・物資・数量などを追加して満たすこと。","part_of_speech":"サ変名詞","example_ja":"在庫が一定数を下回ると、自動的に商品を補充する仕組みになっている。","example_ko":"재고가 일정 수 이하로 내려가면 자동으로 상품을 보충하는 구조다."},
+    {"key":"n1-0708","word":"楽譜","reading":"がくふ","meaning_ko":"악보","meaning_ja":"音の高さ・長さ・強さなどを音符や記号で記したもの。","part_of_speech":"普通名詞","example_ja":"初めて見る楽譜でも、基本的な記号を理解していれば演奏の流れをつかめる。","example_ko":"처음 보는 악보라도 기본 기호를 이해하면 연주의 흐름을 파악할 수 있다."},
+    {"key":"n1-0709","word":"不意","reading":"ふい","meaning_ko":"불의; 갑작스러움; 뜻밖","meaning_ja":"予想・準備していない突然のこと。","part_of_speech":"普通名詞","example_ja":"不意の質問にも落ち着いて答えられるよう、想定外のケースまで練習しておいた。","example_ko":"뜻밖의 질문에도 침착하게 답할 수 있도록 예상 밖의 경우까지 연습해 두었다."},
+    {"key":"n1-0710","word":"気質","reading":"かたぎ","meaning_ko":"기질; 특정 집단에 전형적인 성향","meaning_ja":"職業・身分・時代などに特有の考え方や性格の傾向。","part_of_speech":"普通名詞","example_ja":"細部まで妥協しない職人気質が、製品の高い品質を支えている。","example_ko":"세부까지 타협하지 않는 장인 기질이 제품의 높은 품질을 뒷받침하고 있다."},
+    {"key":"n1-0711","word":"有益","reading":"ゆうえき","meaning_ko":"유익; 도움이 됨","meaning_ja":"利益・効果があり、役に立つさま。","part_of_speech":"な形容詞","example_ja":"失敗の原因を共有することは、再発防止を考える上で非常に有益だ。","example_ko":"실패 원인을 공유하는 것은 재발 방지를 생각하는 데 매우 유익하다."},
+    {"key":"n1-0712","word":"執着","reading":"しゅうちゃく","meaning_ko":"집착; 지나치게 매달림","meaning_ja":"一つの物事・考えなどに強く心を引かれ、そこから離れられないこと。","part_of_speech":"サ変名詞","example_ja":"過去の成功例に執着すると、環境の変化に対応できなくなることがある。","example_ko":"과거의 성공 사례에 집착하면 환경 변화에 대응하지 못할 수 있다.","note":"Production JLPT reading normalized to the common modern reading しゅうちゃく. The source candidate used しゅうじゃく, a rare/Buddhist-associated reading not suitable as the default JLPT study form."},
+    {"key":"n1-0713","word":"心情","reading":"しんじょう","meaning_ko":"심정; 마음속 감정","meaning_ja":"心の中に抱いている感情・思い。","part_of_speech":"普通名詞","example_ja":"被害者の心情に配慮し、取材内容の公開範囲を慎重に決めた。","example_ko":"피해자의 심정을 배려해 취재 내용의 공개 범위를 신중히 정했다."},
+    {"key":"n1-0714","word":"語彙","reading":"ごい","meaning_ko":"어휘; 단어의 총체","meaning_ja":"ある言語・分野・個人などが用いる単語の総体。","part_of_speech":"普通名詞","example_ja":"専門分野の文章を正確に読むには、一般語だけでなく専門語彙も必要になる。","example_ko":"전문 분야의 글을 정확히 읽으려면 일반어뿐 아니라 전문 어휘도 필요하다."},
+    {"key":"n1-0715","word":"化石","reading":"かせき","meaning_ko":"화석","meaning_ja":"昔の生物の遺体・痕跡などが地層中に残ったもの。","part_of_speech":"普通名詞","example_ja":"発見された化石を分析した結果、この地域には古くから大型動物が生息していたことが分かった。","example_ko":"발견된 화석을 분석한 결과 이 지역에 예전부터 대형 동물이 서식했다는 사실이 밝혀졌다."},
+    {"key":"n1-0716","word":"募金","reading":"ぼきん","meaning_ko":"모금; 기부금을 모음","meaning_ja":"寄付金・義援金などを広く呼びかけて集めること。","part_of_speech":"サ変名詞","example_ja":"被災地を支援するため、駅前で募金活動が行われた。","example_ko":"재해 지역을 지원하기 위해 역 앞에서 모금 활동이 실시되었다."},
+    {"key":"n1-0717","word":"山岳","reading":"さんがく","meaning_ko":"산악; 높고 험한 산들","meaning_ja":"高く険しい山々。また、山に関係する地域・活動。","part_of_speech":"普通名詞","example_ja":"山岳地帯では天候が急変しやすいため、十分な装備が必要だ。","example_ko":"산악 지대에서는 날씨가 급변하기 쉬워 충분한 장비가 필요하다."},
+    {"key":"n1-0718","word":"改定","reading":"かいてい","meaning_ko":"개정; 규정·가격 등을 새로 정함","meaning_ja":"すでに定められている制度・規則・価格などを変更して新しく定めること。","part_of_speech":"サ変名詞","example_ja":"原材料費の上昇を受け、来月からサービス料金を改定する。","example_ko":"원재료비 상승을 반영해 다음 달부터 서비스 요금을 개정한다."},
+    {"key":"n1-0719","word":"風習","reading":"ふうしゅう","meaning_ko":"풍습; 오래된 생활 관습","meaning_ja":"ある地域・社会に昔から受け継がれている生活上の習慣・ならわし。","part_of_speech":"普通名詞","example_ja":"地域ごとに異なる風習を理解することは、文化を学ぶ上で重要だ。","example_ko":"지역마다 다른 풍습을 이해하는 것은 문화를 배우는 데 중요하다."},
+    {"key":"n1-0720","word":"衣類","reading":"いるい","meaning_ko":"의류; 옷가지","meaning_ja":"上着・シャツ・ズボンなど、身につける服の総称。","part_of_speech":"普通名詞","example_ja":"避難所には食料だけでなく、毛布や衣類などの生活物資も届けられた。","example_ko":"대피소에는 식량뿐 아니라 담요와 의류 같은 생활 물자도 전달되었다."}
+  ]
+}
