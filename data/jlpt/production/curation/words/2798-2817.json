@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2798-2817",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2798","word":"ストロー","reading":"ストロー","meaning_ko":"빨대","meaning_ja":"飲み物を吸って飲むための細い管。","part_of_speech":"普通名詞","example_ja":"子どもがストローでジュースを飲んでいる。","example_ko":"아이가 빨대로 주스를 마시고 있다."},
+    {"key":"n1-2799","word":"ストロボ","reading":"ストロボ","meaning_ko":"스트로보; 섬광등; 플래시","meaning_ja":"短時間に強い光を発する撮影用などの発光装置。","part_of_speech":"普通名詞","example_ja":"暗い会場だったのでストロボを使って撮影した。","example_ko":"어두운 행사장이어서 플래시를 사용해 촬영했다."},
+    {"key":"n1-2800","word":"お大事に","reading":"おだいじに","meaning_ko":"몸조리 잘하세요; 쾌차하세요","meaning_ja":"病気やけがをした人に、体を大切にして早くよくなるよう願う挨拶。","part_of_speech":"感動詞","example_ja":"風邪とのことですので、どうぞお大事に。","example_ko":"감기라고 하니 몸조리 잘하세요."},
+    {"key":"n1-2801","word":"畏まりました","reading":"かしこまりました","meaning_ko":"알겠습니다; 잘 알겠습니다","meaning_ja":"相手の依頼・指示を丁寧に了承したことを伝える表現。","part_of_speech":"その他","example_ja":"畏まりました。すぐに確認いたします。","example_ko":"알겠습니다. 바로 확인하겠습니다.","note":"接客・ビジネスで非常に丁寧な了承表現。"},
+    {"key":"n1-2802","word":"突っ張る","reading":"つっぱる","meaning_ko":"버티다; 뻗대다; 팽팽해지다","meaning_ja":"力を入れて支える。また、意地を張って自分の主張を曲げない。","part_of_speech":"五段動詞","example_ja":"彼は最後まで自分の意見を突っ張った。","example_ko":"그는 끝까지 자기 의견을 굽히지 않았다."},
+    {"key":"n1-2803","word":"剥げる","reading":"はげる","meaning_ko":"벗겨지다; 칠이 벗겨지다; 색이 바래다","meaning_ja":"表面の塗装・皮などが取れる。また、色が薄くなる。","part_of_speech":"一段動詞","example_ja":"古い椅子の塗装がところどころ剥げている。","example_ko":"낡은 의자의 칠이 군데군데 벗겨져 있다."},
+    {"key":"n1-2804","word":"お巡りさん","reading":"おまわりさん","meaning_ko":"경찰관; 순경","meaning_ja":"警察官を親しみを込めて呼ぶ言い方。","part_of_speech":"普通名詞","example_ja":"道が分からなかったので、お巡りさんに尋ねた。","example_ko":"길을 몰라서 경찰관에게 물어봤다."},
+    {"key":"n1-2805","word":"おおい","reading":"おおい","meaning_ko":"어이!; 이봐!","meaning_ja":"離れた相手などを呼び止めるときに発する声。","part_of_speech":"感動詞","example_ja":"おおい、忘れ物をしているよ。","example_ko":"이봐, 물건을 두고 갔어.","note":"候補KRDICTの『많다』『덮개』は同音異語の誤混入。JMdict見出しは呼びかけの『おおい』。"},
+    {"key":"n1-2806","word":"打ち消し","reading":"うちけし","meaning_ko":"부정; 부인; 취소","meaning_ja":"ある内容を否定すること。文法では否定表現を指す。","part_of_speech":"普通名詞","example_ja":"この文では打ち消しの表現が使われている。","example_ko":"이 문장에는 부정 표현이 사용되고 있다."},
+    {"key":"n1-2807","word":"目付き","reading":"めつき","meaning_ko":"눈빛; 눈매; 눈의 표정","meaning_ja":"目に表れる表情や視線の様子。","part_of_speech":"普通名詞","example_ja":"彼は急に真剣な目付きになった。","example_ko":"그는 갑자기 진지한 눈빛이 되었다."},
+    {"key":"n1-2808","word":"有りのまま","reading":"ありのまま","meaning_ko":"있는 그대로; 사실 그대로","meaning_ja":"飾ったり隠したりせず、実際の状態そのまま。","part_of_speech":"副詞・普通名詞","example_ja":"起きたことを有りのまま話してください。","example_ko":"일어난 일을 있는 그대로 말해 주세요.","note":"現代では通常『ありのまま』と仮名で書く。"},
+    {"key":"n1-2809","word":"共稼ぎ","reading":"ともかせぎ","meaning_ko":"맞벌이; 부부가 함께 벌이함","meaning_ja":"夫婦などがともに働いて収入を得ること。","part_of_speech":"サ変名詞","example_ja":"私たちは共稼ぎなので家事を分担している。","example_ko":"우리는 맞벌이라서 집안일을 분담하고 있다.","note":"現代では『共働き』のほうが一般的。"},
+    {"key":"n1-2810","word":"是非とも","reading":"ぜひとも","meaning_ko":"꼭; 반드시; 부디","meaning_ja":"強い希望・依頼を表し、何としてもという気持ちを示す。","part_of_speech":"副詞","example_ja":"次回の会議には是非とも参加してください。","example_ko":"다음 회의에는 꼭 참석해 주세요."},
+    {"key":"n1-2811","word":"スポーツカー","reading":"スポーツカー","meaning_ko":"스포츠카","meaning_ja":"走行性能や運転の楽しさを重視して作られた自動車。","part_of_speech":"普通名詞","example_ja":"彼は昔からスポーツカーに憧れている。","example_ko":"그는 예전부터 스포츠카를 동경해 왔다."},
+    {"key":"n1-2812","word":"見せびらかす","reading":"みせびらかす","meaning_ko":"과시하다; 자랑해 보이다","meaning_ja":"自慢するために人にわざと見せつける。","part_of_speech":"五段動詞","example_ja":"高価な時計を見せびらかすような態度は好まれない。","example_ko":"비싼 시계를 과시하는 듯한 태도는 좋게 보이지 않는다."},
+    {"key":"n1-2813","word":"余っ程","reading":"よっぽど","meaning_ko":"상당히; 훨씬; 매우","meaning_ja":"程度がかなり大きいさま。非常に。","part_of_speech":"副詞","example_ja":"昨日より今日のほうがよっぽど暖かい。","example_ko":"어제보다 오늘이 훨씬 따뜻하다.","note":"候補KO『어지간히』は文脈により可能だが、JMdict中心義に合わせて広く修正。現代では通常『よっぽど』と仮名で書く。"},
+    {"key":"n1-2814","word":"封建","reading":"ほうけん","meaning_ko":"봉건; 봉건제","meaning_ja":"土地を基盤に主従関係を結ぶ封建制度。また、その性質。","part_of_speech":"普通名詞","example_ja":"中世社会では封建制度が広く見られた。","example_ko":"중세 사회에서는 봉건 제도가 널리 나타났다."},
+    {"key":"n1-2815","word":"動的","reading":"どうてき","meaning_ko":"동적; 역동적","meaning_ja":"動きや変化を伴うさま。","part_of_speech":"な形容詞","example_ja":"この画面は利用者の操作に応じて動的に変化する。","example_ko":"이 화면은 사용자의 조작에 따라 동적으로 변한다."},
+    {"key":"n1-2816","word":"長々","reading":"ながなが","meaning_ko":"장황하게; 오래도록; 길게","meaning_ja":"時間・文章・話などが必要以上に長く続くさま。","part_of_speech":"副詞","example_ja":"長々と説明してしまい、申し訳ありません。","example_ko":"장황하게 설명해서 죄송합니다."},
+    {"key":"n1-2817","word":"優越","reading":"ゆうえつ","meaning_ko":"우월; 우위","meaning_ja":"他より優れていること。","part_of_speech":"サ変名詞","example_ja":"技術面での優越を維持するには継続的な投資が必要だ。","example_ko":"기술 면에서의 우위를 유지하려면 지속적인 투자가 필요하다."}
+  ]
+}
