@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1261-1280",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1261","word":"うんざり","reading":"うんざり","meaning_ko":"진절머리 남; 싫증이 남","meaning_ja":"同じことが続いたり不快なことが重なったりして、すっかり嫌になるさま。","part_of_speech":"副詞","example_ja":"同じ説明を何度も聞かされて、さすがにうんざりした。","example_ko":"같은 설명을 몇 번이나 들어서 역시 진절머리가 났다."},
+    {"key":"n1-1262","word":"勝る","reading":"まさる","meaning_ko":"능가하다; 더 낫다","meaning_ja":"能力・品質・程度などが他より優れている。","part_of_speech":"五段動詞","example_ja":"使いやすさの点では旧製品より新製品の方が勝っている。","example_ko":"사용 편의성 면에서는 구제품보다 신제품이 더 낫다."},
+    {"key":"n1-1263","word":"取り扱う","reading":"とりあつかう","meaning_ko":"취급하다; 다루다","meaning_ja":"物・情報・商品・問題などを対象として扱い、操作・販売・処理する。","part_of_speech":"五段動詞","example_ja":"この画面では個人情報を取り扱うため、権限管理が必要だ。","example_ko":"이 화면에서는 개인정보를 취급하므로 권한 관리가 필요하다."},
+    {"key":"n1-1264","word":"模型","reading":"もけい","meaning_ko":"모형; 모델","meaning_ja":"実物の形・構造を一定の比率で小さく、または分かりやすく再現したもの。","part_of_speech":"普通名詞","example_ja":"建築模型を使って完成後の空間を説明した。","example_ko":"건축 모형을 이용해 완공 후 공간을 설명했다."},
+    {"key":"n1-1265","word":"共存","reading":"きょうそん","meaning_ko":"공존","meaning_ja":"異なるものが互いを排除せず、同時に存在すること。","part_of_speech":"サ変名詞","example_ja":"自然環境と都市機能が共存できる計画が求められている。","example_ko":"자연환경과 도시 기능이 공존할 수 있는 계획이 요구되고 있다.","note":"『きょうぞん』とも読み、現代ではこちらも広く用いられる。"},
+    {"key":"n1-1266","word":"前途","reading":"ぜんと","meaning_ko":"전도; 앞날; 장래","meaning_ja":"これから先の道のり・将来。特に将来の見込みや可能性。","part_of_speech":"普通名詞","example_ja":"新しい事業の前途は決して平坦ではないが、成長の余地は大きい。","example_ko":"새 사업의 앞날이 결코 순탄하지는 않지만 성장 여지는 크다."},
+    {"key":"n1-1267","word":"痛む","reading":"いたむ","meaning_ko":"아프다; 상하다","meaning_ja":"体の一部に痛みを感じる。また、食べ物・物などが傷んで悪くなる。","part_of_speech":"五段動詞","example_ja":"長時間同じ姿勢で作業したため、腰が痛むようになった。","example_ko":"오랫동안 같은 자세로 작업해서 허리가 아프기 시작했다."},
+    {"key":"n1-1268","word":"短気","reading":"たんき","meaning_ko":"성급함; 다혈질","meaning_ja":"我慢する時間が短く、すぐ怒ったり結論を急いだりする性質。","part_of_speech":"な形容詞","example_ja":"短気を起こして判断すると、かえって問題を大きくすることがある。","example_ko":"성급하게 판단하면 오히려 문제를 키울 수 있다."},
+    {"key":"n1-1269","word":"良心","reading":"りょうしん","meaning_ko":"양심","meaning_ja":"自分の行為が道徳的に正しいかどうかを内面的に判断する心。","part_of_speech":"普通名詞","example_ja":"彼は良心に従い、不正を見過ごさずに報告した。","example_ko":"그는 양심에 따라 부정을 묵인하지 않고 보고했다."},
+    {"key":"n1-1270","word":"延べ","reading":"のべ","meaning_ko":"연인원·연시간 등 중복 포함 합계","meaning_ja":"同じ人・物・時間などの重複を含めて、回数ごとに数えた合計。","part_of_speech":"普通名詞","example_ja":"イベントには三日間で延べ一万人が来場した。","example_ko":"행사에는 사흘 동안 연인원 1만 명이 방문했다."},
+    {"key":"n1-1271","word":"妨害","reading":"ぼうがい","meaning_ko":"방해; 저지","meaning_ja":"物事が順調に進まないよう邪魔をしたり、活動を阻んだりすること。","part_of_speech":"サ変名詞","example_ja":"通信を意図的に妨害する行為は禁止されている。","example_ko":"통신을 의도적으로 방해하는 행위는 금지되어 있다."},
+    {"key":"n1-1272","word":"製法","reading":"せいほう","meaning_ko":"제조법; 만드는 방법","meaning_ja":"製品・食品・材料などを作る方法。","part_of_speech":"普通名詞","example_ja":"伝統的な製法を守りながら、生産工程の一部を自動化した。","example_ko":"전통적인 제조법을 지키면서 생산 공정 일부를 자동화했다."},
+    {"key":"n1-1273","word":"質素","reading":"しっそ","meaning_ko":"검소함; 소박함","meaning_ja":"ぜいたくを避け、飾り気が少なく簡素であるさま。","part_of_speech":"な形容詞","example_ja":"彼は高い収入を得ても質素な生活を続けている。","example_ko":"그는 높은 수입을 올려도 검소한 생활을 계속하고 있다."},
+    {"key":"n1-1274","word":"緩やか","reading":"ゆるやか","meaning_ko":"완만함; 느슨함; 부드러움","meaning_ja":"傾き・変化・速度・規制などが急ではなく、穏やかであるさま。","part_of_speech":"な形容詞","example_ja":"景気は急回復ではなく、緩やかな改善を続けている。","example_ko":"경기는 급회복이 아니라 완만한 개선을 이어가고 있다."},
+    {"key":"n1-1275","word":"圧迫","reading":"あっぱく","meaning_ko":"압박; 압박함","meaning_ja":"強い力で押しつけること。また、心理・財政・自由などを強く制限すること。","part_of_speech":"サ変名詞","example_ja":"原材料費の上昇が企業の利益を圧迫している。","example_ko":"원자재 비용 상승이 기업 이익을 압박하고 있다."},
+    {"key":"n1-1276","word":"付き合う","reading":"つきあう","meaning_ko":"사귀다; 교제하다; 함께하다","meaning_ja":"人と関係を持って交流する。また、相手の行動・用事に一緒に加わる。","part_of_speech":"五段動詞","example_ja":"仕事上の付き合いだけでなく、休日も一緒に出かける仲だ。","example_ko":"업무상 교제뿐 아니라 휴일에도 함께 나가는 사이다."},
+    {"key":"n1-1277","word":"忠告","reading":"ちゅうこく","meaning_ko":"충고; 조언","meaning_ja":"相手のためを思い、過ち・危険・改善点などを真剣に注意して教えること。","part_of_speech":"サ変名詞","example_ja":"先輩の忠告を受け入れ、計画をもう一度見直した。","example_ko":"선배의 충고를 받아들여 계획을 다시 검토했다."},
+    {"key":"n1-1278","word":"群集","reading":"ぐんしゅう","meaning_ko":"군집; 집단","meaning_ja":"多くの人・生物・物などが一か所に集まること。また、その集まり。","part_of_speech":"普通名詞","example_ja":"駅前にはイベント開始を待つ群集ができていた。","example_ko":"역 앞에는 행사 시작을 기다리는 군중이 모여 있었다.","note":"人の集まりを表す場合は『群衆』の表記も一般的。"},
+    {"key":"n1-1279","word":"導く","reading":"みちびく","meaning_ko":"이끌다; 인도하다","meaning_ja":"目的地・結論・状態などに向かうよう人や物事を案内し、方向づける。","part_of_speech":"五段動詞","example_ja":"複数の証拠を組み合わせることで一つの結論を導いた。","example_ko":"여러 증거를 조합해 하나의 결론을 이끌어냈다."},
+    {"key":"n1-1280","word":"細胞","reading":"さいぼう","meaning_ko":"세포","meaning_ja":"生物の体を構成する、生命活動の基本となる最小単位。","part_of_speech":"普通名詞","example_ja":"研究チームは細胞の変化を長期間観察した。","example_ko":"연구팀은 세포의 변화를 장기간 관찰했다."}
+  ]
+}
