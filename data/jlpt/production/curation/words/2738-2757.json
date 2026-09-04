@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2738-2757",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2738","word":"縮まる","reading":"ちぢまる","meaning_ko":"줄어들다; 짧아지다; 좁아지다","meaning_ja":"長さ・距離・規模などが小さくなる。","part_of_speech":"五段動詞","example_ja":"改善を重ねて作業時間が大きく縮まった。","example_ko":"개선을 거듭해 작업 시간이 크게 줄었다."},
+    {"key":"n1-2739","word":"煩わしい","reading":"わずらわしい","meaning_ko":"번거롭다; 성가시다; 귀찮다","meaning_ja":"面倒で手間がかかり、わずらいを感じる。","part_of_speech":"い形容詞","example_ja":"毎回同じ情報を入力するのは煩わしい。","example_ko":"매번 같은 정보를 입력하는 것은 번거롭다."},
+    {"key":"n1-2740","word":"群がる","reading":"むらがる","meaning_ko":"떼 지어 몰려들다; 무리를 이루어 모이다","meaning_ja":"多くの人・動物などが一か所に集まる。","part_of_speech":"五段動詞","example_ja":"餌の周りに鳥が群がっていた。","example_ko":"먹이 주변에 새들이 떼 지어 몰려 있었다."},
+    {"key":"n1-2741","word":"割合に","reading":"わりあいに","meaning_ko":"비교적; 의외로","meaning_ja":"他と比べると比較的。思ったより。","part_of_speech":"副詞","example_ja":"この問題は割合に簡単だった。","example_ko":"이 문제는 비교적 쉬웠다."},
+    {"key":"n1-2742","word":"躓く","reading":"つまずく","meaning_ko":"발이 걸려 넘어질 뻔하다; 좌절하다; 일이 막히다","meaning_ja":"足が物に引っ掛かってよろける。また、物事の途中で失敗して行き詰まる。","part_of_speech":"五段動詞","example_ja":"最初の設計段階で躓き、計画を見直した。","example_ko":"초기 설계 단계에서 막혀 계획을 재검토했다.","note":"候補KRDICTは比喩義に偏っていたため、JMdictの literal『stumble/trip』も補完。"},
+    {"key":"n1-2743","word":"坊ちゃん","reading":"ぼっちゃん","meaning_ko":"도련님; 남의 아들; 곱게 자란 남자","meaning_ja":"他人の息子を丁寧にいう語。また、世間知らずに育った若い男性を指すこともある。","part_of_speech":"普通名詞","example_ja":"ご近所の坊ちゃんは今年大学に入ったそうだ。","example_ko":"이웃집 도련님은 올해 대학에 들어갔다고 한다.","note":"候補の『미혼 성인 남성 존칭』보다 JMdict의 son(of others) 중심으로 보정。"},
+    {"key":"n1-2744","word":"打ち合わせる","reading":"うちあわせる","meaning_ko":"협의하다; 사전 조율하다","meaning_ja":"仕事などについて前もって相談し、内容や手順を確認する。","part_of_speech":"一段動詞","example_ja":"明日の発表内容を事前に打ち合わせた。","example_ko":"내일 발표 내용을 사전에 협의했다."},
+    {"key":"n1-2745","word":"域外","reading":"いきがい","meaning_ko":"지역 밖; 구역 밖","meaning_ja":"定められた区域・範囲の外。","part_of_speech":"普通名詞","example_ja":"この制度は域外の事業者には適用されない。","example_ko":"이 제도는 구역 밖 사업자에게는 적용되지 않는다.","note":"一般的な読みは『いきがい』ではなく文脈により『いきがい』が辞書上登録される特殊読み。『生き甲斐（いきがい）』とは別語。"},
+    {"key":"n1-2746","word":"Gパン","reading":"ジーパン","meaning_ko":"청바지; 진","meaning_ja":"デニム地などで作られたズボン。ジーンズ。","part_of_speech":"普通名詞","example_ja":"休日はGパンとTシャツで出かけることが多い。","example_ko":"휴일에는 청바지와 티셔츠 차림으로 외출하는 경우가 많다.","note":"『ジーパン』と書くのが一般的。"},
+    {"key":"n1-2747","word":"捗る","reading":"はかどる","meaning_ko":"진척되다; 순조롭게 진행되다","meaning_ja":"仕事・作業などが順調に進む。","part_of_speech":"五段動詞","example_ja":"静かな場所に移ったら作業が捗った。","example_ko":"조용한 장소로 옮겼더니 작업이 순조롭게 진행됐다."},
+    {"key":"n1-2748","word":"議事堂","reading":"ぎじどう","meaning_ko":"의사당; 국회의사당","meaning_ja":"議会が開かれる建物。","part_of_speech":"普通名詞","example_ja":"観光で国会議事堂を見学した。","example_ko":"관광으로 국회의사당을 견학했다."},
+    {"key":"n1-2749","word":"香辛料","reading":"こうしんりょう","meaning_ko":"향신료; 스파이스","meaning_ja":"料理に香り・辛味・風味を加える調味料。","part_of_speech":"普通名詞","example_ja":"この料理には数種類の香辛料が使われている。","example_ko":"이 요리에는 여러 종류의 향신료가 사용된다."},
+    {"key":"n1-2750","word":"茶の間","reading":"ちゃのま","meaning_ko":"거실; 가족이 모이는 방","meaning_ja":"日本家屋で、家族が食事や団らんをする部屋。","part_of_speech":"普通名詞","example_ja":"家族みんなが茶の間に集まった。","example_ko":"가족 모두가 거실에 모였다.","note":"候補定義の『西洋式の家』は不適切。JMdictの Japanese-style living room に合わせて修正。"},
+    {"key":"n1-2751","word":"鈍る","reading":"なまる","meaning_ko":"무뎌지다; 둔해지다; 능력이 떨어지다","meaning_ja":"刃・感覚・能力などの鋭さが失われる。","part_of_speech":"五段動詞","example_ja":"長く練習しないと感覚が鈍る。","example_ko":"오랫동안 연습하지 않으면 감각이 둔해진다."},
+    {"key":"n1-2752","word":"映える","reading":"はえる","meaning_ko":"돋보이다; 빛나다; 잘 어울리다","meaning_ja":"周囲との調和や対比によって美しく目立つ。","part_of_speech":"一段動詞","example_ja":"青空に白い建物がよく映える。","example_ko":"푸른 하늘에 흰 건물이 잘 돋보인다.","note":"候補の『빛나다』보다 현대의 빈출 의미『돋보이다/잘 어울리다』를 보완。"},
+    {"key":"n1-2753","word":"ネガ","reading":"ネガ","meaning_ko":"네거티브 필름; 음화","meaning_ja":"写真で明暗・色が反転したネガフィルム、またはその画像。","part_of_speech":"普通名詞","example_ja":"昔の写真のネガをデジタル化した。","example_ko":"옛 사진의 네거티브 필름을 디지털화했다.","note":"候補品詞『な形容詞』はこの見出しでは不適切なため普通名詞に修正。"},
+    {"key":"n1-2754","word":"しなやか","reading":"しなやか","meaning_ko":"유연하다; 부드럽고 탄력 있다","meaning_ja":"柔らかく、よく曲がって折れにくいさま。また、動きが柔軟で美しいさま。","part_of_speech":"な形容詞","example_ja":"猫はしなやかな動きで塀の上に飛び乗った。","example_ko":"고양이는 유연한 움직임으로 담 위에 뛰어올랐다."},
+    {"key":"n1-2755","word":"指差す","reading":"ゆびさす","meaning_ko":"손가락으로 가리키다","meaning_ja":"指を向けて対象を示す。","part_of_speech":"五段動詞","example_ja":"子どもが空の飛行機を指差した。","example_ko":"아이가 하늘의 비행기를 손가락으로 가리켰다.","note":"韓国語『손가락질하다』は 비난 의미로 오해될 수 있어 중립적인 뜻으로 수정。"},
+    {"key":"n1-2756","word":"体付き","reading":"からだつき","meaning_ko":"체격; 몸매; 체형","meaning_ja":"体の形・骨格・肉付きなどから見た全体的な姿。","part_of_speech":"普通名詞","example_ja":"彼はがっしりした体付きをしている。","example_ko":"그는 다부진 체격을 하고 있다."},
+    {"key":"n1-2757","word":"嘸","reading":"さぞ","meaning_ko":"필시; 분명; 틀림없이","meaning_ja":"相手の事情を推量し、『きっとそうだろう』という気持ちを表す副詞。","part_of_speech":"副詞","example_ja":"長旅でさぞお疲れでしょう。","example_ko":"긴 여행으로 분명 많이 피곤하시겠지요.","note":"現代では通常『さぞ』と仮名で書く。"}
+  ]
+}
