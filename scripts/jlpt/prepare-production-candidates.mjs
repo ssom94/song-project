@@ -13,6 +13,7 @@ const URLS = {
   wikipedia: `${SOURCE_BASE}/data/enrichment/frequency-wikipedia.json`,
 };
 const DISALLOWED_READING_TAGS = new Set(['ok', 'rk', 'sk']);
+const PURE_AFFIX_COUNTER_TAGS = new Set(['pref', 'suf', 'n-pref', 'n-suf', 'ctr']);
 
 async function fetchJson(url) {
   const response = await fetch(url, {
@@ -78,6 +79,10 @@ function validJapaneseHeadword(text) {
 function validReading(reading) {
   if (!reading || reading.length > 50) return false;
   return /^[\p{Script=Hiragana}\p{Script=Katakana}ー・･\s]+$/u.test(reading);
+}
+
+function isPureAffixOrCounter(tags = []) {
+  return tags.length > 0 && tags.every((tag) => PURE_AFFIX_COUNTER_TAGS.has(tag));
 }
 
 function posCategory(tags = []) {
@@ -193,6 +198,10 @@ for (const entry of rawN1) {
     rejected.push({ word, reading, jmdict_seq: id, reading_tags: evidence.readingTags, reason: 'noncanonical_word_reading_pair' });
     continue;
   }
+  if (isPureAffixOrCounter(evidence.posTags)) {
+    rejected.push({ word, reading, jmdict_seq: id, pos_tags: evidence.posTags, reason: 'pure_affix_or_counter' });
+    continue;
+  }
 
   const candidate = {
     word,
@@ -250,7 +259,7 @@ await fs.writeFile(path.join(OUT_DIR, 'n1-source-3000.json'), JSON.stringify({
   generatedAt: new Date().toISOString(),
   target: 3000,
   sourceCandidateCount: rawN1.length,
-  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only reading variants and known low-value elementary morphemes; prefer common JMdict matches and multi-corpus frequency evidence',
+  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence',
   candidates: selected,
 }, null, 2) + '\n');
 
@@ -268,6 +277,7 @@ await fs.writeFile(path.join(OUT_DIR, 'selection-report.json'), JSON.stringify({
     canonicalJmdictMatches: selected.filter((x) => x.jmdict_canonical_match).length,
     commonJmdictEntries: selected.filter((x) => x.jmdict_common).length,
     disallowedReadingVariants: selected.filter((x) => (x.reading_tags ?? []).some((tag) => DISALLOWED_READING_TAGS.has(tag))).length,
+    pureAffixOrCounterEntries: selected.filter((x) => isPureAffixOrCounter(x.pos_tags ?? [])).length,
     withCorpusFrequency: selected.filter((x) => x.frequency.corpus != null).length,
     withSubtitleFrequency: selected.filter((x) => x.frequency.subtitles != null).length,
     withWebFrequency: selected.filter((x) => x.frequency.web != null).length,
