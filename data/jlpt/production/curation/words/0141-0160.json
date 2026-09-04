@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0141-0160",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Over-merged Korean senses are narrowed to common JLPT-relevant usage.",
+  "words": [
+    {"key":"n1-0141","word":"導入","reading":"どうにゅう","meaning_ko":"도입","meaning_ja":"制度・技術・設備などを新たに取り入れて用いること。","part_of_speech":"サ変名詞","example_ja":"業務効率を高めるため、来月から新しい管理システムを導入する。","example_ko":"업무 효율을 높이기 위해 다음 달부터 새로운 관리 시스템을 도입한다."},
+    {"key":"n1-0142","word":"象徴","reading":"しょうちょう","meaning_ko":"상징","meaning_ja":"抽象的な概念や特徴を、具体的な物や人物などによって代表して表すこと。また、そのもの。","part_of_speech":"サ変名詞","example_ja":"この建物は、戦後の復興を象徴する存在として長く保存されてきた。","example_ko":"이 건물은 전후 부흥을 상징하는 존재로 오랫동안 보존되어 왔다."},
+    {"key":"n1-0143","word":"連邦","reading":"れんぽう","meaning_ko":"연방","meaning_ja":"複数の州や国などが一定の自治権を保ちながら、一つの中央政府の下で結び付いた国家形態。","part_of_speech":"普通名詞","example_ja":"その国では、連邦政府と各州政府がそれぞれ異なる権限を持っている。","example_ko":"그 나라에서는 연방 정부와 각 주 정부가 각각 다른 권한을 가지고 있다."},
+    {"key":"n1-0144","word":"受け入れ","reading":"うけいれ","meaning_ko":"수용; 받아들임","meaning_ja":"人・物・考え・要求などを受け取り、認めたり取り込んだりすること。","part_of_speech":"普通名詞","example_ja":"外国人材の受け入れを進めるには、生活面の支援体制も整える必要がある。","example_ko":"외국인 인재 수용을 추진하려면 생활 측면의 지원 체계도 정비할 필요가 있다."},
+    {"key":"n1-0145","word":"部門","reading":"ぶもん","meaning_ko":"부문; 부서","meaning_ja":"組織や活動の全体を、役割や分野によって分けた一つの部分。","part_of_speech":"普通名詞","example_ja":"売上の伸びが最も大きかったのは、海外事業部門だった。","example_ko":"매출 증가 폭이 가장 컸던 것은 해외 사업 부문이었다."},
+    {"key":"n1-0146","word":"任命","reading":"にんめい","meaning_ko":"임명","meaning_ja":"ある人を特定の役職や任務に就かせること。","part_of_speech":"サ変名詞","example_ja":"新しい責任者には、現場経験の豊富な社員が任命された。","example_ko":"새 책임자로는 현장 경험이 풍부한 사원이 임명되었다."},
+    {"key":"n1-0147","word":"優先","reading":"ゆうせん","meaning_ko":"우선; 우선시함","meaning_ja":"他のものより先に扱ったり、重要なものとして取り扱ったりすること。","part_of_speech":"サ変名詞","example_ja":"限られた予算の中では、安全性に関わる改修を優先すべきだ。","example_ko":"한정된 예산 안에서는 안전성과 관련된 보수를 우선해야 한다."},
+    {"key":"n1-0148","word":"争い","reading":"あらそい","meaning_ko":"다툼; 분쟁; 경쟁","meaning_ja":"互いに対立して争うこと。また、勝敗や利益などをめぐって競い合うこと。","part_of_speech":"普通名詞","example_ja":"資源をめぐる争いが長期化し、地域の経済にも深刻な影響が出ている。","example_ko":"자원을 둘러싼 분쟁이 장기화되어 지역 경제에도 심각한 영향이 나타나고 있다."},
+    {"key":"n1-0149","word":"専用","reading":"せんよう","meaning_ko":"전용","meaning_ja":"特定の人・目的・用途だけに使うこと。","part_of_speech":"サ変名詞","example_ja":"機密情報を扱う端末は、一般業務とは分けた専用ネットワークに接続されている。","example_ko":"기밀 정보를 다루는 단말은 일반 업무와 분리된 전용 네트워크에 연결되어 있다."},
+    {"key":"n1-0150","word":"所属","reading":"しょぞく","meaning_ko":"소속","meaning_ja":"組織や団体などの一員として、その中に属していること。","part_of_speech":"サ変名詞","example_ja":"申請書には氏名だけでなく、所属する部署名も記入してください。","example_ko":"신청서에는 이름뿐 아니라 소속 부서명도 기입해 주세요."},
+    {"key":"n1-0151","word":"任務","reading":"にんむ","meaning_ko":"임무","meaning_ja":"責任を持って果たすよう任せられた仕事や役目。","part_of_speech":"普通名詞","example_ja":"調査チームは原因を特定し、再発防止策をまとめる任務を担っている。","example_ko":"조사팀은 원인을 특정하고 재발 방지책을 정리하는 임무를 맡고 있다."},
+    {"key":"n1-0152","word":"規制","reading":"きせい","meaning_ko":"규제","meaning_ja":"法律や規則によって、行為・活動・数量などに一定の制限を設けること。","part_of_speech":"サ変名詞","example_ja":"環境への負荷を減らすため、工場の排出物に対する規制が強化された。","example_ko":"환경 부담을 줄이기 위해 공장 배출물에 대한 규제가 강화되었다."},
+    {"key":"n1-0153","word":"司法","reading":"しほう","meaning_ko":"사법","meaning_ja":"法律に基づいて争いを裁き、法を具体的な事件に適用する国家作用。","part_of_speech":"普通名詞","example_ja":"民主主義を維持するには、行政や立法から独立した司法の役割が重要である。","example_ko":"민주주의를 유지하려면 행정이나 입법으로부터 독립된 사법의 역할이 중요하다."},
+    {"key":"n1-0154","word":"強制","reading":"きょうせい","meaning_ko":"강제","meaning_ja":"本人の意思にかかわらず、権力や力によって無理に行わせること。","part_of_speech":"サ変名詞","example_ja":"会社が私物の端末利用を強制することには、情報管理上の問題もある。","example_ko":"회사가 개인 단말 사용을 강제하는 데에는 정보 관리상의 문제도 있다."},
+    {"key":"n1-0155","word":"階級","reading":"かいきゅう","meaning_ko":"계급; 계층","meaning_ja":"地位・身分・職務などによって区分された等級。また、社会的・経済的条件の共通する人々の層。","part_of_speech":"普通名詞","example_ja":"当時の社会では、出身階級によって受けられる教育にも大きな差があった。","example_ko":"당시 사회에서는 출신 계급에 따라 받을 수 있는 교육에도 큰 차이가 있었다."},
+    {"key":"n1-0156","word":"天才","reading":"てんさい","meaning_ko":"천재","meaning_ja":"生まれつき非常に優れた才能を持つ人。また、その並外れた才能。","part_of_speech":"普通名詞","example_ja":"彼は天才と評されたが、その成果の裏には長年の地道な努力もあった。","example_ko":"그는 천재라는 평가를 받았지만 그 성과 뒤에는 오랜 기간의 꾸준한 노력도 있었다."},
+    {"key":"n1-0157","word":"関与","reading":"かんよ","meaning_ko":"관여; 관련하여 참여함","meaning_ja":"ある事柄に関係し、その進行・判断・結果などにかかわること。","part_of_speech":"サ変名詞","example_ja":"第三者が意思決定にどこまで関与したのか、詳しい調査が行われている。","example_ko":"제3자가 의사 결정에 어디까지 관여했는지 상세한 조사가 이루어지고 있다."},
+    {"key":"n1-0158","word":"原則","reading":"げんそく","meaning_ko":"원칙; 원칙적으로","meaning_ja":"物事を行う上で基本として守るべき規則や考え方。また、『原則として』の形で基本的な扱いを示す。","part_of_speech":"普通名詞","example_ja":"社外へのデータ持ち出しは原則として禁止されている。","example_ko":"사외로 데이터를 반출하는 것은 원칙적으로 금지되어 있다."},
+    {"key":"n1-0159","word":"連中","reading":"れんじゅう","meaning_ko":"무리; 사람들; 녀석들","meaning_ja":"同じ仲間に属する人々をまとめていう口語的な表現。文脈によっては軽い親しみや軽蔑を含む。","part_of_speech":"普通名詞","example_ja":"いつもの連中と久しぶりに集まり、学生時代の話で盛り上がった。","example_ko":"늘 어울리던 사람들과 오랜만에 모여 학창 시절 이야기로 즐거운 시간을 보냈다."},
+    {"key":"n1-0160","word":"達成","reading":"たっせい","meaning_ko":"달성; 성취","meaning_ja":"目標や目的としていたことを成し遂げること。","part_of_speech":"サ変名詞","example_ja":"年度目標を達成するには、残り三か月で優先順位を見直す必要がある。","example_ko":"연간 목표를 달성하려면 남은 3개월 동안 우선순위를 재검토할 필요가 있다."}
+  ]
+}
