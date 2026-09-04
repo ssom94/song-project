@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0861-0880",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0861","word":"残高","reading":"ざんだか","meaning_ko":"잔고; 남은 금액","meaning_ja":"口座・会計などで、差し引き後に残っている金額。","part_of_speech":"普通名詞","example_ja":"振り込みの前に口座の残高を確認した。","example_ko":"송금 전에 계좌 잔고를 확인했다."},
+    {"key":"n1-0862","word":"不服","reading":"ふふく","meaning_ko":"불복; 불만","meaning_ja":"決定・命令・処分などに納得できず、不満に思うこと。","part_of_speech":"な形容詞","example_ja":"判定に不服がある場合は、所定の手続きで再審査を申し立てられる。","example_ko":"판정에 불복하는 경우 정해진 절차로 재심사를 신청할 수 있다."},
+    {"key":"n1-0863","word":"近々","reading":"きんきん","meaning_ko":"조만간; 머지않아","meaning_ja":"近いうちに。そう遠くない時期に。","part_of_speech":"副詞","example_ja":"詳細な日程は近々正式に発表される予定だ。","example_ko":"상세 일정은 조만간 정식으로 발표될 예정이다.","note":"『ちかぢか』とも読む。『きんきん』はやや改まった読み。"},
+    {"key":"n1-0864","word":"反感","reading":"はんかん","meaning_ko":"반감; 반발감","meaning_ja":"相手の言動・考えなどに対して感じる反発・不快な気持ち。","part_of_speech":"普通名詞","example_ja":"一方的な説明は住民の反感を招くおそれがある。","example_ko":"일방적인 설명은 주민의 반감을 살 우려가 있다."},
+    {"key":"n1-0865","word":"享受","reading":"きょうじゅ","meaning_ko":"향유; 누림","meaning_ja":"利益・権利・恩恵・楽しみなどを受け、十分に味わうこと。","part_of_speech":"サ変名詞","example_ja":"誰もが教育を受ける権利を平等に享受できる社会が望まれる。","example_ko":"누구나 교육받을 권리를 평등하게 누릴 수 있는 사회가 바람직하다."},
+    {"key":"n1-0866","word":"劇団","reading":"げきだん","meaning_ko":"극단","meaning_ja":"演劇を継続的に制作・上演する人々の団体。","part_of_speech":"普通名詞","example_ja":"その劇団は地方を巡回しながら新作を上演している。","example_ko":"그 극단은 지방을 순회하며 신작을 공연하고 있다."},
+    {"key":"n1-0867","word":"責務","reading":"せきむ","meaning_ko":"책무; 책임과 의무","meaning_ja":"立場・役割にともなって果たすべき責任・義務。","part_of_speech":"普通名詞","example_ja":"管理者には利用者の個人情報を適切に守る責務がある。","example_ko":"관리자에게는 이용자의 개인정보를 적절히 보호할 책무가 있다."},
+    {"key":"n1-0868","word":"喜劇","reading":"きげき","meaning_ko":"희극; 코미디","meaning_ja":"笑いを中心に、人間や社会を明るく・風刺的に描く演劇・作品。","part_of_speech":"普通名詞","example_ja":"この作品は一見軽い喜劇だが、社会への鋭い批判も含んでいる。","example_ko":"이 작품은 겉보기에는 가벼운 희극이지만 사회에 대한 날카로운 비판도 담고 있다."},
+    {"key":"n1-0869","word":"堤防","reading":"ていぼう","meaning_ko":"제방; 둑","meaning_ja":"川・海などの水があふれるのを防ぐために、土・石・コンクリートなどで築く構造物。","part_of_speech":"普通名詞","example_ja":"大雨に備えて、老朽化した堤防の補強工事が進められている。","example_ko":"폭우에 대비해 노후한 제방의 보강 공사가 진행되고 있다."},
+    {"key":"n1-0870","word":"野外","reading":"やがい","meaning_ko":"야외; 옥외","meaning_ja":"建物の外。特に、自然の中の開けた場所。","part_of_speech":"普通名詞","example_ja":"雨天の場合、野外イベントは体育館で実施される。","example_ko":"우천 시 야외 행사는 체육관에서 실시된다."},
+    {"key":"n1-0871","word":"対比","reading":"たいひ","meaning_ko":"대비; 대조","meaning_ja":"二つ以上のものを並べて比べ、違い・特徴を明確にすること。","part_of_speech":"サ変名詞","example_ja":"都市と農村の生活を対比することで、地域ごとの課題が見えてくる。","example_ko":"도시와 농촌의 생활을 대비하면 지역별 과제가 보인다."},
+    {"key":"n1-0872","word":"当人","reading":"とうにん","meaning_ko":"당사자 본인; 바로 그 사람","meaning_ja":"その事柄に直接関係している本人。","part_of_speech":"普通名詞","example_ja":"当人の同意がないまま個人情報を公開してはいけない。","example_ko":"당사자 본인의 동의 없이 개인정보를 공개해서는 안 된다."},
+    {"key":"n1-0873","word":"就業","reading":"しゅうぎょう","meaning_ko":"취업; 일을 함","meaning_ja":"職業について働くこと。また、勤務を開始すること。","part_of_speech":"サ変名詞","example_ja":"就業時間は午前九時から午後六時までと定められている。","example_ko":"근무 시간은 오전 9시부터 오후 6시까지로 정해져 있다."},
+    {"key":"n1-0874","word":"時差","reading":"じさ","meaning_ko":"시차; 시간 차이","meaning_ja":"地域・国の標準時の差。また、出来事の発生時刻などの時間的なずれ。","part_of_speech":"普通名詞","example_ja":"海外との会議では時差を考慮して開始時刻を決める必要がある。","example_ko":"해외와의 회의는 시차를 고려해 시작 시간을 정할 필요가 있다."},
+    {"key":"n1-0875","word":"本館","reading":"ほんかん","meaning_ko":"본관; 주 건물","meaning_ja":"複数の建物のうち、中心となる主要な建物。","part_of_speech":"普通名詞","example_ja":"受付は別館ではなく本館の一階にあります。","example_ko":"접수처는 별관이 아니라 본관 1층에 있습니다."},
+    {"key":"n1-0876","word":"清算","reading":"せいさん","meaning_ko":"청산; 정산","meaning_ja":"金銭上の貸し借り・債権債務などを計算して処理し、関係を終わらせること。","part_of_speech":"サ変名詞","example_ja":"出張後、交通費と宿泊費をまとめて清算した。","example_ko":"출장 후 교통비와 숙박비를 한꺼번에 정산했다."},
+    {"key":"n1-0877","word":"転勤","reading":"てんきん","meaning_ko":"전근; 근무지 이동","meaning_ja":"同じ会社・組織の中で、勤務地が別の場所へ変わること。","part_of_speech":"サ変名詞","example_ja":"来月から大阪支社へ転勤することになった。","example_ko":"다음 달부터 오사카 지사로 전근하게 되었다."},
+    {"key":"n1-0878","word":"誇張","reading":"こちょう","meaning_ko":"과장; 실제보다 부풀림","meaning_ja":"実際よりも大きく・強く・重大であるように表現すること。","part_of_speech":"サ変名詞","example_ja":"商品の効果を誇張して宣伝すると、消費者の信頼を失う。","example_ko":"상품 효과를 과장해 광고하면 소비자의 신뢰를 잃는다."},
+    {"key":"n1-0879","word":"沿線","reading":"えんせん","meaning_ko":"철도 노선 연변; 노선 주변","meaning_ja":"鉄道路線に沿った地域。","part_of_speech":"普通名詞","example_ja":"新駅の開業をきっかけに、沿線の住宅開発が進んでいる。","example_ko":"새 역 개통을 계기로 철도 노선 주변의 주택 개발이 진행되고 있다."},
+    {"key":"n1-0880","word":"仕上がり","reading":"しあがり","meaning_ko":"완성된 상태; 마무리 품질","meaning_ja":"仕事・製品・作品などが完成したときの出来具合・状態。","part_of_speech":"普通名詞","example_ja":"試作品は機能だけでなく、外観の仕上がりも高く評価された。","example_ko":"시제품은 기능뿐 아니라 외관의 마무리 품질도 높게 평가되었다."}
+  ]
+}
