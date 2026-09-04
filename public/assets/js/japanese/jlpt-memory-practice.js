@@ -34,6 +34,25 @@
 		document.head.appendChild(style);
 	}
 
+	function jstToday() {
+		return new Intl.DateTimeFormat('en-CA', {
+			timeZone: 'Asia/Tokyo',
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit',
+		}).format(new Date());
+	}
+
+	function selectedStudyDate() {
+		return document.getElementById('jlpt-study-date')?.value || '';
+	}
+
+	function isVisibleFutureArchive(archive) {
+		if (!(archive instanceof HTMLElement) || archive.classList.contains('jlpt-history-hidden')) return false;
+		const date = selectedStudyDate();
+		return /^\d{4}-\d{2}-\d{2}$/.test(date) && date > jstToday();
+	}
+
 	function normalizeBase(value) {
 		return String(value || '').normalize('NFKC').trim().replace(/[\s　]+/g, '').toLowerCase();
 	}
@@ -141,7 +160,7 @@
 		const preview = document.getElementById('jlpt-preview-content');
 		if (preview?.querySelector('[data-memory-word="true"]')) toolbar(preview);
 		const archive = document.getElementById('jlpt-selected-date-card');
-		if (archive?.querySelector('[data-memory-word="true"]')) toolbar(archive);
+		if (archive?.querySelector('[data-memory-word="true"]') || isVisibleFutureArchive(archive)) toolbar(archive);
 	}
 
 	function scan() {
