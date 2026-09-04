@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1918-1937",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-1918","word":"可笑しい","reading":"おかしい","meaning_ko":"우습다; 웃기다; 이상하다","meaning_ja":"思わず笑いたくなるほど面白い。また、普通と違って変・不自然だと感じられる。","part_of_speech":"い形容詞","example_ja":"彼の言い訳があまりにも可笑しくて、思わず笑ってしまった。","example_ko":"그의 변명이 너무 우스워서 나도 모르게 웃고 말았다.","note":"現代では通常『おかしい』と仮名で書く。文脈により『面白い』『変だ』の両方の意味がある。"},
+    {"key":"n1-1919","word":"尾","reading":"お","meaning_ko":"꼬리; 끝부분","meaning_ja":"動物の体の後端にある細長く突き出た部分。また、物の後ろや末端の細長い部分。","part_of_speech":"普通名詞","example_ja":"長い尾を持つ鳥が木の枝に止まっていた。","example_ko":"긴 꼬리를 가진 새가 나뭇가지에 앉아 있었다.","note":"助数詞として用いる場合もあるが、この項目では基本義の『尾・tail』を中心に整理。"},
+    {"key":"n1-1920","word":"其方","reading":"そちら","meaning_ko":"그쪽; 그곳; 그쪽 분","meaning_ja":"話し手から少し離れた方向・場所、または聞き手側を指す語。","part_of_speech":"代名詞・指示語","example_ja":"資料はそちらの机の上に置いてあります。","example_ko":"자료는 그쪽 책상 위에 놓여 있습니다.","note":"現代では通常『そちら』と仮名で書く。人を指して丁寧に言う場合もある。"},
+    {"key":"n1-1921","word":"管","reading":"かん","meaning_ko":"관; 파이프; 관 모양의 것","meaning_ja":"液体・気体などを中に通すための、中空で細長い円筒状のもの。","part_of_speech":"普通名詞","example_ja":"老朽化した水道管を交換する工事が始まった。","example_ko":"노후화된 수도관을 교체하는 공사가 시작되었다."},
+    {"key":"n1-1922","word":"核","reading":"かく","meaning_ko":"핵; 중심; 핵심","meaning_ja":"物事の中心となる部分。また、原子核・細胞核などのように、中心部を構成するもの。","part_of_speech":"普通名詞","example_ja":"この技術は今後の事業戦略の核になると期待されている。","example_ko":"이 기술은 향후 사업 전략의 핵심이 될 것으로 기대되고 있다.","note":"『原子核』『細胞核』『中核』など専門・比喩の両方で用いられる。"},
+    {"key":"n1-1923","word":"ブーム","reading":"ブーム","meaning_ko":"붐; 열풍; 일시적 유행","meaning_ja":"ある物事が一時的に非常に人気を集め、社会的に広く流行すること。","part_of_speech":"普通名詞","example_ja":"健康志向の高まりを背景に、発酵食品のブームが続いている。","example_ko":"건강 지향이 높아지면서 발효식품 열풍이 계속되고 있다."},
+    {"key":"n1-1924","word":"甥","reading":"おい","meaning_ko":"조카(남자); 남자 조카","meaning_ja":"自分の兄弟・姉妹の息子。","part_of_speech":"普通名詞","example_ja":"週末は甥の誕生日を祝うため、家族で集まる予定だ。","example_ko":"주말에는 남자 조카의 생일을 축하하기 위해 가족이 모일 예정이다.","note":"姉妹の娘・兄弟の娘は『姪（めい）』。"},
+    {"key":"n1-1925","word":"ドライバー","reading":"ドライバー","meaning_ko":"운전자; 드라이버; 나사돌리개","meaning_ja":"自動車を運転する人。また、ねじを回す工具や、ゴルフで長距離を打つクラブを指す。","part_of_speech":"普通名詞","example_ja":"長距離を運転するドライバーには十分な休憩が必要だ。","example_ko":"장거리를 운전하는 운전자에게는 충분한 휴식이 필요하다."},
+    {"key":"n1-1926","word":"信任","reading":"しんにん","meaning_ko":"신임; 믿고 맡김","meaning_ja":"相手を信頼し、仕事・役割などを任せること。また、その信頼。","part_of_speech":"サ変名詞","example_ja":"長年の実績が評価され、彼は取締役会から厚い信任を得ている。","example_ko":"오랜 실적을 인정받아 그는 이사회로부터 두터운 신임을 얻고 있다."},
+    {"key":"n1-1927","word":"この頃","reading":"このごろ","meaning_ko":"요즘; 최근; 근래","meaning_ja":"少し前から現在までの、比較的近い時期。","part_of_speech":"副詞・普通名詞","example_ja":"この頃は朝晩が涼しくなり、秋らしさを感じるようになった。","example_ko":"요즘은 아침저녁으로 선선해져 가을다운 느낌이 들기 시작했다."},
+    {"key":"n1-1928","word":"コントロール","reading":"コントロール","meaning_ko":"제어; 통제; 조절; 컨트롤","meaning_ja":"機械・状況・感情などを目的に合わせて調整し、望ましい状態に保つこと。","part_of_speech":"サ変名詞","example_ja":"緊張している時ほど、自分の感情をコントロールすることが重要だ。","example_ko":"긴장하고 있을수록 자신의 감정을 조절하는 것이 중요하다."},
+    {"key":"n1-1929","word":"グラフ","reading":"グラフ","meaning_ko":"그래프; 도표","meaning_ja":"数量・割合・変化などの関係を、線・棒・円などを用いて視覚的に表した図。","part_of_speech":"普通名詞","example_ja":"売上の推移をグラフにすると、季節ごとの変化が分かりやすい。","example_ko":"매출 추이를 그래프로 만들면 계절별 변화를 알아보기 쉽다."},
+    {"key":"n1-1930","word":"どうにか","reading":"どうにか","meaning_ko":"어떻게든; 간신히; 그럭저럭","meaning_ja":"方法はともかく、何とかして目的を達成するさま。また、ぎりぎりのところで成り立つさま。","part_of_speech":"副詞","example_ja":"締め切り直前だったが、どうにか資料を完成させることができた。","example_ko":"마감 직전이었지만 어떻게든 자료를 완성할 수 있었다.","note":"候補の品詞『サ変名詞』は不適切なため、副詞に修正。"},
+    {"key":"n1-1931","word":"碑","reading":"いしぶみ","meaning_ko":"비석; 기념비","meaning_ja":"出来事・人物などを記念し、文字を刻んで建てた石。","part_of_speech":"普通名詞","example_ja":"公園の入口には、町の歴史を記した古い碑が立っている。","example_ko":"공원 입구에는 마을의 역사를 새긴 오래된 비석이 서 있다.","note":"『ひ』とも読む。『いしぶみ』はやや文語的・文学的な読み。"},
+    {"key":"n1-1932","word":"叶う","reading":"かなう","meaning_ko":"이루어지다; 실현되다","meaning_ja":"願い・希望などが実現して、望んでいたとおりになる。","part_of_speech":"五段動詞","example_ja":"長年の夢が叶い、ついに自分の店を開くことができた。","example_ko":"오랜 꿈이 이루어져 마침내 자신의 가게를 열 수 있었다.","note":"同音の『適う（条件に合う）』『敵う（対抗できる）』とは別語。"},
+    {"key":"n1-1933","word":"値する","reading":"あたいする","meaning_ko":"~할 가치가 있다; ~할 만하다; 값하다","meaning_ja":"ある評価・行為を受けるだけの価値や資格がある。","part_of_speech":"サ変動詞","example_ja":"彼の長年にわたる努力は、十分に高く評価するに値する。","example_ko":"그의 오랜 노력은 충분히 높이 평가할 가치가 있다.","note":"候補の品詞『サ変名詞』より、実際の用法に合わせて『サ変動詞』として整理。『～に値する』の形が多い。"},
+    {"key":"n1-1934","word":"ジャンプ","reading":"ジャンプ","meaning_ko":"점프; 뛰어오름","meaning_ja":"地面などを蹴って体を空中へ跳び上がらせること。","part_of_speech":"サ変名詞","example_ja":"選手は勢いよくジャンプし、バーを越えた。","example_ko":"선수는 힘차게 점프해 바를 넘었다."},
+    {"key":"n1-1935","word":"タイル","reading":"タイル","meaning_ko":"타일","meaning_ja":"床・壁などの表面に張る、陶磁器・石などで作った薄い板状の建材。","part_of_speech":"普通名詞","example_ja":"浴室の床には滑りにくいタイルが使われている。","example_ko":"욕실 바닥에는 잘 미끄러지지 않는 타일이 사용되고 있다."},
+    {"key":"n1-1936","word":"饂飩","reading":"うどん","meaning_ko":"우동","meaning_ja":"小麦粉をこねて作る太い麺。また、その麺を使った料理。","part_of_speech":"普通名詞","example_ja":"寒い日は、だしのきいた温かいうどんが食べたくなる。","example_ko":"추운 날에는 육수 맛이 좋은 따뜻한 우동이 먹고 싶어진다.","note":"現代では通常『うどん』と仮名で書く。"},
+    {"key":"n1-1937","word":"名付ける","reading":"なづける","meaning_ko":"이름을 짓다; 명명하다; 이름 붙이다","meaning_ja":"人・物・事などに名前をつける。","part_of_speech":"一段動詞","example_ja":"両親は、生まれた子に願いを込めて名前を名付けた。","example_ko":"부모는 태어난 아이에게 소망을 담아 이름을 지었다."}
+  ]
+}
