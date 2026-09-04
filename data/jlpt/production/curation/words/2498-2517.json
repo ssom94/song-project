@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2498-2517",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2498","word":"帰京","reading":"ききょう","meaning_ko":"도쿄로 돌아감; 귀경(도쿄 귀환)","meaning_ja":"地方などから東京へ戻ること。","part_of_speech":"サ変名詞","example_ja":"出張を終え、明日の朝に帰京する予定だ。","example_ko":"출장을 마치고 내일 아침 도쿄로 돌아갈 예정이다.","note":"日本語の『京』はこの語では東京を指す。候補KRDICTの『서울로 돌아감』は韓国語語彙の定義が転写されたもので、日本語語義として誤りのため修正。"},
+    {"key":"n1-2499","word":"慣例","reading":"かんれい","meaning_ko":"관례; 관행","meaning_ja":"長い間繰り返され、決まりのようになっているやり方・習慣。","part_of_speech":"普通名詞","example_ja":"この式典では代表者が最初に挨拶するのが慣例だ。","example_ko":"이 행사에서는 대표자가 먼저 인사하는 것이 관례다."},
+    {"key":"n1-2500","word":"其れでも","reading":"それでも","meaning_ko":"그래도; 그럼에도 불구하고","meaning_ja":"前に述べた事情があっても、なお結果や判断が変わらないことを示す語。","part_of_speech":"接続詞","example_ja":"何度も失敗した。それでも彼は諦めなかった。","example_ko":"몇 번이나 실패했다. 그래도 그는 포기하지 않았다.","note":"現代では通常『それでも』と仮名で書く。"},
+    {"key":"n1-2501","word":"カテゴリー","reading":"カテゴリー","meaning_ko":"범주; 카테고리; 분류","meaning_ja":"共通する性質によってまとめた部類・範囲。","part_of_speech":"普通名詞","example_ja":"商品をカテゴリー別に整理して表示する。","example_ko":"상품을 카테고리별로 정리해 표시한다."},
+    {"key":"n1-2502","word":"ちらっと","reading":"ちらっと","meaning_ko":"힐끗; 언뜻; 잠깐","meaning_ja":"ほんの一瞬見る、または見えるさま。","part_of_speech":"副詞","example_ja":"通りすがりに店の中をちらっと見た。","example_ko":"지나가면서 가게 안을 힐끗 봤다.","note":"候補KRDICTに多数の周辺語が混在していたため、JMdictの at a glance に合う中心義へ整理。"},
+    {"key":"n1-2503","word":"お祖母さん","reading":"おばあさん","meaning_ko":"할머니; 연세 많은 여성","meaning_ja":"祖母を親しみや敬意を込めて呼ぶ語。また、高齢の女性を指す語。","part_of_speech":"普通名詞","example_ja":"お祖母さんが昔の写真を見せてくれた。","example_ko":"할머니가 옛날 사진을 보여 주셨다.","note":"通常は『おばあさん』と仮名で書くことが多い。"},
+    {"key":"n1-2504","word":"丈夫","reading":"じょうふ","meaning_ko":"장부; 씩씩한 남자; 대장부","meaning_ja":"立派でたくましい成人男性。丈夫（ますらお）。","part_of_speech":"普通名詞","example_ja":"古い物語には勇ましい丈夫が登場する。","example_ko":"옛이야기에는 용맹한 대장부가 등장한다.","note":"『丈夫（じょうぶ）＝튼튼하다』とは読み・語義が異なる。『じょうふ』は古風・文語的。"},
+    {"key":"n1-2505","word":"何故なら","reading":"なぜなら","meaning_ko":"왜냐하면","meaning_ja":"理由を説明するとき、その理由を導く接続詞。","part_of_speech":"接続詞","example_ja":"今日は早く帰る。なぜなら明朝の出発が早いからだ。","example_ko":"오늘은 일찍 돌아간다. 왜냐하면 내일 아침 출발이 이르기 때문이다.","note":"現代では通常『なぜなら』と仮名で書く。"},
+    {"key":"n1-2506","word":"躾","reading":"しつけ","meaning_ko":"예절 교육; 훈육; 가정교육","meaning_ja":"子どもなどに礼儀・生活習慣・社会的な作法を身につけさせること。","part_of_speech":"普通名詞","example_ja":"家庭での躾は子どもの生活習慣に大きく影響する。","example_ko":"가정에서의 훈육은 아이의 생활 습관에 큰 영향을 준다.","note":"現代では『しつけ』と仮名で書くことも多い。"},
+    {"key":"n1-2507","word":"予言","reading":"かねごと","meaning_ko":"예언; 미리 한 말","meaning_ja":"将来起こることを前もって言うこと。また、その言葉。","part_of_speech":"普通名詞","example_ja":"物語では古い予言が後に現実となる。","example_ko":"이야기에서는 오래된 예언이 나중에 현실이 된다.","note":"『かねごと』は古風な読み。現代の一般的な読みは『よげん』。"},
+    {"key":"n1-2508","word":"壇","reading":"だん","meaning_ko":"단; 연단; 단상","meaning_ja":"周囲より一段高く作った場所。演説・儀式などに用いる台。","part_of_speech":"普通名詞","example_ja":"受賞者が壇に上がって挨拶した。","example_ko":"수상자가 단상에 올라 인사했다."},
+    {"key":"n1-2509","word":"何時までも","reading":"いつまでも","meaning_ko":"언제까지나; 영원히; 계속","meaning_ja":"終わる時を定めず、ずっと続くさま。","part_of_speech":"副詞","example_ja":"この思い出はいつまでも忘れないだろう。","example_ko":"이 추억은 언제까지나 잊지 않을 것이다.","note":"現代では通常『いつまでも』と仮名で書く。"},
+    {"key":"n1-2510","word":"仕付ける","reading":"しつける","meaning_ko":"예절을 가르치다; 훈육하다; 버릇을 들이다","meaning_ja":"礼儀や生活上の決まりを教え、習慣として身につけさせる。","part_of_speech":"一段動詞","example_ja":"子どもに公共の場でのマナーをきちんと仕付ける。","example_ko":"아이에게 공공장소에서의 예절을 제대로 가르친다.","note":"現代では『しつける』と仮名で書くことも多い。"},
+    {"key":"n1-2511","word":"何故か","reading":"なぜか","meaning_ko":"왠지; 어째서인지","meaning_ja":"理由は分からないが、どういうわけか。","part_of_speech":"副詞","example_ja":"なぜか今日は朝から落ち着かない。","example_ko":"왠지 오늘은 아침부터 마음이 진정되지 않는다.","note":"現代では通常『なぜか』と仮名で書く。"},
+    {"key":"n1-2512","word":"兎に角","reading":"とにかく","meaning_ko":"어쨌든; 아무튼; 여하튼","meaning_ja":"細かい事情はさておき、まずそのことを重視するさま。いずれにしても。","part_of_speech":"副詞","example_ja":"詳しい話は後にして、とにかく今は急ごう。","example_ko":"자세한 이야기는 나중에 하고 아무튼 지금은 서두르자.","note":"現代では通常『とにかく』と仮名で書く。"},
+    {"key":"n1-2513","word":"何れ","reading":"いずれ","meaning_ko":"어느 것; 어느 쪽; 언젠가; 머지않아","meaning_ja":"複数の中のどれか。また、そう遠くない将来。","part_of_speech":"代名詞・副詞","example_ja":"いずれ詳しい結果が発表されるだろう。","example_ko":"머지않아 자세한 결과가 발표될 것이다.","note":"現代では通常『いずれ』と仮名で書く。"},
+    {"key":"n1-2514","word":"流石","reading":"さすが","meaning_ko":"역시; 과연; 아무리 ~라도","meaning_ja":"期待・評判どおりで感心するさま。また、ある条件を認めつつも限界があることを示す。","part_of_speech":"副詞・な形容詞","example_ja":"さすが経験者だけあって、対応が早い。","example_ko":"역시 경험자답게 대응이 빠르다.","note":"現代では通常『さすが』と仮名で書く。"},
+    {"key":"n1-2515","word":"何処","reading":"どこ","meaning_ko":"어디; 어느 곳","meaning_ja":"場所が不明・不定であるときに、その場所を尋ねたり指したりする語。","part_of_speech":"代名詞","example_ja":"会議室はどこですか。","example_ko":"회의실은 어디입니까?","note":"現代では通常『どこ』と仮名で書く。"},
+    {"key":"n1-2516","word":"何時","reading":"いつ","meaning_ko":"언제","meaning_ja":"時が不明・不定であるときに、その時を尋ねたり指したりする語。","part_of_speech":"代名詞","example_ja":"次の試験はいつ行われますか。","example_ko":"다음 시험은 언제 실시됩니까?","note":"現代では通常『いつ』と仮名で書く。"},
+    {"key":"n1-2517","word":"詰らない","reading":"つまらない","meaning_ko":"재미없다; 시시하다; 하찮다","meaning_ja":"面白みや価値がない。取るに足りない。","part_of_speech":"い形容詞","example_ja":"つまらない意地を張って関係を悪くする必要はない。","example_ko":"하찮은 고집을 부려 관계를 나쁘게 만들 필요는 없다.","note":"現代では通常『つまらない』と仮名で書く。"}
+  ]
+}
