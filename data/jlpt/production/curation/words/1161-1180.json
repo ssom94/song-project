@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1161-1180",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Reading variants that are valid but uncommon are retained with explicit usage notes.",
+  "words": [
+    {"key":"n1-1161","word":"幽霊","reading":"ゆうれい","meaning_ko":"유령; 귀신","meaning_ja":"死者の霊が、生前の姿などで現れるとされるもの。","part_of_speech":"普通名詞","example_ja":"古い旅館には幽霊が出るという噂がある。","example_ko":"오래된 여관에는 유령이 나온다는 소문이 있다."},
+    {"key":"n1-1162","word":"規格","reading":"きかく","meaning_ko":"규격; 표준","meaning_ja":"製品・材料・方法などについて定められた寸法・品質・形式などの標準。","part_of_speech":"普通名詞","example_ja":"部品が国際規格に適合しているか確認する必要がある。","example_ko":"부품이 국제 규격에 적합한지 확인할 필요가 있다."},
+    {"key":"n1-1163","word":"人目","reading":"じんもく","meaning_ko":"남의 눈; 세간의 시선","meaning_ja":"人の目、または世間の人が見る目。現代の日常語では『ひとめ』と読むことが多い。","part_of_speech":"普通名詞","example_ja":"彼は人目を避けるように、裏口から建物を出た。","example_ko":"그는 남의 눈을 피하듯 뒷문으로 건물을 나갔다.","note":"『じんもく』も辞書上の読みだが、『人目を避ける・人目を気にする』など日常的な表現では通常『ひとめ』。"},
+    {"key":"n1-1164","word":"告げる","reading":"つげる","meaning_ko":"알리다; 고하다","meaning_ja":"事実・決定・時の到来などを相手に知らせる。","part_of_speech":"一段動詞","example_ja":"担当者は会議の終了を告げ、参加者に資料を配った。","example_ko":"담당자는 회의 종료를 알리고 참가자들에게 자료를 배포했다."},
+    {"key":"n1-1165","word":"アマチュア","reading":"アマチュア","meaning_ko":"아마추어; 비전문가","meaning_ja":"スポーツ・芸術などを職業としてではなく趣味として行う人。","part_of_speech":"普通名詞","example_ja":"この大会にはプロだけでなくアマチュアの選手も参加できる。","example_ko":"이 대회에는 프로뿐 아니라 아마추어 선수도 참가할 수 있다."},
+    {"key":"n1-1166","word":"奉仕","reading":"ほうし","meaning_ko":"봉사; 헌신","meaning_ja":"自分の利益を優先せず、他人・社会・組織などのために力を尽くすこと。","part_of_speech":"サ変名詞","example_ja":"地域への奉仕活動として、社員が公園の清掃に参加した。","example_ko":"지역 봉사 활동으로 직원들이 공원 청소에 참여했다."},
+    {"key":"n1-1167","word":"奨励","reading":"しょうれい","meaning_ko":"장려","meaning_ja":"望ましい活動・行為などを積極的にすすめ、励ますこと。","part_of_speech":"サ変名詞","example_ja":"会社は資格取得を奨励し、受験費用の一部を補助している。","example_ko":"회사는 자격증 취득을 장려하고 응시 비용 일부를 지원하고 있다."},
+    {"key":"n1-1168","word":"満たす","reading":"みたす","meaning_ko":"채우다; 충족하다; 만족시키다","meaning_ja":"容器・場所などをいっぱいにする。また、条件・基準・要求などを十分に満足させる。","part_of_speech":"五段動詞","example_ja":"応募するには、三年以上の実務経験という条件を満たす必要がある。","example_ko":"지원하려면 3년 이상의 실무 경험이라는 조건을 충족해야 한다."},
+    {"key":"n1-1169","word":"手遅れ","reading":"ておくれ","meaning_ko":"때를 놓침; 이미 늦음","meaning_ja":"対応すべき時期を逃し、今から手を打っても間に合わないこと。","part_of_speech":"な形容詞","example_ja":"異常を放置すると手遅れになるおそれがあるため、早めの点検が必要だ。","example_ko":"이상을 방치하면 때를 놓칠 우려가 있어 조기 점검이 필요하다."},
+    {"key":"n1-1170","word":"拒絶","reading":"きょぜつ","meaning_ko":"거절; 거부","meaning_ja":"要求・提案・接触などを強く退け、受け入れないこと。","part_of_speech":"サ変名詞","example_ja":"相手の提案を全面的に拒絶する前に、条件を整理して話し合うべきだ。","example_ko":"상대의 제안을 전면 거절하기 전에 조건을 정리해 논의해야 한다."},
+    {"key":"n1-1171","word":"潜水","reading":"せんすい","meaning_ko":"잠수","meaning_ja":"水中にもぐること。","part_of_speech":"サ変名詞","example_ja":"調査員は潜水して海底の設備を点検した。","example_ko":"조사원은 잠수해 해저 설비를 점검했다."},
+    {"key":"n1-1172","word":"革新","reading":"かくしん","meaning_ko":"혁신","meaning_ja":"古い制度・技術・考え方などを改め、新しいものへ大きく変えること。","part_of_speech":"サ変名詞","example_ja":"技術革新によって、従来は不可能だった処理が短時間でできるようになった。","example_ko":"기술 혁신으로 기존에는 불가능했던 처리를 짧은 시간에 할 수 있게 되었다."},
+    {"key":"n1-1173","word":"白状","reading":"はくじょう","meaning_ko":"자백; 사실대로 털어놓음","meaning_ja":"隠していた罪・過ち・事実などを自分から認めて話すこと。","part_of_speech":"サ変名詞","example_ja":"問い詰められた彼は、ついに自分が資料を持ち出したと白状した。","example_ko":"추궁을 받은 그는 마침내 자신이 자료를 가져갔다고 자백했다."},
+    {"key":"n1-1174","word":"誤る","reading":"あやまる","meaning_ko":"잘못하다; 그르치다","meaning_ja":"判断・方法・理解などを間違える。","part_of_speech":"五段動詞","example_ja":"前提を誤ると、その後の分析も正しい結論にたどり着けない。","example_ko":"전제를 잘못 잡으면 이후 분석도 올바른 결론에 도달할 수 없다."},
+    {"key":"n1-1175","word":"賠償","reading":"ばいしょう","meaning_ko":"배상","meaning_ja":"他人に与えた損害を、金銭などによって償うこと。","part_of_speech":"サ変名詞","example_ja":"裁判所は会社に対して被害者への損害賠償を命じた。","example_ko":"법원은 회사에 피해자에 대한 손해배상을 명령했다."},
+    {"key":"n1-1176","word":"最早","reading":"もはや","meaning_ko":"이미; 이제는 더 이상","meaning_ja":"今となってはすでに。多く、以前の状態には戻れないという意味を伴う。","part_of_speech":"副詞","example_ja":"この技術はもはや一部の専門家だけが使うものではない。","example_ko":"이 기술은 이제 더 이상 일부 전문가만 사용하는 것이 아니다."},
+    {"key":"n1-1177","word":"畳","reading":"じょう","meaning_ko":"조; 다다미 장수를 세는 단위","meaning_ja":"畳の枚数、または畳を基準にした部屋の広さを数える助数詞。","part_of_speech":"その他","example_ja":"この和室は六畳ほどの広さがある。","example_ko":"이 다다미방은 약 6조 정도의 넓이다.","note":"畳そのものは通常『たたみ』。助数詞として部屋の広さを表すとき『じょう』と読む。"},
+    {"key":"n1-1178","word":"意欲","reading":"いよく","meaning_ko":"의욕; 하고자 하는 적극적 마음","meaning_ja":"何かを進んで行おうとする積極的な気持ち。","part_of_speech":"普通名詞","example_ja":"本人に学ぶ意欲があれば、未経験でも大きく成長できる。","example_ko":"본인에게 배울 의욕이 있다면 미경험자라도 크게 성장할 수 있다."},
+    {"key":"n1-1179","word":"交わす","reading":"かわす","meaning_ko":"주고받다; 나누다","meaning_ja":"言葉・挨拶・約束・杯などを互いにやり取りする。","part_of_speech":"五段動詞","example_ja":"会議の前に担当者同士で簡単な挨拶を交わした。","example_ko":"회의 전에 담당자끼리 간단한 인사를 주고받았다."},
+    {"key":"n1-1180","word":"命中","reading":"めいちゅう","meaning_ko":"명중","meaning_ja":"弾丸・矢などが狙った目標に当たること。","part_of_speech":"サ変名詞","example_ja":"放たれた矢は的の中央に命中した。","example_ko":"쏜 화살은 과녁 중앙에 명중했다."}
+  ]
+}
