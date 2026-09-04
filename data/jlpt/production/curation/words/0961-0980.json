@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0961-0980",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0961","word":"アップ","reading":"アップ","meaning_ko":"상승; 증가; 업로드·클로즈업 등의 '업'","meaning_ja":"上昇・増加を表す語。また、アップロード・クローズアップ・ウォームアップなどの略としても使う。","part_of_speech":"普通名詞","example_ja":"原材料費の上昇に伴い、来月から一部商品の価格がアップする。","example_ko":"원재료비 상승에 따라 다음 달부터 일부 상품 가격이 오른다.","note":"文脈により『増加』『アップロード』『クローズアップ』『ウォームアップ』など意味が変わる。"},
+    {"key":"n1-0962","word":"財政","reading":"ざいせい","meaning_ko":"재정","meaning_ja":"国・自治体・団体などが収入と支出を管理・運営すること。また、その状態。","part_of_speech":"普通名詞","example_ja":"税収が減少したため、自治体は財政の立て直しを迫られている。","example_ko":"세수가 감소해 지자체는 재정 재건을 요구받고 있다."},
+    {"key":"n1-0963","word":"詳細","reading":"しょうさい","meaning_ko":"상세; 자세한 내용","meaning_ja":"細かい点まで詳しいこと。また、その内容。","part_of_speech":"な形容詞","example_ja":"変更内容の詳細は、後日ウェブサイトで公表される予定だ。","example_ko":"변경 내용의 상세 사항은 추후 웹사이트에 공개될 예정이다."},
+    {"key":"n1-0964","word":"何処","reading":"どこ","meaning_ko":"어디; 어느 곳","meaning_ja":"場所を尋ねたり、不特定の場所を指したりする語。通常はひらがなで書く。","part_of_speech":"その他","example_ja":"古い文学作品では、現在ひらがなで書く『どこ』を『何処』と表記することがある。","example_ko":"옛 문학 작품에서는 현재 히라가나로 쓰는 ‘どこ’를 ‘何処’로 표기하는 경우가 있다."},
+    {"key":"n1-0965","word":"面白い","reading":"おもしろい","meaning_ko":"재미있다; 흥미롭다","meaning_ja":"興味を引き、楽しいと感じさせる。また、通常と違って興味深い。","part_of_speech":"い形容詞","example_ja":"結果そのものより、なぜその結果になったのかを考える過程が面白い。","example_ko":"결과 자체보다 왜 그런 결과가 나왔는지 생각하는 과정이 흥미롭다."},
+    {"key":"n1-0966","word":"何故","reading":"なぜ","meaning_ko":"왜; 어째서","meaning_ja":"理由・原因を尋ねる語。通常はひらがなで書く。","part_of_speech":"副詞","example_ja":"何故この制度が必要なのか、背景から説明する必要がある。","example_ko":"왜 이 제도가 필요한지 배경부터 설명할 필요가 있다."},
+    {"key":"n1-0967","word":"所謂","reading":"いわゆる","meaning_ko":"이른바; 소위","meaning_ja":"世間で一般にそのように呼ばれている、という意味を表す連体語。","part_of_speech":"連体詞","example_ja":"これは所謂『成功例』だけを集めた資料であり、失敗例は含まれていない。","example_ko":"이것은 이른바 ‘성공 사례’만 모은 자료로 실패 사례는 포함돼 있지 않다."},
+    {"key":"n1-0968","word":"姉妹","reading":"しまい","meaning_ko":"자매; 자매 관계","meaning_ja":"姉と妹。また、姉妹のように密接な関係にあるもの。","part_of_speech":"普通名詞","example_ja":"両都市は長年にわたり姉妹都市として交流を続けている。","example_ko":"두 도시는 오랫동안 자매도시로 교류를 이어가고 있다.","note":"候補資料の『きょうだい』から、現代の標準的な読み『しまい』へ修正。"},
+    {"key":"n1-0969","word":"何方","reading":"どちら","meaning_ko":"어느 쪽; 어느 분","meaning_ja":"二つのうちの一方を尋ねる語。また『誰』を丁寧に尋ねる語。通常はひらがなで書く。","part_of_speech":"その他","example_ja":"二つの案のうち、何方が実現可能性が高いと考えますか。","example_ko":"두 안 중 어느 쪽이 실현 가능성이 높다고 생각합니까?"},
+    {"key":"n1-0970","word":"伴う","reading":"ともなう","meaning_ko":"수반하다; 동반하다","meaning_ja":"ある物事に別の物事が付随して起こる。また、人などを連れて行く。","part_of_speech":"五段動詞","example_ja":"制度の変更には一定の混乱が伴う可能性がある。","example_ko":"제도 변경에는 일정한 혼란이 수반될 가능성이 있다."},
+    {"key":"n1-0971","word":"一寸","reading":"ちょっと","meaning_ko":"조금; 잠깐","meaning_ja":"程度・量・時間などがわずかであること。通常はひらがなで書く。","part_of_speech":"副詞","example_ja":"一寸した表現の違いでも、受け手の印象は大きく変わることがある。","example_ko":"사소한 표현 차이만으로도 받아들이는 사람의 인상은 크게 달라질 수 있다."},
+    {"key":"n1-0972","word":"極めて","reading":"きわめて","meaning_ko":"극히; 매우","meaning_ja":"程度が非常に高いことを表す語。","part_of_speech":"副詞","example_ja":"この判断は今後の事業方針を左右するため、極めて重要である。","example_ko":"이 판단은 향후 사업 방침을 좌우하므로 매우 중요하다."},
+    {"key":"n1-0973","word":"何れ","reading":"いずれ","meaning_ko":"어느 것이든; 언젠가; 결국","meaning_ja":"複数の中のどれかを指す。また、将来のある時点・結局という意味でも使う。","part_of_speech":"その他","example_ja":"何れの案を採用するにしても、追加の検証は必要だ。","example_ko":"어느 안을 채택하더라도 추가 검증은 필요하다."},
+    {"key":"n1-0974","word":"何れ","reading":"どれ","meaning_ko":"어느 것; 무엇","meaning_ja":"三つ以上の物の中から一つを尋ねる語。通常はひらがなの『どれ』と書く。","part_of_speech":"その他","example_ja":"展示された作品のうち、何れが最も印象に残りましたか。","example_ko":"전시된 작품 중 어느 것이 가장 인상에 남았습니까?","note":"同じ表記『何れ』でも『いずれ』と『どれ』の読みがある。現代では通常かな書き。"},
+    {"key":"n1-0975","word":"扱い","reading":"あつかい","meaning_ko":"취급; 대우; 처리 방식","meaning_ja":"物事を取り扱う方法。また、人に対する待遇・位置付け。","part_of_speech":"普通名詞","example_ja":"機密資料は通常の文書とは異なる扱いが必要だ。","example_ko":"기밀 자료는 일반 문서와 다른 취급이 필요하다."},
+    {"key":"n1-0976","word":"記す","reading":"しるす","meaning_ko":"기록하다; 적다","meaning_ja":"文字・文章として書き残す。また、印などで示す。","part_of_speech":"五段動詞","example_ja":"調査結果は報告書に正確に記しておく必要がある。","example_ko":"조사 결과는 보고서에 정확히 기록해 둘 필요가 있다."},
+    {"key":"n1-0977","word":"行","reading":"ぎょう","meaning_ko":"행; 글의 줄; 수행","meaning_ja":"文字が縦・横に並んだ一列。また、仏教で教えを実践する修行を指す。","part_of_speech":"普通名詞","example_ja":"回答は各項目につき三行以内で記入してください。","example_ko":"답변은 각 항목당 세 줄 이내로 기입해 주세요."},
+    {"key":"n1-0978","word":"背景","reading":"はいけい","meaning_ko":"배경; 배후 사정","meaning_ja":"後ろに見える景色。また、出来事・問題の背後にある事情・要因。","part_of_speech":"普通名詞","example_ja":"数字だけでなく、その変化が起きた社会的背景も分析する必要がある。","example_ko":"수치뿐 아니라 그 변화가 일어난 사회적 배경도 분석할 필요가 있다."},
+    {"key":"n1-0979","word":"落ちる","reading":"おちる","meaning_ko":"떨어지다; 낮아지다; 탈락하다","meaning_ja":"上から下へ移る。程度・数値が下がる。また、試験・選考などに不合格になる。","part_of_speech":"一段動詞","example_ja":"景気が悪化すると消費者の購買意欲も落ちる傾向がある。","example_ko":"경기가 악화되면 소비자의 구매 의욕도 떨어지는 경향이 있다."},
+    {"key":"n1-0980","word":"止める","reading":"とどめる","meaning_ko":"머물게 하다; 그치게 하다; 범위에 한정하다","meaning_ja":"進行・拡大などをある範囲で止める。また、人・物をその場所に残す。","part_of_speech":"一段動詞","example_ja":"被害を最小限に止めるため、早期の対応が求められる。","example_ko":"피해를 최소한으로 그치게 하기 위해 조기 대응이 요구된다.","note":"『止める』には『とめる』の読みもある。『とどめる』は『範囲内に収める・残す』の意味で使う。"}
+  ]
+}
