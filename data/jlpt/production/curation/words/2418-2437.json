@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2418-2437",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2418","word":"十分","reading":"じっぷん","meaning_ko":"10분; 십 분","meaning_ja":"時間の長さで十ミニッツ。十ミニッツ間。","part_of_speech":"普通名詞","example_ja":"駅までは歩いて十分ほどかかる。","example_ko":"역까지는 걸어서 10분 정도 걸린다.","note":"『じゅうぶん（十分＝충분）』とは読み・意味が異なる。"},
+    {"key":"n1-2419","word":"地方","reading":"じかた","meaning_ko":"지방; 지역; 해안 쪽","meaning_ja":"ある地域・地方。また、海上から見た陸地側・沿岸側を指すことがある。","part_of_speech":"普通名詞","example_ja":"この地方では冬になると雪が多い。","example_ko":"이 지방은 겨울이 되면 눈이 많이 온다.","note":"一般的な『地方』の読みは『ちほう』。候補の『じかた』は限定的・専門的な読み。"},
+    {"key":"n1-2420","word":"大事","reading":"おおごと","meaning_ko":"큰일; 중대한 일","meaning_ja":"非常に重大で、簡単には済まない事態・出来事。","part_of_speech":"普通名詞","example_ja":"小さなミスだと思っていたが、後で大事になった。","example_ko":"작은 실수라고 생각했는데 나중에 큰일이 되었다.","note":"『だいじ（大切・重要）』とは読み・用法を区別。"},
+    {"key":"n1-2421","word":"天皇","reading":"すめらぎ","meaning_ko":"천황; 일본 천황","meaning_ja":"日本の天皇を指す古風・雅語的な呼び方。","part_of_speech":"普通名詞","example_ja":"古典文学では天皇を『すめらぎ』と読む表現が見られる。","example_ko":"고전문학에서는 천황을 '스메라기'라고 읽는 표현이 보인다.","note":"現代の通常の読みは『てんのう』。『すめらぎ』は古風・雅語的。"},
+    {"key":"n1-2422","word":"少女","reading":"おとめ","meaning_ko":"소녀; 젊은 여성; 처녀","meaning_ja":"若い女性・少女を指す古風・文学的な語。","part_of_speech":"普通名詞","example_ja":"物語には一人の美しい少女が登場する。","example_ko":"이야기에는 한 명의 아름다운 소녀가 등장한다.","note":"一般的な読みは『しょうじょ』。『おとめ』は文学的・古風。"},
+    {"key":"n1-2423","word":"上手","reading":"うわて","meaning_ko":"한 수 위; 더 능숙한 사람; 고수","meaning_ja":"相手より技能・知恵などが優れていること。また、その人。","part_of_speech":"名詞・な形容詞","example_ja":"交渉では相手のほうが一枚上手だった。","example_ko":"협상에서는 상대가 한 수 위였다.","note":"『じょうず』とは読みが異なり、『相手より上』という比較的意味が中心。"},
+    {"key":"n1-2424","word":"此れ","reading":"これ","meaning_ko":"이것; 이거","meaning_ja":"話し手に近い物・事柄を指す指示代名詞。","part_of_speech":"代名詞","example_ja":"これは私が昨日買った本です。","example_ko":"이것은 내가 어제 산 책이다.","note":"候補品詞『副詞』は不適切。現代では通常『これ』と仮名で書く。"},
+    {"key":"n1-2425","word":"合わせ","reading":"あわせ","meaning_ko":"맞춤; 결합; 맞대기","meaning_ja":"二つ以上のものを合わせること。また、その組み合わせ。","part_of_speech":"普通名詞","example_ja":"部品の合わせが悪いと、隙間ができる。","example_ko":"부품의 맞춤이 좋지 않으면 틈이 생긴다."},
+    {"key":"n1-2426","word":"女子","reading":"おなご","meaning_ko":"여자; 여성","meaning_ja":"女性・女の子を指す古風・方言的な語。","part_of_speech":"普通名詞","example_ja":"昔の物語では『おなご』という言い方が出てくることがある。","example_ko":"옛이야기에서는 '오나고'라는 표현이 나오는 경우가 있다.","note":"候補KO『계집』は 현대 한국어에서 비하적으로 들릴 수 있어 중립적 의미로 정리. 현대 표준어에서는 드문 표현."},
+    {"key":"n1-2427","word":"共","reading":"とも","meaning_ko":"함께; 모두; 둘 다","meaning_ja":"一緒に、双方とも、すべて、という意味を表す語。","part_of_speech":"副詞・接尾辞","example_ja":"二人共、その提案に賛成した。","example_ko":"두 사람 모두 그 제안에 찬성했다.","note":"『二人とも』『男女とも』などの形で頻出。"},
+    {"key":"n1-2428","word":"一定","reading":"いちじょう","meaning_ko":"일정함; 정해져 있음","meaning_ja":"一定していること、定まっていることを表す古風な読み。","part_of_speech":"名詞・な形容詞","example_ja":"条件が一定なら、結果も比較しやすい。","example_ko":"조건이 일정하면 결과도 비교하기 쉽다.","note":"通常の読みは『いってい』。候補『いちじょう』は一般的ではなく、読み注意。"},
+    {"key":"n1-2429","word":"其れ","reading":"それ","meaning_ko":"그것; 그거","meaning_ja":"聞き手に近い物・事柄、または前に述べた内容を指す代名詞。","part_of_speech":"代名詞","example_ja":"それは私のではなく、彼の荷物です。","example_ko":"그것은 내 것이 아니라 그의 짐이다.","note":"現代では通常『それ』と仮名で書く。"},
+    {"key":"n1-2430","word":"流行","reading":"はやり","meaning_ko":"유행; 유행하는 것","meaning_ja":"ある時期に広く人気を集めたり、世間に広まったりすること。","part_of_speech":"普通名詞","example_ja":"今年はこの色が流行らしい。","example_ko":"올해는 이 색이 유행인 것 같다.","note":"候補KRDICTは疾病の流行に偏っていたため、JMdictの fashion/fad の中心義を補完。"},
+    {"key":"n1-2431","word":"所で","reading":"ところで","meaning_ko":"그런데; 그런데 말이야; 화제를 바꾸자면","meaning_ja":"話題を変えたり、新しい話を切り出したりするときに使う接続詞。","part_of_speech":"接続詞","example_ja":"ところで、来週の予定はもう決まりましたか。","example_ko":"그런데 다음 주 일정은 이미 정해졌나요?","note":"現代では通常『ところで』と仮名で書く。"},
+    {"key":"n1-2432","word":"空間","reading":"あきま","meaning_ko":"빈방; 비어 있는 공간","meaning_ja":"空いている部屋・場所。特に借り手のいない空室。","part_of_speech":"普通名詞","example_ja":"この建物にはまだ空間がいくつかある。","example_ko":"이 건물에는 아직 빈방이 몇 개 있다.","note":"一般的な『空間（くうかん）』とは別読み・別用法。『あきま』は空き部屋の意味。"},
+    {"key":"n1-2433","word":"何と","reading":"なんと","meaning_ko":"무려; 어쩜; 얼마나","meaning_ja":"驚き・感嘆を表す。また、予想以上の数量・程度を強調する。","part_of_speech":"副詞・感動詞","example_ja":"その店はなんと百年以上も続いている。","example_ko":"그 가게는 무려 100년 넘게 이어지고 있다."},
+    {"key":"n1-2434","word":"何も","reading":"なにも","meaning_ko":"아무것도; 아무것도 특별히","meaning_ja":"否定表現とともに、何一つ～ない、という意味を表す。","part_of_speech":"代名詞・副詞","example_ja":"今日は何も予定がない。","example_ko":"오늘은 아무 일정도 없다.","note":"候補KO『암말』などは不自然なため、現代語の中心義に整理。"},
+    {"key":"n1-2435","word":"かも知れない","reading":"かもしれない","meaning_ko":"~일지도 모른다; ~일 수도 있다","meaning_ja":"可能性があるが、確実ではないことを表す表現。","part_of_speech":"文型・助動表現","example_ja":"明日は雨が降るかもしれない。","example_ko":"내일은 비가 올지도 모른다.","note":"現代では通常『かもしれない』と仮名で書く。"},
+    {"key":"n1-2436","word":"公","reading":"おおやけ","meaning_ko":"공적임; 공공; 공식적인 것","meaning_ja":"個人ではなく、国家・社会・公共に関わること。また、広く知られること。","part_of_speech":"普通名詞","example_ja":"その事実はまだ公にはされていない。","example_ko":"그 사실은 아직 공식적으로 공개되지 않았다."},
+    {"key":"n1-2437","word":"如何して","reading":"どうして","meaning_ko":"왜; 어떻게; 어째서","meaning_ja":"理由・方法を尋ねる語。なぜ、どのように。","part_of_speech":"副詞","example_ja":"どうしてこの仕事を選んだのですか。","example_ko":"왜 이 일을 선택했나요?","note":"現代では通常『どうして』と仮名で書く。"}
+  ]
+}
