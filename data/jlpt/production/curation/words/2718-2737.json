@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2718-2737",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2718","word":"見っともない","reading":"みっともない","meaning_ko":"보기 흉하다; 창피하다; 꼴사납다","meaning_ja":"外見・態度などが体裁悪く、恥ずかしい。","part_of_speech":"い形容詞","example_ja":"人前でそんな言い争いをするのは見っともない。","example_ko":"사람들 앞에서 그런 말다툼을 하는 것은 꼴사납다.","note":"現代では通常『みっともない』と仮名で書く。"},
+    {"key":"n1-2719","word":"オリエンテーション","reading":"オリエンテーション","meaning_ko":"오리엔테이션; 안내 교육","meaning_ja":"新しい環境・組織に入る人へ概要や手順などを説明すること。","part_of_speech":"普通名詞","example_ja":"入社初日にオリエンテーションが行われた。","example_ko":"입사 첫날 오리엔테이션이 진행됐다."},
+    {"key":"n1-2720","word":"御負け","reading":"おまけ","meaning_ko":"덤; 보너스; 서비스","meaning_ja":"商品などに追加で付ける物やサービス。また、値引き。","part_of_speech":"普通名詞","example_ja":"店員がお菓子を一つおまけしてくれた。","example_ko":"점원이 과자를 하나 덤으로 주었다.","note":"現代では通常『おまけ』と仮名で書く。"},
+    {"key":"n1-2721","word":"霞む","reading":"かすむ","meaning_ko":"희미해지다; 뿌옇게 보이다; 흐려지다","meaning_ja":"霞などで物がぼんやり見える。また、目がかすんで見えにくくなる。","part_of_speech":"五段動詞","example_ja":"遠くの山が霞んで見える。","example_ko":"멀리 있는 산이 희미하게 보인다."},
+    {"key":"n1-2722","word":"膨れる","reading":"ふくれる","meaning_ko":"부풀다; 붓다; 토라지다","meaning_ja":"体積が増えてふくらむ。また、不満でふくれっ面になる。","part_of_speech":"一段動詞","example_ja":"風船が空気で大きく膨れた。","example_ko":"풍선이 공기로 크게 부풀었다."},
+    {"key":"n1-2723","word":"澄ます","reading":"すます","meaning_ko":"맑게 하다; 태연한 척하다; 새침한 표정을 짓다","meaning_ja":"濁りをなくして澄んだ状態にする。また、何事もないような顔をする。","part_of_speech":"五段動詞","example_ja":"彼は何も知らないような顔を澄ましていた。","example_ko":"그는 아무것도 모르는 듯 태연한 표정을 짓고 있었다."},
+    {"key":"n1-2724","word":"慌ただしい","reading":"あわただしい","meaning_ko":"분주하다; 부산하다; 급박하다","meaning_ja":"忙しく、落ち着かないさま。","part_of_speech":"い形容詞","example_ja":"年末は毎年慌ただしい日が続く。","example_ko":"연말에는 매년 분주한 날이 이어진다."},
+    {"key":"n1-2725","word":"ブザー","reading":"ブザー","meaning_ko":"버저; 경고음","meaning_ja":"電気で音を鳴らす合図・警報用の装置。","part_of_speech":"普通名詞","example_ja":"終了を知らせるブザーが鳴った。","example_ko":"종료를 알리는 버저가 울렸다."},
+    {"key":"n1-2726","word":"とんだ","reading":"とんだ","meaning_ko":"뜻밖의; 터무니없는; 아주 심한","meaning_ja":"思いがけずひどい、またはとんでもないという意味を表す連体的な語。","part_of_speech":"連体詞","example_ja":"とんだ災難に巻き込まれてしまった。","example_ko":"뜻밖의 큰 재난에 휘말리고 말았다.","note":"候補品詞『副詞』より、現代用法では連体詞的使用が中心。"},
+    {"key":"n1-2727","word":"薄弱","reading":"はくじゃく","meaning_ko":"박약; 빈약; 약함","meaning_ja":"意志・根拠・体力などが弱く十分でないこと。","part_of_speech":"名詞・な形容詞","example_ja":"その主張は根拠が薄弱だ。","example_ko":"그 주장은 근거가 빈약하다."},
+    {"key":"n1-2728","word":"拵える","reading":"こしらえる","meaning_ko":"만들다; 마련하다; 꾸리다","meaning_ja":"物を作る。また、金・仕事・荷物などを用意する。","part_of_speech":"一段動詞","example_ja":"旅行のために弁当を拵えた。","example_ko":"여행을 위해 도시락을 만들었다.","note":"ややくだけた・古風な響きがあり、現代では『作る』も一般的。"},
+    {"key":"n1-2729","word":"滲む","reading":"にじむ","meaning_ko":"번지다; 배어 나오다; 스미다; 어리다","meaning_ja":"液体・色などが広がる。また、感情などが表面に現れる。","part_of_speech":"五段動詞","example_ja":"涙が目に滲んだ。","example_ko":"눈물이 눈에 어렸다."},
+    {"key":"n1-2730","word":"束の間","reading":"つかのま","meaning_ko":"잠깐; 아주 짧은 시간","meaning_ja":"ごく短い時間。","part_of_speech":"普通名詞","example_ja":"束の間の休息を楽しんだ。","example_ko":"잠깐의 휴식을 즐겼다."},
+    {"key":"n1-2731","word":"コンパス","reading":"コンパス","meaning_ko":"컴퍼스; 나침반","meaning_ja":"円を描く製図器具。また、方角を示す羅針盤。","part_of_speech":"普通名詞","example_ja":"コンパスで円を描いた。","example_ko":"컴퍼스로 원을 그렸다."},
+    {"key":"n1-2732","word":"橋渡し","reading":"はしわたし","meaning_ko":"가교; 중개; 연결 역할","meaning_ja":"二者の間を取り持ち、関係をつなぐこと。","part_of_speech":"サ変名詞","example_ja":"通訳が両国の橋渡し役を務めた。","example_ko":"통역사가 양국의 가교 역할을 맡았다."},
+    {"key":"n1-2733","word":"隔たる","reading":"へだたる","meaning_ko":"떨어져 있다; 차이가 나다; 동떨어지다","meaning_ja":"距離・時間・考えなどが大きく離れている。","part_of_speech":"五段動詞","example_ja":"二つの町は山を挟んで大きく隔たっている。","example_ko":"두 마을은 산을 사이에 두고 크게 떨어져 있다."},
+    {"key":"n1-2734","word":"潤う","reading":"うるおう","meaning_ko":"촉촉해지다; 풍요로워지다; 혜택을 보다","meaning_ja":"水分を得て湿る。また、利益・恩恵を受けて豊かになる。","part_of_speech":"五段動詞","example_ja":"観光客が増えて地域経済が潤った。","example_ko":"관광객이 늘어 지역 경제가 활기를 얻었다.","note":"候補の『해갈되다』だけでは狭いため、JMdictの profit/benefit の主要用法を補完。"},
+    {"key":"n1-2735","word":"待ち望む","reading":"まちのぞむ","meaning_ko":"손꼽아 기다리다; 고대하다","meaning_ja":"実現や到来を強く期待して待つ。","part_of_speech":"五段動詞","example_ja":"多くの人が新サービスの開始を待ち望んでいる。","example_ko":"많은 사람이 새 서비스 시작을 손꼽아 기다리고 있다."},
+    {"key":"n1-2736","word":"デッサン","reading":"デッサン","meaning_ko":"데생; 소묘","meaning_ja":"鉛筆・木炭などで形や明暗を捉えて描く素描。","part_of_speech":"サ変名詞","example_ja":"美術学校で人物のデッサンを練習した。","example_ko":"미술학교에서 인물 데생을 연습했다."},
+    {"key":"n1-2737","word":"見合わせる","reading":"みあわせる","meaning_ko":"보류하다; 연기하다; 서로 바라보다","meaning_ja":"実施を一時控える。また、互いに顔を見合う。","part_of_speech":"一段動詞","example_ja":"悪天候のためイベントの開催を見合わせた。","example_ko":"악천후 때문에 행사 개최를 보류했다."}
+  ]
+}
