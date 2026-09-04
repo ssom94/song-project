@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1021-1040",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-1021","word":"返る","reading":"かえる","meaning_ko":"돌아가다; 되돌아오다; 원상태가 되다","meaning_ja":"ある状態・場所などが元に戻る。また、反応・結果が自分の側へ戻る。","part_of_speech":"五段動詞","example_ja":"質問を具体的にすると、より明確な答えが返ってくる。","example_ko":"질문을 구체적으로 하면 더 명확한 답이 돌아온다."},
+    {"key":"n1-1022","word":"正に","reading":"まさに","meaning_ko":"바로; 바로 그; 틀림없이","meaning_ja":"まちがいなくそのとおりであること、またはちょうどその時であることを強く示す語。","part_of_speech":"副詞","example_ja":"この発見は、長年探していた問題解決の手掛かりに正になり得る。","example_ko":"이 발견은 오랫동안 찾던 문제 해결의 실마리가 바로 될 수 있다."},
+    {"key":"n1-1023","word":"結び","reading":"むすび","meaning_ko":"맺음; 결론; 매듭","meaning_ja":"物事・文章などの最後の部分。また、結び付けることや結び目。","part_of_speech":"普通名詞","example_ja":"発表の結びでは、今後の課題と展望を簡潔にまとめた。","example_ko":"발표의 맺음에서는 향후 과제와 전망을 간결하게 정리했다."},
+    {"key":"n1-1024","word":"本名","reading":"ほんみょう","meaning_ko":"본명","meaning_ja":"芸名・筆名・通称などではない、本来の名前。","part_of_speech":"普通名詞","example_ja":"作家は長年ペンネームで活動し、本名を公表していなかった。","example_ko":"작가는 오랫동안 필명으로 활동하며 본명을 공개하지 않았다."},
+    {"key":"n1-1025","word":"集まる","reading":"あつまる","meaning_ko":"모이다; 집중되다","meaning_ja":"人・物・情報・関心などが一つの場所・対象に寄る。","part_of_speech":"五段動詞","example_ja":"新しい研究計画には国内外から多くの専門家が集まった。","example_ko":"새 연구 계획에는 국내외에서 많은 전문가가 모였다."},
+    {"key":"n1-1026","word":"益々","reading":"ますます","meaning_ko":"더욱더; 갈수록","meaning_ja":"程度・傾向が以前よりさらに強くなるさま。通常はひらがなで書くことが多い。","part_of_speech":"副詞","example_ja":"人口減少が進めば、地域交通の維持は益々難しくなる。","example_ko":"인구 감소가 진행되면 지역 교통 유지가 갈수록 어려워진다."},
+    {"key":"n1-1027","word":"把握","reading":"はあく","meaning_ko":"파악; 정확히 이해함","meaning_ja":"内容・状況・全体像などをしっかり理解すること。","part_of_speech":"サ変名詞","example_ja":"障害の影響範囲を正確に把握してから復旧作業を始める。","example_ko":"장애의 영향 범위를 정확히 파악한 뒤 복구 작업을 시작한다."},
+    {"key":"n1-1028","word":"恐れ","reading":"おそれ","meaning_ko":"두려움; 우려; 가능성","meaning_ja":"恐怖・不安。また『〜する恐れがある』の形で、好ましくない可能性を表す。","part_of_speech":"普通名詞","example_ja":"大雨が続くと河川が氾濫する恐れがあるため、早めの避難が必要だ。","example_ko":"폭우가 계속되면 하천이 범람할 우려가 있어 조기 대피가 필요하다."},
+    {"key":"n1-1029","word":"甘い","reading":"うまい","meaning_ko":"맛있다; 능숙하다","meaning_ja":"『うまい』の意味で使われる歴史的・特殊な表記。現代では『旨い・美味い』またはひらがなが一般的。","part_of_speech":"い形容詞","example_ja":"古い資料では、現在とは異なる漢字表記で『うまい』と読ませる例が見られる。","example_ko":"옛 자료에서는 현재와 다른 한자 표기로 ‘うまい’라고 읽게 하는 예가 보인다.","note":"現代の『甘い』の標準読みは『あまい』。候補資料の『うまい』は非標準・歴史的表記として読解注意語に限定。"},
+    {"key":"n1-1030","word":"犠牲","reading":"ぎせい","meaning_ko":"희생; 희생자","meaning_ja":"ある目的のために生命・利益などを失うこと。また、事故・災害などで被害を受けた人。","part_of_speech":"普通名詞","example_ja":"安全性を無視して利益だけを優先すれば、利用者が犠牲になりかねない。","example_ko":"안전성을 무시하고 이익만 우선하면 이용자가 희생될 수 있다."},
+    {"key":"n1-1031","word":"無礼","reading":"ぶれい","meaning_ko":"무례; 예의 없음","meaning_ja":"礼儀を欠いていること。相手に対して失礼なこと。","part_of_speech":"な形容詞","example_ja":"初対面の相手にそのような質問をするのは無礼に当たる。","example_ko":"처음 만난 상대에게 그런 질문을 하는 것은 무례에 해당한다."},
+    {"key":"n1-1032","word":"一気","reading":"いっき","meaning_ko":"단숨에; 한꺼번에","meaning_ja":"途中で休まず、ひと続きに物事を行うこと。また、急激に進むさま。","part_of_speech":"副詞","example_ja":"制度を一気に変えるのではなく、段階的に移行する方針だ。","example_ko":"제도를 단숨에 바꾸는 것이 아니라 단계적으로 전환할 방침이다."},
+    {"key":"n1-1033","word":"尽くす","reading":"つくす","meaning_ko":"다하다; 힘을 쏟다; 모두 써버리다","meaning_ja":"力・能力などを残さず出す。また、ある人・目的のために精一杯努力する。","part_of_speech":"五段動詞","example_ja":"担当者は利用者への説明責任を果たすため、最後まで力を尽くした。","example_ko":"담당자는 이용자에 대한 설명 책임을 다하기 위해 끝까지 힘을 쏟았다."},
+    {"key":"n1-1034","word":"課題","reading":"かだい","meaning_ko":"과제; 해결해야 할 문제","meaning_ja":"解決・検討すべき問題。また、学校などで与えられる学習上の仕事。","part_of_speech":"普通名詞","example_ja":"導入後の最大の課題は、現場の運用負担をどう減らすかである。","example_ko":"도입 후 가장 큰 과제는 현장의 운영 부담을 어떻게 줄일지다."},
+    {"key":"n1-1035","word":"退職","reading":"たいしょく","meaning_ko":"퇴직","meaning_ja":"勤めている職場・職務を辞めること。","part_of_speech":"サ変名詞","example_ja":"退職後も専門知識を生かし、非常勤の相談員として働いている。","example_ko":"퇴직 후에도 전문 지식을 살려 비상근 상담원으로 일하고 있다."},
+    {"key":"n1-1036","word":"栽培","reading":"さいばい","meaning_ko":"재배","meaning_ja":"植物・作物を植えて育てること。","part_of_speech":"サ変名詞","example_ja":"この地域では気候を生かして高品質なぶどうを栽培している。","example_ko":"이 지역에서는 기후를 살려 고품질 포도를 재배하고 있다."},
+    {"key":"n1-1037","word":"取り組む","reading":"とりくむ","meaning_ko":"몰두하다; 적극적으로 임하다","meaning_ja":"課題・仕事などに正面から向き合い、努力して進める。","part_of_speech":"五段動詞","example_ja":"会社全体で業務のデジタル化に取り組んでいる。","example_ko":"회사 전체가 업무 디지털화에 적극적으로 임하고 있다."},
+    {"key":"n1-1038","word":"柱","reading":"はしら","meaning_ko":"기둥; 핵심 축","meaning_ja":"建物を支える縦の構造物。また比喩的に、計画・組織などを支える中心的要素。","part_of_speech":"普通名詞","example_ja":"新しい経営計画では、人材育成を三つの柱の一つに位置付けている。","example_ko":"새 경영 계획에서는 인재 육성을 세 가지 핵심 축 중 하나로 규정하고 있다."},
+    {"key":"n1-1039","word":"並み","reading":"なみ","meaning_ko":"보통 수준; ~와 같은 정도","meaning_ja":"普通と同じ程度であること。また『人並み』『例年並み』のように同程度を表す。","part_of_speech":"普通名詞","example_ja":"今年の降水量は例年並みだが、地域による差が大きい。","example_ko":"올해 강수량은 예년 수준이지만 지역별 차이가 크다."},
+    {"key":"n1-1040","word":"玩具","reading":"おもちゃ","meaning_ko":"장난감; 완구","meaning_ja":"子供などが遊ぶために使う物。『がんぐ』とも読むが、『おもちゃ』が日常的。","part_of_speech":"普通名詞","example_ja":"安全基準を満たさない玩具は販売できない。","example_ko":"안전 기준을 충족하지 못한 장난감은 판매할 수 없다.","note":"漢語的な読み『がんぐ』も一般的。候補キーは『おもちゃ』読みを保持。"}
+  ]
+}
