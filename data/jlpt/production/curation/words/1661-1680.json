@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1661-1680",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1661","word":"防火","reading":"ぼうか","meaning_ko":"방화(防火); 화재 예방","meaning_ja":"火災の発生・延焼を防ぐこと。","part_of_speech":"普通名詞","example_ja":"倉庫では防火設備の点検を定期的に実施している。","example_ko":"창고에서는 화재 예방 설비 점검을 정기적으로 실시하고 있다.","note":"한국어 '방화(放火)=불을 지름'과 한자가 다르므로 주의."},
+    {"key":"n1-1662","word":"脱退","reading":"だったい","meaning_ko":"탈퇴","meaning_ja":"所属していた組織・団体から離れ、構成員でなくなること。","part_of_speech":"サ変名詞","example_ja":"加盟条件の変更を受け、団体から脱退する企業も出てきた。","example_ko":"가입 조건 변경으로 단체에서 탈퇴하는 기업도 생겼다."},
+    {"key":"n1-1663","word":"光沢","reading":"こうたく","meaning_ko":"광택; 윤기","meaning_ja":"物の表面が光を反射してつややかに見えること。また、その輝き。","part_of_speech":"普通名詞","example_ja":"表面を磨くと金属本来の光沢が戻った。","example_ko":"표면을 닦자 금속 본래의 광택이 돌아왔다."},
+    {"key":"n1-1664","word":"感慨","reading":"かんがい","meaning_ko":"감개; 깊은 감회","meaning_ja":"過去や経験を思い返したときに心に深くわき起こる思い。","part_of_speech":"普通名詞","example_ja":"十年かけた事業が完成し、担当者は深い感慨に浸った。","example_ko":"10년에 걸친 사업이 완성되어 담당자는 깊은 감회에 잠겼다."},
+    {"key":"n1-1665","word":"口述","reading":"こうじゅつ","meaning_ko":"구술; 말로 진술함","meaning_ja":"文章に書かず、口頭で述べること。","part_of_speech":"サ変名詞","example_ja":"証人の口述内容はその場で記録された。","example_ko":"증인의 구술 내용은 그 자리에서 기록되었다."},
+    {"key":"n1-1666","word":"物好き","reading":"ものずき","meaning_ko":"별난 것에 흥미를 보임; 그런 사람","meaning_ja":"普通の人なら関心を持たないような珍しいことを好んですること。また、その人。","part_of_speech":"な形容詞","example_ja":"雨の日にわざわざ山道を歩くとは、ずいぶん物好きだ。","example_ko":"비 오는 날 일부러 산길을 걷다니 꽤 별난 취향이다."},
+    {"key":"n1-1667","word":"発育","reading":"はついく","meaning_ko":"발육; 성장","meaning_ja":"生物の体が成長し、機能が発達すること。","part_of_speech":"サ変名詞","example_ja":"十分な睡眠は子どもの健全な発育に欠かせない。","example_ko":"충분한 수면은 아이의 건강한 발육에 필수적이다."},
+    {"key":"n1-1668","word":"張り紙","reading":"はりがみ","meaning_ko":"붙임쪽지; 벽보; 안내문","meaning_ja":"知らせ・注意などを書き、壁・掲示板などに貼った紙。","part_of_speech":"普通名詞","example_ja":"入口の張り紙には臨時休業のお知らせが書かれていた。","example_ko":"입구의 안내문에는 임시 휴업 공지가 적혀 있었다."},
+    {"key":"n1-1669","word":"回覧","reading":"かいらん","meaning_ko":"회람; 돌려봄","meaning_ja":"文書・資料などを順番に回して、複数の人が見ること。","part_of_speech":"サ変名詞","example_ja":"会議資料を部署内で回覧し、全員の確認を取った。","example_ko":"회의 자료를 부서 내에서 회람해 전원의 확인을 받았다."},
+    {"key":"n1-1670","word":"年鑑","reading":"ねんかん","meaning_ko":"연감","meaning_ja":"ある分野の一年間の出来事・統計・資料などをまとめ、年ごとに刊行する資料。","part_of_speech":"普通名詞","example_ja":"業界年鑑を使って市場規模の推移を調べた。","example_ko":"업계 연감을 이용해 시장 규모 추이를 조사했다."},
+    {"key":"n1-1671","word":"ぶらぶら","reading":"ぶらぶら","meaning_ko":"어슬렁어슬렁; 빈둥빈둥; 흔들흔들","meaning_ja":"目的なく歩き回ったり、仕事をせず過ごしたりするさま。また、物が垂れて揺れるさま。","part_of_speech":"副詞","example_ja":"休日は予定を決めず、商店街をぶらぶら歩くことにした。","example_ko":"휴일에는 일정을 정하지 않고 상점가를 어슬렁어슬렁 걷기로 했다."},
+    {"key":"n1-1672","word":"売り出す","reading":"うりだす","meaning_ko":"판매를 시작하다; 내놓다; 널리 알리다","meaning_ja":"商品を新たに販売し始める。また、人・商品などを広く宣伝して世に出す。","part_of_speech":"五段動詞","example_ja":"メーカーは来月、新型端末を全国で売り出す予定だ。","example_ko":"제조사는 다음 달 신형 단말기를 전국에 판매하기 시작할 예정이다."},
+    {"key":"n1-1673","word":"軽快","reading":"けいかい","meaning_ko":"경쾌함; 가볍고 산뜻함","meaning_ja":"動き・音・気分などが軽やかで、明るく心地よいさま。","part_of_speech":"な形容詞","example_ja":"軽快な音楽に合わせて参加者が歩き始めた。","example_ko":"경쾌한 음악에 맞춰 참가자들이 걷기 시작했다."},
+    {"key":"n1-1674","word":"模範","reading":"もはん","meaning_ko":"모범; 본보기","meaning_ja":"見習うべき優れた例・行動・人物。","part_of_speech":"普通名詞","example_ja":"彼の丁寧な顧客対応は新人の模範になっている。","example_ko":"그의 정중한 고객 대응은 신입의 모범이 되고 있다."},
+    {"key":"n1-1675","word":"巧妙","reading":"こうみょう","meaning_ko":"교묘함; 정교하고 능숙함","meaning_ja":"方法・仕組みなどが非常にうまく考えられていて、容易には気づきにくいさま。","part_of_speech":"な形容詞","example_ja":"巧妙に作られた偽サイトは本物と見分けにくい。","example_ko":"교묘하게 만들어진 가짜 사이트는 진짜와 구별하기 어렵다."},
+    {"key":"n1-1676","word":"寛容","reading":"かんよう","meaning_ko":"관용; 너그러움","meaning_ja":"他人の違い・失敗などを広い心で受け入れ、厳しく責めないこと。","part_of_speech":"な形容詞","example_ja":"多様な価値観に寛容な組織ほど意見交換が活発になりやすい。","example_ko":"다양한 가치관에 관용적인 조직일수록 의견 교환이 활발해지기 쉽다."},
+    {"key":"n1-1677","word":"呆れる","reading":"あきれる","meaning_ko":"기가 막히다; 어이없어하다; 질리다","meaning_ja":"あまりにひどい・意外なことに驚き、言葉を失うほどになる。","part_of_speech":"一段動詞","example_ja":"同じミスを何度も繰り返す態度には、さすがに呆れた。","example_ko":"같은 실수를 몇 번이나 반복하는 태도에는 정말 기가 막혔다."},
+    {"key":"n1-1678","word":"書き取り","reading":"かきとり","meaning_ko":"받아쓰기; 듣고 적기","meaning_ja":"読み上げられた語句・文章を聞いて、正しく書き写す練習。","part_of_speech":"普通名詞","example_ja":"授業の最後に漢字の書き取りを十問行った。","example_ko":"수업 마지막에 한자 받아쓰기를 10문제 했다."},
+    {"key":"n1-1679","word":"舗装","reading":"ほそう","meaning_ko":"포장; 도로 포장","meaning_ja":"道路などの表面をアスファルト・コンクリートなどで固く平らに整えること。","part_of_speech":"サ変名詞","example_ja":"道路の舗装工事のため、夜間は一部区間が通行止めになる。","example_ko":"도로 포장 공사 때문에 야간에는 일부 구간이 통행 금지된다."},
+    {"key":"n1-1680","word":"差額","reading":"さがく","meaning_ko":"차액","meaning_ja":"二つの金額の差。","part_of_speech":"普通名詞","example_ja":"料金変更による差額は来月の請求で調整される。","example_ko":"요금 변경에 따른 차액은 다음 달 청구에서 조정된다."}
+  ]
+}
