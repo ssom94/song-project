@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1181-1200",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Counter/suffix meanings and modern common usage take priority over noisy broad dictionary mappings.",
+  "words": [
+    {"key":"n1-1181","word":"上回る","reading":"うわまわる","meaning_ko":"웃돌다; 상회하다","meaning_ja":"数値・程度・実績などが基準・比較対象より高くなる。","part_of_speech":"五段動詞","example_ja":"今年の売上は当初の予想を大きく上回った。","example_ko":"올해 매출은 당초 예상을 크게 웃돌았다."},
+    {"key":"n1-1182","word":"滅亡","reading":"めつぼう","meaning_ko":"멸망","meaning_ja":"国・文明・集団などが滅びて存在しなくなること。","part_of_speech":"サ変名詞","example_ja":"その王国が滅亡した原因については複数の説がある。","example_ko":"그 왕국이 멸망한 원인에 대해서는 여러 설이 있다."},
+    {"key":"n1-1183","word":"手数","reading":"てかず","meaning_ko":"수순 수; 손을 쓰는 횟수","meaning_ja":"囲碁・将棋などで手を指した回数。また、目的を達するまでに必要な動作・手順の数。","part_of_speech":"普通名詞","example_ja":"この手順なら作業の手数を減らして処理時間を短縮できる。","example_ko":"이 절차라면 작업 수순을 줄여 처리 시간을 단축할 수 있다.","note":"『手数をかける』のように『수고·번거로움』を表す場合は通常『てすう』と読む。"},
+    {"key":"n1-1184","word":"引き起こす","reading":"ひきおこす","meaning_ko":"일으키다; 야기하다","meaning_ja":"事件・問題・変化・感情などを生じさせる。","part_of_speech":"五段動詞","example_ja":"設定ミスが大規模なシステム障害を引き起こした。","example_ko":"설정 실수가 대규모 시스템 장애를 일으켰다."},
+    {"key":"n1-1185","word":"携わる","reading":"たずさわる","meaning_ko":"종사하다; 관여하다","meaning_ja":"仕事・研究・事業などに関係して、その活動に参加する。","part_of_speech":"五段動詞","example_ja":"長年、金融システムの開発に携わってきた。","example_ko":"오랫동안 금융 시스템 개발에 종사해 왔다."},
+    {"key":"n1-1186","word":"突破","reading":"とっぱ","meaning_ko":"돌파","meaning_ja":"障害・限界・防御などを打ち破って先へ進むこと。","part_of_speech":"サ変名詞","example_ja":"応募者は書類選考を突破し、最終面接に進んだ。","example_ko":"지원자는 서류 심사를 통과해 최종 면접으로 진출했다."},
+    {"key":"n1-1187","word":"費やす","reading":"ついやす","meaning_ko":"쓰다; 들이다","meaning_ja":"時間・労力・金銭などを、ある目的のために使う。","part_of_speech":"五段動詞","example_ja":"原因調査に多くの時間を費やしたが、根本的な問題を特定できた。","example_ko":"원인 조사에 많은 시간을 들였지만 근본적인 문제를 특정할 수 있었다."},
+    {"key":"n1-1188","word":"固める","reading":"かためる","meaning_ko":"굳히다; 다지다; 확정하다","meaning_ja":"柔らかいものを硬くする。また、方針・決意・基盤・体制などを確かなものにする。","part_of_speech":"一段動詞","example_ja":"関係者の意見を聞いたうえで、来年度の方針を固める。","example_ko":"관계자 의견을 들은 뒤 내년도 방침을 확정한다."},
+    {"key":"n1-1189","word":"抗争","reading":"こうそう","meaning_ko":"항쟁; 세력 간의 격렬한 다툼","meaning_ja":"対立する集団・勢力などが互いに争うこと。","part_of_speech":"サ変名詞","example_ja":"長年続いた派閥間の抗争が組織の弱体化を招いた。","example_ko":"오랫동안 이어진 파벌 간 항쟁이 조직의 약화를 초래했다."},
+    {"key":"n1-1190","word":"装備","reading":"そうび","meaning_ko":"장비; 갖춤","meaning_ja":"目的に必要な器具・機械・機能などを備えること。また、その備品。","part_of_speech":"サ変名詞","example_ja":"新型車には高度な安全装備が標準で付いている。","example_ko":"신형 차량에는 고도의 안전 장비가 기본으로 탑재되어 있다."},
+    {"key":"n1-1191","word":"民俗","reading":"みんぞく","meaning_ko":"민속","meaning_ja":"ある地域・民族に昔から伝わる生活習慣・信仰・行事・文化など。","part_of_speech":"普通名詞","example_ja":"研究者は各地の祭りを調査し、地域の民俗を記録している。","example_ko":"연구자는 각지의 축제를 조사해 지역 민속을 기록하고 있다."},
+    {"key":"n1-1192","word":"冒頭","reading":"ぼうとう","meaning_ko":"서두; 맨 처음","meaning_ja":"文章・発言・出来事などの最初の部分。","part_of_speech":"普通名詞","example_ja":"講演の冒頭で、講師は研究の目的を簡潔に説明した。","example_ko":"강연 서두에서 강사는 연구 목적을 간단히 설명했다."},
+    {"key":"n1-1193","word":"暴風","reading":"ぼうふう","meaning_ko":"폭풍; 매우 강한 바람","meaning_ja":"非常に激しく吹く風。","part_of_speech":"普通名詞","example_ja":"暴風の影響で鉄道の一部区間が運休となった。","example_ko":"폭풍의 영향으로 철도 일부 구간이 운휴했다."},
+    {"key":"n1-1194","word":"アンケート","reading":"アンケート","meaning_ko":"설문조사; 앙케트","meaning_ja":"多くの人に同じ質問を行い、意見・実態などを調べる調査。また、その質問票。","part_of_speech":"普通名詞","example_ja":"研修終了後、参加者に満足度アンケートを実施した。","example_ko":"연수 종료 후 참가자들에게 만족도 설문조사를 실시했다."},
+    {"key":"n1-1195","word":"脂肪","reading":"しぼう","meaning_ko":"지방","meaning_ja":"生物の体内に蓄えられ、エネルギー源などになる物質。","part_of_speech":"普通名詞","example_ja":"この食品は脂肪の含有量が比較的少ない。","example_ko":"이 식품은 지방 함유량이 비교적 적다."},
+    {"key":"n1-1196","word":"繁栄","reading":"はんえい","meaning_ko":"번영; 번창","meaning_ja":"国・都市・産業・組織などが栄え、豊かになること。","part_of_speech":"サ変名詞","example_ja":"港の発展が地域経済の繁栄につながった。","example_ko":"항구의 발전이 지역 경제의 번영으로 이어졌다."},
+    {"key":"n1-1197","word":"全盛","reading":"ぜんせい","meaning_ko":"전성; 가장 번성한 상태","meaning_ja":"勢力・人気・能力などが最も盛んな状態。","part_of_speech":"普通名詞","example_ja":"その歌手は全盛期に数々の記録を打ち立てた。","example_ko":"그 가수는 전성기에 수많은 기록을 세웠다."},
+    {"key":"n1-1198","word":"弱","reading":"じゃく","meaning_ko":"약간 못 미침; ~보다 조금 적음","meaning_ja":"数量を表す語の後について、その数より少し少ないことを表す。","part_of_speech":"その他","example_ja":"説明会には百人弱の参加者が集まった。","example_ko":"설명회에는 100명에 조금 못 미치는 참가자가 모였다.","note":"例: 『100人弱』は100人より少し少ない人数。『100人強』は100人より少し多い人数。"},
+    {"key":"n1-1199","word":"嫉妬","reading":"しっと","meaning_ko":"질투","meaning_ja":"他人の成功・能力・愛情などをうらやみ、ねたむ気持ち。","part_of_speech":"サ変名詞","example_ja":"他人への嫉妬に振り回されるより、自分の目標に集中した方がよい。","example_ko":"타인에 대한 질투에 휘둘리기보다 자신의 목표에 집중하는 편이 좋다."},
+    {"key":"n1-1200","word":"面目","reading":"めんぼく","meaning_ko":"면목; 체면; 명예","meaning_ja":"世間に対する体面・名誉。また、人や物事の本来の姿・価値。","part_of_speech":"普通名詞","example_ja":"重要な役割を果たせず、責任者として面目が立たない。","example_ko":"중요한 역할을 다하지 못해 책임자로서 면목이 서지 않는다.","note":"『めんもく』と読むこともある。『面目を保つ・面目が立つ』などでよく使う。"}
+  ]
+}
