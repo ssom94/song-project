@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0661-0680",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and misleading glosses are removed.",
+  "words": [
+    {"key":"n1-0661","word":"楽観","reading":"らっかん","meaning_ko":"낙관; 긍정적으로 전망함","meaning_ja":"物事の成り行きを明るく、うまくいくものとして考えること。","part_of_speech":"サ変名詞","example_ja":"売上が一時的に伸びたからといって、今後の市場を楽観しすぎるのは危険だ。","example_ko":"매출이 일시적으로 늘었다고 해서 앞으로의 시장을 지나치게 낙관하는 것은 위험하다."},
+    {"key":"n1-0662","word":"内臓","reading":"ないぞう","meaning_ko":"내장; 몸속 장기","meaning_ja":"胸部・腹部など体内にある器官の総称。","part_of_speech":"普通名詞","example_ja":"健康診断では血液検査だけでなく、内臓の状態も詳しく調べる。","example_ko":"건강검진에서는 혈액검사뿐 아니라 내장의 상태도 자세히 조사한다."},
+    {"key":"n1-0663","word":"反射","reading":"はんしゃ","meaning_ko":"반사; 반사 작용","meaning_ja":"光・音などが物体に当たって跳ね返ること。また、刺激に対し身体が無意識に反応すること。","part_of_speech":"サ変名詞","example_ja":"強い光が窓ガラスに反射して、画面が一時的に見えにくくなった。","example_ko":"강한 빛이 유리창에 반사되어 화면이 한때 보기 어려워졌다."},
+    {"key":"n1-0664","word":"潜入","reading":"せんにゅう","meaning_ko":"잠입; 몰래 들어감","meaning_ja":"人に知られないよう、ある場所・組織などへひそかに入り込むこと。","part_of_speech":"サ変名詞","example_ja":"記者は実態を調べるため、関係者として現場に潜入した。","example_ko":"기자는 실태를 조사하기 위해 관계자로 가장해 현장에 잠입했다."},
+    {"key":"n1-0665","word":"規約","reading":"きやく","meaning_ko":"규약; 운영 규칙","meaning_ja":"組織・サービスなどの構成員や利用者が守るべき規則をまとめたもの。","part_of_speech":"普通名詞","example_ja":"サービスを利用する前に、個人情報の扱いを定めた規約を確認してください。","example_ko":"서비스를 이용하기 전에 개인정보 취급을 정한 규약을 확인해 주세요."},
+    {"key":"n1-0666","word":"改訂","reading":"かいてい","meaning_ko":"개정; 내용 수정","meaning_ja":"書物・規程・資料などの内容を見直して修正すること。","part_of_speech":"サ変名詞","example_ja":"法改正に合わせて、社内規程と手順書を全面的に改訂した。","example_ko":"법 개정에 맞춰 사내 규정과 절차서를 전면 개정했다."},
+    {"key":"n1-0667","word":"出動","reading":"しゅつどう","meaning_ko":"출동","meaning_ja":"特定の任務・目的のために、人員や部隊などが現場へ向かうこと。","part_of_speech":"サ変名詞","example_ja":"通報を受けて消防隊が直ちに出動し、周辺住民を避難させた。","example_ko":"신고를 받고 소방대가 즉시 출동해 주변 주민을 대피시켰다."},
+    {"key":"n1-0668","word":"色彩","reading":"しきさい","meaning_ko":"색채; 색감; 사상적 성격","meaning_ja":"物の色や色の組み合わせ。また、比喩的に思想・性格などに表れる特徴。","part_of_speech":"普通名詞","example_ja":"この作品は鮮やかな色彩と強い社会批判の要素を併せ持っている。","example_ko":"이 작품은 선명한 색채와 강한 사회 비판 요소를 함께 지니고 있다."},
+    {"key":"n1-0669","word":"略奪","reading":"りゃくだつ","meaning_ko":"약탈; 강제로 빼앗음","meaning_ja":"暴力・権力などを用いて他人の財物を奪い取ること。","part_of_speech":"サ変名詞","example_ja":"戦乱の混乱に乗じた略奪を防ぐため、警備が強化された。","example_ko":"전란의 혼란을 틈탄 약탈을 막기 위해 경비가 강화되었다."},
+    {"key":"n1-0670","word":"選考","reading":"せんこう","meaning_ko":"전형; 심사하여 선발함","meaning_ja":"応募者・作品などを基準に照らして審査し、適切なものを選ぶこと。","part_of_speech":"サ変名詞","example_ja":"書類選考を通過した応募者だけが、次の面接に進むことができる。","example_ko":"서류 전형을 통과한 지원자만 다음 면접으로 진행할 수 있다."},
+    {"key":"n1-0671","word":"国有","reading":"こくゆう","meaning_ko":"국유; 국가 소유","meaning_ja":"土地・企業・財産などを国家が所有していること。","part_of_speech":"普通名詞","example_ja":"国有地の一部を公共施設の建設用地として活用する案が示された。","example_ko":"국유지 일부를 공공시설 건설 부지로 활용하는 방안이 제시되었다."},
+    {"key":"n1-0672","word":"情緒","reading":"じょうしょ","meaning_ko":"정서; 감정의 분위기","meaning_ja":"人の心に生じるさまざまな感情。また、ある場所・作品などが持つ感情的な趣。","part_of_speech":"普通名詞","example_ja":"古い町並みには、近代的な都市にはない独特の情緒が残っている。","example_ko":"오래된 거리에는 현대 도시에는 없는 독특한 정서가 남아 있다."},
+    {"key":"n1-0673","word":"出品","reading":"しゅっぴん","meaning_ko":"출품; 상품을 내놓음","meaning_ja":"作品・商品などを展示会・競売・販売サイトなどに出すこと。","part_of_speech":"サ変名詞","example_ja":"若手作家が国際展に初めて作品を出品し、高い評価を得た。","example_ko":"젊은 작가가 국제전에 처음 작품을 출품해 높은 평가를 받았다."},
+    {"key":"n1-0674","word":"配分","reading":"はいぶん","meaning_ko":"배분; 몫을 나눔","meaning_ja":"資金・時間・人員などを一定の基準に従って分け、それぞれに割り当てること。","part_of_speech":"サ変名詞","example_ja":"限られた予算をどの事業にどう配分するかで議論が続いている。","example_ko":"한정된 예산을 어느 사업에 어떻게 배분할지를 두고 논의가 계속되고 있다."},
+    {"key":"n1-0675","word":"悲観","reading":"ひかん","meaning_ko":"비관; 부정적으로 전망함","meaning_ja":"物事の成り行きを悪い方向へ進むものとして考えること。","part_of_speech":"サ変名詞","example_ja":"短期的な数字だけを見て将来を悲観する必要はない。","example_ko":"단기적인 수치만 보고 미래를 비관할 필요는 없다."},
+    {"key":"n1-0676","word":"無茶","reading":"むちゃ","meaning_ko":"무리함; 터무니없음; 난폭함","meaning_ja":"道理に合わず、程度を超えて無理・乱暴であるさま。","part_of_speech":"な形容詞","example_ja":"納期を半分にするという無茶な要求には、根拠を示して断るべきだ。","example_ko":"납기를 절반으로 줄이라는 무리한 요구에는 근거를 제시해 거절해야 한다."},
+    {"key":"n1-0677","word":"公立","reading":"こうりつ","meaning_ko":"공립; 지방자치단체가 설립·운영함","meaning_ja":"地方公共団体などが設立・運営すること。また、その学校・施設。","part_of_speech":"普通名詞","example_ja":"この地域では公立病院が救急医療の中心的な役割を担っている。","example_ko":"이 지역에서는 공립병원이 응급의료의 중심 역할을 맡고 있다."},
+    {"key":"n1-0678","word":"合間","reading":"あいま","meaning_ko":"틈; 짬; 사이 시간","meaning_ja":"仕事・作業などが一区切りつく間の短い時間。","part_of_speech":"普通名詞","example_ja":"会議の合間を利用して、急ぎのメールだけ先に返信した。","example_ko":"회의 사이의 짬을 이용해 급한 메일만 먼저 답장했다."},
+    {"key":"n1-0679","word":"制約","reading":"せいやく","meaning_ko":"제약; 제한 조건","meaning_ja":"行動・設計・選択などの範囲を狭める条件や制限。","part_of_speech":"サ変名詞","example_ja":"予算と納期の制約があるため、すべての機能を同時に実装することはできない。","example_ko":"예산과 납기의 제약이 있어 모든 기능을 동시에 구현할 수는 없다."},
+    {"key":"n1-0680","word":"良質","reading":"りょうしつ","meaning_ko":"양질; 품질이 좋음","meaning_ja":"品質・内容などが優れていて良いさま。","part_of_speech":"な形容詞","example_ja":"良質な学習データを集めるには、量だけでなく内容の検証も欠かせない。","example_ko":"양질의 학습 데이터를 모으려면 양뿐 아니라 내용 검증도 빠뜨릴 수 없다."}
+  ]
+}
