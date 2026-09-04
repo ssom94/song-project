@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1201-1220",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Rare orthography and secondary readings are explicitly noted instead of silently teaching them as the everyday form.",
+  "words": [
+    {"key":"n1-1201","word":"愚か","reading":"おろか","meaning_ko":"어리석다; 미련하다","meaning_ja":"考えが浅く、判断・行動が賢明でないさま。","part_of_speech":"な形容詞","example_ja":"同じ失敗を原因も調べず繰り返すのは愚かなことだ。","example_ko":"같은 실수를 원인도 조사하지 않고 반복하는 것은 어리석은 일이다."},
+    {"key":"n1-1202","word":"市街","reading":"しがい","meaning_ko":"시가지; 도심의 건물이 밀집한 지역","meaning_ja":"建物・商店・道路などが集中している都市の区域。","part_of_speech":"普通名詞","example_ja":"駅を出ると、古い住宅地から近代的な市街へ景色が変わる。","example_ko":"역을 나오면 오래된 주택가에서 현대적인 시가지로 풍경이 바뀐다."},
+    {"key":"n1-1203","word":"専ら","reading":"もっぱら","meaning_ko":"주로; 오로지","meaning_ja":"ほとんどそれだけに集中しているさま。","part_of_speech":"副詞","example_ja":"最近は通勤時間をもっぱら資格試験の勉強に使っている。","example_ko":"최근에는 통근 시간을 주로 자격시험 공부에 쓰고 있다."},
+    {"key":"n1-1204","word":"溢れる","reading":"あふれる","meaning_ko":"넘치다; 가득하다","meaning_ja":"容器・場所などがいっぱいになって外へ出る。また、感情・活気などが非常に豊かに現れる。","part_of_speech":"一段動詞","example_ja":"会場は新しい技術への期待に溢れた参加者でいっぱいだった。","example_ko":"행사장은 새로운 기술에 대한 기대가 넘치는 참가자들로 가득했다."},
+    {"key":"n1-1205","word":"一向","reading":"ひたすら","meaning_ko":"오로지; 한결같이","meaning_ja":"他のことに気を取られず、一つのことだけに集中するさま。","part_of_speech":"副詞","example_ja":"彼は結果を気にせず、ひたすら研究を続けた。","example_ko":"그는 결과를 신경 쓰지 않고 오로지 연구를 계속했다.","note":"『一向』を『ひたすら』と読む表記は辞書にあるが、現代では通常『ひたすら』または『只管』と書く。『一向に～ない』の『一向』は通常『いっこう』。"},
+    {"key":"n1-1206","word":"爆弾","reading":"ばくだん","meaning_ko":"폭탄","meaning_ja":"爆薬を入れ、爆発によって大きな破壊力を生じさせる兵器・装置。","part_of_speech":"普通名詞","example_ja":"不審物が見つかり、爆弾処理班が現場を確認した。","example_ko":"수상한 물체가 발견되어 폭발물 처리반이 현장을 확인했다."},
+    {"key":"n1-1207","word":"用件","reading":"ようけん","meaning_ko":"용건; 볼일","meaning_ja":"人に会う・連絡するなどの目的となる事柄。","part_of_speech":"普通名詞","example_ja":"電話の用件を簡潔に伝えてから担当者につないでもらった。","example_ko":"전화 용건을 간단히 전달한 뒤 담당자에게 연결받았다."},
+    {"key":"n1-1208","word":"持続","reading":"じぞく","meaning_ko":"지속","meaning_ja":"ある状態・作用などが途切れずに続くこと。また、続けて保つこと。","part_of_speech":"サ変名詞","example_ja":"一時的な効果ではなく、持続可能な改善策が求められている。","example_ko":"일시적인 효과가 아니라 지속 가능한 개선책이 요구되고 있다."},
+    {"key":"n1-1209","word":"逃亡","reading":"とうぼう","meaning_ko":"도망; 도주","meaning_ja":"捕まること・責任などを避けるため、追われている場所から逃げること。","part_of_speech":"サ変名詞","example_ja":"容疑者は事件後に国外へ逃亡したとみられている。","example_ko":"용의자는 사건 후 국외로 도주한 것으로 보인다."},
+    {"key":"n1-1210","word":"攻め","reading":"せめ","meaning_ko":"공세; 공격","meaning_ja":"相手に対して積極的に攻撃すること。また、その姿勢・方法。","part_of_speech":"普通名詞","example_ja":"後半は守りより攻めを重視した戦術に切り替えた。","example_ko":"후반에는 수비보다 공격을 중시하는 전술로 전환했다."},
+    {"key":"n1-1211","word":"国産","reading":"こくさん","meaning_ko":"국산; 국내 생산","meaning_ja":"自国で生産・製造されたこと。また、その製品・産物。","part_of_speech":"普通名詞","example_ja":"この装置には国産の部品が多く使われている。","example_ko":"이 장치에는 국산 부품이 많이 사용되고 있다."},
+    {"key":"n1-1212","word":"貫く","reading":"つらぬく","meaning_ko":"관철하다; 끝까지 지키다; 꿰뚫다","meaning_ja":"物を端から端まで突き通す。また、信念・方針・態度などを最後まで変えずに守る。","part_of_speech":"五段動詞","example_ja":"周囲の反対があっても、彼は利用者優先の方針を貫いた。","example_ko":"주변의 반대가 있어도 그는 사용자 우선 방침을 끝까지 관철했다."},
+    {"key":"n1-1213","word":"浜辺","reading":"はまべ","meaning_ko":"해변; 바닷가","meaning_ja":"海と陸地が接する砂浜などの場所、その周辺。","part_of_speech":"普通名詞","example_ja":"早朝の浜辺を歩きながら、漂着したごみを拾った。","example_ko":"이른 아침 해변을 걸으며 떠밀려 온 쓰레기를 주웠다."},
+    {"key":"n1-1214","word":"打撃","reading":"だげき","meaning_ko":"타격; 큰 손해; 타격 행위","meaning_ja":"物を強く打つこと。野球で球を打つこと。また比喩的に、大きな損害・精神的影響を受けること。","part_of_speech":"普通名詞","example_ja":"主要取引先の撤退は会社の業績に大きな打撃を与えた。","example_ko":"주요 거래처의 철수는 회사 실적에 큰 타격을 주었다."},
+    {"key":"n1-1215","word":"受け継ぐ","reading":"うけつぐ","meaning_ko":"이어받다; 계승하다","meaning_ja":"前の世代・担当者などから、財産・伝統・技術・精神・仕事などを引き継ぐ。","part_of_speech":"五段動詞","example_ja":"若い職人が師匠から伝統的な技術を受け継いでいる。","example_ko":"젊은 장인이 스승에게서 전통 기술을 이어받고 있다."},
+    {"key":"n1-1216","word":"催す","reading":"もよおす","meaning_ko":"개최하다; 치르다; 느끼다","meaning_ja":"会・行事などを開く。また、眠気・吐き気などの感覚が起こる。","part_of_speech":"五段動詞","example_ja":"地域交流を目的とした催しを毎年秋に催している。","example_ko":"지역 교류를 목적으로 한 행사를 매년 가을 개최하고 있다."},
+    {"key":"n1-1217","word":"過労","reading":"かろう","meaning_ko":"과로","meaning_ja":"健康を損なうほど働きすぎること。また、それによる強い疲労。","part_of_speech":"普通名詞","example_ja":"過労を防ぐため、勤務時間と休暇取得状況を定期的に確認している。","example_ko":"과로를 막기 위해 근무 시간과 휴가 사용 현황을 정기적으로 확인하고 있다."},
+    {"key":"n1-1218","word":"改修","reading":"かいしゅう","meaning_ko":"개수; 보수; 수리 개선","meaning_ja":"建物・設備・システムなどの悪い部分を直し、機能・安全性などを改善すること。","part_of_speech":"サ変名詞","example_ja":"老朽化した設備の改修には数か月かかる見込みだ。","example_ko":"노후 설비 개수에는 몇 달이 걸릴 전망이다."},
+    {"key":"n1-1219","word":"云々","reading":"うんぬん","meaning_ko":"운운; 이러쿵저러쿵; 기타 등등","meaning_ja":"引用・説明などで、後の内容を省略して『など』の意を表す語。また、ある事柄についてあれこれ言うこと。","part_of_speech":"普通名詞","example_ja":"形式が古い云々という批判より、実際に使いにくい点を具体的に示してほしい。","example_ko":"형식이 낡았다느니 하는 비판보다 실제로 쓰기 불편한 점을 구체적으로 보여 주었으면 한다."},
+    {"key":"n1-1220","word":"絶望","reading":"ぜつぼう","meaning_ko":"절망","meaning_ja":"望みがなくなり、もう良い結果を期待できないと感じること。","part_of_speech":"サ変名詞","example_ja":"一度の失敗だけで絶望せず、原因を分析して次に生かすべきだ。","example_ko":"한 번의 실패만으로 절망하지 말고 원인을 분석해 다음에 활용해야 한다."}
+  ]
+}
