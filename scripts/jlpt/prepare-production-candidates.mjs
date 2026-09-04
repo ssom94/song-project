@@ -30,6 +30,45 @@ function pairKey(text, reading = '') {
   return `${normalize(text)}\u0000${normalize(reading)}`;
 }
 
+// The upstream historical N1 classification includes a small number of
+// elementary counters, affixes, particles and single-character morphemes.
+// They are valid JMdict entries, and frequency ranking strongly favors them,
+// but spending one of the fixed 3,000 production study slots on them lowers
+// the value of an N1-focused corpus. Keep this list identity-specific rather
+// than using a blanket one-character rule: advanced one-character lexemes can
+// still be valid N1 study targets.
+const LOW_VALUE_EXCLUDED_IDENTITIES = new Set([
+  ['的', 'てき'],
+  ['人', 'じん'],
+  ['第', 'だい'],
+  ['三', 'み'],
+  ['御', 'ご'],
+  ['前', 'ぜん'],
+  ['分', 'ふん'],
+  ['彼の', 'あの'],
+  ['歳', 'さい'],
+  ['さん', 'さん'],
+  ['商', 'しょう'],
+  ['部', 'ぶ'],
+  ['新', 'しん'],
+  ['権', 'けん'],
+  ['側', 'かわ'],
+  ['側', 'がわ'],
+  ['号', 'ごう'],
+  ['区', 'く'],
+  ['六', 'む'],
+  ['系', 'けい'],
+  ['店', 'てん'],
+  ['と', 'と'],
+  ['派', 'は'],
+  ['同', 'どう'],
+  ['面', 'おも'],
+  ['迚も', 'とても'],
+  ['制', 'せい'],
+  ['様', 'さま'],
+  ['高', 'たか'],
+].map(([word, reading]) => pairKey(word, reading)));
+
 function validJapaneseHeadword(text) {
   if (!text || text.length > 40) return false;
   if (/[\u0000-\u001f\u007f]/u.test(text)) return false;
@@ -138,6 +177,7 @@ for (const entry of rawN1) {
   else if (!validReading(reading)) reason = 'invalid_reading';
   else if (!meaningEn) reason = 'missing_english_gloss';
   else if (!id) reason = 'missing_jmdict_seq';
+  else if (LOW_VALUE_EXCLUDED_IDENTITIES.has(key)) reason = 'low_value_morpheme_or_elementary_form';
   if (reason) {
     rejected.push({ word, reading, jmdict_seq: id || null, reason });
     continue;
@@ -210,7 +250,7 @@ await fs.writeFile(path.join(OUT_DIR, 'n1-source-3000.json'), JSON.stringify({
   generatedAt: new Date().toISOString(),
   target: 3000,
   sourceCandidateCount: rawN1.length,
-  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only reading variants; prefer common JMdict matches and multi-corpus frequency evidence',
+  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only reading variants and known low-value elementary morphemes; prefer common JMdict matches and multi-corpus frequency evidence',
   candidates: selected,
 }, null, 2) + '\n');
 
