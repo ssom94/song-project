@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1141-1160",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Noisy cross-dictionary matches are discarded and unusual orthography is explicitly noted.",
+  "words": [
+    {"key":"n1-1141","word":"可哀想","reading":"かわいそう","meaning_ko":"불쌍하다; 가엾다","meaning_ja":"不幸・苦痛などにある人や動物を気の毒に思うさま。","part_of_speech":"な形容詞","example_ja":"事情を知らずに一方的に責めるのは、あまりにも可哀想だ。","example_ko":"사정을 모르고 일방적으로 나무라는 것은 너무 불쌍하다."},
+    {"key":"n1-1142","word":"振動","reading":"しんどう","meaning_ko":"진동","meaning_ja":"物体が一定の位置を中心に繰り返し揺れ動くこと。","part_of_speech":"サ変名詞","example_ja":"工事による振動が周辺の建物に影響していないか測定した。","example_ko":"공사로 인한 진동이 주변 건물에 영향을 주지 않는지 측정했다."},
+    {"key":"n1-1143","word":"振興","reading":"しんこう","meaning_ko":"진흥; 발전을 촉진함","meaning_ja":"産業・学術・文化などを盛んにし、発展させること。","part_of_speech":"サ変名詞","example_ja":"自治体は観光振興のため、地域資源を生かした企画を進めている。","example_ko":"지자체는 관광 진흥을 위해 지역 자원을 활용한 기획을 추진하고 있다."},
+    {"key":"n1-1144","word":"打","reading":"ダース","meaning_ko":"다스; 12개 한 묶음","meaning_ja":"十二個を一組として数える単位。通常はカタカナで『ダース』と書く。","part_of_speech":"その他","example_ja":"業務用の鉛筆を一打、つまり十二本まとめて注文した。","example_ko":"업무용 연필을 한 다스, 즉 12자루 한꺼번에 주문했다.","note":"『打』をダースと読む表記は非常にまれ。現代では通常『ダース』と表記する。"},
+    {"key":"n1-1145","word":"密か","reading":"ひそか","meaning_ko":"은밀하다; 남몰래","meaning_ja":"人に知られないように、こっそり行うさま。","part_of_speech":"な形容詞","example_ja":"彼は数年前から密かに独立の準備を進めていた。","example_ko":"그는 몇 년 전부터 남몰래 독립 준비를 진행하고 있었다."},
+    {"key":"n1-1146","word":"強める","reading":"つよめる","meaning_ko":"강화하다; 세게 하다","meaning_ja":"力・程度・影響・態度などを以前より強くする。","part_of_speech":"一段動詞","example_ja":"情報漏えいを防ぐため、アクセス制限をさらに強めた。","example_ko":"정보 유출을 막기 위해 접근 제한을 더욱 강화했다."},
+    {"key":"n1-1147","word":"手本","reading":"てほん","meaning_ko":"본보기; 모범; 견본","meaning_ja":"見習うべき例。また、字・絵・技術などをまねるための見本。","part_of_speech":"普通名詞","example_ja":"新人にはまず先輩の対応を手本にしてもらう。","example_ko":"신입에게는 우선 선배의 대응을 본보기로 삼게 한다."},
+    {"key":"n1-1148","word":"詐欺","reading":"さぎ","meaning_ko":"사기; 속임수","meaning_ja":"人をだまして金品・利益などを得ること。","part_of_speech":"普通名詞","example_ja":"不審な請求メールは詐欺の可能性があるため、リンクを開かないでください。","example_ko":"수상한 청구 메일은 사기일 가능성이 있으므로 링크를 열지 마세요."},
+    {"key":"n1-1149","word":"分散","reading":"ぶんさん","meaning_ko":"분산; 흩어짐","meaning_ja":"一か所に集中しているものを複数の場所・対象に分けること。また、分かれて散ること。","part_of_speech":"サ変名詞","example_ja":"障害の影響を小さくするため、処理を複数のサーバーに分散させている。","example_ko":"장애 영향을 줄이기 위해 처리를 여러 서버에 분산시키고 있다."},
+    {"key":"n1-1150","word":"衣装","reading":"いしょう","meaning_ko":"의상; 무대 의상","meaning_ja":"身につける衣服。特に、舞台・映画・式典などで目的に合わせて着る服。","part_of_speech":"普通名詞","example_ja":"時代劇の衣装は当時の資料を参考にして制作された。","example_ko":"시대극 의상은 당시 자료를 참고해 제작되었다."},
+    {"key":"n1-1151","word":"小売","reading":"こうり","meaning_ko":"소매","meaning_ja":"商品を最終的な消費者に少量ずつ販売すること。","part_of_speech":"サ変名詞","example_ja":"原材料価格の上昇が小売価格にも反映され始めた。","example_ko":"원재료 가격 상승이 소매 가격에도 반영되기 시작했다."},
+    {"key":"n1-1152","word":"赴任","reading":"ふにん","meaning_ko":"부임","meaning_ja":"任務・職務を命じられ、その勤務地へ行くこと。","part_of_speech":"サ変名詞","example_ja":"来月から大阪支社へ赴任することになった。","example_ko":"다음 달부터 오사카 지사로 부임하게 되었다."},
+    {"key":"n1-1153","word":"悪者","reading":"わるもの","meaning_ko":"악당; 나쁜 사람","meaning_ja":"悪いことをする人。また、周囲から悪い側の人物として扱われる人。","part_of_speech":"普通名詞","example_ja":"事情を単純化して、片方だけを悪者にするのは適切ではない。","example_ko":"사정을 단순화해 한쪽만 악당으로 모는 것은 적절하지 않다."},
+    {"key":"n1-1154","word":"添える","reading":"そえる","meaning_ko":"곁들이다; 덧붙이다; 붙이다","meaning_ja":"主となるもののそばに別のものを付け加える。言葉・品物・料理などを加える場合にもいう。","part_of_speech":"一段動詞","example_ja":"申請書には本人確認書類の写しを添えて提出してください。","example_ko":"신청서에는 본인 확인 서류 사본을 첨부해 제출해 주세요."},
+    {"key":"n1-1155","word":"申し込み","reading":"もうしこみ","meaning_ko":"신청; 접수","meaning_ja":"参加・契約・利用などを希望して、必要な手続きをすること。","part_of_speech":"普通名詞","example_ja":"研修への申し込みは今週金曜日で締め切られる。","example_ko":"연수 신청은 이번 주 금요일에 마감된다."},
+    {"key":"n1-1156","word":"済ます","reading":"すます","meaning_ko":"끝내다; 마치다; 간단히 때우다","meaning_ja":"するべきことを終える。また、必要なことを簡単な方法で間に合わせる。","part_of_speech":"五段動詞","example_ja":"午前中に用事を済ませ、午後は家で休むことにした。","example_ko":"오전에 볼일을 마치고 오후에는 집에서 쉬기로 했다."},
+    {"key":"n1-1157","word":"住","reading":"じゅう","meaning_ko":"주거; 생활하는 곳","meaning_ja":"住むこと、住居に関すること。特に『衣食住』などで生活の住居面を表す。","part_of_speech":"普通名詞","example_ja":"生活を考えるうえでは、衣食住の安定が基本になる。","example_ko":"생활을 생각할 때는 의식주의 안정이 기본이 된다.","note":"単独より『衣食住』などの形で使われることが多い。"},
+    {"key":"n1-1158","word":"好意","reading":"こうい","meaning_ko":"호의; 좋은 감정","meaning_ja":"相手を好ましく思う気持ち。また、親切にしようとする気持ち。","part_of_speech":"普通名詞","example_ja":"相手の好意に甘えすぎず、きちんと感謝を伝えたい。","example_ko":"상대의 호의에 너무 기대지 말고 제대로 감사를 전하고 싶다."},
+    {"key":"n1-1159","word":"反する","reading":"はんする","meaning_ko":"반하다; 어긋나다; 위반하다","meaning_ja":"方針・規則・期待・事実などと一致せず、反対の関係にある。","part_of_speech":"サ変動詞","example_ja":"個人情報を無断で公開する行為は社内規定に反する。","example_ko":"개인정보를 무단으로 공개하는 행위는 사내 규정에 위반된다."},
+    {"key":"n1-1160","word":"祈り","reading":"いのり","meaning_ko":"기도; 바람","meaning_ja":"神仏などに願いを伝えること。また、物事が望ましい結果になるよう強く願う気持ち。","part_of_speech":"普通名詞","example_ja":"式典では犠牲者への追悼と平和への祈りがささげられた。","example_ko":"식전에서는 희생자 추모와 평화를 위한 기도가 올려졌다."}
+  ]
+}
