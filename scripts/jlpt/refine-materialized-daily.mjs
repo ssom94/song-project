@@ -63,36 +63,37 @@ for (const file of listJson(DAILY_DIR)) {
   const value = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const day of value.days ?? []) {
     const dayIndex = globalDayIndex++;
+    const itemTag = `第${dayIndex + 1}回`;
 
     for (const question of day.grammarQuestions ?? []) {
       const context = grammarContexts.get(question.answer) ?? '状況と前後関係を十分に考え、最も自然な表現を選ぶ必要がある。';
-      question.prompt = `次の文の（　）に入る表現として最も適切なものを選びなさい。${context}`;
+      question.prompt = `${itemTag} 次の文の（　）に入る表現として最も適切なものを選びなさい。${context}`;
     }
 
     for (const set of day.readingSets ?? []) {
       const rawTitle = String(set.title ?? '');
       const theme = rawTitle.replace(/―第\d+日$/u, '').replace(/^第\d+日のテーマ[:：]?/u, '').trim() || '情報と判断';
       const setting = settings[Math.floor(dayIndex / 10) % settings.length];
-      set.title = `${theme}と判断の基準`;
+      set.title = `${theme}と判断の基準―${itemTag}`;
       set.passage = readingPassage(theme, setting);
       set.questions = [
         {
           sequence: 1,
-          prompt: `${setting}の取り組みについて、筆者が最も重視していることは何か。`,
+          prompt: `${itemTag} ${setting}の取り組みについて、筆者が最も重視していることは何か。`,
           options: ['選択の根拠を残し、結果を基に判断基準を更新すること', '最初に決めた方法を最後まで変えないこと', '常に多数派と同じ方法を選ぶこと', '短時間で結論を出すことだけを優先すること'],
           answer: '選択の根拠を残し、結果を基に判断基準を更新すること',
           explanation_ko: '필자는 선택의 근거를 남기고 결과를 토대로 판단 기준을 갱신하는 과정을 가장 중요하게 본다.',
         },
         {
           sequence: 2,
-          prompt: `${theme}を考える際、予想と異なる結果が出た場合に必要だと筆者が述べていることは何か。`,
+          prompt: `${itemTag} ${theme}を考える際、予想と異なる結果が出た場合に必要だと筆者が述べていることは何か。`,
           options: ['前提や情報のどこが不十分だったかを検討すること', '判断した人の責任だけを追及すること', '結果を記録せず次の方法をすぐ試すこと', '以前と同じ基準を必ず使い続けること'],
           answer: '前提や情報のどこが不十分だったかを検討すること',
           explanation_ko: '예상과 다른 결과가 나오면 사람을 탓하기보다 전제나 정보 중 무엇이 부족했는지 검토해야 한다고 설명한다.',
         },
         {
           sequence: 3,
-          prompt: `${setting}の事例から導かれる筆者の考えと合うものはどれか。`,
+          prompt: `${itemTag} ${setting}の事例から導かれる筆者の考えと合うものはどれか。`,
           options: ['一見遠回りな方法でも長期的には有効な場合がある', '便利な方法には問題が生じることはない', '意見が分かれたら理由を確認せず多数決だけで決めるべきだ', '失敗を完全に避けられない判断には価値がない'],
           answer: '一見遠回りな方法でも長期的には有効な場合がある',
           explanation_ko: '처음에는 비효율적으로 보인 방법도 장기적으로는 부담을 줄이는 등 더 효과적일 수 있다고 본문에서 설명한다.',
