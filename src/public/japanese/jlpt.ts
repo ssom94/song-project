@@ -3,8 +3,8 @@ import {
 	addDays,
 	daysBetween,
 	japanDateString,
-	loadJlptStudyPlan,
 } from '../../jlpt-study';
+import { loadJlptStudyPlanReadOnly } from '../../jlpt-study-read';
 
 interface CountRow { value: number; }
 interface StateCountRow { mastered: number; uncertain: number; unlearned: number; studied: number; }
@@ -73,7 +73,7 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 		if (!admin.adminId) return json({ ok: false, error: 'LEARNING_ADMIN_NOT_FOUND' }, 404);
 
 		// GET requests are intentionally read-only. Plan creation/repair belongs to write flows.
-		const plan = await loadJlptStudyPlan(env.song_project_db, admin.adminId);
+		const plan = await loadJlptStudyPlanReadOnly(env.song_project_db, admin.adminId);
 		if (!plan) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
 
 		const today = japanDateString();
