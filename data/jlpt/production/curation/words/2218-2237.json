@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2218-2237",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2218","word":"逸らす","reading":"そらす","meaning_ko":"돌리다; 피하다; 비껴가게 하다","meaning_ja":"視線・注意・方向などを別のほうへ向ける。","part_of_speech":"五段動詞","example_ja":"質問されると彼は視線を逸らした。","example_ko":"질문을 받자 그는 시선을 돌렸다."},
+    {"key":"n1-2219","word":"痛める","reading":"いためる","meaning_ko":"다치게 하다; 상하게 하다; 괴롭게 하다","meaning_ja":"体・心などを傷つけ、痛みや苦しみを与える。","part_of_speech":"一段動詞","example_ja":"重い荷物を持って腰を痛めた。","example_ko":"무거운 짐을 들다가 허리를 다쳤다.","note":"候補KRDICTの『버리다』は不自然なためJMdictの hurt/injure に合わせて補正。"},
+    {"key":"n1-2220","word":"ナンセンス","reading":"ナンセンス","meaning_ko":"난센스; 터무니없음","meaning_ja":"意味がなく、常識に合わないこと。","part_of_speech":"普通名詞・な形容詞","example_ja":"根拠のない噂を信じるのはナンセンスだ。","example_ko":"근거 없는 소문을 믿는 것은 터무니없다."},
+    {"key":"n1-2221","word":"思い付き","reading":"おもいつき","meaning_ko":"생각남; 착상; 즉흥적인 아이디어","meaning_ja":"ふと頭に浮かんだ考え・アイデア。","part_of_speech":"普通名詞","example_ja":"単なる思い付きではなく、十分に検討した案だ。","example_ko":"단순한 즉흥적 생각이 아니라 충분히 검토한 안이다."},
+    {"key":"n1-2222","word":"今晩は","reading":"こんばんは","meaning_ko":"안녕하세요(저녁 인사)","meaning_ja":"夕方から夜に人と会ったときの挨拶。","part_of_speech":"感動詞","example_ja":"こんばんは。今日は寒いですね。","example_ko":"안녕하세요. 오늘은 춥네요.","note":"現代では通常『こんばんは』と仮名で書く。"},
+    {"key":"n1-2223","word":"花壇","reading":"かだん","meaning_ko":"화단","meaning_ja":"花を植えるために区切って作った場所。","part_of_speech":"普通名詞","example_ja":"学校の花壇にチューリップを植えた。","example_ko":"학교 화단에 튤립을 심었다."},
+    {"key":"n1-2224","word":"振り出し","reading":"ふりだし","meaning_ko":"출발점; 처음; 원점","meaning_ja":"物事の出発点・最初の状態。","part_of_speech":"普通名詞","example_ja":"交渉が決裂して話は振り出しに戻った。","example_ko":"협상이 결렬되어 이야기는 원점으로 돌아갔다.","note":"『振出し』には手形を発行する意味もあるが、一般的な『出発点』を中心に整理。"},
+    {"key":"n1-2225","word":"破裂","reading":"はれつ","meaning_ko":"파열; 터짐","meaning_ja":"内側から強い力がかかって裂けたり破れたりすること。","part_of_speech":"サ変名詞","example_ja":"古いホースが水圧で破裂した。","example_ko":"낡은 호스가 수압으로 파열됐다."},
+    {"key":"n1-2226","word":"フェリー","reading":"フェリー","meaning_ko":"페리; 연락선","meaning_ja":"人・車などを海上で運ぶ定期船。","part_of_speech":"普通名詞","example_ja":"島まではフェリーで二時間かかる。","example_ko":"섬까지는 페리로 두 시간이 걸린다."},
+    {"key":"n1-2227","word":"盲点","reading":"もうてん","meaning_ko":"맹점; 미처 보지 못한 허점","meaning_ja":"注意が及ばず、見落としている点。","part_of_speech":"普通名詞","example_ja":"この計画には意外な盲点があった。","example_ko":"이 계획에는 뜻밖의 맹점이 있었다."},
+    {"key":"n1-2228","word":"躊躇う","reading":"ためらう","meaning_ko":"망설이다; 주저하다","meaning_ja":"決心がつかず、行動するのを迷う。","part_of_speech":"五段動詞","example_ja":"彼は答えるのを少しためらった。","example_ko":"그는 대답하기를 조금 망설였다.","note":"現代では通常『ためらう』と仮名で書くことが多い。"},
+    {"key":"n1-2229","word":"標語","reading":"ひょうご","meaning_ko":"표어; 슬로건","meaning_ja":"主張・目標などを短く分かりやすく表した言葉。","part_of_speech":"普通名詞","example_ja":"交通安全の標語を募集している。","example_ko":"교통안전 표어를 모집하고 있다."},
+    {"key":"n1-2230","word":"諮る","reading":"はかる","meaning_ko":"상의하다; 자문을 구하다","meaning_ja":"ある問題について人や機関に意見を求める。","part_of_speech":"五段動詞","example_ja":"重要な案件なので専門家に諮ることにした。","example_ko":"중요한 안건이라 전문가에게 자문을 구하기로 했다.","note":"同音の『図る・測る・計る』などとは別語。"},
+    {"key":"n1-2231","word":"備わる","reading":"そなわる","meaning_ko":"갖추어져 있다; 구비되다; 타고나다","meaning_ja":"必要な設備・能力・性質などがあらかじめ身についている。","part_of_speech":"五段動詞","example_ja":"この施設には最新の設備が備わっている。","example_ko":"이 시설에는 최신 설비가 갖춰져 있다.","note":"JMdictの endowed with / possess の意味を含め、設備だけでなく能力・性質にも使う。"},
+    {"key":"n1-2232","word":"月並み","reading":"つきなみ","meaning_ko":"평범함; 진부함; 매달 정례","meaning_ja":"ありふれていて平凡なさま。また、本来は毎月・月ごとの意味。","part_of_speech":"な形容詞・普通名詞","example_ja":"月並みな表現だが、健康が一番大切だ。","example_ko":"진부한 표현이지만 건강이 가장 중요하다."},
+    {"key":"n1-2233","word":"下調べ","reading":"したしらべ","meaning_ko":"사전 조사; 예비 조사","meaning_ja":"本格的に行う前に、必要な情報をあらかじめ調べること。","part_of_speech":"サ変名詞","example_ja":"旅行前に交通手段を下調べしておいた。","example_ko":"여행 전에 교통수단을 미리 조사해 두었다."},
+    {"key":"n1-2234","word":"がっくり","reading":"がっくり","meaning_ko":"풀이 죽어; 크게 실망하여; 푹","meaning_ja":"強く落胆するさま。また、力が抜けて頭や体を落とすさま。","part_of_speech":"副詞・サ変名詞","example_ja":"試験に落ちたと知って、彼はがっくり肩を落とした。","example_ko":"시험에 떨어졌다는 것을 알고 그는 크게 낙담했다.","note":"候補KRDICTは物理的『푹』に偏っていたためJMdictの heartbroken を中心に補正。"},
+    {"key":"n1-2235","word":"沈める","reading":"しずめる","meaning_ko":"가라앉히다; 침수시키다","meaning_ja":"水面などにある物を水中へ沈ませる。","part_of_speech":"一段動詞","example_ja":"重りを付けて網を海中に沈めた。","example_ko":"추를 달아 그물을 바닷속에 가라앉혔다."},
+    {"key":"n1-2236","word":"咎める","reading":"とがめる","meaning_ko":"나무라다; 책망하다; 문제 삼다","meaning_ja":"過ち・失敗などを責める。また、傷などの状態が悪くなる意味もある。","part_of_speech":"一段動詞","example_ja":"小さな失敗を必要以上に咎めるべきではない。","example_ko":"작은 실수를 필요 이상으로 나무라서는 안 된다."},
+    {"key":"n1-2237","word":"慣らす","reading":"ならす","meaning_ko":"익숙하게 하다; 적응시키다; 길들이다","meaning_ja":"人・動物・物などをある環境・使用状態に慣れさせる。","part_of_speech":"五段動詞","example_ja":"新しい靴は少しずつ履いて足に慣らしたほうがいい。","example_ko":"새 신발은 조금씩 신어 발에 익숙하게 하는 것이 좋다."}
+  ]
+}
