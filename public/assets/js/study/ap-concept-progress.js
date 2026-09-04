@@ -4,6 +4,8 @@
   const t = (ko, ja) => lang === 'ja' ? ja : ko;
   const params = new URLSearchParams(location.search);
   const code = (params.get('code') || params.get('no') || '').trim().toUpperCase();
+  let cachedConcepts = [];
+  let conceptsPromise = null;
 
   function injectStyle() {
     if (document.getElementById('ap-concept-progress-style')) return;
@@ -24,8 +26,8 @@
       .ap-today-concept-progress h3{margin:0 0 9px;font-size:15px}
       .ap-today-concept-progress-list{display:grid;gap:7px}
       .ap-today-concept-progress-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:9px;background:#fff;border:1px solid #e2e7ed;font-size:12px}
-      .ap-today-concept-progress-row strong{font-size:12px}
-      @media(max-width:640px){.ap-concept-progress-summary{grid-template-columns:1fr}.ap-type-study-check{margin-left:0}.ap-concept-progress-summary strong{font-size:18px}}
+      .ap-today-concept-progress-row strong{font-size:12px;text-align:right}
+      @media(max-width:640px){.ap-concept-progress-summary{grid-template-columns:1fr}.ap-type-study-check{margin-left:0}.ap-concept-progress-summary strong{font-size:18px}.ap-today-concept-progress-row{align-items:flex-start;flex-direction:column}.ap-today-concept-progress-row strong{text-align:left}}
     `;
     document.head.appendChild(style);
   }
@@ -60,10 +62,17 @@
   }
 
   async function loadConcepts() {
-    const response = await fetch('/api/public/ap/concepts', { cache: 'no-store', headers: { Accept: 'application/json' } });
-    const data = await response.json().catch(() => null);
-    if (!response.ok || !data?.ok) throw new Error(data?.error || `HTTP_${response.status}`);
-    return data.concepts || [];
+    if (cachedConcepts.length) return cachedConcepts;
+    if (!conceptsPromise) {
+      conceptsPromise = fetch('/api/public/ap/concepts', { cache: 'no-store', headers: { Accept: 'application/json' } })
+        .then(async (response) => {
+          const data = await response.json().catch(() => null);
+          if (!response.ok || !data?.ok) throw new Error(data?.error || `HTTP_${response.status}`);
+          cachedConcepts = data.concepts || [];
+          return cachedConcepts;
+        });
+    }
+    return conceptsPromise;
   }
 
   function addSummary(concepts) {
@@ -79,7 +88,7 @@
     }
     const totalTypes = concepts.reduce((sum, c) => sum + Number(c.problemTypeCount || 0), 0);
     const doneTypes = concepts.reduce((sum, c) => sum + completedCount(c.code, Number(c.problemTypeCount || 0)), 0);
-    const totalConcepts = concepts.filter((c) => Number(c.problemTypeCount || 0) > 0).length;
+    const totalConcepts = concepts.length;
     const doneConcepts = concepts.filter((c) => {
       const total = Number(c.problemTypeCount || 0);
       return total > 0 && completedCount(c.code, total) >= total;
@@ -140,54 +149,73 @@
     return true;
   }
 
-  const topicUnits = {
-    fundamentals_math: ['기초이론'], computer_architecture: ['컴퓨터구성'], operating_system: ['OS'],
-    programming_algorithms: ['알고리즘','프로그래밍'], database: ['데이터베이스'], network: ['네트워크'], security: ['보안','정보보안'],
-    system_development: ['개발','시스템개발'], system_performance: ['시스템','시스템구성'], project_management: ['PM'],
-    service_management: ['서비스관리'], system_audit: ['감사'], system_strategy: ['전략'], business_strategy: ['전략','전략·경영'], accounting_legal: ['회계','법무']
-  };
+  const titleGroups = [
+    { keys:['기초이론','基礎理論'], units:['기초이론'] },
+    { keys:['컴퓨터 구조','コンピュータ構成','ハードウェア'], units:['컴퓨터구성'] },
+    { keys:['OS','プロセス・メモリ'], units:['OS'] },
+    { keys:['프로그래밍','알고리즘','プログラミング','アルゴリズム'], units:['알고리즘','프로그래밍'] },
+    { keys:['데이터베이스','データベース'], units:['데이터베이스'] },
+    { keys:['네트워크','ネットワーク'], units:['네트워크'] },
+    { keys:['정보보안','보안','セキュリティ'], units:['보안','정보보안'] },
+    { keys:['정보시스템 개발','시스템 개발','システム開発'], units:['개발','시스템개발'] },
+    { keys:['시스템 성능','신뢰성','システム性能','信頼性'], units:['시스템','시스템구성'] },
+    { keys:['프로젝트','プロジェクト'], units:['PM'] },
+    { keys:['서비스','サービス'], units:['서비스관리'] },
+    { keys:['감사','監査'], units:['감사'] },
+    { keys:['경영전략','마케팅','経営戦略','マーケティング'], units:['전략','전략·경영'] },
+    { keys:['시스템 전략','기획','システム戦略','企画'], units:['전략'] },
+    { keys:['회계','법무','표준','会計','法務','標準'], units:['회계','법무'] }
+  ];
 
-  async function decorateToday(concepts) {
+  function todayGroupsFromDom() {
+    const cards = [...document.querySelectorAll('#ap-today-items .ap-today-item')];
+    const groups = [];
+    cards.forEach((card) => {
+      const title = card.querySelector('.ap-item-main strong')?.textContent || '';
+      const match = titleGroups.find((group) => group.keys.some((key) => title.includes(key)));
+      if (!match) return;
+      const signature = match.units.join('|');
+      if (!groups.some((g) => g.signature === signature)) groups.push({ signature, title, units: match.units });
+    });
+    return groups;
+  }
+
+  function decorateToday(concepts) {
     const todayItems = document.getElementById('ap-today-items');
     if (!todayItems) return;
-    let dashboard;
-    try {
-      const response = await fetch('/api/public/ap/dashboard', { cache: 'no-store', credentials: 'same-origin' });
-      dashboard = await response.json();
-    } catch { return; }
-    if (!dashboard?.ok || !Array.isArray(dashboard.today?.items) || !dashboard.today.items.length) return;
-    const codes = [...new Set(dashboard.today.items.map((item) => item.topic_code).filter(Boolean))];
-    if (!codes.length) return;
+    const groups = todayGroupsFromDom();
     let box = document.getElementById('ap-today-concept-progress');
+    if (!groups.length) {
+      box?.remove();
+      return;
+    }
     if (!box) {
       box = document.createElement('section');
       box.id = 'ap-today-concept-progress';
       box.className = 'ap-today-concept-progress';
       todayItems.before(box);
     }
-    const rows = [];
-    for (const topicCode of codes) {
-      const units = topicUnits[topicCode] || [];
-      const related = concepts.filter((c) => units.includes(c.unitKo));
+    const rows = groups.map((group) => {
+      const related = concepts.filter((c) => group.units.includes(c.unitKo));
       const total = related.reduce((sum, c) => sum + Number(c.problemTypeCount || 0), 0);
       const done = related.reduce((sum, c) => sum + completedCount(c.code, Number(c.problemTypeCount || 0)), 0);
-      const item = dashboard.today.items.find((x) => x.topic_code === topicCode);
-      const title = lang === 'ja' ? item?.topic_title_ja : item?.topic_title_ko;
-      if (total > 0) rows.push(`<div class="ap-today-concept-progress-row"><span>${String(title || topicCode)}</span><strong>${t('문제유형','問題タイプ')} ${total} / ${t('학습완료','学習完了')} ${done}</strong></div>`);
-    }
+      return total > 0 ? `<div class="ap-today-concept-progress-row"><span>${group.title}</span><strong>${t('문제유형','問題タイプ')} ${total} / ${t('학습완료','学習完了')} ${done}</strong></div>` : '';
+    }).filter(Boolean);
     if (!rows.length) { box.remove(); return; }
     box.innerHTML = `<h3>${t('오늘의 개념별 진척상황','今日の概念別進捗')}</h3><div class="ap-today-concept-progress-list">${rows.join('')}</div>`;
   }
 
+  function renderLocalProgress() {
+    if (!cachedConcepts.length) return;
+    decorateList(cachedConcepts);
+    decorateToday(cachedConcepts);
+    decorateProblemTypes();
+  }
+
   async function refresh() {
     injectStyle();
-    let concepts = [];
-    try { concepts = await loadConcepts(); } catch (error) { console.error('Failed to load AP concept progress metadata', error); }
-    if (concepts.length) {
-      decorateList(concepts);
-      decorateToday(concepts);
-    }
-    decorateProblemTypes();
+    try { await loadConcepts(); } catch (error) { console.error('Failed to load AP concept progress metadata', error); }
+    renderLocalProgress();
   }
 
   function init() {
@@ -196,12 +224,10 @@
     let timer = 0;
     new MutationObserver(() => {
       clearTimeout(timer);
-      timer = window.setTimeout(() => {
-        if (code) decorateProblemTypes();
-      }, 60);
+      timer = window.setTimeout(renderLocalProgress, 80);
     }).observe(root, { childList: true, subtree: true });
-    window.addEventListener('ap-concept-progress-change', refresh);
-    window.addEventListener('storage', (event) => { if (event.key === STORAGE_KEY) refresh(); });
+    window.addEventListener('ap-concept-progress-change', renderLocalProgress);
+    window.addEventListener('storage', (event) => { if (event.key === STORAGE_KEY) renderLocalProgress(); });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
