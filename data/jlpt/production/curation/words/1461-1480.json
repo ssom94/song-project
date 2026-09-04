@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1461-1480",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1461","word":"模索","reading":"もさく","meaning_ko":"모색; 해결책을 찾아봄","meaning_ja":"はっきりした答えがない中で、方法・方向・解決策などを試しながら探すこと。","part_of_speech":"サ変名詞","example_ja":"会社は新しい収益モデルを模索している。","example_ko":"회사는 새로운 수익 모델을 모색하고 있다."},
+    {"key":"n1-1462","word":"操縦","reading":"そうじゅう","meaning_ko":"조종; 운전","meaning_ja":"航空機・船・大型機械などを操作して、思いどおりに動かすこと。","part_of_speech":"サ変名詞","example_ja":"悪天候の中で機体を安全に操縦するには高度な技術が必要だ。","example_ko":"악천후 속에서 기체를 안전하게 조종하려면 고도의 기술이 필요하다."},
+    {"key":"n1-1463","word":"禁物","reading":"きんもつ","meaning_ko":"금물; 해서는 안 되는 것","meaning_ja":"ある状況で避けるべきこと、してはいけないこと。","part_of_speech":"普通名詞","example_ja":"体調が悪い時に無理をするのは禁物だ。","example_ko":"몸 상태가 좋지 않을 때 무리하는 것은 금물이다."},
+    {"key":"n1-1464","word":"突如","reading":"とつじょ","meaning_ko":"돌연; 갑자기","meaning_ja":"予期しない出来事が、前触れなく急に起こるさま。","part_of_speech":"副詞","example_ja":"晴れていた空が突如暗くなり、激しい雨が降り始めた。","example_ko":"맑던 하늘이 돌연 어두워지며 강한 비가 내리기 시작했다."},
+    {"key":"n1-1465","word":"出血","reading":"しゅっけつ","meaning_ko":"출혈","meaning_ja":"血管が傷つくなどして、血液が血管の外へ流れ出ること。","part_of_speech":"サ変名詞","example_ja":"出血が止まらない場合は、すぐに医療機関を受診してください。","example_ko":"출혈이 멈추지 않을 경우 즉시 의료기관을 방문해 주세요."},
+    {"key":"n1-1466","word":"同級","reading":"どうきゅう","meaning_ko":"동급; 같은 학년·등급","meaning_ja":"同じ学年・級・等級であること。","part_of_speech":"普通名詞","example_ja":"彼とは高校で同級だったが、卒業後は別の道に進んだ。","example_ko":"그와는 고등학교에서 같은 학년이었지만 졸업 후에는 다른 길로 갔다."},
+    {"key":"n1-1467","word":"定まる","reading":"さだまる","meaning_ko":"정해지다; 확정되다","meaning_ja":"方針・位置・基準・予定などがはっきり決まり、変わらない状態になる。","part_of_speech":"五段動詞","example_ja":"仕様が定まらないまま開発を始めると、後で大きな手戻りが発生する。","example_ko":"사양이 확정되지 않은 채 개발을 시작하면 나중에 큰 재작업이 발생한다."},
+    {"key":"n1-1468","word":"誘惑","reading":"ゆうわく","meaning_ko":"유혹; 꾐","meaning_ja":"魅力的な言葉・利益・欲望などによって、相手の心を引きつけ行動を促すこと。","part_of_speech":"サ変名詞","example_ja":"短期的な利益の誘惑に負けず、長期的な安全性を優先すべきだ。","example_ko":"단기 이익의 유혹에 넘어가지 말고 장기적인 안전성을 우선해야 한다."},
+    {"key":"n1-1469","word":"暴露","reading":"ばくろ","meaning_ko":"폭로; 숨겨진 사실을 드러냄","meaning_ja":"秘密・不正・隠されていた事実などを明るみに出して公に知らせること。","part_of_speech":"サ変名詞","example_ja":"内部資料の暴露をきっかけに、不正会計の疑惑が広がった。","example_ko":"내부 자료 폭로를 계기로 분식회계 의혹이 확산됐다."},
+    {"key":"n1-1470","word":"頑丈","reading":"がんじょう","meaning_ko":"튼튼함; 견고함","meaning_ja":"物の作りが丈夫で壊れにくいさま。また、体が強く健康なさま。","part_of_speech":"な形容詞","example_ja":"屋外で使う装置なので、雨や衝撃に耐える頑丈なケースを選んだ。","example_ko":"야외에서 사용하는 장치라 비와 충격을 견디는 튼튼한 케이스를 골랐다."},
+    {"key":"n1-1471","word":"原形","reading":"げんけい","meaning_ko":"원형; 본래의 형태","meaning_ja":"変化・加工される前の、もとの形。","part_of_speech":"普通名詞","example_ja":"建物は何度も改修され、現在では原形をほとんど残していない。","example_ko":"건물은 여러 차례 개수되어 현재는 원형을 거의 남기지 않고 있다."},
+    {"key":"n1-1472","word":"内乱","reading":"ないらん","meaning_ko":"내란; 국내의 무력 충돌","meaning_ja":"一つの国内で、政府・勢力・集団同士が武力を用いて争う大規模な紛争。","part_of_speech":"普通名詞","example_ja":"長期化した内乱によって、多くの住民が国外へ避難した。","example_ko":"장기화된 내란으로 많은 주민이 국외로 피난했다."},
+    {"key":"n1-1473","word":"荒廃","reading":"こうはい","meaning_ko":"황폐; 피폐","meaning_ja":"土地・建物・社会・生活などが荒れ、機能や活力を失った状態になること。","part_of_speech":"サ変名詞","example_ja":"人口流出が続き、中心街の荒廃が深刻な問題になっている。","example_ko":"인구 유출이 계속돼 중심가의 황폐화가 심각한 문제가 되고 있다."},
+    {"key":"n1-1474","word":"乗り込む","reading":"のりこむ","meaning_ko":"올라타다; 들어가다; 현장에 직접 들어가다","meaning_ja":"乗り物の中へ入って乗る。また、勢いよく特定の場所へ入っていく。","part_of_speech":"五段動詞","example_ja":"調査チームは早朝に現地へ乗り込み、設備の確認を始めた。","example_ko":"조사팀은 이른 아침 현장에 들어가 설비 확인을 시작했다."},
+    {"key":"n1-1475","word":"でかい","reading":"でかい","meaning_ko":"크다; 엄청나다","meaning_ja":"大きい、非常に大きいという意味のくだけた言い方。","part_of_speech":"い形容詞","example_ja":"思ったよりでかい荷物が届いて、置き場所に困った。","example_ko":"생각보다 큰 짐이 도착해 둘 곳이 마땅치 않았다.","note":"口語的・くだけた表現。改まった場面では『大きい』などを用いる。"},
+    {"key":"n1-1476","word":"円滑","reading":"えんかつ","meaning_ko":"원활함; 순조로움","meaning_ja":"物事が滞ったり対立したりせず、滑らかに進むさま。","part_of_speech":"な形容詞","example_ja":"部門間の情報共有を改善し、業務を円滑に進められるようにした。","example_ko":"부서 간 정보 공유를 개선해 업무를 원활하게 진행할 수 있도록 했다."},
+    {"key":"n1-1477","word":"富む","reading":"とむ","meaning_ko":"풍부하다; 많이 지니다","meaning_ja":"財産・資源・才能・変化などを豊かに持っている。","part_of_speech":"五段動詞","example_ja":"この地域は自然に富み、四季を通じて多くの観光客が訪れる。","example_ko":"이 지역은 자연이 풍부해 사계절 내내 많은 관광객이 찾는다."},
+    {"key":"n1-1478","word":"打ち込む","reading":"うちこむ","meaning_ko":"박아 넣다; 몰두하다; 전념하다","meaning_ja":"物を強く打って中へ入れる。また、仕事・研究・趣味など一つのことに集中して取り組む。","part_of_speech":"五段動詞","example_ja":"彼は仕事の後も毎日二時間、資格試験の勉強に打ち込んでいる。","example_ko":"그는 퇴근 후에도 매일 두 시간 자격시험 공부에 몰두하고 있다."},
+    {"key":"n1-1479","word":"普遍","reading":"ふへん","meaning_ko":"보편; 널리 공통됨","meaning_ja":"特定の時代・場所・人に限らず、広く共通して成り立つこと。","part_of_speech":"普通名詞","example_ja":"安全を重視する姿勢は、業界を問わず普遍的な価値だ。","example_ko":"안전을 중시하는 자세는 업계를 불문하고 보편적인 가치다."},
+    {"key":"n1-1480","word":"見合い","reading":"みあい","meaning_ko":"맞선; 중매를 통한 만남","meaning_ja":"結婚相手を探す目的で、第三者の紹介によって男女が会うこと。","part_of_speech":"普通名詞","example_ja":"祖父母は親戚の紹介で見合いをし、その後結婚したそうだ。","example_ko":"조부모님은 친척 소개로 맞선을 보고 그 후 결혼했다고 한다."}
+  ]
+}
