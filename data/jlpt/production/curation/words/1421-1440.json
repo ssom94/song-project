@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1421-1440",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage and orthographic caveats are noted.",
+  "words": [
+    {"key":"n1-1421","word":"未熟","reading":"みじゅく","meaning_ko":"미숙함; 미성숙","meaning_ja":"経験・技術・精神などがまだ十分に発達しておらず、不十分なさま。","part_of_speech":"な形容詞","example_ja":"まだ未熟な点は多いが、経験を積みながら改善していきたい。","example_ko":"아직 미숙한 점이 많지만 경험을 쌓으며 개선해 가고 싶다."},
+    {"key":"n1-1422","word":"明かす","reading":"あかす","meaning_ko":"밝히다; 털어놓다; 밤을 새우다","meaning_ja":"秘密・原因・真相などを人に知らせて明らかにする。また、眠らず夜を過ごす。","part_of_speech":"五段動詞","example_ja":"調査委員会は事故の原因を明かすため、関係者への聞き取りを続けた。","example_ko":"조사위원회는 사고 원인을 밝히기 위해 관계자 면담을 계속했다."},
+    {"key":"n1-1423","word":"潜る","reading":"くぐる","meaning_ko":"아래를 빠져나가다; 통과하다; 헤쳐 나가다","meaning_ja":"門・橋・障害物などの下や間を通り抜ける。また、困難・危険な状況を経験しながら切り抜ける。","part_of_speech":"五段動詞","example_ja":"低い門をくぐると、静かな庭が広がっていた。","example_ko":"낮은 문 아래를 지나가자 조용한 정원이 펼쳐졌다.","note":"同じ表記で『もぐる』と読む場合は、水中・内部に入る意味が中心。"},
+    {"key":"n1-1424","word":"望ましい","reading":"のぞましい","meaning_ko":"바람직하다; 이상적이다","meaning_ja":"そうなることが好ましく、理想的・適切だと思われる。","part_of_speech":"い形容詞","example_ja":"重要な変更は本番直前ではなく、十分な検証期間を取って行うのが望ましい。","example_ko":"중요한 변경은 운영 직전이 아니라 충분한 검증 기간을 확보해 실시하는 것이 바람직하다."},
+    {"key":"n1-1425","word":"下地","reading":"したじ","meaning_ko":"밑바탕; 기초; 소질","meaning_ja":"物を仕上げる前の基礎となる面・材料。また比喩的に、能力・知識・状況などの基礎。","part_of_speech":"普通名詞","example_ja":"大学で学んだ統計の知識が、現在の分析業務の下地になっている。","example_ko":"대학에서 배운 통계 지식이 현재 분석 업무의 밑바탕이 되고 있다."},
+    {"key":"n1-1426","word":"目覚める","reading":"めざめる","meaning_ko":"잠에서 깨다; 눈뜨다; 자각하다","meaning_ja":"眠りから覚める。また、今まで意識していなかった価値・思想・能力などに気づく。","part_of_speech":"一段動詞","example_ja":"海外生活をきっかけに、彼は異文化研究への関心に目覚めた。","example_ko":"해외 생활을 계기로 그는 이문화 연구에 대한 관심에 눈떴다."},
+    {"key":"n1-1427","word":"今更","reading":"いまさら","meaning_ko":"이제 와서; 새삼","meaning_ja":"すでに時期が遅い今になって。また、以前から分かっていたことを改めて感じるさま。","part_of_speech":"副詞","example_ja":"締切を過ぎてから今更条件を変えるのは難しい。","example_ko":"마감이 지난 뒤 이제 와서 조건을 바꾸기는 어렵다."},
+    {"key":"n1-1428","word":"手分け","reading":"てわけ","meaning_ko":"분담; 일을 나누어 맡음","meaning_ja":"複数の人が仕事・範囲などを分け、それぞれ担当して進めること。","part_of_speech":"サ変名詞","example_ja":"時間がないので、資料確認と会場準備を手分けして進めよう。","example_ko":"시간이 없으니 자료 확인과 행사장 준비를 나누어 진행하자."},
+    {"key":"n1-1429","word":"ニュアンス","reading":"ニュアンス","meaning_ko":"뉘앙스; 미묘한 어감·느낌","meaning_ja":"言葉・表現・色・音などが持つ、はっきり言い切れない微妙な意味・感じの違い。","part_of_speech":"普通名詞","example_ja":"同じ意味の単語でも、文脈によってニュアンスが少し異なる。","example_ko":"같은 의미의 단어라도 문맥에 따라 뉘앙스가 조금 다르다."},
+    {"key":"n1-1430","word":"捕虜","reading":"ほりょ","meaning_ko":"포로; 전쟁 포로","meaning_ja":"戦争・戦闘で敵側に捕らえられ、拘束された兵士など。","part_of_speech":"普通名詞","example_ja":"条約では捕虜の人道的な取り扱いについて定めている。","example_ko":"조약에서는 포로의 인도적인 처우에 대해 정하고 있다."},
+    {"key":"n1-1431","word":"滑稽","reading":"こっけい","meaning_ko":"우스꽝스러움; 익살스러움","meaning_ja":"言動・状況などがおかしく、思わず笑いたくなるさま。","part_of_speech":"な形容詞","example_ja":"本人は真剣だったが、周囲から見ると少し滑稽な光景だった。","example_ko":"본인은 진지했지만 주변에서 보면 조금 우스꽝스러운 광경이었다."},
+    {"key":"n1-1432","word":"雑貨","reading":"ざっか","meaning_ko":"잡화; 생활 소품","meaning_ja":"文房具・台所用品・装飾品など、日常生活で使うさまざまな小物・商品。","part_of_speech":"普通名詞","example_ja":"駅前に食品と雑貨を扱う小さな店が開店した。","example_ko":"역 앞에 식품과 잡화를 취급하는 작은 가게가 문을 열었다."},
+    {"key":"n1-1433","word":"形勢","reading":"けいせい","meaning_ko":"형세; 판세; 세력 관계","meaning_ja":"争い・競争・交渉などで、その時点における双方の力関係や状況。","part_of_speech":"普通名詞","example_ja":"後半に入ってから試合の形勢が一気に逆転した。","example_ko":"후반에 들어서 경기의 판세가 단숨에 뒤집혔다."},
+    {"key":"n1-1434","word":"水田","reading":"すいでん","meaning_ko":"논; 수전","meaning_ja":"水を張って稲などを栽培する田。","part_of_speech":"普通名詞","example_ja":"平野には水田が広がり、夏には一面が鮮やかな緑になる。","example_ko":"평야에는 논이 펼쳐져 여름이면 온통 선명한 초록빛이 된다."},
+    {"key":"n1-1435","word":"雨天","reading":"うてん","meaning_ko":"우천; 비 오는 날씨","meaning_ja":"雨が降っている天候。","part_of_speech":"普通名詞","example_ja":"屋外イベントは雨天の場合、体育館で実施します。","example_ko":"야외 행사는 우천 시 체육관에서 실시합니다."},
+    {"key":"n1-1436","word":"奮闘","reading":"ふんとう","meaning_ko":"분투; 힘껏 노력함","meaning_ja":"困難な状況や強い相手に対し、力いっぱい努力して立ち向かうこと。","part_of_speech":"サ変名詞","example_ja":"少人数のチームが短い納期に間に合わせるため奮闘した。","example_ko":"소수 인원의 팀이 짧은 납기를 맞추기 위해 분투했다."},
+    {"key":"n1-1437","word":"水源","reading":"すいげん","meaning_ko":"수원; 물의 근원","meaning_ja":"川・湖・地下水など、水が供給される源となる場所。","part_of_speech":"普通名詞","example_ja":"森林を守ることは地域の水源を保全することにもつながる。","example_ko":"산림을 보호하는 것은 지역의 수원을 보전하는 것으로도 이어진다."},
+    {"key":"n1-1438","word":"取り除く","reading":"とりのぞく","meaning_ko":"제거하다; 없애다","meaning_ja":"不要・有害・邪魔な物を、その場所や対象から取り去る。","part_of_speech":"五段動詞","example_ja":"データから重複した行を取り除いてから集計を行った。","example_ko":"데이터에서 중복된 행을 제거한 뒤 집계를 실시했다."},
+    {"key":"n1-1439","word":"巧み","reading":"たくみ","meaning_ko":"능숙함; 교묘함","meaning_ja":"技術・表現・方法などが非常に上手で、工夫されているさま。","part_of_speech":"な形容詞","example_ja":"作者は巧みな構成で読者の関心を最後まで引きつける。","example_ko":"작가는 능숙한 구성으로 독자의 관심을 끝까지 끌어당긴다."},
+    {"key":"n1-1440","word":"獣","reading":"けだもの","meaning_ko":"짐승; 야수; 비유적으로 인간답지 못한 사람","meaning_ja":"人間以外の獣類。比喩的に、人間らしい思いやりを欠く者を強く非難していうこともある。","part_of_speech":"普通名詞","example_ja":"物語では人間の姿をした獣が森の奥に住んでいると語られる。","example_ko":"이야기에서는 인간의 모습을 한 짐승이 숲 깊숙한 곳에 산다고 전해진다.","note":"人に対して使う場合は非常に強い侮蔑表現になる。"}
+  ]
+}
