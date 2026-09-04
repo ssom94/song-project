@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2378-2397",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2378","word":"タイムリー","reading":"タイムリー","meaning_ko":"시기적절한; 적시에 맞는","meaning_ja":"時機に合っていて、ちょうどよいさま。","part_of_speech":"な形容詞","example_ja":"今の状況に合ったタイムリーな話題だった。","example_ko":"지금 상황에 맞는 시기적절한 화제였다.","note":"野球では『タイムリーヒット』の意味でも使う。"},
+    {"key":"n1-2379","word":"鬱陶しい","reading":"うっとうしい","meaning_ko":"답답하다; 우울하고 성가시다; 후덥지근하고 꿉꿉하다","meaning_ja":"気分が重く晴れない。また、天候などがじめじめして不快である。","part_of_speech":"い形容詞","example_ja":"雨の日が続いて、なんとなく鬱陶しい気分だ。","example_ko":"비 오는 날이 계속되어 왠지 답답한 기분이다."},
+    {"key":"n1-2380","word":"ちょくちょく","reading":"ちょくちょく","meaning_ko":"자주; 종종; 때때로","meaning_ja":"それほど間を置かず、何度も行われるさま。","part_of_speech":"副詞","example_ja":"彼とは仕事の関係でちょくちょく会う。","example_ko":"그와는 일 때문에 종종 만난다."},
+    {"key":"n1-2381","word":"割り込む","reading":"わりこむ","meaning_ko":"끼어들다; 새치기하다; 중간에 끼어들다","meaning_ja":"列・会話・作業などの途中に無理に入り込む。","part_of_speech":"五段動詞","example_ja":"人の話に突然割り込むのは失礼だ。","example_ko":"남의 말에 갑자기 끼어드는 것은 실례다."},
+    {"key":"n1-2382","word":"レンタカー","reading":"レンタカー","meaning_ko":"렌터카","meaning_ja":"料金を払って一定期間借りる自動車。","part_of_speech":"普通名詞","example_ja":"旅行先ではレンタカーを借りて移動した。","example_ko":"여행지에서는 렌터카를 빌려 이동했다."},
+    {"key":"n1-2383","word":"コントラスト","reading":"コントラスト","meaning_ko":"대조; 대비","meaning_ja":"二つのものの違いがはっきり際立つこと。","part_of_speech":"普通名詞","example_ja":"白と黒のコントラストが印象的なデザインだ。","example_ko":"흰색과 검은색의 대비가 인상적인 디자인이다."},
+    {"key":"n1-2384","word":"辻褄","reading":"つじつま","meaning_ko":"앞뒤; 논리적 일관성; 말이 맞아떨어짐","meaning_ja":"話・説明などの筋道が通り、前後が一致すること。","part_of_speech":"普通名詞","example_ja":"彼の説明は辻褄が合っていない。","example_ko":"그의 설명은 앞뒤가 맞지 않는다.","note":"『辻褄が合う／合わない』の形で非常によく使う。"},
+    {"key":"n1-2385","word":"夕焼け","reading":"ゆうやけ","meaning_ko":"저녁노을; 노을","meaning_ja":"日没前後に西の空などが赤く染まる現象。","part_of_speech":"普通名詞","example_ja":"海辺で美しい夕焼けを眺めた。","example_ko":"해변에서 아름다운 저녁노을을 바라봤다."},
+    {"key":"n1-2386","word":"見苦しい","reading":"みぐるしい","meaning_ko":"보기 흉하다; 추하다; 꼴사납다","meaning_ja":"見た目・態度・行動などがみっともなく、不快に感じられる。","part_of_speech":"い形容詞","example_ja":"責任を押し付け合う姿は見苦しい。","example_ko":"서로 책임을 떠넘기는 모습은 보기 흉하다.","note":"候補KRDICTの『구차하다』などより、JMdictの unsightly/ugly に合わせて中心義を整理。"},
+    {"key":"n1-2387","word":"揺さぶる","reading":"ゆさぶる","meaning_ko":"세게 흔들다; 뒤흔들다; 충격을 주다","meaning_ja":"強く揺り動かす。また、心・社会・制度などに大きな衝撃を与える。","part_of_speech":"五段動詞","example_ja":"その事件は社会全体を大きく揺さぶった。","example_ko":"그 사건은 사회 전체를 크게 뒤흔들었다."},
+    {"key":"n1-2388","word":"カルテ","reading":"カルテ","meaning_ko":"진료기록; 의무기록; 차트","meaning_ja":"医師が患者の症状・診断・治療内容などを記録する診療記録。","part_of_speech":"普通名詞","example_ja":"医師はカルテを確認してから診察を始めた。","example_ko":"의사는 진료기록을 확인한 뒤 진찰을 시작했다."},
+    {"key":"n1-2389","word":"くっ付く","reading":"くっつく","meaning_ko":"달라붙다; 붙다; 가까이 붙어 있다","meaning_ja":"物と物が離れずに付着する。また、人などがぴったり近くにいる。","part_of_speech":"五段動詞","example_ja":"濡れた紙が机にくっ付いてしまった。","example_ko":"젖은 종이가 책상에 달라붙어 버렸다.","note":"現代では通常『くっつく』と仮名で書く。"},
+    {"key":"n1-2390","word":"てっきり","reading":"てっきり","meaning_ko":"틀림없이 ~라고 생각하다; 영락없이","meaning_ja":"間違いなくそうだと思い込むさま。実際には予想と違った場合によく使う。","part_of_speech":"副詞","example_ja":"てっきり今日が締切だと思っていた。","example_ko":"나는 영락없이 오늘이 마감일인 줄 알았다."},
+    {"key":"n1-2391","word":"好況","reading":"こうきょう","meaning_ko":"호황; 경기 호조","meaning_ja":"経済・商売などの状態が良く、活発なこと。","part_of_speech":"普通名詞","example_ja":"輸出産業は好況が続いている。","example_ko":"수출 산업은 호황이 계속되고 있다."},
+    {"key":"n1-2392","word":"爽やか","reading":"さわやか","meaning_ko":"상쾌하다; 산뜻하다; 개운하다","meaning_ja":"気分・天気・印象などがすっきりして心地よいさま。","part_of_speech":"な形容詞","example_ja":"朝の爽やかな風が気持ちいい。","example_ko":"아침의 상쾌한 바람이 기분 좋다."},
+    {"key":"n1-2393","word":"清々しい","reading":"すがすがしい","meaning_ko":"상쾌하다; 후련하다; 청량하다","meaning_ja":"心や気分が晴れ、さっぱりして気持ちがよい。","part_of_speech":"い形容詞","example_ja":"運動した後は清々しい気分になった。","example_ko":"운동한 뒤에는 상쾌한 기분이 들었다."},
+    {"key":"n1-2394","word":"ワット","reading":"ワット","meaning_ko":"와트; 전력 단위","meaning_ja":"電力を表す単位。記号はW。","part_of_speech":"普通名詞","example_ja":"この電球は六十ワットだ。","example_ko":"이 전구는 60와트다."},
+    {"key":"n1-2395","word":"冴える","reading":"さえる","meaning_ko":"맑아지다; 또렷하다; 솜씨가 빛나다","meaning_ja":"頭・感覚・音・色などがはっきり鮮明である。また、技量がよく発揮される。","part_of_speech":"一段動詞","example_ja":"今日は頭が冴えていて、仕事がよく進む。","example_ko":"오늘은 머리가 맑아서 일이 잘 진행된다.","note":"候補KRDICTは『맑다』に偏っていたため、JMdictの skillful 用法も補完。"},
+    {"key":"n1-2396","word":"軽率","reading":"けいそつ","meaning_ko":"경솔함; 신중하지 못함","meaning_ja":"よく考えず、言動が軽く慎重さに欠けること。","part_of_speech":"な形容詞","example_ja":"軽率な発言で相手を傷つけてしまった。","example_ko":"경솔한 발언으로 상대에게 상처를 주고 말았다."},
+    {"key":"n1-2397","word":"原書","reading":"げんしょ","meaning_ko":"원서; 번역되지 않은 원본 책","meaning_ja":"翻訳・写本などのもとになった元の書物。","part_of_speech":"普通名詞","example_ja":"翻訳版ではなく原書で読んでみたい。","example_ko":"번역판이 아니라 원서로 읽어 보고 싶다."}
+  ]
+}
