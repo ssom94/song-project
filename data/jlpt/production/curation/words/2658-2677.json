@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2658-2677",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2658","word":"染みる","reading":"しみる","meaning_ko":"스며들다; 배다; 사무치다; 따갑게 느껴지다","meaning_ja":"液体・色・味などが内部に入り込む。また、刺激や感情などが深く感じられる。","part_of_speech":"一段動詞","example_ja":"冷たい風が傷口に染みて痛い。","example_ko":"차가운 바람이 상처에 스며들어 따갑다.","note":"『沁みる』『浸みる』とも書く。候補の多数の周辺訳を中心義に整理。"},
+    {"key":"n1-2659","word":"文語","reading":"ぶんご","meaning_ko":"문어; 문어체","meaning_ja":"話し言葉に対し、文章で用いられる言葉や文体。","part_of_speech":"普通名詞","example_ja":"この表現は現代の会話ではなく文語で使われる。","example_ko":"이 표현은 현대 회화가 아니라 문어체에서 쓰인다."},
+    {"key":"n1-2660","word":"ドリル","reading":"ドリル","meaning_ko":"드릴; 반복 연습 문제","meaning_ja":"穴を開ける工具。また、技能を身につけるための反復練習。","part_of_speech":"普通名詞","example_ja":"壁に穴を開けるためにドリルを使った。","example_ko":"벽에 구멍을 뚫기 위해 드릴을 사용했다.","note":"工具義に加え、学習用の反復練習の意味もある。"},
+    {"key":"n1-2661","word":"ジャンボ","reading":"ジャンボ","meaning_ko":"초대형; 거대한","meaning_ja":"非常に大きいこと、または大きなもの。","part_of_speech":"名詞・な形容詞","example_ja":"イベント会場にはジャンボサイズの模型が展示された。","example_ko":"행사장에는 초대형 모형이 전시됐다."},
+    {"key":"n1-2662","word":"下らない","reading":"くだらない","meaning_ko":"시시하다; 하찮다; 가치 없다","meaning_ja":"価値・意味・面白みがなく、取るに足りない。","part_of_speech":"い形容詞","example_ja":"くだらないことで言い争うのはやめよう。","example_ko":"시시한 일로 말다툼하는 건 그만하자.","note":"現代では通常『くだらない』と仮名で書く。"},
+    {"key":"n1-2663","word":"心掛ける","reading":"こころがける","meaning_ko":"유념하다; 늘 ~하려고 하다","meaning_ja":"あることを常に意識し、そうするよう努める。","part_of_speech":"一段動詞","example_ja":"毎日少しでも運動するよう心掛けている。","example_ko":"매일 조금이라도 운동하려고 늘 유념하고 있다."},
+    {"key":"n1-2664","word":"軍服","reading":"ぐんぷく","meaning_ko":"군복","meaning_ja":"軍人が着用する制服。","part_of_speech":"普通名詞","example_ja":"博物館に昔の軍服が展示されている。","example_ko":"박물관에 옛 군복이 전시되어 있다."},
+    {"key":"n1-2665","word":"改まる","reading":"あらたまる","meaning_ko":"바뀌다; 개선되다; 격식을 차리다","meaning_ja":"状態が新しくなる、正される。また、態度や場が正式で堅いものになる。","part_of_speech":"五段動詞","example_ja":"急に改まった口調になったので少し驚いた。","example_ko":"갑자기 격식을 차린 말투가 되어 조금 놀랐다.","note":"候補には改善義が中心だったが、『改まった態度』などの頻出用法も補完。"},
+    {"key":"n1-2666","word":"欺く","reading":"あざむく","meaning_ko":"속이다; 기만하다","meaning_ja":"嘘や策略によって相手を誤って信じさせる。","part_of_speech":"五段動詞","example_ja":"巧みな話術で人を欺いて金を取った。","example_ko":"교묘한 말솜씨로 사람을 속여 돈을 빼앗았다."},
+    {"key":"n1-2667","word":"老いる","reading":"おいる","meaning_ko":"늙다; 나이가 들다","meaning_ja":"年齢を重ねて老年になる。","part_of_speech":"一段動詞","example_ja":"人は誰でも少しずつ老いていく。","example_ko":"사람은 누구나 조금씩 나이가 들어 간다."},
+    {"key":"n1-2668","word":"洒落る","reading":"しゃれる","meaning_ko":"멋을 내다; 세련되게 꾸미다; 재치 있는 말을 하다","meaning_ja":"服装などをしゃれて整える。また、しゃれを言う。","part_of_speech":"一段動詞","example_ja":"今日は少し洒落れた服を着て出かけた。","example_ko":"오늘은 조금 멋을 낸 옷을 입고 나갔다.","note":"JMdictの joke/play on words の用法もある。"},
+    {"key":"n1-2669","word":"スプリング","reading":"スプリング","meaning_ko":"스프링; 용수철","meaning_ja":"弾力を利用するばね。英語の spring に由来する。","part_of_speech":"普通名詞","example_ja":"椅子の中のスプリングが壊れた。","example_ko":"의자 안의 스프링이 망가졌다."},
+    {"key":"n1-2670","word":"ノイローゼ","reading":"ノイローゼ","meaning_ko":"노이로제; 신경증","meaning_ja":"心理的要因によって不安などの症状が続く神経症を指す語。","part_of_speech":"普通名詞","example_ja":"仕事のストレスでノイローゼ気味になった。","example_ko":"업무 스트레스로 노이로제 기미가 생겼다.","note":"やや古い一般語で、医療文脈では具体的な診断名を使う。"},
+    {"key":"n1-2671","word":"クレーン","reading":"クレーン","meaning_ko":"크레인; 기중기","meaning_ja":"重い物を吊り上げて移動させる機械。","part_of_speech":"普通名詞","example_ja":"建設現場で大型クレーンが資材を運んでいる。","example_ko":"건설 현장에서 대형 크레인이 자재를 옮기고 있다."},
+    {"key":"n1-2672","word":"善し悪し","reading":"よしあし","meaning_ko":"좋고 나쁨; 장단점; 적합 여부","meaning_ja":"良いことと悪いこと。物事の長所短所や適否。","part_of_speech":"普通名詞","example_ja":"新制度の善し悪しは実際に運用してみないと分からない。","example_ko":"새 제도의 장단점은 실제로 운영해 보지 않으면 알 수 없다."},
+    {"key":"n1-2673","word":"デモンストレーション","reading":"デモンストレーション","meaning_ko":"시위; 실연; 시범","meaning_ja":"集団で意思を示す示威行動。また、製品・技術などを実際に見せて説明すること。","part_of_speech":"普通名詞","example_ja":"新製品の使い方をデモンストレーションで紹介した。","example_ko":"신제품 사용법을 시연으로 소개했다.","note":"候補は『시위』だけだったため、一般的な demonstration/시연 의미를 보완。"},
+    {"key":"n1-2674","word":"チャイム","reading":"チャイム","meaning_ko":"차임; 벨; 알림음","meaning_ja":"合図として鳴らす鐘や電子音。","part_of_speech":"普通名詞","example_ja":"授業の開始を知らせるチャイムが鳴った。","example_ko":"수업 시작을 알리는 차임이 울렸다."},
+    {"key":"n1-2675","word":"紛れる","reading":"まぎれる","meaning_ko":"뒤섞이다; 구별하기 어려워지다; 다른 데 정신이 팔리다","meaning_ja":"他のものに混じって見分けにくくなる。また、別のことに気を取られて気がまぎれる。","part_of_speech":"一段動詞","example_ja":"人混みに紛れて姿が見えなくなった。","example_ko":"인파에 섞여 모습이 보이지 않게 됐다.","note":"候補の『헷갈리다』だけでは狭いため、JMdictの slip into/diverted を反映。"},
+    {"key":"n1-2676","word":"産婦人科","reading":"さんふじんか","meaning_ko":"산부인과","meaning_ja":"妊娠・出産および女性生殖器の疾患を扱う診療科。","part_of_speech":"普通名詞","example_ja":"妊娠の定期検診で産婦人科を受診した。","example_ko":"임신 정기검진으로 산부인과를 방문했다."},
+    {"key":"n1-2677","word":"似通う","reading":"にかよう","meaning_ko":"매우 닮다; 유사하다","meaning_ja":"性質・形などが互いによく似ている。","part_of_speech":"五段動詞","example_ja":"二つの案は内容がかなり似通っている。","example_ko":"두 안은 내용이 상당히 비슷하다."}
+  ]
+}
