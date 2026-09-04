@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0981-1000",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0981","word":"答え","reading":"こたえ","meaning_ko":"답; 대답; 해답","meaning_ja":"質問・問題などに対して示す返事・解答。","part_of_speech":"普通名詞","example_ja":"正しい答えだけでなく、そこに至る考え方も説明してください。","example_ko":"정답뿐 아니라 거기에 이르는 사고 과정도 설명해 주세요."},
+    {"key":"n1-0982","word":"メディア","reading":"メディア","meaning_ko":"미디어; 매체","meaning_ja":"情報・意見などを多くの人に伝える媒体・手段。新聞、テレビ、インターネットなど。","part_of_speech":"普通名詞","example_ja":"同じ出来事でも、メディアによって取り上げ方が異なることがある。","example_ko":"같은 사건도 미디어에 따라 다루는 방식이 다를 수 있다."},
+    {"key":"n1-0983","word":"取っ手","reading":"とって","meaning_ko":"손잡이","meaning_ja":"容器・扉・道具などを手で持ったり開閉したりするための部分。","part_of_speech":"普通名詞","example_ja":"古い扉の取っ手が外れかけていたので、新しいものに交換した。","example_ko":"낡은 문의 손잡이가 떨어질 듯해 새것으로 교체했다."},
+    {"key":"n1-0984","word":"及ぶ","reading":"およぶ","meaning_ko":"미치다; 이르다; 필적하다","meaning_ja":"影響・範囲・数量などがある地点・程度に達する。また、能力が相手に匹敵する。","part_of_speech":"五段動詞","example_ja":"今回のシステム障害の影響は国内の複数拠点に及んだ。","example_ko":"이번 시스템 장애의 영향은 국내 여러 거점에 미쳤다."},
+    {"key":"n1-0985","word":"元年","reading":"がんねん","meaning_ko":"원년; 연호의 첫해","meaning_ja":"新しい年号・時代などの最初の年。また比喩的に、新しい取り組みが本格的に始まった年。","part_of_speech":"普通名詞","example_ja":"会社は今年を海外事業拡大の元年と位置付けている。","example_ko":"회사는 올해를 해외 사업 확대의 원년으로 규정하고 있다."},
+    {"key":"n1-0986","word":"あら","reading":"あら","meaning_ko":"어머; 어머나","meaning_ja":"主に驚き・意外・感心などを表す感動詞。","part_of_speech":"感動詞","example_ja":"『あら、もうこんな時間なのね』と彼女は時計を見て驚いた。","example_ko":"‘어머, 벌써 시간이 이렇게 됐네’ 하고 그녀는 시계를 보고 놀랐다.","note":"同音で『魚のあら』『欠点・粗』など別語もあるため文脈で区別する。"},
+    {"key":"n1-0987","word":"切り","reading":"きり","meaning_ko":"끝; 한계; ~뿐; ~한 채","meaning_ja":"区切り・限度を表す語。また『〜きり』の形で、それだけ・その状態のままという意味を表す。","part_of_speech":"その他","example_ja":"彼とは一度会ったきり、その後は連絡を取っていない。","example_ko":"그와는 한 번 만난 뒤로 이후에는 연락하지 않았다."},
+    {"key":"n1-0988","word":"証拠","reading":"しょうこ","meaning_ko":"증거; 증거물","meaning_ja":"事実・主張が正しいことを示す根拠・材料。","part_of_speech":"普通名詞","example_ja":"判断を下す前に、客観的な証拠が十分にあるか確認する必要がある。","example_ko":"판단을 내리기 전에 객관적인 증거가 충분한지 확인할 필요가 있다."},
+    {"key":"n1-0989","word":"直ぐ","reading":"すぐ","meaning_ko":"곧; 바로; 즉시","meaning_ja":"時間・距離をほとんど置かず、直ちに。通常はひらがなで書く。","part_of_speech":"副詞","example_ja":"異常を検知した場合は、直ぐに担当者へ連絡してください。","example_ko":"이상을 감지한 경우 즉시 담당자에게 연락해 주세요."},
+    {"key":"n1-0990","word":"負担","reading":"ふたん","meaning_ko":"부담; 비용·책임을 짊어짐","meaning_ja":"費用・責任・労力などを引き受けること。また、心身に重く感じられるもの。","part_of_speech":"サ変名詞","example_ja":"手続きを簡素化し、利用者の負担を減らすことが今回の改善目的だ。","example_ko":"절차를 간소화해 이용자의 부담을 줄이는 것이 이번 개선 목적이다."},
+    {"key":"n1-0991","word":"携帯","reading":"けいたい","meaning_ko":"휴대; 휴대전화","meaning_ja":"物を身に付けて持ち歩くこと。また、『携帯電話』の略としても使う。","part_of_speech":"サ変名詞","example_ja":"非常時に備えて、身分証明書と連絡先を携帯しておくとよい。","example_ko":"비상시에 대비해 신분증과 연락처를 휴대해 두는 것이 좋다."},
+    {"key":"n1-0992","word":"怒り","reading":"いかり","meaning_ko":"분노; 화","meaning_ja":"腹立たしさ・不満などから生じる強い感情。","part_of_speech":"普通名詞","example_ja":"説明不足に対する住民の怒りは、時間がたつほど強まっていった。","example_ko":"설명 부족에 대한 주민들의 분노는 시간이 지날수록 커졌다."},
+    {"key":"n1-0993","word":"落とす","reading":"おとす","meaning_ko":"떨어뜨리다; 낮추다; 지우다; 빠뜨리다","meaning_ja":"上から下へ落ちるようにする。程度を下げる、汚れを除く、必要なものを抜かすなど多様な意味を持つ。","part_of_speech":"五段動詞","example_ja":"確認項目を一つでも落とすと、重大な不具合を見逃すおそれがある。","example_ko":"확인 항목을 하나라도 빠뜨리면 중대한 결함을 놓칠 우려가 있다."},
+    {"key":"n1-0994","word":"定める","reading":"さだめる","meaning_ko":"정하다; 규정하다","meaning_ja":"規則・方針・期限・基準などを決める。","part_of_speech":"一段動詞","example_ja":"社内規程では、重要データの保存期間を五年間と定めている。","example_ko":"사내 규정에서는 중요 데이터의 보존 기간을 5년으로 정하고 있다."},
+    {"key":"n1-0995","word":"崩壊","reading":"ほうかい","meaning_ko":"붕괴; 무너짐","meaning_ja":"建造物・組織・制度などが崩れて成り立たなくなること。","part_of_speech":"サ変名詞","example_ja":"信頼関係の崩壊を防ぐには、問題を早い段階で共有することが重要だ。","example_ko":"신뢰 관계의 붕괴를 막으려면 문제를 초기 단계에서 공유하는 것이 중요하다."},
+    {"key":"n1-0996","word":"果たす","reading":"はたす","meaning_ko":"완수하다; 다하다","meaning_ja":"役割・責任・目的・約束などを最後まで実行して成し遂げる。","part_of_speech":"五段動詞","example_ja":"公共機関には、正確な情報を迅速に提供する役割を果たす責任がある。","example_ko":"공공기관에는 정확한 정보를 신속히 제공하는 역할을 다할 책임이 있다."},
+    {"key":"n1-0997","word":"設ける","reading":"もうける","meaning_ko":"마련하다; 설치하다; 제정하다","meaning_ja":"施設・制度・機会・基準などを新しく作り、置く。","part_of_speech":"一段動詞","example_ja":"利用者の意見を聞くため、定期的な意見交換の場を設けることになった。","example_ko":"이용자의 의견을 듣기 위해 정기적인 의견 교환 자리를 마련하기로 했다."},
+    {"key":"n1-0998","word":"訪れる","reading":"おとずれる","meaning_ko":"방문하다; 찾아오다","meaning_ja":"人・場所を訪問する。また、季節・機会・状態などがやって来る。","part_of_speech":"一段動詞","example_ja":"長い不況を経て、地域経済にもようやく回復の兆しが訪れた。","example_ko":"오랜 불황을 거쳐 지역 경제에도 마침내 회복의 조짐이 찾아왔다."},
+    {"key":"n1-0999","word":"降伏","reading":"こうふく","meaning_ko":"항복","meaning_ja":"戦いで負けを認め、相手に従うこと。","part_of_speech":"サ変名詞","example_ja":"補給路を断たれた部隊は、最終的に降伏を決断した。","example_ko":"보급로가 끊긴 부대는 결국 항복을 결정했다."},
+    {"key":"n1-1000","word":"遅れ","reading":"おくれ","meaning_ko":"지연; 늦음; 뒤처짐","meaning_ja":"予定・基準・他のものより遅れること。また、その差。","part_of_speech":"普通名詞","example_ja":"開発の遅れを取り戻すために、工程を見直して人員を再配置した。","example_ko":"개발 지연을 만회하기 위해 공정을 재검토하고 인력을 재배치했다."}
+  ]
+}
