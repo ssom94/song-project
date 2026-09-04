@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2578-2597",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2578","word":"若しかして","reading":"もしかして","meaning_ko":"혹시; 어쩌면","meaning_ja":"確かではないが、そうかもしれないと思うときに使う。","part_of_speech":"副詞","example_ja":"もしかして、以前どこかでお会いしましたか。","example_ko":"혹시 예전에 어디선가 만난 적이 있나요?","note":"現代では通常『もしかして』と仮名で書く。"},
+    {"key":"n1-2579","word":"ダンプ","reading":"ダンプ","meaning_ko":"덤프; 덤프트럭; 버리기","meaning_ja":"荷台を傾けて荷物を降ろすダンプカー。また、データなどをまとめて出力すること。","part_of_speech":"普通名詞・サ変名詞","example_ja":"工事現場に大型のダンプが入ってきた。","example_ko":"공사 현장에 대형 덤프트럭이 들어왔다."},
+    {"key":"n1-2580","word":"駆け足","reading":"かけあし","meaning_ko":"구보; 달리기; 빠르게 진행함","meaning_ja":"走って進むこと。また、物事を急いで進めること。","part_of_speech":"普通名詞","example_ja":"時間がないので説明を駆け足で進めた。","example_ko":"시간이 없어서 설명을 빠르게 진행했다."},
+    {"key":"n1-2581","word":"跡継ぎ","reading":"あとつぎ","meaning_ko":"후계자; 대를 이을 사람","meaning_ja":"家業・地位・財産などを引き継ぐ人。","part_of_speech":"普通名詞","example_ja":"会社の跡継ぎを誰にするか話し合った。","example_ko":"회사의 후계자를 누구로 할지 논의했다."},
+    {"key":"n1-2582","word":"恋する","reading":"こいする","meaning_ko":"사랑하다; 연모하다","meaning_ja":"ある人に恋愛感情を抱く。","part_of_speech":"サ変動詞","example_ja":"若い頃、同じ学校の人に恋した。","example_ko":"젊었을 때 같은 학교 사람을 사랑했다.","note":"候補品詞『サ変名詞』から動詞用法に合わせて修正。"},
+    {"key":"n1-2583","word":"配偶者","reading":"はいぐうしゃ","meaning_ko":"배우자; 남편 또는 아내","meaning_ja":"夫婦の一方から見た、もう一方の人。","part_of_speech":"普通名詞","example_ja":"申請書には配偶者の有無を記入する欄がある。","example_ko":"신청서에는 배우자 유무를 기입하는 칸이 있다.","note":"候補KO의『임자』등은 문맥상 부정확해 중심의 spouse로 정리。"},
+    {"key":"n1-2584","word":"賄う","reading":"まかなう","meaning_ko":"충당하다; 마련하다; 식사를 제공하다","meaning_ja":"必要な費用・物資などを用意して不足を補う。また、食事を提供する。","part_of_speech":"五段動詞","example_ja":"イベント費用は参加費で賄う予定だ。","example_ko":"행사 비용은 참가비로 충당할 예정이다.","note":"候補の『꾸리다』だけでは狭いため、JMdictの provide/pay を反映。"},
+    {"key":"n1-2585","word":"漢語","reading":"かんご","meaning_ko":"한어; 한자어; 일본어의 한자계 어휘","meaning_ja":"中国語から入った語、または漢字の音を用いて作られた日本語の語。","part_of_speech":"普通名詞","example_ja":"『文化』や『経済』は漢語の例として挙げられる。","example_ko":"'文化'나 '経済'는 한자어의 예로 들 수 있다."},
+    {"key":"n1-2586","word":"奇麗","reading":"きれい","meaning_ko":"깨끗함; 아름다움; 말끔함","meaning_ja":"汚れがなく清潔なさま。また、見た目が美しいさま。","part_of_speech":"な形容詞","example_ja":"部屋をきれいに掃除した。","example_ko":"방을 깨끗하게 청소했다.","note":"現代では『綺麗』『きれい』が一般的。候補KO『깨끗해지다』は動詞的で不正確なため修正。"},
+    {"key":"n1-2587","word":"即座に","reading":"そくざに","meaning_ko":"즉시; 즉각; 바로","meaning_ja":"その場ですぐに。間を置かずに。","part_of_speech":"副詞","example_ja":"質問に即座に答えた。","example_ko":"질문에 즉시 대답했다."},
+    {"key":"n1-2588","word":"パジャマ","reading":"パジャマ","meaning_ko":"파자마; 잠옷","meaning_ja":"寝るときに着る、ゆったりした衣服。","part_of_speech":"普通名詞","example_ja":"子どもは新しいパジャマに着替えた。","example_ko":"아이는 새 파자마로 갈아입었다."},
+    {"key":"n1-2589","word":"サンタクロース","reading":"サンタクロース","meaning_ko":"산타클로스","meaning_ja":"クリスマスに子どもへ贈り物を届けるとされる人物。","part_of_speech":"普通名詞","example_ja":"子どもはサンタクロースからのプレゼントを楽しみにしている。","example_ko":"아이는 산타클로스의 선물을 기대하고 있다."},
+    {"key":"n1-2590","word":"華美","reading":"かび","meaning_ko":"화려함; 지나치게 화려함","meaning_ja":"華やかで美しいこと。特に、必要以上に派手なこと。","part_of_speech":"な形容詞・普通名詞","example_ja":"式典では華美な服装を避けるよう求められた。","example_ko":"행사에서는 지나치게 화려한 복장을 피하도록 요구받았다."},
+    {"key":"n1-2591","word":"紡績","reading":"ぼうせき","meaning_ko":"방적; 실을 뽑음","meaning_ja":"綿・羊毛などの繊維から糸を作ること。","part_of_speech":"普通名詞・サ変名詞","example_ja":"この地域では昔から紡績業が盛んだった。","example_ko":"이 지역에서는 예전부터 방적업이 활발했다."},
+    {"key":"n1-2592","word":"インターナショナル","reading":"インターナショナル","meaning_ko":"국제적인; 국제적","meaning_ja":"国際的であるさま。複数の国に関係すること。","part_of_speech":"な形容詞","example_ja":"インターナショナルな環境で働いている。","example_ko":"국제적인 환경에서 일하고 있다."},
+    {"key":"n1-2593","word":"然うして","reading":"そうして","meaning_ko":"그렇게 해서; 그리고; 그러고 나서","meaning_ja":"前の行動・状態を受けて、その結果や次の行動へ続ける語。","part_of_speech":"接続詞","example_ja":"何度も試した。そうして、ようやく成功した。","example_ko":"몇 번이나 시도했다. 그렇게 해서 마침내 성공했다.","note":"現代では通常『そうして』と仮名で書く。"},
+    {"key":"n1-2594","word":"脈","reading":"みゃく","meaning_ko":"맥; 맥박; 가능성의 실마리","meaning_ja":"心臓の動きに伴う脈拍。また、筋状につながるものや可能性のつながり。","part_of_speech":"普通名詞","example_ja":"医師が患者の脈を取った。","example_ko":"의사가 환자의 맥박을 짚었다."},
+    {"key":"n1-2595","word":"保母","reading":"ほぼ","meaning_ko":"보모; 옛 명칭의 여성 보육사","meaning_ja":"保育所などで子どもの保育に当たる女性職員を指した旧称。","part_of_speech":"普通名詞","example_ja":"古い資料では保育士を『保母』と呼んでいる。","example_ko":"옛 자료에서는 보육사를 '保母'라고 부르고 있다.","note":"現在の日本では性別を問わず資格名『保育士』が一般的。"},
+    {"key":"n1-2596","word":"転じる","reading":"てんじる","meaning_ko":"바뀌다; 전환하다; 방향을 바꾸다","meaning_ja":"方向・状態・話題などが別のものへ変わる、または変える。","part_of_speech":"一段動詞","example_ja":"話題を転じて、今後の計画について話した。","example_ko":"화제를 바꿔 앞으로의 계획에 대해 이야기했다."},
+    {"key":"n1-2597","word":"嘘つき","reading":"うそつき","meaning_ko":"거짓말쟁이","meaning_ja":"よく嘘をつく人。","part_of_speech":"普通名詞","example_ja":"一度の失敗だけで人を嘘つきと決めつけてはいけない。","example_ko":"한 번의 실수만으로 사람을 거짓말쟁이라고 단정해서는 안 된다."}
+  ]
+}
