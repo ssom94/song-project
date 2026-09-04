@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0761-0780",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and reading variants are noted where useful.",
+  "words": [
+    {"key":"n1-0761","word":"暗示","reading":"あんじ","meaning_ko":"암시; 넌지시 알려 줌","meaning_ja":"直接はっきり言わずに、ある事柄をそれとなく示すこと。","part_of_speech":"サ変名詞","example_ja":"上司の発言は、組織改編が近いことを暗示しているように聞こえた。","example_ko":"상사의 발언은 조직 개편이 가깝다는 것을 암시하는 듯 들렸다."},
+    {"key":"n1-0762","word":"語源","reading":"ごげん","meaning_ko":"어원","meaning_ja":"ある語がどのように生まれ、どの形から成立したかという由来。","part_of_speech":"普通名詞","example_ja":"言葉の語源を調べると、昔の文化や考え方が見えてくることがある。","example_ko":"말의 어원을 조사하면 옛 문화와 사고방식이 보이는 경우가 있다."},
+    {"key":"n1-0763","word":"周期","reading":"しゅうき","meaning_ko":"주기; 반복되는 기간","meaning_ja":"同じ現象・状態が繰り返されるとき、一回分が終わって次に同じ状態になるまでの期間。","part_of_speech":"普通名詞","example_ja":"この装置は一定の周期で自動的に点検処理を行う。","example_ko":"이 장치는 일정한 주기로 자동 점검 처리를 한다."},
+    {"key":"n1-0764","word":"年頃","reading":"としごろ","meaning_ko":"나이대; 그럴 나이","meaning_ja":"ある特徴・行動が見られるようになる年齢や時期。特に、若者が成長していく時期。","part_of_speech":"普通名詞","example_ja":"子どもも自分の意見を強く持つ年頃になり、親子で話し合う機会が増えた。","example_ko":"아이도 자기 의견을 강하게 가지는 나이가 되어 부모와 대화할 기회가 늘었다."},
+    {"key":"n1-0765","word":"寄与","reading":"きよ","meaning_ko":"기여; 공헌","meaning_ja":"ある目的・成果の実現に役立つこと。","part_of_speech":"サ変名詞","example_ja":"この研究成果は医療技術の向上に大きく寄与すると期待されている。","example_ko":"이 연구 성과는 의료 기술 향상에 크게 기여할 것으로 기대되고 있다."},
+    {"key":"n1-0766","word":"集計","reading":"しゅうけい","meaning_ko":"집계; 합산","meaning_ja":"複数の数値・データを集めてまとめ、合計や結果を出すこと。","part_of_speech":"サ変名詞","example_ja":"アンケート結果を集計したところ、回答者の六割が改善を求めていた。","example_ko":"설문 결과를 집계하니 응답자의 60%가 개선을 요구하고 있었다."},
+    {"key":"n1-0767","word":"半端","reading":"はんぱ","meaning_ko":"어중간함; 불완전함; 중途반단","meaning_ja":"数量・状態・程度などが中途半端で、まとまりや十分さに欠けるさま。","part_of_speech":"な形容詞","example_ja":"半端な知識のまま作業を進めると、かえって大きなミスにつながる。","example_ko":"어중간한 지식으로 작업을 진행하면 오히려 큰 실수로 이어진다."},
+    {"key":"n1-0768","word":"肥料","reading":"ひりょう","meaning_ko":"비료; 거름","meaning_ja":"植物の生育をよくするため、土壌などに与える栄養分を含む物質。","part_of_speech":"普通名詞","example_ja":"作物の種類に合わせて肥料の量を調整しなければならない。","example_ko":"작물 종류에 맞춰 비료의 양을 조절해야 한다."},
+    {"key":"n1-0769","word":"断言","reading":"だんげん","meaning_ko":"단언; 장담","meaning_ja":"確信を持って、はっきりと言い切ること。","part_of_speech":"サ変名詞","example_ja":"十分な証拠がない以上、原因が一つだけだと断言することはできない。","example_ko":"충분한 증거가 없는 이상 원인이 하나뿐이라고 단언할 수는 없다."},
+    {"key":"n1-0770","word":"戦力","reading":"せんりょく","meaning_ko":"전력; 싸울 수 있는 능력","meaning_ja":"戦闘を行うための総合的な力。また、競技などで勝敗に影響する有力な人員・能力。","part_of_speech":"普通名詞","example_ja":"経験豊富な選手の復帰は、チームにとって大きな戦力になる。","example_ko":"경험 많은 선수의 복귀는 팀에 큰 전력이 된다."},
+    {"key":"n1-0771","word":"議案","reading":"ぎあん","meaning_ko":"의안; 회의 안건","meaning_ja":"議会・会議などで審議・決定するために提出される案。","part_of_speech":"普通名詞","example_ja":"新しい予算案は来週の総会で正式な議案として審議される。","example_ko":"새 예산안은 다음 주 총회에서 정식 의안으로 심의된다."},
+    {"key":"n1-0772","word":"一息","reading":"ひといき","meaning_ko":"한숨; 잠깐의 휴식; 한 번에","meaning_ja":"一度の呼吸。また、少し休むこと。さらに、途中で止まらず一気に行うことを表す。","part_of_speech":"普通名詞","example_ja":"作業が一段落したので、ここで一息入れてから次の工程に進もう。","example_ko":"작업이 일단락됐으니 여기서 잠깐 쉬고 다음 공정으로 넘어가자."},
+    {"key":"n1-0773","word":"議決","reading":"ぎけつ","meaning_ko":"의결; 결의","meaning_ja":"会議・議会で審議したうえで、正式に意思を決定すること。","part_of_speech":"サ変名詞","example_ja":"条例の改正案は賛成多数で議決された。","example_ko":"조례 개정안은 찬성 다수로 의결되었다."},
+    {"key":"n1-0774","word":"制裁","reading":"せいさい","meaning_ko":"제재; 처벌 조치","meaning_ja":"規則違反・不正行為などに対して加えられる処罰・不利益な措置。","part_of_speech":"サ変名詞","example_ja":"国際社会は合意に違反した国に対して経済制裁を強化した。","example_ko":"국제사회는 합의를 위반한 국가에 경제 제재를 강화했다."},
+    {"key":"n1-0775","word":"家計","reading":"かけい","meaning_ko":"가계; 가정의 수입과 지출","meaning_ja":"家庭における収入・支出などの経済状態や、そのやりくり。","part_of_speech":"普通名詞","example_ja":"物価の上昇が続き、家計への負担が以前より大きくなっている。","example_ko":"물가 상승이 계속되어 가계 부담이 이전보다 커지고 있다."},
+    {"key":"n1-0776","word":"反響","reading":"はんきょう","meaning_ko":"반향; 큰 반응; 울림","meaning_ja":"音が反射して響き返ること。また、出来事・発言などに対して社会から生じる反応。","part_of_speech":"サ変名詞","example_ja":"新製品の発表は予想以上の反響を呼び、問い合わせが急増した。","example_ko":"신제품 발표는 예상 이상의 반향을 일으켜 문의가 급증했다."},
+    {"key":"n1-0777","word":"自在","reading":"じざい","meaning_ko":"자유자재; 마음대로 다룸","meaning_ja":"思いどおりに自由に扱ったり動かしたりできるさま。","part_of_speech":"な形容詞","example_ja":"熟練した職人は、この道具を自在に操って複雑な形を作り出す。","example_ko":"숙련된 장인은 이 도구를 자유자재로 다뤄 복잡한 형태를 만들어 낸다."},
+    {"key":"n1-0778","word":"神殿","reading":"しんでん","meaning_ko":"신전","meaning_ja":"神を祭り、礼拝・儀式などを行うための建物。","part_of_speech":"普通名詞","example_ja":"遺跡からは古代の神殿とみられる石造建築の跡が発見された。","example_ko":"유적에서 고대 신전으로 보이는 석조 건축 흔적이 발견되었다."},
+    {"key":"n1-0779","word":"様相","reading":"ようそう","meaning_ko":"양상; 모습; 상태","meaning_ja":"物事・現象が示している全体的な姿・状態・ありさま。","part_of_speech":"普通名詞","example_ja":"技術の進歩によって、働き方は十年前とは大きく異なる様相を呈している。","example_ko":"기술 발전으로 일하는 방식은 10년 전과 크게 다른 양상을 보이고 있다."},
+    {"key":"n1-0780","word":"富豪","reading":"ふごう","meaning_ko":"부호; 매우 큰 부자","meaning_ja":"非常に多くの財産を持つ人。","part_of_speech":"普通名詞","example_ja":"その富豪は私財を投じて、地域の教育施設を建設した。","example_ko":"그 부호는 사재를 들여 지역 교육 시설을 건설했다."}
+  ]
+}
