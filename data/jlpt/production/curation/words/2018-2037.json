@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2018-2037",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2018","word":"罰","reading":"ばち","meaning_ko":"천벌; 벌; 벌받음","meaning_ja":"悪い行いに対して神仏などから受けると考えられる罰。","part_of_speech":"普通名詞","example_ja":"そんなことをすると罰が当たるよ。","example_ko":"그런 짓을 하면 벌받아.","note":"読み『ばち』では特に divine punishment/retribution の意味。一般的な刑罰の『罰』は『ばつ』。"},
+    {"key":"n1-2019","word":"浸す","reading":"ひたす","meaning_ko":"담그다; 적시다","meaning_ja":"液体の中に入れて十分にぬらす。","part_of_speech":"五段動詞","example_ja":"布を水に浸してから固く絞った。","example_ko":"천을 물에 적신 뒤 꽉 짰다."},
+    {"key":"n1-2020","word":"ゲスト","reading":"ゲスト","meaning_ko":"손님; 게스트; 초대 출연자","meaning_ja":"招かれた客。また、番組などに招待されて出演する人。","part_of_speech":"普通名詞","example_ja":"今日の番組には有名な俳優がゲストとして出演する。","example_ko":"오늘 프로그램에는 유명 배우가 게스트로 출연한다."},
+    {"key":"n1-2021","word":"惜しむ","reading":"おしむ","meaning_ko":"아끼다; 아까워하다; 애석해하다","meaning_ja":"大切にして無駄にしない。また、失うことを残念に思う。","part_of_speech":"五段動詞","example_ja":"彼は努力を惜しまず、最後まで練習を続けた。","example_ko":"그는 노력을 아끼지 않고 끝까지 연습을 계속했다."},
+    {"key":"n1-2022","word":"軽減","reading":"けいげん","meaning_ko":"경감; 줄임; 완화","meaning_ja":"負担・苦痛・程度などを減らして軽くすること。","part_of_speech":"サ変名詞","example_ja":"新しい制度によって利用者の負担が軽減された。","example_ko":"새 제도로 이용자의 부담이 줄었다."},
+    {"key":"n1-2023","word":"年号","reading":"ねんごう","meaning_ko":"연호; 연대 이름","meaning_ja":"年を表すために用いる名称。特に日本の元号。","part_of_speech":"普通名詞","example_ja":"令和という年号は2019年から使われている。","example_ko":"레이와라는 연호는 2019년부터 사용되고 있다."},
+    {"key":"n1-2024","word":"ポット","reading":"ポット","meaning_ko":"포트; 보온병; 주전자형 용기","meaning_ja":"湯・飲料などを入れて保温する容器。","part_of_speech":"普通名詞","example_ja":"ポットにお湯を入れて会議室へ持っていった。","example_ko":"포트에 뜨거운 물을 넣어 회의실로 가져갔다."},
+    {"key":"n1-2025","word":"バット","reading":"バット","meaning_ko":"배트; 방망이","meaning_ja":"野球・ソフトボールなどで球を打つ棒。","part_of_speech":"普通名詞","example_ja":"彼は新しいバットでホームランを打った。","example_ko":"그는 새 배트로 홈런을 쳤다."},
+    {"key":"n1-2026","word":"グレー","reading":"グレー","meaning_ko":"회색; 애매한 상태","meaning_ja":"灰色。また、白黒がはっきりせず判断が曖昧な状態。","part_of_speech":"普通名詞・な形容詞","example_ja":"規則上は完全に禁止ではないが、かなりグレーなケースだ。","example_ko":"규정상 완전히 금지는 아니지만 상당히 애매한 사례다."},
+    {"key":"n1-2027","word":"禁ずる","reading":"きんずる","meaning_ko":"금하다; 금지하다; 억누르다","meaning_ja":"ある行為をしてはいけないとする。また、感情などを抑える。","part_of_speech":"サ変動詞","example_ja":"この区域では立ち入りを禁ずる。","example_ko":"이 구역은 출입을 금한다."},
+    {"key":"n1-2028","word":"舞う","reading":"まう","meaning_ko":"춤추다; 흩날리다; 빙빙 돌다","meaning_ja":"舞踊をする。また、花びら・雪などが空中をひらひら動く。","part_of_speech":"五段動詞","example_ja":"春風に乗って桜の花びらが舞っていた。","example_ko":"봄바람을 타고 벚꽃잎이 흩날리고 있었다."},
+    {"key":"n1-2029","word":"穂","reading":"ほ","meaning_ko":"이삭","meaning_ja":"稲・麦などで、花が咲き実がなる先端の部分。","part_of_speech":"普通名詞","example_ja":"秋になると田んぼの稲穂が黄金色に染まる。","example_ko":"가을이 되면 논의 벼 이삭이 황금빛으로 물든다."},
+    {"key":"n1-2030","word":"据える","reading":"すえる","meaning_ko":"설치하다; 놓다; 앉히다; 정하다","meaning_ja":"物を一定の場所にしっかり置く。また、人を地位につけたり目標などを定めたりする。","part_of_speech":"一段動詞","example_ja":"部屋の中央に大きな机を据えた。","example_ko":"방 중앙에 큰 책상을 놓았다."},
+    {"key":"n1-2031","word":"辛うじて","reading":"かろうじて","meaning_ko":"간신히; 가까스로","meaning_ja":"困難な状況で、ぎりぎり何とか実現するさま。","part_of_speech":"副詞","example_ja":"終電に辛うじて間に合った。","example_ko":"막차에 가까스로 맞췄다.","note":"現代では通常『かろうじて』と仮名で書く。"},
+    {"key":"n1-2032","word":"挑む","reading":"いどむ","meaning_ko":"도전하다; 맞서다","meaning_ja":"困難な課題・相手などに立ち向かう。","part_of_speech":"五段動詞","example_ja":"彼は世界記録の更新に挑んだ。","example_ko":"그는 세계 기록 경신에 도전했다."},
+    {"key":"n1-2033","word":"唸る","reading":"うなる","meaning_ko":"신음하다; 으르렁거리다; 웅웅 소리나다","meaning_ja":"低く長い声・音を出す。動物がうなり声を上げたり、機械・風などが低く鳴ったりする。","part_of_speech":"五段動詞","example_ja":"強い風が窓の外で一晩中唸っていた。","example_ko":"강한 바람이 창밖에서 밤새 윙윙 울었다."},
+    {"key":"n1-2034","word":"受け止める","reading":"うけとめる","meaning_ko":"받아내다; 받아들이다; 이해하다","meaning_ja":"向かってくるものを受ける。また、意見・事実などを理解し受け入れる。","part_of_speech":"一段動詞","example_ja":"批判を感情的にならずに受け止める必要がある。","example_ko":"비판을 감정적으로 반응하지 않고 받아들일 필요가 있다."},
+    {"key":"n1-2035","word":"持てる","reading":"もてる","meaning_ko":"인기가 있다; 호감을 받다","meaning_ja":"異性などから人気があり、好かれる。","part_of_speech":"一段動詞","example_ja":"彼は話が面白くて昔からよく持てる。","example_ko":"그는 말이 재미있어서 예전부터 인기가 많다.","note":"ここでは JMdict の『人気がある』の独立語義。可能形『持てる』とは区別。"},
+    {"key":"n1-2036","word":"盗み","reading":"ぬすみ","meaning_ko":"도둑질; 훔침","meaning_ja":"他人の物をこっそり盗むこと。","part_of_speech":"普通名詞","example_ja":"店の商品を盗む行為は犯罪だ。","example_ko":"가게 물건을 훔치는 행위는 범죄다.","note":"候補の『서리』は特定文化的用法に偏るため一般義を中心化。"},
+    {"key":"n1-2037","word":"遠方","reading":"えんぽう","meaning_ko":"먼 곳; 원거리","meaning_ja":"距離が遠く離れた場所。","part_of_speech":"普通名詞","example_ja":"遠方から来た参加者のために宿泊先を用意した。","example_ko":"먼 곳에서 온 참가자를 위해 숙소를 준비했다."}
+  ]
+}
