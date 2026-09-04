@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2558-2577",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2558","word":"禁じる","reading":"きんじる","meaning_ko":"금하다; 금지하다","meaning_ja":"ある行為をしてはいけないと定める。","part_of_speech":"一段動詞","example_ja":"この区域では喫煙を禁じている。","example_ko":"이 구역에서는 흡연을 금지하고 있다."},
+    {"key":"n1-2559","word":"折り返す","reading":"おりかえす","meaning_ko":"되돌아가다; 접어 되돌리다; 회신하다","meaning_ja":"進んできた方向を反対にして戻る。また、紙などを折って返す。","part_of_speech":"五段動詞","example_ja":"終点で電車が折り返す。","example_ko":"종점에서 전철이 되돌아간다.","note":"電話・連絡では『折り返し連絡する』も頻出。"},
+    {"key":"n1-2560","word":"戸締り","reading":"とじまり","meaning_ko":"문단속; 문을 잠금","meaning_ja":"戸や窓を閉めて鍵をかけること。","part_of_speech":"サ変名詞","example_ja":"外出前に戸締りを確認した。","example_ko":"외출 전에 문단속을 확인했다."},
+    {"key":"n1-2561","word":"辿り着く","reading":"たどりつく","meaning_ko":"간신히 도착하다; 마침내 다다르다","meaning_ja":"苦労しながら進み、ようやく目的地・結論などに到達する。","part_of_speech":"五段動詞","example_ja":"長い山道を歩いて、やっと頂上に辿り着いた。","example_ko":"긴 산길을 걸어 마침내 정상에 도착했다."},
+    {"key":"n1-2562","word":"実業家","reading":"じつぎょうか","meaning_ko":"실업가; 기업가; 사업가","meaning_ja":"商工業・金融業などの事業を経営する人。","part_of_speech":"普通名詞","example_ja":"彼は若くして成功した実業家として知られている。","example_ko":"그는 젊은 나이에 성공한 기업가로 알려져 있다."},
+    {"key":"n1-2563","word":"強いる","reading":"しいる","meaning_ko":"강요하다; 억지로 시키다","meaning_ja":"相手の意思に反して、無理に何かをさせる。","part_of_speech":"一段動詞","example_ja":"社員に長時間労働を強いてはいけない。","example_ko":"직원에게 장시간 노동을 강요해서는 안 된다."},
+    {"key":"n1-2564","word":"持て成す","reading":"もてなす","meaning_ko":"대접하다; 환대하다","meaning_ja":"客を丁寧に迎え、食事などを出して接待する。","part_of_speech":"五段動詞","example_ja":"海外からの客を郷土料理でもてなした。","example_ko":"해외에서 온 손님을 향토 요리로 대접했다.","note":"現代では通常『もてなす』と仮名で書く。候補KO『치다』は除外。"},
+    {"key":"n1-2565","word":"見掛ける","reading":"みかける","meaning_ko":"우연히 보다; 눈에 띄다","meaning_ja":"偶然その人・物を目にする。","part_of_speech":"一段動詞","example_ja":"駅で昔の同僚を見掛けた。","example_ko":"역에서 예전 동료를 우연히 봤다."},
+    {"key":"n1-2566","word":"結び付き","reading":"むすびつき","meaning_ko":"연결; 관계; 결부","meaning_ja":"物事どうしのつながり・関係。","part_of_speech":"普通名詞","example_ja":"地域社会との結び付きが強い会社だ。","example_ko":"지역사회와의 연계가 강한 회사다."},
+    {"key":"n1-2567","word":"俄か","reading":"にわか","meaning_ko":"갑작스러운; 임시의; 급조한","meaning_ja":"物事が急に起こるさま。また、急ごしらえであるさま。","part_of_speech":"な形容詞","example_ja":"空が暗くなり、にわか雨が降り出した。","example_ko":"하늘이 어두워지더니 갑자기 소나기가 내리기 시작했다.","note":"現代では通常『にわか』と仮名で書く。"},
+    {"key":"n1-2568","word":"呉れ呉れも","reading":"くれぐれも","meaning_ko":"부디; 거듭; 각별히","meaning_ja":"相手に念を押して、強く願うさま。","part_of_speech":"副詞","example_ja":"帰り道はくれぐれも気を付けてください。","example_ko":"돌아가는 길에는 부디 각별히 조심해 주세요.","note":"現代では通常『くれぐれも』と仮名で書く。"},
+    {"key":"n1-2569","word":"敬具","reading":"けいぐ","meaning_ko":"경구; 삼가 올림(편지 맺음말)","meaning_ja":"改まった手紙の末尾に用いる結びの語。","part_of_speech":"普通名詞","example_ja":"正式な手紙の末尾を『敬具』で結んだ。","example_ko":"정식 편지의 마지막을 '敬具'로 맺었다.","note":"通常『拝啓』に対応する結語。"},
+    {"key":"n1-2570","word":"名残","reading":"なごり","meaning_ko":"흔적; 자취; 여운; 아쉬움","meaning_ja":"過ぎ去ったものが残した跡・気配。また、別れを惜しむ気持ち。","part_of_speech":"普通名詞","example_ja":"町には昔の面影の名残が残っている。","example_ko":"마을에는 옛 모습의 흔적이 남아 있다."},
+    {"key":"n1-2571","word":"拘る","reading":"こだわる","meaning_ko":"집착하다; 고집하다; 세세하게 신경 쓰다","meaning_ja":"一つのことを強く気にし、特に重視する。","part_of_speech":"五段動詞","example_ja":"彼は素材の品質に強くこだわっている。","example_ko":"그는 소재의 품질을 매우 중요하게 생각한다.","note":"現代では通常『こだわる』と仮名で書く。"},
+    {"key":"n1-2572","word":"スチーム","reading":"スチーム","meaning_ko":"스팀; 증기","meaning_ja":"蒸気。また、蒸気を利用した暖房など。","part_of_speech":"普通名詞","example_ja":"スチームで衣服のしわを伸ばした。","example_ko":"스팀으로 옷의 주름을 폈다."},
+    {"key":"n1-2573","word":"若しかしたら","reading":"もしかしたら","meaning_ko":"혹시; 어쩌면; 혹시라도","meaning_ja":"可能性は高くないが、そうかもしれないことを表す。","part_of_speech":"副詞","example_ja":"もしかしたら明日は雪になるかもしれない。","example_ko":"어쩌면 내일은 눈이 올지도 모른다.","note":"現代では通常『もしかしたら』と仮名で書く。"},
+    {"key":"n1-2574","word":"きちっと","reading":"きちっと","meaning_ko":"정확히; 반듯하게; 빈틈없이","meaning_ja":"正確に、きちんと整っているさま。","part_of_speech":"副詞","example_ja":"書類は期限までにきちっと提出してください。","example_ko":"서류는 기한까지 정확히 제출해 주세요.","note":"候補品詞『サ変名詞』から副詞に修正。"},
+    {"key":"n1-2575","word":"使用人","reading":"しようにん","meaning_ko":"고용인; 사용인; 피고용인","meaning_ja":"雇われて働く人。特に家事などに従事する人を指すこともある。","part_of_speech":"普通名詞","example_ja":"昔、その屋敷には多くの使用人がいた。","example_ko":"옛날 그 저택에는 많은 고용인이 있었다."},
+    {"key":"n1-2576","word":"長大","reading":"ちょうだい","meaning_ko":"매우 길고 큼; 장대함","meaning_ja":"非常に長く、大きいこと。","part_of_speech":"な形容詞","example_ja":"長大な橋が海峡に架けられている。","example_ko":"매우 긴 다리가 해협에 놓여 있다."},
+    {"key":"n1-2577","word":"効き目","reading":"ききめ","meaning_ko":"효과; 효험; 약효","meaning_ja":"薬・方法などによって現れる効果。","part_of_speech":"普通名詞","example_ja":"この薬はすぐに効き目が現れた。","example_ko":"이 약은 곧 효과가 나타났다.","note":"候補KO『약발』は口語적이므로 학습용 기본 의미를 보완。"}
+  ]
+}
