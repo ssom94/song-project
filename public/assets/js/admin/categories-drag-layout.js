@@ -1,4 +1,27 @@
 (() => {
+	// category-appearance.js decorates each rendered row with an icon while also
+	// observing the table subtree. Ignore mutations caused only by that decoration
+	// so the observer cannot remove/reinsert the same icon forever and freeze the page.
+	const NativeMutationObserver = window.MutationObserver;
+	if (NativeMutationObserver && !window.__songCategoryMutationGuard) {
+		window.__songCategoryMutationGuard = true;
+		window.MutationObserver = class extends NativeMutationObserver {
+			constructor(callback) {
+				super((mutations, observer) => {
+					const meaningful = mutations.filter((mutation) => {
+						const changed = [...mutation.addedNodes, ...mutation.removedNodes];
+						if (!changed.length) return true;
+						return changed.some((node) => !(
+							node instanceof Element
+							&& node.classList.contains('admin-category-row-icon')
+						));
+					});
+					if (meaningful.length) callback(meaningful, observer);
+				});
+			}
+		};
+	}
+
 	function moveDragHandleToOwnColumn(row) {
 		if (!(row instanceof HTMLTableRowElement)) return;
 		const handle = row.querySelector('.admin-category-drag-handle');
