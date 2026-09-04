@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2198-2217",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2198","word":"レバー","reading":"レバー","meaning_ko":"레버; 간(식재료)","meaning_ja":"機械を操作するためのてこ状の取っ手。また、食用の肝臓。","part_of_speech":"普通名詞","example_ja":"安全装置のレバーを下げて機械を停止した。","example_ko":"안전장치 레버를 내려 기계를 정지시켰다.","note":"英語 lever と liver が日本語ではどちらも『レバー』になるため文脈で区別。"},
+    {"key":"n1-2199","word":"零す","reading":"こぼす","meaning_ko":"쏟다; 엎지르다; 푸념하다","meaning_ja":"液体などを容器から外へ出してしまう。また、不満・愚痴などを口にする。","part_of_speech":"五段動詞","example_ja":"テーブルにコーヒーを零してしまった。","example_ko":"테이블에 커피를 엎질렀다.","note":"現代では通常『こぼす』と仮名で書くことも多い。"},
+    {"key":"n1-2200","word":"微塵","reading":"みじん","meaning_ko":"미진; 아주 작은 티끌; 조금도","meaning_ja":"非常に細かい粒・ちり。また、『微塵も～ない』で少しもないこと。","part_of_speech":"普通名詞","example_ja":"彼には後悔の気持ちは微塵もなかった。","example_ko":"그에게는 후회의 마음이 조금도 없었다.","note":"『微塵も～ない』は頻出表現。"},
+    {"key":"n1-2201","word":"取り締まる","reading":"とりしまる","meaning_ko":"단속하다; 감독하다; 통제하다","meaning_ja":"法律・規則に反する行為がないよう監督・規制する。","part_of_speech":"五段動詞","example_ja":"警察が違法駐車を厳しく取り締まっている。","example_ko":"경찰이 불법 주차를 엄격히 단속하고 있다."},
+    {"key":"n1-2202","word":"勘弁","reading":"かんべん","meaning_ko":"용서; 봐줌; 사양함","meaning_ja":"過ちを許すこと。また、『勘弁して』で、もうやめてほしいという気持ちを表す。","part_of_speech":"サ変名詞","example_ja":"今日は残業だけは勘弁してください。","example_ko":"오늘은 야근만은 제발 봐주세요."},
+    {"key":"n1-2203","word":"為さる","reading":"なさる","meaning_ko":"하시다","meaning_ja":"『する』の尊敬語。相手や目上の人の動作を高めていう。","part_of_speech":"五段動詞","example_ja":"週末は何をなさる予定ですか。","example_ko":"주말에는 무엇을 하실 예정인가요?","note":"現代では通常『なさる』と仮名で書く。"},
+    {"key":"n1-2204","word":"円満","reading":"えんまん","meaning_ko":"원만함; 화목함","meaning_ja":"人間関係・物事の進行などが穏やかで、争いなくうまくいっていること。","part_of_speech":"な形容詞・普通名詞","example_ja":"話し合いによって問題は円満に解決した。","example_ko":"대화를 통해 문제는 원만하게 해결되었다."},
+    {"key":"n1-2205","word":"保温","reading":"ほおん","meaning_ko":"보온","meaning_ja":"温度が下がらないよう、暖かさを保つこと。","part_of_speech":"サ変名詞","example_ja":"この水筒は長時間保温できる。","example_ko":"이 물통은 오랫동안 보온할 수 있다."},
+    {"key":"n1-2206","word":"慎む","reading":"つつしむ","meaning_ko":"삼가다; 조심하다; 절제하다","meaning_ja":"言動を控えめにし、注意深く行動する。また、ある行為を控える。","part_of_speech":"五段動詞","example_ja":"式典では私語を慎んでください。","example_ko":"식전에서는 사적인 대화를 삼가 주세요."},
+    {"key":"n1-2207","word":"兼業","reading":"けんぎょう","meaning_ko":"겸업; 부업 겸함","meaning_ja":"本業のほかに別の仕事・事業も行うこと。","part_of_speech":"サ変名詞","example_ja":"会社の規定で兼業が認められている。","example_ko":"회사 규정상 겸업이 허용되어 있다."},
+    {"key":"n1-2208","word":"密集","reading":"みっしゅう","meaning_ko":"밀집; 빽빽하게 모임","meaning_ja":"多くのものが狭い場所にすき間なく集まること。","part_of_speech":"サ変名詞","example_ja":"この地域には住宅が密集している。","example_ko":"이 지역에는 주택이 밀집해 있다."},
+    {"key":"n1-2209","word":"ユニーク","reading":"ユニーク","meaning_ko":"독특함; 유니크함","meaning_ja":"他にはあまりなく、独特で個性的なさま。","part_of_speech":"な形容詞","example_ja":"彼はユニークな発想で新製品を考えた。","example_ko":"그는 독특한 발상으로 신제품을 구상했다."},
+    {"key":"n1-2210","word":"至って","reading":"いたって","meaning_ko":"지극히; 매우; 아주","meaning_ja":"非常に。きわめて。","part_of_speech":"副詞","example_ja":"本人は至って元気そうだった。","example_ko":"본인은 매우 건강해 보였다."},
+    {"key":"n1-2211","word":"水気","reading":"すいき","meaning_ko":"수분; 습기","meaning_ja":"物に含まれている水分・湿気。","part_of_speech":"普通名詞","example_ja":"野菜の水気を十分に切ってから炒める。","example_ko":"채소의 물기를 충분히 뺀 뒤 볶는다.","note":"一般には『みずけ』の読みも非常に一般的。この候補は『すいき』。候補KRDICTの『과즙/수액』だけでは狭いためJMdictの moisture/dampness に合わせて補正。"},
+    {"key":"n1-2212","word":"丸ごと","reading":"まるごと","meaning_ko":"통째로; 전부","meaning_ja":"分けたり除いたりせず、全部そのまま。","part_of_speech":"副詞・普通名詞","example_ja":"りんごを皮ごと丸ごと食べた。","example_ko":"사과를 껍질째 통째로 먹었다."},
+    {"key":"n1-2213","word":"脅す","reading":"おどす","meaning_ko":"위협하다; 협박하다; 겁주다","meaning_ja":"怖い言葉・態度などで相手に恐怖を与え、従わせようとする。","part_of_speech":"五段動詞","example_ja":"金を出せと相手を脅した。","example_ko":"돈을 내놓으라고 상대를 위협했다."},
+    {"key":"n1-2214","word":"早める","reading":"はやめる","meaning_ko":"앞당기다; 빨리하다","meaning_ja":"予定・時刻などをより早くする。","part_of_speech":"一段動詞","example_ja":"台風のため出発時間を一時間早めた。","example_ko":"태풍 때문에 출발 시간을 한 시간 앞당겼다."},
+    {"key":"n1-2215","word":"尊ぶ","reading":"たっとぶ","meaning_ko":"존중하다; 귀하게 여기다","meaning_ja":"価値あるものとして大切にし、敬う。","part_of_speech":"五段動詞","example_ja":"この地域では昔から自然を尊ぶ文化がある。","example_ko":"이 지역에는 예부터 자연을 존중하는 문화가 있다.","note":"『とうとぶ』とも読む。"},
+    {"key":"n1-2216","word":"混む","reading":"こむ","meaning_ko":"붐비다; 혼잡하다","meaning_ja":"人・車などが多く集まり、混雑する。","part_of_speech":"五段動詞","example_ja":"この道路は朝になると非常に混む。","example_ko":"이 도로는 아침이 되면 매우 붐빈다."},
+    {"key":"n1-2217","word":"欠乏","reading":"けつぼう","meaning_ko":"결핍; 부족","meaning_ja":"必要なものが不足していること。","part_of_speech":"サ変名詞","example_ja":"深刻な水不足で飲料水が欠乏している。","example_ko":"심각한 물 부족으로 식수가 결핍되어 있다."}
+  ]
+}
