@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2858-2877",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2858","word":"傲る","reading":"おごる","meaning_ko":"교만해지다; 우쭐해지다","meaning_ja":"自分が優れていると思い、思い上がる。","part_of_speech":"五段動詞","example_ja":"成功しても傲らず、周囲への感謝を忘れない。","example_ko":"성공해도 교만해지지 않고 주변에 대한 감사를 잊지 않는다.","note":"通常は『驕る』表記も多い。"},
+    {"key":"n1-2859","word":"納まる","reading":"おさまる","meaning_ko":"들어가다; 수납되다; 납부되다; 해결되다","meaning_ja":"ある場所や範囲に収まる。また、金品が納入される。","part_of_speech":"五段動詞","example_ja":"荷物はすべて棚に納まった。","example_ko":"짐은 모두 선반에 들어갔다."},
+    {"key":"n1-2860","word":"お邪魔します","reading":"おじゃまします","meaning_ko":"실례하겠습니다; 들어가겠습니다","meaning_ja":"他人の家や部屋に入る際などに用いる挨拶。","part_of_speech":"定型表現","example_ja":"お邪魔します。今日はお招きありがとうございます。","example_ko":"실례하겠습니다. 오늘 초대해 주셔서 감사합니다."},
+    {"key":"n1-2861","word":"仰っしゃる","reading":"おっしゃる","meaning_ko":"말씀하시다","meaning_ja":"『言う』の尊敬語。","part_of_speech":"五段動詞","example_ja":"先生がおっしゃった通りに進めます。","example_ko":"선생님이 말씀하신 대로 진행하겠습니다.","note":"現代では通常『おっしゃる』と仮名で書く。"},
+    {"key":"n1-2862","word":"御手洗い","reading":"おてあらい","meaning_ko":"화장실; 세면실","meaning_ja":"便所・洗面所を丁寧にいう語。","part_of_speech":"普通名詞","example_ja":"お手洗いは廊下の突き当たりです。","example_ko":"화장실은 복도 끝에 있습니다.","note":"通常は『お手洗い』と書く。"},
+    {"key":"n1-2863","word":"織","reading":"おり","meaning_ko":"직조; 짜임; 직물","meaning_ja":"糸を組み合わせて布を織ること。また、その織り方・織物。","part_of_speech":"普通名詞","example_ja":"この布は独特の織が美しい。","example_ko":"이 천은 독특한 짜임이 아름답다."},
+    {"key":"n1-2864","word":"省みる","reading":"かえりみる","meaning_ko":"돌이켜보다; 반성하다","meaning_ja":"自分の言動や過去を振り返り、よく考える。","part_of_speech":"一段動詞","example_ja":"失敗の原因を省みて次に生かす。","example_ko":"실패 원인을 되돌아보고 다음에 살린다."},
+    {"key":"n1-2865","word":"駆けっこ","reading":"かけっこ","meaning_ko":"달리기 시합; 달리기 경쟁","meaning_ja":"走る速さを競う遊び・競争。","part_of_speech":"サ変名詞","example_ja":"子どもたちは公園で駆けっこをして遊んだ。","example_ko":"아이들은 공원에서 달리기 시합을 하며 놀았다.","note":"候補KRDICTの『뜀질』より race の意味を優先。"},
+    {"key":"n1-2866","word":"兼ねて","reading":"かねて","meaning_ko":"겸하여; 동시에; 예전부터","meaning_ja":"二つ以上の事柄を同時に行うさま。また、以前から。","part_of_speech":"副詞","example_ja":"視察を兼ねて現地を訪れた。","example_ko":"시찰을 겸해 현지를 방문했다.","note":"『かねてから』では『이전부터』の意味。"},
+    {"key":"n1-2867","word":"カムバック","reading":"カムバック","meaning_ko":"컴백; 복귀","meaning_ja":"以前いた場所・活動の場に戻ること。","part_of_speech":"サ変名詞","example_ja":"彼は数年ぶりに芸能界へカムバックした。","example_ko":"그는 몇 년 만에 연예계로 컴백했다."},
+    {"key":"n1-2868","word":"加留多","reading":"カルタ","meaning_ko":"가루타; 일본식 카드놀이","meaning_ja":"読み札と取り札などを使って遊ぶ日本のカード遊び。","part_of_speech":"普通名詞","example_ja":"正月に家族でカルタをした。","example_ko":"설에 가족과 가루타를 했다.","note":"通常は『カルタ』表記。"},
+    {"key":"n1-2869","word":"可愛がる","reading":"かわいがる","meaning_ko":"귀여워하다; 아끼다","meaning_ja":"かわいいと思って大切にする。","part_of_speech":"五段動詞","example_ja":"祖父は孫をとても可愛がっている。","example_ko":"할아버지는 손주를 매우 귀여워하신다."},
+    {"key":"n1-2870","word":"気障","reading":"きざ","meaning_ko":"잘난 체하는; 멋을 부리는; 느끼한","meaning_ja":"気取っていて、いやみに感じられるさま。","part_of_speech":"な形容詞","example_ja":"彼の気障な台詞に皆が苦笑した。","example_ko":"그의 잘난 체하는 대사에 모두가 쓴웃음을 지었다.","note":"現代では通常『キザ』と書くことも多い。"},
+    {"key":"n1-2871","word":"籤引","reading":"くじびき","meaning_ko":"제비뽑기; 추첨","meaning_ja":"くじを引いて順番や当落などを決めること。","part_of_speech":"サ変名詞","example_ja":"発表の順番は籤引で決めた。","example_ko":"발표 순서는 제비뽑기로 정했다.","note":"通常は『くじ引き』と書く。"},
+    {"key":"n1-2872","word":"擽ぐったい","reading":"くすぐったい","meaning_ko":"간지럽다; 쑥스럽다","meaning_ja":"くすぐられてむずむずする。また、褒められて照れくさい。","part_of_speech":"い形容詞","example_ja":"そんなに褒められると少しくすぐったい。","example_ko":"그렇게 칭찬받으면 조금 쑥스럽다.","note":"通常は『くすぐったい』表記。"},
+    {"key":"n1-2873","word":"児","reading":"こ","meaning_ko":"아이; 새끼","meaning_ja":"子ども。また、動物の子。","part_of_speech":"普通名詞","example_ja":"迷子になった児を係員が保護した。","example_ko":"길을 잃은 아이를 직원이 보호했다.","note":"候補KRDICTの接尾辞『-아』は読み不一致のため除外。"},
+    {"key":"n1-2874","word":"濠","reading":"ごう","meaning_ko":"해자; 도랑","meaning_ja":"城などの周囲に掘った堀。","part_of_speech":"普通名詞","example_ja":"城の周囲には深い濠が残っている。","example_ko":"성 주변에는 깊은 해자가 남아 있다."},
+    {"key":"n1-2875","word":"光熱費","reading":"こうねつひ","meaning_ko":"광열비; 전기·가스 등 공공요금","meaning_ja":"電気・ガスなど、照明や冷暖房等にかかる費用。","part_of_speech":"普通名詞","example_ja":"冬は光熱費が高くなりやすい。","example_ko":"겨울에는 광열비가 높아지기 쉽다."},
+    {"key":"n1-2876","word":"箇箇","reading":"ここ","meaning_ko":"각각; 개별","meaning_ja":"一つ一つ。個別。","part_of_speech":"普通名詞・副詞","example_ja":"箇箇の事情を確認して判断する必要がある。","example_ko":"각각의 사정을 확인해 판단할 필요가 있다.","note":"現代では『個々』表記が一般的。"},
+    {"key":"n1-2877","word":"ご座います","reading":"ございます","meaning_ko":"있습니다; ~입니다(정중 표현)","meaning_ja":"『ある』の丁寧語。また、形容動詞などの丁寧表現に用いる。","part_of_speech":"補助動詞・丁寧表現","example_ja":"こちらに資料がございます。","example_ko":"이쪽에 자료가 있습니다.","note":"通常は『ございます』と仮名で書く。"}
+  ]
+}
