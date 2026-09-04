@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0881-0900",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0881","word":"下痢","reading":"げり","meaning_ko":"설사","meaning_ja":"腸の働きが乱れ、水分の多い便を何度も排出する症状。","part_of_speech":"サ変名詞","example_ja":"下痢が続く場合は脱水を防ぐため、水分を十分に取る必要がある。","example_ko":"설사가 계속되면 탈수를 막기 위해 수분을 충분히 섭취해야 한다."},
+    {"key":"n1-0882","word":"初版","reading":"しょはん","meaning_ko":"초판","meaning_ja":"書籍などが最初に印刷・発行された版。","part_of_speech":"普通名詞","example_ja":"この作品の初版は現在では入手が難しく、古書市場で高値が付いている。","example_ko":"이 작품의 초판은 현재 구하기 어려워 고서 시장에서 높은 가격이 붙어 있다."},
+    {"key":"n1-0883","word":"鉄鋼","reading":"てっこう","meaning_ko":"철강","meaning_ja":"鉄と鋼の総称。また、それらを材料として扱う産業分野。","part_of_speech":"普通名詞","example_ja":"自動車産業の動向は鉄鋼需要にも大きく影響する。","example_ko":"자동차 산업의 동향은 철강 수요에도 큰 영향을 준다."},
+    {"key":"n1-0884","word":"概略","reading":"がいりゃく","meaning_ko":"개략; 대략적인 내용","meaning_ja":"物事の主要な部分だけを簡単にまとめた内容。","part_of_speech":"普通名詞","example_ja":"まず計画の概略を説明し、その後で各工程の詳細に入ります。","example_ko":"먼저 계획의 개략을 설명한 뒤 각 공정의 상세 내용으로 들어가겠습니다."},
+    {"key":"n1-0885","word":"定食","reading":"ていしょく","meaning_ko":"정식; 세트 식사","meaning_ja":"主食・汁物・おかずなどを一定の組み合わせと価格で提供する食事。","part_of_speech":"普通名詞","example_ja":"昼は近くの食堂で焼き魚定食を注文した。","example_ko":"점심에는 근처 식당에서 생선구이 정식을 주문했다."},
+    {"key":"n1-0886","word":"両立","reading":"りょうりつ","meaning_ko":"양립; 두 가지를 함께 성립시킴","meaning_ja":"二つの物事を、どちらも損なわず同時に成り立たせること。","part_of_speech":"サ変名詞","example_ja":"仕事と育児を両立できるよう、柔軟な勤務制度が導入された。","example_ko":"일과 육아를 양립할 수 있도록 유연한 근무 제도가 도입되었다."},
+    {"key":"n1-0887","word":"役場","reading":"やくば","meaning_ko":"관공서; 읍·면·촌사무소","meaning_ja":"町・村などの地方自治体の行政事務を行う役所。","part_of_speech":"普通名詞","example_ja":"住民票を取るため、午前中に町役場へ行った。","example_ko":"주민표를 발급받기 위해 오전에 정사무소에 갔다."},
+    {"key":"n1-0888","word":"生育","reading":"せいいく","meaning_ko":"생육; 자라남","meaning_ja":"植物・動物などが成長し、育つこと。","part_of_speech":"サ変名詞","example_ja":"今年は日照時間が長く、作物の生育が例年より早い。","example_ko":"올해는 일조 시간이 길어 작물 생육이 예년보다 빠르다."},
+    {"key":"n1-0889","word":"感触","reading":"かんしょく","meaning_ko":"감촉; 촉감; 느낌","meaning_ja":"物に触れたときの感覚。また、経験・交渉などから得られる手応えや印象。","part_of_speech":"普通名詞","example_ja":"試作品を触った感触は良く、操作もしやすかった。","example_ko":"시제품을 만져 본 감촉은 좋았고 조작도 쉬웠다."},
+    {"key":"n1-0890","word":"非行","reading":"ひこう","meaning_ko":"비행; 일탈 행위","meaning_ja":"特に青少年が、法律・社会規範・道徳から外れた行動をすること。","part_of_speech":"普通名詞","example_ja":"非行を防ぐには、罰だけでなく家庭や地域の支援も重要だ。","example_ko":"비행을 막으려면 처벌뿐 아니라 가정과 지역사회의 지원도 중요하다."},
+    {"key":"n1-0891","word":"連日","reading":"れんじつ","meaning_ko":"연일; 여러 날 계속","meaning_ja":"何日も続けて毎日。","part_of_speech":"副詞","example_ja":"猛暑が連日続き、熱中症への注意が呼びかけられている。","example_ko":"폭염이 연일 이어져 열사병 주의가 당부되고 있다."},
+    {"key":"n1-0892","word":"利息","reading":"りそく","meaning_ko":"이자","meaning_ja":"金銭を貸し借りした際に、元金に加えて支払われる金銭。","part_of_speech":"普通名詞","example_ja":"返済期間が長くなるほど、支払う利息の総額も増える。","example_ko":"상환 기간이 길어질수록 지불하는 이자의 총액도 늘어난다."},
+    {"key":"n1-0893","word":"耕作","reading":"こうさく","meaning_ko":"경작","meaning_ja":"田畑を耕し、作物を育てること。","part_of_speech":"サ変名詞","example_ja":"高齢化により、耕作されなくなった農地が増えている。","example_ko":"고령화로 경작되지 않는 농지가 늘고 있다."},
+    {"key":"n1-0894","word":"磁気","reading":"じき","meaning_ko":"자기; 자성","meaning_ja":"磁石・電流などに関係する、物体を引きつけたり反発させたりする性質・作用。","part_of_speech":"普通名詞","example_ja":"磁気カードは強い磁石の近くに置くと読み取れなくなることがある。","example_ko":"마그네틱 카드는 강한 자석 가까이에 두면 읽히지 않을 수 있다."},
+    {"key":"n1-0895","word":"小柄","reading":"こがら","meaning_ko":"작은 체구; 몸집이 작음","meaning_ja":"体格が比較的小さいさま。","part_of_speech":"な形容詞","example_ja":"彼女は小柄だが、長距離を走る体力には非常に優れている。","example_ko":"그녀는 체구가 작지만 장거리 달리기 체력은 매우 뛰어나다."},
+    {"key":"n1-0896","word":"比例","reading":"ひれい","meaning_ko":"비례","meaning_ja":"一方の量が変化すると、それに応じて他方の量も一定の関係で変化すること。","part_of_speech":"サ変名詞","example_ja":"作業量に比例して、必要な処理時間も増えていく。","example_ko":"작업량에 비례해 필요한 처리 시간도 늘어난다."},
+    {"key":"n1-0897","word":"公団","reading":"こうだん","meaning_ko":"공단; 공공사업 법인","meaning_ja":"公共的な事業を行うため、国などによって設立された法人。日本では旧制度上の組織名として多く用いられた。","part_of_speech":"普通名詞","example_ja":"その住宅地は旧公団が大規模に開発したことで知られている。","example_ko":"그 주택지는 구 공단이 대규모로 개발한 곳으로 알려져 있다."},
+    {"key":"n1-0898","word":"大方","reading":"おおかた","meaning_ko":"대체로; 대부분; 대강","meaning_ja":"全体の大部分。副詞的には『だいたい・おそらく』の意でも用いる。","part_of_speech":"副詞","example_ja":"作業は大方終わったので、残るのは最終確認だけだ。","example_ko":"작업은 대체로 끝나서 남은 것은 최종 확인뿐이다."},
+    {"key":"n1-0899","word":"調印","reading":"ちょういん","meaning_ko":"조인; 서명 체결","meaning_ja":"条約・協定などの正式な文書に、当事者が署名すること。","part_of_speech":"サ変名詞","example_ja":"両国は協定書に調印し、来月から新しい制度を開始する。","example_ko":"양국은 협정서에 조인하고 다음 달부터 새 제도를 시작한다."},
+    {"key":"n1-0900","word":"所定","reading":"しょてい","meaning_ko":"소정; 정해진 바","meaning_ja":"あらかじめ定められていること。また、その定められた場所・方法・条件。","part_of_speech":"な形容詞","example_ja":"申請書は所定の様式に記入し、期限までに提出してください。","example_ko":"신청서는 정해진 양식에 기입해 기한까지 제출해 주세요."}
+  ]
+}
