@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "range": "2998-3000",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2998","word":"映写","reading":"えいしゃ","meaning_ko":"영사; 화면에 비춤","meaning_ja":"映画・スライドなどの像をスクリーンに映し出すこと。","part_of_speech":"サ変名詞","example_ja":"古いフィルムをスクリーンに映写した。","example_ko":"오래된 필름을 스크린에 영사했다."},
+    {"key":"n1-2999","word":"同い年","reading":"おないどし","meaning_ko":"동갑; 같은 나이","meaning_ja":"年齢が同じであること。また、その人。","part_of_speech":"普通名詞","example_ja":"彼とは同い年なので話が合う。","example_ko":"그와는 동갑이라 이야기가 잘 통한다."},
+    {"key":"n1-3000","word":"山腹","reading":"さんぷく","meaning_ko":"산허리; 산중턱","meaning_ja":"山頂と麓との間の斜面部分。","part_of_speech":"普通名詞","example_ja":"山腹に小さな村が見える。","example_ko":"산중턱에 작은 마을이 보인다."}
+  ]
+}
