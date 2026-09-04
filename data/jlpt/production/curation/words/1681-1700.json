@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1681-1700",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1681","word":"民宿","reading":"みんしゅく","meaning_ko":"민박; 민박집","meaning_ja":"一般の住宅などを利用し、旅行者に宿泊・食事を提供する小規模な宿泊施設。","part_of_speech":"普通名詞","example_ja":"旅行ではホテルではなく、地元の民宿に泊まった。","example_ko":"여행에서는 호텔이 아니라 현지 민박집에 묵었다."},
+    {"key":"n1-1682","word":"棄権","reading":"きけん","meaning_ko":"기권","meaning_ja":"選挙・投票・競技などに参加する権利を自ら行使しないこと。","part_of_speech":"サ変名詞","example_ja":"けがが悪化し、選手は決勝戦を棄権した。","example_ko":"부상이 악화되어 선수는 결승전을 기권했다."},
+    {"key":"n1-1683","word":"愛憎","reading":"あいぞう","meaning_ko":"애증; 사랑과 미움","meaning_ja":"愛する気持ちと憎む気持ち。","part_of_speech":"普通名詞","example_ja":"長い関係の中で愛憎が入り混じった複雑な感情が生まれた。","example_ko":"오랜 관계 속에서 애증이 뒤섞인 복잡한 감정이 생겼다."},
+    {"key":"n1-1684","word":"待望","reading":"たいぼう","meaning_ko":"대망; 오래 기다림","meaning_ja":"長い間、実現・登場などを強く待ち望むこと。","part_of_speech":"サ変名詞","example_ja":"待望の新機能がついに次回の更新で追加される。","example_ko":"오랫동안 기다려 온 신기능이 드디어 다음 업데이트에서 추가된다."},
+    {"key":"n1-1685","word":"下火","reading":"したび","meaning_ko":"기세가 꺾임; 쇠퇴세","meaning_ja":"盛んだった勢い・流行・活動などが弱まること。","part_of_speech":"普通名詞","example_ja":"一時的に過熱したブームも、最近ではすっかり下火になった。","example_ko":"한때 과열됐던 붐도 최근에는 완전히 기세가 꺾였다."},
+    {"key":"n1-1686","word":"目方","reading":"めかた","meaning_ko":"무게; 중량","meaning_ja":"物の重さ。","part_of_speech":"普通名詞","example_ja":"荷物は見た目より目方があり、一人では持ち上げられなかった。","example_ko":"짐은 보기보다 무게가 나가 혼자서는 들 수 없었다."},
+    {"key":"n1-1687","word":"英字","reading":"えいじ","meaning_ko":"영문자; 알파벳 문자","meaning_ja":"英語で用いるアルファベットの文字。","part_of_speech":"普通名詞","example_ja":"パスワードには英字と数字を組み合わせてください。","example_ko":"비밀번호에는 영문자와 숫자를 조합해 주세요."},
+    {"key":"n1-1688","word":"誤差","reading":"ごさ","meaning_ko":"오차","meaning_ja":"測定値・計算値などと、本来の正確な値との差。","part_of_speech":"普通名詞","example_ja":"この測定器には数ミリ程度の誤差が生じる可能性がある。","example_ko":"이 측정기에는 수 밀리미터 정도의 오차가 생길 가능성이 있다."},
+    {"key":"n1-1689","word":"切れ目","reading":"きれめ","meaning_ko":"끊어진 부분; 틈; 구분되는 지점","meaning_ja":"続いていたものが切れる箇所。また、物事の区切り・途切れる時点。","part_of_speech":"普通名詞","example_ja":"作業の切れ目を見て休憩を取ることにした。","example_ko":"작업이 끊기는 시점을 보고 휴식을 취하기로 했다."},
+    {"key":"n1-1690","word":"全快","reading":"ぜんかい","meaning_ko":"완쾌","meaning_ja":"病気・けがが完全に治ること。","part_of_speech":"サ変名詞","example_ja":"医師から全快したと言われ、来週から仕事に復帰する。","example_ko":"의사에게 완쾌됐다는 말을 듣고 다음 주부터 업무에 복귀한다."},
+    {"key":"n1-1691","word":"錯覚","reading":"さっかく","meaning_ko":"착각; 잘못된 지각","meaning_ja":"実際とは異なるように感じたり、事実を誤って認識したりすること。","part_of_speech":"サ変名詞","example_ja":"照明の影響で、部屋が実際より広いと錯覚した。","example_ko":"조명 영향으로 방이 실제보다 넓다고 착각했다."},
+    {"key":"n1-1692","word":"不順","reading":"ふじゅん","meaning_ko":"불순; 고르지 못함; 순조롭지 않음","meaning_ja":"天候・体調・順序などが正常・一定でなく、順調でないこと。","part_of_speech":"な形容詞","example_ja":"天候不順が続き、野菜の出荷量が大きく減った。","example_ko":"고르지 못한 날씨가 이어져 채소 출하량이 크게 줄었다."},
+    {"key":"n1-1693","word":"あやふや","reading":"あやふや","meaning_ko":"불분명함; 애매함; 흐지부지함","meaning_ja":"内容・態度・記憶などがはっきりせず、確かでないさま。","part_of_speech":"な形容詞","example_ja":"責任の範囲をあやふやにしたまま作業を始めるべきではない。","example_ko":"책임 범위를 애매하게 둔 채 작업을 시작해서는 안 된다."},
+    {"key":"n1-1694","word":"略語","reading":"りゃくご","meaning_ko":"약어; 준말","meaning_ja":"長い語・名称の一部を省略して短くした語。","part_of_speech":"普通名詞","example_ja":"専門用語の略語が多いため、資料の末尾に一覧を付けた。","example_ko":"전문 용어의 약어가 많아 자료 끝에 목록을 붙였다."},
+    {"key":"n1-1695","word":"良識","reading":"りょうしき","meaning_ko":"양식; 건전한 판단력","meaning_ja":"社会常識・道理に照らして物事を適切に判断する健全な能力。","part_of_speech":"普通名詞","example_ja":"利用者一人ひとりの良識ある行動が求められている。","example_ko":"이용자 한 사람 한 사람의 양식 있는 행동이 요구된다."},
+    {"key":"n1-1696","word":"共働き","reading":"ともばたらき","meaning_ko":"맞벌이","meaning_ja":"夫婦などの双方が仕事を持って働くこと。","part_of_speech":"普通名詞","example_ja":"共働き世帯の増加に伴い、保育サービスの需要も高まっている。","example_ko":"맞벌이 가구 증가에 따라 보육 서비스 수요도 높아지고 있다."},
+    {"key":"n1-1697","word":"徐行","reading":"じょこう","meaning_ko":"서행","meaning_ja":"車両などがすぐ停止できる程度の低い速度でゆっくり進むこと。","part_of_speech":"サ変名詞","example_ja":"工事区間では安全のため徐行してください。","example_ko":"공사 구간에서는 안전을 위해 서행해 주세요."},
+    {"key":"n1-1698","word":"水洗","reading":"すいせん","meaning_ko":"물로 씻음; 수세식","meaning_ja":"水で洗うこと。また、『水洗トイレ』のように水で流す方式を表す。","part_of_speech":"サ変名詞","example_ja":"この素材は水洗できないため、専用の方法で手入れする必要がある。","example_ko":"이 소재는 물세탁할 수 없어 전용 방법으로 관리해야 한다."},
+    {"key":"n1-1699","word":"聞き取り","reading":"ききとり","meaning_ko":"듣고 이해하기; 청취; 듣기 조사","meaning_ja":"話・音声を聞いて内容を理解すること。また、相手から事情を聞き取ること。","part_of_speech":"普通名詞","example_ja":"関係者への聞き取りを行い、事故当時の状況を確認した。","example_ko":"관계자에게 청취 조사를 실시해 사고 당시 상황을 확인했다."},
+    {"key":"n1-1700","word":"採掘","reading":"さいくつ","meaning_ko":"채굴","meaning_ja":"地下・海底などから鉱石・資源を掘り出すこと。","part_of_speech":"サ変名詞","example_ja":"資源の採掘には環境への影響を抑える対策が必要だ。","example_ko":"자원 채굴에는 환경 영향을 줄이기 위한 대책이 필요하다."}
+  ]
+}
