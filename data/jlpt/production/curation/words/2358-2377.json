@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2358-2377",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2358","word":"精巧","reading":"せいこう","meaning_ko":"정교함; 매우 섬세하고 치밀함","meaning_ja":"細部までよく作られていて、非常に巧みで精密なさま。","part_of_speech":"な形容詞","example_ja":"この模型は本物と見間違えるほど精巧に作られている。","example_ko":"이 모형은 진짜와 착각할 정도로 정교하게 만들어져 있다."},
+    {"key":"n1-2359","word":"冷淡","reading":"れいたん","meaning_ko":"냉담함; 무관심하고 차가움","meaning_ja":"人や物事に関心・思いやりを示さず、態度が冷たいこと。","part_of_speech":"な形容詞","example_ja":"彼の冷淡な態度に、周囲の人は戸惑った。","example_ko":"그의 냉담한 태도에 주변 사람들이 당황했다."},
+    {"key":"n1-2360","word":"倍率","reading":"ばいりつ","meaning_ko":"배율; 경쟁률","meaning_ja":"元の大きさに対する拡大・縮小の比率。また、募集人数に対する応募人数の割合。","part_of_speech":"普通名詞","example_ja":"この双眼鏡は十倍の倍率で見ることができる。","example_ko":"이 쌍안경은 10배 배율로 볼 수 있다."},
+    {"key":"n1-2361","word":"印鑑","reading":"いんかん","meaning_ko":"도장; 인감도장","meaning_ja":"名前などを彫り、書類などに印を押すための道具。印章。","part_of_speech":"普通名詞","example_ja":"契約書に署名し、印鑑を押した。","example_ko":"계약서에 서명하고 도장을 찍었다.","note":"厳密には印影を指す用法もあるが、現代の日常語では印章そのものを指すことが多い。"},
+    {"key":"n1-2362","word":"値打ち","reading":"ねうち","meaning_ko":"가치; 값어치; 가격","meaning_ja":"物事が持つ価値・有用性。また、その価格。","part_of_speech":"普通名詞","example_ja":"この経験はお金では測れない値打ちがある。","example_ko":"이 경험은 돈으로 잴 수 없는 가치가 있다.","note":"候補の品詞『な形容詞』より普通名詞としての用法が中心。"},
+    {"key":"n1-2363","word":"抜かす","reading":"ぬかす","meaning_ko":"빼먹다; 생략하다; 건너뛰다","meaning_ja":"順序の途中を飛ばす。また、言葉・項目などを省く。","part_of_speech":"五段動詞","example_ja":"大事な説明を一つ抜かして話してしまった。","example_ko":"중요한 설명 하나를 빼먹고 말해 버렸다."},
+    {"key":"n1-2364","word":"見落とす","reading":"みおとす","meaning_ko":"못 보고 지나치다; 간과하다","meaning_ja":"見るべきものに気付かず、見過ごす。","part_of_speech":"五段動詞","example_ja":"小さなミスを見落とさないよう、最後にもう一度確認した。","example_ko":"작은 실수를 놓치지 않도록 마지막에 다시 한번 확인했다."},
+    {"key":"n1-2365","word":"夜具","reading":"やぐ","meaning_ko":"침구; 잠자리 용품","meaning_ja":"布団・毛布・枕など、寝るときに使う道具。","part_of_speech":"普通名詞","example_ja":"旅館では清潔な夜具が用意されていた。","example_ko":"료칸에는 깨끗한 침구가 준비되어 있었다.","note":"やや古風な語で、現代では『寝具』が一般的。"},
+    {"key":"n1-2366","word":"一概に","reading":"いちがいに","meaning_ko":"일률적으로; 무조건; 단정적으로","meaning_ja":"事情の違いを考えず、すべて同じように決めつけるさま。","part_of_speech":"副詞","example_ja":"経験年数だけで能力を一概に判断することはできない。","example_ko":"경력 연수만으로 능력을 일률적으로 판단할 수는 없다."},
+    {"key":"n1-2367","word":"溶液","reading":"ようえき","meaning_ko":"용액","meaning_ja":"ある物質が別の物質に均一に溶けた液体。","part_of_speech":"普通名詞","example_ja":"塩を水に溶かして濃い溶液を作った。","example_ko":"소금을 물에 녹여 진한 용액을 만들었다."},
+    {"key":"n1-2368","word":"一部分","reading":"いちぶぶん","meaning_ko":"일부분; 일부","meaning_ja":"全体の中の一つの部分。","part_of_speech":"普通名詞","example_ja":"資料の一部分だけを修正して提出した。","example_ko":"자료의 일부분만 수정해 제출했다."},
+    {"key":"n1-2369","word":"インフォメーション","reading":"インフォメーション","meaning_ko":"정보; 안내; 안내소","meaning_ja":"情報・案内。また、施設などの案内窓口。","part_of_speech":"普通名詞","example_ja":"詳しい場所は一階のインフォメーションで聞いてください。","example_ko":"자세한 위치는 1층 안내소에서 물어보세요."},
+    {"key":"n1-2370","word":"当てはめる","reading":"あてはめる","meaning_ko":"적용하다; 맞춰 보다; 대입하다","meaning_ja":"ある基準・規則・型などを具体的な事例に適用する。","part_of_speech":"一段動詞","example_ja":"この公式に数値を当てはめて計算する。","example_ko":"이 공식에 수치를 대입해 계산한다."},
+    {"key":"n1-2371","word":"首飾り","reading":"くびかざり","meaning_ko":"목걸이","meaning_ja":"首に掛ける装飾品。ネックレス。","part_of_speech":"普通名詞","example_ja":"母からもらった首飾りを大切にしている。","example_ko":"어머니에게 받은 목걸이를 소중히 간직하고 있다."},
+    {"key":"n1-2372","word":"拝借","reading":"はいしゃく","meaning_ko":"빌림; 빌리다의 겸양 표현","meaning_ja":"借りることをへりくだっていう語。","part_of_speech":"サ変名詞","example_ja":"少しの間、ペンを拝借してもよろしいでしょうか。","example_ko":"잠시 펜을 빌려도 괜찮을까요?"},
+    {"key":"n1-2373","word":"箪笥","reading":"たんす","meaning_ko":"장롱; 옷장; 서랍장","meaning_ja":"衣類などを収納するための引き出しや扉の付いた家具。","part_of_speech":"普通名詞","example_ja":"季節外れの服を箪笥にしまった。","example_ko":"계절이 지난 옷을 장롱에 넣었다.","note":"現代では通常『たんす』と仮名で書くことも多い。"},
+    {"key":"n1-2374","word":"弁償","reading":"べんしょう","meaning_ko":"변상; 배상","meaning_ja":"他人に与えた損害を金銭や代替物などで補うこと。","part_of_speech":"サ変名詞","example_ja":"借りた物を壊したので、新しい物を買って弁償した。","example_ko":"빌린 물건을 망가뜨려 새 물건을 사서 변상했다."},
+    {"key":"n1-2375","word":"食い違う","reading":"くいちがう","meaning_ko":"엇갈리다; 어긋나다; 서로 맞지 않다","meaning_ja":"意見・記憶・内容などが一致せず、ずれる。","part_of_speech":"五段動詞","example_ja":"二人の説明が大きく食い違っている。","example_ko":"두 사람의 설명이 크게 엇갈리고 있다."},
+    {"key":"n1-2376","word":"瞑る","reading":"つぶる","meaning_ko":"눈을 감다","meaning_ja":"まぶたを閉じて目を覆う。","part_of_speech":"五段動詞","example_ja":"少し目を瞑って休んだ。","example_ko":"잠깐 눈을 감고 쉬었다.","note":"『つむる』とも読む。現代では『目をつぶる』と仮名で書くことが多い。"},
+    {"key":"n1-2377","word":"粘る","reading":"ねばる","meaning_ko":"끈적거리다; 버티다; 끈기 있게 계속하다","meaning_ja":"粘り気がある。また、簡単にあきらめず最後まで続ける。","part_of_speech":"五段動詞","example_ja":"最後まで粘って、ようやく同点に追いついた。","example_ko":"끝까지 버텨 마침내 동점까지 따라잡았다.","note":"候補KRDICTは物理的な粘着性に偏っていたため、JMdictの persevere/persist の重要義を補完。"}
+  ]
+}
