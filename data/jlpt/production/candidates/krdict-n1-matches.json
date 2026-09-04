@@ -1042,25 +1042,6 @@
       "merged_sense_count": 8,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-0795": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "각본 | 극본 | 대본",
-      "definition_ko": "영화나 연극을 만들기 위하여 배우의 대사와 동작, 장면에 대하여 자세히 적은 글. | (비유적으로) 어떤 일을 하려고 미리 정해 놓은 계획. | 영화나 연극, 드라마를 만들기 위해 쓴 글. | 연극이나 영화에서, 대사나 장면의 설명 등을 적어 놓은 글.",
-      "meaning_ja_source": "きゃくほん【脚本】。すじがき【筋書き】。だいほん【台本】 | きゃくほん【脚本】。だいほん【台本】 | だいほん【台本】。きゃくほん【脚本】。シナリオ",
-      "definition_ja": "演劇や映画を作るため、俳優のせりふ・動作、場面などを詳しく記したもの。 | (比喩的に)あることをしようとして前もって決めておいた計画。 | 映画や演劇、ドラマを作るために書いた文。 | 演劇や映画などで、せりふやト書きなどを書き入れた本。",
-      "source_file": "001.xml",
-      "source_files": [
-        "001.xml",
-        "002.xml",
-        "003.xml"
-      ],
-      "merged_sense_count": 4,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-0372": {
       "score": 5,
       "reasons": [
@@ -1079,6 +1060,25 @@
         "006.xml"
       ],
       "merged_sense_count": 5,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0795": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "각본 | 극본 | 대본",
+      "definition_ko": "영화나 연극을 만들기 위하여 배우의 대사와 동작, 장면에 대하여 자세히 적은 글. | (비유적으로) 어떤 일을 하려고 미리 정해 놓은 계획. | 영화나 연극, 드라마를 만들기 위해 쓴 글. | 연극이나 영화에서, 대사나 장면의 설명 등을 적어 놓은 글.",
+      "meaning_ja_source": "きゃくほん【脚本】。すじがき【筋書き】。だいほん【台本】 | きゃくほん【脚本】。だいほん【台本】 | だいほん【台本】。きゃくほん【脚本】。シナリオ",
+      "definition_ja": "演劇や映画を作るため、俳優のせりふ・動作、場面などを詳しく記したもの。 | (比喩的に)あることをしようとして前もって決めておいた計画。 | 映画や演劇、ドラマを作るために書いた文。 | 演劇や映画などで、せりふやト書きなどを書き入れた本。",
+      "source_file": "001.xml",
+      "source_files": [
+        "001.xml",
+        "002.xml",
+        "003.xml"
+      ],
+      "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1581": {
@@ -1409,18 +1409,6 @@
       "merged_sense_count": 7,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-2528": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "갈무리",
-      "definition_ko": "무엇을 잘 정리하여 보관함.",
-      "meaning_ja_source": "かたづけ【片付け】。しまつ【始末】。せいり【整理】。ほかん【保管】",
-      "definition_ja": "何かをよく片付けて保管すること。",
-      "source_file": "001.xml"
-    },
     "n1-0230": {
       "score": 5,
       "reasons": [
@@ -1438,6 +1426,18 @@
       ],
       "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-2528": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "갈무리",
+      "definition_ko": "무엇을 잘 정리하여 보관함.",
+      "meaning_ja_source": "かたづけ【片付け】。しまつ【始末】。せいり【整理】。ほかん【保管】",
+      "definition_ja": "何かをよく片付けて保管すること。",
+      "source_file": "001.xml"
     },
     "n1-0247": {
       "score": 5,
@@ -2327,18 +2327,6 @@
       "definition_ja": "集会や行事、試合などを組織的に計画して開くこと。",
       "source_file": "001.xml"
     },
-    "n1-0047": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "개혁",
-      "definition_ko": "불합리한 제도나 기구 등을 새롭게 고침.",
-      "meaning_ja_source": "かいかく【改革】。かくしん【革新】",
-      "definition_ja": "不合理な制度や機構などを新しく改めること。",
-      "source_file": "001.xml"
-    },
     "n1-1172": {
       "score": 5,
       "reasons": [
@@ -2356,6 +2344,18 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0047": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "개혁",
+      "definition_ko": "불합리한 제도나 기구 등을 새롭게 고침.",
+      "meaning_ja_source": "かいかく【改革】。かくしん【革新】",
+      "definition_ja": "不合理な制度や機構などを新しく改めること。",
+      "source_file": "001.xml"
     },
     "n1-0543": {
       "score": 5,
@@ -2631,23 +2631,6 @@
       "definition_ja": "仕事や行動の妨げになる。",
       "source_file": "001.xml"
     },
-    "n1-1019": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "거부 | 거역 | 거절",
-      "definition_ko": "요구나 제안 등을 받아들이지 않음. | 윗사람의 뜻이나 명령 등을 따르지 않고 거스름. | 다른 사람의 부탁이나 제안, 선물 등을 받아들이지 않음.",
-      "meaning_ja_source": "きょひ【拒否】。ことわり【断り】。きょぜつ【拒絶】 | きょひ【拒否】。ふふくじゅう【不服従】。ふふく【不服】 | きょぜつ【拒絶】。きょひ【拒否】。ことわり【断わり】。えんりょ【遠慮】",
-      "definition_ja": "要求や提案などを受け入れないこと。 | 目上の人の意見や命令などに従わず逆らうこと。 | 人からの頼みや提案、贈り物などを受け入れないこと。",
-      "source_file": "001.xml",
-      "source_files": [
-        "001.xml"
-      ],
-      "merged_sense_count": 3,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-1170": {
       "score": 5,
       "reasons": [
@@ -2662,6 +2645,23 @@
       "source_files": [
         "001.xml",
         "003.xml"
+      ],
+      "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1019": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "거부 | 거역 | 거절",
+      "definition_ko": "요구나 제안 등을 받아들이지 않음. | 윗사람의 뜻이나 명령 등을 따르지 않고 거스름. | 다른 사람의 부탁이나 제안, 선물 등을 받아들이지 않음.",
+      "meaning_ja_source": "きょひ【拒否】。ことわり【断り】。きょぜつ【拒絶】 | きょひ【拒否】。ふふくじゅう【不服従】。ふふく【不服】 | きょぜつ【拒絶】。きょひ【拒否】。ことわり【断わり】。えんりょ【遠慮】",
+      "definition_ja": "要求や提案などを受け入れないこと。 | 目上の人の意見や命令などに従わず逆らうこと。 | 人からの頼みや提案、贈り物などを受け入れないこと。",
+      "source_file": "001.xml",
+      "source_files": [
+        "001.xml"
       ],
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
@@ -3194,25 +3194,6 @@
       "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-1494": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "겁주다 | 으르다 | 위협하다",
-      "definition_ko": "다른 사람을 겁이 나게 하다. | 무서운 말이나 행동을 하여 상대방에게 겁을 주다. | 무서운 말이나 행동으로 상대방이 두려움을 느끼도록 하다.",
-      "meaning_ja_source": "おどかす【脅かす】 | おどす【脅す】。おどかす【脅かす】。いかくする【威嚇する】 | おどかす【脅かす・嚇かす】。おどす【脅す・威す・嚇す】。おびやかす【脅かす】",
-      "definition_ja": "相手を恐れさせる。 | 恐ろしい言葉や行動で相手を恐れさせる。 | 怖い言葉や行動で相手を怖がらせる。",
-      "source_file": "001.xml",
-      "source_files": [
-        "001.xml",
-        "008.xml",
-        "007.xml"
-      ],
-      "merged_sense_count": 3,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-2258": {
       "score": 5,
       "reasons": [
@@ -3230,6 +3211,25 @@
         "009.xml"
       ],
       "merged_sense_count": 5,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1494": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "겁주다 | 으르다 | 위협하다",
+      "definition_ko": "다른 사람을 겁이 나게 하다. | 무서운 말이나 행동을 하여 상대방에게 겁을 주다. | 무서운 말이나 행동으로 상대방이 두려움을 느끼도록 하다.",
+      "meaning_ja_source": "おどかす【脅かす】 | おどす【脅す】。おどかす【脅かす】。いかくする【威嚇する】 | おどかす【脅かす・嚇かす】。おどす【脅す・威す・嚇す】。おびやかす【脅かす】",
+      "definition_ja": "相手を恐れさせる。 | 恐ろしい言葉や行動で相手を恐れさせる。 | 怖い言葉や行動で相手を怖がらせる。",
+      "source_file": "001.xml",
+      "source_files": [
+        "001.xml",
+        "008.xml",
+        "007.xml"
+      ],
+      "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-0652": {
@@ -3458,6 +3458,35 @@
       "definition_ja": "何かをする上で必要な費用を前もって計算すること。またその計算。",
       "source_file": "001.xml"
     },
+    "n1-0273": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "견지 | 관점",
+      "definition_ko": "무엇을 바라보거나 판단하는 입장. | 사물이나 현상을 보고 생각하는 개인의 입장 또는 태도.",
+      "meaning_ja_source": "かんてん【観点】。してん【視点】。みかた【見方】。けんち【見地】 | かんてん【観点】",
+      "definition_ja": "何かを見つめたり判断する立場。 | 物事や現象を見て考える個人の立場または態度。",
+      "source_file": "001.xml",
+      "source_files": [
+        "001.xml"
+      ],
+      "merged_sense_count": 2,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1984": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "견지",
+      "definition_ko": "무엇을 바라보거나 판단하는 입장.",
+      "meaning_ja_source": "かんてん【観点】。してん【視点】。みかた【見方】。けんち【見地】",
+      "definition_ja": "何かを見つめたり判断する立場。",
+      "source_file": "001.xml"
+    },
     "n1-0281": {
       "score": 5,
       "reasons": [
@@ -3476,36 +3505,7 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-0273": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "견지 | 관점",
-      "definition_ko": "무엇을 바라보거나 판단하는 입장. | 사물이나 현상을 보고 생각하는 개인의 입장 또는 태도.",
-      "meaning_ja_source": "かんてん【観点】。してん【視点】。みかた【見方】。けんち【見地】 | かんてん【観点】",
-      "definition_ja": "何かを見つめたり判断する立場。 | 物事や現象を見て考える個人の立場または態度。",
-      "source_file": "001.xml",
-      "source_files": [
-        "001.xml"
-      ],
-      "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-0825": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "견지",
-      "definition_ko": "무엇을 바라보거나 판단하는 입장.",
-      "meaning_ja_source": "かんてん【観点】。してん【視点】。みかた【見方】。けんち【見地】",
-      "definition_ja": "何かを見つめたり判断する立場。",
-      "source_file": "001.xml"
-    },
-    "n1-1984": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -4064,6 +4064,18 @@
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-1536": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "경이",
+      "definition_ko": "놀랍고 신기하게 여김. 또는 그럴 만한 일.",
+      "meaning_ja_source": "きょうい【驚異】。おどろき【驚き】。きょうたん【驚嘆・驚歎】。かんたん【感嘆・感歎】",
+      "definition_ja": "素晴らしく、かつ珍しく思うこと。また、そのような価値のあること。",
+      "source_file": "001.xml"
+    },
     "n1-1315": {
       "score": 5,
       "reasons": [
@@ -4082,18 +4094,6 @@
       ],
       "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-1536": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "경이",
-      "definition_ko": "놀랍고 신기하게 여김. 또는 그럴 만한 일.",
-      "meaning_ja_source": "きょうい【驚異】。おどろき【驚き】。きょうたん【驚嘆・驚歎】。かんたん【感嘆・感歎】",
-      "definition_ja": "素晴らしく、かつ珍しく思うこと。また、そのような価値のあること。",
-      "source_file": "001.xml"
     },
     "n1-2090": {
       "score": 5,
@@ -4375,18 +4375,6 @@
       "merged_sense_count": 5,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-0633": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "계기",
-      "definition_ko": "어떤 일이 일어나거나 결정되도록 하는 원인이나 기회.",
-      "meaning_ja_source": "きっかけ。けいき【契機】。どうき【動機】",
-      "definition_ja": "物事が始まるか決まるようにする原因や機会。",
-      "source_file": "001.xml"
-    },
     "n1-0284": {
       "score": 5,
       "reasons": [
@@ -4404,6 +4392,18 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0633": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "계기",
+      "definition_ko": "어떤 일이 일어나거나 결정되도록 하는 원인이나 기회.",
+      "meaning_ja_source": "きっかけ。けいき【契機】。どうき【動機】",
+      "definition_ja": "物事が始まるか決まるようにする原因や機会。",
+      "source_file": "001.xml"
     },
     "n1-2177": {
       "score": 5,
@@ -4562,6 +4562,24 @@
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-1567": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "육친 | 고깃덩어리",
+      "definition_ko": "부모와 자식, 형제처럼 같은 핏줄로 이어진 가족 관계에 있는 사람. | (속된 말로) 사람의 몸.",
+      "meaning_ja_source": "にくしん【肉親】 | にくたい【肉体】。にくしん【肉親】",
+      "definition_ja": "親子、兄弟のように血のつながった家族関係にある者。 | 人の体を俗にいう語。",
+      "source_file": "008.xml",
+      "source_files": [
+        "008.xml",
+        "001.xml"
+      ],
+      "merged_sense_count": 2,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-0264": {
       "score": 5,
       "reasons": [
@@ -4579,24 +4597,6 @@
         "001.xml"
       ],
       "merged_sense_count": 5,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-1567": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "육친 | 고깃덩어리",
-      "definition_ko": "부모와 자식, 형제처럼 같은 핏줄로 이어진 가족 관계에 있는 사람. | (속된 말로) 사람의 몸.",
-      "meaning_ja_source": "にくしん【肉親】 | にくたい【肉体】。にくしん【肉親】",
-      "definition_ja": "親子、兄弟のように血のつながった家族関係にある者。 | 人の体を俗にいう語。",
-      "source_file": "008.xml",
-      "source_files": [
-        "008.xml",
-        "001.xml"
-      ],
-      "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-2468": {
@@ -5005,24 +5005,6 @@
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-1496": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "고함 | 비명",
-      "definition_ko": "크게 외치는 목소리. | 크게 놀라거나 매우 괴로울 때 내는 소리.",
-      "meaning_ja_source": "おおごえ【大声】。さけびごえ【叫び声】。さけび【叫び】。ひめい【悲鳴】 | ひめい【悲鳴】",
-      "definition_ja": "大きく張りあげる声。 | 驚いたり、非常に苦しかったりする時に出す声。",
-      "source_file": "001.xml",
-      "source_files": [
-        "001.xml",
-        "005.xml"
-      ],
-      "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-1319": {
       "score": 5,
       "reasons": [
@@ -5039,6 +5021,24 @@
         "007.xml"
       ],
       "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1496": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "고함 | 비명",
+      "definition_ko": "크게 외치는 목소리. | 크게 놀라거나 매우 괴로울 때 내는 소리.",
+      "meaning_ja_source": "おおごえ【大声】。さけびごえ【叫び声】。さけび【叫び】。ひめい【悲鳴】 | ひめい【悲鳴】",
+      "definition_ja": "大きく張りあげる声。 | 驚いたり、非常に苦しかったりする時に出す声。",
+      "source_file": "001.xml",
+      "source_files": [
+        "001.xml",
+        "005.xml"
+      ],
+      "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1707": {
@@ -5906,24 +5906,6 @@
       "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-0878": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "과장 | 허풍",
-      "definition_ko": "사실에 비해 지나치게 크거나 좋게 부풀려 나타냄. | 실제보다 지나치게 부풀려 믿기 어려운 말이나 행동.",
-      "meaning_ja_source": "こちょう【誇張】。おおげさ【大げさ】 | ほら【法螺】。こちょう【誇張】。おおぶろしき【大風呂敷】",
-      "definition_ja": "実際より過度に大きくまたは大げさに表現すること。 | 物事を実際より大げさにして、信頼できない言葉や行動。",
-      "source_file": "001.xml",
-      "source_files": [
-        "001.xml",
-        "011.xml"
-      ],
-      "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-1092": {
       "score": 5,
       "reasons": [
@@ -5940,6 +5922,24 @@
         "007.xml"
       ],
       "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0878": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "과장 | 허풍",
+      "definition_ko": "사실에 비해 지나치게 크거나 좋게 부풀려 나타냄. | 실제보다 지나치게 부풀려 믿기 어려운 말이나 행동.",
+      "meaning_ja_source": "こちょう【誇張】。おおげさ【大げさ】 | ほら【法螺】。こちょう【誇張】。おおぶろしき【大風呂敷】",
+      "definition_ja": "実際より過度に大きくまたは大げさに表現すること。 | 物事を実際より大げさにして、信頼できない言葉や行動。",
+      "source_file": "001.xml",
+      "source_files": [
+        "001.xml",
+        "011.xml"
+      ],
+      "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1034": {
@@ -8003,7 +8003,7 @@
       "definition_ja": "泥棒や災難から保護するため、金・宝石・重要な書類など、貴重なものの保管に使う箱や倉庫。",
       "source_file": "002.xml"
     },
-    "n1-0724": {
+    "n1-0892": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -8021,7 +8021,7 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-0892": {
+    "n1-0724": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -8661,23 +8661,6 @@
       "definition_ja": "蒸気機関の力で動く船。",
       "source_file": "002.xml"
     },
-    "n1-0086": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "기술 | 기재",
-      "definition_ko": "어떤 사실을 있는 그대로 적음. 또는 그런 기록. | 어떤 사실을 문서 등에 씀.",
-      "meaning_ja_source": "きじゅつ【記述】。ろんじゅつ【論述】。びょうしゃ【描写】 | きさい【記載】。きじゅつ【記述】。きろく【記録】",
-      "definition_ja": "ある事実をあるがままに書くこと。また、その記録。 | ある事実を文書などに書くこと。",
-      "source_file": "002.xml",
-      "source_files": [
-        "002.xml"
-      ],
-      "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-0402": {
       "score": 5,
       "reasons": [
@@ -8695,6 +8678,23 @@
         "011.xml"
       ],
       "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0086": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "기술 | 기재",
+      "definition_ko": "어떤 사실을 있는 그대로 적음. 또는 그런 기록. | 어떤 사실을 문서 등에 씀.",
+      "meaning_ja_source": "きじゅつ【記述】。ろんじゅつ【論述】。びょうしゃ【描写】 | きさい【記載】。きじゅつ【記述】。きろく【記録】",
+      "definition_ja": "ある事実をあるがままに書くこと。また、その記録。 | ある事実を文書などに書くこと。",
+      "source_file": "002.xml",
+      "source_files": [
+        "002.xml"
+      ],
+      "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1067": {
@@ -9609,6 +9609,24 @@
       "merged_sense_count": 6,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-2957": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "조성 | 꾸밈새",
+      "definition_ko": "무엇을 만들어서 이룸. | 분위기나 흐름 등을 만듦. | 꾸민 모양새.",
+      "meaning_ja_source": "ぞうせい【造成】。つくり【作り・造り】。けいせい【形成】。そうせつ【創設】 | つくり【作り・造り】。けいせい【形成】 | つくり【作り・造り】。よそおい【装い】。かまえ【構え】",
+      "definition_ja": "作り上げること。 | 雰囲気や流れなどを作ること。 | 整えた形。",
+      "source_file": "009.xml",
+      "source_files": [
+        "009.xml",
+        "002.xml"
+      ],
+      "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-0012": {
       "score": 5,
       "reasons": [
@@ -9639,24 +9657,6 @@
       "definition_ja": "整えた形。",
       "source_file": "002.xml"
     },
-    "n1-2957": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "조성 | 꾸밈새",
-      "definition_ko": "무엇을 만들어서 이룸. | 분위기나 흐름 등을 만듦. | 꾸민 모양새.",
-      "meaning_ja_source": "ぞうせい【造成】。つくり【作り・造り】。けいせい【形成】。そうせつ【創設】 | つくり【作り・造り】。けいせい【形成】 | つくり【作り・造り】。よそおい【装い】。かまえ【構え】",
-      "definition_ja": "作り上げること。 | 雰囲気や流れなどを作ること。 | 整えた形。",
-      "source_file": "009.xml",
-      "source_files": [
-        "009.xml",
-        "002.xml"
-      ],
-      "merged_sense_count": 3,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-1725": {
       "score": 5,
       "reasons": [
@@ -9675,6 +9675,18 @@
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-2585": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "꿀",
+      "definition_ko": "꿀벌이 꽃에서 모아 벌집 속에 모아 두는, 달고 끈끈한 액체.",
+      "meaning_ja_source": "みつ【蜜】。はちみつ【蜂蜜】",
+      "definition_ja": "蜜蜂が花から集めてきて巣に蓄えておく、甘くてねっとりとした液体。",
+      "source_file": "002.xml"
+    },
     "n1-2225": {
       "score": 5,
       "reasons": [
@@ -9692,18 +9704,6 @@
       ],
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-2585": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "꿀",
-      "definition_ko": "꿀벌이 꽃에서 모아 벌집 속에 모아 두는, 달고 끈끈한 액체.",
-      "meaning_ja_source": "みつ【蜜】。はちみつ【蜂蜜】",
-      "definition_ja": "蜜蜂が花から集めてきて巣に蓄えておく、甘くてねっとりとした液体。",
-      "source_file": "002.xml"
     },
     "n1-2342": {
       "score": 5,
@@ -10635,24 +10635,6 @@
       "definition_ja": "あるものに対する思いが現実に縛られずに幻想的かつ空想的であるもの。",
       "source_file": "002.xml"
     },
-    "n1-1604": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "낭비 | 허비",
-      "definition_ko": "돈, 시간, 물건 등을 헛되이 함부로 씀. | 아무 보람이나 이득이 없이 씀.",
-      "meaning_ja_source": "ろうひ【浪費】。むだづかい【無駄遣い】 | むだづかい【無駄遣い】。ろうひ【浪費】。つぶし【潰し】",
-      "definition_ja": "金銭・時間・物などを大事にせずむだに使うこと。 | 何の甲斐や利益のないことに金や物・時間などを使うこと。",
-      "source_file": "002.xml",
-      "source_files": [
-        "002.xml",
-        "011.xml"
-      ],
-      "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-0945": {
       "score": 5,
       "reasons": [
@@ -10669,6 +10651,24 @@
         "011.xml"
       ],
       "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1604": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "낭비 | 허비",
+      "definition_ko": "돈, 시간, 물건 등을 헛되이 함부로 씀. | 아무 보람이나 이득이 없이 씀.",
+      "meaning_ja_source": "ろうひ【浪費】。むだづかい【無駄遣い】 | むだづかい【無駄遣い】。ろうひ【浪費】。つぶし【潰し】",
+      "definition_ja": "金銭・時間・物などを大事にせずむだに使うこと。 | 何の甲斐や利益のないことに金や物・時間などを使うこと。",
+      "source_file": "002.xml",
+      "source_files": [
+        "002.xml",
+        "011.xml"
+      ],
+      "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-0993": {
@@ -10899,6 +10899,23 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-1685": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "내리막 | 내리막길",
+      "definition_ko": "기운이나 기세가 약해지는 상황. | 기운이나 기세가 약해지는 시기나 단계.",
+      "meaning_ja_source": "くだりざか【下り坂】。こうたい【後退】。したび【下火】",
+      "definition_ja": "勢いが衰えていく状況。 | 勢いが衰えていく時期や段階。",
+      "source_file": "002.xml",
+      "source_files": [
+        "002.xml"
+      ],
+      "merged_sense_count": 2,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-0450": {
       "score": 5,
       "reasons": [
@@ -10917,23 +10934,6 @@
         "003.xml"
       ],
       "merged_sense_count": 9,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-1685": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "내리막 | 내리막길",
-      "definition_ko": "기운이나 기세가 약해지는 상황. | 기운이나 기세가 약해지는 시기나 단계.",
-      "meaning_ja_source": "くだりざか【下り坂】。こうたい【後退】。したび【下火】",
-      "definition_ja": "勢いが衰えていく状況。 | 勢いが衰えていく時期や段階。",
-      "source_file": "002.xml",
-      "source_files": [
-        "002.xml"
-      ],
-      "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-2201": {
@@ -11434,18 +11434,6 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-0367": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "논의",
-      "definition_ko": "어떤 문제에 대해 서로 의견을 말하며 의논함.",
-      "meaning_ja_source": "ろんぎ【論議・論義】。はなしあい【話し合い】。とうぎ【討議】。ディスカッション",
-      "definition_ja": "ある問題についてお互い意見を述べて論じ合うこと。",
-      "source_file": "003.xml"
-    },
     "n1-0843": {
       "score": 5,
       "reasons": [
@@ -11463,6 +11451,18 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0367": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "논의",
+      "definition_ko": "어떤 문제에 대해 서로 의견을 말하며 의논함.",
+      "meaning_ja_source": "ろんぎ【論議・論義】。はなしあい【話し合い】。とうぎ【討議】。ディスカッション",
+      "definition_ja": "ある問題についてお互い意見を述べて論じ合うこと。",
+      "source_file": "003.xml"
     },
     "n1-2368": {
       "score": 5,
@@ -11882,6 +11882,18 @@
       "definition_ja": "重要ではない言葉や文章などを長く言ったり書いたりする。",
       "source_file": "003.xml"
     },
+    "n1-2713": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "늙다",
+      "definition_ko": "나이가 많이 들다.",
+      "meaning_ja_source": "おいる【老いる】。ふける【老ける】",
+      "definition_ja": "年をとる。",
+      "source_file": "003.xml"
+    },
     "n1-2832": {
       "score": 5,
       "reasons": [
@@ -11899,18 +11911,6 @@
       ],
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-2713": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "늙다",
-      "definition_ko": "나이가 많이 들다.",
-      "meaning_ja_source": "おいる【老いる】。ふける【老ける】",
-      "definition_ja": "年をとる。",
-      "source_file": "003.xml"
     },
     "n1-0219": {
       "score": 5,
@@ -12684,24 +12684,6 @@
       "definition_ja": "葉を乾燥し、火をつけて吸うタバコに加工する植物。",
       "source_file": "003.xml"
     },
-    "n1-1295": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "답 | 대꾸 | 대답 | 말대답",
-      "definition_ko": "부르는 말에 대해 어떤 말을 함. 또는 그런 말. | 물음이나 편지 등에 대해 반응함. 또는 그런 반응. | 남의 말을 듣고 반응하여 하는 말. 짧은 대답. | 부르는 말에 대해 어떤 말을 함. 또는 그 말. | 묻는 말을 곧바로 받아서 대답함. 또는 그 대답.",
-      "meaning_ja_source": "こたえ【答え】。へんとう【返答】。へんじ【返事】 | へんじ【返事】。こたえ【答え】。へんとう【返答】 | こたえ【答え】。へんとう【返答】",
-      "definition_ja": "呼びかけに対して言葉で応じること。また、その言葉。 | 問いや手紙などに対して応じること。また、その反応。 | 人の話を聞いて反応していう言葉。短い答え。 | 問いに対して直ちに答えること。また、その答え。",
-      "source_file": "003.xml",
-      "source_files": [
-        "003.xml",
-        "004.xml"
-      ],
-      "merged_sense_count": 5,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-0981": {
       "score": 5,
       "reasons": [
@@ -12719,6 +12701,24 @@
         "004.xml"
       ],
       "merged_sense_count": 10,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1295": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "답 | 대꾸 | 대답 | 말대답",
+      "definition_ko": "부르는 말에 대해 어떤 말을 함. 또는 그런 말. | 물음이나 편지 등에 대해 반응함. 또는 그런 반응. | 남의 말을 듣고 반응하여 하는 말. 짧은 대답. | 부르는 말에 대해 어떤 말을 함. 또는 그 말. | 묻는 말을 곧바로 받아서 대답함. 또는 그 대답.",
+      "meaning_ja_source": "こたえ【答え】。へんとう【返答】。へんじ【返事】 | へんじ【返事】。こたえ【答え】。へんとう【返答】 | こたえ【答え】。へんとう【返答】",
+      "definition_ja": "呼びかけに対して言葉で応じること。また、その言葉。 | 問いや手紙などに対して応じること。また、その反応。 | 人の話を聞いて反応していう言葉。短い答え。 | 問いに対して直ちに答えること。また、その答え。",
+      "source_file": "003.xml",
+      "source_files": [
+        "003.xml",
+        "004.xml"
+      ],
+      "merged_sense_count": 5,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1517": {
@@ -12952,18 +12952,6 @@
       "definition_ja": "決まったテーマについて、話し合うこと。また、その話。",
       "source_file": "003.xml"
     },
-    "n1-0756": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "대등",
-      "definition_ko": "어느 한쪽의 힘이나 능력이 낫거나 못하지 않고 서로 비슷함.",
-      "meaning_ja_source": "たいとう【対等】。どうとう【同等】",
-      "definition_ja": "ある一方の力や能力に優劣がなく、似ていること。",
-      "source_file": "003.xml"
-    },
     "n1-0728": {
       "score": 5,
       "reasons": [
@@ -12980,6 +12968,18 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0756": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "대등",
+      "definition_ko": "어느 한쪽의 힘이나 능력이 낫거나 못하지 않고 서로 비슷함.",
+      "meaning_ja_source": "たいとう【対等】。どうとう【同等】",
+      "definition_ja": "ある一方の力や能力に優劣がなく、似ていること。",
+      "source_file": "003.xml"
     },
     "n1-0341": {
       "score": 5,
@@ -13011,24 +13011,6 @@
       "definition_ja": "直接顔を合わせて会うこと。",
       "source_file": "003.xml"
     },
-    "n1-2633": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "대번 | 즉각 | 대번에",
-      "definition_ko": "한 번에 곧바로. | 바로 당장.",
-      "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】 | そっこく【即刻】。そくじ【即時】。そくざに【即座に】。すぐさま",
-      "definition_ja": "一度に直ちに。 | 今すぐ。",
-      "source_file": "003.xml",
-      "source_files": [
-        "003.xml",
-        "009.xml"
-      ],
-      "merged_sense_count": 3,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-0989": {
       "score": 5,
       "reasons": [
@@ -13049,6 +13031,24 @@
         "009.xml"
       ],
       "merged_sense_count": 9,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-2633": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "대번 | 즉각 | 대번에",
+      "definition_ko": "한 번에 곧바로. | 바로 당장.",
+      "meaning_ja_source": "すぐ【直ぐ】。そくざに【即座に】。いなや【否や】 | そっこく【即刻】。そくじ【即時】。そくざに【即座に】。すぐさま",
+      "definition_ja": "一度に直ちに。 | 今すぐ。",
+      "source_file": "003.xml",
+      "source_files": [
+        "003.xml",
+        "009.xml"
+      ],
+      "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-2340": {
@@ -15888,6 +15888,24 @@
       "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-2146": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "짓다 | 만들다",
+      "definition_ko": "재료를 가지고 밥, 옷, 집 등을 만들다. | 힘과 기술을 써서 없던 것을 생기게 하다. | 영화나 연극 등을 새로 완성하여 내다. | 무엇을 무엇이 되게 하다. | 사람을 키워 무엇이 되게 하다.",
+      "meaning_ja_source": "つくる【作る・造る】。たく【炊く】。ぬう【縫う】。したてる【仕立てる】。たてる【建てる】 | つくる【作る】。したてる【仕立てる】。こしらえる【拵える】。せいぞうする【製造する】。せいさくする【製作する】 | つくる【作る】。したてる【仕立てる】。せいさくする【制作する】 | したてる【仕立てる】 | つくる【作る】。したてる【仕立てる】。いくせいする【育成する】",
+      "definition_ja": "材料を持ってご飯・衣服・住宅などをつくる。 | 力や技術を使って、存在しなかったものを生じさせる。 | 映画や演劇などを新たに完成して公開する。 | 何かを何かにならせる。 | 人を育てて何かにならせる。",
+      "source_file": "009.xml",
+      "source_files": [
+        "009.xml",
+        "004.xml"
+      ],
+      "merged_sense_count": 5,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-2774": {
       "score": 5,
       "reasons": [
@@ -15906,24 +15924,6 @@
         "009.xml"
       ],
       "merged_sense_count": 8,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-2146": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "짓다 | 만들다",
-      "definition_ko": "재료를 가지고 밥, 옷, 집 등을 만들다. | 힘과 기술을 써서 없던 것을 생기게 하다. | 영화나 연극 등을 새로 완성하여 내다. | 무엇을 무엇이 되게 하다. | 사람을 키워 무엇이 되게 하다.",
-      "meaning_ja_source": "つくる【作る・造る】。たく【炊く】。ぬう【縫う】。したてる【仕立てる】。たてる【建てる】 | つくる【作る】。したてる【仕立てる】。こしらえる【拵える】。せいぞうする【製造する】。せいさくする【製作する】 | つくる【作る】。したてる【仕立てる】。せいさくする【制作する】 | したてる【仕立てる】 | つくる【作る】。したてる【仕立てる】。いくせいする【育成する】",
-      "definition_ja": "材料を持ってご飯・衣服・住宅などをつくる。 | 力や技術を使って、存在しなかったものを生じさせる。 | 映画や演劇などを新たに完成して公開する。 | 何かを何かにならせる。 | 人を育てて何かにならせる。",
-      "source_file": "009.xml",
-      "source_files": [
-        "009.xml",
-        "004.xml"
-      ],
-      "merged_sense_count": 5,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1363": {
@@ -16555,6 +16555,24 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-0689": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "전언 | 메시지",
+      "definition_ko": "말을 전함. 또는 그 말. | 어떤 사실을 알리거나 주장하거나 경고하기 위해 특별히 전하는 말.",
+      "meaning_ja_source": "でんごん【伝言】 | メッセージ。でんごん【伝言】",
+      "definition_ja": "言葉を伝えること。また、その言葉。 | ある事実を報告・主張・警告するために特別に伝える言葉。",
+      "source_file": "008.xml",
+      "source_files": [
+        "008.xml",
+        "004.xml"
+      ],
+      "merged_sense_count": 2,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-1885": {
       "score": 6,
       "reasons": [
@@ -16569,24 +16587,6 @@
       "source_file": "006.xml",
       "source_files": [
         "006.xml",
-        "004.xml"
-      ],
-      "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-0689": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "전언 | 메시지",
-      "definition_ko": "말을 전함. 또는 그 말. | 어떤 사실을 알리거나 주장하거나 경고하기 위해 특별히 전하는 말.",
-      "meaning_ja_source": "でんごん【伝言】 | メッセージ。でんごん【伝言】",
-      "definition_ja": "言葉を伝えること。また、その言葉。 | ある事実を報告・主張・警告するために特別に伝える言葉。",
-      "source_file": "008.xml",
-      "source_files": [
-        "008.xml",
         "004.xml"
       ],
       "merged_sense_count": 2,
@@ -16667,25 +16667,6 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-1386": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "벗다 | 면하다 | 피하다 | 모면하다 | 벗어나다",
-      "definition_ko": "맡은 일이나 해야 할 일, 직책 등을 벗어나 자유로워지다. | 책임이나 의무를 지지 않게 되다. | 어떤 일을 당하지 않게 되다. | 어떤 어려운 상태나 처지에서 벗어나다. | 원치 않은 일을 당하거나 어려운 일이 일어나지 않게 하다. | 꾀를 써서 또는 운 좋게 어려운 상황이나 책임 등에서 벗어나다. | 맡은 일이나 할 일을 더 이상 하지 않게 되다.",
-      "meaning_ja_source": "まぬかれる【免れる】 | まぬかれる【免れる】。のがれる【逃れる】 | さける【避ける】。よける【避ける】。のがれる【逃れる】。まぬかれる【免れる】 | のがれる【逃れる】。まぬかれる【免れる】",
-      "definition_ja": "受け持った仕事、やるべきこと、職責などから逃れて自由になる。 | 責任や義務を負わなくなる。 | 好ましくない状況に置かれないようになる。 | 困難な状況から抜け出す。 | 好ましくないことに遭ったり困難なことが起こったりしないようにする。 | 知恵をしぼって、運良く厳しい状況や責任などから逃れる。 | 引き受けた仕事ややるべきことをこれ以上やらなくなる。",
-      "source_file": "005.xml",
-      "source_files": [
-        "005.xml",
-        "004.xml",
-        "010.xml"
-      ],
-      "merged_sense_count": 7,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-1069": {
       "score": 5,
       "reasons": [
@@ -16703,6 +16684,25 @@
         "010.xml"
       ],
       "merged_sense_count": 6,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-1386": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "벗다 | 면하다 | 피하다 | 모면하다 | 벗어나다",
+      "definition_ko": "맡은 일이나 해야 할 일, 직책 등을 벗어나 자유로워지다. | 책임이나 의무를 지지 않게 되다. | 어떤 일을 당하지 않게 되다. | 어떤 어려운 상태나 처지에서 벗어나다. | 원치 않은 일을 당하거나 어려운 일이 일어나지 않게 하다. | 꾀를 써서 또는 운 좋게 어려운 상황이나 책임 등에서 벗어나다. | 맡은 일이나 할 일을 더 이상 하지 않게 되다.",
+      "meaning_ja_source": "まぬかれる【免れる】 | まぬかれる【免れる】。のがれる【逃れる】 | さける【避ける】。よける【避ける】。のがれる【逃れる】。まぬかれる【免れる】 | のがれる【逃れる】。まぬかれる【免れる】",
+      "definition_ja": "受け持った仕事、やるべきこと、職責などから逃れて自由になる。 | 責任や義務を負わなくなる。 | 好ましくない状況に置かれないようになる。 | 困難な状況から抜け出す。 | 好ましくないことに遭ったり困難なことが起こったりしないようにする。 | 知恵をしぼって、運良く厳しい状況や責任などから逃れる。 | 引き受けた仕事ややるべきことをこれ以上やらなくなる。",
+      "source_file": "005.xml",
+      "source_files": [
+        "005.xml",
+        "004.xml",
+        "010.xml"
+      ],
+      "merged_sense_count": 7,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-2087": {
@@ -17400,24 +17400,6 @@
       "definition_ja": "物の重さの度合い。",
       "source_file": "004.xml"
     },
-    "n1-0990": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "무게 | 부담",
-      "definition_ko": "마음으로 느끼는 기쁨, 고통, 책임감 등의 정도. | 일을 맡거나 책임, 의무를 짐. | 돈을 내거나 값을 지불하는 책임을 짐. | 어떤 일을 할 때 느끼는 어려운 마음.",
-      "meaning_ja_source": "に【荷】。ふたん【負担】 | ふたん【負担】 | ふたん【負担】。おもに【重荷】",
-      "definition_ja": "心の中で感じる喜び・苦痛・責任感などの度合い。 | 仕事や責任、義務を引き受けること。 | 金を払ったり、払う義務を負ったりすること。 | あることをする時に感じる重い気持ち。",
-      "source_file": "004.xml",
-      "source_files": [
-        "004.xml",
-        "005.xml"
-      ],
-      "merged_sense_count": 4,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-2662": {
       "score": 5,
       "reasons": [
@@ -17432,6 +17414,24 @@
       "source_files": [
         "009.xml",
         "004.xml"
+      ],
+      "merged_sense_count": 4,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-0990": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "무게 | 부담",
+      "definition_ko": "마음으로 느끼는 기쁨, 고통, 책임감 등의 정도. | 일을 맡거나 책임, 의무를 짐. | 돈을 내거나 값을 지불하는 책임을 짐. | 어떤 일을 할 때 느끼는 어려운 마음.",
+      "meaning_ja_source": "に【荷】。ふたん【負担】 | ふたん【負担】 | ふたん【負担】。おもに【重荷】",
+      "definition_ja": "心の中で感じる喜び・苦痛・責任感などの度合い。 | 仕事や責任、義務を引き受けること。 | 金を払ったり、払う義務を負ったりすること。 | あることをする時に感じる重い気持ち。",
+      "source_file": "004.xml",
+      "source_files": [
+        "004.xml",
+        "005.xml"
       ],
       "merged_sense_count": 4,
       "match_resolution": "exact_surface_reading_multi_sense"
@@ -18356,18 +18356,6 @@
       "definition_ja": "元々あったものを無くして、他のものにかえる。",
       "source_file": "004.xml"
     },
-    "n1-2697": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "바꾸다",
-      "definition_ko": "전화를 할 때 전화를 다른 사람에게 넘기거나 다른 사람에게 전화를 받게 하다.",
-      "meaning_ja_source": "とりつぐ【取り次ぐ】。かわる【代わる・変わる】",
-      "definition_ja": "電話をする時、電話を他の人に取り次ぐ、または電話に出させる。",
-      "source_file": "004.xml"
-    },
     "n1-2583": {
       "score": 5,
       "reasons": [
@@ -18384,6 +18372,18 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-2697": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "바꾸다",
+      "definition_ko": "전화를 할 때 전화를 다른 사람에게 넘기거나 다른 사람에게 전화를 받게 하다.",
+      "meaning_ja_source": "とりつぐ【取り次ぐ】。かわる【代わる・変わる】",
+      "definition_ja": "電話をする時、電話を他の人に取り次ぐ、または電話に出させる。",
+      "source_file": "004.xml"
     },
     "n1-0297": {
       "score": 5,
@@ -19722,24 +19722,6 @@
       "definition_ja": "皮などを取り去る。",
       "source_file": "005.xml"
     },
-    "n1-2220": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "벗다 | 벗어나다 | 탈피되다 | 탈피하다",
-      "definition_ko": "어려운 처지나 상황, 고통스러운 상태 등을 감당하지 않게 되다. | 미숙한 태도나 좋지 못한 습관 등을 고쳐 없애다. | 어려운 처지나 환경에서 빠져나오다. | 어떤 처지나 상태에서 완전히 벗어나게 되다. | 어떤 처지나 상태에서 완전히 벗어나다.",
-      "meaning_ja_source": "ぬけだす【抜け出す】。だっする【脱する】。のがれる【逃れる】 | ぬぎすてる【脱ぎ捨てる】。だっする【脱する】 | きりぬける【切り抜ける】。ぬけだす【抜け出す】。だっする【脱する】 | だっぴする【脱皮する】。だっぴされる【脱皮される】。だっする【脱する】 | だっぴする【脱皮する】。だっする【脱する】",
-      "definition_ja": "困難な状況や苦しい状態などから離れ出る。 | 未熟な態度や良くない習慣などを捨て去る。 | 困難な状況や環境から抜け出る。 | ある境遇や状態から完全に抜け出すようになる。 | ある境遇や状態から完全に抜け出す。",
-      "source_file": "005.xml",
-      "source_files": [
-        "005.xml",
-        "010.xml"
-      ],
-      "merged_sense_count": 5,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-1559": {
       "score": 5,
       "reasons": [
@@ -19756,6 +19738,24 @@
         "010.xml"
       ],
       "merged_sense_count": 7,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-2220": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "벗다 | 벗어나다 | 탈피되다 | 탈피하다",
+      "definition_ko": "어려운 처지나 상황, 고통스러운 상태 등을 감당하지 않게 되다. | 미숙한 태도나 좋지 못한 습관 등을 고쳐 없애다. | 어려운 처지나 환경에서 빠져나오다. | 어떤 처지나 상태에서 완전히 벗어나게 되다. | 어떤 처지나 상태에서 완전히 벗어나다.",
+      "meaning_ja_source": "ぬけだす【抜け出す】。だっする【脱する】。のがれる【逃れる】 | ぬぎすてる【脱ぎ捨てる】。だっする【脱する】 | きりぬける【切り抜ける】。ぬけだす【抜け出す】。だっする【脱する】 | だっぴする【脱皮する】。だっぴされる【脱皮される】。だっする【脱する】 | だっぴする【脱皮する】。だっする【脱する】",
+      "definition_ja": "困難な状況や苦しい状態などから離れ出る。 | 未熟な態度や良くない習慣などを捨て去る。 | 困難な状況や環境から抜け出る。 | ある境遇や状態から完全に抜け出すようになる。 | ある境遇や状態から完全に抜け出す。",
+      "source_file": "005.xml",
+      "source_files": [
+        "005.xml",
+        "010.xml"
+      ],
+      "merged_sense_count": 5,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-2179": {
@@ -23550,6 +23550,23 @@
       "definition_ja": "生物体を構成する基本単位。",
       "source_file": "006.xml"
     },
+    "n1-1005": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "소 | 소송 | 송사",
+      "definition_ko": "법률에 따라 주장의 정당성을 심판하여 권리나 의무 등을 확정해 달라고 법원에 신청하는 일. | 사람들 사이에 일어난 다툼을 법률에 따라 판결해 달라고 법원에 요구함. | 사람들 사이에 일어난 다툼을 법률에 따라 판결해 달라고 법원에 요구함. 또는 그런 절차.",
+      "meaning_ja_source": "そ【訴】。うったえ【訴え】。そしょう【訴訟】。さいばん【裁判】 | そしょう【訴訟】 | そしょう【訴訟】。さいばんざた【裁判沙汰】。しょうじ【訟事】",
+      "definition_ja": "法律に基づき、自分の主張の当否を審判して権利や義務などを確定するよう裁判所に求めること。 | 人々の間で起こった紛争に対し、法律に基づく判決を裁判所に求めること。 | 人々の間に起こった紛争を法律に基づいて判決してほしいと裁判所に訴えること。また、その手続き。",
+      "source_file": "006.xml",
+      "source_files": [
+        "006.xml"
+      ],
+      "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-1103": {
       "score": 5,
       "reasons": [
@@ -23566,23 +23583,6 @@
         "011.xml"
       ],
       "merged_sense_count": 2,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-1005": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "소 | 소송 | 송사",
-      "definition_ko": "법률에 따라 주장의 정당성을 심판하여 권리나 의무 등을 확정해 달라고 법원에 신청하는 일. | 사람들 사이에 일어난 다툼을 법률에 따라 판결해 달라고 법원에 요구함. | 사람들 사이에 일어난 다툼을 법률에 따라 판결해 달라고 법원에 요구함. 또는 그런 절차.",
-      "meaning_ja_source": "そ【訴】。うったえ【訴え】。そしょう【訴訟】。さいばん【裁判】 | そしょう【訴訟】 | そしょう【訴訟】。さいばんざた【裁判沙汰】。しょうじ【訟事】",
-      "definition_ja": "法律に基づき、自分の主張の当否を審判して権利や義務などを確定するよう裁判所に求めること。 | 人々の間で起こった紛争に対し、法律に基づく判決を裁判所に求めること。 | 人々の間に起こった紛争を法律に基づいて判決してほしいと裁判所に訴えること。また、その手続き。",
-      "source_file": "006.xml",
-      "source_files": [
-        "006.xml"
-      ],
-      "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-1288": {
@@ -26183,6 +26183,23 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
+    "n1-1796": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "어쩜 | 어쩌면",
+      "definition_ko": "도대체 어떻게 해서. | 뜻밖의 일로 놀라거나 감탄할 때 나오는 소리. | 따지거나 감탄할 때 내는 소리.",
+      "meaning_ja_source": "どうして。なんて【何て】 | なんと【何と】。なんて【何て】 | なんと【何と】。なんて【何て】。どうして",
+      "definition_ja": "信じられないほどのことで、一体どうすれば。 | 予想外のことで驚いたり感心したりしたときに発する声。 | 言い詰めたり感心したりしたときに発する声。",
+      "source_file": "007.xml",
+      "source_files": [
+        "007.xml"
+      ],
+      "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
     "n1-2478": {
       "score": 5,
       "reasons": [
@@ -26199,23 +26216,6 @@
         "008.xml"
       ],
       "merged_sense_count": 4,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-1796": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "어쩜 | 어쩌면",
-      "definition_ko": "도대체 어떻게 해서. | 뜻밖의 일로 놀라거나 감탄할 때 나오는 소리. | 따지거나 감탄할 때 내는 소리.",
-      "meaning_ja_source": "どうして。なんて【何て】 | なんと【何と】。なんて【何て】 | なんと【何と】。なんて【何て】。どうして",
-      "definition_ja": "信じられないほどのことで、一体どうすれば。 | 予想外のことで驚いたり感心したりしたときに発する声。 | 言い詰めたり感心したりしたときに発する声。",
-      "source_file": "007.xml",
-      "source_files": [
-        "007.xml"
-      ],
-      "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-0966": {
@@ -30565,6 +30565,18 @@
       "definition_ja": "戦闘や試合などができる能力。",
       "source_file": "008.xml"
     },
+    "n1-0703": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "전망",
+      "definition_ko": "어떤 곳을 멀리 바라봄. 또는 멀리 바라보이는 경치.",
+      "meaning_ja_source": "てんぼう【展望】。みはらし【見晴らし】。ちょうぼう【眺望】",
+      "definition_ja": "ある場所を遠くまで見渡すこと。または、その眺め。",
+      "source_file": "008.xml"
+    },
     "n1-2383": {
       "score": 5,
       "reasons": [
@@ -30582,18 +30594,6 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-0703": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "전망",
-      "definition_ko": "어떤 곳을 멀리 바라봄. 또는 멀리 바라보이는 경치.",
-      "meaning_ja_source": "てんぼう【展望】。みはらし【見晴らし】。ちょうぼう【眺望】",
-      "definition_ja": "ある場所を遠くまで見渡すこと。または、その眺め。",
-      "source_file": "008.xml"
     },
     "n1-0364": {
       "score": 5,
@@ -33880,18 +33880,6 @@
       "definition_ja": "問題に対する答えを当てる遊び。また、その問題。",
       "source_file": "010.xml"
     },
-    "n1-2321": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "큰물",
-      "definition_ko": "비가 많이 내려서 갑자기 크게 불어난 강이나 개천의 물.",
-      "meaning_ja_source": "おおみず【大水】。こうずい【洪水】",
-      "definition_ja": "大雨が降って、いきなり水量が増した川や小川の水。",
-      "source_file": "010.xml"
-    },
     "n1-0393": {
       "score": 5,
       "reasons": [
@@ -33909,6 +33897,18 @@
       ],
       "merged_sense_count": 3,
       "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-2321": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "큰물",
+      "definition_ko": "비가 많이 내려서 갑자기 크게 불어난 강이나 개천의 물.",
+      "meaning_ja_source": "おおみず【大水】。こうずい【洪水】",
+      "definition_ja": "大雨が降って、いきなり水量が増した川や小川の水。",
+      "source_file": "010.xml"
     },
     "n1-0800": {
       "score": 5,
@@ -35757,23 +35757,6 @@
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
-    "n1-2619": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "행여 | 혹시 | 행여나",
-      "definition_ko": "어쩌다가 혹시. | 그러할 리는 없지만 만약에. | 짐작대로 어쩌면. | 그러리라 생각하지만 분명하지 않아 말하기를 망설일 때 쓰는 말. | (강조하는 말로) 어쩌다가 혹시.",
-      "meaning_ja_source": "ひょっとしたら。もしかしたら【若しかしたら】。もしかすると【若しかすると】 | もし【若し】。もしかしたら【若しかしたら】。まんいち【万一】。ひょっとして | もし【若し】。もしかしたら【若しかしたら】。ひょっとしたら | もしかして【若しかして】。もしかしたら【若しかしたら】。もしかすると【若しかすると】。ひょっとして",
-      "definition_ja": "万が一。 | そうなる可能性は極めて低いが、もしかして。 | 予想通り、もしかしたら。 | そうであろうと思うものの、はっきりしていなくて言い渋る時に用いる語。 | 万が一を強調していう語。",
-      "source_file": "011.xml",
-      "source_files": [
-        "011.xml"
-      ],
-      "merged_sense_count": 5,
-      "match_resolution": "exact_surface_reading_multi_sense"
-    },
     "n1-2805": {
       "score": 5,
       "reasons": [
@@ -35789,6 +35772,23 @@
         "011.xml"
       ],
       "merged_sense_count": 3,
+      "match_resolution": "exact_surface_reading_multi_sense"
+    },
+    "n1-2619": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "행여 | 혹시 | 행여나",
+      "definition_ko": "어쩌다가 혹시. | 그러할 리는 없지만 만약에. | 짐작대로 어쩌면. | 그러리라 생각하지만 분명하지 않아 말하기를 망설일 때 쓰는 말. | (강조하는 말로) 어쩌다가 혹시.",
+      "meaning_ja_source": "ひょっとしたら。もしかしたら【若しかしたら】。もしかすると【若しかすると】 | もし【若し】。もしかしたら【若しかしたら】。まんいち【万一】。ひょっとして | もし【若し】。もしかしたら【若しかしたら】。ひょっとしたら | もしかして【若しかして】。もしかしたら【若しかしたら】。もしかすると【若しかすると】。ひょっとして",
+      "definition_ja": "万が一。 | そうなる可能性は極めて低いが、もしかして。 | 予想通り、もしかしたら。 | そうであろうと思うものの、はっきりしていなくて言い渋る時に用いる語。 | 万が一を強調していう語。",
+      "source_file": "011.xml",
+      "source_files": [
+        "011.xml"
+      ],
+      "merged_sense_count": 5,
       "match_resolution": "exact_surface_reading_multi_sense"
     },
     "n1-0072": {
@@ -35940,7 +35940,7 @@
       "definition_ja": "現在、行われていること。また、行っていること。",
       "source_file": "011.xml"
     },
-    "n1-0592": {
+    "n1-0198": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -35952,7 +35952,7 @@
       "definition_ja": "複数の人が一堂に会して話し合うこと。",
       "source_file": "011.xml"
     },
-    "n1-0198": {
+    "n1-0592": {
       "score": 5,
       "reasons": [
         "surface_exact",
@@ -36012,6 +36012,18 @@
       "definition_ja": "同じ目的を持つ人々が立ち上げた集まり。",
       "source_file": "011.xml"
     },
+    "n1-2011": {
+      "score": 5,
+      "reasons": [
+        "surface_exact",
+        "reading_exact"
+      ],
+      "meaning_ko": "형",
+      "definition_ko": "법에 따라 죄를 지은 사람에게 벌을 내림. 또는 그 벌.",
+      "meaning_ja_source": "けい【刑】。けいばつ【刑罰】",
+      "definition_ja": "法律に基づいて罪を犯した人に罰を科すること。また、その罰。",
+      "source_file": "011.xml"
+    },
     "n1-1509": {
       "score": 5,
       "reasons": [
@@ -36028,18 +36040,6 @@
       ],
       "merged_sense_count": 2,
       "match_resolution": "exact_surface_reading_multi_sense"
-    },
-    "n1-2011": {
-      "score": 5,
-      "reasons": [
-        "surface_exact",
-        "reading_exact"
-      ],
-      "meaning_ko": "형",
-      "definition_ko": "법에 따라 죄를 지은 사람에게 벌을 내림. 또는 그 벌.",
-      "meaning_ja_source": "けい【刑】。けいばつ【刑罰】",
-      "definition_ja": "法律に基づいて罪を犯した人に罰を科すること。また、その罰。",
-      "source_file": "011.xml"
     },
     "n1-0173": {
       "score": 5,
