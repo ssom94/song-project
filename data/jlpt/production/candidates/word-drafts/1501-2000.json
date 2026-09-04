@@ -5,6 +5,192 @@
     {
       "key": "n1-1501",
       "sequence_no": 1501,
+      "word": "滅びる",
+      "reading": "ほろびる",
+      "meaning_ko": "멸망하다; 사라지다; 파멸하다",
+      "meaning_ja": "国・組織・文化・生物などが衰えて完全になくなる。また、生活や事業などが破綻する。",
+      "part_of_speech": "一段動詞",
+      "example_ja": "環境の変化に適応できなければ、多くの生物種が滅びるおそれがある。",
+      "example_ko": "환경 변화에 적응하지 못하면 많은 생물종이 멸종할 우려가 있다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1603610",
+        "meaning_en": "to be ruined, to go under, to perish, to be destroyed",
+        "curated_file": "data/jlpt/production/curation/words/1501-1520.json",
+        "curated_original_key": "n1-1501",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "망하다 | 스러지다 | 쓰러지다 | 파멸하다",
+          "definition_ko": "개인이나 집단이 제 구실을 하지 못하여 흩어지거나 없어지다. | 무엇이 죽거나 망하다. | 집안이나 회사 등이 제 기능을 못 하게 되다. | 파괴되어 완전히 없어지거나 망하다.",
+          "meaning_ja_source": "ほろびる【滅びる】。だいなしになる【台無しになる】。だめになる【駄目になる】 | ほろびる【滅びる】 | たおれる【倒れる】。くつがえる【覆る】。ほろびる【滅びる】 | はめつする【破滅する】。ほろびる【滅びる】"
+        }
+      }
+    },
+    {
+      "key": "n1-1502",
+      "sequence_no": 1502,
+      "word": "染める",
+      "reading": "そめる",
+      "meaning_ko": "물들이다; 염색하다",
+      "meaning_ja": "布・糸・髪などに色を付ける。また比喩的に、ある思想・雰囲気などの影響を強く与える。",
+      "part_of_speech": "一段動詞",
+      "example_ja": "職人は植物から取った染料で布を鮮やかな藍色に染めた。",
+      "example_ko": "장인은 식물에서 얻은 염료로 천을 선명한 남색으로 물들였다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1391160",
+        "meaning_en": "to dye, to colour",
+        "curated_file": "data/jlpt/production/curation/words/1501-1520.json",
+        "curated_original_key": "n1-1502",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "들이다 | 적시다 | 물들이다 | 염색하다 | 착색하다",
+          "definition_ko": "색감을 스며들게 하다. | (비유적으로) 어떤 색깔이나 느낌으로 물들게 하다. | 빛깔이 서서히 퍼지거나 옮아서 묻게 하다. | 환경이나 행동, 사상 등을 퍼뜨리거나 닮게 하다. | 천이나 실, 머리카락 등에 물을 들이다. | 물을 들이거나 색을 칠해서 빛깔이 나게 하다.",
+          "meaning_ja_source": "そめる【染める】 | せんしょくする【染色する】。そめる【染める】 | ちゃくしょくする【着色する】。さいしきする・さいしょくする【彩色する】。いろどりする【彩りする・色取りする】。そめる【染める】"
+        }
+      }
+    },
+    {
+      "key": "n1-1503",
+      "sequence_no": 1503,
+      "word": "養護",
+      "reading": "ようご",
+      "meaning_ko": "양호; 보호·돌봄",
+      "meaning_ja": "健康や生活を守り、必要な保護・世話を行うこと。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "体調が悪くなった生徒は養護教諭のいる保健室で休んだ。",
+      "example_ko": "몸 상태가 나빠진 학생은 보건교사가 있는 보건실에서 쉬었다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1605847",
+        "meaning_en": "protection, nursing, protective care",
+        "curated_file": "data/jlpt/production/curation/words/1501-1520.json",
+        "curated_original_key": "n1-1503",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "양호",
+          "definition_ko": "학교 등의 시설에서 사람들의 건강과 위생을 살피고 돌봄.",
+          "meaning_ja_source": "ようご【養護】"
+        }
+      }
+    },
+    {
+      "key": "n1-1504",
+      "sequence_no": 1504,
+      "word": "余程",
+      "reading": "よほど",
+      "meaning_ko": "상당히; 어지간히; 훨씬",
+      "meaning_ja": "程度がかなり大きいさま。また、普通ならそうしないほど強い事情・気持ちがあることを表す。",
+      "part_of_speech": "副詞",
+      "example_ja": "彼が会議を欠席するとは、よほど重要な事情があったのだろう。",
+      "example_ko": "그가 회의에 결석하다니 상당히 중요한 사정이 있었던 모양이다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1605980",
+        "meaning_en": "very, greatly, much, to a large extent, quite",
+        "curated_file": "data/jlpt/production/curation/words/1501-1520.json",
+        "curated_original_key": "n1-1504",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "007.xml",
+          "meaning_ko": "어지간히",
+          "definition_ko": "성격이 만만하지 않아서 다루기가 어렵게.",
+          "meaning_ja_source": "よっぽど【余っ程】。よほど【余程】。かなり【可成り・可也】"
+        }
+      }
+    },
+    {
+      "key": "n1-1505",
+      "sequence_no": 1505,
+      "word": "可愛らしい",
+      "reading": "かわいらしい",
+      "meaning_ko": "사랑스럽다; 귀엽다",
+      "meaning_ja": "小ささ・姿・しぐさなどに愛らしさがあり、好感を持たせる。",
+      "part_of_speech": "い形容詞",
+      "example_ja": "店の入口には可愛らしい動物の置物が並んでいた。",
+      "example_ko": "가게 입구에는 사랑스러운 동물 장식물이 늘어서 있었다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1190740",
+        "meaning_en": "lovely, sweet",
+        "curated_file": "data/jlpt/production/curation/words/1501-1520.json",
+        "curated_original_key": "n1-1505",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "곱살하다 | 깜찍하다 | 깜찍스럽다 | 사랑스럽다 | 예쁘장하다 | 귀염성스럽다 | 아기자기하다",
+          "definition_ko": "얼굴이 예쁘장하다. | 생김새나 모습이 작고 귀엽다. | 사랑을 느낄 만큼 귀엽다. | 꽤 예쁘다. | 보기에 예쁘고 사랑스러운 데가 있다. | 크기가 작은 여러 가지가 오밀조밀하게 잘 어울려 예쁘다.",
+          "meaning_ja_source": "かわいらしい【可愛らしい】 | あいらしい【愛らしい】。かわいい【可愛い】。かわいらしい【可愛らしい】 | かわいらしい【可愛らしい】。かわいい【可愛い】"
+        }
+      }
+    },
+    {
+      "key": "n1-1506",
+      "sequence_no": 1506,
+      "word": "土手",
+      "reading": "どて",
+      "meaning_ko": "둑; 제방",
+      "meaning_ja": "川・池などの水があふれるのを防ぐため、土を盛って築いた堤。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "春になると川沿いの土手に多くの花が咲く。",
+      "example_ko": "봄이 되면 강변 둑에 많은 꽃이 핀다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1445370",
+        "meaning_en": "embankment, bank",
+        "curated_file": "data/jlpt/production/curation/words/1501-1520.json",
+        "curated_original_key": "n1-1506",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "003.xml",
+          "meaning_ko": "둑 | 방죽",
+          "definition_ko": "하천이나 호수의 물이 흘러넘치는 것을 막기 위해서 돌이나 흙 등으로 높이 막아 쌓은 긴 언덕. | 높은 길을 내려고 쌓은 긴 언덕. | 물이 밀려드는 것을 막기 위해 쌓은 둑.",
+          "meaning_ja_source": "つつみ【堤】。ていぼう【堤防】。どて【土手】 | どて【土手】。つつみ【堤】 | どて【土手】。ていぼう【堤防】。つつみ【堤】"
+        }
+      }
+    },
+    {
+      "key": "n1-1507",
+      "sequence_no": 1507,
       "word": "久しい",
       "reading": "ひさしい",
       "meaning_ko": "오래되다; 오랜 시간이 지나다",
@@ -34,8 +220,8 @@
       }
     },
     {
-      "key": "n1-1502",
-      "sequence_no": 1502,
+      "key": "n1-1508",
+      "sequence_no": 1508,
       "word": "無念",
       "reading": "むねん",
       "meaning_ko": "분함; 원통함; 유감스러움",
@@ -65,8 +251,8 @@
       }
     },
     {
-      "key": "n1-1503",
-      "sequence_no": 1503,
+      "key": "n1-1509",
+      "sequence_no": 1509,
       "word": "刑罰",
       "reading": "けいばつ",
       "meaning_ko": "형벌",
@@ -96,8 +282,8 @@
       }
     },
     {
-      "key": "n1-1504",
-      "sequence_no": 1504,
+      "key": "n1-1510",
+      "sequence_no": 1510,
       "word": "燃焼",
       "reading": "ねんしょう",
       "meaning_ko": "연소",
@@ -127,8 +313,8 @@
       }
     },
     {
-      "key": "n1-1505",
-      "sequence_no": 1505,
+      "key": "n1-1511",
+      "sequence_no": 1511,
       "word": "愚痴",
       "reading": "ぐち",
       "meaning_ko": "푸념; 불평",
@@ -158,8 +344,8 @@
       }
     },
     {
-      "key": "n1-1506",
-      "sequence_no": 1506,
+      "key": "n1-1512",
+      "sequence_no": 1512,
       "word": "鉱業",
       "reading": "こうぎょう",
       "meaning_ko": "광업",
@@ -189,8 +375,8 @@
       }
     },
     {
-      "key": "n1-1507",
-      "sequence_no": 1507,
+      "key": "n1-1513",
+      "sequence_no": 1513,
       "word": "付録",
       "reading": "ふろく",
       "meaning_ko": "부록; 별첨",
@@ -220,8 +406,8 @@
       }
     },
     {
-      "key": "n1-1508",
-      "sequence_no": 1508,
+      "key": "n1-1514",
+      "sequence_no": 1514,
       "word": "紛失",
       "reading": "ふんしつ",
       "meaning_ko": "분실",
@@ -251,8 +437,8 @@
       }
     },
     {
-      "key": "n1-1509",
-      "sequence_no": 1509,
+      "key": "n1-1515",
+      "sequence_no": 1515,
       "word": "建前",
       "reading": "たてまえ",
       "meaning_ko": "겉으로 내세우는 원칙; 명분",
@@ -272,8 +458,8 @@
       }
     },
     {
-      "key": "n1-1510",
-      "sequence_no": 1510,
+      "key": "n1-1516",
+      "sequence_no": 1516,
       "word": "過密",
       "reading": "かみつ",
       "meaning_ko": "과밀",
@@ -303,8 +489,8 @@
       }
     },
     {
-      "key": "n1-1511",
-      "sequence_no": 1511,
+      "key": "n1-1517",
+      "sequence_no": 1517,
       "word": "停滞",
       "reading": "ていたい",
       "meaning_ko": "정체; 침체",
@@ -334,8 +520,8 @@
       }
     },
     {
-      "key": "n1-1512",
-      "sequence_no": 1512,
+      "key": "n1-1518",
+      "sequence_no": 1518,
       "word": "金槌",
       "reading": "かなづち",
       "meaning_ko": "쇠망치; 수영을 못하는 사람",
@@ -365,8 +551,8 @@
       }
     },
     {
-      "key": "n1-1513",
-      "sequence_no": 1513,
+      "key": "n1-1519",
+      "sequence_no": 1519,
       "word": "損なう",
       "reading": "そこなう",
       "meaning_ko": "손상시키다; 해치다; 잃게 하다",
@@ -396,8 +582,8 @@
       }
     },
     {
-      "key": "n1-1514",
-      "sequence_no": 1514,
+      "key": "n1-1520",
+      "sequence_no": 1520,
       "word": "語句",
       "reading": "ごく",
       "meaning_ko": "어구; 단어나 짧은 표현",
@@ -427,8 +613,8 @@
       }
     },
     {
-      "key": "n1-1515",
-      "sequence_no": 1515,
+      "key": "n1-1521",
+      "sequence_no": 1521,
       "word": "寒気",
       "reading": "かんき",
       "meaning_ko": "한기; 찬 공기",
@@ -458,8 +644,8 @@
       }
     },
     {
-      "key": "n1-1516",
-      "sequence_no": 1516,
+      "key": "n1-1522",
+      "sequence_no": 1522,
       "word": "ゆとり",
       "reading": "ゆとり",
       "meaning_ko": "여유; 여력",
@@ -490,8 +676,8 @@
       }
     },
     {
-      "key": "n1-1517",
-      "sequence_no": 1517,
+      "key": "n1-1523",
+      "sequence_no": 1523,
       "word": "軍備",
       "reading": "ぐんび",
       "meaning_ko": "군비; 군사 장비와 준비",
@@ -521,8 +707,8 @@
       }
     },
     {
-      "key": "n1-1518",
-      "sequence_no": 1518,
+      "key": "n1-1524",
+      "sequence_no": 1524,
       "word": "汚す",
       "reading": "けがす",
       "meaning_ko": "더럽히다; 훼손하다; 모독하다",
@@ -552,8 +738,8 @@
       }
     },
     {
-      "key": "n1-1519",
-      "sequence_no": 1519,
+      "key": "n1-1525",
+      "sequence_no": 1525,
       "word": "逆立ち",
       "reading": "さかだち",
       "meaning_ko": "물구나무서기",
@@ -583,8 +769,8 @@
       }
     },
     {
-      "key": "n1-1520",
-      "sequence_no": 1520,
+      "key": "n1-1526",
+      "sequence_no": 1526,
       "word": "覆面",
       "reading": "ふくめん",
       "meaning_ko": "복면; 신원을 숨김",
@@ -614,8 +800,8 @@
       }
     },
     {
-      "key": "n1-1521",
-      "sequence_no": 1521,
+      "key": "n1-1527",
+      "sequence_no": 1527,
       "word": "素早い",
       "reading": "すばやい",
       "meaning_ko": "재빠르다; 신속하다; 민첩하다",
@@ -645,8 +831,8 @@
       }
     },
     {
-      "key": "n1-1522",
-      "sequence_no": 1522,
+      "key": "n1-1528",
+      "sequence_no": 1528,
       "word": "兆し",
       "reading": "きざし",
       "meaning_ko": "조짐; 징조; 기미",
@@ -676,8 +862,8 @@
       }
     },
     {
-      "key": "n1-1523",
-      "sequence_no": 1523,
+      "key": "n1-1529",
+      "sequence_no": 1529,
       "word": "購買",
       "reading": "こうばい",
       "meaning_ko": "구매; 구입",
@@ -707,8 +893,8 @@
       }
     },
     {
-      "key": "n1-1524",
-      "sequence_no": 1524,
+      "key": "n1-1530",
+      "sequence_no": 1530,
       "word": "氾濫",
       "reading": "はんらん",
       "meaning_ko": "범람; 넘쳐남",
@@ -738,8 +924,8 @@
       }
     },
     {
-      "key": "n1-1525",
-      "sequence_no": 1525,
+      "key": "n1-1531",
+      "sequence_no": 1531,
       "word": "修士",
       "reading": "しゅうし",
       "meaning_ko": "석사; 석사 학위",
@@ -769,8 +955,8 @@
       }
     },
     {
-      "key": "n1-1526",
-      "sequence_no": 1526,
+      "key": "n1-1532",
+      "sequence_no": 1532,
       "word": "逃げ出す",
       "reading": "にげだす",
       "meaning_ko": "도망치다; 달아나다",
@@ -800,8 +986,8 @@
       }
     },
     {
-      "key": "n1-1527",
-      "sequence_no": 1527,
+      "key": "n1-1533",
+      "sequence_no": 1533,
       "word": "親善",
       "reading": "しんぜん",
       "meaning_ko": "친선; 우호 증진",
@@ -831,8 +1017,8 @@
       }
     },
     {
-      "key": "n1-1528",
-      "sequence_no": 1528,
+      "key": "n1-1534",
+      "sequence_no": 1534,
       "word": "垂れる",
       "reading": "たれる",
       "meaning_ko": "늘어지다; 드리워지다; 떨어지다",
@@ -862,8 +1048,8 @@
       }
     },
     {
-      "key": "n1-1529",
-      "sequence_no": 1529,
+      "key": "n1-1535",
+      "sequence_no": 1535,
       "word": "感度",
       "reading": "かんど",
       "meaning_ko": "감도; 민감도",
@@ -893,8 +1079,8 @@
       }
     },
     {
-      "key": "n1-1530",
-      "sequence_no": 1530,
+      "key": "n1-1536",
+      "sequence_no": 1536,
       "word": "驚異",
       "reading": "きょうい",
       "meaning_ko": "경이; 놀라운 것",
@@ -924,8 +1110,8 @@
       }
     },
     {
-      "key": "n1-1531",
-      "sequence_no": 1531,
+      "key": "n1-1537",
+      "sequence_no": 1537,
       "word": "温和",
       "reading": "おんわ",
       "meaning_ko": "온화함; 온순함",
@@ -945,8 +1131,8 @@
       }
     },
     {
-      "key": "n1-1532",
-      "sequence_no": 1532,
+      "key": "n1-1538",
+      "sequence_no": 1538,
       "word": "雑談",
       "reading": "ざつだん",
       "meaning_ko": "잡담; 가벼운 대화",
@@ -976,8 +1162,8 @@
       }
     },
     {
-      "key": "n1-1533",
-      "sequence_no": 1533,
+      "key": "n1-1539",
+      "sequence_no": 1539,
       "word": "沈没",
       "reading": "ちんぼつ",
       "meaning_ko": "침몰; 가라앉음",
@@ -1007,8 +1193,8 @@
       }
     },
     {
-      "key": "n1-1534",
-      "sequence_no": 1534,
+      "key": "n1-1540",
+      "sequence_no": 1540,
       "word": "模倣",
       "reading": "もほう",
       "meaning_ko": "모방; 흉내 냄",
@@ -1038,8 +1224,8 @@
       }
     },
     {
-      "key": "n1-1535",
-      "sequence_no": 1535,
+      "key": "n1-1541",
+      "sequence_no": 1541,
       "word": "召す",
       "reading": "めす",
       "meaning_ko": "드시다; 입으시다 등(높임말)",
@@ -1059,8 +1245,8 @@
       }
     },
     {
-      "key": "n1-1536",
-      "sequence_no": 1536,
+      "key": "n1-1542",
+      "sequence_no": 1542,
       "word": "発病",
       "reading": "はつびょう",
       "meaning_ko": "발병",
@@ -1090,8 +1276,8 @@
       }
     },
     {
-      "key": "n1-1537",
-      "sequence_no": 1537,
+      "key": "n1-1543",
+      "sequence_no": 1543,
       "word": "ライス",
       "reading": "ライス",
       "meaning_ko": "밥; 라이스",
@@ -1122,8 +1308,8 @@
       }
     },
     {
-      "key": "n1-1538",
-      "sequence_no": 1538,
+      "key": "n1-1544",
+      "sequence_no": 1544,
       "word": "何しろ",
       "reading": "なにしろ",
       "meaning_ko": "어쨌든; 무엇보다; 워낙",
@@ -1143,8 +1329,8 @@
       }
     },
     {
-      "key": "n1-1539",
-      "sequence_no": 1539,
+      "key": "n1-1545",
+      "sequence_no": 1545,
       "word": "日夜",
       "reading": "にちや",
       "meaning_ko": "밤낮; 밤낮없이",
@@ -1174,8 +1360,8 @@
       }
     },
     {
-      "key": "n1-1540",
-      "sequence_no": 1540,
+      "key": "n1-1546",
+      "sequence_no": 1546,
       "word": "熱意",
       "reading": "ねつい",
       "meaning_ko": "열의; 열정",
@@ -1205,8 +1391,8 @@
       }
     },
     {
-      "key": "n1-1541",
-      "sequence_no": 1541,
+      "key": "n1-1547",
+      "sequence_no": 1547,
       "word": "終日",
       "reading": "しゅうじつ",
       "meaning_ko": "종일; 하루 종일",
@@ -1236,8 +1422,8 @@
       }
     },
     {
-      "key": "n1-1542",
-      "sequence_no": 1542,
+      "key": "n1-1548",
+      "sequence_no": 1548,
       "word": "迫害",
       "reading": "はくがい",
       "meaning_ko": "박해; 탄압",
@@ -1267,8 +1453,8 @@
       }
     },
     {
-      "key": "n1-1543",
-      "sequence_no": 1543,
+      "key": "n1-1549",
+      "sequence_no": 1549,
       "word": "元首",
       "reading": "げんしゅ",
       "meaning_ko": "국가 원수",
@@ -1298,8 +1484,8 @@
       }
     },
     {
-      "key": "n1-1544",
-      "sequence_no": 1544,
+      "key": "n1-1550",
+      "sequence_no": 1550,
       "word": "痒い",
       "reading": "かゆい",
       "meaning_ko": "가렵다",
@@ -1329,8 +1515,8 @@
       }
     },
     {
-      "key": "n1-1545",
-      "sequence_no": 1545,
+      "key": "n1-1551",
+      "sequence_no": 1551,
       "word": "態勢",
       "reading": "たいせい",
       "meaning_ko": "태세; 준비 체제",
@@ -1360,8 +1546,8 @@
       }
     },
     {
-      "key": "n1-1546",
-      "sequence_no": 1546,
+      "key": "n1-1552",
+      "sequence_no": 1552,
       "word": "荒らす",
       "reading": "あらす",
       "meaning_ko": "어지럽히다; 훼손하다; 휩쓸다",
@@ -1391,8 +1577,8 @@
       }
     },
     {
-      "key": "n1-1547",
-      "sequence_no": 1547,
+      "key": "n1-1553",
+      "sequence_no": 1553,
       "word": "丸々",
       "reading": "まるまる",
       "meaning_ko": "통째로; 전부; 꼬박",
@@ -1412,8 +1598,8 @@
       }
     },
     {
-      "key": "n1-1548",
-      "sequence_no": 1548,
+      "key": "n1-1554",
+      "sequence_no": 1554,
       "word": "浴室",
       "reading": "よくしつ",
       "meaning_ko": "욕실",
@@ -1443,8 +1629,8 @@
       }
     },
     {
-      "key": "n1-1549",
-      "sequence_no": 1549,
+      "key": "n1-1555",
+      "sequence_no": 1555,
       "word": "同封",
       "reading": "どうふう",
       "meaning_ko": "동봉",
@@ -1474,8 +1660,8 @@
       }
     },
     {
-      "key": "n1-1550",
-      "sequence_no": 1550,
+      "key": "n1-1556",
+      "sequence_no": 1556,
       "word": "無茶苦茶",
       "reading": "むちゃくちゃ",
       "meaning_ko": "엉망진창; 터무니없음; 무리함",
@@ -1505,8 +1691,8 @@
       }
     },
     {
-      "key": "n1-1551",
-      "sequence_no": 1551,
+      "key": "n1-1557",
+      "sequence_no": 1557,
       "word": "日取り",
       "reading": "ひどり",
       "meaning_ko": "날짜; 일정 날짜",
@@ -1536,8 +1722,8 @@
       }
     },
     {
-      "key": "n1-1552",
-      "sequence_no": 1552,
+      "key": "n1-1558",
+      "sequence_no": 1558,
       "word": "殴る",
       "reading": "なぐる",
       "meaning_ko": "때리다; 주먹으로 치다",
@@ -1567,8 +1753,8 @@
       }
     },
     {
-      "key": "n1-1553",
-      "sequence_no": 1553,
+      "key": "n1-1559",
+      "sequence_no": 1559,
       "word": "抜け出す",
       "reading": "ぬけだす",
       "meaning_ko": "빠져나오다; 벗어나다; 탈출하다",
@@ -1598,8 +1784,8 @@
       }
     },
     {
-      "key": "n1-1554",
-      "sequence_no": 1554,
+      "key": "n1-1560",
+      "sequence_no": 1560,
       "word": "尻尾",
       "reading": "しっぽ",
       "meaning_ko": "꼬리",
@@ -1629,8 +1815,8 @@
       }
     },
     {
-      "key": "n1-1555",
-      "sequence_no": 1555,
+      "key": "n1-1561",
+      "sequence_no": 1561,
       "word": "戦災",
       "reading": "せんさい",
       "meaning_ko": "전재; 전쟁으로 인한 재해",
@@ -1650,8 +1836,8 @@
       }
     },
     {
-      "key": "n1-1556",
-      "sequence_no": 1556,
+      "key": "n1-1562",
+      "sequence_no": 1562,
       "word": "悩ます",
       "reading": "なやます",
       "meaning_ko": "괴롭히다; 고민하게 하다",
@@ -1681,8 +1867,8 @@
       }
     },
     {
-      "key": "n1-1557",
-      "sequence_no": 1557,
+      "key": "n1-1563",
+      "sequence_no": 1563,
       "word": "渋い",
       "reading": "しぶい",
       "meaning_ko": "떫다; 탐탁지 않다; 차분하고 멋스럽다",
@@ -1712,8 +1898,8 @@
       }
     },
     {
-      "key": "n1-1558",
-      "sequence_no": 1558,
+      "key": "n1-1564",
+      "sequence_no": 1564,
       "word": "断面",
       "reading": "だんめん",
       "meaning_ko": "단면; 절단면",
@@ -1743,8 +1929,8 @@
       }
     },
     {
-      "key": "n1-1559",
-      "sequence_no": 1559,
+      "key": "n1-1565",
+      "sequence_no": 1565,
       "word": "海運",
       "reading": "かいうん",
       "meaning_ko": "해운",
@@ -1774,8 +1960,8 @@
       }
     },
     {
-      "key": "n1-1560",
-      "sequence_no": 1560,
+      "key": "n1-1566",
+      "sequence_no": 1566,
       "word": "満場",
       "reading": "まんじょう",
       "meaning_ko": "장내 전체; 참석자 전원",
@@ -1795,8 +1981,8 @@
       }
     },
     {
-      "key": "n1-1561",
-      "sequence_no": 1561,
+      "key": "n1-1567",
+      "sequence_no": 1567,
       "word": "肉親",
       "reading": "にくしん",
       "meaning_ko": "육친; 혈육",
@@ -1826,8 +2012,8 @@
       }
     },
     {
-      "key": "n1-1562",
-      "sequence_no": 1562,
+      "key": "n1-1568",
+      "sequence_no": 1568,
       "word": "近視",
       "reading": "きんし",
       "meaning_ko": "근시",
@@ -1857,8 +2043,8 @@
       }
     },
     {
-      "key": "n1-1563",
-      "sequence_no": 1563,
+      "key": "n1-1569",
+      "sequence_no": 1569,
       "word": "名札",
       "reading": "なふだ",
       "meaning_ko": "명찰; 이름표",
@@ -1888,8 +2074,8 @@
       }
     },
     {
-      "key": "n1-1564",
-      "sequence_no": 1564,
+      "key": "n1-1570",
+      "sequence_no": 1570,
       "word": "封鎖",
       "reading": "ふうさ",
       "meaning_ko": "봉쇄; 차단",
@@ -1919,8 +2105,8 @@
       }
     },
     {
-      "key": "n1-1565",
-      "sequence_no": 1565,
+      "key": "n1-1571",
+      "sequence_no": 1571,
       "word": "修了",
       "reading": "しゅうりょう",
       "meaning_ko": "수료",
@@ -1950,8 +2136,8 @@
       }
     },
     {
-      "key": "n1-1566",
-      "sequence_no": 1566,
+      "key": "n1-1572",
+      "sequence_no": 1572,
       "word": "漁船",
       "reading": "ぎょせん",
       "meaning_ko": "어선; 고기잡이배",
@@ -1981,8 +2167,8 @@
       }
     },
     {
-      "key": "n1-1567",
-      "sequence_no": 1567,
+      "key": "n1-1573",
+      "sequence_no": 1573,
       "word": "天災",
       "reading": "てんさい",
       "meaning_ko": "천재; 자연재해",
@@ -2012,8 +2198,8 @@
       }
     },
     {
-      "key": "n1-1568",
-      "sequence_no": 1568,
+      "key": "n1-1574",
+      "sequence_no": 1574,
       "word": "比重",
       "reading": "ひじゅう",
       "meaning_ko": "비중; 중요도",
@@ -2043,8 +2229,8 @@
       }
     },
     {
-      "key": "n1-1569",
-      "sequence_no": 1569,
+      "key": "n1-1575",
+      "sequence_no": 1575,
       "word": "区切り",
       "reading": "くぎり",
       "meaning_ko": "구분; 매듭; 한 단락",
@@ -2074,8 +2260,8 @@
       }
     },
     {
-      "key": "n1-1570",
-      "sequence_no": 1570,
+      "key": "n1-1576",
+      "sequence_no": 1576,
       "word": "分業",
       "reading": "ぶんぎょう",
       "meaning_ko": "분업",
@@ -2105,8 +2291,8 @@
       }
     },
     {
-      "key": "n1-1571",
-      "sequence_no": 1571,
+      "key": "n1-1577",
+      "sequence_no": 1577,
       "word": "拡散",
       "reading": "かくさん",
       "meaning_ko": "확산; 퍼짐",
@@ -2136,8 +2322,8 @@
       }
     },
     {
-      "key": "n1-1572",
-      "sequence_no": 1572,
+      "key": "n1-1578",
+      "sequence_no": 1578,
       "word": "恥じる",
       "reading": "はじる",
       "meaning_ko": "부끄러워하다; 수치스럽게 여기다",
@@ -2167,8 +2353,8 @@
       }
     },
     {
-      "key": "n1-1573",
-      "sequence_no": 1573,
+      "key": "n1-1579",
+      "sequence_no": 1579,
       "word": "血管",
       "reading": "けっかん",
       "meaning_ko": "혈관",
@@ -2198,8 +2384,8 @@
       }
     },
     {
-      "key": "n1-1574",
-      "sequence_no": 1574,
+      "key": "n1-1580",
+      "sequence_no": 1580,
       "word": "悲惨",
       "reading": "ひさん",
       "meaning_ko": "비참함; 참혹함",
@@ -2229,8 +2415,8 @@
       }
     },
     {
-      "key": "n1-1575",
-      "sequence_no": 1575,
+      "key": "n1-1581",
+      "sequence_no": 1581,
       "word": "脚色",
       "reading": "きゃくしょく",
       "meaning_ko": "각색; 윤색",
@@ -2260,8 +2446,8 @@
       }
     },
     {
-      "key": "n1-1576",
-      "sequence_no": 1576,
+      "key": "n1-1582",
+      "sequence_no": 1582,
       "word": "刺繍",
       "reading": "ししゅう",
       "meaning_ko": "자수",
@@ -2291,8 +2477,8 @@
       }
     },
     {
-      "key": "n1-1577",
-      "sequence_no": 1577,
+      "key": "n1-1583",
+      "sequence_no": 1583,
       "word": "出鱈目",
       "reading": "でたらめ",
       "meaning_ko": "엉터리; 터무니없음",
@@ -2322,8 +2508,8 @@
       }
     },
     {
-      "key": "n1-1578",
-      "sequence_no": 1578,
+      "key": "n1-1584",
+      "sequence_no": 1584,
       "word": "固体",
       "reading": "こたい",
       "meaning_ko": "고체",
@@ -2353,8 +2539,8 @@
       }
     },
     {
-      "key": "n1-1579",
-      "sequence_no": 1579,
+      "key": "n1-1585",
+      "sequence_no": 1585,
       "word": "高尚",
       "reading": "こうしょう",
       "meaning_ko": "고상함; 수준이 높음",
@@ -2374,8 +2560,8 @@
       }
     },
     {
-      "key": "n1-1580",
-      "sequence_no": 1580,
+      "key": "n1-1586",
+      "sequence_no": 1586,
       "word": "お手上げ",
       "reading": "おてあげ",
       "meaning_ko": "속수무책; 두 손 듦",
@@ -2395,8 +2581,8 @@
       }
     },
     {
-      "key": "n1-1581",
-      "sequence_no": 1581,
+      "key": "n1-1587",
+      "sequence_no": 1587,
       "word": "火花",
       "reading": "ひばな",
       "meaning_ko": "불꽃; 불티",
@@ -2426,8 +2612,8 @@
       }
     },
     {
-      "key": "n1-1582",
-      "sequence_no": 1582,
+      "key": "n1-1588",
+      "sequence_no": 1588,
       "word": "噴出",
       "reading": "ふんしゅつ",
       "meaning_ko": "분출; 솟구쳐 나옴",
@@ -2457,8 +2643,8 @@
       }
     },
     {
-      "key": "n1-1583",
-      "sequence_no": 1583,
+      "key": "n1-1589",
+      "sequence_no": 1589,
       "word": "捕獲",
       "reading": "ほかく",
       "meaning_ko": "포획; 붙잡음",
@@ -2488,8 +2674,8 @@
       }
     },
     {
-      "key": "n1-1584",
-      "sequence_no": 1584,
+      "key": "n1-1590",
+      "sequence_no": 1590,
       "word": "私用",
       "reading": "しよう",
       "meaning_ko": "사적인 용무; 개인 용도",
@@ -2509,8 +2695,8 @@
       }
     },
     {
-      "key": "n1-1585",
-      "sequence_no": 1585,
+      "key": "n1-1591",
+      "sequence_no": 1591,
       "word": "寄贈",
       "reading": "きそう",
       "meaning_ko": "기증; 증정",
@@ -2530,8 +2716,8 @@
       }
     },
     {
-      "key": "n1-1586",
-      "sequence_no": 1586,
+      "key": "n1-1592",
+      "sequence_no": 1592,
       "word": "新婚",
       "reading": "しんこん",
       "meaning_ko": "신혼",
@@ -2561,8 +2747,8 @@
       }
     },
     {
-      "key": "n1-1587",
-      "sequence_no": 1587,
+      "key": "n1-1593",
+      "sequence_no": 1593,
       "word": "出題",
       "reading": "しゅつだい",
       "meaning_ko": "출제",
@@ -2592,8 +2778,8 @@
       }
     },
     {
-      "key": "n1-1588",
-      "sequence_no": 1588,
+      "key": "n1-1594",
+      "sequence_no": 1594,
       "word": "林業",
       "reading": "りんぎょう",
       "meaning_ko": "임업",
@@ -2623,8 +2809,8 @@
       }
     },
     {
-      "key": "n1-1589",
-      "sequence_no": 1589,
+      "key": "n1-1595",
+      "sequence_no": 1595,
       "word": "趣",
       "reading": "おもむき",
       "meaning_ko": "정취; 운치; 특유의 느낌",
@@ -2654,8 +2840,8 @@
       }
     },
     {
-      "key": "n1-1590",
-      "sequence_no": 1590,
+      "key": "n1-1596",
+      "sequence_no": 1596,
       "word": "志す",
       "reading": "こころざす",
       "meaning_ko": "뜻하다; 목표로 삼다",
@@ -2685,8 +2871,8 @@
       }
     },
     {
-      "key": "n1-1591",
-      "sequence_no": 1591,
+      "key": "n1-1597",
+      "sequence_no": 1597,
       "word": "海流",
       "reading": "かいりゅう",
       "meaning_ko": "해류",
@@ -2716,8 +2902,8 @@
       }
     },
     {
-      "key": "n1-1592",
-      "sequence_no": 1592,
+      "key": "n1-1598",
+      "sequence_no": 1598,
       "word": "抑圧",
       "reading": "よくあつ",
       "meaning_ko": "억압",
@@ -2747,8 +2933,8 @@
       }
     },
     {
-      "key": "n1-1593",
-      "sequence_no": 1593,
+      "key": "n1-1599",
+      "sequence_no": 1599,
       "word": "一様",
       "reading": "いちよう",
       "meaning_ko": "한결같음; 동일함; 획일적임",
@@ -2768,8 +2954,8 @@
       }
     },
     {
-      "key": "n1-1594",
-      "sequence_no": 1594,
+      "key": "n1-1600",
+      "sequence_no": 1600,
       "word": "鉛",
       "reading": "なまり",
       "meaning_ko": "납",
@@ -2799,8 +2985,8 @@
       }
     },
     {
-      "key": "n1-1595",
-      "sequence_no": 1595,
+      "key": "n1-1601",
+      "sequence_no": 1601,
       "word": "飲み込む",
       "reading": "のみこむ",
       "meaning_ko": "삼키다; 이해하다; 말을 참다",
@@ -2830,8 +3016,8 @@
       }
     },
     {
-      "key": "n1-1596",
-      "sequence_no": 1596,
+      "key": "n1-1602",
+      "sequence_no": 1602,
       "word": "爆破",
       "reading": "ばくは",
       "meaning_ko": "폭파",
@@ -2861,8 +3047,8 @@
       }
     },
     {
-      "key": "n1-1597",
-      "sequence_no": 1597,
+      "key": "n1-1603",
+      "sequence_no": 1603,
       "word": "許容",
       "reading": "きょよう",
       "meaning_ko": "허용; 용인",
@@ -2892,8 +3078,8 @@
       }
     },
     {
-      "key": "n1-1598",
-      "sequence_no": 1598,
+      "key": "n1-1604",
+      "sequence_no": 1604,
       "word": "浪費",
       "reading": "ろうひ",
       "meaning_ko": "낭비; 허비",
@@ -2923,8 +3109,8 @@
       }
     },
     {
-      "key": "n1-1599",
-      "sequence_no": 1599,
+      "key": "n1-1605",
+      "sequence_no": 1605,
       "word": "採集",
       "reading": "さいしゅう",
       "meaning_ko": "채집",
@@ -2954,8 +3140,8 @@
       }
     },
     {
-      "key": "n1-1600",
-      "sequence_no": 1600,
+      "key": "n1-1606",
+      "sequence_no": 1606,
       "word": "読み上げる",
       "reading": "よみあげる",
       "meaning_ko": "소리 내어 읽다; 낭독하다",
@@ -2975,8 +3161,8 @@
       }
     },
     {
-      "key": "n1-1601",
-      "sequence_no": 1601,
+      "key": "n1-1607",
+      "sequence_no": 1607,
       "word": "根回し",
       "reading": "ねまわし",
       "meaning_ko": "사전 조율; 물밑 작업",
@@ -2996,8 +3182,8 @@
       }
     },
     {
-      "key": "n1-1602",
-      "sequence_no": 1602,
+      "key": "n1-1608",
+      "sequence_no": 1608,
       "word": "勧誘",
       "reading": "かんゆう",
       "meaning_ko": "권유; 가입 권유; 모집",
@@ -3027,8 +3213,8 @@
       }
     },
     {
-      "key": "n1-1603",
-      "sequence_no": 1603,
+      "key": "n1-1609",
+      "sequence_no": 1609,
       "word": "街頭",
       "reading": "がいとう",
       "meaning_ko": "가두; 길거리",
@@ -3058,8 +3244,8 @@
       }
     },
     {
-      "key": "n1-1604",
-      "sequence_no": 1604,
+      "key": "n1-1610",
+      "sequence_no": 1610,
       "word": "尿",
       "reading": "にょう",
       "meaning_ko": "소변; 오줌",
@@ -3089,8 +3275,8 @@
       }
     },
     {
-      "key": "n1-1605",
-      "sequence_no": 1605,
+      "key": "n1-1611",
+      "sequence_no": 1611,
       "word": "加味",
       "reading": "かみ",
       "meaning_ko": "가미; 요소를 더해 고려함",
@@ -3120,8 +3306,8 @@
       }
     },
     {
-      "key": "n1-1606",
-      "sequence_no": 1606,
+      "key": "n1-1612",
+      "sequence_no": 1612,
       "word": "憎しみ",
       "reading": "にくしみ",
       "meaning_ko": "미움; 증오",
@@ -3151,8 +3337,8 @@
       }
     },
     {
-      "key": "n1-1607",
-      "sequence_no": 1607,
+      "key": "n1-1613",
+      "sequence_no": 1613,
       "word": "露骨",
       "reading": "ろこつ",
       "meaning_ko": "노골적임; 숨김없음",
@@ -3182,8 +3368,8 @@
       }
     },
     {
-      "key": "n1-1608",
-      "sequence_no": 1608,
+      "key": "n1-1614",
+      "sequence_no": 1614,
       "word": "アンコール",
       "reading": "アンコール",
       "meaning_ko": "앙코르; 재공연 요청",
@@ -3214,8 +3400,8 @@
       }
     },
     {
-      "key": "n1-1609",
-      "sequence_no": 1609,
+      "key": "n1-1615",
+      "sequence_no": 1615,
       "word": "閉口",
       "reading": "へいこう",
       "meaning_ko": "질림; 곤란해함; 두 손 듦",
@@ -3235,8 +3421,8 @@
       }
     },
     {
-      "key": "n1-1610",
-      "sequence_no": 1610,
+      "key": "n1-1616",
+      "sequence_no": 1616,
       "word": "磁器",
       "reading": "じき",
       "meaning_ko": "자기; 도자기류",
@@ -3266,8 +3452,8 @@
       }
     },
     {
-      "key": "n1-1611",
-      "sequence_no": 1611,
+      "key": "n1-1617",
+      "sequence_no": 1617,
       "word": "偏る",
       "reading": "かたよる",
       "meaning_ko": "치우치다; 편중되다",
@@ -3297,8 +3483,8 @@
       }
     },
     {
-      "key": "n1-1612",
-      "sequence_no": 1612,
+      "key": "n1-1618",
+      "sequence_no": 1618,
       "word": "教習",
       "reading": "きょうしゅう",
       "meaning_ko": "교습; 실기 교육",
@@ -3328,8 +3514,8 @@
       }
     },
     {
-      "key": "n1-1613",
-      "sequence_no": 1613,
+      "key": "n1-1619",
+      "sequence_no": 1619,
       "word": "苦しめる",
       "reading": "くるしめる",
       "meaning_ko": "괴롭히다; 고통을 주다",
@@ -3359,8 +3545,8 @@
       }
     },
     {
-      "key": "n1-1614",
-      "sequence_no": 1614,
+      "key": "n1-1620",
+      "sequence_no": 1620,
       "word": "過疎",
       "reading": "かそ",
       "meaning_ko": "과소화; 인구 과소",
@@ -3390,8 +3576,8 @@
       }
     },
     {
-      "key": "n1-1615",
-      "sequence_no": 1615,
+      "key": "n1-1621",
+      "sequence_no": 1621,
       "word": "染まる",
       "reading": "そまる",
       "meaning_ko": "물들다; 영향을 받아 동화되다",
@@ -3421,8 +3607,8 @@
       }
     },
     {
-      "key": "n1-1616",
-      "sequence_no": 1616,
+      "key": "n1-1622",
+      "sequence_no": 1622,
       "word": "大空",
       "reading": "おおぞら",
       "meaning_ko": "넓은 하늘; 창공",
@@ -3442,8 +3628,8 @@
       }
     },
     {
-      "key": "n1-1617",
-      "sequence_no": 1617,
+      "key": "n1-1623",
+      "sequence_no": 1623,
       "word": "庶務",
       "reading": "しょむ",
       "meaning_ko": "서무; 일반 행정 업무",
@@ -3463,8 +3649,8 @@
       }
     },
     {
-      "key": "n1-1618",
-      "sequence_no": 1618,
+      "key": "n1-1624",
+      "sequence_no": 1624,
       "word": "操る",
       "reading": "あやつる",
       "meaning_ko": "조종하다; 다루다; 마음대로 움직이다",
@@ -3494,8 +3680,8 @@
       }
     },
     {
-      "key": "n1-1619",
-      "sequence_no": 1619,
+      "key": "n1-1625",
+      "sequence_no": 1625,
       "word": "船舶",
       "reading": "せんぱく",
       "meaning_ko": "선박",
@@ -3525,8 +3711,8 @@
       }
     },
     {
-      "key": "n1-1620",
-      "sequence_no": 1620,
+      "key": "n1-1626",
+      "sequence_no": 1626,
       "word": "眼科",
       "reading": "がんか",
       "meaning_ko": "안과",
@@ -3556,8 +3742,8 @@
       }
     },
     {
-      "key": "n1-1621",
-      "sequence_no": 1621,
+      "key": "n1-1627",
+      "sequence_no": 1627,
       "word": "繁盛",
       "reading": "はんじょう",
       "meaning_ko": "번창; 성업",
@@ -3587,8 +3773,8 @@
       }
     },
     {
-      "key": "n1-1622",
-      "sequence_no": 1622,
+      "key": "n1-1628",
+      "sequence_no": 1628,
       "word": "扶養",
       "reading": "ふよう",
       "meaning_ko": "부양",
@@ -3618,8 +3804,8 @@
       }
     },
     {
-      "key": "n1-1623",
-      "sequence_no": 1623,
+      "key": "n1-1629",
+      "sequence_no": 1629,
       "word": "押し込む",
       "reading": "おしこむ",
       "meaning_ko": "밀어 넣다; 억지로 집어넣다",
@@ -3649,8 +3835,8 @@
       }
     },
     {
-      "key": "n1-1624",
-      "sequence_no": 1624,
+      "key": "n1-1630",
+      "sequence_no": 1630,
       "word": "傾斜",
       "reading": "けいしゃ",
       "meaning_ko": "경사; 기울기",
@@ -3680,8 +3866,8 @@
       }
     },
     {
-      "key": "n1-1625",
-      "sequence_no": 1625,
+      "key": "n1-1631",
+      "sequence_no": 1631,
       "word": "異性",
       "reading": "いせい",
       "meaning_ko": "이성; 다른 성별",
@@ -3711,8 +3897,8 @@
       }
     },
     {
-      "key": "n1-1626",
-      "sequence_no": 1626,
+      "key": "n1-1632",
+      "sequence_no": 1632,
       "word": "行員",
       "reading": "こういん",
       "meaning_ko": "은행원",
@@ -3732,8 +3918,8 @@
       }
     },
     {
-      "key": "n1-1627",
-      "sequence_no": 1627,
+      "key": "n1-1633",
+      "sequence_no": 1633,
       "word": "焦る",
       "reading": "あせる",
       "meaning_ko": "초조해하다; 조급해하다",
@@ -3763,8 +3949,8 @@
       }
     },
     {
-      "key": "n1-1628",
-      "sequence_no": 1628,
+      "key": "n1-1634",
+      "sequence_no": 1634,
       "word": "根底",
       "reading": "こんてい",
       "meaning_ko": "근저; 밑바탕; 근본",
@@ -3794,8 +3980,8 @@
       }
     },
     {
-      "key": "n1-1629",
-      "sequence_no": 1629,
+      "key": "n1-1635",
+      "sequence_no": 1635,
       "word": "麻酔",
       "reading": "ますい",
       "meaning_ko": "마취",
@@ -3825,8 +4011,8 @@
       }
     },
     {
-      "key": "n1-1630",
-      "sequence_no": 1630,
+      "key": "n1-1636",
+      "sequence_no": 1636,
       "word": "必修",
       "reading": "ひっしゅう",
       "meaning_ko": "필수 이수",
@@ -3856,8 +4042,8 @@
       }
     },
     {
-      "key": "n1-1631",
-      "sequence_no": 1631,
+      "key": "n1-1637",
+      "sequence_no": 1637,
       "word": "所々",
       "reading": "しょしょ",
       "meaning_ko": "여기저기; 곳곳",
@@ -3877,8 +4063,8 @@
       }
     },
     {
-      "key": "n1-1632",
-      "sequence_no": 1632,
+      "key": "n1-1638",
+      "sequence_no": 1638,
       "word": "降水",
       "reading": "こうすい",
       "meaning_ko": "강수; 비나 눈이 내림",
@@ -3898,8 +4084,8 @@
       }
     },
     {
-      "key": "n1-1633",
-      "sequence_no": 1633,
+      "key": "n1-1639",
+      "sequence_no": 1639,
       "word": "怪獣",
       "reading": "かいじゅう",
       "meaning_ko": "괴수",
@@ -3929,8 +4115,8 @@
       }
     },
     {
-      "key": "n1-1634",
-      "sequence_no": 1634,
+      "key": "n1-1640",
+      "sequence_no": 1640,
       "word": "凶作",
       "reading": "きょうさく",
       "meaning_ko": "흉작",
@@ -3960,8 +4146,8 @@
       }
     },
     {
-      "key": "n1-1635",
-      "sequence_no": 1635,
+      "key": "n1-1641",
+      "sequence_no": 1641,
       "word": "出費",
       "reading": "しゅっぴ",
       "meaning_ko": "지출; 비용이 나감",
@@ -3981,8 +4167,8 @@
       }
     },
     {
-      "key": "n1-1636",
-      "sequence_no": 1636,
+      "key": "n1-1642",
+      "sequence_no": 1642,
       "word": "畜産",
       "reading": "ちくさん",
       "meaning_ko": "축산",
@@ -4012,8 +4198,8 @@
       }
     },
     {
-      "key": "n1-1637",
-      "sequence_no": 1637,
+      "key": "n1-1643",
+      "sequence_no": 1643,
       "word": "前売り",
       "reading": "まえうり",
       "meaning_ko": "예매; 선판매",
@@ -4033,8 +4219,8 @@
       }
     },
     {
-      "key": "n1-1638",
-      "sequence_no": 1638,
+      "key": "n1-1644",
+      "sequence_no": 1644,
       "word": "落ち込む",
       "reading": "おちこむ",
       "meaning_ko": "낙담하다; 침체되다; 움푹 들어가다",
@@ -4064,8 +4250,8 @@
       }
     },
     {
-      "key": "n1-1639",
-      "sequence_no": 1639,
+      "key": "n1-1645",
+      "sequence_no": 1645,
       "word": "摘む",
       "reading": "つまむ",
       "meaning_ko": "집다; 꼬집듯 집어 올리다",
@@ -4095,8 +4281,8 @@
       }
     },
     {
-      "key": "n1-1640",
-      "sequence_no": 1640,
+      "key": "n1-1646",
+      "sequence_no": 1646,
       "word": "勤労",
       "reading": "きんろう",
       "meaning_ko": "근로; 노동",
@@ -4126,8 +4312,8 @@
       }
     },
     {
-      "key": "n1-1641",
-      "sequence_no": 1641,
+      "key": "n1-1647",
+      "sequence_no": 1647,
       "word": "物議",
       "reading": "ぶつぎ",
       "meaning_ko": "물의; 논란",
@@ -4157,8 +4343,8 @@
       }
     },
     {
-      "key": "n1-1642",
-      "sequence_no": 1642,
+      "key": "n1-1648",
+      "sequence_no": 1648,
       "word": "快い",
       "reading": "こころよい",
       "meaning_ko": "기분 좋다; 상쾌하다",
@@ -4188,8 +4374,8 @@
       }
     },
     {
-      "key": "n1-1643",
-      "sequence_no": 1643,
+      "key": "n1-1649",
+      "sequence_no": 1649,
       "word": "尊い",
       "reading": "たっとい",
       "meaning_ko": "존귀하다; 매우 귀중하다",
@@ -4219,8 +4405,8 @@
       }
     },
     {
-      "key": "n1-1644",
-      "sequence_no": 1644,
+      "key": "n1-1650",
+      "sequence_no": 1650,
       "word": "旅券",
       "reading": "りょけん",
       "meaning_ko": "여권; 패스포트",
@@ -4250,8 +4436,8 @@
       }
     },
     {
-      "key": "n1-1645",
-      "sequence_no": 1645,
+      "key": "n1-1651",
+      "sequence_no": 1651,
       "word": "慣行",
       "reading": "かんこう",
       "meaning_ko": "관행",
@@ -4281,8 +4467,8 @@
       }
     },
     {
-      "key": "n1-1646",
-      "sequence_no": 1646,
+      "key": "n1-1652",
+      "sequence_no": 1652,
       "word": "几帳面",
       "reading": "きちょうめん",
       "meaning_ko": "꼼꼼함; 빈틈없음",
@@ -4312,8 +4498,8 @@
       }
     },
     {
-      "key": "n1-1647",
-      "sequence_no": 1647,
+      "key": "n1-1653",
+      "sequence_no": 1653,
       "word": "精密",
       "reading": "せいみつ",
       "meaning_ko": "정밀함; 정교함",
@@ -4343,8 +4529,8 @@
       }
     },
     {
-      "key": "n1-1648",
-      "sequence_no": 1648,
+      "key": "n1-1654",
+      "sequence_no": 1654,
       "word": "陰気",
       "reading": "いんき",
       "meaning_ko": "음침함; 우울하고 어두운 분위기",
@@ -4374,8 +4560,8 @@
       }
     },
     {
-      "key": "n1-1649",
-      "sequence_no": 1649,
+      "key": "n1-1655",
+      "sequence_no": 1655,
       "word": "遠ざかる",
       "reading": "とおざかる",
       "meaning_ko": "멀어지다; 희박해지다",
@@ -4405,8 +4591,8 @@
       }
     },
     {
-      "key": "n1-1650",
-      "sequence_no": 1650,
+      "key": "n1-1656",
+      "sequence_no": 1656,
       "word": "婉曲",
       "reading": "えんきょく",
       "meaning_ko": "완곡함; 에둘러 표현함",
@@ -4436,8 +4622,8 @@
       }
     },
     {
-      "key": "n1-1651",
-      "sequence_no": 1651,
+      "key": "n1-1657",
+      "sequence_no": 1657,
       "word": "窮屈",
       "reading": "きゅうくつ",
       "meaning_ko": "비좁음; 답답함; 제약이 많음",
@@ -4457,8 +4643,8 @@
       }
     },
     {
-      "key": "n1-1652",
-      "sequence_no": 1652,
+      "key": "n1-1658",
+      "sequence_no": 1658,
       "word": "奇数",
       "reading": "きすう",
       "meaning_ko": "홀수",
@@ -4488,8 +4674,8 @@
       }
     },
     {
-      "key": "n1-1653",
-      "sequence_no": 1653,
+      "key": "n1-1659",
+      "sequence_no": 1659,
       "word": "裁く",
       "reading": "さばく",
       "meaning_ko": "재판하다; 판단하다",
@@ -4519,8 +4705,8 @@
       }
     },
     {
-      "key": "n1-1654",
-      "sequence_no": 1654,
+      "key": "n1-1660",
+      "sequence_no": 1660,
       "word": "適性",
       "reading": "てきせい",
       "meaning_ko": "적성; 적합한 성질·능력",
@@ -4550,8 +4736,8 @@
       }
     },
     {
-      "key": "n1-1655",
-      "sequence_no": 1655,
+      "key": "n1-1661",
+      "sequence_no": 1661,
       "word": "防火",
       "reading": "ぼうか",
       "meaning_ko": "방화(防火); 화재 예방",
@@ -4581,8 +4767,8 @@
       }
     },
     {
-      "key": "n1-1656",
-      "sequence_no": 1656,
+      "key": "n1-1662",
+      "sequence_no": 1662,
       "word": "脱退",
       "reading": "だったい",
       "meaning_ko": "탈퇴",
@@ -4612,8 +4798,8 @@
       }
     },
     {
-      "key": "n1-1657",
-      "sequence_no": 1657,
+      "key": "n1-1663",
+      "sequence_no": 1663,
       "word": "光沢",
       "reading": "こうたく",
       "meaning_ko": "광택; 윤기",
@@ -4643,8 +4829,8 @@
       }
     },
     {
-      "key": "n1-1658",
-      "sequence_no": 1658,
+      "key": "n1-1664",
+      "sequence_no": 1664,
       "word": "感慨",
       "reading": "かんがい",
       "meaning_ko": "감개; 깊은 감회",
@@ -4674,8 +4860,8 @@
       }
     },
     {
-      "key": "n1-1659",
-      "sequence_no": 1659,
+      "key": "n1-1665",
+      "sequence_no": 1665,
       "word": "口述",
       "reading": "こうじゅつ",
       "meaning_ko": "구술; 말로 진술함",
@@ -4705,8 +4891,8 @@
       }
     },
     {
-      "key": "n1-1660",
-      "sequence_no": 1660,
+      "key": "n1-1666",
+      "sequence_no": 1666,
       "word": "物好き",
       "reading": "ものずき",
       "meaning_ko": "별난 것에 흥미를 보임; 그런 사람",
@@ -4736,8 +4922,8 @@
       }
     },
     {
-      "key": "n1-1661",
-      "sequence_no": 1661,
+      "key": "n1-1667",
+      "sequence_no": 1667,
       "word": "発育",
       "reading": "はついく",
       "meaning_ko": "발육; 성장",
@@ -4767,8 +4953,8 @@
       }
     },
     {
-      "key": "n1-1662",
-      "sequence_no": 1662,
+      "key": "n1-1668",
+      "sequence_no": 1668,
       "word": "張り紙",
       "reading": "はりがみ",
       "meaning_ko": "붙임쪽지; 벽보; 안내문",
@@ -4798,8 +4984,8 @@
       }
     },
     {
-      "key": "n1-1663",
-      "sequence_no": 1663,
+      "key": "n1-1669",
+      "sequence_no": 1669,
       "word": "回覧",
       "reading": "かいらん",
       "meaning_ko": "회람; 돌려봄",
@@ -4819,8 +5005,8 @@
       }
     },
     {
-      "key": "n1-1664",
-      "sequence_no": 1664,
+      "key": "n1-1670",
+      "sequence_no": 1670,
       "word": "年鑑",
       "reading": "ねんかん",
       "meaning_ko": "연감",
@@ -4850,8 +5036,8 @@
       }
     },
     {
-      "key": "n1-1665",
-      "sequence_no": 1665,
+      "key": "n1-1671",
+      "sequence_no": 1671,
       "word": "ぶらぶら",
       "reading": "ぶらぶら",
       "meaning_ko": "어슬렁어슬렁; 빈둥빈둥; 흔들흔들",
@@ -4882,8 +5068,8 @@
       }
     },
     {
-      "key": "n1-1666",
-      "sequence_no": 1666,
+      "key": "n1-1672",
+      "sequence_no": 1672,
       "word": "売り出す",
       "reading": "うりだす",
       "meaning_ko": "판매를 시작하다; 내놓다; 널리 알리다",
@@ -4903,8 +5089,8 @@
       }
     },
     {
-      "key": "n1-1667",
-      "sequence_no": 1667,
+      "key": "n1-1673",
+      "sequence_no": 1673,
       "word": "軽快",
       "reading": "けいかい",
       "meaning_ko": "경쾌함; 가볍고 산뜻함",
@@ -4924,8 +5110,8 @@
       }
     },
     {
-      "key": "n1-1668",
-      "sequence_no": 1668,
+      "key": "n1-1674",
+      "sequence_no": 1674,
       "word": "模範",
       "reading": "もはん",
       "meaning_ko": "모범; 본보기",
@@ -4955,8 +5141,8 @@
       }
     },
     {
-      "key": "n1-1669",
-      "sequence_no": 1669,
+      "key": "n1-1675",
+      "sequence_no": 1675,
       "word": "巧妙",
       "reading": "こうみょう",
       "meaning_ko": "교묘함; 정교하고 능숙함",
@@ -4976,8 +5162,8 @@
       }
     },
     {
-      "key": "n1-1670",
-      "sequence_no": 1670,
+      "key": "n1-1676",
+      "sequence_no": 1676,
       "word": "寛容",
       "reading": "かんよう",
       "meaning_ko": "관용; 너그러움",
@@ -5007,8 +5193,8 @@
       }
     },
     {
-      "key": "n1-1671",
-      "sequence_no": 1671,
+      "key": "n1-1677",
+      "sequence_no": 1677,
       "word": "呆れる",
       "reading": "あきれる",
       "meaning_ko": "기가 막히다; 어이없어하다; 질리다",
@@ -5038,8 +5224,8 @@
       }
     },
     {
-      "key": "n1-1672",
-      "sequence_no": 1672,
+      "key": "n1-1678",
+      "sequence_no": 1678,
       "word": "書き取り",
       "reading": "かきとり",
       "meaning_ko": "받아쓰기; 듣고 적기",
@@ -5069,8 +5255,8 @@
       }
     },
     {
-      "key": "n1-1673",
-      "sequence_no": 1673,
+      "key": "n1-1679",
+      "sequence_no": 1679,
       "word": "舗装",
       "reading": "ほそう",
       "meaning_ko": "포장; 도로 포장",
@@ -5100,8 +5286,8 @@
       }
     },
     {
-      "key": "n1-1674",
-      "sequence_no": 1674,
+      "key": "n1-1680",
+      "sequence_no": 1680,
       "word": "差額",
       "reading": "さがく",
       "meaning_ko": "차액",
@@ -5131,8 +5317,8 @@
       }
     },
     {
-      "key": "n1-1675",
-      "sequence_no": 1675,
+      "key": "n1-1681",
+      "sequence_no": 1681,
       "word": "民宿",
       "reading": "みんしゅく",
       "meaning_ko": "민박; 민박집",
@@ -5162,8 +5348,8 @@
       }
     },
     {
-      "key": "n1-1676",
-      "sequence_no": 1676,
+      "key": "n1-1682",
+      "sequence_no": 1682,
       "word": "棄権",
       "reading": "きけん",
       "meaning_ko": "기권",
@@ -5193,8 +5379,8 @@
       }
     },
     {
-      "key": "n1-1677",
-      "sequence_no": 1677,
+      "key": "n1-1683",
+      "sequence_no": 1683,
       "word": "愛憎",
       "reading": "あいぞう",
       "meaning_ko": "애증; 사랑과 미움",
@@ -5214,8 +5400,8 @@
       }
     },
     {
-      "key": "n1-1678",
-      "sequence_no": 1678,
+      "key": "n1-1684",
+      "sequence_no": 1684,
       "word": "待望",
       "reading": "たいぼう",
       "meaning_ko": "대망; 오래 기다림",
@@ -5245,8 +5431,8 @@
       }
     },
     {
-      "key": "n1-1679",
-      "sequence_no": 1679,
+      "key": "n1-1685",
+      "sequence_no": 1685,
       "word": "下火",
       "reading": "したび",
       "meaning_ko": "기세가 꺾임; 쇠퇴세",
@@ -5276,8 +5462,8 @@
       }
     },
     {
-      "key": "n1-1680",
-      "sequence_no": 1680,
+      "key": "n1-1686",
+      "sequence_no": 1686,
       "word": "目方",
       "reading": "めかた",
       "meaning_ko": "무게; 중량",
@@ -5307,8 +5493,8 @@
       }
     },
     {
-      "key": "n1-1681",
-      "sequence_no": 1681,
+      "key": "n1-1687",
+      "sequence_no": 1687,
       "word": "英字",
       "reading": "えいじ",
       "meaning_ko": "영문자; 알파벳 문자",
@@ -5328,8 +5514,8 @@
       }
     },
     {
-      "key": "n1-1682",
-      "sequence_no": 1682,
+      "key": "n1-1688",
+      "sequence_no": 1688,
       "word": "誤差",
       "reading": "ごさ",
       "meaning_ko": "오차",
@@ -5359,8 +5545,8 @@
       }
     },
     {
-      "key": "n1-1683",
-      "sequence_no": 1683,
+      "key": "n1-1689",
+      "sequence_no": 1689,
       "word": "切れ目",
       "reading": "きれめ",
       "meaning_ko": "끊어진 부분; 틈; 구분되는 지점",
@@ -5390,8 +5576,8 @@
       }
     },
     {
-      "key": "n1-1684",
-      "sequence_no": 1684,
+      "key": "n1-1690",
+      "sequence_no": 1690,
       "word": "全快",
       "reading": "ぜんかい",
       "meaning_ko": "완쾌",
@@ -5421,8 +5607,8 @@
       }
     },
     {
-      "key": "n1-1685",
-      "sequence_no": 1685,
+      "key": "n1-1691",
+      "sequence_no": 1691,
       "word": "錯覚",
       "reading": "さっかく",
       "meaning_ko": "착각; 잘못된 지각",
@@ -5452,8 +5638,8 @@
       }
     },
     {
-      "key": "n1-1686",
-      "sequence_no": 1686,
+      "key": "n1-1692",
+      "sequence_no": 1692,
       "word": "不順",
       "reading": "ふじゅん",
       "meaning_ko": "불순; 고르지 못함; 순조롭지 않음",
@@ -5483,8 +5669,8 @@
       }
     },
     {
-      "key": "n1-1687",
-      "sequence_no": 1687,
+      "key": "n1-1693",
+      "sequence_no": 1693,
       "word": "あやふや",
       "reading": "あやふや",
       "meaning_ko": "불분명함; 애매함; 흐지부지함",
@@ -5515,8 +5701,8 @@
       }
     },
     {
-      "key": "n1-1688",
-      "sequence_no": 1688,
+      "key": "n1-1694",
+      "sequence_no": 1694,
       "word": "略語",
       "reading": "りゃくご",
       "meaning_ko": "약어; 준말",
@@ -5546,8 +5732,8 @@
       }
     },
     {
-      "key": "n1-1689",
-      "sequence_no": 1689,
+      "key": "n1-1695",
+      "sequence_no": 1695,
       "word": "良識",
       "reading": "りょうしき",
       "meaning_ko": "양식; 건전한 판단력",
@@ -5577,8 +5763,8 @@
       }
     },
     {
-      "key": "n1-1690",
-      "sequence_no": 1690,
+      "key": "n1-1696",
+      "sequence_no": 1696,
       "word": "共働き",
       "reading": "ともばたらき",
       "meaning_ko": "맞벌이",
@@ -5608,8 +5794,8 @@
       }
     },
     {
-      "key": "n1-1691",
-      "sequence_no": 1691,
+      "key": "n1-1697",
+      "sequence_no": 1697,
       "word": "徐行",
       "reading": "じょこう",
       "meaning_ko": "서행",
@@ -5639,8 +5825,8 @@
       }
     },
     {
-      "key": "n1-1692",
-      "sequence_no": 1692,
+      "key": "n1-1698",
+      "sequence_no": 1698,
       "word": "水洗",
       "reading": "すいせん",
       "meaning_ko": "물로 씻음; 수세식",
@@ -5670,8 +5856,8 @@
       }
     },
     {
-      "key": "n1-1693",
-      "sequence_no": 1693,
+      "key": "n1-1699",
+      "sequence_no": 1699,
       "word": "聞き取り",
       "reading": "ききとり",
       "meaning_ko": "듣고 이해하기; 청취; 듣기 조사",
@@ -5701,8 +5887,8 @@
       }
     },
     {
-      "key": "n1-1694",
-      "sequence_no": 1694,
+      "key": "n1-1700",
+      "sequence_no": 1700,
       "word": "採掘",
       "reading": "さいくつ",
       "meaning_ko": "채굴",
@@ -5732,8 +5918,8 @@
       }
     },
     {
-      "key": "n1-1695",
-      "sequence_no": 1695,
+      "key": "n1-1701",
+      "sequence_no": 1701,
       "word": "貧弱",
       "reading": "ひんじゃく",
       "meaning_ko": "빈약함; 부실함",
@@ -5746,7 +5932,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1490850",
         "meaning_en": "poor, meagre, insubstantial",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1701",
         "legacy_curated_file": null,
         "krdict": {
@@ -5763,8 +5949,8 @@
       }
     },
     {
-      "key": "n1-1696",
-      "sequence_no": 1696,
+      "key": "n1-1702",
+      "sequence_no": 1702,
       "word": "夕暮れ",
       "reading": "ゆうぐれ",
       "meaning_ko": "해질녘; 황혼",
@@ -5777,7 +5963,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1542770",
         "meaning_en": "evening, (evening) twilight",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1702",
         "legacy_curated_file": null,
         "krdict": {
@@ -5794,8 +5980,8 @@
       }
     },
     {
-      "key": "n1-1697",
-      "sequence_no": 1697,
+      "key": "n1-1703",
+      "sequence_no": 1703,
       "word": "怠慢",
       "reading": "たいまん",
       "meaning_ko": "태만; 게으름",
@@ -5808,7 +5994,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1410740",
         "meaning_en": "negligence, procrastination, carelessness",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1703",
         "legacy_curated_file": "data/jlpt/daily_words/2026-09-09.json",
         "krdict": {
@@ -5825,8 +6011,8 @@
       }
     },
     {
-      "key": "n1-1698",
-      "sequence_no": 1698,
+      "key": "n1-1704",
+      "sequence_no": 1704,
       "word": "あべこべ",
       "reading": "あべこべ",
       "meaning_ko": "거꾸로; 반대로 뒤바뀜",
@@ -5839,15 +6025,15 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1000470",
         "meaning_en": "contrary, opposite, inverse",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1704",
         "legacy_curated_file": null,
         "krdict": null
       }
     },
     {
-      "key": "n1-1699",
-      "sequence_no": 1699,
+      "key": "n1-1705",
+      "sequence_no": 1705,
       "word": "近眼",
       "reading": "きんがん",
       "meaning_ko": "근시; 근시안적임",
@@ -5860,15 +6046,15 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1242220",
         "meaning_en": "nearsightedness, shortsightedness, myopia",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1705",
         "legacy_curated_file": null,
         "krdict": null
       }
     },
     {
-      "key": "n1-1700",
-      "sequence_no": 1700,
+      "key": "n1-1706",
+      "sequence_no": 1706,
       "word": "寝かせる",
       "reading": "ねかせる",
       "meaning_ko": "눕히다; 재우다; 숙성시키다; 당분간 묵혀 두다",
@@ -5881,7 +6067,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1359970",
         "meaning_en": "to put to bed, to lay down, to ferment",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1706",
         "legacy_curated_file": null,
         "krdict": {
@@ -5898,8 +6084,8 @@
       }
     },
     {
-      "key": "n1-1701",
-      "sequence_no": 1701,
+      "key": "n1-1707",
+      "sequence_no": 1707,
       "word": "怒鳴る",
       "reading": "どなる",
       "meaning_ko": "고함치다; 호통치다",
@@ -5912,7 +6098,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1445740",
         "meaning_en": "to shout, to yell",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1707",
         "legacy_curated_file": null,
         "krdict": {
@@ -5929,8 +6115,8 @@
       }
     },
     {
-      "key": "n1-1702",
-      "sequence_no": 1702,
+      "key": "n1-1708",
+      "sequence_no": 1708,
       "word": "失格",
       "reading": "しっかく",
       "meaning_ko": "실격; 자격 상실",
@@ -5943,7 +6129,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1319820",
         "meaning_en": "disqualification, elimination, incapacity (legal)",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1708",
         "legacy_curated_file": null,
         "krdict": {
@@ -5960,8 +6146,8 @@
       }
     },
     {
-      "key": "n1-1703",
-      "sequence_no": 1703,
+      "key": "n1-1709",
+      "sequence_no": 1709,
       "word": "代わる代わる",
       "reading": "かわるがわる",
       "meaning_ko": "번갈아; 교대로",
@@ -5974,7 +6160,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1590830",
         "meaning_en": "alternately",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1709",
         "legacy_curated_file": null,
         "krdict": {
@@ -5991,8 +6177,8 @@
       }
     },
     {
-      "key": "n1-1704",
-      "sequence_no": 1704,
+      "key": "n1-1710",
+      "sequence_no": 1710,
       "word": "くっきり",
       "reading": "くっきり",
       "meaning_ko": "선명하게; 또렷하게",
@@ -6005,7 +6191,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1003840",
         "meaning_en": "distinctly, clearly, boldly",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1710",
         "legacy_curated_file": null,
         "krdict": {
@@ -6023,8 +6209,8 @@
       }
     },
     {
-      "key": "n1-1705",
-      "sequence_no": 1705,
+      "key": "n1-1711",
+      "sequence_no": 1711,
       "word": "激励",
       "reading": "げきれい",
       "meaning_ko": "격려; 힘을 북돋움",
@@ -6037,7 +6223,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1253760",
         "meaning_en": "encouragement",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1711",
         "legacy_curated_file": null,
         "krdict": {
@@ -6054,8 +6240,8 @@
       }
     },
     {
-      "key": "n1-1706",
-      "sequence_no": 1706,
+      "key": "n1-1712",
+      "sequence_no": 1712,
       "word": "譲歩",
       "reading": "じょうほ",
       "meaning_ko": "양보; 타협을 위해 물러섬",
@@ -6068,7 +6254,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1357050",
         "meaning_en": "concession, conciliation, compromise",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1712",
         "legacy_curated_file": null,
         "krdict": {
@@ -6085,8 +6271,8 @@
       }
     },
     {
-      "key": "n1-1707",
-      "sequence_no": 1707,
+      "key": "n1-1713",
+      "sequence_no": 1713,
       "word": "心強い",
       "reading": "こころづよい",
       "meaning_ko": "든든하다; 믿음직하다",
@@ -6099,7 +6285,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1360640",
         "meaning_en": "heartening, reassuring",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1713",
         "legacy_curated_file": null,
         "krdict": {
@@ -6116,8 +6302,8 @@
       }
     },
     {
-      "key": "n1-1708",
-      "sequence_no": 1708,
+      "key": "n1-1714",
+      "sequence_no": 1714,
       "word": "ややこしい",
       "reading": "ややこしい",
       "meaning_ko": "복잡하고 까다롭다; 헷갈리다",
@@ -6130,7 +6316,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1012870",
         "meaning_en": "puzzling, tangled, complicated, complex",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1714",
         "legacy_curated_file": null,
         "krdict": {
@@ -6148,8 +6334,8 @@
       }
     },
     {
-      "key": "n1-1709",
-      "sequence_no": 1709,
+      "key": "n1-1715",
+      "sequence_no": 1715,
       "word": "束縛",
       "reading": "そくばく",
       "meaning_ko": "속박; 구속",
@@ -6162,7 +6348,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1404510",
         "meaning_en": "restraint, shackles, restriction, confinement, binding",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1715",
         "legacy_curated_file": null,
         "krdict": {
@@ -6179,8 +6365,8 @@
       }
     },
     {
-      "key": "n1-1710",
-      "sequence_no": 1710,
+      "key": "n1-1716",
+      "sequence_no": 1716,
       "word": "受かる",
       "reading": "うかる",
       "meaning_ko": "합격하다; 통과하다",
@@ -6193,7 +6379,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1329580",
         "meaning_en": "to pass (examination)",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1716",
         "legacy_curated_file": null,
         "krdict": {
@@ -6210,8 +6396,8 @@
       }
     },
     {
-      "key": "n1-1711",
-      "sequence_no": 1711,
+      "key": "n1-1717",
+      "sequence_no": 1717,
       "word": "雨具",
       "reading": "あまぐ",
       "meaning_ko": "우비; 비를 막는 장비",
@@ -6224,7 +6410,7 @@
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1171940",
         "meaning_en": "rain gear",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
+        "curated_file": "data/jlpt/production/curation/words/1701-1717.json",
         "curated_original_key": "n1-1717",
         "legacy_curated_file": null,
         "krdict": {
@@ -6237,183 +6423,6 @@
           "meaning_ko": "우비",
           "definition_ko": "비를 맞지 않기 위해 사용하는 옷이나 물건.",
           "meaning_ja_source": "あまぐ【雨具】。あまぎ【雨着】。レインコート。レーンコート"
-        }
-      }
-    },
-    {
-      "key": "n1-1712",
-      "sequence_no": 1712,
-      "word": "聴覚",
-      "reading": "ちょうかく",
-      "meaning_ko": "청각",
-      "meaning_ja": "耳で音を感じ取る感覚。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "大きな音を長時間聞き続けると聴覚に影響することがある。",
-      "example_ko": "큰 소리를 장시간 계속 들으면 청각에 영향을 줄 수 있다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1428880",
-        "meaning_en": "the sense of hearing",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
-        "curated_original_key": "n1-1718",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "010.xml",
-          "meaning_ko": "청각",
-          "definition_ko": "귀로 소리를 듣는 감각.",
-          "meaning_ja_source": "ちょうかく【聴覚】"
-        }
-      }
-    },
-    {
-      "key": "n1-1713",
-      "sequence_no": 1713,
-      "word": "昼飯",
-      "reading": "ちゅうはん",
-      "meaning_ko": "점심; 점심밥",
-      "meaning_ja": "昼に取る食事。昼食。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "会議が長引いたため、昼飯を取る時間が遅くなった。",
-      "example_ko": "회의가 길어져 점심을 먹는 시간이 늦어졌다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1426410",
-        "meaning_en": "lunch, midday meal",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
-        "curated_original_key": "n1-1719",
-        "legacy_curated_file": null,
-        "krdict": null
-      }
-    },
-    {
-      "key": "n1-1714",
-      "sequence_no": 1714,
-      "word": "サボる",
-      "reading": "サボる",
-      "meaning_ko": "게으름 피우다; 빼먹다; 농땡이치다",
-      "meaning_ja": "仕事・授業・義務などを意図的に怠けたり休んだりする。",
-      "part_of_speech": "五段動詞",
-      "example_ja": "忙しいからといって確認作業をサボると、大きなミスにつながる。",
-      "example_ko": "바쁘다고 확인 작업을 빼먹으면 큰 실수로 이어질 수 있다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1057580",
-        "meaning_en": "to be truant, to be idle, to sabotage by slowness",
-        "curated_file": "data/jlpt/production/curation/words/1701-1720.json",
-        "curated_original_key": "n1-1720",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 6,
-          "reasons": [
-            "surface_exact",
-            "reading_exact",
-            "kana_identity"
-          ],
-          "source_file": "010.xml",
-          "meaning_ko": "태업하다 | 뺀질거리다 | 뺀질뺀질하다",
-          "definition_ko": "일이나 공부를 게을리하다. | 노동 분쟁 과정에서 일부러 일을 게을리하여 사용자에게 손해를 주다. | 몸을 요리조리 빼면서 계속 일을 열심히 하지 않다.",
-          "meaning_ja_source": "たいぎょうする【怠業する】。サボる | たいぎょう【怠業】。サボタージュする。サボる | サボる"
-        }
-      }
-    },
-    {
-      "key": "n1-1715",
-      "sequence_no": 1715,
-      "word": "懲りる",
-      "reading": "こりる",
-      "meaning_ko": "질리다; 혼이 나서 다시는 하고 싶지 않게 되다",
-      "meaning_ja": "失敗・苦痛などを経験し、同じことはもうしたくないと思うようになる。",
-      "part_of_speech": "一段動詞",
-      "example_ja": "一度大きな損をして懲りたので、今は契約内容を必ず確認している。",
-      "example_ko": "한번 큰 손해를 보고 질려서 지금은 계약 내용을 반드시 확인한다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1428190",
-        "meaning_en": "to learn by experience, to be disgusted with",
-        "curated_file": "data/jlpt/production/curation/words/1721-1723.json",
-        "curated_original_key": "n1-1721",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "003.xml",
-          "meaning_ko": "데다 | 질리다",
-          "definition_ko": "몹시 놀라거나 심한 괴로움을 겪어 진저리가 나다. | 놀라거나 무서워서 기가 막히거나 기운이 꺾이거나 하다. | 어떤 일이나 음식 등에 싫증이 나다.",
-          "meaning_ja_source": "やけどする【火傷する】。こりる【懲りる】 | あきれる【呆れる】。おぼえる【怯える】。こりる【懲りる】 | あきる【飽きる】。あきあきする【飽き飽きする】。こりる【懲りる】。うんざりする"
-        }
-      }
-    },
-    {
-      "key": "n1-1716",
-      "sequence_no": 1716,
-      "word": "弾む",
-      "reading": "はずむ",
-      "meaning_ko": "튀다; 활기를 띠다; 들뜨다",
-      "meaning_ja": "物が勢いよく跳ねる。また、会話・気持ちなどが活発になって盛り上がる。",
-      "part_of_speech": "五段動詞",
-      "example_ja": "共通の趣味が見つかると、初対面でも会話が弾んだ。",
-      "example_ko": "공통 취미를 찾자 초면인데도 대화가 활기를 띠었다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1419400",
-        "meaning_en": "to spring, to bound, to bounce, to be stimulated, to be encouraged, to get lively, to treat oneself to, to",
-        "curated_file": "data/jlpt/production/curation/words/1721-1723.json",
-        "curated_original_key": "n1-1722",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "010.xml",
-          "meaning_ko": "튀다",
-          "definition_ko": "용수철이나 공과 같은 물체가 솟아오르다.",
-          "meaning_ja_source": "はずむ【弾む】。はねあげる【跳ね上げる】"
-        }
-      }
-    },
-    {
-      "key": "n1-1717",
-      "sequence_no": 1717,
-      "word": "月謝",
-      "reading": "げっしゃ",
-      "meaning_ko": "월 수강료; 월사금",
-      "meaning_ja": "塾・習い事などに毎月支払う授業料。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "子どもの習い事が増え、毎月の月謝もかなりの額になった。",
-      "example_ko": "아이의 학원이 늘어 매달 내는 수강료도 꽤 큰 금액이 됐다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1255690",
-        "meaning_en": "monthly tuition fee",
-        "curated_file": "data/jlpt/production/curation/words/1721-1723.json",
-        "curated_original_key": "n1-1723",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "007.xml",
-          "meaning_ko": "월사금",
-          "definition_ko": "(옛날에) 다달이 내던 수업료.",
-          "meaning_ja_source": "げっしゃ【月謝】"
         }
       }
     },
@@ -13587,18 +13596,18 @@
       "sequence_no": 1958,
       "word": "彼方此方",
       "reading": "あちらこちら",
-      "meaning_ko": "이곳저곳 | 이리저리",
-      "meaning_ja": "特に決まっていない色々な場所。 | 方向を決めずにいろいろな所へ。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "meaning_ko": "여기저기; 이곳저곳",
+      "meaning_ja": "さまざまな場所。あちこち。",
+      "part_of_speech": "代名詞・副詞",
+      "example_ja": "休日は町のあちらこちらを歩いて写真を撮った。",
+      "example_ko": "휴일에는 마을 여기저기를 걸으며 사진을 찍었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1612620",
         "meaning_en": "here and there",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1958",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13618,18 +13627,18 @@
       "sequence_no": 1959,
       "word": "憧れ",
       "reading": "あこがれ",
-      "meaning_ko": "동경 | 동경심",
-      "meaning_ja": "ある対象を心から切に懐かしみ、望むこと。 | ある対象を懐かしみ、切実に望む心。",
+      "meaning_ko": "동경; 선망",
+      "meaning_ja": "理想の人・物・生活などに心を引かれ、そうなりたいと強く願う気持ち。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "海外で働くことは、学生の頃からの憧れだった。",
+      "example_ko": "해외에서 일하는 것은 학생 때부터의 동경이었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1453800",
         "meaning_en": "yearning, longing, aspiration",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1959",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13649,18 +13658,18 @@
       "sequence_no": 1960,
       "word": "ご馳走",
       "reading": "ごちそう",
-      "meaning_ko": "성찬 | 음식 | 진수성찬",
-      "meaning_ja": "ぜいたくな料理。 | ご飯や汁物など、人が食事の時に食べるもの。 | たっぷりと用意されている豪華でおいしい食事。",
+      "meaning_ko": "진수성찬; 맛있는 음식; 대접",
+      "meaning_ja": "豪華でおいしい料理。また、人に食事を振る舞うこと。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "誕生日に家族がご馳走を用意してくれた。",
+      "example_ko": "생일에 가족이 맛있는 음식을 준비해 주었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1593590",
         "meaning_en": "feast, treating (someone)",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1960",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13680,18 +13689,18 @@
       "sequence_no": 1961,
       "word": "ヒント",
       "reading": "ヒント",
-      "meaning_ko": "힌트",
-      "meaning_ja": "問題を解いたり、物事を解決するための手がかり。",
+      "meaning_ko": "힌트; 실마리",
+      "meaning_ja": "問題を解いたり判断したりするための手がかり。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "先生のヒントを聞いて、ようやく答えが分かった。",
+      "example_ko": "선생님의 힌트를 듣고서야 답을 알았다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1104300",
         "meaning_en": "hint",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1961",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -13712,18 +13721,18 @@
       "sequence_no": 1962,
       "word": "忽ち",
       "reading": "たちまち",
-      "meaning_ko": "이내",
-      "meaning_ja": "直ちに。また、時間を置かずに。",
+      "meaning_ko": "금세; 순식간에; 갑자기",
+      "meaning_ja": "非常に短い時間のうちに物事が起こるさま。",
       "part_of_speech": "副詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "空が暗くなると、たちまち激しい雨が降り始めた。",
+      "example_ko": "하늘이 어두워지자 금세 거센 비가 내리기 시작했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1288480",
         "meaning_en": "at once, in a moment, suddenly, all at once",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1962",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13743,18 +13752,18 @@
       "sequence_no": 1963,
       "word": "相応しい",
       "reading": "ふさわしい",
-      "meaning_ko": "마땅하다 | 상당하다 | 상응하다",
-      "meaning_ja": "ある条件にうまく当てはまる。 | ある程度に近かったり適合だったりする。 | 互いに釣り合いが取れている。",
+      "meaning_ko": "알맞다; 적합하다; 어울리다",
+      "meaning_ja": "立場・条件・状況などによく合っている。",
       "part_of_speech": "い形容詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "経験と実績を考えれば、彼はその役職にふさわしい。",
+      "example_ko": "경험과 실적을 생각하면 그는 그 직책에 적합하다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1400850",
         "meaning_en": "appropriate",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1963",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13774,18 +13783,18 @@
       "sequence_no": 1964,
       "word": "闇",
       "reading": "やみ",
-      "meaning_ko": "음성",
-      "meaning_ja": "堂々と姿を現すことなく、密かに隠すこと。",
+      "meaning_ko": "어둠; 암흑; 불법·은밀한 영역",
+      "meaning_ja": "光がなく暗いこと。また、表に出ない不正・違法な領域。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "事件の背後には、まだ深い闇が残されている。",
+      "example_ko": "사건의 배후에는 아직 깊은 어둠이 남아 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1154910",
         "meaning_en": "darkness, the dark, black-marketeering, dark, shady, illegal",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1964",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13805,18 +13814,18 @@
       "sequence_no": 1965,
       "word": "組み込む",
       "reading": "くみこむ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "끼워 넣다; 포함시키다; 내장하다",
+      "meaning_ja": "あるものを全体の一部として中に入れる。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "新しい認証機能を既存のシステムに組み込んだ。",
+      "example_ko": "새 인증 기능을 기존 시스템에 내장했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1397510",
         "meaning_en": "to insert, to include, to cut in (printing)",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1965",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -13826,18 +13835,18 @@
       "sequence_no": 1966,
       "word": "刑",
       "reading": "けい",
-      "meaning_ko": "형",
-      "meaning_ja": "法律に基づいて罪を犯した人に罰を科すること。また、その罰。",
+      "meaning_ko": "형벌; 형",
+      "meaning_ja": "法律に基づいて犯罪者に科される罰。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "裁判所は被告に重い刑を言い渡した。",
+      "example_ko": "법원은 피고인에게 무거운 형을 선고했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1249610",
         "meaning_en": "penalty, sentence, punishment",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1966",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13858,17 +13867,17 @@
       "word": "微笑",
       "reading": "びしょう",
       "meaning_ko": "미소",
-      "meaning_ja": "音を出さずに、軽く笑うこと。",
+      "meaning_ja": "声を立てず、軽く笑うこと。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "彼女は安心したように静かに微笑した。",
+      "example_ko": "그녀는 안심한 듯 조용히 미소 지었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1485990",
         "meaning_en": "smile",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1967",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13888,18 +13897,18 @@
       "sequence_no": 1968,
       "word": "手当て",
       "reading": "てあて",
-      "meaning_ko": "수당",
-      "meaning_ja": "所定の給料の他に追加で支払われる報酬。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "meaning_ko": "수당; 처치; 치료",
+      "meaning_ja": "給与とは別に支給される金銭。また、けが・病気への応急の処置。",
+      "part_of_speech": "普通名詞・サ変名詞",
+      "example_ja": "会社から住宅手当てが支給されている。",
+      "example_ko": "회사에서 주택 수당이 지급되고 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1598240",
         "meaning_en": "allowance, compensation, treatment, medical care",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1968",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13919,18 +13928,18 @@
       "sequence_no": 1969,
       "word": "臨む",
       "reading": "のぞむ",
-      "meaning_ko": "면하다 | 임하다 | 즈음하다 | 맞닥뜨리다",
-      "meaning_ja": "ある対象や方向の正面を向いている。 | 良くない状況に遭う。 | ある状況や事に直面する。 | ある場所を目の前にする。 | 目上の人が目下の人に対する。 | 特定の時点になるか、そのような時を迎える。 | 良くないことなどに直面する。",
+      "meaning_ko": "임하다; 직면하다; 마주하다",
+      "meaning_ja": "ある場面・仕事・状況に向き合う。また、場所が何かに面する。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "十分に準備をして面接に臨んだ。",
+      "example_ko": "충분히 준비하고 면접에 임했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1555560",
         "meaning_en": "to look out on, to face, to deal with, to attend (function)",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1969",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13950,18 +13959,18 @@
       "sequence_no": 1970,
       "word": "刃",
       "reading": "は",
-      "meaning_ko": "날 | 이 | 칼날",
-      "meaning_ja": "何かを切ったり削ったりするハサミや刃物などの道具で、最も薄くて鋭い部分。 | 器具・機械の鋭い刃。 | 物を切るのに用いる、刃物の薄くて鋭い部分。",
+      "meaning_ko": "날; 칼날",
+      "meaning_ja": "刃物で物を切るための薄く鋭い部分。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "包丁の刃が欠けていたので、新しいものに替えた。",
+      "example_ko": "식칼 날이 이가 나가 있어서 새것으로 바꿨다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1369820",
         "meaning_en": "edge (of a sword)",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1970",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -13981,18 +13990,18 @@
       "sequence_no": 1971,
       "word": "伊",
       "reading": "い",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "이탈리아; 이탈리아를 나타내는 약칭",
+      "meaning_ja": "国名イタリアを表す略称として用いられる字。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "記事では仏・独・伊の三か国が比較されていた。",
+      "example_ko": "기사에서는 프랑스·독일·이탈리아 세 나라가 비교되고 있었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "2252790",
         "meaning_en": "that one, Italy",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1971",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -14002,18 +14011,18 @@
       "sequence_no": 1972,
       "word": "兎に角",
       "reading": "とにかく",
-      "meaning_ko": "이러나저러나",
-      "meaning_ja": "「이러하나(「이러하다」の活用形) 저러하나(「저러하다」の活用形)」の縮約形。",
+      "meaning_ko": "어쨌든; 아무튼; 여하튼",
+      "meaning_ja": "事情はどうであれ、まずそのことを優先するさま。",
       "part_of_speech": "副詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "時間がないので、とにかく先に出発しよう。",
+      "example_ko": "시간이 없으니 아무튼 먼저 출발하자.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1443990",
         "meaning_en": "anyhow, at any rate, anyway, somehow or other, generally speaking, in any case",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1972",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14033,18 +14042,18 @@
       "sequence_no": 1973,
       "word": "葬る",
       "reading": "ほうむる",
-      "meaning_ko": "묻다 | 파묻다 | 매장하다 | 묻어두다",
-      "meaning_ja": "物を特定のところに入れて、上に土や他のものを覆って見えなくする。 | 何かを世間に知られないように隠す。 | 人に知られないように覆い隠す。 | 死体や遺骨を地中に埋める。 | (比喩的に)悪いことをした人を社会や集団でそれ以上活動できないようにする。 | 表れないで内に隠す。",
+      "meaning_ko": "매장하다; 묻다; 묻어 버리다",
+      "meaning_ja": "死者を埋葬する。また、事実・計画などを表に出ないようにする。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "その案は反対意見が多く、結局葬られた。",
+      "example_ko": "그 안은 반대 의견이 많아 결국 묻혀 버렸다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1402130",
         "meaning_en": "to bury, to inter, to entomb, to consign to oblivion, to shelve",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1973",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14065,17 +14074,17 @@
       "word": "タイヤ",
       "reading": "タイヤ",
       "meaning_ko": "타이어",
-      "meaning_ja": "自動車や自転車などの車輪の外側にはめるゴム製の輪。",
+      "meaning_ja": "自動車・自転車などの車輪の外側にはめるゴム製の輪。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "雪道に備えて冬用のタイヤに交換した。",
+      "example_ko": "눈길에 대비해 겨울용 타이어로 교체했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1076120",
         "meaning_en": "tire, tyre",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1974",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -14096,18 +14105,18 @@
       "sequence_no": 1975,
       "word": "了",
       "reading": "りょう",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "완료; 끝; 이해",
+      "meaning_ja": "終わること・完了すること、または理解することを表す語。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "作業了の印が付いた項目から確認を終えた。",
+      "example_ko": "작업 완료 표시가 붙은 항목부터 확인을 마쳤다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1553290",
         "meaning_en": "finish, completion, understanding",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1975",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -14117,18 +14126,18 @@
       "sequence_no": 1976,
       "word": "返還",
       "reading": "へんかん",
-      "meaning_ko": "반환",
-      "meaning_ja": "占めたり借りたりしていたものを返すこと。",
+      "meaning_ko": "반환; 돌려줌",
+      "meaning_ja": "借りていた物・土地・権利などを元の持ち主へ返すこと。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "契約終了後、借りていた機器を会社に返還した。",
+      "example_ko": "계약 종료 후 빌렸던 장비를 회사에 반환했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1512170",
         "meaning_en": "return, restoration",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1976",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14148,18 +14157,18 @@
       "sequence_no": 1977,
       "word": "自惚れ",
       "reading": "うぬぼれ",
-      "meaning_ko": "제멋",
-      "meaning_ja": "自らよいと思うところ。",
+      "meaning_ko": "자만; 자만심; 우쭐함",
+      "meaning_ja": "自分の能力・容姿などを実際以上に高く評価して得意になること。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "少し褒められただけで自惚れてはいけない。",
+      "example_ko": "조금 칭찬받았다고 자만해서는 안 된다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1317730",
         "meaning_en": "pretension, conceit, hubris",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1958-1977.json",
+        "curated_original_key": "n1-1977",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14179,18 +14188,18 @@
       "sequence_no": 1978,
       "word": "バー",
       "reading": "バー",
-      "meaning_ko": "바 | 가로대",
-      "meaning_ja": "長いテーブルの前に椅子を置いて、バーテンダーと向かい合って座り、酒を飲む西洋式の酒場。 | 西洋式の酒場やレストランで、バーテンダーが接客する空間。また、その空間に置かれた長いスタンド。 | 横に渡した棒。",
+      "meaning_ko": "바; 술집; 가로대",
+      "meaning_ja": "酒を飲む店。また、横に渡した棒状のもの。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "仕事帰りに駅前のバーで友人と話した。",
+      "example_ko": "퇴근길에 역 앞 바에서 친구와 이야기했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1096970",
         "meaning_en": "bar",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1978",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -14211,18 +14220,18 @@
       "sequence_no": 1979,
       "word": "芝",
       "reading": "しば",
-      "meaning_ko": "잔디",
-      "meaning_ja": "庭園、公園、ゴルフ場などに植える、短くて細い葉が密に生える草。",
+      "meaning_ko": "잔디; 잔디밭",
+      "meaning_ja": "庭園・公園などに植える、細い葉が密に生える草。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "公園の芝に座って昼食を食べた。",
+      "example_ko": "공원 잔디에 앉아 점심을 먹었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1321610",
         "meaning_en": "lawn, sod, turf",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1979",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14242,18 +14251,18 @@
       "sequence_no": 1980,
       "word": "司る",
       "reading": "つかさどる",
-      "meaning_ko": "관장하다",
-      "meaning_ja": "責任を持って職務を取り扱う。",
+      "meaning_ko": "관장하다; 담당하다; 지배하다",
+      "meaning_ja": "ある仕事・機能などを責任を持って管理する。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "この部署は社内システムの運用を司っている。",
+      "example_ko": "이 부서는 사내 시스템 운영을 관장하고 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1306630",
         "meaning_en": "to rule, to govern, to administer",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1980",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14273,18 +14282,18 @@
       "sequence_no": 1981,
       "word": "雑",
       "reading": "ざつ",
-      "meaning_ko": "잡-",
-      "meaning_ja": "「いろいろな物事が入りまじっている」または「つまらなくて重要でない」という意を添加する接頭辞。",
+      "meaning_ko": "거칠다; 조잡하다; 잡다하다",
+      "meaning_ja": "やり方が粗く丁寧でない。また、さまざまなものが入り交じっている。",
       "part_of_speech": "な形容詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "急いで作ったため、資料のまとめ方が少し雑になった。",
+      "example_ko": "급하게 만들다 보니 자료 정리가 조금 조잡해졌다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1299240",
         "meaning_en": "rough, crude",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1981",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14304,18 +14313,18 @@
       "sequence_no": 1982,
       "word": "キャッチ",
       "reading": "キャッチ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "잡기; 받아내기; 포착",
+      "meaning_ja": "飛んでくる物を受け取ること。また、情報などを捉えること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "外野手が難しい打球を見事にキャッチした。",
+      "example_ko": "외야수가 어려운 타구를 멋지게 잡아냈다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1041530",
         "meaning_en": "catch",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1982",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -14325,18 +14334,18 @@
       "sequence_no": 1983,
       "word": "セックス",
       "reading": "セックス",
-      "meaning_ko": "성 | 성교 | 섹스 | 성관계 | 성행위",
-      "meaning_ja": "男性と女性が性器を通じて肉体的に関係を結ぶ行為。または、それに関わること。 | 男女が性器を通して肉体関係を結ぶこと。 | 男と女の性行為。 | 男女が性器を通して肉体関係を結ぶこと。また、その関係。",
+      "meaning_ko": "성교; 성관계; 섹스",
+      "meaning_ja": "性的な交わり。性交。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "その教材ではセックスと健康について医学的に説明している。",
+      "example_ko": "그 교재에서는 성관계와 건강에 대해 의학적으로 설명하고 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1074570",
         "meaning_en": "sexual intercourse",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1983",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -14357,18 +14366,18 @@
       "sequence_no": 1984,
       "word": "ポーズ",
       "reading": "ポーズ",
-      "meaning_ko": "포즈",
-      "meaning_ja": "絵や写真などで、人物が取る姿勢や姿。",
+      "meaning_ko": "포즈; 자세",
+      "meaning_ja": "写真・絵などのために取る姿勢。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "写真を撮る前に、みんなで同じポーズを取った。",
+      "example_ko": "사진을 찍기 전에 모두 같은 포즈를 취했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1124650",
         "meaning_en": "pause",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1984",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -14389,18 +14398,18 @@
       "sequence_no": 1985,
       "word": "遭難",
       "reading": "そうなん",
-      "meaning_ko": "조난",
-      "meaning_ja": "航海や登山で災難に遭うこと。",
+      "meaning_ko": "조난; 재난을 당함",
+      "meaning_ja": "登山・航海などで災難に遭い、身動きが取れなくなること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "悪天候のため登山者が山中で遭難した。",
+      "example_ko": "악천후 때문에 등산객이 산에서 조난당했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1402900",
         "meaning_en": "disaster, shipwreck, accident",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1985",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14420,18 +14429,18 @@
       "sequence_no": 1986,
       "word": "身なり",
       "reading": "みなり",
-      "meaning_ko": "꼴 | 복장 | 매무새 | 스타일 | 옷차림새",
-      "meaning_ja": "人の外見を卑しめていう語。 | 服を着た様子。 | 衣服や髪などの形や姿。 | 髪や服の様子。 | 着映えの様子。",
+      "meaning_ko": "옷차림; 외모; 차림새",
+      "meaning_ja": "衣服・髪型などを含めた外見の様子。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "面接なので、清潔感のある身なりを心がけた。",
+      "example_ko": "면접이라 깔끔한 옷차림을 신경 썼다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1365570",
         "meaning_en": "personal appearance",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1986",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14451,18 +14460,18 @@
       "sequence_no": 1987,
       "word": "シナリオ",
       "reading": "シナリオ",
-      "meaning_ko": "대본 | 시나리오",
-      "meaning_ja": "演劇や映画などで、せりふやト書きなどを書き入れた本。 | ある事を行うため、予め練っておいた計画。 | 映画の台本。 | 仮想で考えてみる、ある事件の具体的な過程。また、その過程による結果。",
+      "meaning_ko": "시나리오; 각본; 예상 전개",
+      "meaning_ja": "映画などの脚本。また、想定される出来事の展開や計画。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "最悪のシナリオも想定して対策を準備した。",
+      "example_ko": "최악의 시나리오도 가정해 대책을 준비했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1060830",
         "meaning_en": "scenario",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1987",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -14483,18 +14492,18 @@
       "sequence_no": 1988,
       "word": "麻",
       "reading": "あさ",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "삼; 마; 삼 섬유",
+      "meaning_ja": "繊維を取る植物の総称。また、その繊維で作った布。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "夏は通気性のよい麻のシャツをよく着る。",
+      "example_ko": "여름에는 통기성이 좋은 마 셔츠를 자주 입는다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1524290",
         "meaning_en": "flax, linen, hemp",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1988",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -14504,18 +14513,18 @@
       "sequence_no": 1989,
       "word": "フォーム",
       "reading": "フォーム",
-      "meaning_ko": "폼",
-      "meaning_ja": "人がある動作をする時の姿勢。",
+      "meaning_ko": "폼; 자세; 형식",
+      "meaning_ja": "運動などでの身体の姿勢・型。また、形式・入力用の様式。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "コーチに走るときのフォームを直してもらった。",
+      "example_ko": "코치에게 달릴 때의 자세를 교정받았다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1110340",
         "meaning_en": "foam, form",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1989",
         "legacy_curated_file": null,
         "krdict": {
           "score": 6,
@@ -14536,18 +14545,18 @@
       "sequence_no": 1990,
       "word": "盛り上がる",
       "reading": "もりあがる",
-      "meaning_ko": "괴이다 | 가열되다 | 무르녹다 | 무르익다 | 달아오르다 | 뜨거워지다",
-      "meaning_ja": "物が一つずつ積み上げられる。 | ある事態についての関心が高まり雰囲気が興奮状態になる。 | 事や状態が盛んになる。 | ある時期や事が盛んになる。 | 雰囲気や気運、状態などが旺盛になる。 | (比喩的に)感情や情熱などが激しくなる。",
+      "meaning_ko": "고조되다; 달아오르다; 부풀어 오르다",
+      "meaning_ja": "雰囲気・気運などが活発になる。また、形が高くふくらむ。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "試合の終盤になると会場は一気に盛り上がった。",
+      "example_ko": "경기 막판이 되자 경기장 분위기가 단숨에 달아올랐다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1379690",
         "meaning_en": "to rouse, to swell, to rise",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1990",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14567,18 +14576,18 @@
       "sequence_no": 1991,
       "word": "嘆く",
       "reading": "なげく",
-      "meaning_ko": "한탄하다",
-      "meaning_ja": "悔しいことをされたり、自分の間違いに気づいたりしたときに、ため息をついて嘆く。",
+      "meaning_ko": "한탄하다; 슬퍼하다",
+      "meaning_ja": "悲しみ・残念さなどを強く感じてため息をついたり訴えたりする。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "失敗を嘆くだけでなく、原因を考えることが大切だ。",
+      "example_ko": "실패를 한탄하기보다 원인을 생각하는 것이 중요하다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1418090",
         "meaning_en": "to sigh, to lament, to grieve",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1991",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14598,18 +14607,18 @@
       "sequence_no": 1992,
       "word": "盾",
       "reading": "たて",
-      "meaning_ko": "방패 | 총알받이",
-      "meaning_ja": "剣・槍・矢などを防ぐのに使う武器。 | ある事を行う際、危険を防ぐために前に立てるもの。また、そのような人。 | 敵の攻撃を最前線で直接受ける人や兵隊。",
+      "meaning_ko": "방패; 보호막",
+      "meaning_ja": "攻撃を防ぐために身を守る道具。また、比喩的に身を守るもの。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "兵士は盾で矢を防いだ。",
+      "example_ko": "병사는 방패로 화살을 막았다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1341840",
         "meaning_en": "shield, buckler, escutcheon, pretext",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1992",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14630,17 +14639,17 @@
       "word": "冷蔵",
       "reading": "れいぞう",
       "meaning_ko": "냉장",
-      "meaning_ja": "食品や薬品を新鮮な状態に維持するため、低い温度で貯蔵すること。",
+      "meaning_ja": "食品などを低温で保存すること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "開封後は冷蔵して早めに食べてください。",
+      "example_ko": "개봉 후에는 냉장 보관하고 빨리 드세요.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1557100",
         "meaning_en": "cold storage, refrigeration",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1993",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14660,18 +14669,18 @@
       "sequence_no": 1994,
       "word": "垢",
       "reading": "あか",
-      "meaning_ko": "때",
-      "meaning_ja": "衣服や皮膚に付いた汚い埃や、皮膚の死んだ細胞と埃が混ざってできたもの。",
+      "meaning_ko": "때; 찌든 때",
+      "meaning_ja": "皮膚・衣服などに付く汚れ。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "浴槽の隅にたまった垢をきれいに落とした。",
+      "example_ko": "욕조 구석에 낀 때를 깨끗이 제거했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1277420",
         "meaning_en": "dirt, filth",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1994",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14691,18 +14700,18 @@
       "sequence_no": 1995,
       "word": "捧げる",
       "reading": "ささげる",
-      "meaning_ko": "드리다 | 바치다 | 올리다",
-      "meaning_ja": "神に祈ったり、敬拝する儀式を行なったりする。 | 目上の人に物を差し上げる。 | やりがいのある事に貴重なものをつぎ込む。 | 目上の人に挨拶や御辞儀をしたり、何かを与えたりする。",
+      "meaning_ko": "바치다; 헌신하다; 올리다",
+      "meaning_ja": "神・人などに物を差し出す。また、時間・人生などをある目的に尽くす。",
       "part_of_speech": "一段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "彼は長年、研究に人生を捧げてきた。",
+      "example_ko": "그는 오랫동안 연구에 인생을 바쳐 왔다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1516430",
         "meaning_en": "to lift up, to give, to offer, to consecrate, to devote, to sacrifice, to dedicate",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1995",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14722,18 +14731,18 @@
       "sequence_no": 1996,
       "word": "学士",
       "reading": "がくし",
-      "meaning_ko": "학사",
-      "meaning_ja": "大学の学部課程を終えて卒業する人に授与される学位。また、その学位を取得した人。",
+      "meaning_ko": "학사; 학사 학위",
+      "meaning_ja": "大学の学部を卒業した者に授与される学位。また、その取得者。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "大学を卒業し、工学の学士号を取得した。",
+      "example_ko": "대학을 졸업하고 공학 학사 학위를 취득했다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1206760",
         "meaning_en": "university graduate",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1996",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14753,18 +14762,18 @@
       "sequence_no": 1997,
       "word": "勇敢",
       "reading": "ゆうかん",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "용감함; 용감하다",
+      "meaning_ja": "危険や困難を恐れず、勇気をもって行動するさま。",
       "part_of_speech": "な形容詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "彼の勇敢な行動によって多くの人が助かった。",
+      "example_ko": "그의 용감한 행동으로 많은 사람이 도움을 받았다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1539730",
         "meaning_en": "bravery, heroism, gallantry",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1978-1997.json",
+        "curated_original_key": "n1-1997",
         "legacy_curated_file": null,
         "krdict": null
       }
@@ -14774,18 +14783,18 @@
       "sequence_no": 1998,
       "word": "強まる",
       "reading": "つよまる",
-      "meaning_ko": "거세지다",
-      "meaning_ja": "荒くて強くなる。",
+      "meaning_ko": "강해지다; 거세지다",
+      "meaning_ja": "力・程度・勢いなどが強くなる。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "台風が近づくにつれて風が強まってきた。",
+      "example_ko": "태풍이 가까워지면서 바람이 거세졌다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1236130",
         "meaning_en": "to get strong, to gain strength",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1998-2017.json",
+        "curated_original_key": "n1-1998",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14805,18 +14814,18 @@
       "sequence_no": 1999,
       "word": "差し出す",
       "reading": "さしだす",
-      "meaning_ko": "넣다 | 내놓다 | 내밀다 | 띄우다 | 부치다 | 내어놓다 | 발송하다 | 발신하다",
-      "meaning_ja": "何かを申し込むために書類を提出する。 | ある目的のために犠牲になる。 | 体や物の一部が外や前に出るようにする。 | お金や物を人に与えるために出す。 | 手紙や便りなどを届ける。 | 手紙や物などを届ける。 | 物・手紙・書類などを郵便や宅急便を利用して送る。 | 郵便や電信、電波などを送る。",
+      "meaning_ko": "내밀다; 제출하다; 내놓다",
+      "meaning_ja": "相手の方へ物を出す。また、書類などを提出する。",
       "part_of_speech": "五段動詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "受付で身分証明書を差し出した。",
+      "example_ko": "접수처에서 신분증을 내밀었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1291230",
         "meaning_en": "to present, to submit, to tender, to hold out",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1998-2017.json",
+        "curated_original_key": "n1-1999",
         "legacy_curated_file": null,
         "krdict": {
           "score": 5,
@@ -14836,18 +14845,18 @@
       "sequence_no": 2000,
       "word": "シック",
       "reading": "シック",
-      "meaning_ko": "",
-      "meaning_ja": "",
+      "meaning_ko": "세련된; 차분하고 멋진",
+      "meaning_ja": "派手ではなく、上品で洗練されているさま。",
       "part_of_speech": "な形容詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_korean_gloss",
+      "example_ja": "店内は黒を基調としたシックな雰囲気だった。",
+      "example_ko": "가게 안은 검은색을 중심으로 한 차분하고 세련된 분위기였다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
         "jmdict_seq": "1060610",
         "meaning_en": "chic",
-        "curated_file": null,
-        "curated_original_key": null,
+        "curated_file": "data/jlpt/production/curation/words/1998-2017.json",
+        "curated_original_key": "n1-2000",
         "legacy_curated_file": null,
         "krdict": null
       }

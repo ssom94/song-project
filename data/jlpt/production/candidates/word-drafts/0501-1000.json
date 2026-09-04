@@ -5,6 +5,37 @@
     {
       "key": "n1-0501",
       "sequence_no": 501,
+      "word": "武力",
+      "reading": "ぶりょく",
+      "meaning_ko": "무력; 군사력",
+      "meaning_ja": "軍隊・武器などによって行使される軍事的な力。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "国際的な争いを武力ではなく外交によって解決する努力が求められる。",
+      "example_ko": "국제적인 분쟁을 무력이 아니라 외교로 해결하려는 노력이 요구된다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1499000",
+        "meaning_en": "armed might, military power, the sword, force",
+        "curated_file": "data/jlpt/production/curation/words/0501-0520.json",
+        "curated_original_key": "n1-0501",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "004.xml",
+          "meaning_ko": "무력",
+          "definition_ko": "군사적인 힘.",
+          "meaning_ja_source": "ぶりょく【武力】。へいりょく【兵力】"
+        }
+      }
+    },
+    {
+      "key": "n1-0502",
+      "sequence_no": 502,
       "word": "特有",
       "reading": "とくゆう",
       "meaning_ko": "특유; 고유한 특성",
@@ -34,8 +65,8 @@
       }
     },
     {
-      "key": "n1-0502",
-      "sequence_no": 502,
+      "key": "n1-0503",
+      "sequence_no": 503,
       "word": "当選",
       "reading": "とうせん",
       "meaning_ko": "당선; 당첨",
@@ -65,8 +96,8 @@
       }
     },
     {
-      "key": "n1-0503",
-      "sequence_no": 503,
+      "key": "n1-0504",
+      "sequence_no": 504,
       "word": "対決",
       "reading": "たいけつ",
       "meaning_ko": "대결; 정면 승부",
@@ -96,8 +127,8 @@
       }
     },
     {
-      "key": "n1-0504",
-      "sequence_no": 504,
+      "key": "n1-0505",
+      "sequence_no": 505,
       "word": "区画",
       "reading": "くかく",
       "meaning_ko": "구획; 구역",
@@ -127,8 +158,8 @@
       }
     },
     {
-      "key": "n1-0505",
-      "sequence_no": 505,
+      "key": "n1-0506",
+      "sequence_no": 506,
       "word": "異議",
       "reading": "いぎ",
       "meaning_ko": "이의; 반대 의견",
@@ -158,8 +189,8 @@
       }
     },
     {
-      "key": "n1-0506",
-      "sequence_no": 506,
+      "key": "n1-0507",
+      "sequence_no": 507,
       "word": "国防",
       "reading": "こくぼう",
       "meaning_ko": "국방; 국가 방위",
@@ -189,8 +220,8 @@
       }
     },
     {
-      "key": "n1-0507",
-      "sequence_no": 507,
+      "key": "n1-0508",
+      "sequence_no": 508,
       "word": "相応",
       "reading": "そうおう",
       "meaning_ko": "상응; 걸맞음; 알맞음",
@@ -220,8 +251,8 @@
       }
     },
     {
-      "key": "n1-0508",
-      "sequence_no": 508,
+      "key": "n1-0509",
+      "sequence_no": 509,
       "word": "主演",
       "reading": "しゅえん",
       "meaning_ko": "주연; 주연을 맡음",
@@ -251,8 +282,8 @@
       }
     },
     {
-      "key": "n1-0509",
-      "sequence_no": 509,
+      "key": "n1-0510",
+      "sequence_no": 510,
       "word": "偽造",
       "reading": "ぎぞう",
       "meaning_ko": "위조; 가짜를 진짜처럼 만듦",
@@ -282,8 +313,8 @@
       }
     },
     {
-      "key": "n1-0510",
-      "sequence_no": 510,
+      "key": "n1-0511",
+      "sequence_no": 511,
       "word": "発作",
       "reading": "ほっさ",
       "meaning_ko": "발작; 증상이 갑자기 나타남",
@@ -313,8 +344,8 @@
       }
     },
     {
-      "key": "n1-0511",
-      "sequence_no": 511,
+      "key": "n1-0512",
+      "sequence_no": 512,
       "word": "運賃",
       "reading": "うんちん",
       "meaning_ko": "운임; 교통요금; 운송료",
@@ -344,8 +375,8 @@
       }
     },
     {
-      "key": "n1-0512",
-      "sequence_no": 512,
+      "key": "n1-0513",
+      "sequence_no": 513,
       "word": "動揺",
       "reading": "どうよう",
       "meaning_ko": "동요; 흔들림; 평정심을 잃음",
@@ -375,8 +406,8 @@
       }
     },
     {
-      "key": "n1-0513",
-      "sequence_no": 513,
+      "key": "n1-0514",
+      "sequence_no": 514,
       "word": "視覚",
       "reading": "しかく",
       "meaning_ko": "시각; 보는 감각",
@@ -406,8 +437,8 @@
       }
     },
     {
-      "key": "n1-0514",
-      "sequence_no": 514,
+      "key": "n1-0515",
+      "sequence_no": 515,
       "word": "敏感",
       "reading": "びんかん",
       "meaning_ko": "민감; 예민",
@@ -437,8 +468,8 @@
       }
     },
     {
-      "key": "n1-0515",
-      "sequence_no": 515,
+      "key": "n1-0516",
+      "sequence_no": 516,
       "word": "決議",
       "reading": "けつぎ",
       "meaning_ko": "결의; 회의에서 의결함",
@@ -468,8 +499,8 @@
       }
     },
     {
-      "key": "n1-0516",
-      "sequence_no": 516,
+      "key": "n1-0517",
+      "sequence_no": 517,
       "word": "異論",
       "reading": "いろん",
       "meaning_ko": "이론; 다른 의견; 이견",
@@ -499,8 +530,8 @@
       }
     },
     {
-      "key": "n1-0517",
-      "sequence_no": 517,
+      "key": "n1-0518",
+      "sequence_no": 518,
       "word": "構想",
       "reading": "こうそう",
       "meaning_ko": "구상; 큰 틀의 계획",
@@ -530,8 +561,8 @@
       }
     },
     {
-      "key": "n1-0518",
-      "sequence_no": 518,
+      "key": "n1-0519",
+      "sequence_no": 519,
       "word": "回路",
       "reading": "かいろ",
       "meaning_ko": "회로; 전기 신호의 통로",
@@ -561,8 +592,8 @@
       }
     },
     {
-      "key": "n1-0519",
-      "sequence_no": 519,
+      "key": "n1-0520",
+      "sequence_no": 520,
       "word": "丁目",
       "reading": "ちょうめ",
       "meaning_ko": "초메; 일본 주소의 구획 단위",
@@ -592,8 +623,8 @@
       }
     },
     {
-      "key": "n1-0520",
-      "sequence_no": 520,
+      "key": "n1-0521",
+      "sequence_no": 521,
       "word": "配布",
       "reading": "はいふ",
       "meaning_ko": "배포; 나누어 줌",
@@ -623,8 +654,8 @@
       }
     },
     {
-      "key": "n1-0521",
-      "sequence_no": 521,
+      "key": "n1-0522",
+      "sequence_no": 522,
       "word": "壮大",
       "reading": "そうだい",
       "meaning_ko": "장대; 웅대; 규모가 매우 큼",
@@ -644,8 +675,8 @@
       }
     },
     {
-      "key": "n1-0522",
-      "sequence_no": 522,
+      "key": "n1-0523",
+      "sequence_no": 523,
       "word": "伝達",
       "reading": "でんたつ",
       "meaning_ko": "전달; 전달함",
@@ -675,8 +706,8 @@
       }
     },
     {
-      "key": "n1-0523",
-      "sequence_no": 523,
+      "key": "n1-0524",
+      "sequence_no": 524,
       "word": "産物",
       "reading": "さんぶつ",
       "meaning_ko": "산물; 생산물; 결과물",
@@ -706,8 +737,8 @@
       }
     },
     {
-      "key": "n1-0524",
-      "sequence_no": 524,
+      "key": "n1-0525",
+      "sequence_no": 525,
       "word": "推理",
       "reading": "すいり",
       "meaning_ko": "추리; 추론",
@@ -737,8 +768,8 @@
       }
     },
     {
-      "key": "n1-0525",
-      "sequence_no": 525,
+      "key": "n1-0526",
+      "sequence_no": 526,
       "word": "行進",
       "reading": "こうしん",
       "meaning_ko": "행진; 행군",
@@ -768,8 +799,8 @@
       }
     },
     {
-      "key": "n1-0526",
-      "sequence_no": 526,
+      "key": "n1-0527",
+      "sequence_no": 527,
       "word": "気象",
       "reading": "きしょう",
       "meaning_ko": "기상; 대기 현상",
@@ -799,8 +830,8 @@
       }
     },
     {
-      "key": "n1-0527",
-      "sequence_no": 527,
+      "key": "n1-0528",
+      "sequence_no": 528,
       "word": "果たして",
       "reading": "はたして",
       "meaning_ko": "과연; 정말; 도대체",
@@ -830,8 +861,8 @@
       }
     },
     {
-      "key": "n1-0528",
-      "sequence_no": 528,
+      "key": "n1-0529",
+      "sequence_no": 529,
       "word": "立法",
       "reading": "りっぽう",
       "meaning_ko": "입법; 법률 제정",
@@ -861,8 +892,8 @@
       }
     },
     {
-      "key": "n1-0529",
-      "sequence_no": 529,
+      "key": "n1-0530",
+      "sequence_no": 530,
       "word": "中立",
       "reading": "ちゅうりつ",
       "meaning_ko": "중립; 어느 쪽에도 치우치지 않음",
@@ -892,8 +923,8 @@
       }
     },
     {
-      "key": "n1-0530",
-      "sequence_no": 530,
+      "key": "n1-0531",
+      "sequence_no": 531,
       "word": "墓地",
       "reading": "はかち",
       "meaning_ko": "묘지; 무덤이 있는 곳",
@@ -923,8 +954,8 @@
       }
     },
     {
-      "key": "n1-0531",
-      "sequence_no": 531,
+      "key": "n1-0532",
+      "sequence_no": 532,
       "word": "神秘",
       "reading": "しんぴ",
       "meaning_ko": "신비; 불가사의함",
@@ -954,8 +985,8 @@
       }
     },
     {
-      "key": "n1-0532",
-      "sequence_no": 532,
+      "key": "n1-0533",
+      "sequence_no": 533,
       "word": "反撃",
       "reading": "はんげき",
       "meaning_ko": "반격; 역공",
@@ -985,8 +1016,8 @@
       }
     },
     {
-      "key": "n1-0533",
-      "sequence_no": 533,
+      "key": "n1-0534",
+      "sequence_no": 534,
       "word": "自立",
       "reading": "じりつ",
       "meaning_ko": "자립; 스스로 생활함",
@@ -1016,8 +1047,8 @@
       }
     },
     {
-      "key": "n1-0534",
-      "sequence_no": 534,
+      "key": "n1-0535",
+      "sequence_no": 535,
       "word": "青春",
       "reading": "せいしゅん",
       "meaning_ko": "청춘; 젊은 시절",
@@ -1047,8 +1078,8 @@
       }
     },
     {
-      "key": "n1-0535",
-      "sequence_no": 535,
+      "key": "n1-0536",
+      "sequence_no": 536,
       "word": "早急",
       "reading": "さっきゅう",
       "meaning_ko": "조속; 시급; 서둘러야 함",
@@ -1068,8 +1099,8 @@
       }
     },
     {
-      "key": "n1-0536",
-      "sequence_no": 536,
+      "key": "n1-0537",
+      "sequence_no": 537,
       "word": "逆転",
       "reading": "ぎゃくてん",
       "meaning_ko": "역전; 형세가 뒤바뀜",
@@ -1099,8 +1130,8 @@
       }
     },
     {
-      "key": "n1-0537",
-      "sequence_no": 537,
+      "key": "n1-0538",
+      "sequence_no": 538,
       "word": "合成",
       "reading": "ごうせい",
       "meaning_ko": "합성; 둘 이상을 합쳐 만듦",
@@ -1130,8 +1161,8 @@
       }
     },
     {
-      "key": "n1-0538",
-      "sequence_no": 538,
+      "key": "n1-0539",
+      "sequence_no": 539,
       "word": "変革",
       "reading": "へんかく",
       "meaning_ko": "변혁; 근본적인 변화",
@@ -1161,8 +1192,8 @@
       }
     },
     {
-      "key": "n1-0539",
-      "sequence_no": 539,
+      "key": "n1-0540",
+      "sequence_no": 540,
       "word": "無知",
       "reading": "むち",
       "meaning_ko": "무지; 알지 못함",
@@ -1192,8 +1223,8 @@
       }
     },
     {
-      "key": "n1-0540",
-      "sequence_no": 540,
+      "key": "n1-0541",
+      "sequence_no": 541,
       "word": "品種",
       "reading": "ひんしゅ",
       "meaning_ko": "품종; 종류",
@@ -1223,8 +1254,8 @@
       }
     },
     {
-      "key": "n1-0541",
-      "sequence_no": 541,
+      "key": "n1-0542",
+      "sequence_no": 542,
       "word": "預金",
       "reading": "よきん",
       "meaning_ko": "예금; 은행에 맡긴 돈",
@@ -1254,8 +1285,8 @@
       }
     },
     {
-      "key": "n1-0542",
-      "sequence_no": 542,
+      "key": "n1-0543",
+      "sequence_no": 543,
       "word": "客観",
       "reading": "きゃっかん",
       "meaning_ko": "객관; 객관적인 관점",
@@ -1285,8 +1316,8 @@
       }
     },
     {
-      "key": "n1-0543",
-      "sequence_no": 543,
+      "key": "n1-0544",
+      "sequence_no": 544,
       "word": "提携",
       "reading": "ていけい",
       "meaning_ko": "제휴; 협력 관계를 맺음",
@@ -1316,8 +1347,8 @@
       }
     },
     {
-      "key": "n1-0544",
-      "sequence_no": 544,
+      "key": "n1-0545",
+      "sequence_no": 545,
       "word": "強烈",
       "reading": "きょうれつ",
       "meaning_ko": "강렬함; 매우 강함",
@@ -1337,8 +1368,8 @@
       }
     },
     {
-      "key": "n1-0545",
-      "sequence_no": 545,
+      "key": "n1-0546",
+      "sequence_no": 546,
       "word": "主題",
       "reading": "しゅだい",
       "meaning_ko": "주제; 중심이 되는 문제",
@@ -1368,8 +1399,8 @@
       }
     },
     {
-      "key": "n1-0546",
-      "sequence_no": 546,
+      "key": "n1-0547",
+      "sequence_no": 547,
       "word": "小切手",
       "reading": "こぎって",
       "meaning_ko": "수표",
@@ -1399,8 +1430,8 @@
       }
     },
     {
-      "key": "n1-0547",
-      "sequence_no": 547,
+      "key": "n1-0548",
+      "sequence_no": 548,
       "word": "物体",
       "reading": "ぶったい",
       "meaning_ko": "물체; 물리적으로 존재하는 대상",
@@ -1430,8 +1461,8 @@
       }
     },
     {
-      "key": "n1-0548",
-      "sequence_no": 548,
+      "key": "n1-0549",
+      "sequence_no": 549,
       "word": "放出",
       "reading": "ほうしゅつ",
       "meaning_ko": "방출; 내보냄; 풀어냄",
@@ -1461,8 +1492,8 @@
       }
     },
     {
-      "key": "n1-0549",
-      "sequence_no": 549,
+      "key": "n1-0550",
+      "sequence_no": 550,
       "word": "処罰",
       "reading": "しょばつ",
       "meaning_ko": "처벌; 벌을 줌",
@@ -1492,8 +1523,8 @@
       }
     },
     {
-      "key": "n1-0550",
-      "sequence_no": 550,
+      "key": "n1-0551",
+      "sequence_no": 551,
       "word": "人体",
       "reading": "じんたい",
       "meaning_ko": "인체; 사람의 몸",
@@ -1523,8 +1554,8 @@
       }
     },
     {
-      "key": "n1-0551",
-      "sequence_no": 551,
+      "key": "n1-0552",
+      "sequence_no": 552,
       "word": "創立",
       "reading": "そうりつ",
       "meaning_ko": "창립; 기관·단체를 처음 세움",
@@ -1554,8 +1585,8 @@
       }
     },
     {
-      "key": "n1-0552",
-      "sequence_no": 552,
+      "key": "n1-0553",
+      "sequence_no": 553,
       "word": "養成",
       "reading": "ようせい",
       "meaning_ko": "양성; 교육·훈련하여 길러 냄",
@@ -1585,8 +1616,8 @@
       }
     },
     {
-      "key": "n1-0553",
-      "sequence_no": 553,
+      "key": "n1-0554",
+      "sequence_no": 554,
       "word": "平行",
       "reading": "へいこう",
       "meaning_ko": "평행; 서로 만나지 않고 나란함",
@@ -1616,8 +1647,8 @@
       }
     },
     {
-      "key": "n1-0554",
-      "sequence_no": 554,
+      "key": "n1-0555",
+      "sequence_no": 555,
       "word": "愛想",
       "reading": "あいそ",
       "meaning_ko": "붙임성; 싹싹한 태도; 호감",
@@ -1647,8 +1678,8 @@
       }
     },
     {
-      "key": "n1-0555",
-      "sequence_no": 555,
+      "key": "n1-0556",
+      "sequence_no": 556,
       "word": "炭素",
       "reading": "たんそ",
       "meaning_ko": "탄소",
@@ -1678,8 +1709,8 @@
       }
     },
     {
-      "key": "n1-0556",
-      "sequence_no": 556,
+      "key": "n1-0557",
+      "sequence_no": 557,
       "word": "返済",
       "reading": "へんさい",
       "meaning_ko": "상환; 빌린 돈이나 빚을 갚음",
@@ -1709,8 +1740,8 @@
       }
     },
     {
-      "key": "n1-0557",
-      "sequence_no": 557,
+      "key": "n1-0558",
+      "sequence_no": 558,
       "word": "総会",
       "reading": "そうかい",
       "meaning_ko": "총회; 전체 구성원이 모이는 회의",
@@ -1740,8 +1771,8 @@
       }
     },
     {
-      "key": "n1-0558",
-      "sequence_no": 558,
+      "key": "n1-0559",
+      "sequence_no": 559,
       "word": "交付",
       "reading": "こうふ",
       "meaning_ko": "교부; 공적 문서·증서 등을 내줌",
@@ -1771,8 +1802,8 @@
       }
     },
     {
-      "key": "n1-0559",
-      "sequence_no": 559,
+      "key": "n1-0560",
+      "sequence_no": 560,
       "word": "基金",
       "reading": "ききん",
       "meaning_ko": "기금; 특정 목적을 위해 마련한 자금",
@@ -1802,8 +1833,8 @@
       }
     },
     {
-      "key": "n1-0560",
-      "sequence_no": 560,
+      "key": "n1-0561",
+      "sequence_no": 561,
       "word": "着手",
       "reading": "ちゃくしゅ",
       "meaning_ko": "착수; 일을 시작함",
@@ -1833,8 +1864,8 @@
       }
     },
     {
-      "key": "n1-0561",
-      "sequence_no": 561,
+      "key": "n1-0562",
+      "sequence_no": 562,
       "word": "混同",
       "reading": "こんどう",
       "meaning_ko": "혼동; 서로 다른 것을 뒤섞어 생각함",
@@ -1864,8 +1895,8 @@
       }
     },
     {
-      "key": "n1-0562",
-      "sequence_no": 562,
+      "key": "n1-0563",
+      "sequence_no": 563,
       "word": "刊行",
       "reading": "かんこう",
       "meaning_ko": "간행; 출판하여 세상에 냄",
@@ -1895,8 +1926,8 @@
       }
     },
     {
-      "key": "n1-0563",
-      "sequence_no": 563,
+      "key": "n1-0564",
+      "sequence_no": 564,
       "word": "対面",
       "reading": "たいめん",
       "meaning_ko": "대면; 직접 얼굴을 마주함",
@@ -1926,8 +1957,8 @@
       }
     },
     {
-      "key": "n1-0564",
-      "sequence_no": 564,
+      "key": "n1-0565",
+      "sequence_no": 565,
       "word": "対話",
       "reading": "たいわ",
       "meaning_ko": "대화; 서로 의견을 주고받음",
@@ -1957,8 +1988,8 @@
       }
     },
     {
-      "key": "n1-0565",
-      "sequence_no": 565,
+      "key": "n1-0566",
+      "sequence_no": 566,
       "word": "細工",
       "reading": "さいく",
       "meaning_ko": "세공; 정교하게 손질해 만듦; 세공품",
@@ -1988,8 +2019,8 @@
       }
     },
     {
-      "key": "n1-0566",
-      "sequence_no": 566,
+      "key": "n1-0567",
+      "sequence_no": 567,
       "word": "配給",
       "reading": "はいきゅう",
       "meaning_ko": "배급; 정해진 기준에 따라 나누어 줌",
@@ -2019,8 +2050,8 @@
       }
     },
     {
-      "key": "n1-0567",
-      "sequence_no": 567,
+      "key": "n1-0568",
+      "sequence_no": 568,
       "word": "段々",
       "reading": "だんだん",
       "meaning_ko": "점점; 차츰; 서서히",
@@ -2050,8 +2081,8 @@
       }
     },
     {
-      "key": "n1-0568",
-      "sequence_no": 568,
+      "key": "n1-0569",
+      "sequence_no": 569,
       "word": "用紙",
       "reading": "ようし",
       "meaning_ko": "용지; 특정 용도의 종이·서식",
@@ -2081,8 +2112,8 @@
       }
     },
     {
-      "key": "n1-0569",
-      "sequence_no": 569,
+      "key": "n1-0570",
+      "sequence_no": 570,
       "word": "上空",
       "reading": "じょうくう",
       "meaning_ko": "상공; 어떤 지역의 위쪽 하늘",
@@ -2112,8 +2143,8 @@
       }
     },
     {
-      "key": "n1-0570",
-      "sequence_no": 570,
+      "key": "n1-0571",
+      "sequence_no": 571,
       "word": "布告",
       "reading": "ふこく",
       "meaning_ko": "포고; 공식적으로 널리 알림",
@@ -2143,8 +2174,8 @@
       }
     },
     {
-      "key": "n1-0571",
-      "sequence_no": 571,
+      "key": "n1-0572",
+      "sequence_no": 572,
       "word": "生理",
       "reading": "せいり",
       "meaning_ko": "생리; 생리 기능; 월경",
@@ -2174,8 +2205,8 @@
       }
     },
     {
-      "key": "n1-0572",
-      "sequence_no": 572,
+      "key": "n1-0573",
+      "sequence_no": 573,
       "word": "世帯",
       "reading": "せたい",
       "meaning_ko": "가구; 함께 생활하는 한 단위",
@@ -2205,8 +2236,8 @@
       }
     },
     {
-      "key": "n1-0573",
-      "sequence_no": 573,
+      "key": "n1-0574",
+      "sequence_no": 574,
       "word": "特集",
       "reading": "とくしゅう",
       "meaning_ko": "특집; 특정 주제를 집중적으로 다룸",
@@ -2236,8 +2267,8 @@
       }
     },
     {
-      "key": "n1-0574",
-      "sequence_no": 574,
+      "key": "n1-0575",
+      "sequence_no": 575,
       "word": "健全",
       "reading": "けんぜん",
       "meaning_ko": "건전함; 건강하고 정상적임",
@@ -2267,8 +2298,8 @@
       }
     },
     {
-      "key": "n1-0575",
-      "sequence_no": 575,
+      "key": "n1-0576",
+      "sequence_no": 576,
       "word": "適応",
       "reading": "てきおう",
       "meaning_ko": "적응; 환경·조건에 맞게 변화함",
@@ -2298,8 +2329,8 @@
       }
     },
     {
-      "key": "n1-0576",
-      "sequence_no": 576,
+      "key": "n1-0577",
+      "sequence_no": 577,
       "word": "解剖",
       "reading": "かいぼう",
       "meaning_ko": "해부; 내부 구조를 조사함",
@@ -2329,8 +2360,8 @@
       }
     },
     {
-      "key": "n1-0577",
-      "sequence_no": 577,
+      "key": "n1-0578",
+      "sequence_no": 578,
       "word": "教訓",
       "reading": "きょうくん",
       "meaning_ko": "교훈; 경험에서 얻는 가르침",
@@ -2360,8 +2391,8 @@
       }
     },
     {
-      "key": "n1-0578",
-      "sequence_no": 578,
+      "key": "n1-0579",
+      "sequence_no": 579,
       "word": "利点",
       "reading": "りてん",
       "meaning_ko": "이점; 유리한 점",
@@ -2391,8 +2422,8 @@
       }
     },
     {
-      "key": "n1-0579",
-      "sequence_no": 579,
+      "key": "n1-0580",
+      "sequence_no": 580,
       "word": "共感",
       "reading": "きょうかん",
       "meaning_ko": "공감; 상대의 감정·생각을 함께 느낌",
@@ -2422,8 +2453,8 @@
       }
     },
     {
-      "key": "n1-0580",
-      "sequence_no": 580,
+      "key": "n1-0581",
+      "sequence_no": 581,
       "word": "育ち",
       "reading": "そだち",
       "meaning_ko": "성장; 자란 환경·배경",
@@ -2443,8 +2474,8 @@
       }
     },
     {
-      "key": "n1-0581",
-      "sequence_no": 581,
+      "key": "n1-0582",
+      "sequence_no": 582,
       "word": "個々",
       "reading": "ここ",
       "meaning_ko": "개개; 각각; 하나하나",
@@ -2464,8 +2495,8 @@
       }
     },
     {
-      "key": "n1-0582",
-      "sequence_no": 582,
+      "key": "n1-0583",
+      "sequence_no": 583,
       "word": "一同",
       "reading": "いちどう",
       "meaning_ko": "일동; 한자리에 있는 모든 사람",
@@ -2495,8 +2526,8 @@
       }
     },
     {
-      "key": "n1-0583",
-      "sequence_no": 583,
+      "key": "n1-0584",
+      "sequence_no": 584,
       "word": "発足",
       "reading": "はっそく",
       "meaning_ko": "발족; 조직·제도가 새로 출범함",
@@ -2526,8 +2557,8 @@
       }
     },
     {
-      "key": "n1-0584",
-      "sequence_no": 584,
+      "key": "n1-0585",
+      "sequence_no": 585,
       "word": "原作",
       "reading": "げんさく",
       "meaning_ko": "원작; 각색·번역 전의 본래 작품",
@@ -2557,8 +2588,8 @@
       }
     },
     {
-      "key": "n1-0585",
-      "sequence_no": 585,
+      "key": "n1-0586",
+      "sequence_no": 586,
       "word": "不審",
       "reading": "ふしん",
       "meaning_ko": "수상함; 의심스러움; 의혹",
@@ -2588,8 +2619,8 @@
       }
     },
     {
-      "key": "n1-0586",
-      "sequence_no": 586,
+      "key": "n1-0587",
+      "sequence_no": 587,
       "word": "身近",
       "reading": "みぢか",
       "meaning_ko": "가까움; 친숙함; 생활 주변에 있음",
@@ -2609,8 +2640,8 @@
       }
     },
     {
-      "key": "n1-0587",
-      "sequence_no": 587,
+      "key": "n1-0588",
+      "sequence_no": 588,
       "word": "慣習",
       "reading": "かんしゅう",
       "meaning_ko": "관습; 오래 이어진 사회적 습관",
@@ -2640,8 +2671,8 @@
       }
     },
     {
-      "key": "n1-0588",
-      "sequence_no": 588,
+      "key": "n1-0589",
+      "sequence_no": 589,
       "word": "一括",
       "reading": "いっかつ",
       "meaning_ko": "일괄; 한꺼번에 묶어 처리함",
@@ -2671,8 +2702,8 @@
       }
     },
     {
-      "key": "n1-0589",
-      "sequence_no": 589,
+      "key": "n1-0590",
+      "sequence_no": 590,
       "word": "悪口",
       "reading": "あっこう",
       "meaning_ko": "악담; 욕설; 험담",
@@ -2692,8 +2723,8 @@
       }
     },
     {
-      "key": "n1-0590",
-      "sequence_no": 590,
+      "key": "n1-0591",
+      "sequence_no": 591,
       "word": "点検",
       "reading": "てんけん",
       "meaning_ko": "점검; 하나하나 확인함",
@@ -2723,8 +2754,8 @@
       }
     },
     {
-      "key": "n1-0591",
-      "sequence_no": 591,
+      "key": "n1-0592",
+      "sequence_no": 592,
       "word": "打ち合わせ",
       "reading": "うちあわせ",
       "meaning_ko": "사전 협의; 업무 미팅; 사전 조율",
@@ -2754,8 +2785,8 @@
       }
     },
     {
-      "key": "n1-0592",
-      "sequence_no": 592,
+      "key": "n1-0593",
+      "sequence_no": 593,
       "word": "得点",
       "reading": "とくてん",
       "meaning_ko": "득점; 얻은 점수",
@@ -2785,8 +2816,8 @@
       }
     },
     {
-      "key": "n1-0593",
-      "sequence_no": 593,
+      "key": "n1-0594",
+      "sequence_no": 594,
       "word": "著書",
       "reading": "ちょしょ",
       "meaning_ko": "저서; 자신이 쓴 책",
@@ -2816,8 +2847,8 @@
       }
     },
     {
-      "key": "n1-0594",
-      "sequence_no": 594,
+      "key": "n1-0595",
+      "sequence_no": 595,
       "word": "鉱山",
       "reading": "こうざん",
       "meaning_ko": "광산",
@@ -2847,8 +2878,8 @@
       }
     },
     {
-      "key": "n1-0595",
-      "sequence_no": 595,
+      "key": "n1-0596",
+      "sequence_no": 596,
       "word": "華やか",
       "reading": "はなやか",
       "meaning_ko": "화려함; 눈부시고 밝음",
@@ -2868,8 +2899,8 @@
       }
     },
     {
-      "key": "n1-0596",
-      "sequence_no": 596,
+      "key": "n1-0597",
+      "sequence_no": 597,
       "word": "固有",
       "reading": "こゆう",
       "meaning_ko": "고유; 그 대상만이 본래 지닌 것",
@@ -2899,8 +2930,8 @@
       }
     },
     {
-      "key": "n1-0597",
-      "sequence_no": 597,
+      "key": "n1-0598",
+      "sequence_no": 598,
       "word": "社交",
       "reading": "しゃこう",
       "meaning_ko": "사교; 사회적인 교제",
@@ -2930,8 +2961,8 @@
       }
     },
     {
-      "key": "n1-0598",
-      "sequence_no": 598,
+      "key": "n1-0599",
+      "sequence_no": 599,
       "word": "中枢",
       "reading": "ちゅうすう",
       "meaning_ko": "중추; 핵심부; 중심 기능을 맡는 부분",
@@ -2961,8 +2992,8 @@
       }
     },
     {
-      "key": "n1-0599",
-      "sequence_no": 599,
+      "key": "n1-0600",
+      "sequence_no": 600,
       "word": "複合",
       "reading": "ふくごう",
       "meaning_ko": "복합; 둘 이상이 합쳐짐",
@@ -2992,8 +3023,8 @@
       }
     },
     {
-      "key": "n1-0600",
-      "sequence_no": 600,
+      "key": "n1-0601",
+      "sequence_no": 601,
       "word": "日頃",
       "reading": "ひごろ",
       "meaning_ko": "평소; 평상시; 늘",
@@ -3023,8 +3054,8 @@
       }
     },
     {
-      "key": "n1-0601",
-      "sequence_no": 601,
+      "key": "n1-0602",
+      "sequence_no": 602,
       "word": "購読",
       "reading": "こうどく",
       "meaning_ko": "구독; 돈을 내고 계속 받아 읽음",
@@ -3054,8 +3085,8 @@
       }
     },
     {
-      "key": "n1-0602",
-      "sequence_no": 602,
+      "key": "n1-0603",
+      "sequence_no": 603,
       "word": "好調",
       "reading": "こうちょう",
       "meaning_ko": "호조; 상태·성과가 좋음",
@@ -3085,8 +3116,8 @@
       }
     },
     {
-      "key": "n1-0603",
-      "sequence_no": 603,
+      "key": "n1-0604",
+      "sequence_no": 604,
       "word": "敗戦",
       "reading": "はいせん",
       "meaning_ko": "패전; 전쟁·전투에서 패함",
@@ -3116,8 +3147,8 @@
       }
     },
     {
-      "key": "n1-0604",
-      "sequence_no": 604,
+      "key": "n1-0605",
+      "sequence_no": 605,
       "word": "気楽",
       "reading": "きらく",
       "meaning_ko": "마음 편함; 부담이 없음; 느긋함",
@@ -3147,8 +3178,8 @@
       }
     },
     {
-      "key": "n1-0605",
-      "sequence_no": 605,
+      "key": "n1-0606",
+      "sequence_no": 606,
       "word": "風土",
       "reading": "ふうど",
       "meaning_ko": "풍토; 지역의 자연·생활 환경과 특성",
@@ -3178,8 +3209,8 @@
       }
     },
     {
-      "key": "n1-0606",
-      "sequence_no": 606,
+      "key": "n1-0607",
+      "sequence_no": 607,
       "word": "待ち合わせ",
       "reading": "まちあわせ",
       "meaning_ko": "약속 장소에서 만남; 만나기로 한 약속",
@@ -3199,8 +3230,8 @@
       }
     },
     {
-      "key": "n1-0607",
-      "sequence_no": 607,
+      "key": "n1-0608",
+      "sequence_no": 608,
       "word": "公認",
       "reading": "こうにん",
       "meaning_ko": "공인; 공식적으로 인정함",
@@ -3230,8 +3261,8 @@
       }
     },
     {
-      "key": "n1-0608",
-      "sequence_no": 608,
+      "key": "n1-0609",
+      "sequence_no": 609,
       "word": "検事",
       "reading": "けんじ",
       "meaning_ko": "검사; 형사 사건을 수사·기소하는 법률 공무원",
@@ -3261,8 +3292,8 @@
       }
     },
     {
-      "key": "n1-0609",
-      "sequence_no": 609,
+      "key": "n1-0610",
+      "sequence_no": 610,
       "word": "風俗",
       "reading": "ふうぞく",
       "meaning_ko": "풍속; 사회의 생활 습관·풍습",
@@ -3292,8 +3323,8 @@
       }
     },
     {
-      "key": "n1-0610",
-      "sequence_no": 610,
+      "key": "n1-0611",
+      "sequence_no": 611,
       "word": "本体",
       "reading": "ほんたい",
       "meaning_ko": "본체; 중심이 되는 주요 부분",
@@ -3323,8 +3354,8 @@
       }
     },
     {
-      "key": "n1-0611",
-      "sequence_no": 611,
+      "key": "n1-0612",
+      "sequence_no": 612,
       "word": "河川",
       "reading": "かせん",
       "meaning_ko": "하천; 크고 작은 강",
@@ -3354,8 +3385,8 @@
       }
     },
     {
-      "key": "n1-0612",
-      "sequence_no": 612,
+      "key": "n1-0613",
+      "sequence_no": 613,
       "word": "予感",
       "reading": "よかん",
       "meaning_ko": "예감; 일이 일어날 것 같은 느낌",
@@ -3385,8 +3416,8 @@
       }
     },
     {
-      "key": "n1-0613",
-      "sequence_no": 613,
+      "key": "n1-0614",
+      "sequence_no": 614,
       "word": "有機",
       "reading": "ゆうき",
       "meaning_ko": "유기; 생물·탄소 화합물과 관련됨; 유기적으로 연결됨",
@@ -3406,8 +3437,8 @@
       }
     },
     {
-      "key": "n1-0614",
-      "sequence_no": 614,
+      "key": "n1-0615",
+      "sequence_no": 615,
       "word": "訂正",
       "reading": "ていせい",
       "meaning_ko": "정정; 잘못된 내용을 바로잡음",
@@ -3437,8 +3468,8 @@
       }
     },
     {
-      "key": "n1-0615",
-      "sequence_no": 615,
+      "key": "n1-0616",
+      "sequence_no": 616,
       "word": "優位",
       "reading": "ゆうい",
       "meaning_ko": "우위; 다른 것보다 유리하고 앞선 위치",
@@ -3468,8 +3499,8 @@
       }
     },
     {
-      "key": "n1-0616",
-      "sequence_no": 616,
+      "key": "n1-0617",
+      "sequence_no": 617,
       "word": "究極",
       "reading": "きゅうきょく",
       "meaning_ko": "궁극; 끝까지 이른 최종·최고의 상태",
@@ -3499,8 +3530,8 @@
       }
     },
     {
-      "key": "n1-0617",
-      "sequence_no": 617,
+      "key": "n1-0618",
+      "sequence_no": 618,
       "word": "比率",
       "reading": "ひりつ",
       "meaning_ko": "비율; 기준량에 대한 다른 양의 비",
@@ -3530,8 +3561,8 @@
       }
     },
     {
-      "key": "n1-0618",
-      "sequence_no": 618,
+      "key": "n1-0619",
+      "sequence_no": 619,
       "word": "割り当て",
       "reading": "わりあて",
       "meaning_ko": "할당; 배정; 나누어 맡김",
@@ -3561,8 +3592,8 @@
       }
     },
     {
-      "key": "n1-0619",
-      "sequence_no": 619,
+      "key": "n1-0620",
+      "sequence_no": 620,
       "word": "褒美",
       "reading": "ほうび",
       "meaning_ko": "상; 포상; 잘한 일에 주는 보상",
@@ -3592,8 +3623,8 @@
       }
     },
     {
-      "key": "n1-0620",
-      "sequence_no": 620,
+      "key": "n1-0621",
+      "sequence_no": 621,
       "word": "心得",
       "reading": "こころえ",
       "meaning_ko": "마음가짐; 알아두어야 할 사항; 기본 지식",
@@ -3613,8 +3644,8 @@
       }
     },
     {
-      "key": "n1-0621",
-      "sequence_no": 621,
+      "key": "n1-0622",
+      "sequence_no": 622,
       "word": "補給",
       "reading": "ほきゅう",
       "meaning_ko": "보급; 보충 공급",
@@ -3644,8 +3675,8 @@
       }
     },
     {
-      "key": "n1-0622",
-      "sequence_no": 622,
+      "key": "n1-0623",
+      "sequence_no": 623,
       "word": "与党",
       "reading": "よとう",
       "meaning_ko": "여당; 집권당",
@@ -3675,8 +3706,8 @@
       }
     },
     {
-      "key": "n1-0623",
-      "sequence_no": 623,
+      "key": "n1-0624",
+      "sequence_no": 624,
       "word": "山脈",
       "reading": "さんみゃく",
       "meaning_ko": "산맥",
@@ -3706,8 +3737,8 @@
       }
     },
     {
-      "key": "n1-0624",
-      "sequence_no": 624,
+      "key": "n1-0625",
+      "sequence_no": 625,
       "word": "法学",
       "reading": "ほうがく",
       "meaning_ko": "법학",
@@ -3737,8 +3768,8 @@
       }
     },
     {
-      "key": "n1-0625",
-      "sequence_no": 625,
+      "key": "n1-0626",
+      "sequence_no": 626,
       "word": "孤立",
       "reading": "こりつ",
       "meaning_ko": "고립; 고립됨",
@@ -3768,8 +3799,8 @@
       }
     },
     {
-      "key": "n1-0626",
-      "sequence_no": 626,
+      "key": "n1-0627",
+      "sequence_no": 627,
       "word": "技能",
       "reading": "ぎのう",
       "meaning_ko": "기능; 숙련된 기술",
@@ -3799,8 +3830,8 @@
       }
     },
     {
-      "key": "n1-0627",
-      "sequence_no": 627,
+      "key": "n1-0628",
+      "sequence_no": 628,
       "word": "補足",
       "reading": "ほそく",
       "meaning_ko": "보충 설명; 보완",
@@ -3820,8 +3851,8 @@
       }
     },
     {
-      "key": "n1-0628",
-      "sequence_no": 628,
+      "key": "n1-0629",
+      "sequence_no": 629,
       "word": "本音",
       "reading": "ほんね",
       "meaning_ko": "속마음; 진심; 본심",
@@ -3851,8 +3882,8 @@
       }
     },
     {
-      "key": "n1-0629",
-      "sequence_no": 629,
+      "key": "n1-0630",
+      "sequence_no": 630,
       "word": "不況",
       "reading": "ふきょう",
       "meaning_ko": "불황",
@@ -3882,8 +3913,8 @@
       }
     },
     {
-      "key": "n1-0630",
-      "sequence_no": 630,
+      "key": "n1-0631",
+      "sequence_no": 631,
       "word": "時折",
       "reading": "ときおり",
       "meaning_ko": "때때로; 이따금",
@@ -3913,8 +3944,8 @@
       }
     },
     {
-      "key": "n1-0631",
-      "sequence_no": 631,
+      "key": "n1-0632",
+      "sequence_no": 632,
       "word": "理屈",
       "reading": "りくつ",
       "meaning_ko": "이치; 논리; 이론상의 설명",
@@ -3944,8 +3975,8 @@
       }
     },
     {
-      "key": "n1-0632",
-      "sequence_no": 632,
+      "key": "n1-0633",
+      "sequence_no": 633,
       "word": "契機",
       "reading": "けいき",
       "meaning_ko": "계기; 전환점이 되는 기회",
@@ -3975,8 +4006,8 @@
       }
     },
     {
-      "key": "n1-0633",
-      "sequence_no": 633,
+      "key": "n1-0634",
+      "sequence_no": 634,
       "word": "講習",
       "reading": "こうしゅう",
       "meaning_ko": "강습; 교육 과정",
@@ -4006,8 +4037,8 @@
       }
     },
     {
-      "key": "n1-0634",
-      "sequence_no": 634,
+      "key": "n1-0635",
+      "sequence_no": 635,
       "word": "復旧",
       "reading": "ふっきゅう",
       "meaning_ko": "복구; 정상화",
@@ -4037,8 +4068,8 @@
       }
     },
     {
-      "key": "n1-0635",
-      "sequence_no": 635,
+      "key": "n1-0636",
+      "sequence_no": 636,
       "word": "歯科",
       "reading": "しか",
       "meaning_ko": "치과; 치의학",
@@ -4068,8 +4099,8 @@
       }
     },
     {
-      "key": "n1-0636",
-      "sequence_no": 636,
+      "key": "n1-0637",
+      "sequence_no": 637,
       "word": "密接",
       "reading": "みっせつ",
       "meaning_ko": "밀접; 긴밀함",
@@ -4099,8 +4130,8 @@
       }
     },
     {
-      "key": "n1-0637",
-      "sequence_no": 637,
+      "key": "n1-0638",
+      "sequence_no": 638,
       "word": "代用",
       "reading": "だいよう",
       "meaning_ko": "대용; 대신 사용함",
@@ -4130,8 +4161,8 @@
       }
     },
     {
-      "key": "n1-0638",
-      "sequence_no": 638,
+      "key": "n1-0639",
+      "sequence_no": 639,
       "word": "戸籍",
       "reading": "こせき",
       "meaning_ko": "호적; 가족관계 등록부",
@@ -4161,8 +4192,8 @@
       }
     },
     {
-      "key": "n1-0639",
-      "sequence_no": 639,
+      "key": "n1-0640",
+      "sequence_no": 640,
       "word": "追及",
       "reading": "ついきゅう",
       "meaning_ko": "추궁; 책임을 따져 물음",
@@ -4192,8 +4223,8 @@
       }
     },
     {
-      "key": "n1-0640",
-      "sequence_no": 640,
+      "key": "n1-0641",
+      "sequence_no": 641,
       "word": "直感",
       "reading": "ちょっかん",
       "meaning_ko": "직감; 직관적으로 느낌",
@@ -4223,8 +4254,8 @@
       }
     },
     {
-      "key": "n1-0641",
-      "sequence_no": 641,
+      "key": "n1-0642",
+      "sequence_no": 642,
       "word": "視察",
       "reading": "しさつ",
       "meaning_ko": "시찰; 현장 점검 방문",
@@ -4254,8 +4285,8 @@
       }
     },
     {
-      "key": "n1-0642",
-      "sequence_no": 642,
+      "key": "n1-0643",
+      "sequence_no": 643,
       "word": "協調",
       "reading": "きょうちょう",
       "meaning_ko": "협조; 조화롭게 협력함",
@@ -4285,8 +4316,8 @@
       }
     },
     {
-      "key": "n1-0643",
-      "sequence_no": 643,
+      "key": "n1-0644",
+      "sequence_no": 644,
       "word": "一帯",
       "reading": "いったい",
       "meaning_ko": "일대; 주변 지역 전체",
@@ -4316,8 +4347,8 @@
       }
     },
     {
-      "key": "n1-0644",
-      "sequence_no": 644,
+      "key": "n1-0645",
+      "sequence_no": 645,
       "word": "樹立",
       "reading": "じゅりつ",
       "meaning_ko": "수립; 세움",
@@ -4347,8 +4378,8 @@
       }
     },
     {
-      "key": "n1-0645",
-      "sequence_no": 645,
+      "key": "n1-0646",
+      "sequence_no": 646,
       "word": "主権",
       "reading": "しゅけん",
       "meaning_ko": "주권",
@@ -4378,8 +4409,8 @@
       }
     },
     {
-      "key": "n1-0646",
-      "sequence_no": 646,
+      "key": "n1-0647",
+      "sequence_no": 647,
       "word": "実情",
       "reading": "じつじょう",
       "meaning_ko": "실정; 실제 사정",
@@ -4409,8 +4440,8 @@
       }
     },
     {
-      "key": "n1-0647",
-      "sequence_no": 647,
+      "key": "n1-0648",
+      "sequence_no": 648,
       "word": "家畜",
       "reading": "かちく",
       "meaning_ko": "가축",
@@ -4440,8 +4471,8 @@
       }
     },
     {
-      "key": "n1-0648",
-      "sequence_no": 648,
+      "key": "n1-0649",
+      "sequence_no": 649,
       "word": "財源",
       "reading": "ざいげん",
       "meaning_ko": "재원; 자금의 출처",
@@ -4471,8 +4502,8 @@
       }
     },
     {
-      "key": "n1-0649",
-      "sequence_no": 649,
+      "key": "n1-0650",
+      "sequence_no": 650,
       "word": "用品",
       "reading": "ようひん",
       "meaning_ko": "용품; 특정 목적에 쓰는 물품",
@@ -4502,8 +4533,8 @@
       }
     },
     {
-      "key": "n1-0650",
-      "sequence_no": 650,
+      "key": "n1-0651",
+      "sequence_no": 651,
       "word": "議題",
       "reading": "ぎだい",
       "meaning_ko": "의제; 회의 안건",
@@ -4523,8 +4554,8 @@
       }
     },
     {
-      "key": "n1-0651",
-      "sequence_no": 651,
+      "key": "n1-0652",
+      "sequence_no": 652,
       "word": "外観",
       "reading": "がいかん",
       "meaning_ko": "외관; 겉모습",
@@ -4554,8 +4585,8 @@
       }
     },
     {
-      "key": "n1-0652",
-      "sequence_no": 652,
+      "key": "n1-0653",
+      "sequence_no": 653,
       "word": "知性",
       "reading": "ちせい",
       "meaning_ko": "지성; 이해·판단 능력",
@@ -4585,8 +4616,8 @@
       }
     },
     {
-      "key": "n1-0653",
-      "sequence_no": 653,
+      "key": "n1-0654",
+      "sequence_no": 654,
       "word": "必然",
       "reading": "ひつぜん",
       "meaning_ko": "필연; 반드시 그렇게 됨",
@@ -4616,8 +4647,8 @@
       }
     },
     {
-      "key": "n1-0654",
-      "sequence_no": 654,
+      "key": "n1-0655",
+      "sequence_no": 655,
       "word": "正規",
       "reading": "せいき",
       "meaning_ko": "정규; 정식",
@@ -4647,8 +4678,8 @@
       }
     },
     {
-      "key": "n1-0655",
-      "sequence_no": 655,
+      "key": "n1-0656",
+      "sequence_no": 656,
       "word": "あっさり",
       "reading": "あっさり",
       "meaning_ko": "담백하게; 쉽게; 미련 없이",
@@ -4679,8 +4710,8 @@
       }
     },
     {
-      "key": "n1-0656",
-      "sequence_no": 656,
+      "key": "n1-0657",
+      "sequence_no": 657,
       "word": "分担",
       "reading": "ぶんたん",
       "meaning_ko": "분담; 나누어 맡음",
@@ -4710,8 +4741,8 @@
       }
     },
     {
-      "key": "n1-0657",
-      "sequence_no": 657,
+      "key": "n1-0658",
+      "sequence_no": 658,
       "word": "未知",
       "reading": "みち",
       "meaning_ko": "미지; 아직 알려지지 않음",
@@ -4741,8 +4772,8 @@
       }
     },
     {
-      "key": "n1-0658",
-      "sequence_no": 658,
+      "key": "n1-0659",
+      "sequence_no": 659,
       "word": "好評",
       "reading": "こうひょう",
       "meaning_ko": "호평; 좋은 평가",
@@ -4772,8 +4803,8 @@
       }
     },
     {
-      "key": "n1-0659",
-      "sequence_no": 659,
+      "key": "n1-0660",
+      "sequence_no": 660,
       "word": "蓄積",
       "reading": "ちくせき",
       "meaning_ko": "축적; 쌓임",
@@ -4803,8 +4834,8 @@
       }
     },
     {
-      "key": "n1-0660",
-      "sequence_no": 660,
+      "key": "n1-0661",
+      "sequence_no": 661,
       "word": "楽観",
       "reading": "らっかん",
       "meaning_ko": "낙관; 긍정적으로 전망함",
@@ -4834,8 +4865,8 @@
       }
     },
     {
-      "key": "n1-0661",
-      "sequence_no": 661,
+      "key": "n1-0662",
+      "sequence_no": 662,
       "word": "内臓",
       "reading": "ないぞう",
       "meaning_ko": "내장; 몸속 장기",
@@ -4865,8 +4896,8 @@
       }
     },
     {
-      "key": "n1-0662",
-      "sequence_no": 662,
+      "key": "n1-0663",
+      "sequence_no": 663,
       "word": "反射",
       "reading": "はんしゃ",
       "meaning_ko": "반사; 반사 작용",
@@ -4896,8 +4927,8 @@
       }
     },
     {
-      "key": "n1-0663",
-      "sequence_no": 663,
+      "key": "n1-0664",
+      "sequence_no": 664,
       "word": "潜入",
       "reading": "せんにゅう",
       "meaning_ko": "잠입; 몰래 들어감",
@@ -4927,8 +4958,8 @@
       }
     },
     {
-      "key": "n1-0664",
-      "sequence_no": 664,
+      "key": "n1-0665",
+      "sequence_no": 665,
       "word": "規約",
       "reading": "きやく",
       "meaning_ko": "규약; 운영 규칙",
@@ -4958,8 +4989,8 @@
       }
     },
     {
-      "key": "n1-0665",
-      "sequence_no": 665,
+      "key": "n1-0666",
+      "sequence_no": 666,
       "word": "改訂",
       "reading": "かいてい",
       "meaning_ko": "개정; 내용 수정",
@@ -4989,8 +5020,8 @@
       }
     },
     {
-      "key": "n1-0666",
-      "sequence_no": 666,
+      "key": "n1-0667",
+      "sequence_no": 667,
       "word": "出動",
       "reading": "しゅつどう",
       "meaning_ko": "출동",
@@ -5020,8 +5051,8 @@
       }
     },
     {
-      "key": "n1-0667",
-      "sequence_no": 667,
+      "key": "n1-0668",
+      "sequence_no": 668,
       "word": "色彩",
       "reading": "しきさい",
       "meaning_ko": "색채; 색감; 사상적 성격",
@@ -5051,8 +5082,8 @@
       }
     },
     {
-      "key": "n1-0668",
-      "sequence_no": 668,
+      "key": "n1-0669",
+      "sequence_no": 669,
       "word": "略奪",
       "reading": "りゃくだつ",
       "meaning_ko": "약탈; 강제로 빼앗음",
@@ -5082,8 +5113,8 @@
       }
     },
     {
-      "key": "n1-0669",
-      "sequence_no": 669,
+      "key": "n1-0670",
+      "sequence_no": 670,
       "word": "選考",
       "reading": "せんこう",
       "meaning_ko": "전형; 심사하여 선발함",
@@ -5113,8 +5144,8 @@
       }
     },
     {
-      "key": "n1-0670",
-      "sequence_no": 670,
+      "key": "n1-0671",
+      "sequence_no": 671,
       "word": "国有",
       "reading": "こくゆう",
       "meaning_ko": "국유; 국가 소유",
@@ -5144,8 +5175,8 @@
       }
     },
     {
-      "key": "n1-0671",
-      "sequence_no": 671,
+      "key": "n1-0672",
+      "sequence_no": 672,
       "word": "情緒",
       "reading": "じょうしょ",
       "meaning_ko": "정서; 감정의 분위기",
@@ -5175,8 +5206,8 @@
       }
     },
     {
-      "key": "n1-0672",
-      "sequence_no": 672,
+      "key": "n1-0673",
+      "sequence_no": 673,
       "word": "出品",
       "reading": "しゅっぴん",
       "meaning_ko": "출품; 상품을 내놓음",
@@ -5206,8 +5237,8 @@
       }
     },
     {
-      "key": "n1-0673",
-      "sequence_no": 673,
+      "key": "n1-0674",
+      "sequence_no": 674,
       "word": "配分",
       "reading": "はいぶん",
       "meaning_ko": "배분; 몫을 나눔",
@@ -5237,8 +5268,8 @@
       }
     },
     {
-      "key": "n1-0674",
-      "sequence_no": 674,
+      "key": "n1-0675",
+      "sequence_no": 675,
       "word": "悲観",
       "reading": "ひかん",
       "meaning_ko": "비관; 부정적으로 전망함",
@@ -5268,8 +5299,8 @@
       }
     },
     {
-      "key": "n1-0675",
-      "sequence_no": 675,
+      "key": "n1-0676",
+      "sequence_no": 676,
       "word": "無茶",
       "reading": "むちゃ",
       "meaning_ko": "무리함; 터무니없음; 난폭함",
@@ -5299,8 +5330,8 @@
       }
     },
     {
-      "key": "n1-0676",
-      "sequence_no": 676,
+      "key": "n1-0677",
+      "sequence_no": 677,
       "word": "公立",
       "reading": "こうりつ",
       "meaning_ko": "공립; 지방자치단체가 설립·운영함",
@@ -5330,8 +5361,8 @@
       }
     },
     {
-      "key": "n1-0677",
-      "sequence_no": 677,
+      "key": "n1-0678",
+      "sequence_no": 678,
       "word": "合間",
       "reading": "あいま",
       "meaning_ko": "틈; 짬; 사이 시간",
@@ -5361,8 +5392,8 @@
       }
     },
     {
-      "key": "n1-0678",
-      "sequence_no": 678,
+      "key": "n1-0679",
+      "sequence_no": 679,
       "word": "制約",
       "reading": "せいやく",
       "meaning_ko": "제약; 제한 조건",
@@ -5392,8 +5423,8 @@
       }
     },
     {
-      "key": "n1-0679",
-      "sequence_no": 679,
+      "key": "n1-0680",
+      "sequence_no": 680,
       "word": "良質",
       "reading": "りょうしつ",
       "meaning_ko": "양질; 품질이 좋음",
@@ -5423,8 +5454,8 @@
       }
     },
     {
-      "key": "n1-0680",
-      "sequence_no": 680,
+      "key": "n1-0681",
+      "sequence_no": 681,
       "word": "盛大",
       "reading": "せいだい",
       "meaning_ko": "성대함; 규모가 크고 화려함",
@@ -5444,8 +5475,8 @@
       }
     },
     {
-      "key": "n1-0681",
-      "sequence_no": 681,
+      "key": "n1-0682",
+      "sequence_no": 682,
       "word": "未定",
       "reading": "みてい",
       "meaning_ko": "미정; 아직 정해지지 않음",
@@ -5475,8 +5506,8 @@
       }
     },
     {
-      "key": "n1-0682",
-      "sequence_no": 682,
+      "key": "n1-0683",
+      "sequence_no": 683,
       "word": "落下",
       "reading": "らっか",
       "meaning_ko": "낙하; 떨어짐",
@@ -5506,8 +5537,8 @@
       }
     },
     {
-      "key": "n1-0683",
-      "sequence_no": 683,
+      "key": "n1-0684",
+      "sequence_no": 684,
       "word": "飼育",
       "reading": "しいく",
       "meaning_ko": "사육; 길러 기름",
@@ -5537,8 +5568,8 @@
       }
     },
     {
-      "key": "n1-0684",
-      "sequence_no": 684,
+      "key": "n1-0685",
+      "sequence_no": 685,
       "word": "宿命",
       "reading": "しゅくめい",
       "meaning_ko": "숙명; 피하기 어려운 운명",
@@ -5568,27 +5599,28 @@
       }
     },
     {
-      "key": "n1-0685",
-      "sequence_no": 685,
+      "key": "n1-0686",
+      "sequence_no": 686,
       "word": "地形",
-      "reading": "じぎょう",
+      "reading": "ちけい",
       "meaning_ko": "지형",
-      "meaning_ja": "地表の形態。",
+      "meaning_ja": "山・谷・平野など、地表が形作る起伏や形状。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "この地域は地形が複雑なため、短い距離でも気候が大きく異なる。",
+      "example_ko": "이 지역은 지형이 복잡해서 짧은 거리에서도 기후가 크게 다르다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1421030",
-        "meaning_en": "terrain, geographical features, topography",
-        "curated_file": null,
-        "curated_original_key": null,
+        "candidate_source": "openai-assisted-manual-curation-lock",
+        "jmdict_seq": null,
+        "meaning_en": "",
+        "curated_file": "data/jlpt/production/curation/words/0681-0700.json",
+        "curated_original_key": "n1-0686",
         "legacy_curated_file": null,
         "krdict": {
-          "score": 3,
+          "score": 5,
           "reasons": [
-            "surface_exact"
+            "surface_exact",
+            "reading_exact"
           ],
           "source_file": "009.xml",
           "meaning_ko": "지형",
@@ -5598,8 +5630,8 @@
       }
     },
     {
-      "key": "n1-0686",
-      "sequence_no": 686,
+      "key": "n1-0687",
+      "sequence_no": 687,
       "word": "斜面",
       "reading": "しゃめん",
       "meaning_ko": "사면; 비탈면",
@@ -5619,8 +5651,8 @@
       }
     },
     {
-      "key": "n1-0687",
-      "sequence_no": 687,
+      "key": "n1-0688",
+      "sequence_no": 688,
       "word": "規範",
       "reading": "きはん",
       "meaning_ko": "규범; 행동 기준",
@@ -5650,8 +5682,8 @@
       }
     },
     {
-      "key": "n1-0688",
-      "sequence_no": 688,
+      "key": "n1-0689",
+      "sequence_no": 689,
       "word": "伝言",
       "reading": "でんごん",
       "meaning_ko": "전언; 전달 메시지",
@@ -5681,8 +5713,8 @@
       }
     },
     {
-      "key": "n1-0689",
-      "sequence_no": 689,
+      "key": "n1-0690",
+      "sequence_no": 690,
       "word": "登校",
       "reading": "とうこう",
       "meaning_ko": "등교; 학교에 감",
@@ -5712,8 +5744,8 @@
       }
     },
     {
-      "key": "n1-0690",
-      "sequence_no": 690,
+      "key": "n1-0691",
+      "sequence_no": 691,
       "word": "加入",
       "reading": "かにゅう",
       "meaning_ko": "가입; 조직·보험 등에 들어감",
@@ -5743,8 +5775,8 @@
       }
     },
     {
-      "key": "n1-0691",
-      "sequence_no": 691,
+      "key": "n1-0692",
+      "sequence_no": 692,
       "word": "関税",
       "reading": "かんぜい",
       "meaning_ko": "관세",
@@ -5774,8 +5806,8 @@
       }
     },
     {
-      "key": "n1-0692",
-      "sequence_no": 692,
+      "key": "n1-0693",
+      "sequence_no": 693,
       "word": "分配",
       "reading": "ぶんぱい",
       "meaning_ko": "분배; 나누어 배정함",
@@ -5805,8 +5837,8 @@
       }
     },
     {
-      "key": "n1-0693",
-      "sequence_no": 693,
+      "key": "n1-0694",
+      "sequence_no": 694,
       "word": "結晶",
       "reading": "けっしょう",
       "meaning_ko": "결정; 결정체",
@@ -5836,8 +5868,8 @@
       }
     },
     {
-      "key": "n1-0694",
-      "sequence_no": 694,
+      "key": "n1-0695",
+      "sequence_no": 695,
       "word": "生計",
       "reading": "せいけい",
       "meaning_ko": "생계; 생활을 유지하는 수단",
@@ -5867,8 +5899,8 @@
       }
     },
     {
-      "key": "n1-0695",
-      "sequence_no": 695,
+      "key": "n1-0696",
+      "sequence_no": 696,
       "word": "目録",
       "reading": "もくろく",
       "meaning_ko": "목록; 목록집",
@@ -5898,8 +5930,8 @@
       }
     },
     {
-      "key": "n1-0696",
-      "sequence_no": 696,
+      "key": "n1-0697",
+      "sequence_no": 697,
       "word": "火星",
       "reading": "かせい",
       "meaning_ko": "화성",
@@ -5929,8 +5961,8 @@
       }
     },
     {
-      "key": "n1-0697",
-      "sequence_no": 697,
+      "key": "n1-0698",
+      "sequence_no": 698,
       "word": "強硬",
       "reading": "きょうこう",
       "meaning_ko": "강경; 타협하지 않는 태도",
@@ -5960,8 +5992,8 @@
       }
     },
     {
-      "key": "n1-0698",
-      "sequence_no": 698,
+      "key": "n1-0699",
+      "sequence_no": 699,
       "word": "入浴",
       "reading": "にゅうよく",
       "meaning_ko": "입욕; 목욕함",
@@ -5991,8 +6023,8 @@
       }
     },
     {
-      "key": "n1-0699",
-      "sequence_no": 699,
+      "key": "n1-0700",
+      "sequence_no": 700,
       "word": "補償",
       "reading": "ほしょう",
       "meaning_ko": "보상; 손실을 메움",
@@ -6022,8 +6054,8 @@
       }
     },
     {
-      "key": "n1-0700",
-      "sequence_no": 700,
+      "key": "n1-0701",
+      "sequence_no": 701,
       "word": "合唱",
       "reading": "がっしょう",
       "meaning_ko": "합창; 여러 사람이 함께 노래함",
@@ -6053,8 +6085,8 @@
       }
     },
     {
-      "key": "n1-0701",
-      "sequence_no": 701,
+      "key": "n1-0702",
+      "sequence_no": 702,
       "word": "収支",
       "reading": "しゅうし",
       "meaning_ko": "수지; 수입과 지출",
@@ -6084,8 +6116,8 @@
       }
     },
     {
-      "key": "n1-0702",
-      "sequence_no": 702,
+      "key": "n1-0703",
+      "sequence_no": 703,
       "word": "展望",
       "reading": "てんぼう",
       "meaning_ko": "전망; 앞날에 대한 예상; 조망",
@@ -6115,8 +6147,8 @@
       }
     },
     {
-      "key": "n1-0703",
-      "sequence_no": 703,
+      "key": "n1-0704",
+      "sequence_no": 704,
       "word": "生死",
       "reading": "せいし",
       "meaning_ko": "생사; 삶과 죽음",
@@ -6146,8 +6178,8 @@
       }
     },
     {
-      "key": "n1-0704",
-      "sequence_no": 704,
+      "key": "n1-0705",
+      "sequence_no": 705,
       "word": "独創",
       "reading": "どくそう",
       "meaning_ko": "독창; 새로운 것을 독자적으로 만들어 냄",
@@ -6167,8 +6199,8 @@
       }
     },
     {
-      "key": "n1-0705",
-      "sequence_no": 705,
+      "key": "n1-0706",
+      "sequence_no": 706,
       "word": "動力",
       "reading": "どうりょく",
       "meaning_ko": "동력; 기계를 움직이는 힘",
@@ -6198,8 +6230,8 @@
       }
     },
     {
-      "key": "n1-0706",
-      "sequence_no": 706,
+      "key": "n1-0707",
+      "sequence_no": 707,
       "word": "補充",
       "reading": "ほじゅう",
       "meaning_ko": "보충; 부족한 것을 채움",
@@ -6229,8 +6261,8 @@
       }
     },
     {
-      "key": "n1-0707",
-      "sequence_no": 707,
+      "key": "n1-0708",
+      "sequence_no": 708,
       "word": "楽譜",
       "reading": "がくふ",
       "meaning_ko": "악보",
@@ -6260,8 +6292,8 @@
       }
     },
     {
-      "key": "n1-0708",
-      "sequence_no": 708,
+      "key": "n1-0709",
+      "sequence_no": 709,
       "word": "不意",
       "reading": "ふい",
       "meaning_ko": "불의; 갑작스러움; 뜻밖",
@@ -6291,8 +6323,8 @@
       }
     },
     {
-      "key": "n1-0709",
-      "sequence_no": 709,
+      "key": "n1-0710",
+      "sequence_no": 710,
       "word": "気質",
       "reading": "かたぎ",
       "meaning_ko": "기질; 특정 집단에 전형적인 성향",
@@ -6312,8 +6344,8 @@
       }
     },
     {
-      "key": "n1-0710",
-      "sequence_no": 710,
+      "key": "n1-0711",
+      "sequence_no": 711,
       "word": "有益",
       "reading": "ゆうえき",
       "meaning_ko": "유익; 도움이 됨",
@@ -6343,27 +6375,28 @@
       }
     },
     {
-      "key": "n1-0711",
-      "sequence_no": 711,
+      "key": "n1-0712",
+      "sequence_no": 712,
       "word": "執着",
-      "reading": "しゅうじゃく",
-      "meaning_ko": "집착",
-      "meaning_ja": "ある一つの事に心をとらわれ、そこから離れられなくてこだわること。",
+      "reading": "しゅうちゃく",
+      "meaning_ko": "집착; 지나치게 매달림",
+      "meaning_ja": "一つの物事・考えなどに強く心を引かれ、そこから離れられないこと。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "過去の成功例に執着すると、環境の変化に対応できなくなることがある。",
+      "example_ko": "과거의 성공 사례에 집착하면 환경 변화에 대응하지 못할 수 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1594740",
-        "meaning_en": "attachment, adhesion, tenacity",
-        "curated_file": null,
-        "curated_original_key": null,
+        "candidate_source": "openai-assisted-manual-curation-lock",
+        "jmdict_seq": null,
+        "meaning_en": "",
+        "curated_file": "data/jlpt/production/curation/words/0701-0720.json",
+        "curated_original_key": "n1-0712",
         "legacy_curated_file": null,
         "krdict": {
-          "score": 3,
+          "score": 5,
           "reasons": [
-            "surface_exact"
+            "surface_exact",
+            "reading_exact"
           ],
           "source_file": "009.xml",
           "meaning_ko": "집착",
@@ -6373,8 +6406,8 @@
       }
     },
     {
-      "key": "n1-0712",
-      "sequence_no": 712,
+      "key": "n1-0713",
+      "sequence_no": 713,
       "word": "心情",
       "reading": "しんじょう",
       "meaning_ko": "심정; 마음속 감정",
@@ -6404,8 +6437,8 @@
       }
     },
     {
-      "key": "n1-0713",
-      "sequence_no": 713,
+      "key": "n1-0714",
+      "sequence_no": 714,
       "word": "語彙",
       "reading": "ごい",
       "meaning_ko": "어휘; 단어의 총체",
@@ -6435,8 +6468,8 @@
       }
     },
     {
-      "key": "n1-0714",
-      "sequence_no": 714,
+      "key": "n1-0715",
+      "sequence_no": 715,
       "word": "化石",
       "reading": "かせき",
       "meaning_ko": "화석",
@@ -6466,8 +6499,8 @@
       }
     },
     {
-      "key": "n1-0715",
-      "sequence_no": 715,
+      "key": "n1-0716",
+      "sequence_no": 716,
       "word": "募金",
       "reading": "ぼきん",
       "meaning_ko": "모금; 기부금을 모음",
@@ -6497,8 +6530,8 @@
       }
     },
     {
-      "key": "n1-0716",
-      "sequence_no": 716,
+      "key": "n1-0717",
+      "sequence_no": 717,
       "word": "山岳",
       "reading": "さんがく",
       "meaning_ko": "산악; 높고 험한 산들",
@@ -6528,8 +6561,8 @@
       }
     },
     {
-      "key": "n1-0717",
-      "sequence_no": 717,
+      "key": "n1-0718",
+      "sequence_no": 718,
       "word": "改定",
       "reading": "かいてい",
       "meaning_ko": "개정; 규정·가격 등을 새로 정함",
@@ -6559,8 +6592,8 @@
       }
     },
     {
-      "key": "n1-0718",
-      "sequence_no": 718,
+      "key": "n1-0719",
+      "sequence_no": 719,
       "word": "風習",
       "reading": "ふうしゅう",
       "meaning_ko": "풍습; 오래된 생활 관습",
@@ -6590,8 +6623,8 @@
       }
     },
     {
-      "key": "n1-0719",
-      "sequence_no": 719,
+      "key": "n1-0720",
+      "sequence_no": 720,
       "word": "衣類",
       "reading": "いるい",
       "meaning_ko": "의류; 옷가지",
@@ -6621,8 +6654,8 @@
       }
     },
     {
-      "key": "n1-0720",
-      "sequence_no": 720,
+      "key": "n1-0721",
+      "sequence_no": 721,
       "word": "小銭",
       "reading": "こぜに",
       "meaning_ko": "잔돈; 동전",
@@ -6652,8 +6685,8 @@
       }
     },
     {
-      "key": "n1-0721",
-      "sequence_no": 721,
+      "key": "n1-0722",
+      "sequence_no": 722,
       "word": "終始",
       "reading": "しゅうし",
       "meaning_ko": "시종; 처음부터 끝까지",
@@ -6683,8 +6716,8 @@
       }
     },
     {
-      "key": "n1-0722",
-      "sequence_no": 722,
+      "key": "n1-0723",
+      "sequence_no": 723,
       "word": "人柄",
       "reading": "ひとがら",
       "meaning_ko": "인품; 사람됨; 성품",
@@ -6714,8 +6747,8 @@
       }
     },
     {
-      "key": "n1-0723",
-      "sequence_no": 723,
+      "key": "n1-0724",
+      "sequence_no": 724,
       "word": "利子",
       "reading": "りし",
       "meaning_ko": "이자",
@@ -6745,8 +6778,8 @@
       }
     },
     {
-      "key": "n1-0724",
-      "sequence_no": 724,
+      "key": "n1-0725",
+      "sequence_no": 725,
       "word": "除外",
       "reading": "じょがい",
       "meaning_ko": "제외; 배제",
@@ -6776,8 +6809,8 @@
       }
     },
     {
-      "key": "n1-0725",
-      "sequence_no": 725,
+      "key": "n1-0726",
+      "sequence_no": 726,
       "word": "月日",
       "reading": "がっぴ",
       "meaning_ko": "월일; 날짜",
@@ -6797,8 +6830,8 @@
       }
     },
     {
-      "key": "n1-0726",
-      "sequence_no": 726,
+      "key": "n1-0727",
+      "sequence_no": 727,
       "word": "交易",
       "reading": "こうえき",
       "meaning_ko": "교역; 무역",
@@ -6828,8 +6861,8 @@
       }
     },
     {
-      "key": "n1-0727",
-      "sequence_no": 727,
+      "key": "n1-0728",
+      "sequence_no": 728,
       "word": "同等",
       "reading": "どうとう",
       "meaning_ko": "동등; 같은 수준",
@@ -6859,8 +6892,8 @@
       }
     },
     {
-      "key": "n1-0728",
-      "sequence_no": 728,
+      "key": "n1-0729",
+      "sequence_no": 729,
       "word": "合致",
       "reading": "がっち",
       "meaning_ko": "합치; 일치",
@@ -6890,8 +6923,8 @@
       }
     },
     {
-      "key": "n1-0729",
-      "sequence_no": 729,
+      "key": "n1-0730",
+      "sequence_no": 730,
       "word": "原油",
       "reading": "げんゆ",
       "meaning_ko": "원유",
@@ -6921,8 +6954,8 @@
       }
     },
     {
-      "key": "n1-0730",
-      "sequence_no": 730,
+      "key": "n1-0731",
+      "sequence_no": 731,
       "word": "有望",
       "reading": "ゆうぼう",
       "meaning_ko": "유망함; 장래성이 있음",
@@ -6952,8 +6985,8 @@
       }
     },
     {
-      "key": "n1-0731",
-      "sequence_no": 731,
+      "key": "n1-0732",
+      "sequence_no": 732,
       "word": "満月",
       "reading": "まんげつ",
       "meaning_ko": "보름달; 만월",
@@ -6983,8 +7016,8 @@
       }
     },
     {
-      "key": "n1-0732",
-      "sequence_no": 732,
+      "key": "n1-0733",
+      "sequence_no": 733,
       "word": "中傷",
       "reading": "ちゅうしょう",
       "meaning_ko": "중상; 근거 없는 비방",
@@ -7014,8 +7047,8 @@
       }
     },
     {
-      "key": "n1-0733",
-      "sequence_no": 733,
+      "key": "n1-0734",
+      "sequence_no": 734,
       "word": "保育",
       "reading": "ほいく",
       "meaning_ko": "보육",
@@ -7045,8 +7078,8 @@
       }
     },
     {
-      "key": "n1-0734",
-      "sequence_no": 734,
+      "key": "n1-0735",
+      "sequence_no": 735,
       "word": "決算",
       "reading": "けっさん",
       "meaning_ko": "결산; 회계 마감",
@@ -7076,8 +7109,8 @@
       }
     },
     {
-      "key": "n1-0735",
-      "sequence_no": 735,
+      "key": "n1-0736",
+      "sequence_no": 736,
       "word": "言論",
       "reading": "げんろん",
       "meaning_ko": "언론; 말과 글을 통한 의견 표현",
@@ -7107,8 +7140,8 @@
       }
     },
     {
-      "key": "n1-0736",
-      "sequence_no": 736,
+      "key": "n1-0737",
+      "sequence_no": 737,
       "word": "論議",
       "reading": "ろんぎ",
       "meaning_ko": "논의; 논쟁",
@@ -7138,8 +7171,8 @@
       }
     },
     {
-      "key": "n1-0737",
-      "sequence_no": 737,
+      "key": "n1-0738",
+      "sequence_no": 738,
       "word": "再発",
       "reading": "さいはつ",
       "meaning_ko": "재발",
@@ -7169,8 +7202,8 @@
       }
     },
     {
-      "key": "n1-0738",
-      "sequence_no": 738,
+      "key": "n1-0739",
+      "sequence_no": 739,
       "word": "電線",
       "reading": "でんせん",
       "meaning_ko": "전선; 전깃줄",
@@ -7200,8 +7233,8 @@
       }
     },
     {
-      "key": "n1-0739",
-      "sequence_no": 739,
+      "key": "n1-0740",
+      "sequence_no": 740,
       "word": "陶器",
       "reading": "とうき",
       "meaning_ko": "도기; 도자기",
@@ -7231,8 +7264,8 @@
       }
     },
     {
-      "key": "n1-0740",
-      "sequence_no": 740,
+      "key": "n1-0741",
+      "sequence_no": 741,
       "word": "教材",
       "reading": "きょうざい",
       "meaning_ko": "교재; 학습 자료",
@@ -7262,8 +7295,8 @@
       }
     },
     {
-      "key": "n1-0741",
-      "sequence_no": 741,
+      "key": "n1-0742",
+      "sequence_no": 742,
       "word": "同居",
       "reading": "どうきょ",
       "meaning_ko": "동거; 함께 거주함",
@@ -7293,8 +7326,8 @@
       }
     },
     {
-      "key": "n1-0742",
-      "sequence_no": 742,
+      "key": "n1-0743",
+      "sequence_no": 743,
       "word": "調停",
       "reading": "ちょうてい",
       "meaning_ko": "조정; 중재",
@@ -7324,8 +7357,8 @@
       }
     },
     {
-      "key": "n1-0743",
-      "sequence_no": 743,
+      "key": "n1-0744",
+      "sequence_no": 744,
       "word": "主観",
       "reading": "しゅかん",
       "meaning_ko": "주관; 주관적 관점",
@@ -7355,8 +7388,8 @@
       }
     },
     {
-      "key": "n1-0744",
-      "sequence_no": 744,
+      "key": "n1-0745",
+      "sequence_no": 745,
       "word": "天地",
       "reading": "あめつち",
       "meaning_ko": "천지; 하늘과 땅",
@@ -7386,8 +7419,8 @@
       }
     },
     {
-      "key": "n1-0745",
-      "sequence_no": 745,
+      "key": "n1-0746",
+      "sequence_no": 746,
       "word": "運搬",
       "reading": "うんぱん",
       "meaning_ko": "운반; 운송",
@@ -7417,8 +7450,8 @@
       }
     },
     {
-      "key": "n1-0746",
-      "sequence_no": 746,
+      "key": "n1-0747",
+      "sequence_no": 747,
       "word": "交互",
       "reading": "こうご",
       "meaning_ko": "교대로; 번갈아",
@@ -7438,8 +7471,8 @@
       }
     },
     {
-      "key": "n1-0747",
-      "sequence_no": 747,
+      "key": "n1-0748",
+      "sequence_no": 748,
       "word": "日焼け",
       "reading": "ひやけ",
       "meaning_ko": "햇볕에 탐; 선탠",
@@ -7459,8 +7492,8 @@
       }
     },
     {
-      "key": "n1-0748",
-      "sequence_no": 748,
+      "key": "n1-0749",
+      "sequence_no": 749,
       "word": "連帯",
       "reading": "れんたい",
       "meaning_ko": "연대; 공동 책임",
@@ -7490,8 +7523,8 @@
       }
     },
     {
-      "key": "n1-0749",
-      "sequence_no": 749,
+      "key": "n1-0750",
+      "sequence_no": 750,
       "word": "土台",
       "reading": "どだい",
       "meaning_ko": "토대; 기반; 기초",
@@ -7521,8 +7554,8 @@
       }
     },
     {
-      "key": "n1-0750",
-      "sequence_no": 750,
+      "key": "n1-0751",
+      "sequence_no": 751,
       "word": "年長",
       "reading": "ねんちょう",
       "meaning_ko": "연장; 나이가 더 많음",
@@ -7552,8 +7585,8 @@
       }
     },
     {
-      "key": "n1-0751",
-      "sequence_no": 751,
+      "key": "n1-0752",
+      "sequence_no": 752,
       "word": "素朴",
       "reading": "そぼく",
       "meaning_ko": "소박함; 꾸밈없음",
@@ -7583,8 +7616,8 @@
       }
     },
     {
-      "key": "n1-0752",
-      "sequence_no": 752,
+      "key": "n1-0753",
+      "sequence_no": 753,
       "word": "異動",
       "reading": "いどう",
       "meaning_ko": "인사이동; 보직 변경",
@@ -7604,8 +7637,8 @@
       }
     },
     {
-      "key": "n1-0753",
-      "sequence_no": 753,
+      "key": "n1-0754",
+      "sequence_no": 754,
       "word": "元来",
       "reading": "がんらい",
       "meaning_ko": "원래; 본래",
@@ -7635,8 +7668,8 @@
       }
     },
     {
-      "key": "n1-0754",
-      "sequence_no": 754,
+      "key": "n1-0755",
+      "sequence_no": 755,
       "word": "送金",
       "reading": "そうきん",
       "meaning_ko": "송금",
@@ -7666,8 +7699,8 @@
       }
     },
     {
-      "key": "n1-0755",
-      "sequence_no": 755,
+      "key": "n1-0756",
+      "sequence_no": 756,
       "word": "対等",
       "reading": "たいとう",
       "meaning_ko": "대등함; 동등한 관계",
@@ -7697,8 +7730,8 @@
       }
     },
     {
-      "key": "n1-0756",
-      "sequence_no": 756,
+      "key": "n1-0757",
+      "sequence_no": 757,
       "word": "運輸",
       "reading": "うんゆ",
       "meaning_ko": "운수; 운송",
@@ -7718,8 +7751,8 @@
       }
     },
     {
-      "key": "n1-0757",
-      "sequence_no": 757,
+      "key": "n1-0758",
+      "sequence_no": 758,
       "word": "応急",
       "reading": "おうきゅう",
       "meaning_ko": "응급; 임시 대응",
@@ -7749,8 +7782,8 @@
       }
     },
     {
-      "key": "n1-0758",
-      "sequence_no": 758,
+      "key": "n1-0759",
+      "sequence_no": 759,
       "word": "志向",
       "reading": "しこう",
       "meaning_ko": "지향; 특정 방향을 추구함",
@@ -7780,8 +7813,8 @@
       }
     },
     {
-      "key": "n1-0759",
-      "sequence_no": 759,
+      "key": "n1-0760",
+      "sequence_no": 760,
       "word": "立体",
       "reading": "りったい",
       "meaning_ko": "입체; 입체물",
@@ -7811,8 +7844,8 @@
       }
     },
     {
-      "key": "n1-0760",
-      "sequence_no": 760,
+      "key": "n1-0761",
+      "sequence_no": 761,
       "word": "暗示",
       "reading": "あんじ",
       "meaning_ko": "암시; 넌지시 알려 줌",
@@ -7842,8 +7875,8 @@
       }
     },
     {
-      "key": "n1-0761",
-      "sequence_no": 761,
+      "key": "n1-0762",
+      "sequence_no": 762,
       "word": "語源",
       "reading": "ごげん",
       "meaning_ko": "어원",
@@ -7873,8 +7906,8 @@
       }
     },
     {
-      "key": "n1-0762",
-      "sequence_no": 762,
+      "key": "n1-0763",
+      "sequence_no": 763,
       "word": "周期",
       "reading": "しゅうき",
       "meaning_ko": "주기; 반복되는 기간",
@@ -7904,8 +7937,8 @@
       }
     },
     {
-      "key": "n1-0763",
-      "sequence_no": 763,
+      "key": "n1-0764",
+      "sequence_no": 764,
       "word": "年頃",
       "reading": "としごろ",
       "meaning_ko": "나이대; 그럴 나이",
@@ -7925,8 +7958,8 @@
       }
     },
     {
-      "key": "n1-0764",
-      "sequence_no": 764,
+      "key": "n1-0765",
+      "sequence_no": 765,
       "word": "寄与",
       "reading": "きよ",
       "meaning_ko": "기여; 공헌",
@@ -7956,8 +7989,8 @@
       }
     },
     {
-      "key": "n1-0765",
-      "sequence_no": 765,
+      "key": "n1-0766",
+      "sequence_no": 766,
       "word": "集計",
       "reading": "しゅうけい",
       "meaning_ko": "집계; 합산",
@@ -7987,8 +8020,8 @@
       }
     },
     {
-      "key": "n1-0766",
-      "sequence_no": 766,
+      "key": "n1-0767",
+      "sequence_no": 767,
       "word": "半端",
       "reading": "はんぱ",
       "meaning_ko": "어중간함; 불완전함; 중途반단",
@@ -8018,8 +8051,8 @@
       }
     },
     {
-      "key": "n1-0767",
-      "sequence_no": 767,
+      "key": "n1-0768",
+      "sequence_no": 768,
       "word": "肥料",
       "reading": "ひりょう",
       "meaning_ko": "비료; 거름",
@@ -8049,8 +8082,8 @@
       }
     },
     {
-      "key": "n1-0768",
-      "sequence_no": 768,
+      "key": "n1-0769",
+      "sequence_no": 769,
       "word": "断言",
       "reading": "だんげん",
       "meaning_ko": "단언; 장담",
@@ -8080,8 +8113,8 @@
       }
     },
     {
-      "key": "n1-0769",
-      "sequence_no": 769,
+      "key": "n1-0770",
+      "sequence_no": 770,
       "word": "戦力",
       "reading": "せんりょく",
       "meaning_ko": "전력; 싸울 수 있는 능력",
@@ -8111,8 +8144,8 @@
       }
     },
     {
-      "key": "n1-0770",
-      "sequence_no": 770,
+      "key": "n1-0771",
+      "sequence_no": 771,
       "word": "議案",
       "reading": "ぎあん",
       "meaning_ko": "의안; 회의 안건",
@@ -8142,8 +8175,8 @@
       }
     },
     {
-      "key": "n1-0771",
-      "sequence_no": 771,
+      "key": "n1-0772",
+      "sequence_no": 772,
       "word": "一息",
       "reading": "ひといき",
       "meaning_ko": "한숨; 잠깐의 휴식; 한 번에",
@@ -8173,8 +8206,8 @@
       }
     },
     {
-      "key": "n1-0772",
-      "sequence_no": 772,
+      "key": "n1-0773",
+      "sequence_no": 773,
       "word": "議決",
       "reading": "ぎけつ",
       "meaning_ko": "의결; 결의",
@@ -8204,8 +8237,8 @@
       }
     },
     {
-      "key": "n1-0773",
-      "sequence_no": 773,
+      "key": "n1-0774",
+      "sequence_no": 774,
       "word": "制裁",
       "reading": "せいさい",
       "meaning_ko": "제재; 처벌 조치",
@@ -8235,8 +8268,8 @@
       }
     },
     {
-      "key": "n1-0774",
-      "sequence_no": 774,
+      "key": "n1-0775",
+      "sequence_no": 775,
       "word": "家計",
       "reading": "かけい",
       "meaning_ko": "가계; 가정의 수입과 지출",
@@ -8266,8 +8299,8 @@
       }
     },
     {
-      "key": "n1-0775",
-      "sequence_no": 775,
+      "key": "n1-0776",
+      "sequence_no": 776,
       "word": "反響",
       "reading": "はんきょう",
       "meaning_ko": "반향; 큰 반응; 울림",
@@ -8297,8 +8330,8 @@
       }
     },
     {
-      "key": "n1-0776",
-      "sequence_no": 776,
+      "key": "n1-0777",
+      "sequence_no": 777,
       "word": "自在",
       "reading": "じざい",
       "meaning_ko": "자유자재; 마음대로 다룸",
@@ -8318,8 +8351,8 @@
       }
     },
     {
-      "key": "n1-0777",
-      "sequence_no": 777,
+      "key": "n1-0778",
+      "sequence_no": 778,
       "word": "神殿",
       "reading": "しんでん",
       "meaning_ko": "신전",
@@ -8349,8 +8382,8 @@
       }
     },
     {
-      "key": "n1-0778",
-      "sequence_no": 778,
+      "key": "n1-0779",
+      "sequence_no": 779,
       "word": "様相",
       "reading": "ようそう",
       "meaning_ko": "양상; 모습; 상태",
@@ -8380,8 +8413,8 @@
       }
     },
     {
-      "key": "n1-0779",
-      "sequence_no": 779,
+      "key": "n1-0780",
+      "sequence_no": 780,
       "word": "富豪",
       "reading": "ふごう",
       "meaning_ko": "부호; 매우 큰 부자",
@@ -8411,8 +8444,8 @@
       }
     },
     {
-      "key": "n1-0780",
-      "sequence_no": 780,
+      "key": "n1-0781",
+      "sequence_no": 781,
       "word": "変遷",
       "reading": "へんせん",
       "meaning_ko": "변천; 변화 과정",
@@ -8442,8 +8475,8 @@
       }
     },
     {
-      "key": "n1-0781",
-      "sequence_no": 781,
+      "key": "n1-0782",
+      "sequence_no": 782,
       "word": "気軽",
       "reading": "きがる",
       "meaning_ko": "가벼운 마음; 부담 없음; 편하게",
@@ -8463,8 +8496,8 @@
       }
     },
     {
-      "key": "n1-0782",
-      "sequence_no": 782,
+      "key": "n1-0783",
+      "sequence_no": 783,
       "word": "外来",
       "reading": "がいらい",
       "meaning_ko": "외래; 외부에서 들어옴",
@@ -8494,8 +8527,8 @@
       }
     },
     {
-      "key": "n1-0783",
-      "sequence_no": 783,
+      "key": "n1-0784",
+      "sequence_no": 784,
       "word": "音色",
       "reading": "ねいろ",
       "meaning_ko": "음색",
@@ -8525,8 +8558,8 @@
       }
     },
     {
-      "key": "n1-0784",
-      "sequence_no": 784,
+      "key": "n1-0785",
+      "sequence_no": 785,
       "word": "公然",
       "reading": "こうぜん",
       "meaning_ko": "공공연히; 숨김없이",
@@ -8546,8 +8579,8 @@
       }
     },
     {
-      "key": "n1-0785",
-      "sequence_no": 785,
+      "key": "n1-0786",
+      "sequence_no": 786,
       "word": "近郊",
       "reading": "きんこう",
       "meaning_ko": "근교; 도시 주변 지역",
@@ -8577,8 +8610,8 @@
       }
     },
     {
-      "key": "n1-0786",
-      "sequence_no": 786,
+      "key": "n1-0787",
+      "sequence_no": 787,
       "word": "排水",
       "reading": "はいすい",
       "meaning_ko": "배수; 물을 빼냄",
@@ -8608,8 +8641,8 @@
       }
     },
     {
-      "key": "n1-0787",
-      "sequence_no": 787,
+      "key": "n1-0788",
+      "sequence_no": 788,
       "word": "万能",
       "reading": "ばんのう",
       "meaning_ko": "만능; 무엇에나 쓸 수 있음",
@@ -8639,8 +8672,8 @@
       }
     },
     {
-      "key": "n1-0788",
-      "sequence_no": 788,
+      "key": "n1-0789",
+      "sequence_no": 789,
       "word": "優勢",
       "reading": "ゆうせい",
       "meaning_ko": "우세; 더 유리함",
@@ -8670,8 +8703,8 @@
       }
     },
     {
-      "key": "n1-0789",
-      "sequence_no": 789,
+      "key": "n1-0790",
+      "sequence_no": 790,
       "word": "転落",
       "reading": "てんらく",
       "meaning_ko": "추락; 전락",
@@ -8701,8 +8734,8 @@
       }
     },
     {
-      "key": "n1-0790",
-      "sequence_no": 790,
+      "key": "n1-0791",
+      "sequence_no": 791,
       "word": "心中",
       "reading": "しんじゅう",
       "meaning_ko": "동반자살; 함께 자살함",
@@ -8722,8 +8755,8 @@
       }
     },
     {
-      "key": "n1-0791",
-      "sequence_no": 791,
+      "key": "n1-0792",
+      "sequence_no": 792,
       "word": "補強",
       "reading": "ほきょう",
       "meaning_ko": "보강; 강도를 높임",
@@ -8753,8 +8786,8 @@
       }
     },
     {
-      "key": "n1-0792",
-      "sequence_no": 792,
+      "key": "n1-0793",
+      "sequence_no": 793,
       "word": "化合",
       "reading": "かごう",
       "meaning_ko": "화합; 화학적으로 결합함",
@@ -8784,8 +8817,8 @@
       }
     },
     {
-      "key": "n1-0793",
-      "sequence_no": 793,
+      "key": "n1-0794",
+      "sequence_no": 794,
       "word": "方策",
       "reading": "ほうさく",
       "meaning_ko": "방책; 해결 방안",
@@ -8815,8 +8848,8 @@
       }
     },
     {
-      "key": "n1-0794",
-      "sequence_no": 794,
+      "key": "n1-0795",
+      "sequence_no": 795,
       "word": "台本",
       "reading": "だいほん",
       "meaning_ko": "대본; 각본",
@@ -8846,8 +8879,8 @@
       }
     },
     {
-      "key": "n1-0795",
-      "sequence_no": 795,
+      "key": "n1-0796",
+      "sequence_no": 796,
       "word": "定年",
       "reading": "ていねん",
       "meaning_ko": "정년",
@@ -8877,8 +8910,8 @@
       }
     },
     {
-      "key": "n1-0796",
-      "sequence_no": 796,
+      "key": "n1-0797",
+      "sequence_no": 797,
       "word": "天体",
       "reading": "てんたい",
       "meaning_ko": "천체",
@@ -8908,8 +8941,8 @@
       }
     },
     {
-      "key": "n1-0797",
-      "sequence_no": 797,
+      "key": "n1-0798",
+      "sequence_no": 798,
       "word": "増強",
       "reading": "ぞうきょう",
       "meaning_ko": "증강; 강화",
@@ -8939,8 +8972,8 @@
       }
     },
     {
-      "key": "n1-0798",
-      "sequence_no": 798,
+      "key": "n1-0799",
+      "sequence_no": 799,
       "word": "労力",
       "reading": "ろうりょく",
       "meaning_ko": "노력; 수고; 노동력",
@@ -8970,8 +9003,8 @@
       }
     },
     {
-      "key": "n1-0799",
-      "sequence_no": 799,
+      "key": "n1-0800",
+      "sequence_no": 800,
       "word": "打開",
       "reading": "だかい",
       "meaning_ko": "타개; 돌파구를 엶",
@@ -9001,8 +9034,8 @@
       }
     },
     {
-      "key": "n1-0800",
-      "sequence_no": 800,
+      "key": "n1-0801",
+      "sequence_no": 801,
       "word": "同感",
       "reading": "どうかん",
       "meaning_ko": "동감; 같은 생각",
@@ -9032,8 +9065,8 @@
       }
     },
     {
-      "key": "n1-0801",
-      "sequence_no": 801,
+      "key": "n1-0802",
+      "sequence_no": 802,
       "word": "創刊",
       "reading": "そうかん",
       "meaning_ko": "창간",
@@ -9063,8 +9096,8 @@
       }
     },
     {
-      "key": "n1-0802",
-      "sequence_no": 802,
+      "key": "n1-0803",
+      "sequence_no": 803,
       "word": "成熟",
       "reading": "せいじゅく",
       "meaning_ko": "성숙; 충분히 성장함",
@@ -9094,8 +9127,8 @@
       }
     },
     {
-      "key": "n1-0803",
-      "sequence_no": 803,
+      "key": "n1-0804",
+      "sequence_no": 804,
       "word": "外貨",
       "reading": "がいか",
       "meaning_ko": "외화; 외국 통화",
@@ -9125,8 +9158,8 @@
       }
     },
     {
-      "key": "n1-0804",
-      "sequence_no": 804,
+      "key": "n1-0805",
+      "sequence_no": 805,
       "word": "父母",
       "reading": "ちちはは",
       "meaning_ko": "부모; 아버지와 어머니",
@@ -9146,8 +9179,8 @@
       }
     },
     {
-      "key": "n1-0805",
-      "sequence_no": 805,
+      "key": "n1-0806",
+      "sequence_no": 806,
       "word": "衣料",
       "reading": "いりょう",
       "meaning_ko": "의류; 의복 재료 및 옷",
@@ -9167,8 +9200,8 @@
       }
     },
     {
-      "key": "n1-0806",
-      "sequence_no": 806,
+      "key": "n1-0807",
+      "sequence_no": 807,
       "word": "一変",
       "reading": "いっぺん",
       "meaning_ko": "일변; 완전히 바뀜",
@@ -9198,27 +9231,28 @@
       }
     },
     {
-      "key": "n1-0807",
-      "sequence_no": 807,
+      "key": "n1-0808",
+      "sequence_no": 808,
       "word": "問屋",
-      "reading": "といや",
-      "meaning_ko": "중간 상인",
-      "meaning_ja": "生産者と消費者の間で商品の供給や売買を担当する商人。",
+      "reading": "とんや",
+      "meaning_ko": "도매상; 도매업자",
+      "meaning_ja": "生産者から商品を仕入れ、小売業者などへまとめて販売する業者。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "この市場には食品を扱う問屋が数多く集まっている。",
+      "example_ko": "이 시장에는 식품을 취급하는 도매상이 많이 모여 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1584790",
-        "meaning_en": "wholesale store",
-        "curated_file": null,
-        "curated_original_key": null,
+        "candidate_source": "openai-assisted-manual-curation-lock",
+        "jmdict_seq": null,
+        "meaning_en": "",
+        "curated_file": "data/jlpt/production/curation/words/0801-0820.json",
+        "curated_original_key": "n1-0808",
         "legacy_curated_file": null,
         "krdict": {
-          "score": 3,
+          "score": 5,
           "reasons": [
-            "surface_exact"
+            "surface_exact",
+            "reading_exact"
           ],
           "source_file": "009.xml",
           "meaning_ko": "중간 상인",
@@ -9228,8 +9262,8 @@
       }
     },
     {
-      "key": "n1-0808",
-      "sequence_no": 808,
+      "key": "n1-0809",
+      "sequence_no": 809,
       "word": "人情",
       "reading": "にんじょう",
       "meaning_ko": "인정; 사람의 정",
@@ -9259,8 +9293,8 @@
       }
     },
     {
-      "key": "n1-0809",
-      "sequence_no": 809,
+      "key": "n1-0810",
+      "sequence_no": 810,
       "word": "高原",
       "reading": "こうげん",
       "meaning_ko": "고원",
@@ -9290,8 +9324,8 @@
       }
     },
     {
-      "key": "n1-0810",
-      "sequence_no": 810,
+      "key": "n1-0811",
+      "sequence_no": 811,
       "word": "戯曲",
       "reading": "ぎきょく",
       "meaning_ko": "희곡",
@@ -9321,8 +9355,8 @@
       }
     },
     {
-      "key": "n1-0811",
-      "sequence_no": 811,
+      "key": "n1-0812",
+      "sequence_no": 812,
       "word": "地主",
       "reading": "じぬし",
       "meaning_ko": "지주; 토지 소유자",
@@ -9352,8 +9386,8 @@
       }
     },
     {
-      "key": "n1-0812",
-      "sequence_no": 812,
+      "key": "n1-0813",
+      "sequence_no": 813,
       "word": "外相",
       "reading": "がいしょう",
       "meaning_ko": "외무상; 외교 담당 장관",
@@ -9373,8 +9407,8 @@
       }
     },
     {
-      "key": "n1-0813",
-      "sequence_no": 813,
+      "key": "n1-0814",
+      "sequence_no": 814,
       "word": "結核",
       "reading": "けっかく",
       "meaning_ko": "결핵",
@@ -9404,8 +9438,8 @@
       }
     },
     {
-      "key": "n1-0814",
-      "sequence_no": 814,
+      "key": "n1-0815",
+      "sequence_no": 815,
       "word": "無邪気",
       "reading": "むじゃき",
       "meaning_ko": "천진난만함; 순진무구함",
@@ -9435,8 +9469,8 @@
       }
     },
     {
-      "key": "n1-0815",
-      "sequence_no": 815,
+      "key": "n1-0816",
+      "sequence_no": 816,
       "word": "津波",
       "reading": "つなみ",
       "meaning_ko": "쓰나미; 지진해일",
@@ -9466,8 +9500,8 @@
       }
     },
     {
-      "key": "n1-0816",
-      "sequence_no": 816,
+      "key": "n1-0817",
+      "sequence_no": 817,
       "word": "原爆",
       "reading": "げんばく",
       "meaning_ko": "원자폭탄; 원폭",
@@ -9497,8 +9531,8 @@
       }
     },
     {
-      "key": "n1-0817",
-      "sequence_no": 817,
+      "key": "n1-0818",
+      "sequence_no": 818,
       "word": "不振",
       "reading": "ふしん",
       "meaning_ko": "부진; 침체",
@@ -9528,8 +9562,8 @@
       }
     },
     {
-      "key": "n1-0818",
-      "sequence_no": 818,
+      "key": "n1-0819",
+      "sequence_no": 819,
       "word": "静止",
       "reading": "せいし",
       "meaning_ko": "정지; 움직이지 않음",
@@ -9559,8 +9593,8 @@
       }
     },
     {
-      "key": "n1-0819",
-      "sequence_no": 819,
+      "key": "n1-0820",
+      "sequence_no": 820,
       "word": "学説",
       "reading": "がくせつ",
       "meaning_ko": "학설; 학문적 이론",
@@ -9590,8 +9624,8 @@
       }
     },
     {
-      "key": "n1-0820",
-      "sequence_no": 820,
+      "key": "n1-0821",
+      "sequence_no": 821,
       "word": "密度",
       "reading": "みつど",
       "meaning_ko": "밀도",
@@ -9621,8 +9655,8 @@
       }
     },
     {
-      "key": "n1-0821",
-      "sequence_no": 821,
+      "key": "n1-0822",
+      "sequence_no": 822,
       "word": "値引き",
       "reading": "ねびき",
       "meaning_ko": "할인; 가격 인하",
@@ -9652,8 +9686,8 @@
       }
     },
     {
-      "key": "n1-0822",
-      "sequence_no": 822,
+      "key": "n1-0823",
+      "sequence_no": 823,
       "word": "連休",
       "reading": "れんきゅう",
       "meaning_ko": "연휴",
@@ -9683,8 +9717,8 @@
       }
     },
     {
-      "key": "n1-0823",
-      "sequence_no": 823,
+      "key": "n1-0824",
+      "sequence_no": 824,
       "word": "健在",
       "reading": "けんざい",
       "meaning_ko": "건재; 여전히 활약함",
@@ -9714,8 +9748,8 @@
       }
     },
     {
-      "key": "n1-0824",
-      "sequence_no": 824,
+      "key": "n1-0825",
+      "sequence_no": 825,
       "word": "見地",
       "reading": "けんち",
       "meaning_ko": "견지; 관점; 입장",
@@ -9745,8 +9779,8 @@
       }
     },
     {
-      "key": "n1-0825",
-      "sequence_no": 825,
+      "key": "n1-0826",
+      "sequence_no": 826,
       "word": "重宝",
       "reading": "じゅうほう",
       "meaning_ko": "매우 유용함; 소중히 여김",
@@ -9766,8 +9800,8 @@
       }
     },
     {
-      "key": "n1-0826",
-      "sequence_no": 826,
+      "key": "n1-0827",
+      "sequence_no": 827,
       "word": "引き分け",
       "reading": "ひきわけ",
       "meaning_ko": "무승부",
@@ -9797,8 +9831,8 @@
       }
     },
     {
-      "key": "n1-0827",
-      "sequence_no": 827,
+      "key": "n1-0828",
+      "sequence_no": 828,
       "word": "還元",
       "reading": "かんげん",
       "meaning_ko": "환원; 되돌려 줌",
@@ -9828,8 +9862,8 @@
       }
     },
     {
-      "key": "n1-0828",
-      "sequence_no": 828,
+      "key": "n1-0829",
+      "sequence_no": 829,
       "word": "晴天",
       "reading": "せいてん",
       "meaning_ko": "맑은 날씨; 청명한 하늘",
@@ -9859,8 +9893,8 @@
       }
     },
     {
-      "key": "n1-0829",
-      "sequence_no": 829,
+      "key": "n1-0830",
+      "sequence_no": 830,
       "word": "全滅",
       "reading": "ぜんめつ",
       "meaning_ko": "전멸; 전부 소멸함",
@@ -9890,8 +9924,8 @@
       }
     },
     {
-      "key": "n1-0830",
-      "sequence_no": 830,
+      "key": "n1-0831",
+      "sequence_no": 831,
       "word": "起点",
       "reading": "きてん",
       "meaning_ko": "기점; 출발점",
@@ -9921,27 +9955,28 @@
       }
     },
     {
-      "key": "n1-0831",
-      "sequence_no": 831,
+      "key": "n1-0832",
+      "sequence_no": 832,
       "word": "消耗",
-      "reading": "しょうこう",
-      "meaning_ko": "소모",
-      "meaning_ja": "使ってなくすこと。",
+      "reading": "しょうもう",
+      "meaning_ko": "소모; 닳아 없어짐",
+      "meaning_ja": "使うことによって物・体力・気力などが減り、弱ったりなくなったりすること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "長時間の緊張が続き、選手たちは体力も精神力も大きく消耗していた。",
+      "example_ko": "장시간 긴장이 이어져 선수들은 체력과 정신력을 크게 소모하고 있었다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1580310",
-        "meaning_en": "exhaustion, consumption",
-        "curated_file": null,
-        "curated_original_key": null,
+        "candidate_source": "openai-assisted-manual-curation-lock",
+        "jmdict_seq": null,
+        "meaning_en": "",
+        "curated_file": "data/jlpt/production/curation/words/0821-0840.json",
+        "curated_original_key": "n1-0832",
         "legacy_curated_file": null,
         "krdict": {
-          "score": 3,
+          "score": 5,
           "reasons": [
-            "surface_exact"
+            "surface_exact",
+            "reading_exact"
           ],
           "source_file": "006.xml",
           "meaning_ko": "소모",
@@ -9951,8 +9986,8 @@
       }
     },
     {
-      "key": "n1-0832",
-      "sequence_no": 832,
+      "key": "n1-0833",
+      "sequence_no": 833,
       "word": "体格",
       "reading": "たいかく",
       "meaning_ko": "체격; 몸집",
@@ -9982,8 +10017,8 @@
       }
     },
     {
-      "key": "n1-0833",
-      "sequence_no": 833,
+      "key": "n1-0834",
+      "sequence_no": 834,
       "word": "樹木",
       "reading": "じゅもく",
       "meaning_ko": "수목; 나무",
@@ -10013,8 +10048,8 @@
       }
     },
     {
-      "key": "n1-0834",
-      "sequence_no": 834,
+      "key": "n1-0835",
+      "sequence_no": 835,
       "word": "原文",
       "reading": "げんぶん",
       "meaning_ko": "원문",
@@ -10044,8 +10079,8 @@
       }
     },
     {
-      "key": "n1-0835",
-      "sequence_no": 835,
+      "key": "n1-0836",
+      "sequence_no": 836,
       "word": "野党",
       "reading": "やとう",
       "meaning_ko": "야당",
@@ -10075,8 +10110,8 @@
       }
     },
     {
-      "key": "n1-0836",
-      "sequence_no": 836,
+      "key": "n1-0837",
+      "sequence_no": 837,
       "word": "同調",
       "reading": "どうちょう",
       "meaning_ko": "동조; 보조를 맞춤",
@@ -10106,8 +10141,8 @@
       }
     },
     {
-      "key": "n1-0837",
-      "sequence_no": 837,
+      "key": "n1-0838",
+      "sequence_no": 838,
       "word": "無言",
       "reading": "むごん",
       "meaning_ko": "무언; 말이 없음",
@@ -10137,8 +10172,8 @@
       }
     },
     {
-      "key": "n1-0838",
-      "sequence_no": 838,
+      "key": "n1-0839",
+      "sequence_no": 839,
       "word": "吟味",
       "reading": "ぎんみ",
       "meaning_ko": "음미; 꼼꼼히 검토함",
@@ -10168,8 +10203,8 @@
       }
     },
     {
-      "key": "n1-0839",
-      "sequence_no": 839,
+      "key": "n1-0840",
+      "sequence_no": 840,
       "word": "期末",
       "reading": "きまつ",
       "meaning_ko": "기말; 기간의 끝",
@@ -10199,8 +10234,8 @@
       }
     },
     {
-      "key": "n1-0840",
-      "sequence_no": 840,
+      "key": "n1-0841",
+      "sequence_no": 841,
       "word": "給食",
       "reading": "きゅうしょく",
       "meaning_ko": "급식",
@@ -10230,8 +10265,8 @@
       }
     },
     {
-      "key": "n1-0841",
-      "sequence_no": 841,
+      "key": "n1-0842",
+      "sequence_no": 842,
       "word": "無能",
       "reading": "むのう",
       "meaning_ko": "무능; 능력이 없음",
@@ -10261,8 +10296,8 @@
       }
     },
     {
-      "key": "n1-0842",
-      "sequence_no": 842,
+      "key": "n1-0843",
+      "sequence_no": 843,
       "word": "討議",
       "reading": "とうぎ",
       "meaning_ko": "토의; 논의",
@@ -10292,8 +10327,8 @@
       }
     },
     {
-      "key": "n1-0843",
-      "sequence_no": 843,
+      "key": "n1-0844",
+      "sequence_no": 844,
       "word": "簡素",
       "reading": "かんそ",
       "meaning_ko": "간소함; 소박하고 단순함",
@@ -10313,8 +10348,8 @@
       }
     },
     {
-      "key": "n1-0844",
-      "sequence_no": 844,
+      "key": "n1-0845",
+      "sequence_no": 845,
       "word": "痛感",
       "reading": "つうかん",
       "meaning_ko": "통감; 절실히 느낌",
@@ -10334,8 +10369,8 @@
       }
     },
     {
-      "key": "n1-0845",
-      "sequence_no": 845,
+      "key": "n1-0846",
+      "sequence_no": 846,
       "word": "不調",
       "reading": "ふちょう",
       "meaning_ko": "부진; 상태가 좋지 않음",
@@ -10355,8 +10390,8 @@
       }
     },
     {
-      "key": "n1-0846",
-      "sequence_no": 846,
+      "key": "n1-0847",
+      "sequence_no": 847,
       "word": "体裁",
       "reading": "ていさい",
       "meaning_ko": "체재; 형식; 체면",
@@ -10386,8 +10421,8 @@
       }
     },
     {
-      "key": "n1-0847",
-      "sequence_no": 847,
+      "key": "n1-0848",
+      "sequence_no": 848,
       "word": "融通",
       "reading": "ゆうずう",
       "meaning_ko": "융통; 융통성; 자금 마련",
@@ -10417,8 +10452,8 @@
       }
     },
     {
-      "key": "n1-0848",
-      "sequence_no": 848,
+      "key": "n1-0849",
+      "sequence_no": 849,
       "word": "前例",
       "reading": "ぜんれい",
       "meaning_ko": "전례; 선례",
@@ -10448,8 +10483,8 @@
       }
     },
     {
-      "key": "n1-0849",
-      "sequence_no": 849,
+      "key": "n1-0850",
+      "sequence_no": 850,
       "word": "単一",
       "reading": "たんいつ",
       "meaning_ko": "단일; 하나뿐임",
@@ -10479,8 +10514,8 @@
       }
     },
     {
-      "key": "n1-0850",
-      "sequence_no": 850,
+      "key": "n1-0851",
+      "sequence_no": 851,
       "word": "故人",
       "reading": "こじん",
       "meaning_ko": "고인; 세상을 떠난 사람",
@@ -10510,8 +10545,8 @@
       }
     },
     {
-      "key": "n1-0851",
-      "sequence_no": 851,
+      "key": "n1-0852",
+      "sequence_no": 852,
       "word": "学芸",
       "reading": "がくげい",
       "meaning_ko": "학예; 학문과 예술",
@@ -10531,8 +10566,8 @@
       }
     },
     {
-      "key": "n1-0852",
-      "sequence_no": 852,
+      "key": "n1-0853",
+      "sequence_no": 853,
       "word": "口頭",
       "reading": "こうとう",
       "meaning_ko": "구두; 말로 함",
@@ -10562,8 +10597,8 @@
       }
     },
     {
-      "key": "n1-0853",
-      "sequence_no": 853,
+      "key": "n1-0854",
+      "sequence_no": 854,
       "word": "是正",
       "reading": "ぜせい",
       "meaning_ko": "시정; 바로잡음",
@@ -10593,8 +10628,8 @@
       }
     },
     {
-      "key": "n1-0854",
-      "sequence_no": 854,
+      "key": "n1-0855",
+      "sequence_no": 855,
       "word": "味わい",
       "reading": "あじわい",
       "meaning_ko": "맛; 풍미; 깊은 멋",
@@ -10624,8 +10659,8 @@
       }
     },
     {
-      "key": "n1-0855",
-      "sequence_no": 855,
+      "key": "n1-0856",
+      "sequence_no": 856,
       "word": "自我",
       "reading": "じが",
       "meaning_ko": "자아",
@@ -10655,8 +10690,8 @@
       }
     },
     {
-      "key": "n1-0856",
-      "sequence_no": 856,
+      "key": "n1-0857",
+      "sequence_no": 857,
       "word": "手軽",
       "reading": "てがる",
       "meaning_ko": "간편함; 손쉽게 할 수 있음",
@@ -10676,8 +10711,8 @@
       }
     },
     {
-      "key": "n1-0857",
-      "sequence_no": 857,
+      "key": "n1-0858",
+      "sequence_no": 858,
       "word": "賛美",
       "reading": "さんび",
       "meaning_ko": "찬미; 높이 칭송함",
@@ -10707,8 +10742,8 @@
       }
     },
     {
-      "key": "n1-0858",
-      "sequence_no": 858,
+      "key": "n1-0859",
+      "sequence_no": 859,
       "word": "代弁",
       "reading": "だいべん",
       "meaning_ko": "대변; 대신 말함",
@@ -10728,8 +10763,8 @@
       }
     },
     {
-      "key": "n1-0859",
-      "sequence_no": 859,
+      "key": "n1-0860",
+      "sequence_no": 860,
       "word": "味覚",
       "reading": "みかく",
       "meaning_ko": "미각",
@@ -10759,8 +10794,8 @@
       }
     },
     {
-      "key": "n1-0860",
-      "sequence_no": 860,
+      "key": "n1-0861",
+      "sequence_no": 861,
       "word": "残高",
       "reading": "ざんだか",
       "meaning_ko": "잔고; 남은 금액",
@@ -10790,8 +10825,8 @@
       }
     },
     {
-      "key": "n1-0861",
-      "sequence_no": 861,
+      "key": "n1-0862",
+      "sequence_no": 862,
       "word": "不服",
       "reading": "ふふく",
       "meaning_ko": "불복; 불만",
@@ -10821,8 +10856,8 @@
       }
     },
     {
-      "key": "n1-0862",
-      "sequence_no": 862,
+      "key": "n1-0863",
+      "sequence_no": 863,
       "word": "近々",
       "reading": "きんきん",
       "meaning_ko": "조만간; 머지않아",
@@ -10842,8 +10877,8 @@
       }
     },
     {
-      "key": "n1-0863",
-      "sequence_no": 863,
+      "key": "n1-0864",
+      "sequence_no": 864,
       "word": "反感",
       "reading": "はんかん",
       "meaning_ko": "반감; 반발감",
@@ -10873,8 +10908,8 @@
       }
     },
     {
-      "key": "n1-0864",
-      "sequence_no": 864,
+      "key": "n1-0865",
+      "sequence_no": 865,
       "word": "享受",
       "reading": "きょうじゅ",
       "meaning_ko": "향유; 누림",
@@ -10894,8 +10929,8 @@
       }
     },
     {
-      "key": "n1-0865",
-      "sequence_no": 865,
+      "key": "n1-0866",
+      "sequence_no": 866,
       "word": "劇団",
       "reading": "げきだん",
       "meaning_ko": "극단",
@@ -10925,8 +10960,8 @@
       }
     },
     {
-      "key": "n1-0866",
-      "sequence_no": 866,
+      "key": "n1-0867",
+      "sequence_no": 867,
       "word": "責務",
       "reading": "せきむ",
       "meaning_ko": "책무; 책임과 의무",
@@ -10956,8 +10991,8 @@
       }
     },
     {
-      "key": "n1-0867",
-      "sequence_no": 867,
+      "key": "n1-0868",
+      "sequence_no": 868,
       "word": "喜劇",
       "reading": "きげき",
       "meaning_ko": "희극; 코미디",
@@ -10987,8 +11022,8 @@
       }
     },
     {
-      "key": "n1-0868",
-      "sequence_no": 868,
+      "key": "n1-0869",
+      "sequence_no": 869,
       "word": "堤防",
       "reading": "ていぼう",
       "meaning_ko": "제방; 둑",
@@ -11018,8 +11053,8 @@
       }
     },
     {
-      "key": "n1-0869",
-      "sequence_no": 869,
+      "key": "n1-0870",
+      "sequence_no": 870,
       "word": "野外",
       "reading": "やがい",
       "meaning_ko": "야외; 옥외",
@@ -11049,8 +11084,8 @@
       }
     },
     {
-      "key": "n1-0870",
-      "sequence_no": 870,
+      "key": "n1-0871",
+      "sequence_no": 871,
       "word": "対比",
       "reading": "たいひ",
       "meaning_ko": "대비; 대조",
@@ -11080,8 +11115,8 @@
       }
     },
     {
-      "key": "n1-0871",
-      "sequence_no": 871,
+      "key": "n1-0872",
+      "sequence_no": 872,
       "word": "当人",
       "reading": "とうにん",
       "meaning_ko": "당사자 본인; 바로 그 사람",
@@ -11101,8 +11136,8 @@
       }
     },
     {
-      "key": "n1-0872",
-      "sequence_no": 872,
+      "key": "n1-0873",
+      "sequence_no": 873,
       "word": "就業",
       "reading": "しゅうぎょう",
       "meaning_ko": "취업; 일을 함",
@@ -11132,8 +11167,8 @@
       }
     },
     {
-      "key": "n1-0873",
-      "sequence_no": 873,
+      "key": "n1-0874",
+      "sequence_no": 874,
       "word": "時差",
       "reading": "じさ",
       "meaning_ko": "시차; 시간 차이",
@@ -11163,8 +11198,8 @@
       }
     },
     {
-      "key": "n1-0874",
-      "sequence_no": 874,
+      "key": "n1-0875",
+      "sequence_no": 875,
       "word": "本館",
       "reading": "ほんかん",
       "meaning_ko": "본관; 주 건물",
@@ -11194,8 +11229,8 @@
       }
     },
     {
-      "key": "n1-0875",
-      "sequence_no": 875,
+      "key": "n1-0876",
+      "sequence_no": 876,
       "word": "清算",
       "reading": "せいさん",
       "meaning_ko": "청산; 정산",
@@ -11225,8 +11260,8 @@
       }
     },
     {
-      "key": "n1-0876",
-      "sequence_no": 876,
+      "key": "n1-0877",
+      "sequence_no": 877,
       "word": "転勤",
       "reading": "てんきん",
       "meaning_ko": "전근; 근무지 이동",
@@ -11256,8 +11291,8 @@
       }
     },
     {
-      "key": "n1-0877",
-      "sequence_no": 877,
+      "key": "n1-0878",
+      "sequence_no": 878,
       "word": "誇張",
       "reading": "こちょう",
       "meaning_ko": "과장; 실제보다 부풀림",
@@ -11287,8 +11322,8 @@
       }
     },
     {
-      "key": "n1-0878",
-      "sequence_no": 878,
+      "key": "n1-0879",
+      "sequence_no": 879,
       "word": "沿線",
       "reading": "えんせん",
       "meaning_ko": "철도 노선 연변; 노선 주변",
@@ -11308,8 +11343,8 @@
       }
     },
     {
-      "key": "n1-0879",
-      "sequence_no": 879,
+      "key": "n1-0880",
+      "sequence_no": 880,
       "word": "仕上がり",
       "reading": "しあがり",
       "meaning_ko": "완성된 상태; 마무리 품질",
@@ -11329,8 +11364,8 @@
       }
     },
     {
-      "key": "n1-0880",
-      "sequence_no": 880,
+      "key": "n1-0881",
+      "sequence_no": 881,
       "word": "下痢",
       "reading": "げり",
       "meaning_ko": "설사",
@@ -11360,8 +11395,8 @@
       }
     },
     {
-      "key": "n1-0881",
-      "sequence_no": 881,
+      "key": "n1-0882",
+      "sequence_no": 882,
       "word": "初版",
       "reading": "しょはん",
       "meaning_ko": "초판",
@@ -11391,8 +11426,8 @@
       }
     },
     {
-      "key": "n1-0882",
-      "sequence_no": 882,
+      "key": "n1-0883",
+      "sequence_no": 883,
       "word": "鉄鋼",
       "reading": "てっこう",
       "meaning_ko": "철강",
@@ -11422,8 +11457,8 @@
       }
     },
     {
-      "key": "n1-0883",
-      "sequence_no": 883,
+      "key": "n1-0884",
+      "sequence_no": 884,
       "word": "概略",
       "reading": "がいりゃく",
       "meaning_ko": "개략; 대략적인 내용",
@@ -11453,8 +11488,8 @@
       }
     },
     {
-      "key": "n1-0884",
-      "sequence_no": 884,
+      "key": "n1-0885",
+      "sequence_no": 885,
       "word": "定食",
       "reading": "ていしょく",
       "meaning_ko": "정식; 세트 식사",
@@ -11484,8 +11519,8 @@
       }
     },
     {
-      "key": "n1-0885",
-      "sequence_no": 885,
+      "key": "n1-0886",
+      "sequence_no": 886,
       "word": "両立",
       "reading": "りょうりつ",
       "meaning_ko": "양립; 두 가지를 함께 성립시킴",
@@ -11515,8 +11550,8 @@
       }
     },
     {
-      "key": "n1-0886",
-      "sequence_no": 886,
+      "key": "n1-0887",
+      "sequence_no": 887,
       "word": "役場",
       "reading": "やくば",
       "meaning_ko": "관공서; 읍·면·촌사무소",
@@ -11536,8 +11571,8 @@
       }
     },
     {
-      "key": "n1-0887",
-      "sequence_no": 887,
+      "key": "n1-0888",
+      "sequence_no": 888,
       "word": "生育",
       "reading": "せいいく",
       "meaning_ko": "생육; 자라남",
@@ -11567,8 +11602,8 @@
       }
     },
     {
-      "key": "n1-0888",
-      "sequence_no": 888,
+      "key": "n1-0889",
+      "sequence_no": 889,
       "word": "感触",
       "reading": "かんしょく",
       "meaning_ko": "감촉; 촉감; 느낌",
@@ -11598,8 +11633,8 @@
       }
     },
     {
-      "key": "n1-0889",
-      "sequence_no": 889,
+      "key": "n1-0890",
+      "sequence_no": 890,
       "word": "非行",
       "reading": "ひこう",
       "meaning_ko": "비행; 일탈 행위",
@@ -11629,8 +11664,8 @@
       }
     },
     {
-      "key": "n1-0890",
-      "sequence_no": 890,
+      "key": "n1-0891",
+      "sequence_no": 891,
       "word": "連日",
       "reading": "れんじつ",
       "meaning_ko": "연일; 여러 날 계속",
@@ -11660,8 +11695,8 @@
       }
     },
     {
-      "key": "n1-0891",
-      "sequence_no": 891,
+      "key": "n1-0892",
+      "sequence_no": 892,
       "word": "利息",
       "reading": "りそく",
       "meaning_ko": "이자",
@@ -11691,8 +11726,8 @@
       }
     },
     {
-      "key": "n1-0892",
-      "sequence_no": 892,
+      "key": "n1-0893",
+      "sequence_no": 893,
       "word": "耕作",
       "reading": "こうさく",
       "meaning_ko": "경작",
@@ -11722,8 +11757,8 @@
       }
     },
     {
-      "key": "n1-0893",
-      "sequence_no": 893,
+      "key": "n1-0894",
+      "sequence_no": 894,
       "word": "磁気",
       "reading": "じき",
       "meaning_ko": "자기; 자성",
@@ -11743,8 +11778,8 @@
       }
     },
     {
-      "key": "n1-0894",
-      "sequence_no": 894,
+      "key": "n1-0895",
+      "sequence_no": 895,
       "word": "小柄",
       "reading": "こがら",
       "meaning_ko": "작은 체구; 몸집이 작음",
@@ -11764,8 +11799,8 @@
       }
     },
     {
-      "key": "n1-0895",
-      "sequence_no": 895,
+      "key": "n1-0896",
+      "sequence_no": 896,
       "word": "比例",
       "reading": "ひれい",
       "meaning_ko": "비례",
@@ -11795,8 +11830,8 @@
       }
     },
     {
-      "key": "n1-0896",
-      "sequence_no": 896,
+      "key": "n1-0897",
+      "sequence_no": 897,
       "word": "公団",
       "reading": "こうだん",
       "meaning_ko": "공단; 공공사업 법인",
@@ -11826,8 +11861,8 @@
       }
     },
     {
-      "key": "n1-0897",
-      "sequence_no": 897,
+      "key": "n1-0898",
+      "sequence_no": 898,
       "word": "大方",
       "reading": "おおかた",
       "meaning_ko": "대체로; 대부분; 대강",
@@ -11857,8 +11892,8 @@
       }
     },
     {
-      "key": "n1-0898",
-      "sequence_no": 898,
+      "key": "n1-0899",
+      "sequence_no": 899,
       "word": "調印",
       "reading": "ちょういん",
       "meaning_ko": "조인; 서명 체결",
@@ -11888,8 +11923,8 @@
       }
     },
     {
-      "key": "n1-0899",
-      "sequence_no": 899,
+      "key": "n1-0900",
+      "sequence_no": 900,
       "word": "所定",
       "reading": "しょてい",
       "meaning_ko": "소정; 정해진 바",
@@ -11919,8 +11954,8 @@
       }
     },
     {
-      "key": "n1-0900",
-      "sequence_no": 900,
+      "key": "n1-0901",
+      "sequence_no": 901,
       "word": "朗読",
       "reading": "ろうどく",
       "meaning_ko": "낭독; 소리 내어 읽음",
@@ -11950,8 +11985,8 @@
       }
     },
     {
-      "key": "n1-0901",
-      "sequence_no": 901,
+      "key": "n1-0902",
+      "sequence_no": 902,
       "word": "器官",
       "reading": "きかん",
       "meaning_ko": "기관; 생물체의 기관",
@@ -11981,8 +12016,8 @@
       }
     },
     {
-      "key": "n1-0902",
-      "sequence_no": 902,
+      "key": "n1-0903",
+      "sequence_no": 903,
       "word": "対談",
       "reading": "たいだん",
       "meaning_ko": "대담; 서로 마주 보고 이야기함",
@@ -12012,8 +12047,8 @@
       }
     },
     {
-      "key": "n1-0903",
-      "sequence_no": 903,
+      "key": "n1-0904",
+      "sequence_no": 904,
       "word": "学歴",
       "reading": "がくれき",
       "meaning_ko": "학력; 학업 경력",
@@ -12043,8 +12078,8 @@
       }
     },
     {
-      "key": "n1-0904",
-      "sequence_no": 904,
+      "key": "n1-0905",
+      "sequence_no": 905,
       "word": "共鳴",
       "reading": "きょうめい",
       "meaning_ko": "공명; 깊이 공감함",
@@ -12074,8 +12109,8 @@
       }
     },
     {
-      "key": "n1-0905",
-      "sequence_no": 905,
+      "key": "n1-0906",
+      "sequence_no": 906,
       "word": "現像",
       "reading": "げんぞう",
       "meaning_ko": "현상; 사진 필름을 처리해 상을 나타냄",
@@ -12095,8 +12130,8 @@
       }
     },
     {
-      "key": "n1-0906",
-      "sequence_no": 906,
+      "key": "n1-0907",
+      "sequence_no": 907,
       "word": "入賞",
       "reading": "にゅうしょう",
       "meaning_ko": "입상",
@@ -12126,8 +12161,8 @@
       }
     },
     {
-      "key": "n1-0907",
-      "sequence_no": 907,
+      "key": "n1-0908",
+      "sequence_no": 908,
       "word": "弁論",
       "reading": "べんろん",
       "meaning_ko": "변론; 논리적으로 주장함",
@@ -12157,8 +12192,8 @@
       }
     },
     {
-      "key": "n1-0908",
-      "sequence_no": 908,
+      "key": "n1-0909",
+      "sequence_no": 909,
       "word": "左利き",
       "reading": "ひだりきき",
       "meaning_ko": "왼손잡이",
@@ -12188,8 +12223,8 @@
       }
     },
     {
-      "key": "n1-0909",
-      "sequence_no": 909,
+      "key": "n1-0910",
+      "sequence_no": 910,
       "word": "案の定",
       "reading": "あんのじょう",
       "meaning_ko": "아니나 다를까; 예상대로",
@@ -12218,8 +12253,8 @@
       }
     },
     {
-      "key": "n1-0910",
-      "sequence_no": 910,
+      "key": "n1-0911",
+      "sequence_no": 911,
       "word": "公用",
       "reading": "こうよう",
       "meaning_ko": "공용; 공무상 사용",
@@ -12249,8 +12284,8 @@
       }
     },
     {
-      "key": "n1-0911",
-      "sequence_no": 911,
+      "key": "n1-0912",
+      "sequence_no": 912,
       "word": "多忙",
       "reading": "たぼう",
       "meaning_ko": "다망; 매우 바쁨",
@@ -12270,8 +12305,8 @@
       }
     },
     {
-      "key": "n1-0912",
-      "sequence_no": 912,
+      "key": "n1-0913",
+      "sequence_no": 913,
       "word": "元素",
       "reading": "げんそ",
       "meaning_ko": "원소",
@@ -12301,8 +12336,8 @@
       }
     },
     {
-      "key": "n1-0913",
-      "sequence_no": 913,
+      "key": "n1-0914",
+      "sequence_no": 914,
       "word": "着工",
       "reading": "ちゃっこう",
       "meaning_ko": "착공; 공사를 시작함",
@@ -12332,8 +12367,8 @@
       }
     },
     {
-      "key": "n1-0914",
-      "sequence_no": 914,
+      "key": "n1-0915",
+      "sequence_no": 915,
       "word": "期日",
       "reading": "きじつ",
       "meaning_ko": "기일; 정해진 날짜",
@@ -12363,8 +12398,8 @@
       }
     },
     {
-      "key": "n1-0915",
-      "sequence_no": 915,
+      "key": "n1-0916",
+      "sequence_no": 916,
       "word": "星座",
       "reading": "せいざ",
       "meaning_ko": "별자리; 성좌",
@@ -12394,8 +12429,8 @@
       }
     },
     {
-      "key": "n1-0916",
-      "sequence_no": 916,
+      "key": "n1-0917",
+      "sequence_no": 917,
       "word": "着席",
       "reading": "ちゃくせき",
       "meaning_ko": "착석; 자리에 앉음",
@@ -12425,8 +12460,8 @@
       }
     },
     {
-      "key": "n1-0917",
-      "sequence_no": 917,
+      "key": "n1-0918",
+      "sequence_no": 918,
       "word": "平常",
       "reading": "へいじょう",
       "meaning_ko": "평상시; 평소",
@@ -12456,8 +12491,8 @@
       }
     },
     {
-      "key": "n1-0918",
-      "sequence_no": 918,
+      "key": "n1-0919",
+      "sequence_no": 919,
       "word": "換算",
       "reading": "かんさん",
       "meaning_ko": "환산; 다른 단위로 바꾸어 계산함",
@@ -12487,8 +12522,8 @@
       }
     },
     {
-      "key": "n1-0919",
-      "sequence_no": 919,
+      "key": "n1-0920",
+      "sequence_no": 920,
       "word": "弾力",
       "reading": "だんりょく",
       "meaning_ko": "탄력; 유연성",
@@ -12518,8 +12553,8 @@
       }
     },
     {
-      "key": "n1-0920",
-      "sequence_no": 920,
+      "key": "n1-0921",
+      "sequence_no": 921,
       "word": "境遇",
       "reading": "きょうぐう",
       "meaning_ko": "처지; 놓인 환경과 상황",
@@ -12549,8 +12584,8 @@
       }
     },
     {
-      "key": "n1-0921",
-      "sequence_no": 921,
+      "key": "n1-0922",
+      "sequence_no": 922,
       "word": "無難",
       "reading": "ぶなん",
       "meaning_ko": "무난함; 탈이 없음",
@@ -12570,8 +12605,8 @@
       }
     },
     {
-      "key": "n1-0922",
-      "sequence_no": 922,
+      "key": "n1-0923",
+      "sequence_no": 923,
       "word": "内訳",
       "reading": "うちわけ",
       "meaning_ko": "내역; 세부 구성",
@@ -12601,8 +12636,8 @@
       }
     },
     {
-      "key": "n1-0923",
-      "sequence_no": 923,
+      "key": "n1-0924",
+      "sequence_no": 924,
       "word": "長編",
       "reading": "ちょうへん",
       "meaning_ko": "장편; 긴 작품",
@@ -12632,8 +12667,8 @@
       }
     },
     {
-      "key": "n1-0924",
-      "sequence_no": 924,
+      "key": "n1-0925",
+      "sequence_no": 925,
       "word": "田園",
       "reading": "でんえん",
       "meaning_ko": "전원; 논밭이 펼쳐진 농촌",
@@ -12663,8 +12698,8 @@
       }
     },
     {
-      "key": "n1-0925",
-      "sequence_no": 925,
+      "key": "n1-0926",
+      "sequence_no": 926,
       "word": "出社",
       "reading": "しゅっしゃ",
       "meaning_ko": "출사; 회사에 출근함",
@@ -12694,8 +12729,8 @@
       }
     },
     {
-      "key": "n1-0926",
-      "sequence_no": 926,
+      "key": "n1-0927",
+      "sequence_no": 927,
       "word": "母校",
       "reading": "ぼこう",
       "meaning_ko": "모교",
@@ -12725,8 +12760,8 @@
       }
     },
     {
-      "key": "n1-0927",
-      "sequence_no": 927,
+      "key": "n1-0928",
+      "sequence_no": 928,
       "word": "本場",
       "reading": "ほんば",
       "meaning_ko": "본고장; 그 분야의 중심지",
@@ -12756,8 +12791,8 @@
       }
     },
     {
-      "key": "n1-0928",
-      "sequence_no": 928,
+      "key": "n1-0929",
+      "sequence_no": 929,
       "word": "歓声",
       "reading": "かんせい",
       "meaning_ko": "환호성; 기쁨의 함성",
@@ -12787,8 +12822,8 @@
       }
     },
     {
-      "key": "n1-0929",
-      "sequence_no": 929,
+      "key": "n1-0930",
+      "sequence_no": 930,
       "word": "主食",
       "reading": "しゅしょく",
       "meaning_ko": "주식; 주식품",
@@ -12818,8 +12853,8 @@
       }
     },
     {
-      "key": "n1-0930",
-      "sequence_no": 930,
+      "key": "n1-0931",
+      "sequence_no": 931,
       "word": "断然",
       "reading": "だんぜん",
       "meaning_ko": "단연; 압도적으로",
@@ -12849,8 +12884,8 @@
       }
     },
     {
-      "key": "n1-0931",
-      "sequence_no": 931,
+      "key": "n1-0932",
+      "sequence_no": 932,
       "word": "観覧",
       "reading": "かんらん",
       "meaning_ko": "관람",
@@ -12880,8 +12915,8 @@
       }
     },
     {
-      "key": "n1-0932",
-      "sequence_no": 932,
+      "key": "n1-0933",
+      "sequence_no": 933,
       "word": "売れ行き",
       "reading": "うれゆき",
       "meaning_ko": "판매 추이; 판매 실적",
@@ -12901,8 +12936,8 @@
       }
     },
     {
-      "key": "n1-0933",
-      "sequence_no": 933,
+      "key": "n1-0934",
+      "sequence_no": 934,
       "word": "否決",
       "reading": "ひけつ",
       "meaning_ko": "부결",
@@ -12932,8 +12967,8 @@
       }
     },
     {
-      "key": "n1-0934",
-      "sequence_no": 934,
+      "key": "n1-0935",
+      "sequence_no": 935,
       "word": "書評",
       "reading": "しょひょう",
       "meaning_ko": "서평",
@@ -12963,8 +12998,8 @@
       }
     },
     {
-      "key": "n1-0935",
-      "sequence_no": 935,
+      "key": "n1-0936",
+      "sequence_no": 936,
       "word": "増進",
       "reading": "ぞうしん",
       "meaning_ko": "증진; 더욱 향상시킴",
@@ -12994,8 +13029,8 @@
       }
     },
     {
-      "key": "n1-0936",
-      "sequence_no": 936,
+      "key": "n1-0937",
+      "sequence_no": 937,
       "word": "後回し",
       "reading": "あとまわし",
       "meaning_ko": "뒤로 미룸; 뒷전",
@@ -13025,8 +13060,8 @@
       }
     },
     {
-      "key": "n1-0937",
-      "sequence_no": 937,
+      "key": "n1-0938",
+      "sequence_no": 938,
       "word": "採算",
       "reading": "さいさん",
       "meaning_ko": "채산; 수지 타산",
@@ -13046,8 +13081,8 @@
       }
     },
     {
-      "key": "n1-0938",
-      "sequence_no": 938,
+      "key": "n1-0939",
+      "sequence_no": 939,
       "word": "採決",
       "reading": "さいけつ",
       "meaning_ko": "표결; 의결을 위한 투표",
@@ -13067,8 +13102,8 @@
       }
     },
     {
-      "key": "n1-0939",
-      "sequence_no": 939,
+      "key": "n1-0940",
+      "sequence_no": 940,
       "word": "前置き",
       "reading": "まえおき",
       "meaning_ko": "서두; 본론 전에 하는 말",
@@ -13098,8 +13133,8 @@
       }
     },
     {
-      "key": "n1-0940",
-      "sequence_no": 940,
+      "key": "n1-0941",
+      "sequence_no": 941,
       "word": "切実",
       "reading": "せつじつ",
       "meaning_ko": "절실함; 절박함",
@@ -13119,8 +13154,8 @@
       }
     },
     {
-      "key": "n1-0941",
-      "sequence_no": 941,
+      "key": "n1-0942",
+      "sequence_no": 942,
       "word": "女史",
       "reading": "じょし",
       "meaning_ko": "여사; 저명한 여성에 대한 경칭",
@@ -13150,8 +13185,8 @@
       }
     },
     {
-      "key": "n1-0942",
-      "sequence_no": 942,
+      "key": "n1-0943",
+      "sequence_no": 943,
       "word": "根気",
       "reading": "こんき",
       "meaning_ko": "끈기; 인내력",
@@ -13181,8 +13216,8 @@
       }
     },
     {
-      "key": "n1-0943",
-      "sequence_no": 943,
+      "key": "n1-0944",
+      "sequence_no": 944,
       "word": "日の丸",
       "reading": "ひのまる",
       "meaning_ko": "일장기; 일본 국기",
@@ -13202,8 +13237,8 @@
       }
     },
     {
-      "key": "n1-0944",
-      "sequence_no": 944,
+      "key": "n1-0945",
+      "sequence_no": 945,
       "word": "無駄遣い",
       "reading": "むだづかい",
       "meaning_ko": "낭비; 헛씀",
@@ -13233,8 +13268,8 @@
       }
     },
     {
-      "key": "n1-0945",
-      "sequence_no": 945,
+      "key": "n1-0946",
+      "sequence_no": 946,
       "word": "単調",
       "reading": "たんちょう",
       "meaning_ko": "단조로움; 변화가 없음",
@@ -13254,8 +13289,8 @@
       }
     },
     {
-      "key": "n1-0946",
-      "sequence_no": 946,
+      "key": "n1-0947",
+      "sequence_no": 947,
       "word": "先着",
       "reading": "せんちゃく",
       "meaning_ko": "선착; 먼저 도착함",
@@ -13285,8 +13320,8 @@
       }
     },
     {
-      "key": "n1-0947",
-      "sequence_no": 947,
+      "key": "n1-0948",
+      "sequence_no": 948,
       "word": "使い道",
       "reading": "つかいみち",
       "meaning_ko": "용도; 쓰임새",
@@ -13316,8 +13351,8 @@
       }
     },
     {
-      "key": "n1-0948",
-      "sequence_no": 948,
+      "key": "n1-0949",
+      "sequence_no": 949,
       "word": "利潤",
       "reading": "りじゅん",
       "meaning_ko": "이윤; 순이익",
@@ -13347,8 +13382,8 @@
       }
     },
     {
-      "key": "n1-0949",
-      "sequence_no": 949,
+      "key": "n1-0950",
+      "sequence_no": 950,
       "word": "短大",
       "reading": "たんだい",
       "meaning_ko": "단기대학; 일본의 단기대학",
@@ -13378,8 +13413,8 @@
       }
     },
     {
-      "key": "n1-0950",
-      "sequence_no": 950,
+      "key": "n1-0951",
+      "sequence_no": 951,
       "word": "一人",
       "reading": "いちにん",
       "meaning_ko": "한 사람; 일인",
@@ -13409,8 +13444,8 @@
       }
     },
     {
-      "key": "n1-0951",
-      "sequence_no": 951,
+      "key": "n1-0952",
+      "sequence_no": 952,
       "word": "二人",
       "reading": "ににん",
       "meaning_ko": "두 사람; 이인",
@@ -13430,8 +13465,8 @@
       }
     },
     {
-      "key": "n1-0952",
-      "sequence_no": 952,
+      "key": "n1-0953",
+      "sequence_no": 953,
       "word": "入る",
       "reading": "いる",
       "meaning_ko": "들어가다; 들어오다",
@@ -13461,8 +13496,8 @@
       }
     },
     {
-      "key": "n1-0953",
-      "sequence_no": 953,
+      "key": "n1-0954",
+      "sequence_no": 954,
       "word": "悪い",
       "reading": "にくい",
       "meaning_ko": "밉다; 얄밉다",
@@ -13482,8 +13517,39 @@
       }
     },
     {
-      "key": "n1-0954",
-      "sequence_no": 954,
+      "key": "n1-0955",
+      "sequence_no": 955,
+      "word": "ヶ月",
+      "reading": "かげつ",
+      "meaning_ko": "개월; 달 수를 세는 단위",
+      "meaning_ja": "月の数を数える助数表現。『三ヶ月』などの形で使う。",
+      "part_of_speech": "その他",
+      "example_ja": "新しい制度の試行期間は三ヶ月と定められている。",
+      "example_ko": "새 제도의 시험 운영 기간은 3개월로 정해져 있다.",
+      "review_status": "curated_ready_for_final_review",
+      "evidence": {
+        "candidate_source": "openai-assisted-manual-curation-lock",
+        "jmdict_seq": null,
+        "meaning_en": "",
+        "curated_file": "data/jlpt/production/curation/words/0941-0960.json",
+        "curated_original_key": "n1-0955",
+        "legacy_curated_file": null,
+        "krdict": {
+          "score": 5,
+          "reasons": [
+            "surface_exact",
+            "reading_exact"
+          ],
+          "source_file": "001.xml",
+          "meaning_ko": "개월",
+          "definition_ko": "달을 세는 단위.",
+          "meaning_ja_source": "かげつ【ヶ月】"
+        }
+      }
+    },
+    {
+      "key": "n1-0956",
+      "sequence_no": 956,
       "word": "沢山",
       "reading": "たくさん",
       "meaning_ko": "많이; 많은 양",
@@ -13513,8 +13579,8 @@
       }
     },
     {
-      "key": "n1-0955",
-      "sequence_no": 955,
+      "key": "n1-0957",
+      "sequence_no": 957,
       "word": "私",
       "reading": "あたし",
       "meaning_ko": "나; 여성적인 구어 1인칭",
@@ -13534,8 +13600,8 @@
       }
     },
     {
-      "key": "n1-0956",
-      "sequence_no": 956,
+      "key": "n1-0958",
+      "sequence_no": 958,
       "word": "終わる",
       "reading": "おわる",
       "meaning_ko": "끝나다; 종료되다",
@@ -13565,8 +13631,8 @@
       }
     },
     {
-      "key": "n1-0957",
-      "sequence_no": 957,
+      "key": "n1-0959",
+      "sequence_no": 959,
       "word": "色々",
       "reading": "いろいろ",
       "meaning_ko": "여러 가지; 다양하게",
@@ -13586,8 +13652,8 @@
       }
     },
     {
-      "key": "n1-0958",
-      "sequence_no": 958,
+      "key": "n1-0960",
+      "sequence_no": 960,
       "word": "巻",
       "reading": "まき",
       "meaning_ko": "권; 책의 권 또는 두루마리",
@@ -13617,8 +13683,8 @@
       }
     },
     {
-      "key": "n1-0959",
-      "sequence_no": 959,
+      "key": "n1-0961",
+      "sequence_no": 961,
       "word": "アップ",
       "reading": "アップ",
       "meaning_ko": "상승; 증가; 업로드·클로즈업 등의 '업'",
@@ -13649,8 +13715,8 @@
       }
     },
     {
-      "key": "n1-0960",
-      "sequence_no": 960,
+      "key": "n1-0962",
+      "sequence_no": 962,
       "word": "財政",
       "reading": "ざいせい",
       "meaning_ko": "재정",
@@ -13680,8 +13746,8 @@
       }
     },
     {
-      "key": "n1-0961",
-      "sequence_no": 961,
+      "key": "n1-0963",
+      "sequence_no": 963,
       "word": "詳細",
       "reading": "しょうさい",
       "meaning_ko": "상세; 자세한 내용",
@@ -13701,8 +13767,8 @@
       }
     },
     {
-      "key": "n1-0962",
-      "sequence_no": 962,
+      "key": "n1-0964",
+      "sequence_no": 964,
       "word": "何処",
       "reading": "どこ",
       "meaning_ko": "어디; 어느 곳",
@@ -13722,8 +13788,8 @@
       }
     },
     {
-      "key": "n1-0963",
-      "sequence_no": 963,
+      "key": "n1-0965",
+      "sequence_no": 965,
       "word": "面白い",
       "reading": "おもしろい",
       "meaning_ko": "재미있다; 흥미롭다",
@@ -13753,8 +13819,8 @@
       }
     },
     {
-      "key": "n1-0964",
-      "sequence_no": 964,
+      "key": "n1-0966",
+      "sequence_no": 966,
       "word": "何故",
       "reading": "なぜ",
       "meaning_ko": "왜; 어째서",
@@ -13784,8 +13850,8 @@
       }
     },
     {
-      "key": "n1-0965",
-      "sequence_no": 965,
+      "key": "n1-0967",
+      "sequence_no": 967,
       "word": "所謂",
       "reading": "いわゆる",
       "meaning_ko": "이른바; 소위",
@@ -13815,27 +13881,28 @@
       }
     },
     {
-      "key": "n1-0966",
-      "sequence_no": 966,
+      "key": "n1-0968",
+      "sequence_no": 968,
       "word": "姉妹",
-      "reading": "きょうだい",
-      "meaning_ko": "자매",
-      "meaning_ja": "姉と妹。",
+      "reading": "しまい",
+      "meaning_ko": "자매; 자매 관계",
+      "meaning_ja": "姉と妹。また、姉妹のように密接な関係にあるもの。",
       "part_of_speech": "普通名詞",
-      "example_ja": "",
-      "example_ko": "",
-      "review_status": "needs_examples",
+      "example_ja": "両都市は長年にわたり姉妹都市として交流を続けている。",
+      "example_ko": "두 도시는 오랫동안 자매도시로 교류를 이어가고 있다.",
+      "review_status": "curated_ready_for_final_review",
       "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1579490",
-        "meaning_en": "sisters",
-        "curated_file": null,
-        "curated_original_key": null,
+        "candidate_source": "openai-assisted-manual-curation-lock",
+        "jmdict_seq": null,
+        "meaning_en": "",
+        "curated_file": "data/jlpt/production/curation/words/0961-0980.json",
+        "curated_original_key": "n1-0968",
         "legacy_curated_file": null,
         "krdict": {
-          "score": 3,
+          "score": 5,
           "reasons": [
-            "surface_exact"
+            "surface_exact",
+            "reading_exact"
           ],
           "source_file": "008.xml",
           "meaning_ko": "자매",
@@ -13845,8 +13912,8 @@
       }
     },
     {
-      "key": "n1-0967",
-      "sequence_no": 967,
+      "key": "n1-0969",
+      "sequence_no": 969,
       "word": "何方",
       "reading": "どちら",
       "meaning_ko": "어느 쪽; 어느 분",
@@ -13866,8 +13933,8 @@
       }
     },
     {
-      "key": "n1-0968",
-      "sequence_no": 968,
+      "key": "n1-0970",
+      "sequence_no": 970,
       "word": "伴う",
       "reading": "ともなう",
       "meaning_ko": "수반하다; 동반하다",
@@ -13897,8 +13964,8 @@
       }
     },
     {
-      "key": "n1-0969",
-      "sequence_no": 969,
+      "key": "n1-0971",
+      "sequence_no": 971,
       "word": "一寸",
       "reading": "ちょっと",
       "meaning_ko": "조금; 잠깐",
@@ -13928,8 +13995,8 @@
       }
     },
     {
-      "key": "n1-0970",
-      "sequence_no": 970,
+      "key": "n1-0972",
+      "sequence_no": 972,
       "word": "極めて",
       "reading": "きわめて",
       "meaning_ko": "극히; 매우",
@@ -13959,8 +14026,8 @@
       }
     },
     {
-      "key": "n1-0971",
-      "sequence_no": 971,
+      "key": "n1-0973",
+      "sequence_no": 973,
       "word": "何れ",
       "reading": "いずれ",
       "meaning_ko": "어느 것이든; 언젠가; 결국",
@@ -13980,8 +14047,8 @@
       }
     },
     {
-      "key": "n1-0972",
-      "sequence_no": 972,
+      "key": "n1-0974",
+      "sequence_no": 974,
       "word": "何れ",
       "reading": "どれ",
       "meaning_ko": "어느 것; 무엇",
@@ -14001,8 +14068,8 @@
       }
     },
     {
-      "key": "n1-0973",
-      "sequence_no": 973,
+      "key": "n1-0975",
+      "sequence_no": 975,
       "word": "扱い",
       "reading": "あつかい",
       "meaning_ko": "취급; 대우; 처리 방식",
@@ -14032,8 +14099,8 @@
       }
     },
     {
-      "key": "n1-0974",
-      "sequence_no": 974,
+      "key": "n1-0976",
+      "sequence_no": 976,
       "word": "記す",
       "reading": "しるす",
       "meaning_ko": "기록하다; 적다",
@@ -14063,8 +14130,8 @@
       }
     },
     {
-      "key": "n1-0975",
-      "sequence_no": 975,
+      "key": "n1-0977",
+      "sequence_no": 977,
       "word": "行",
       "reading": "ぎょう",
       "meaning_ko": "행; 글의 줄; 수행",
@@ -14094,8 +14161,8 @@
       }
     },
     {
-      "key": "n1-0976",
-      "sequence_no": 976,
+      "key": "n1-0978",
+      "sequence_no": 978,
       "word": "背景",
       "reading": "はいけい",
       "meaning_ko": "배경; 배후 사정",
@@ -14125,8 +14192,8 @@
       }
     },
     {
-      "key": "n1-0977",
-      "sequence_no": 977,
+      "key": "n1-0979",
+      "sequence_no": 979,
       "word": "落ちる",
       "reading": "おちる",
       "meaning_ko": "떨어지다; 낮아지다; 탈락하다",
@@ -14156,8 +14223,8 @@
       }
     },
     {
-      "key": "n1-0978",
-      "sequence_no": 978,
+      "key": "n1-0980",
+      "sequence_no": 980,
       "word": "止める",
       "reading": "とどめる",
       "meaning_ko": "머물게 하다; 그치게 하다; 범위에 한정하다",
@@ -14177,8 +14244,8 @@
       }
     },
     {
-      "key": "n1-0979",
-      "sequence_no": 979,
+      "key": "n1-0981",
+      "sequence_no": 981,
       "word": "答え",
       "reading": "こたえ",
       "meaning_ko": "답; 대답; 해답",
@@ -14208,8 +14275,8 @@
       }
     },
     {
-      "key": "n1-0980",
-      "sequence_no": 980,
+      "key": "n1-0982",
+      "sequence_no": 982,
       "word": "メディア",
       "reading": "メディア",
       "meaning_ko": "미디어; 매체",
@@ -14240,8 +14307,8 @@
       }
     },
     {
-      "key": "n1-0981",
-      "sequence_no": 981,
+      "key": "n1-0983",
+      "sequence_no": 983,
       "word": "取っ手",
       "reading": "とって",
       "meaning_ko": "손잡이",
@@ -14271,8 +14338,8 @@
       }
     },
     {
-      "key": "n1-0982",
-      "sequence_no": 982,
+      "key": "n1-0984",
+      "sequence_no": 984,
       "word": "及ぶ",
       "reading": "およぶ",
       "meaning_ko": "미치다; 이르다; 필적하다",
@@ -14302,8 +14369,8 @@
       }
     },
     {
-      "key": "n1-0983",
-      "sequence_no": 983,
+      "key": "n1-0985",
+      "sequence_no": 985,
       "word": "元年",
       "reading": "がんねん",
       "meaning_ko": "원년; 연호의 첫해",
@@ -14333,8 +14400,8 @@
       }
     },
     {
-      "key": "n1-0984",
-      "sequence_no": 984,
+      "key": "n1-0986",
+      "sequence_no": 986,
       "word": "あら",
       "reading": "あら",
       "meaning_ko": "어머; 어머나",
@@ -14365,8 +14432,8 @@
       }
     },
     {
-      "key": "n1-0985",
-      "sequence_no": 985,
+      "key": "n1-0987",
+      "sequence_no": 987,
       "word": "切り",
       "reading": "きり",
       "meaning_ko": "끝; 한계; ~뿐; ~한 채",
@@ -14386,8 +14453,8 @@
       }
     },
     {
-      "key": "n1-0986",
-      "sequence_no": 986,
+      "key": "n1-0988",
+      "sequence_no": 988,
       "word": "証拠",
       "reading": "しょうこ",
       "meaning_ko": "증거; 증거물",
@@ -14417,8 +14484,8 @@
       }
     },
     {
-      "key": "n1-0987",
-      "sequence_no": 987,
+      "key": "n1-0989",
+      "sequence_no": 989,
       "word": "直ぐ",
       "reading": "すぐ",
       "meaning_ko": "곧; 바로; 즉시",
@@ -14448,8 +14515,8 @@
       }
     },
     {
-      "key": "n1-0988",
-      "sequence_no": 988,
+      "key": "n1-0990",
+      "sequence_no": 990,
       "word": "負担",
       "reading": "ふたん",
       "meaning_ko": "부담; 비용·책임을 짊어짐",
@@ -14479,8 +14546,8 @@
       }
     },
     {
-      "key": "n1-0989",
-      "sequence_no": 989,
+      "key": "n1-0991",
+      "sequence_no": 991,
       "word": "携帯",
       "reading": "けいたい",
       "meaning_ko": "휴대; 휴대전화",
@@ -14510,8 +14577,8 @@
       }
     },
     {
-      "key": "n1-0990",
-      "sequence_no": 990,
+      "key": "n1-0992",
+      "sequence_no": 992,
       "word": "怒り",
       "reading": "いかり",
       "meaning_ko": "분노; 화",
@@ -14541,8 +14608,8 @@
       }
     },
     {
-      "key": "n1-0991",
-      "sequence_no": 991,
+      "key": "n1-0993",
+      "sequence_no": 993,
       "word": "落とす",
       "reading": "おとす",
       "meaning_ko": "떨어뜨리다; 낮추다; 지우다; 빠뜨리다",
@@ -14572,8 +14639,8 @@
       }
     },
     {
-      "key": "n1-0992",
-      "sequence_no": 992,
+      "key": "n1-0994",
+      "sequence_no": 994,
       "word": "定める",
       "reading": "さだめる",
       "meaning_ko": "정하다; 규정하다",
@@ -14603,8 +14670,8 @@
       }
     },
     {
-      "key": "n1-0993",
-      "sequence_no": 993,
+      "key": "n1-0995",
+      "sequence_no": 995,
       "word": "崩壊",
       "reading": "ほうかい",
       "meaning_ko": "붕괴; 무너짐",
@@ -14634,8 +14701,8 @@
       }
     },
     {
-      "key": "n1-0994",
-      "sequence_no": 994,
+      "key": "n1-0996",
+      "sequence_no": 996,
       "word": "果たす",
       "reading": "はたす",
       "meaning_ko": "완수하다; 다하다",
@@ -14665,8 +14732,8 @@
       }
     },
     {
-      "key": "n1-0995",
-      "sequence_no": 995,
+      "key": "n1-0997",
+      "sequence_no": 997,
       "word": "設ける",
       "reading": "もうける",
       "meaning_ko": "마련하다; 설치하다; 제정하다",
@@ -14696,8 +14763,8 @@
       }
     },
     {
-      "key": "n1-0996",
-      "sequence_no": 996,
+      "key": "n1-0998",
+      "sequence_no": 998,
       "word": "訪れる",
       "reading": "おとずれる",
       "meaning_ko": "방문하다; 찾아오다",
@@ -14727,8 +14794,8 @@
       }
     },
     {
-      "key": "n1-0997",
-      "sequence_no": 997,
+      "key": "n1-0999",
+      "sequence_no": 999,
       "word": "降伏",
       "reading": "こうふく",
       "meaning_ko": "항복",
@@ -14758,8 +14825,8 @@
       }
     },
     {
-      "key": "n1-0998",
-      "sequence_no": 998,
+      "key": "n1-1000",
+      "sequence_no": 1000,
       "word": "遅れ",
       "reading": "おくれ",
       "meaning_ko": "지연; 늦음; 뒤처짐",
@@ -14776,68 +14843,6 @@
         "curated_original_key": "n1-1000",
         "legacy_curated_file": null,
         "krdict": null
-      }
-    },
-    {
-      "key": "n1-0999",
-      "sequence_no": 999,
-      "word": "称する",
-      "reading": "しょうする",
-      "meaning_ko": "칭하다; 일컫다; 자칭하다",
-      "meaning_ja": "ある名称で呼ぶ。また、自分をそのように名乗る・装う。",
-      "part_of_speech": "サ変動詞",
-      "example_ja": "彼は専門家を称しているが、その分野での実務経験は確認できない。",
-      "example_ko": "그는 전문가를 자칭하지만 그 분야의 실무 경험은 확인되지 않는다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1351250",
-        "meaning_en": "to pretend, to take the name of, to feign, to purport",
-        "curated_file": "data/jlpt/production/curation/words/1001-1020.json",
-        "curated_original_key": "n1-1001",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "005.xml",
-          "meaning_ko": "부르다 | 일컫다 | 칭하다",
-          "definition_ko": "무엇이라고 가리켜 말하거나 이름을 붙이다. | 이름을 지어 부르다. | 무엇이라고 부르거나 말하다.",
-          "meaning_ja_source": "なづける【名付ける】。しょうする【称する】 | しょうする【称する】。ごうする【号する】。いう【言う】 | しょうする【称する】。よぶ【呼ぶ】"
-        }
-      }
-    },
-    {
-      "key": "n1-1000",
-      "sequence_no": 1000,
-      "word": "助け",
-      "reading": "たすけ",
-      "meaning_ko": "도움; 구원",
-      "meaning_ja": "困っている人を支えたり、危険から救ったりすること。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "周囲の助けがなければ、短期間でこの仕事を終えることはできなかった。",
-      "example_ko": "주변의 도움이 없었다면 짧은 기간에 이 일을 끝낼 수 없었다.",
-      "review_status": "curated_ready_for_final_review",
-      "evidence": {
-        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1344390",
-        "meaning_en": "assistance",
-        "curated_file": "data/jlpt/production/curation/words/1001-1020.json",
-        "curated_original_key": "n1-1002",
-        "legacy_curated_file": null,
-        "krdict": {
-          "score": 5,
-          "reasons": [
-            "surface_exact",
-            "reading_exact"
-          ],
-          "source_file": "003.xml",
-          "meaning_ko": "도움",
-          "definition_ko": "다른 사람을 돕는 일.",
-          "meaning_ja_source": "たすけ【助け】。じょりょく【助力】"
-        }
       }
     }
   ]
