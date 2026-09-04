@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2098-2117",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2098","word":"タワー","reading":"タワー","meaning_ko":"타워; 탑","meaning_ja":"高く建てられた塔状の建造物。","part_of_speech":"普通名詞","example_ja":"展望タワーから街全体を見渡した。","example_ko":"전망 타워에서 도시 전체를 내려다봤다."},
+    {"key":"n1-2099","word":"ジャンル","reading":"ジャンル","meaning_ko":"장르; 분야","meaning_ja":"文学・芸術などの種類・分野。","part_of_speech":"普通名詞","example_ja":"私は幅広いジャンルの音楽を聴く。","example_ko":"나는 다양한 장르의 음악을 듣는다."},
+    {"key":"n1-2100","word":"カメラマン","reading":"カメラマン","meaning_ko":"카메라맨; 촬영 기사; 사진가","meaning_ja":"写真・映像などを職業として撮影する人。","part_of_speech":"普通名詞","example_ja":"カメラマンが選手の表情を撮影した。","example_ko":"카메라맨이 선수의 표정을 촬영했다."},
+    {"key":"n1-2101","word":"仕立てる","reading":"したてる","meaning_ko":"짓다; 만들다; 재단하다; 길러내다","meaning_ja":"衣服などを作り上げる。また、人を教育して一人前に育てたり、ある目的に合うよう準備したりする。","part_of_speech":"一段動詞","example_ja":"この布で夏用のスーツを仕立ててもらった。","example_ko":"이 천으로 여름용 정장을 맞춰 만들었다."},
+    {"key":"n1-2102","word":"海路","reading":"うみじ","meaning_ko":"바닷길; 해로","meaning_ja":"船で海を通って行く道・航路。","part_of_speech":"普通名詞","example_ja":"一行は海路で島へ向かった。","example_ko":"일행은 바닷길로 섬을 향했다.","note":"候補の品詞『副詞』は不適切なため普通名詞に修正。『かいろ』とも読む。"},
+    {"key":"n1-2103","word":"害する","reading":"がいする","meaning_ko":"해치다; 손상시키다; 방해하다","meaning_ja":"健康・利益・状態などに悪い影響や損害を与える。","part_of_speech":"サ変動詞","example_ja":"睡眠不足は健康を害するおそれがある。","example_ko":"수면 부족은 건강을 해칠 우려가 있다.","note":"候補の品詞『サ変名詞』を動詞用法に合わせて修正。"},
+    {"key":"n1-2104","word":"励ます","reading":"はげます","meaning_ko":"격려하다; 북돋우다; 용기를 주다","meaning_ja":"相手が元気・勇気・意欲を持てるよう言葉などで力づける。","part_of_speech":"五段動詞","example_ja":"落ち込んでいる友人を励ました。","example_ko":"풀이 죽은 친구를 격려했다."},
+    {"key":"n1-2105","word":"疎か","reading":"おろそか","meaning_ko":"소홀함; 등한함","meaning_ja":"大切に扱わず、注意・努力が十分でないさま。","part_of_speech":"な形容詞","example_ja":"忙しくても安全確認を疎かにしてはいけない。","example_ko":"바빠도 안전 확인을 소홀히 해서는 안 된다."},
+    {"key":"n1-2106","word":"参議院","reading":"さんぎいん","meaning_ko":"참의원; 일본 국회의 상원","meaning_ja":"日本の国会を構成する二つの議院の一つ。","part_of_speech":"普通名詞","example_ja":"法案は参議院でも審議される。","example_ko":"법안은 참의원에서도 심의된다."},
+    {"key":"n1-2107","word":"崖","reading":"がけ","meaning_ko":"절벽; 벼랑","meaning_ja":"地面が急に切り立って高低差の大きい場所。","part_of_speech":"普通名詞","example_ja":"崖の近くには近づかないでください。","example_ko":"절벽 근처에는 접근하지 마세요."},
+    {"key":"n1-2108","word":"無意味","reading":"むいみ","meaning_ko":"무의미함; 의미 없음","meaning_ja":"意味・価値・効果などがないこと。","part_of_speech":"普通名詞・な形容詞","example_ja":"目的のない議論を続けても無意味だ。","example_ko":"목적 없는 논의를 계속해도 무의미하다."},
+    {"key":"n1-2109","word":"炒める","reading":"いためる","meaning_ko":"볶다; 기름에 볶다","meaning_ja":"食材を油などとともに加熱し、かき混ぜながら調理する。","part_of_speech":"一段動詞","example_ja":"野菜を強火でさっと炒める。","example_ko":"채소를 센 불에 재빨리 볶는다."},
+    {"key":"n1-2110","word":"合わす","reading":"あわす","meaning_ko":"맞추다; 합치다; 결합하다","meaning_ja":"二つ以上のものを一緒にしたり、互いに合うようにしたりする。","part_of_speech":"五段動詞","example_ja":"二人で声を合わして歌った。","example_ko":"두 사람이 목소리를 맞춰 노래했다.","note":"『合わせる』とほぼ同義で、やや古風・慣用的な形。"},
+    {"key":"n1-2111","word":"傾ける","reading":"かたむける","meaning_ko":"기울이다; 집중하다; 쏟다","meaning_ja":"物を斜めにする。また、注意・力・心などを一つの対象に集中する。","part_of_speech":"一段動詞","example_ja":"相手の話に静かに耳を傾けた。","example_ko":"상대의 이야기에 조용히 귀를 기울였다."},
+    {"key":"n1-2112","word":"ラベル","reading":"ラベル","meaning_ko":"라벨; 표지; 꼬리표","meaning_ja":"商品・容器などに付け、内容や名称などを示す札・表示。","part_of_speech":"普通名詞","example_ja":"瓶のラベルに原材料が書かれている。","example_ko":"병 라벨에 원재료가 적혀 있다."},
+    {"key":"n1-2113","word":"憤慨","reading":"ふんがい","meaning_ko":"분개; 몹시 화냄","meaning_ja":"不正・理不尽なことなどに激しく腹を立てること。","part_of_speech":"サ変名詞","example_ja":"彼は会社の不公平な対応に憤慨した。","example_ko":"그는 회사의 불공정한 대응에 분개했다."},
+    {"key":"n1-2114","word":"詫び","reading":"わび","meaning_ko":"사과; 사죄","meaning_ja":"自分の過失などについて謝ること。また、その言葉。","part_of_speech":"普通名詞","example_ja":"迷惑をかけた相手に詫びを入れた。","example_ko":"폐를 끼친 상대에게 사과했다."},
+    {"key":"n1-2115","word":"ムード","reading":"ムード","meaning_ko":"분위기; 무드; 기분","meaning_ja":"場所・場面などから感じられる雰囲気・気分。","part_of_speech":"普通名詞","example_ja":"店内は落ち着いたムードに包まれていた。","example_ko":"가게 안은 차분한 분위기에 싸여 있었다.","note":"言語学のmood（法）の意味もあるが、一般語の『雰囲気』を中心に整理。"},
+    {"key":"n1-2116","word":"弱める","reading":"よわめる","meaning_ko":"약하게 하다; 약화시키다; 줄이다","meaning_ja":"力・程度・勢いなどを弱くする。","part_of_speech":"一段動詞","example_ja":"火が強すぎるので少し弱めてください。","example_ko":"불이 너무 세니 조금 약하게 해 주세요.","note":"候補KRDICTの『길이·넓이·부피를 줄이다』는 일반 의미와 어긋나므로 JMdict의 weaken에 맞춰 보정。"},
+    {"key":"n1-2117","word":"中指","reading":"ちゅうし","meaning_ko":"가운뎃손가락; 중지","meaning_ja":"手の五本の指の中央にある指。","part_of_speech":"普通名詞","example_ja":"中指に小さな傷ができた。","example_ko":"가운뎃손가락에 작은 상처가 생겼다.","note":"『なかゆび』とも読む。"}
+  ]
+}
