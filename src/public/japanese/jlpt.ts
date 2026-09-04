@@ -1,8 +1,10 @@
-import { resolveLearningAdmin } from '../../japanese-learning';
+import {
+	resolveLearningAdmin,
+} from '../../japanese-learning';
 import {
 	addDays,
 	daysBetween,
-	ensureDefaultJlptStudyPlan,
+	getJlptStudyPlan,
 	japanDateString,
 } from '../../jlpt-study';
 
@@ -138,7 +140,10 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 		const admin = await resolveLearningAdmin(request, env.song_project_db);
 		if (!admin.adminId) return json({ ok: false, error: 'LEARNING_ADMIN_NOT_FOUND' }, 404);
 
-		const plan = await ensureDefaultJlptStudyPlan(env.song_project_db, admin.adminId);
+		// GET must stay read-only. Do not create or repair study-plan rows here.
+		const plan = await getJlptStudyPlan(env.song_project_db, admin.adminId);
+		if (!plan) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
+
 		const today = japanDateString();
 		const [curriculum, registeredN1, stateCounts, reviewDue, session, calendarResult, contentResult] = await Promise.all([
 			env.song_project_db.prepare(`
@@ -319,15 +324,8 @@ export async function handleGetPublicJapaneseJlptDashboard(request: Request, env
 				totalReading,
 				totalScheduleCompleted,
 				totalScheduleItems,
-				scheduleCompletionPercent: percentage(totalScheduleCompleted, totalScheduleItems),
 			},
-			history,
-			calendar: calendarResult.results.slice(0, 35).map((row) => ({
-				date: row.study_date,
-				status: row.status,
-				progressPercent: calendarProgress(row),
-				schedule: scheduleCounts(row),
-			})),
+			calendar: history,
 		});
 	} catch (error) {
 		console.error('Failed to load public JLPT dashboard', error);
