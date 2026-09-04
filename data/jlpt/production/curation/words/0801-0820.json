@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0801-0820",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and reading variants are noted where useful.",
+  "words": [
+    {"key":"n1-0801","word":"同感","reading":"どうかん","meaning_ko":"동감; 같은 생각","meaning_ja":"他人の意見・感情に、自分も同じように感じること。","part_of_speech":"サ変名詞","example_ja":"その指摘には私も同感で、今の手順には改善の余地があると思う。","example_ko":"그 지적에는 나도 동감이며 현재 절차에는 개선할 여지가 있다고 생각한다."},
+    {"key":"n1-0802","word":"創刊","reading":"そうかん","meaning_ko":"창간","meaning_ja":"新聞・雑誌などの定期刊行物を新しく発行し始めること。","part_of_speech":"サ変名詞","example_ja":"その雑誌は創刊から百年を迎え、記念号を発売した。","example_ko":"그 잡지는 창간 100주년을 맞아 기념호를 발매했다."},
+    {"key":"n1-0803","word":"成熟","reading":"せいじゅく","meaning_ko":"성숙; 충분히 성장함","meaning_ja":"生物・人の心身・社会・技術などが十分に発達し、安定した段階に達すること。","part_of_speech":"サ変名詞","example_ja":"市場が成熟すると、企業は価格だけでなくサービスの質でも競うようになる。","example_ko":"시장이 성숙하면 기업은 가격뿐 아니라 서비스 품질로도 경쟁하게 된다."},
+    {"key":"n1-0804","word":"外貨","reading":"がいか","meaning_ko":"외화; 외국 통화","meaning_ja":"自国以外の国の通貨。","part_of_speech":"普通名詞","example_ja":"海外旅行の前に、必要な分だけ外貨へ両替しておいた。","example_ko":"해외여행 전에 필요한 만큼 외화로 환전해 두었다."},
+    {"key":"n1-0805","word":"父母","reading":"ちちはは","meaning_ko":"부모; 아버지와 어머니","meaning_ja":"父と母。両親。","part_of_speech":"普通名詞","example_ja":"彼は幼い頃から父母の仕事を手伝いながら育った。","example_ko":"그는 어릴 때부터 부모의 일을 도우며 자랐다.","note":"熟語として『ふぼ』とも読む。本項目は和語的な『ちちはは』。"},
+    {"key":"n1-0806","word":"衣料","reading":"いりょう","meaning_ko":"의류; 의복 재료 및 옷","meaning_ja":"衣服や、その材料となる布地などの総称。","part_of_speech":"普通名詞","example_ja":"原材料費の上昇により、衣料品の価格も上がっている。","example_ko":"원재료비 상승으로 의류 제품 가격도 오르고 있다."},
+    {"key":"n1-0807","word":"一変","reading":"いっぺん","meaning_ko":"일변; 완전히 바뀜","meaning_ja":"状態・雰囲気・状況などがすっかり変わること。また、変えること。","part_of_speech":"サ変名詞","example_ja":"新しい責任者が就任してから、職場の雰囲気は一変した。","example_ko":"새 책임자가 취임한 뒤 직장 분위기가 완전히 바뀌었다."},
+    {"key":"n1-0808","word":"問屋","reading":"とんや","meaning_ko":"도매상; 도매업자","meaning_ja":"生産者から商品を仕入れ、小売業者などへまとめて販売する業者。","part_of_speech":"普通名詞","example_ja":"この市場には食品を扱う問屋が数多く集まっている。","example_ko":"이 시장에는 식품을 취급하는 도매상이 많이 모여 있다.","note":"『といや』という読みもあるが、現代の一般的な読みとして『とんや』を採用。"},
+    {"key":"n1-0809","word":"人情","reading":"にんじょう","meaning_ko":"인정; 사람의 정","meaning_ja":"人が自然に持つ感情。特に、他人への思いやり・情け・温かい気持ち。","part_of_speech":"普通名詞","example_ja":"昔ながらの商店街には、困った人を助ける人情が今も残っている。","example_ko":"옛 상점가에는 어려운 사람을 돕는 인정이 지금도 남아 있다."},
+    {"key":"n1-0810","word":"高原","reading":"こうげん","meaning_ko":"고원","meaning_ja":"標高が高く、比較的平らで広い土地。","part_of_speech":"普通名詞","example_ja":"夏でも涼しい高原には、多くの観光客が避暑に訪れる。","example_ko":"여름에도 시원한 고원에는 많은 관광객이 피서를 온다."},
+    {"key":"n1-0811","word":"戯曲","reading":"ぎきょく","meaning_ko":"희곡","meaning_ja":"舞台で上演することを目的に、人物のせりふや動作を中心として書かれた文学作品。","part_of_speech":"普通名詞","example_ja":"この戯曲は百年以上たった今も世界各地で上演されている。","example_ko":"이 희곡은 100년 이상 지난 지금도 세계 각지에서 공연되고 있다."},
+    {"key":"n1-0812","word":"地主","reading":"じぬし","meaning_ko":"지주; 토지 소유자","meaning_ja":"土地を所有している人。特に、その土地を他人に貸して収益を得る所有者。","part_of_speech":"普通名詞","example_ja":"再開発を進めるには、周辺の地主との合意形成が欠かせない。","example_ko":"재개발을 추진하려면 주변 토지 소유자와의 합의 형성이 필수적이다."},
+    {"key":"n1-0813","word":"外相","reading":"がいしょう","meaning_ko":"외무상; 외교 담당 장관","meaning_ja":"外交を担当する大臣。『外務大臣』の略称。","part_of_speech":"普通名詞","example_ja":"両国の外相は会談し、安全保障と経済協力について意見を交わした。","example_ko":"양국 외무상은 회담을 열어 안보와 경제 협력에 대해 의견을 나눴다."},
+    {"key":"n1-0814","word":"結核","reading":"けっかく","meaning_ko":"결핵","meaning_ja":"結核菌によって主に肺などに起こる感染症。","part_of_speech":"普通名詞","example_ja":"結核は適切な検査と治療を受ければ、治癒が期待できる病気である。","example_ko":"결핵은 적절한 검사와 치료를 받으면 치료를 기대할 수 있는 질병이다."},
+    {"key":"n1-0815","word":"無邪気","reading":"むじゃき","meaning_ko":"천진난만함; 순진무구함","meaning_ja":"悪意や疑いがなく、子どものように素直で純真なさま。","part_of_speech":"な形容詞","example_ja":"子どもたちは結果を気にせず、無邪気に水遊びを楽しんでいた。","example_ko":"아이들은 결과를 신경 쓰지 않고 천진난만하게 물놀이를 즐기고 있었다."},
+    {"key":"n1-0816","word":"津波","reading":"つなみ","meaning_ko":"쓰나미; 지진해일","meaning_ja":"海底地震・火山活動などによって生じ、沿岸へ押し寄せる大規模な波。","part_of_speech":"普通名詞","example_ja":"強い地震を感じたら、津波警報を待たず高い場所へ避難することが重要だ。","example_ko":"강한 지진을 느끼면 쓰나미 경보를 기다리지 말고 높은 곳으로 대피하는 것이 중요하다."},
+    {"key":"n1-0817","word":"原爆","reading":"げんばく","meaning_ko":"원자폭탄; 원폭","meaning_ja":"『原子爆弾』の略。核分裂のエネルギーを利用する爆弾。","part_of_speech":"普通名詞","example_ja":"資料館では原爆による被害と被爆者の証言が保存・展示されている。","example_ko":"자료관에는 원폭 피해와 피폭자의 증언이 보존·전시되어 있다."},
+    {"key":"n1-0818","word":"不振","reading":"ふしん","meaning_ko":"부진; 침체","meaning_ja":"成績・売上・活動などの勢いが上がらず、望ましい状態に達していないこと。","part_of_speech":"普通名詞","example_ja":"主力事業の不振が続き、会社は収益構造の見直しを迫られている。","example_ko":"주력 사업의 부진이 계속되어 회사는 수익 구조 재검토를 요구받고 있다."},
+    {"key":"n1-0819","word":"静止","reading":"せいし","meaning_ko":"정지; 움직이지 않음","meaning_ja":"動いていたものが止まること。また、動かない状態にあること。","part_of_speech":"サ変名詞","example_ja":"映像を静止させて確認すると、画面の端に小さな異常が見つかった。","example_ko":"영상을 정지시켜 확인하니 화면 끝에서 작은 이상이 발견되었다."},
+    {"key":"n1-0820","word":"学説","reading":"がくせつ","meaning_ko":"학설; 학문적 이론","meaning_ja":"学問上の問題について、研究にもとづいて立てられた理論・主張。","part_of_speech":"普通名詞","example_ja":"新しい発見によって、長く支持されてきた学説が見直される可能性がある。","example_ko":"새로운 발견으로 오랫동안 지지받아 온 학설이 재검토될 가능성이 있다."}
+  ]
+}
