@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0621-0640",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and misleading glosses are removed.",
+  "words": [
+    {"key":"n1-0621","word":"心得","reading":"こころえ","meaning_ko":"마음가짐; 알아두어야 할 사항; 기본 지식","meaning_ja":"物事を行う上で知っておくべき知識・心構え・注意点。","part_of_speech":"普通名詞","example_ja":"新任者には、業務上の心得と情報管理の基本を最初に説明する。","example_ko":"신임자에게는 업무상 알아두어야 할 사항과 정보 관리의 기본을 처음에 설명한다."},
+    {"key":"n1-0622","word":"補給","reading":"ほきゅう","meaning_ko":"보급; 보충 공급","meaning_ja":"不足した物資・燃料・食料などを追加して供給すること。","part_of_speech":"サ変名詞","example_ja":"長時間の作業に備え、水分と食料を定期的に補給できる体制を整えた。","example_ko":"장시간 작업에 대비해 수분과 식량을 정기적으로 보급할 수 있는 체제를 마련했다."},
+    {"key":"n1-0623","word":"与党","reading":"よとう","meaning_ko":"여당; 집권당","meaning_ja":"政権を担当している政党。","part_of_speech":"普通名詞","example_ja":"法案を巡って与党内でも意見が分かれ、調整が続いている。","example_ko":"법안을 둘러싸고 여당 내부에서도 의견이 갈려 조정이 계속되고 있다."},
+    {"key":"n1-0624","word":"山脈","reading":"さんみゃく","meaning_ko":"산맥","meaning_ja":"山々が長く連なって一つの帯のようになっている地形。","part_of_speech":"普通名詞","example_ja":"この山脈が季節風を遮るため、東西で降水量に大きな差が生じる。","example_ko":"이 산맥이 계절풍을 막기 때문에 동서의 강수량에 큰 차이가 생긴다."},
+    {"key":"n1-0625","word":"法学","reading":"ほうがく","meaning_ko":"법학","meaning_ja":"法律・法制度・法の解釈や運用を研究する学問。","part_of_speech":"普通名詞","example_ja":"大学では法学を専攻し、行政法と労働法を中心に研究した。","example_ko":"대학에서는 법학을 전공하고 행정법과 노동법을 중심으로 연구했다."},
+    {"key":"n1-0626","word":"孤立","reading":"こりつ","meaning_ko":"고립; 고립됨","meaning_ja":"周囲とのつながりや支援を失い、単独の状態になること。","part_of_speech":"サ変名詞","example_ja":"部署間の連携が弱いと、担当者が問題を一人で抱えて孤立しやすい。","example_ko":"부서 간 연계가 약하면 담당자가 문제를 혼자 떠안아 고립되기 쉽다."},
+    {"key":"n1-0627","word":"技能","reading":"ぎのう","meaning_ko":"기능; 숙련된 기술","meaning_ja":"訓練や経験によって身につけた実務的・技術的な能力。","part_of_speech":"普通名詞","example_ja":"資格試験では知識だけでなく、実際の作業に必要な技能も評価される。","example_ko":"자격시험에서는 지식뿐 아니라 실제 작업에 필요한 기능도 평가된다."},
+    {"key":"n1-0628","word":"補足","reading":"ほそく","meaning_ko":"보충 설명; 보완","meaning_ja":"不足している説明・情報などを付け加って補うこと。","part_of_speech":"サ変名詞","example_ja":"誤解を避けるため、担当者が会議の最後に前提条件を補足した。","example_ko":"오해를 피하기 위해 담당자가 회의 마지막에 전제 조건을 보충 설명했다."},
+    {"key":"n1-0629","word":"本音","reading":"ほんね","meaning_ko":"속마음; 진심; 본심","meaning_ja":"建前ではなく、心の中で実際に思っていること。","part_of_speech":"普通名詞","example_ja":"匿名のアンケートにしたことで、利用者の本音に近い意見が集まった。","example_ko":"익명 설문으로 바꾸자 이용자의 속마음에 가까운 의견이 모였다."},
+    {"key":"n1-0630","word":"不況","reading":"ふきょう","meaning_ko":"불황","meaning_ja":"経済活動が低迷し、生産・消費・雇用などが落ち込んでいる状態。","part_of_speech":"普通名詞","example_ja":"長引く不況の影響で、設備投資を延期する企業が増えている。","example_ko":"장기 불황의 영향으로 설비 투자를 연기하는 기업이 늘고 있다."},
+    {"key":"n1-0631","word":"時折","reading":"ときおり","meaning_ko":"때때로; 이따금","meaning_ja":"頻繁ではないが、時々。","part_of_speech":"副詞","example_ja":"普段は静かな地域だが、冬になると時折強い風が吹く。","example_ko":"평소에는 조용한 지역이지만 겨울이 되면 이따금 강한 바람이 분다."},
+    {"key":"n1-0632","word":"理屈","reading":"りくつ","meaning_ko":"이치; 논리; 이론상의 설명","meaning_ja":"物事の筋道や論理。また、もっともらしく組み立てた説明。","part_of_speech":"普通名詞","example_ja":"理屈では理解できても、実際に操作してみないと身につかない技術も多い。","example_ko":"이론상으로는 이해해도 실제로 조작해 보지 않으면 익히기 어려운 기술도 많다."},
+    {"key":"n1-0633","word":"契機","reading":"けいき","meaning_ko":"계기; 전환점이 되는 기회","meaning_ja":"物事が始まったり変化したりするきっかけ。","part_of_speech":"普通名詞","example_ja":"一度の障害対応を契機に、運用手順全体を見直すことになった。","example_ko":"한 번의 장애 대응을 계기로 운영 절차 전체를 재검토하게 되었다."},
+    {"key":"n1-0634","word":"講習","reading":"こうしゅう","meaning_ko":"강습; 교육 과정","meaning_ja":"一定の知識・技能を短期間に教え学ぶための授業や研修。","part_of_speech":"サ変名詞","example_ja":"新しい安全基準に対応するため、全社員を対象に講習を実施した。","example_ko":"새 안전 기준에 대응하기 위해 전 직원을 대상으로 강습을 실시했다."},
+    {"key":"n1-0635","word":"復旧","reading":"ふっきゅう","meaning_ko":"복구; 정상화","meaning_ja":"故障・災害などで損なわれたものを元の状態に戻すこと。","part_of_speech":"サ変名詞","example_ja":"停電した設備は深夜までに復旧し、翌朝から通常運転に戻った。","example_ko":"정전된 설비는 심야까지 복구되어 다음 날 아침부터 정상 운전으로 돌아왔다."},
+    {"key":"n1-0636","word":"歯科","reading":"しか","meaning_ko":"치과; 치의학","meaning_ja":"歯・歯ぐき・口腔などを診療する医学分野、またはその診療科。","part_of_speech":"普通名詞","example_ja":"定期検診のため、半年に一度は歯科を受診するようにしている。","example_ko":"정기검진을 위해 반년에 한 번은 치과를 방문하려고 한다."},
+    {"key":"n1-0637","word":"密接","reading":"みっせつ","meaning_ko":"밀접; 긴밀함","meaning_ja":"関係が非常に深く、強く結びついているさま。","part_of_speech":"な形容詞","example_ja":"人口構成の変化は、地域の医療需要と密接に関係している。","example_ko":"인구 구성의 변화는 지역의 의료 수요와 밀접하게 관련되어 있다."},
+    {"key":"n1-0638","word":"代用","reading":"だいよう","meaning_ko":"대용; 대신 사용함","meaning_ja":"本来使うものの代わりに、別のものを用いること。","part_of_speech":"サ変名詞","example_ja":"専用部品が届くまで、同じ性能を持つ別の部品で代用することにした。","example_ko":"전용 부품이 도착할 때까지 같은 성능의 다른 부품으로 대용하기로 했다."},
+    {"key":"n1-0639","word":"戸籍","reading":"こせき","meaning_ko":"호적; 가족관계 등록부","meaning_ja":"出生・婚姻・親子関係など、個人の身分関係を公的に記録する制度・帳簿。","part_of_speech":"普通名詞","example_ja":"相続手続きでは、関係者の戸籍を確認する必要がある場合がある。","example_ko":"상속 절차에서는 관계자의 호적을 확인해야 하는 경우가 있다."},
+    {"key":"n1-0640","word":"追及","reading":"ついきゅう","meaning_ko":"추궁; 책임을 따져 물음","meaning_ja":"責任・原因・疑惑などを厳しく問い、明らかにしようとすること。","part_of_speech":"サ変名詞","example_ja":"委員会は事故の原因だけでなく、管理責任についても厳しく追及した。","example_ko":"위원회는 사고 원인뿐 아니라 관리 책임에 대해서도 엄격히 추궁했다."}
+  ]
+}
