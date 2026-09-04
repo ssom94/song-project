@@ -5,7 +5,7 @@
   "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
   "words": [
     {"key":"n1-2278","word":"錯誤","reading":"さくご","meaning_ko":"착오; 잘못; 오류","meaning_ja":"認識・判断などを誤ること。また、その誤り。","part_of_speech":"普通名詞","example_ja":"手続き上の錯誤が原因で、申請が正しく処理されなかった。","example_ko":"절차상의 착오 때문에 신청이 제대로 처리되지 않았다."},
-    {"key":"n1-2279","word":"歪む","reading":"いがむ","meaning_ko":"비뚤어지다; 일그러지다; 왜곡되다","meaning_ja":"形・方向などが曲がって正しくなくなる。また、心・考えなどが素直でなくなる。","part_of_speech":"五段動詞","example_ja":"強い力が加わって金属の枠が歪んでしまった。","example_ko":"강한 힘이 가해져 금속 틀이 일그러졌다.","note":"『ゆがむ』『ひずむ』とも読む。『いがむ』は地域・用法によってはやや限定的。"},
+    {"key":"n1-2279","word":"歪む","reading":"いがむ","meaning_ko":"비뚤어지다; 일그러지다; 왜곡되다","meaning_ja":"形・方向などが曲がって正しくなくなる。また、心・考えなどが素直でなくなる。","part_of_speech":"五段動詞","example_ja":"強い力が加わって金属の枠が歪んでしまった。","example_ko":"강한 힘이 가해져 금속 틀이 일그러졌다.","note":"『ゆがむ』『ひずむ』とも読む。『いがむ』は用法・地域によって限定的。"},
     {"key":"n1-2280","word":"気兼ね","reading":"きがね","meaning_ko":"눈치 봄; 사양함; 부담스러워함","meaning_ja":"相手に迷惑をかけないかなどと気を遣い、行動を遠慮すること。","part_of_speech":"サ変名詞","example_ja":"親しい友人の家なので、気兼ねなく過ごすことができた。","example_ko":"친한 친구 집이라 눈치 보지 않고 편하게 지낼 수 있었다."},
     {"key":"n1-2281","word":"丸める","reading":"まるめる","meaning_ko":"둥글게 만들다; 말다; 뭉치다; 구슬리다","meaning_ja":"物を丸い形にする、巻く。また、言葉巧みに人を自分の思い通りにする。","part_of_speech":"一段動詞","example_ja":"紙を丸めてごみ箱に捨てた。","example_ko":"종이를 둥글게 구겨 쓰레기통에 버렸다."},
     {"key":"n1-2282","word":"惨め","reading":"みじめ","meaning_ko":"비참함; 초라함; 처참함","meaning_ja":"見ていられないほどかわいそうで、情けない状態。","part_of_speech":"な形容詞","example_ja":"準備不足で何も答えられず、惨めな気持ちになった。","example_ko":"준비 부족으로 아무것도 대답하지 못해 비참한 기분이 들었다."},
@@ -18,11 +18,11 @@
     {"key":"n1-2289","word":"お産","reading":"おさん","meaning_ko":"출산; 해산; 아이를 낳는 일","meaning_ja":"子どもを産むこと。出産。","part_of_speech":"普通名詞","example_ja":"初めてのお産を前に、夫婦で必要なものを準備した。","example_ko":"첫 출산을 앞두고 부부가 필요한 물건을 준비했다."},
     {"key":"n1-2290","word":"熱湯","reading":"ねっとう","meaning_ko":"끓는 물; 뜨거운 물","meaning_ja":"非常に熱い湯。特に、沸騰した湯。","part_of_speech":"普通名詞","example_ja":"熱湯を扱うときは、やけどに十分注意してください。","example_ko":"끓는 물을 다룰 때는 화상에 충분히 주의해 주세요."},
     {"key":"n1-2291","word":"休学","reading":"きゅうがく","meaning_ko":"휴학","meaning_ja":"学生の身分を保ったまま、一定期間学校での学業を休むこと。","part_of_speech":"サ変名詞","example_ja":"留学の準備に集中するため、一年間休学した。","example_ko":"유학 준비에 집중하기 위해 1년간 휴학했다."},
-    {"key":"n1-2292","word":"鋸","reading":"のこぎり","meaning_ko":"톱","meaning_ja":"木材・金属などを切るための、刃に細かい歯が並んだ工具。","part_of_speech":"普通名詞","example_ja":"鋸を使って古い板を半分に切った。","example_ko":"톱을 사용해 낡은 판자를 반으로 잘랐다.","note":"現代では通常『のこぎり』と仮名で書くことも多い。"},
+    {"key":"n1-2292","word":"鋸","reading":"のこぎり","meaning_ko":"톱","meaning_ja":"木材・金属などを切るための、刃に細かい歯が並んだ工具。","part_of_speech":"普通名詞","example_ja":"鋸を使って古い板を半分に切った。","example_ko":"톱을 사용해 낡은 판자를 반으로 잘랐다.","note":"現代では『のこぎり』と仮名で書くことも多い。"},
     {"key":"n1-2293","word":"長閑","reading":"のどか","meaning_ko":"한가롭다; 평온하다; 여유롭다","meaning_ja":"静かで穏やかで、のんびりしているさま。","part_of_speech":"な形容詞","example_ja":"春の田舎には長閑な風景が広がっていた。","example_ko":"봄의 시골에는 한가롭고 평온한 풍경이 펼쳐져 있었다.","note":"現代では通常『のどか』と仮名で書く。"},
     {"key":"n1-2294","word":"発条","reading":"ばね","meaning_ko":"용수철; 스프링","meaning_ja":"弾力を利用して力を蓄えたり戻したりする部品。スプリング。","part_of_speech":"普通名詞","example_ja":"古い時計のばねが壊れて動かなくなった。","example_ko":"낡은 시계의 용수철이 고장 나 움직이지 않게 되었다.","note":"『発条』は難読表記で、現代では通常『ばね』と書く。"},
     {"key":"n1-2295","word":"大便","reading":"だいべん","meaning_ko":"대변; 변","meaning_ja":"消化された食物の残りが体外へ排出されたもの。便。","part_of_speech":"普通名詞","example_ja":"健康診断で大便の検査を受けた。","example_ko":"건강검진에서 대변 검사를 받았다."},
     {"key":"n1-2296","word":"冷酷","reading":"れいこく","meaning_ko":"냉혹함; 인정사정없음; 매정함","meaning_ja":"思いやりや情けがなく、非常に冷たいこと。","part_of_speech":"な形容詞","example_ja":"彼は利益のためなら人を切り捨てる冷酷な人物として描かれている。","example_ko":"그는 이익을 위해서라면 사람을 버리는 냉혹한 인물로 그려진다.","note":"候補KO『냉혈』より、形容的な中心義に合う『냉혹함・매정함』へ修正。"},
-    {"key":"n1-2297","word":"類推","reading":"るいすい","meaning_ko":"유추; 비슷한 사례로 미루어 짐작함","meaning_ja":"似た性質・事例をもとに、別の事柄について推測すること。","part_of_speech":"サ変名詞","example_ja":"過去の事例から類推すると、今回も同じ原因の可能性が高い。","example_ko":"과거 사례에서 유추하면 이번에도 같은 원인일 가능성이 높다."}
+    {"key":"n1-2297","word":"繕う","reading":"つくろう","meaning_ko":"수선하다; 꿰매다; 고치다; 겉을 꾸미다","meaning_ja":"破れた所などを直す。また、外見・体裁などを整える。","part_of_speech":"五段動詞","example_ja":"祖母は破れた靴下を丁寧に繕ってくれた。","example_ko":"할머니는 찢어진 양말을 정성껏 꿰매 주셨다.","note":"JMdictには身なり・体裁を整える用法もあるため補完。"}
   ]
 }
