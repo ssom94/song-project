@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1958-1977",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-1958","word":"彼方此方","reading":"あちらこちら","meaning_ko":"여기저기; 이곳저곳","meaning_ja":"さまざまな場所。あちこち。","part_of_speech":"代名詞・副詞","example_ja":"休日は町のあちらこちらを歩いて写真を撮った。","example_ko":"휴일에는 마을 여기저기를 걸으며 사진을 찍었다.","note":"現代では通常『あちらこちら』と仮名で書く。"},
+    {"key":"n1-1959","word":"憧れ","reading":"あこがれ","meaning_ko":"동경; 선망","meaning_ja":"理想の人・物・生活などに心を引かれ、そうなりたいと強く願う気持ち。","part_of_speech":"普通名詞","example_ja":"海外で働くことは、学生の頃からの憧れだった。","example_ko":"해외에서 일하는 것은 학생 때부터의 동경이었다."},
+    {"key":"n1-1960","word":"ご馳走","reading":"ごちそう","meaning_ko":"진수성찬; 맛있는 음식; 대접","meaning_ja":"豪華でおいしい料理。また、人に食事を振る舞うこと。","part_of_speech":"サ変名詞","example_ja":"誕生日に家族がご馳走を用意してくれた。","example_ko":"생일에 가족이 맛있는 음식을 준비해 주었다."},
+    {"key":"n1-1961","word":"ヒント","reading":"ヒント","meaning_ko":"힌트; 실마리","meaning_ja":"問題を解いたり判断したりするための手がかり。","part_of_speech":"普通名詞","example_ja":"先生のヒントを聞いて、ようやく答えが分かった。","example_ko":"선생님의 힌트를 듣고서야 답을 알았다."},
+    {"key":"n1-1962","word":"忽ち","reading":"たちまち","meaning_ko":"금세; 순식간에; 갑자기","meaning_ja":"非常に短い時間のうちに物事が起こるさま。","part_of_speech":"副詞","example_ja":"空が暗くなると、たちまち激しい雨が降り始めた。","example_ko":"하늘이 어두워지자 금세 거센 비가 내리기 시작했다.","note":"現代では通常『たちまち』と仮名で書く。"},
+    {"key":"n1-1963","word":"相応しい","reading":"ふさわしい","meaning_ko":"알맞다; 적합하다; 어울리다","meaning_ja":"立場・条件・状況などによく合っている。","part_of_speech":"い形容詞","example_ja":"経験と実績を考えれば、彼はその役職にふさわしい。","example_ko":"경험과 실적을 생각하면 그는 그 직책에 적합하다.","note":"現代では『ふさわしい』と仮名で書くことも多い。"},
+    {"key":"n1-1964","word":"闇","reading":"やみ","meaning_ko":"어둠; 암흑; 불법·은밀한 영역","meaning_ja":"光がなく暗いこと。また、表に出ない不正・違法な領域。","part_of_speech":"普通名詞","example_ja":"事件の背後には、まだ深い闇が残されている。","example_ko":"사건의 배후에는 아직 깊은 어둠이 남아 있다.","note":"候補の韓国語『음성』だけでは中心義の darkness が欠けるため補正。"},
+    {"key":"n1-1965","word":"組み込む","reading":"くみこむ","meaning_ko":"끼워 넣다; 포함시키다; 내장하다","meaning_ja":"あるものを全体の一部として中に入れる。","part_of_speech":"五段動詞","example_ja":"新しい認証機能を既存のシステムに組み込んだ。","example_ko":"새 인증 기능을 기존 시스템에 내장했다."},
+    {"key":"n1-1966","word":"刑","reading":"けい","meaning_ko":"형벌; 형","meaning_ja":"法律に基づいて犯罪者に科される罰。","part_of_speech":"普通名詞","example_ja":"裁判所は被告に重い刑を言い渡した。","example_ko":"법원은 피고인에게 무거운 형을 선고했다."},
+    {"key":"n1-1967","word":"微笑","reading":"びしょう","meaning_ko":"미소","meaning_ja":"声を立てず、軽く笑うこと。","part_of_speech":"サ変名詞","example_ja":"彼女は安心したように静かに微笑した。","example_ko":"그녀는 안심한 듯 조용히 미소 지었다."},
+    {"key":"n1-1968","word":"手当て","reading":"てあて","meaning_ko":"수당; 처치; 치료","meaning_ja":"給与とは別に支給される金銭。また、けが・病気への応急の処置。","part_of_speech":"普通名詞・サ変名詞","example_ja":"会社から住宅手当てが支給されている。","example_ko":"회사에서 주택 수당이 지급되고 있다.","note":"JMdictには allowance と treatment/medical care の両義があるため両方を保持。"},
+    {"key":"n1-1969","word":"臨む","reading":"のぞむ","meaning_ko":"임하다; 직면하다; 마주하다","meaning_ja":"ある場面・仕事・状況に向き合う。また、場所が何かに面する。","part_of_speech":"五段動詞","example_ja":"十分に準備をして面接に臨んだ。","example_ko":"충분히 준비하고 면접에 임했다."},
+    {"key":"n1-1970","word":"刃","reading":"は","meaning_ko":"날; 칼날","meaning_ja":"刃物で物を切るための薄く鋭い部分。","part_of_speech":"普通名詞","example_ja":"包丁の刃が欠けていたので、新しいものに替えた。","example_ko":"식칼 날이 이가 나가 있어서 새것으로 바꿨다."},
+    {"key":"n1-1971","word":"伊","reading":"い","meaning_ko":"이탈리아; 이탈리아를 나타내는 약칭","meaning_ja":"国名イタリアを表す略称として用いられる字。","part_of_speech":"普通名詞","example_ja":"記事では仏・独・伊の三か国が比較されていた。","example_ko":"기사에서는 프랑스·독일·이탈리아 세 나라가 비교되고 있었다.","note":"JMdictの古い代名詞義もあるが、現代語では国名略号『伊＝イタリア』が実用的。"},
+    {"key":"n1-1972","word":"兎に角","reading":"とにかく","meaning_ko":"어쨌든; 아무튼; 여하튼","meaning_ja":"事情はどうであれ、まずそのことを優先するさま。","part_of_speech":"副詞","example_ja":"時間がないので、とにかく先に出発しよう。","example_ko":"시간이 없으니 아무튼 먼저 출발하자.","note":"現代では通常『とにかく』と仮名で書く。"},
+    {"key":"n1-1973","word":"葬る","reading":"ほうむる","meaning_ko":"매장하다; 묻다; 묻어 버리다","meaning_ja":"死者を埋葬する。また、事実・計画などを表に出ないようにする。","part_of_speech":"五段動詞","example_ja":"その案は反対意見が多く、結局葬られた。","example_ko":"그 안은 반대 의견이 많아 결국 묻혀 버렸다."},
+    {"key":"n1-1974","word":"タイヤ","reading":"タイヤ","meaning_ko":"타이어","meaning_ja":"自動車・自転車などの車輪の外側にはめるゴム製の輪。","part_of_speech":"普通名詞","example_ja":"雪道に備えて冬用のタイヤに交換した。","example_ko":"눈길에 대비해 겨울용 타이어로 교체했다."},
+    {"key":"n1-1975","word":"了","reading":"りょう","meaning_ko":"완료; 끝; 이해","meaning_ja":"終わること・完了すること、または理解することを表す語。","part_of_speech":"普通名詞","example_ja":"作業了の印が付いた項目から確認を終えた。","example_ko":"작업 완료 표시가 붙은 항목부터 확인을 마쳤다.","note":"単独使用は限定的で、終了・完了などの語や略記で見られる。"},
+    {"key":"n1-1976","word":"返還","reading":"へんかん","meaning_ko":"반환; 돌려줌","meaning_ja":"借りていた物・土地・権利などを元の持ち主へ返すこと。","part_of_speech":"サ変名詞","example_ja":"契約終了後、借りていた機器を会社に返還した。","example_ko":"계약 종료 후 빌렸던 장비를 회사에 반환했다."},
+    {"key":"n1-1977","word":"自惚れ","reading":"うぬぼれ","meaning_ko":"자만; 자만심; 우쭐함","meaning_ja":"自分の能力・容姿などを実際以上に高く評価して得意になること。","part_of_speech":"普通名詞","example_ja":"少し褒められただけで自惚れてはいけない。","example_ko":"조금 칭찬받았다고 자만해서는 안 된다.","note":"候補の韓国語『제멋』は不自然なため、JMdictの conceit に合わせて修正。"}
+  ]
+}
