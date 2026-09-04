@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2158-2177",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2158","word":"眉","reading":"まゆ","meaning_ko":"눈썹","meaning_ja":"目の上に弓形に生えている毛。","part_of_speech":"普通名詞","example_ja":"彼は驚いて眉を上げた。","example_ko":"그는 놀라 눈썹을 치켜올렸다."},
+    {"key":"n1-2159","word":"些とも","reading":"ちっとも","meaning_ko":"조금도; 전혀","meaning_ja":"少しも。通常、後ろに否定表現を伴う。","part_of_speech":"副詞","example_ja":"何度説明されても、ちっとも分からなかった。","example_ko":"몇 번 설명을 들어도 전혀 이해하지 못했다.","note":"現代では通常『ちっとも』と仮名で書く。"},
+    {"key":"n1-2160","word":"徹する","reading":"てっする","meaning_ko":"철저히 하다; 관철하다; 몰두하다","meaning_ja":"一つの方針・立場などを最後まで貫く。また、一つのことに徹底して打ち込む。","part_of_speech":"サ変動詞","example_ja":"彼は最後まで聞き役に徹した。","example_ko":"그는 끝까지 듣는 역할에 철저히 임했다.","note":"候補KRDICTは『透徹する』系の意味と混同しているため、JMdictの devote oneself / do intently に合わせて補正。"},
+    {"key":"n1-2161","word":"式場","reading":"しきじょう","meaning_ko":"식장; 예식장","meaning_ja":"式典・結婚式などを行う場所。","part_of_speech":"普通名詞","example_ja":"結婚式の一時間前に式場へ到着した。","example_ko":"결혼식 한 시간 전에 예식장에 도착했다."},
+    {"key":"n1-2162","word":"碌に","reading":"ろくに","meaning_ko":"제대로; 충분히","meaning_ja":"十分に、まともに。多くは否定表現を伴う。","part_of_speech":"副詞","example_ja":"忙しくて昼食もろくに食べられなかった。","example_ko":"바빠서 점심도 제대로 먹지 못했다.","note":"現代では通常『ろくに』と仮名で書く。"},
+    {"key":"n1-2163","word":"微量","reading":"びりょう","meaning_ko":"미량; 극소량","meaning_ja":"ごくわずかな量。","part_of_speech":"普通名詞","example_ja":"この食品には微量のアルコールが含まれている。","example_ko":"이 식품에는 미량의 알코올이 포함되어 있다.","note":"候補の品詞『な形容詞』より普通名詞としての用法が中心。"},
+    {"key":"n1-2164","word":"善良","reading":"ぜんりょう","meaning_ko":"선량함; 착함","meaning_ja":"性質・行いが正しく、素直でよいこと。","part_of_speech":"な形容詞・普通名詞","example_ja":"彼は善良で誠実な人として知られている。","example_ko":"그는 선량하고 성실한 사람으로 알려져 있다."},
+    {"key":"n1-2165","word":"クイズ","reading":"クイズ","meaning_ko":"퀴즈","meaning_ja":"質問に答えを当てる遊び。また、その問題。","part_of_speech":"普通名詞","example_ja":"番組の最後に簡単なクイズが出された。","example_ko":"프로그램 마지막에 간단한 퀴즈가 나왔다."},
+    {"key":"n1-2166","word":"受け付ける","reading":"うけつける","meaning_ko":"접수하다; 받아들이다; 받다","meaning_ja":"申し込み・依頼・質問などを受け取って対応する。また、人や物事を受け入れる。","part_of_speech":"一段動詞","example_ja":"申請は今月末まで受け付けています。","example_ko":"신청은 이번 달 말까지 접수하고 있습니다."},
+    {"key":"n1-2167","word":"花びら","reading":"はなびら","meaning_ko":"꽃잎","meaning_ja":"花を構成する一枚一枚の薄い部分。花弁。","part_of_speech":"普通名詞","example_ja":"桜の花びらが風に舞っている。","example_ko":"벚꽃잎이 바람에 흩날리고 있다."},
+    {"key":"n1-2168","word":"苗","reading":"なえ","meaning_ko":"모; 모종; 어린 묘목","meaning_ja":"移植するために育てた若い植物。特に稲の苗。","part_of_speech":"普通名詞","example_ja":"春になったので畑に野菜の苗を植えた。","example_ko":"봄이 되어 밭에 채소 모종을 심었다."},
+    {"key":"n1-2169","word":"鼾","reading":"いびき","meaning_ko":"코골이","meaning_ja":"眠っているとき、呼吸に伴って鼻や喉から出る音。","part_of_speech":"普通名詞","example_ja":"隣の部屋から大きないびきが聞こえた。","example_ko":"옆방에서 큰 코골이 소리가 들렸다.","note":"現代では通常『いびき』と仮名で書く。"},
+    {"key":"n1-2170","word":"ユニフォーム","reading":"ユニフォーム","meaning_ko":"유니폼; 제복; 단체복","meaning_ja":"組織・学校・スポーツチームなどで統一して着る服。","part_of_speech":"普通名詞","example_ja":"選手たちは新しいユニフォームを着て試合に出た。","example_ko":"선수들은 새 유니폼을 입고 경기에 나섰다."},
+    {"key":"n1-2171","word":"嗜好","reading":"しこう","meaning_ko":"기호; 취향; 선호","meaning_ja":"飲食物・趣味などについての好み。","part_of_speech":"普通名詞","example_ja":"消費者の嗜好は時代とともに変化する。","example_ko":"소비자의 취향은 시대와 함께 변한다.","note":"候補の『サ変名詞』より普通名詞としての用法が中心。"},
+    {"key":"n1-2172","word":"織る","reading":"おる","meaning_ko":"짜다; 엮어 만들다","meaning_ja":"縦糸と横糸などを組み合わせて布を作る。","part_of_speech":"五段動詞","example_ja":"職人が昔ながらの方法で布を織っている。","example_ko":"장인이 전통 방식으로 천을 짜고 있다."},
+    {"key":"n1-2173","word":"大人しい","reading":"おとなしい","meaning_ko":"얌전하다; 온순하다; 조용하다","meaning_ja":"性格・態度が穏やかで、騒いだり反抗したりしない。","part_of_speech":"い形容詞","example_ja":"この犬はとても大人しく、人にもよく慣れている。","example_ko":"이 개는 매우 얌전하고 사람에게도 잘 길들어 있다."},
+    {"key":"n1-2174","word":"腸","reading":"ちょう","meaning_ko":"장; 창자","meaning_ja":"消化器官のうち、胃の後に続く小腸・大腸などの部分。","part_of_speech":"普通名詞","example_ja":"腸の働きを整えるために食生活を見直した。","example_ko":"장의 기능을 개선하기 위해 식생활을 재검토했다."},
+    {"key":"n1-2175","word":"脱する","reading":"だっする","meaning_ko":"벗어나다; 탈피하다","meaning_ja":"困難・危険・悪い状態などから抜け出す。","part_of_speech":"サ変動詞","example_ja":"長い不況をようやく脱する兆しが見えてきた。","example_ko":"긴 불황에서 마침내 벗어날 조짐이 보이기 시작했다.","note":"候補の品詞『サ変名詞』を動詞用法に合わせて修正。"},
+    {"key":"n1-2176","word":"砂利","reading":"じゃり","meaning_ko":"자갈; 자갈돌","meaning_ja":"小さな石が多数集まったもの。道路・庭などにも敷く。","part_of_speech":"普通名詞","example_ja":"庭の通路に砂利を敷いた。","example_ko":"정원 통로에 자갈을 깔았다."},
+    {"key":"n1-2177","word":"共学","reading":"きょうがく","meaning_ko":"남녀 공학; 공학","meaning_ja":"男子と女子が同じ学校で一緒に学ぶこと。また、その制度。","part_of_speech":"普通名詞","example_ja":"その学校は十年前から男女共学になった。","example_ko":"그 학교는 10년 전부터 남녀공학이 되었다.","note":"候補の『サ変名詞』より制度を表す普通名詞として整理。"}
+  ]
+}
