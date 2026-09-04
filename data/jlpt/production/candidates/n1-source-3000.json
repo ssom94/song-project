@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T03:42:50.465Z",
+  "generatedAt": "2026-09-04T03:54:42.088Z",
   "target": 3000,
   "sourceCandidateCount": 3427,
   "selectionRule": "valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence",
