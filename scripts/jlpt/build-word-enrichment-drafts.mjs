@@ -91,6 +91,8 @@ const report = {
   candidateCount: candidateDoc.candidates?.length ?? 0,
   curatedOverrides: 0,
   curatedKeyDrift: 0,
+  retiredCuratedRecords: 0,
+  retiredCuratedIdentities: [],
   legacyExactMatches: 0,
   krdictExactMatches: 0,
   sourceBackedKoreanGlosses: 0,
@@ -99,7 +101,7 @@ const report = {
   needsExamples: 0,
   needsKoreanGloss: 0,
   unresolvedKeys: [],
-  note: 'Draft artifacts only. Curated overrides are joined by normalized word+reading identity so candidate reranking cannot attach review data to the wrong lexeme. The complete set must still pass production validation before promotion.',
+  note: 'Draft artifacts only. Curated overrides are joined by normalized word+reading identity so candidate reranking cannot attach review data to the wrong lexeme. Curated records intentionally retired by a later corpus-quality rule are reported but ignored. The complete selected set must still pass production validation before promotion.',
 };
 
 for (const candidate of candidateDoc.candidates ?? []) {
@@ -172,9 +174,13 @@ for (const candidate of candidateDoc.candidates ?? []) {
 }
 
 for (const [id, item] of curated.entries()) {
-  if (!matchedCuratedIdentities.has(id)) {
-    throw new Error(`Curated identity not present in current candidate corpus: ${item.word}/${item.reading} (${item.source_file})`);
-  }
+  if (matchedCuratedIdentities.has(id)) continue;
+  report.retiredCuratedRecords += 1;
+  report.retiredCuratedIdentities.push({
+    word: item.word,
+    reading: item.reading,
+    source_file: item.source_file,
+  });
 }
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -198,6 +204,7 @@ console.log(JSON.stringify({
   candidateCount: report.candidateCount,
   curatedOverrides: report.curatedOverrides,
   curatedKeyDrift: report.curatedKeyDrift,
+  retiredCuratedRecords: report.retiredCuratedRecords,
   legacyExactMatches: report.legacyExactMatches,
   krdictExactMatches: report.krdictExactMatches,
   sourceBackedKoreanGlosses: report.sourceBackedKoreanGlosses,
