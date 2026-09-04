@@ -8,6 +8,7 @@
     "start": "npm run dev",
     "test": "vitest",
     "cf-typegen": "wrangler types",
+    "admin:reset-password": "node scripts/admin/reset-password.mjs",
     "jlpt:materialize-production": "node scripts/jlpt/materialize-production.mjs && node scripts/jlpt/refine-materialized-daily.mjs && node scripts/jlpt/sanitize-materialized-production.mjs",
     "jlpt:validate": "npm run jlpt:materialize-production && node scripts/jlpt/validate-production.mjs",
     "jlpt:validate-production": "npm run jlpt:materialize-production && node scripts/jlpt/validate-production.mjs",
