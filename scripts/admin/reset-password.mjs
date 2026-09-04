@@ -22,19 +22,53 @@ function setEcho(enabled) {
   if (result.status !== 0) throw new Error('터미널 입력 모드를 변경하지 못했습니다.');
 }
 
-function askHiddenWindows(prompt) {
-  const ps = [
-    `$p = Read-Host '${prompt.replaceAll("'", "''")}' -AsSecureString`,
-    `$b = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($p)`,
-    `try { [Runtime.InteropServices.Marshal]::PtrToStringBSTR($b) } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($b) }`,
-  ].join('; ');
-  const result = spawnSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', ps], {
-    encoding: 'utf8',
-    stdio: ['inherit', 'pipe', 'inherit'],
+function askHiddenRaw(prompt) {
+  if (!process.stdin.isTTY || typeof process.stdin.setRawMode !== 'function') {
+    throw new Error('이 터미널에서는 숨김 입력을 사용할 수 없습니다.');
+  }
+
+  process.stdout.write(prompt);
+  process.stdin.setEncoding('utf8');
+  process.stdin.setRawMode(true);
+  process.stdin.resume();
+
+  return new Promise((resolve, reject) => {
+    let value = '';
+
+    const cleanup = () => {
+      process.stdin.off('data', onData);
+      try { process.stdin.setRawMode(false); } catch {}
+      process.stdout.write('\n');
+    };
+
+    const onData = (chunk) => {
+      for (const char of chunk) {
+        if (char === '\r' || char === '\n') {
+          cleanup();
+          resolve(value);
+          return;
+        }
+        if (char === '\u0003') {
+          cleanup();
+          reject(new Error('비밀번호 입력을 취소했습니다.'));
+          return;
+        }
+        if (char === '\u007f' || char === '\b') {
+          if (value.length) {
+            value = value.slice(0, -1);
+            process.stdout.write('\b \b');
+          }
+          continue;
+        }
+        if (char >= ' ') {
+          value += char;
+          process.stdout.write('*');
+        }
+      }
+    };
+
+    process.stdin.on('data', onData);
   });
-  if (result.error) throw result.error;
-  if (result.status !== 0) throw new Error('비밀번호 입력을 취소했습니다.');
-  return String(result.stdout ?? '').replace(/\r?\n$/, '');
 }
 
 async function askHiddenUnix(rl, prompt) {
@@ -61,13 +95,13 @@ try {
     console.error('관리자 아이디를 입력해야 합니다.');
     process.exitCode = 1;
   } else {
-    // Windows PowerShell uses Read-Host -AsSecureString so the password is never echoed.
+    // Windows uses Node raw-mode input so password entry stays inside the same terminal.
     // Unix/Termux keeps one readline instance and temporarily disables terminal echo.
     const password = process.platform === 'win32'
-      ? askHiddenWindows('새 비밀번호')
+      ? await askHiddenRaw('새 비밀번호: ')
       : await askHiddenUnix(rl, '새 비밀번호: ');
     const confirm = process.platform === 'win32'
-      ? askHiddenWindows('새 비밀번호 확인')
+      ? await askHiddenRaw('새 비밀번호 확인: ')
       : await askHiddenUnix(rl, '새 비밀번호 확인: ');
 
     if (password !== confirm) {
@@ -104,6 +138,8 @@ try {
 } finally {
   if (process.platform !== 'win32') {
     try { setEcho(true); } catch {}
+  } else {
+    try { process.stdin.setRawMode(false); } catch {}
   }
   rl.close();
 }
