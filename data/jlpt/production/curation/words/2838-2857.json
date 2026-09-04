@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2838-2857",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2838","word":"彼此","reading":"あれこれ","meaning_ko":"이것저것; 이래저래; 여러 가지","meaning_ja":"いろいろな物事を取り上げるさま。あれやこれや。","part_of_speech":"副詞・代名詞","example_ja":"旅行の準備であれこれ買いそろえた。","example_ko":"여행 준비로 이것저것 샀다.","note":"現代では通常『あれこれ』と仮名で書く。"},
+    {"key":"n1-2839","word":"意気込む","reading":"いきごむ","meaning_ko":"의욕에 차다; 벼르다; 기세등등하다","meaning_ja":"何かをしようと強く張り切り、気持ちを高める。","part_of_speech":"五段動詞","example_ja":"彼は新しい仕事を成功させようと意気込んでいる。","example_ko":"그는 새 일을 성공시키려고 의욕에 차 있다."},
+    {"key":"n1-2840","word":"活ける","reading":"いける","meaning_ko":"꽃을 꽂다; 꽃꽂이하다","meaning_ja":"花や枝を器に美しく配置する。","part_of_speech":"一段動詞","example_ja":"玄関に季節の花を活けた。","example_ko":"현관에 계절 꽃을 꽂았다.","note":"『生ける』とも書く。"},
+    {"key":"n1-2841","word":"戴きます","reading":"いただきます","meaning_ko":"잘 먹겠습니다","meaning_ja":"食事を始める前に、食べ物や作った人への感謝を表す挨拶。","part_of_speech":"感動詞","example_ja":"みんなそろったので、いただきます。","example_ko":"다 모였으니 잘 먹겠습니다.","note":"現代では通常『いただきます』と仮名で書く。"},
+    {"key":"n1-2842","word":"労る","reading":"いたわる","meaning_ko":"위로하다; 돌보다; 배려하다","meaning_ja":"弱い立場や疲れている相手を思いやり、大切にする。","part_of_speech":"五段動詞","example_ja":"忙しい時ほど互いの体を労ることが大切だ。","example_ko":"바쁠 때일수록 서로의 몸을 배려하는 것이 중요하다.","note":"候補KO『어루만지다』だけでは狭いため、care for / sympathize の中心義を反映。"},
+    {"key":"n1-2843","word":"位地","reading":"いち","meaning_ko":"위치; 자리; 입장","meaning_ja":"場所・地位・置かれている状態。","part_of_speech":"普通名詞","example_ja":"建物の位置を地図で確認した。","example_ko":"건물의 위치를 지도에서 확인했다.","note":"現代では通常『位置』と書く。『位地』は旧表記・異表記。候補品詞『サ変名詞』から普通名詞に修正。"},
+    {"key":"n1-2844","word":"一挙に","reading":"いっきょに","meaning_ko":"단숨에; 한꺼번에; 일거에","meaning_ja":"一度の動作・機会でまとめて行うさま。","part_of_speech":"副詞","example_ja":"新機能を一挙に公開した。","example_ko":"새 기능을 한꺼번에 공개했다."},
+    {"key":"n1-2845","word":"何時の間にか","reading":"いつのまにか","meaning_ko":"어느새; 자기도 모르는 사이에","meaning_ja":"気付かないうちに、ある状態になっているさま。","part_of_speech":"副詞","example_ja":"話しているうちに、いつの間にか外が暗くなっていた。","example_ko":"이야기하는 사이 어느새 밖이 어두워져 있었다.","note":"現代では通常『いつの間にか』または『いつのまにか』と書く。"},
+    {"key":"n1-2846","word":"厭らしい","reading":"いやらしい","meaning_ko":"불쾌하다; 야하다; 징그럽다; 노골적이다","meaning_ja":"不快で感じが悪い。また、性的に露骨で品がないこともいう。","part_of_speech":"い形容詞","example_ja":"人の弱みに付け込むような厭らしいやり方は嫌いだ。","example_ko":"남의 약점을 이용하는 불쾌한 방식은 싫다.","note":"現代では通常『いやらしい』と仮名で書く。"},
+    {"key":"n1-2847","word":"愈々","reading":"いよいよ","meaning_ko":"드디어; 마침내; 점점 더","meaning_ja":"待っていた時がついに来るさま。また、程度がさらに高まるさま。","part_of_speech":"副詞","example_ja":"いよいよ来週から新しい仕事が始まる。","example_ko":"드디어 다음 주부터 새 일이 시작된다.","note":"現代では通常『いよいよ』と仮名で書く。"},
+    {"key":"n1-2848","word":"入口","reading":"いりぐち","meaning_ko":"입구; 들어가는 곳","meaning_ja":"建物・場所などへ入るための所。","part_of_speech":"普通名詞","example_ja":"駅の入口で友人を待った。","example_ko":"역 입구에서 친구를 기다렸다.","note":"候補KRDICTの『문턱』だけでは比喩義に偏っているため、JMdictの中心義 entrance を優先。"},
+    {"key":"n1-2849","word":"産む","reading":"うむ","meaning_ko":"낳다; 출산하다; 산출하다","meaning_ja":"子や卵を体外に出す。また、比喩的に新しいものを生み出す。","part_of_speech":"五段動詞","example_ja":"その技術革新が新しい産業を産んだ。","example_ko":"그 기술 혁신이 새로운 산업을 낳았다."},
+    {"key":"n1-2850","word":"梅干","reading":"うめぼし","meaning_ko":"우메보시; 소금에 절인 매실","meaning_ja":"梅の実を塩漬けにして干した日本の保存食品。","part_of_speech":"普通名詞","example_ja":"弁当のご飯の上に梅干が一つ入っていた。","example_ko":"도시락 밥 위에 우메보시가 하나 들어 있었다.","note":"一般的な表記は『梅干し』。"},
+    {"key":"n1-2851","word":"五月蝿い","reading":"うるさい","meaning_ko":"시끄럽다; 성가시다; 까다롭다","meaning_ja":"音が大きく不快である。また、しつこくて煩わしい、細かい点に厳しい。","part_of_speech":"い形容詞","example_ja":"工事の音が朝からうるさい。","example_ko":"공사 소리가 아침부터 시끄럽다.","note":"『五月蝿い』は当て字で、現代では通常『うるさい』と書く。"},
+    {"key":"n1-2852","word":"エアメール","reading":"エアメール","meaning_ko":"항공 우편; 항공편 편지","meaning_ja":"航空機で運ぶ郵便。特に海外向けの航空郵便。","part_of_speech":"普通名詞","example_ja":"海外の友人にエアメールを送った。","example_ko":"해외 친구에게 항공 우편을 보냈다."},
+    {"key":"n1-2853","word":"襟","reading":"えり","meaning_ko":"옷깃; 칼라; 목둘레 부분","meaning_ja":"衣服の首まわりに付いている部分。","part_of_speech":"普通名詞","example_ja":"シャツの襟をきちんと整えた。","example_ko":"셔츠의 옷깃을 단정히 정리했다.","note":"候補KRDICTに韓服固有の説明が多く混入していたため、日本語の一般的中心義に整理。"},
+    {"key":"n1-2854","word":"エレガント","reading":"エレガント","meaning_ko":"우아하다; 품위 있다","meaning_ja":"上品で洗練され、美しいさま。","part_of_speech":"な形容詞","example_ja":"彼女はエレガントなドレスを着ていた。","example_ko":"그녀는 우아한 드레스를 입고 있었다."},
+    {"key":"n1-2855","word":"大ざっぱ","reading":"おおざっぱ","meaning_ko":"대충이다; 대략적이다; 세세하지 않다","meaning_ja":"細部にこだわらず、大体で物事を扱うさま。","part_of_speech":"な形容詞","example_ja":"まずは大ざっぱな予定を決めよう。","example_ko":"우선 대략적인 일정을 정하자."},
+    {"key":"n1-2856","word":"オートマチック","reading":"オートマチック","meaning_ko":"자동식; 오토매틱","meaning_ja":"人が細かく操作しなくても自動的に動作すること。","part_of_speech":"な形容詞・普通名詞","example_ja":"この車はオートマチックなので運転しやすい。","example_ko":"이 차는 자동변속기라 운전하기 쉽다."},
+    {"key":"n1-2857","word":"お蔭様で","reading":"おかげさまで","meaning_ko":"덕분에; 덕분입니다","meaning_ja":"相手や周囲への感謝を込めて、よい結果・状態になったことを述べる表現。","part_of_speech":"副詞的表現","example_ja":"お蔭様で、無事に退院することができました。","example_ko":"덕분에 무사히 퇴원할 수 있었습니다.","note":"現代では通常『おかげさまで』と仮名で書く。"}
+  ]
+}
