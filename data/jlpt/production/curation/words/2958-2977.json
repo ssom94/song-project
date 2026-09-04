@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2958-2977",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2958","word":"物置き","reading":"ものおき","meaning_ko":"창고; 물건 보관실","meaning_ja":"普段使わない物などをしまっておく場所・小屋。","part_of_speech":"普通名詞","example_ja":"季節外れの道具は物置きにしまってある。","example_ko":"철 지난 도구는 창고에 보관해 두었다.","note":"『物置』表記も一般的。"},
+    {"key":"n1-2959","word":"止むを得ない","reading":"やむをえない","meaning_ko":"어쩔 수 없다; 부득이하다","meaning_ja":"他に方法がなく、そうするしかない。","part_of_speech":"い形容詞","example_ja":"悪天候のため、試合の中止はやむを得ない。","example_ko":"악천후 때문에 경기 중지는 어쩔 수 없다.","note":"通常は『やむを得ない』とも書く。"},
+    {"key":"n1-2960","word":"稍","reading":"やや","meaning_ko":"약간; 조금; 다소","meaning_ja":"程度が少しだけそうであるさま。","part_of_speech":"副詞","example_ja":"今日は昨日よりやや暖かい。","example_ko":"오늘은 어제보다 약간 따뜻하다.","note":"現代では通常『やや』と仮名で書く。候補KRDICTの『설핏/자칫』は中心義とずれるため除外。"},
+    {"key":"n1-2961","word":"世","reading":"よ","meaning_ko":"세상; 세대; 시대","meaning_ja":"人々が暮らす社会・世の中。また、時代や世代。","part_of_speech":"普通名詞","example_ja":"世の中は常に変化している。","example_ko":"세상은 늘 변하고 있다."},
+    {"key":"n1-2962","word":"好い","reading":"よい","meaning_ko":"좋다; 훌륭하다; 바람직하다","meaning_ja":"状態・性質などが望ましく、好ましい。","part_of_speech":"い形容詞","example_ja":"今日は気分がとてもよい。","example_ko":"오늘은 기분이 매우 좋다.","note":"通常は『良い』『よい』と書く。"},
+    {"key":"n1-2963","word":"濫用","reading":"らんよう","meaning_ko":"남용; 오용","meaning_ja":"権利・薬物・言葉などを必要以上または不適切に使うこと。","part_of_speech":"サ変名詞","example_ja":"権限を濫用してはいけない。","example_ko":"권한을 남용해서는 안 된다.","note":"『乱用』表記も広く使われる。"},
+    {"key":"n1-2964","word":"ルーズ","reading":"ルーズ","meaning_ko":"느슨한; 칠칠치 못한; 시간·돈 등에 엄격하지 않은","meaning_ja":"締まりがなく、時間・金銭・規律などにだらしないさま。","part_of_speech":"な形容詞","example_ja":"彼は時間にルーズで、よく遅刻する。","example_ko":"그는 시간 개념이 느슨해서 자주 지각한다.","note":"英語 loose 由来だが、日本語では『だらしない』の意味でよく使う。"},
+    {"key":"n1-2965","word":"ローマ字","reading":"ローマじ","meaning_ko":"로마자; 알파벳 표기","meaning_ja":"ラテン文字。また、日本語などをラテン文字で表記したもの。","part_of_speech":"普通名詞","example_ja":"名前をローマ字で入力してください。","example_ko":"이름을 로마자로 입력해 주세요."},
+    {"key":"n1-2966","word":"我がまま","reading":"わがまま","meaning_ko":"제멋대로임; 이기적임; 고집","meaning_ja":"自分の都合や欲求だけを優先して振る舞うこと。","part_of_speech":"普通名詞・な形容詞","example_ja":"自分のわがままばかり通してはいけない。","example_ko":"자기 고집만 부려서는 안 된다.","note":"通常は『わがまま』『我儘』と表記。"},
+    {"key":"n1-2967","word":"割引き","reading":"わりびき","meaning_ko":"할인; 가격 인하","meaning_ja":"定価・料金などから一定の額や割合を差し引くこと。","part_of_speech":"普通名詞・サ変名詞","example_ja":"会員なら料金が一割引きになる。","example_ko":"회원이면 요금이 10퍼센트 할인된다.","note":"『割引』『割り引き』表記も一般的。"},
+    {"key":"n1-2968","word":"伝来","reading":"でんらい","meaning_ko":"전래; 전해 내려옴","meaning_ja":"外国などから伝わって来ること。また、代々受け継がれて伝わること。","part_of_speech":"サ変名詞","example_ja":"仏教は大陸から日本へ伝来した。","example_ko":"불교는 대륙에서 일본으로 전래되었다."},
+    {"key":"n1-2969","word":"重なる","reading":"おもなる","meaning_ko":"주된; 주요한; 중요한","meaning_ja":"中心となる。主要な。","part_of_speech":"連体詞的表現","example_ja":"会議では主なる課題について意見を交換した。","example_ko":"회의에서는 주요 과제에 대해 의견을 교환했다.","note":"候補は『重なる／おもなる』だが、JMdict英義 main/principal/important に対応する実質的な語は『主なる（おもなる）』。原候補の表記は不整合として要注意。"},
+    {"key":"n1-2970","word":"火傷","reading":"かしょう","meaning_ko":"화상; 데인 상처","meaning_ja":"火や熱などによって皮膚・組織が損傷すること。","part_of_speech":"普通名詞","example_ja":"熱湯で手に火傷を負った。","example_ko":"뜨거운 물에 손을 데어 화상을 입었다.","note":"日常語では『やけど』と読むのが一般的。『かしょう』は医学的・漢語的な読み。"},
+    {"key":"n1-2971","word":"城下","reading":"じょうか","meaning_ko":"성 아래; 성 주변 지역","meaning_ja":"城の周辺・城下町の地域。","part_of_speech":"普通名詞","example_ja":"城下には古い町並みが残っている。","example_ko":"성 주변에는 오래된 거리 풍경이 남아 있다."},
+    {"key":"n1-2972","word":"正しく","reading":"まさしく","meaning_ko":"바로; 틀림없이; 과연","meaning_ja":"疑いなく、まさにその通りであるさま。","part_of_speech":"副詞","example_ja":"これはまさしく私が探していた資料だ。","example_ko":"이것이 바로 내가 찾고 있던 자료다.","note":"『正しく』を『まさしく』と読む用法。通常は『まさしく』と仮名で書く。"},
+    {"key":"n1-2973","word":"世辞","reading":"せじ","meaning_ko":"아첨; 빈말; 인사치레","meaning_ja":"相手の機嫌を取るために言う、実意のない褒め言葉。","part_of_speech":"普通名詞","example_ja":"お世辞ではなく、本当にすばらしいと思う。","example_ko":"빈말이 아니라 정말 훌륭하다고 생각한다.","note":"通常は『お世辞』の形でよく使う。"},
+    {"key":"n1-2974","word":"宣教","reading":"せんきょう","meaning_ko":"선교; 포교","meaning_ja":"宗教の教えを広く伝えて広めること。","part_of_speech":"サ変名詞","example_ja":"彼は海外で宣教活動を行った。","example_ko":"그는 해외에서 선교 활동을 했다."},
+    {"key":"n1-2975","word":"擦る","reading":"かする","meaning_ko":"살짝 스치다; 긁히듯 닿다; 일부를 떼다","meaning_ja":"物に軽く触れる、すれすれに通る。また、利益などから一部を取る。","part_of_speech":"五段動詞","example_ja":"ボールが壁をかすって外へ出た。","example_ko":"공이 벽을 살짝 스치고 밖으로 나갔다.","note":"同じ『擦る』でも『する』『こする』など別読み・別義がある。"},
+    {"key":"n1-2976","word":"統率","reading":"とうそつ","meaning_ko":"통솔; 지휘","meaning_ja":"集団をまとめ、率いること。","part_of_speech":"サ変名詞","example_ja":"監督はチームを見事に統率した。","example_ko":"감독은 팀을 훌륭하게 통솔했다."},
+    {"key":"n1-2977","word":"決行","reading":"けっこう","meaning_ko":"결행; 단행","meaning_ja":"決めた計画などを、覚悟をもって実行すること。","part_of_speech":"サ変名詞","example_ja":"雨が降っても大会は予定通り決行する。","example_ko":"비가 와도 대회는 예정대로 강행한다."}
+  ]
+}
