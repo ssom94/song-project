@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1001-1020",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-1001","word":"称する","reading":"しょうする","meaning_ko":"칭하다; 일컫다; 자칭하다","meaning_ja":"ある名称で呼ぶ。また、自分をそのように名乗る・装う。","part_of_speech":"サ変動詞","example_ja":"彼は専門家を称しているが、その分野での実務経験は確認できない。","example_ko":"그는 전문가를 자칭하지만 그 분야의 실무 경험은 확인되지 않는다."},
+    {"key":"n1-1002","word":"助け","reading":"たすけ","meaning_ko":"도움; 구원","meaning_ja":"困っている人を支えたり、危険から救ったりすること。","part_of_speech":"普通名詞","example_ja":"周囲の助けがなければ、短期間でこの仕事を終えることはできなかった。","example_ko":"주변의 도움이 없었다면 짧은 기간에 이 일을 끝낼 수 없었다."},
+    {"key":"n1-1003","word":"印","reading":"いん","meaning_ko":"인장; 도장; 표식","meaning_ja":"本人・団体の確認を示すために押す印章。また、しるし。","part_of_speech":"普通名詞","example_ja":"申請書の指定欄に印を押して提出してください。","example_ko":"신청서의 지정란에 도장을 찍어 제출해 주세요."},
+    {"key":"n1-1004","word":"兵士","reading":"へいし","meaning_ko":"병사; 군인","meaning_ja":"軍隊に所属し、軍事上の任務に従事する人。","part_of_speech":"普通名詞","example_ja":"戦争を経験した元兵士の証言が資料として保存されている。","example_ko":"전쟁을 경험한 전직 병사의 증언이 자료로 보존되어 있다."},
+    {"key":"n1-1005","word":"訴訟","reading":"そしょう","meaning_ko":"소송","meaning_ja":"権利・義務などをめぐる争いについて、裁判所に法的な判断を求める手続き。","part_of_speech":"サ変名詞","example_ja":"両社は長年の訴訟を終え、最終的に和解することで合意した。","example_ko":"두 회사는 오랜 소송을 끝내고 최종적으로 합의하기로 했다."},
+    {"key":"n1-1006","word":"着陸","reading":"ちゃくりく","meaning_ko":"착륙","meaning_ja":"航空機などが空中から地上へ降りること。","part_of_speech":"サ変名詞","example_ja":"強風のため、飛行機は予定していた空港への着陸を断念した。","example_ko":"강풍 때문에 비행기는 예정했던 공항 착륙을 포기했다."},
+    {"key":"n1-1007","word":"決まる","reading":"きまる","meaning_ko":"정해지다; 결정되다","meaning_ja":"予定・方針・結果などが確定する。また、服装・技などがうまく決まる。","part_of_speech":"五段動詞","example_ja":"新しい担当者が決まり次第、関係部署に連絡します。","example_ko":"새 담당자가 결정되는 대로 관계 부서에 연락하겠습니다."},
+    {"key":"n1-1008","word":"有する","reading":"ゆうする","meaning_ko":"가지다; 보유하다","meaning_ja":"性質・能力・権利・資産などを持っている。","part_of_speech":"サ変動詞","example_ja":"この資格を取得するには、一定期間の実務経験を有することが条件となる。","example_ko":"이 자격을 취득하려면 일정 기간의 실무 경험을 보유하는 것이 조건이다."},
+    {"key":"n1-1009","word":"意図","reading":"いと","meaning_ko":"의도; 목적","meaning_ja":"何かをしようとする考え・ねらい。","part_of_speech":"普通名詞","example_ja":"発言の一部だけを切り取ると、本人の意図とは異なる意味に受け取られかねない。","example_ko":"발언의 일부만 떼어 내면 본인의 의도와 다른 의미로 받아들여질 수 있다."},
+    {"key":"n1-1010","word":"勧め","reading":"すすめ","meaning_ko":"권유; 추천","meaning_ja":"人にある行動・選択をするよう勧めること。また、その内容。","part_of_speech":"普通名詞","example_ja":"医師の勧めで、毎日少しずつ運動する習慣を始めた。","example_ko":"의사의 권유로 매일 조금씩 운동하는 습관을 시작했다."},
+    {"key":"n1-1011","word":"修行","reading":"しゅぎょう","meaning_ko":"수행; 기술을 닦는 훈련","meaning_ja":"精神・技能などを高めるために厳しい訓練・実践を重ねること。","part_of_speech":"サ変名詞","example_ja":"彼は若い頃、職人として腕を磨くため各地で修行を重ねた。","example_ko":"그는 젊었을 때 장인으로서 실력을 닦기 위해 여러 지역에서 수련을 거듭했다."},
+    {"key":"n1-1012","word":"破壊","reading":"はかい","meaning_ko":"파괴","meaning_ja":"物・組織・秩序などを壊し、正常に機能しない状態にすること。","part_of_speech":"サ変名詞","example_ja":"無計画な開発が自然環境の破壊につながる可能性が指摘されている。","example_ko":"무계획한 개발이 자연환경 파괴로 이어질 가능성이 지적되고 있다."},
+    {"key":"n1-1013","word":"収集","reading":"しゅうしゅう","meaning_ko":"수집","meaning_ja":"必要な物・情報などを集めること。","part_of_speech":"サ変名詞","example_ja":"原因を特定するため、まず関連するログを収集する。","example_ko":"원인을 특정하기 위해 우선 관련 로그를 수집한다."},
+    {"key":"n1-1014","word":"問う","reading":"とう","meaning_ko":"묻다; 따지다; 문제 삼다","meaning_ja":"答え・説明を求める。また、責任・価値・是非などを問題として取り上げる。","part_of_speech":"五段動詞","example_ja":"この試験では知識量だけでなく、情報を分析する力も問われる。","example_ko":"이 시험에서는 지식량뿐 아니라 정보를 분석하는 능력도 요구된다."},
+    {"key":"n1-1015","word":"根拠","reading":"こんきょ","meaning_ko":"근거; 논거","meaning_ja":"判断・主張などを支える理由・証拠。","part_of_speech":"普通名詞","example_ja":"十分な根拠がないまま結論を出すべきではない。","example_ko":"충분한 근거 없이 결론을 내려서는 안 된다."},
+    {"key":"n1-1016","word":"楽しむ","reading":"たのしむ","meaning_ko":"즐기다; 감상하다","meaning_ja":"物事から喜び・面白さを感じ、味わう。","part_of_speech":"五段動詞","example_ja":"旅行では有名な観光地だけでなく、地域の日常文化も楽しみたい。","example_ko":"여행에서는 유명 관광지뿐 아니라 지역의 일상 문화도 즐기고 싶다."},
+    {"key":"n1-1017","word":"行い","reading":"おこない","meaning_ko":"행동; 행실","meaning_ja":"人が実際にする行動。特に道徳的な観点から見た行為・品行。","part_of_speech":"普通名詞","example_ja":"日頃の行いは、いざという時の周囲からの信頼にも影響する。","example_ko":"평소의 행동은 만일의 때 주변의 신뢰에도 영향을 준다."},
+    {"key":"n1-1018","word":"難い","reading":"かたい","meaning_ko":"~하기 어렵다; 쉽지 않다","meaning_ja":"『〜し難い』の形で、その行為をするのが難しいことを表す。","part_of_speech":"い形容詞","example_ja":"長年の経験から得た知識は、数字だけでは説明し難い。","example_ko":"오랜 경험에서 얻은 지식은 숫자만으로 설명하기 어렵다.","note":"単独より『信じ難い』『理解し難い』など複合形でよく使う。"},
+    {"key":"n1-1019","word":"拒否","reading":"きょひ","meaning_ko":"거부","meaning_ja":"要求・提案・受け取りなどを受け入れないこと。","part_of_speech":"サ変名詞","example_ja":"本人には、個人情報の提供を拒否する権利がある。","example_ko":"본인에게는 개인정보 제공을 거부할 권리가 있다."},
+    {"key":"n1-1020","word":"長官","reading":"ちょうかん","meaning_ko":"장관; 기관의 최고 책임자","meaning_ja":"官庁・行政機関などの最高責任者を表す官職名。","part_of_speech":"普通名詞","example_ja":"長官は記者会見で、新しい安全対策の方針を説明した。","example_ko":"장관은 기자회견에서 새로운 안전 대책의 방침을 설명했다."}
+  ]
+}
