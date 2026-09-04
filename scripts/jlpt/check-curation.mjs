@@ -35,9 +35,7 @@ for (const name of files) {
     malformed.push({ file: name, error: error.message });
     continue;
   }
-  for (const [index, item] of (doc.words ?? []).entries()) {
-    rows.push({ ...item, __file: name, __index: index });
-  }
+  for (const [index, item] of (doc.words ?? []).entries()) rows.push({ ...item, __file: name, __index: index });
 }
 
 const keyMap = new Map();
@@ -100,9 +98,7 @@ for (const [reading, group] of readingMap.entries()) {
 const sourceByKey = new Map();
 if (fs.existsSync(CANDIDATE_FILE)) {
   const doc = readJson(CANDIDATE_FILE);
-  for (const item of doc.candidates ?? []) {
-    if (item?.key && !sourceByKey.has(item.key)) sourceByKey.set(item.key, item);
-  }
+  for (const item of doc.candidates ?? []) if (item?.key && !sourceByKey.has(item.key)) sourceByKey.set(item.key, item);
 }
 
 const sourceDrift = [];
@@ -110,15 +106,21 @@ for (const row of rows) {
   const source = sourceByKey.get(row.key);
   if (!source) continue;
   if (identity(source.word, source.reading) !== identity(row.word, row.reading)) {
-    sourceDrift.push({
-      key: row.key,
-      curated: `${row.word}/${row.reading}`,
-      source: `${source.word}/${source.reading}`,
-      file: row.__file,
-      note: row.note ?? '',
-    });
+    sourceDrift.push({ key: row.key, curated: `${row.word}/${row.reading}`, source: `${source.word}/${source.reading}`, file: row.__file, note: row.note ?? '' });
   }
 }
+
+const missingKeyAssignments = missingKeys.map(key => {
+  const source = sourceByKey.get(key);
+  return source ? {
+    key,
+    word: source.word,
+    reading: source.reading,
+    meaning_en: source.meaning_en ?? '',
+    part_of_speech: source.part_of_speech ?? '',
+    jmdict_seq: source.jmdict_seq ?? null,
+  } : { key, source: null };
+});
 
 const report = {
   files: files.length,
@@ -130,12 +132,11 @@ const report = {
   duplicateIdentities,
   missingRequired,
   missingKeys,
+  missingKeyAssignments,
   semanticDuplicateCandidates,
   sourceDrift,
 };
 
 console.log(JSON.stringify(report, null, 2));
 
-if (malformed.length || duplicateKeys.length || duplicateIdentities.length || missingRequired.length || missingKeys.length || sourceDrift.length) {
-  process.exitCode = 1;
-}
+if (malformed.length || duplicateKeys.length || duplicateIdentities.length || missingRequired.length || missingKeys.length || sourceDrift.length) process.exitCode = 1;
