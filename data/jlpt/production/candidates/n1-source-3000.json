@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T07:13:33.013Z",
+  "generatedAt": "2026-09-04T07:24:59.282Z",
   "target": 3000,
   "sourceCandidateCount": 3427,
   "selectionRule": "valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence; curated word+reading identities are permanently locked to their reviewed n1-#### keys; only uncurated slots are filled from the ranked candidate pool",
@@ -58839,10 +58839,10 @@
     {
       "key": "n1-2451",
       "sequence_no": 2451,
-      "word": "戦",
-      "reading": "いくさ",
-      "meaning_en": "war, battle, campaign, fight",
-      "jmdict_seq": "1587140",
+      "word": "地形",
+      "reading": "じぎょう",
+      "meaning_en": "terrain, geographical features, topography",
+      "jmdict_seq": "1421030",
       "part_of_speech": "普通名詞",
       "pos_tags": [
         "n"
@@ -58851,13 +58851,13 @@
       "jmdict_common": true,
       "jmdict_canonical_match": true,
       "frequency": {
-        "corpus": null,
-        "subtitles": null,
-        "web": 648,
-        "wikipedia": null
+        "corpus": 9266,
+        "subtitles": 3797,
+        "web": 7269,
+        "wikipedia": 3694
       },
       "source": "waller-n1-via-stephenmk+jmdict-normalized",
-      "quality_score": 187342
+      "quality_score": 41748
     },
     {
       "key": "n1-2452",
@@ -60670,20 +60670,29 @@
       "quality_score": 189841
     },
     {
-      "meaning_en": "",
-      "jmdict_seq": null,
-      "part_of_speech": "副詞",
-      "pos_tags": [],
-      "reading_tags": [],
-      "jmdict_common": false,
-      "jmdict_canonical_match": true,
-      "frequency": {},
-      "quality_score": null,
-      "source": "openai-assisted-manual-curation-lock",
       "key": "n1-2530",
       "sequence_no": 2530,
-      "word": "只管",
-      "reading": "ひたすら"
+      "word": "執着",
+      "reading": "しゅうじゃく",
+      "meaning_en": "attachment, adhesion, tenacity",
+      "jmdict_seq": "1594740",
+      "part_of_speech": "サ変名詞",
+      "pos_tags": [
+        "n",
+        "vs",
+        "vi"
+      ],
+      "reading_tags": [],
+      "jmdict_common": true,
+      "jmdict_canonical_match": true,
+      "frequency": {
+        "corpus": 7583,
+        "subtitles": 2058,
+        "web": 7835,
+        "wikipedia": 8986
+      },
+      "source": "waller-n1-via-stephenmk+jmdict-normalized",
+      "quality_score": 41966
     },
     {
       "key": "n1-2531",
@@ -70251,25 +70260,25 @@
     {
       "key": "n1-2937",
       "sequence_no": 2937,
-      "word": "一まず",
-      "reading": "ひとまず",
-      "meaning_en": "for the present, once, in outline",
-      "jmdict_seq": "1601990",
-      "part_of_speech": "副詞",
+      "word": "問屋",
+      "reading": "といや",
+      "meaning_en": "wholesale store",
+      "jmdict_seq": "1584790",
+      "part_of_speech": "普通名詞",
       "pos_tags": [
-        "adv"
+        "n"
       ],
       "reading_tags": [],
       "jmdict_common": true,
       "jmdict_canonical_match": true,
       "frequency": {
-        "corpus": null,
-        "subtitles": null,
-        "web": null,
-        "wikipedia": null
+        "corpus": 6611,
+        "subtitles": 6888,
+        "web": 9901,
+        "wikipedia": 4180
       },
       "source": "waller-n1-via-stephenmk+jmdict-normalized",
-      "quality_score": 240000
+      "quality_score": 42744
     },
     {
       "key": "n1-2938",
@@ -70321,25 +70330,28 @@
     {
       "key": "n1-2940",
       "sequence_no": 2940,
-      "word": "百科辞典",
-      "reading": "ひゃっかじてん",
-      "meaning_en": "encyclopedia",
-      "jmdict_seq": "1602190",
-      "part_of_speech": "普通名詞",
+      "word": "消耗",
+      "reading": "しょうこう",
+      "meaning_en": "exhaustion, consumption",
+      "jmdict_seq": "1580310",
+      "part_of_speech": "サ変名詞",
       "pos_tags": [
-        "n"
+        "n",
+        "vs",
+        "vt",
+        "vi"
       ],
       "reading_tags": [],
       "jmdict_common": true,
       "jmdict_canonical_match": true,
       "frequency": {
-        "corpus": null,
-        "subtitles": null,
-        "web": null,
-        "wikipedia": null
+        "corpus": 13312,
+        "subtitles": 2406,
+        "web": 7567,
+        "wikipedia": 8844
       },
       "source": "waller-n1-via-stephenmk+jmdict-normalized",
-      "quality_score": 240000
+      "quality_score": 42930
     },
     {
       "key": "n1-2941",
@@ -71782,7 +71794,7 @@
   ],
   "curationLock": {
     "curatedKeys": 3000,
-    "metadataRecovered": 2978,
-    "curatedWithoutCurrentMetadata": 22
+    "metadataRecovered": 2979,
+    "curatedWithoutCurrentMetadata": 21
   }
 }

@@ -12752,22 +12752,31 @@
     {
       "key": "n1-2451",
       "sequence_no": 2451,
-      "word": "戦",
-      "reading": "いくさ",
-      "meaning_ko": "전쟁; 싸움; 전투",
-      "meaning_ja": "軍勢同士の戦い。戦争・戦闘を表す古風な語。",
+      "word": "地形",
+      "reading": "じぎょう",
+      "meaning_ko": "지반 다지기; 기초 공사; 건축 기초",
+      "meaning_ja": "建築を始める前に地面をならして固めること。また、その基礎工事・基礎構造。",
       "part_of_speech": "普通名詞",
-      "example_ja": "昔、この地域で大きな戦があったという。",
-      "example_ko": "옛날 이 지역에서 큰 전투가 있었다고 한다.",
+      "example_ja": "建物を建てる前に、地形を十分に固める必要がある。",
+      "example_ko": "건물을 짓기 전에 지반을 충분히 다지는 기초 공사가 필요하다.",
       "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1587140",
-        "meaning_en": "war, battle, campaign, fight",
+        "jmdict_seq": "1421030",
+        "meaning_en": "terrain, geographical features, topography",
         "curated_file": "data/jlpt/production/curation/words/2438-2457.json",
         "curated_original_key": "n1-2451",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 3,
+          "reasons": [
+            "surface_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "지형",
+          "definition_ko": "땅의 생긴 모양.",
+          "meaning_ja_source": "ちけい【地形】"
+        }
       }
     },
     {

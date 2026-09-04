@@ -805,22 +805,31 @@
     {
       "key": "n1-2530",
       "sequence_no": 2530,
-      "word": "只管",
-      "reading": "ひたすら",
-      "meaning_ko": "오로지; 한결같이; 그저 계속",
-      "meaning_ja": "他のことに心を向けず、一つのことだけに集中するさま。",
-      "part_of_speech": "副詞",
-      "example_ja": "合格を目指して、毎日ひたすら勉強した。",
-      "example_ko": "합격을 목표로 매일 오로지 공부했다.",
+      "word": "執着",
+      "reading": "しゅうじゃく",
+      "meaning_ko": "집착; 미련; 한 대상에 얽매임",
+      "meaning_ja": "一つの物事に心を強くとらわれ、そこから離れられないこと。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "過去の成功に執着しすぎると、新しい変化を受け入れにくくなる。",
+      "example_ko": "과거의 성공에 지나치게 집착하면 새로운 변화를 받아들이기 어려워진다.",
       "review_status": "curated_ready_for_final_review",
       "evidence": {
-        "candidate_source": "openai-assisted-manual-curation-lock",
-        "jmdict_seq": null,
-        "meaning_en": "",
+        "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
+        "jmdict_seq": "1594740",
+        "meaning_en": "attachment, adhesion, tenacity",
         "curated_file": "data/jlpt/production/curation/words/2518-2537.json",
         "curated_original_key": "n1-2530",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 3,
+          "reasons": [
+            "surface_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "집착",
+          "definition_ko": "어떤 것에 마음이 쏠려 떨치지 못하고 계속 매달림.",
+          "meaning_ja_source": "しゅうちゃく【執着】。こだわり【拘り】"
+        }
       }
     },
     {
@@ -11844,22 +11853,31 @@
     {
       "key": "n1-2937",
       "sequence_no": 2937,
-      "word": "一まず",
-      "reading": "ひとまず",
-      "meaning_ko": "일단; 우선; 잠시",
-      "meaning_ja": "最終的ではないが、まず一区切りつけるさま。",
-      "part_of_speech": "副詞",
-      "example_ja": "問題は一まず解決した。",
-      "example_ko": "문제는 일단 해결됐다.",
+      "word": "問屋",
+      "reading": "といや",
+      "meaning_ko": "도매상; 도매점",
+      "meaning_ja": "商品を仕入れて小売業者などに販売する卸売業者・卸売店。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "この地域には昔から織物を扱う問屋が多かった。",
+      "example_ko": "이 지역에는 예전부터 직물을 취급하는 도매상이 많았다.",
       "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1601990",
-        "meaning_en": "for the present, once, in outline",
+        "jmdict_seq": "1584790",
+        "meaning_en": "wholesale store",
         "curated_file": "data/jlpt/production/curation/words/2918-2937.json",
         "curated_original_key": "n1-2937",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 3,
+          "reasons": [
+            "surface_exact"
+          ],
+          "source_file": "009.xml",
+          "meaning_ko": "중간 상인",
+          "definition_ko": "생산자와 소비자 사이에서 상품을 공급하거나 매매하는 상인.",
+          "meaning_ja_source": "ちゅうかんしょうにん【中間商人】。なかがいぎょうしゃ【仲買業者】。とんや【 問屋】。 おろしとんや【卸し問屋】"
+        }
       }
     },
     {
@@ -11907,22 +11925,31 @@
     {
       "key": "n1-2940",
       "sequence_no": 2940,
-      "word": "百科辞典",
-      "reading": "ひゃっかじてん",
-      "meaning_ko": "백과사전",
-      "meaning_ja": "幅広い分野の知識を項目別に解説した辞典。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "分からない言葉を百科辞典で調べた。",
-      "example_ko": "모르는 단어를 백과사전에서 찾아봤다.",
+      "word": "消耗",
+      "reading": "しょうこう",
+      "meaning_ko": "소모; 닳아 없어짐; 기력이 쇠함",
+      "meaning_ja": "物や力などを使って減らすこと。また、使ううちに減ったり弱ったりすること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "長時間の作業で体力を大きく消耗した。",
+      "example_ko": "장시간 작업으로 체력을 크게 소모했다.",
       "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1602190",
-        "meaning_en": "encyclopedia",
+        "jmdict_seq": "1580310",
+        "meaning_en": "exhaustion, consumption",
         "curated_file": "data/jlpt/production/curation/words/2938-2957.json",
         "curated_original_key": "n1-2940",
         "legacy_curated_file": null,
-        "krdict": null
+        "krdict": {
+          "score": 3,
+          "reasons": [
+            "surface_exact"
+          ],
+          "source_file": "006.xml",
+          "meaning_ko": "소모",
+          "definition_ko": "써서 없앰.",
+          "meaning_ja_source": "しょうもう【消耗】"
+        }
       }
     },
     {
