@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1361-1380",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1361","word":"仏像","reading":"ぶつぞう","meaning_ko":"불상","meaning_ja":"仏・菩薩などの姿を彫刻や像として表したもの。","part_of_speech":"普通名詞","example_ja":"寺の本堂には平安時代に作られた仏像が安置されている。","example_ko":"절 본당에는 헤이안 시대에 만들어진 불상이 모셔져 있다."},
+    {"key":"n1-1362","word":"志望","reading":"しぼう","meaning_ko":"지망; 희망함","meaning_ja":"進学先・職業・役割などとして、あるものを希望すること。","part_of_speech":"サ変名詞","example_ja":"彼女は大学卒業後、研究職を志望している。","example_ko":"그녀는 대학 졸업 후 연구직을 지망하고 있다."},
+    {"key":"n1-1363","word":"万人","reading":"ばんじん","meaning_ko":"만인; 모든 사람","meaning_ja":"すべての人。非常に多くの人を一般化していう語。","part_of_speech":"普通名詞","example_ja":"万人にとって使いやすい制度を作るのは容易ではない。","example_ko":"모든 사람에게 사용하기 쉬운 제도를 만드는 것은 쉽지 않다."},
+    {"key":"n1-1364","word":"練る","reading":"ねる","meaning_ko":"다듬다; 숙고하다; 반죽하다","meaning_ja":"材料をこねて均一にする。また、計画・文章・考えなどを十分に検討して仕上げる。","part_of_speech":"五段動詞","example_ja":"関係部署と議論を重ね、実施計画をさらに練る必要がある。","example_ko":"관련 부서와 논의를 거듭해 실행 계획을 더 다듬을 필요가 있다."},
+    {"key":"n1-1365","word":"家出","reading":"いえで","meaning_ko":"가출","meaning_ja":"家族に告げず、または家に戻る意思を持たずに自宅を離れること。","part_of_speech":"サ変名詞","example_ja":"未成年者の家出について家族から警察に相談が寄せられた。","example_ko":"미성년자의 가출에 대해 가족이 경찰에 상담을 요청했다."},
+    {"key":"n1-1366","word":"夜行","reading":"やぎょう","meaning_ko":"야간 운행; 밤에 이동함","meaning_ja":"夜間に移動・運行すること。『夜行列車』『夜行バス』などの形でよく使う。","part_of_speech":"サ変名詞","example_ja":"東京から大阪まで夜行バスで移動した。","example_ko":"도쿄에서 오사카까지 야간 버스로 이동했다.","note":"『夜行列車』『夜行バス』のような複合語で用いられることが多い。"},
+    {"key":"n1-1367","word":"懸賞","reading":"けんしょう","meaning_ko":"현상; 상금·상품을 건 공모","meaning_ja":"作品・回答・情報などを広く募集し、優れたものや条件を満たしたものに賞金・賞品を与えること。","part_of_speech":"普通名詞","example_ja":"雑誌の懸賞に応募したところ、旅行券が当たった。","example_ko":"잡지 현상 이벤트에 응모했더니 여행권에 당첨됐다."},
+    {"key":"n1-1368","word":"歩み","reading":"あゆみ","meaning_ko":"걸음; 행보; 과정","meaning_ja":"歩くこと。また比喩的に、これまで進んできた過程・歴史。","part_of_speech":"普通名詞","example_ja":"創業から現在までの会社の歩みを年表にまとめた。","example_ko":"창업부터 현재까지 회사의 발자취를 연표로 정리했다."},
+    {"key":"n1-1369","word":"鮮やか","reading":"あざやか","meaning_ko":"선명함; 산뜻함; 훌륭함","meaning_ja":"色・印象などがはっきりして美しいさま。また、技術・処理などが見事であるさま。","part_of_speech":"な形容詞","example_ja":"秋になると山々が鮮やかな赤や黄色に染まる。","example_ko":"가을이 되면 산들이 선명한 빨강과 노랑으로 물든다."},
+    {"key":"n1-1370","word":"収まる","reading":"おさまる","meaning_ko":"가라앉다; 진정되다; 제자리에 들어가다","meaning_ja":"騒ぎ・怒り・勢いなどが静かになる。また、物が一定の場所や範囲の中に入る。","part_of_speech":"五段動詞","example_ja":"強い雨は一時間ほどで収まり、交通も徐々に回復した。","example_ko":"강한 비는 한 시간 정도 만에 잦아들었고 교통도 서서히 회복됐다."},
+    {"key":"n1-1371","word":"弁解","reading":"べんかい","meaning_ko":"변명; 해명","meaning_ja":"自分の失敗・過失などについて事情を説明し、非難を軽くしようとすること。","part_of_speech":"サ変名詞","example_ja":"ミスの原因を説明することは必要だが、弁解ばかりでは信頼を失う。","example_ko":"실수 원인을 설명하는 것은 필요하지만 변명만 하면 신뢰를 잃는다."},
+    {"key":"n1-1372","word":"短歌","reading":"たんか","meaning_ko":"단가; 일본의 31음 정형시","meaning_ja":"五・七・五・七・七の三十一音を基本とする日本の定型詩。","part_of_speech":"普通名詞","example_ja":"授業で四季を題材にした短歌を一首作った。","example_ko":"수업에서 사계를 주제로 단가 한 수를 지었다."},
+    {"key":"n1-1373","word":"憂鬱","reading":"ゆううつ","meaning_ko":"우울함; 마음이 무거움","meaning_ja":"心配・不安などで気分が沈み、晴れないさま。","part_of_speech":"な形容詞","example_ja":"雨の日が続くと、少し憂鬱な気分になることがある。","example_ko":"비 오는 날이 계속되면 조금 우울한 기분이 들 때가 있다."},
+    {"key":"n1-1374","word":"免除","reading":"めんじょ","meaning_ko":"면제","meaning_ja":"本来負うべき義務・責任・料金などを、特別に負わなくてよいことにすること。","part_of_speech":"サ変名詞","example_ja":"一定の条件を満たす学生は受験料が免除される。","example_ko":"일정 조건을 충족한 학생은 응시료가 면제된다."},
+    {"key":"n1-1375","word":"裸足","reading":"はだし","meaning_ko":"맨발","meaning_ja":"靴・靴下などを履いていない足、またはその状態。","part_of_speech":"普通名詞","example_ja":"子どもたちは砂浜を裸足で走り回っていた。","example_ko":"아이들은 모래사장을 맨발로 뛰어다니고 있었다."},
+    {"key":"n1-1376","word":"突く","reading":"つつく","meaning_ko":"콕콕 찌르다; 쪼다; 건드리다","meaning_ja":"指・くちばし・細い物などで、軽く何度も押したり刺したりする。","part_of_speech":"五段動詞","example_ja":"鳥が地面をくちばしでつついて餌を探している。","example_ko":"새가 땅을 부리로 쪼며 먹이를 찾고 있다.","note":"同じ表記の『突く（つく）』とは読み・用法が異なる。"},
+    {"key":"n1-1377","word":"陳列","reading":"ちんれつ","meaning_ko":"진열","meaning_ja":"商品・作品などを人に見せるため、見やすく並べて置くこと。","part_of_speech":"サ変名詞","example_ja":"新商品は入口近くの棚に陳列されている。","example_ko":"신상품은 입구 근처 선반에 진열되어 있다."},
+    {"key":"n1-1378","word":"一々","reading":"いちいち","meaning_ko":"일일이; 하나하나","meaning_ja":"一つ一つすべてについて。細かなことまでその都度。通常は『いちいち』と書く。","part_of_speech":"副詞","example_ja":"すべての操作をいちいち確認していたら、作業に時間がかかりすぎる。","example_ko":"모든 조작을 일일이 확인하면 작업에 시간이 너무 오래 걸린다.","note":"現代ではかな書きの『いちいち』が一般的。"},
+    {"key":"n1-1379","word":"アクセル","reading":"アクセル","meaning_ko":"액셀러레이터; 가속 페달","meaning_ja":"自動車などで、踏むとエンジンの出力を上げて速度を増すための装置・ペダル。","part_of_speech":"普通名詞","example_ja":"急にアクセルを踏み込まず、ゆっくり発進してください。","example_ko":"갑자기 가속 페달을 밟지 말고 천천히 출발해 주세요."},
+    {"key":"n1-1380","word":"歩む","reading":"あゆむ","meaning_ko":"걷다; 길을 나아가다; 과정을 밟다","meaning_ja":"歩いて進む。また比喩的に、人生・歴史・進路などを進んでいく。","part_of_speech":"五段動詞","example_ja":"彼は研究者として独自の道を歩んできた。","example_ko":"그는 연구자로서 독자적인 길을 걸어왔다."}
+  ]
+}
