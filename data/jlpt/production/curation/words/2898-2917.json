@@ -17,6 +17,7 @@
     {"key":"n1-2908","word":"恰度","reading":"ちょうど","meaning_ko":"딱; 정확히; 마침","meaning_ja":"数量・時刻などがぴったり合うさま。また、都合よくその時であるさま。","part_of_speech":"副詞","example_ja":"ちょうど三時に駅へ着いた。","example_ko":"정확히 3시에 역에 도착했다.","note":"通常は『ちょうど』と仮名で書く。"},
     {"key":"n1-2909","word":"塵取り","reading":"ちりとり","meaning_ko":"쓰레받기","meaning_ja":"ほうきで集めたごみを受け取る掃除道具。","part_of_speech":"普通名詞","example_ja":"ほうきと塵取りで床を掃除した。","example_ko":"빗자루와 쓰레받기로 바닥을 청소했다."},
     {"key":"n1-2910","word":"遣い","reading":"つかい","meaning_ko":"심부름; 사자; 사용","meaning_ja":"使いに行くこと・その人。また、使うことを表す語。","part_of_speech":"普通名詞","example_ja":"母の遣いで近所の店へ行った。","example_ko":"엄마 심부름으로 근처 가게에 갔다."},
+    {"key":"n1-2911","word":"聴覚","reading":"ちょうかく","meaning_ko":"청각; 듣는 감각","meaning_ja":"音を感じ取り、聞き分ける感覚。","part_of_speech":"普通名詞","example_ja":"大きな音を長時間聞き続けると、聴覚に負担がかかる。","example_ko":"큰 소리를 오랫동안 계속 들으면 청각에 부담이 간다."},
     {"key":"n1-2912","word":"壷","reading":"つぼ","meaning_ko":"항아리; 단지; 화병","meaning_ja":"口が狭く胴がふくらんだ容器。","part_of_speech":"普通名詞","example_ja":"棚の上に古い壷が飾ってある。","example_ko":"선반 위에 오래된 항아리가 장식되어 있다.","note":"現代表記では『壺』が一般的。"},
     {"key":"n1-2913","word":"出合う","reading":"であう","meaning_ko":"우연히 만나다; 마주치다","meaning_ja":"偶然人や出来事に出会う。","part_of_speech":"五段動詞","example_ja":"旅先で昔の友人に偶然出合った。","example_ko":"여행지에서 옛 친구를 우연히 만났다.","note":"候補KRDICTは悪天候に『遭う』意味へ偏っていたため修正。"},
     {"key":"n1-2914","word":"ティッシュペーパー","reading":"ティッシュペーパー","meaning_ko":"티슈; 화장지","meaning_ja":"薄く柔らかい使い捨ての紙。","part_of_speech":"普通名詞","example_ja":"鼻をかむためにティッシュペーパーを一枚取った。","example_ko":"코를 풀기 위해 티슈 한 장을 뽑았다."},
