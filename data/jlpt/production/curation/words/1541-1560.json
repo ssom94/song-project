@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1541-1560",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1541","word":"召す","reading":"めす","meaning_ko":"드시다; 입으시다 등(높임말)","meaning_ja":"『食べる・飲む・着る』などの尊敬語として用いられる語。多くは『お召しになる』『召し上がる』などの形で使う。","part_of_speech":"五段動詞","example_ja":"寒いので、もう一枚上着をお召しになった方がよいでしょう。","example_ko":"추우니 겉옷을 한 벌 더 입으시는 편이 좋겠습니다."},
+    {"key":"n1-1542","word":"発病","reading":"はつびょう","meaning_ko":"발병","meaning_ja":"それまで健康だった人に病気の症状が現れ、病気になること。","part_of_speech":"サ変名詞","example_ja":"発病の時期を特定するため、過去の診療記録を確認した。","example_ko":"발병 시기를 특정하기 위해 과거 진료 기록을 확인했다."},
+    {"key":"n1-1543","word":"ライス","reading":"ライス","meaning_ko":"밥; 라이스","meaning_ja":"洋食などで、皿に盛って提供する炊いた米飯。","part_of_speech":"普通名詞","example_ja":"このランチはパンかライスのどちらかを選べる。","example_ko":"이 런치는 빵이나 밥 중 하나를 고를 수 있다."},
+    {"key":"n1-1544","word":"何しろ","reading":"なにしろ","meaning_ko":"어쨌든; 무엇보다; 워낙","meaning_ja":"事情・理由を強く説明するときに、『とにかく』『なんといっても』の意で用いる。","part_of_speech":"副詞","example_ja":"何しろ初めての海外勤務なので、準備することが多い。","example_ko":"워낙 첫 해외 근무라 준비할 것이 많다."},
+    {"key":"n1-1545","word":"日夜","reading":"にちや","meaning_ko":"밤낮; 밤낮없이","meaning_ja":"昼も夜も。絶えず、毎日続けて。","part_of_speech":"副詞","example_ja":"研究チームは問題の解決に向けて日夜努力を続けている。","example_ko":"연구팀은 문제 해결을 위해 밤낮없이 노력을 계속하고 있다."},
+    {"key":"n1-1546","word":"熱意","reading":"ねつい","meaning_ko":"열의; 열정","meaning_ja":"物事を成し遂げようとする強い意欲・情熱。","part_of_speech":"普通名詞","example_ja":"経験は少なくても、学ぶ熱意のある人を採用したい。","example_ko":"경험이 적더라도 배우려는 열의가 있는 사람을 채용하고 싶다."},
+    {"key":"n1-1547","word":"終日","reading":"しゅうじつ","meaning_ko":"종일; 하루 종일","meaning_ja":"朝から夜まで、一日じゅう。","part_of_speech":"副詞","example_ja":"台風の影響で空港は終日混雑していた。","example_ko":"태풍의 영향으로 공항은 하루 종일 혼잡했다."},
+    {"key":"n1-1548","word":"迫害","reading":"はくがい","meaning_ko":"박해; 탄압","meaning_ja":"権力・社会的立場などを利用して、特定の人々を継続的に苦しめたり排除したりすること。","part_of_speech":"サ変名詞","example_ja":"宗教や民族を理由とする迫害から逃れ、多くの人が国外へ移った。","example_ko":"종교나 민족을 이유로 한 박해를 피해 많은 사람이 국외로 이주했다."},
+    {"key":"n1-1549","word":"元首","reading":"げんしゅ","meaning_ko":"국가 원수","meaning_ja":"国家を代表する最高位の公的地位にある者。制度により大統領・国王など形態は異なる。","part_of_speech":"普通名詞","example_ja":"式典には各国の元首や政府代表が出席した。","example_ko":"식전에는 각국의 국가 원수와 정부 대표가 참석했다."},
+    {"key":"n1-1550","word":"痒い","reading":"かゆい","meaning_ko":"가렵다","meaning_ja":"皮膚がむずむずして、掻きたい感じがする。","part_of_speech":"い形容詞","example_ja":"虫に刺された所が痒くても、強くかかない方がよい。","example_ko":"벌레에 물린 곳이 가려워도 세게 긁지 않는 편이 좋다."},
+    {"key":"n1-1551","word":"態勢","reading":"たいせい","meaning_ko":"태세; 준비 체제","meaning_ja":"ある事態・行動に対応するために整えた人員・組織・準備の状態。","part_of_speech":"普通名詞","example_ja":"連休中の問い合わせ増加に備え、サポート態勢を強化した。","example_ko":"연휴 중 문의 증가에 대비해 지원 태세를 강화했다."},
+    {"key":"n1-1552","word":"荒らす","reading":"あらす","meaning_ko":"어지럽히다; 훼손하다; 휩쓸다","meaning_ja":"場所・物を乱雑にしたり損なったりする。また、病気・犯罪などが広く被害を与える。","part_of_speech":"五段動詞","example_ja":"不法投棄によって山林が荒らされ、自治体が対策に乗り出した。","example_ko":"불법 투기로 산림이 훼손되어 지자체가 대책에 나섰다."},
+    {"key":"n1-1553","word":"丸々","reading":"まるまる","meaning_ko":"통째로; 전부; 꼬박","meaning_ja":"一部分も欠けず、全部そのまま。また、期間・数量が完全にその分だけあるさま。","part_of_speech":"副詞","example_ja":"引っ越しの準備には丸々一週間かかった。","example_ko":"이사 준비에는 꼬박 일주일이 걸렸다."},
+    {"key":"n1-1554","word":"浴室","reading":"よくしつ","meaning_ko":"욕실","meaning_ja":"浴槽・シャワーなどがあり、入浴するための部屋。","part_of_speech":"普通名詞","example_ja":"浴室の換気を怠ると、カビが発生しやすくなる。","example_ko":"욕실 환기를 소홀히 하면 곰팡이가 생기기 쉬워진다."},
+    {"key":"n1-1555","word":"同封","reading":"どうふう","meaning_ko":"동봉","meaning_ja":"封筒・荷物などに、別の書類・品物を一緒に入れること。","part_of_speech":"サ変名詞","example_ja":"必要事項を記入し、返信用封筒を同封して返送してください。","example_ko":"필요 사항을 기입하고 회신용 봉투를 동봉해 반송해 주세요."},
+    {"key":"n1-1556","word":"無茶苦茶","reading":"むちゃくちゃ","meaning_ko":"엉망진창; 터무니없음; 무리함","meaning_ja":"筋道・秩序がなく、ひどく乱れているさま。また、常識外れで無理なさま。","part_of_speech":"な形容詞","example_ja":"根拠のない数字を並べた無茶苦茶な計画では承認されない。","example_ko":"근거 없는 숫자를 늘어놓은 엉망인 계획으로는 승인받을 수 없다."},
+    {"key":"n1-1557","word":"日取り","reading":"ひどり","meaning_ko":"날짜; 일정 날짜","meaning_ja":"行事・会議・結婚式などを行うために決めた日。","part_of_speech":"普通名詞","example_ja":"関係者の予定を確認して、式典の日取りを決めた。","example_ko":"관계자들의 일정을 확인해 식전 날짜를 정했다."},
+    {"key":"n1-1558","word":"殴る","reading":"なぐる","meaning_ko":"때리다; 주먹으로 치다","meaning_ja":"手・こぶし、または手に持った物で相手を強く打つ。","part_of_speech":"五段動詞","example_ja":"口論になっても相手を殴る行為は決して許されない。","example_ko":"말다툼이 되어도 상대를 때리는 행위는 결코 용납되지 않는다."},
+    {"key":"n1-1559","word":"抜け出す","reading":"ぬけだす","meaning_ko":"빠져나오다; 벗어나다; 탈출하다","meaning_ja":"閉じた場所・集団・困難な状態などから外へ出る。","part_of_speech":"五段動詞","example_ja":"景気の停滞から抜け出すには、新しい需要を生み出す必要がある。","example_ko":"경기 침체에서 벗어나려면 새로운 수요를 만들어낼 필요가 있다."},
+    {"key":"n1-1560","word":"尻尾","reading":"しっぽ","meaning_ko":"꼬리","meaning_ja":"動物の胴体の後部から細長く伸びた部分。また比喩的に、物の後端をいう。","part_of_speech":"普通名詞","example_ja":"犬は飼い主を見つけると嬉しそうに尻尾を振った。","example_ko":"개는 주인을 발견하자 기쁜 듯 꼬리를 흔들었다."}
+  ]
+}
