@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2778-2797",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2778","word":"腿","reading":"もも","meaning_ko":"넓적다리; 허벅지","meaning_ja":"脚の付け根から膝までの部分。太もも。","part_of_speech":"普通名詞","example_ja":"長く走った後で腿の筋肉が痛くなった。","example_ko":"오래 달린 뒤 허벅지 근육이 아파졌다."},
+    {"key":"n1-2779","word":"十字路","reading":"じゅうじろ","meaning_ko":"사거리; 네거리","meaning_ja":"道路が十字形に交差して四方向へ分かれる場所。","part_of_speech":"普通名詞","example_ja":"次の十字路を右に曲がってください。","example_ko":"다음 사거리에서 오른쪽으로 도세요."},
+    {"key":"n1-2780","word":"区々","reading":"まちまち","meaning_ko":"제각각; 가지각색; 일정하지 않음","meaning_ja":"それぞれ異なっていて、統一されていないさま。","part_of_speech":"な形容詞","example_ja":"参加者の意見はまちまちだった。","example_ko":"참가자들의 의견은 제각각이었다.","note":"現代では通常『まちまち』と仮名で書く。"},
+    {"key":"n1-2781","word":"蔵相","reading":"ぞうしょう","meaning_ko":"대장상; 옛 일본의 대장대신·재무상","meaning_ja":"旧称で、大蔵大臣のこと。現在の財務大臣に相当する。","part_of_speech":"普通名詞","example_ja":"古い新聞には蔵相という肩書が頻繁に登場する。","example_ko":"옛 신문에는 대장상이라는 직함이 자주 등장한다.","note":"現在の日本では『財務相』『財務大臣』が一般的。"},
+    {"key":"n1-2782","word":"雅致","reading":"がち","meaning_ko":"아취; 우아한 멋; 품위 있는 정취","meaning_ja":"上品で風雅な趣。洗練された味わい。","part_of_speech":"普通名詞","example_ja":"この庭には落ち着いた雅致がある。","example_ko":"이 정원에는 차분하고 우아한 멋이 있다.","note":"やや文語的・古風。"},
+    {"key":"n1-2783","word":"翔る","reading":"かける","meaning_ko":"달리다; 질주하다; 하늘을 날다","meaning_ja":"勢いよく走る。また、空を飛ぶ。","part_of_speech":"五段動詞","example_ja":"馬が草原を翔るように走っていった。","example_ko":"말이 초원을 질주하듯 달려갔다.","note":"『駆ける』と近い用法があり、『翔る』は文語的・表現的。"},
+    {"key":"n1-2784","word":"季刊","reading":"きかん","meaning_ko":"계간; 계간지","meaning_ja":"一年に四回、季節ごとに刊行すること。また、その刊行物。","part_of_speech":"普通名詞","example_ja":"この雑誌は季刊で発行されている。","example_ko":"이 잡지는 계간으로 발행된다."},
+    {"key":"n1-2785","word":"済まない","reading":"すまない","meaning_ko":"미안하다; 면목없다","meaning_ja":"相手に悪いことをしたと感じ、申し訳なく思う。","part_of_speech":"い形容詞","example_ja":"急に予定を変えてしまって、本当に済まない。","example_ko":"갑자기 일정을 바꿔서 정말 미안하다."},
+    {"key":"n1-2786","word":"老ける","reading":"ふける","meaning_ko":"늙다; 나이 들어 보이다","meaning_ja":"年を取る。また、実際の年齢より年上に見える。","part_of_speech":"一段動詞","example_ja":"髪型を変えたら少し老けて見えた。","example_ko":"머리 모양을 바꾸니 조금 나이 들어 보였다."},
+    {"key":"n1-2787","word":"眠たい","reading":"ねむたい","meaning_ko":"졸리다","meaning_ja":"眠気を感じて寝たくなる。","part_of_speech":"い形容詞","example_ja":"昨夜あまり寝ていないので、とても眠たい。","example_ko":"어젯밤에 별로 못 자서 매우 졸리다."},
+    {"key":"n1-2788","word":"レクリエーション","reading":"レクリエーション","meaning_ko":"레크리에이션; 여가 활동","meaning_ja":"気分転換や心身の回復のために行う遊び・運動・活動。","part_of_speech":"普通名詞","example_ja":"研修の最後に簡単なレクリエーションを行った。","example_ko":"연수 마지막에 간단한 레크리에이션을 했다."},
+    {"key":"n1-2789","word":"冬眠","reading":"とうみん","meaning_ko":"동면; 겨울잠","meaning_ja":"動物が冬の間、活動を大きく低下させて過ごすこと。","part_of_speech":"サ変名詞","example_ja":"熊は冬眠に備えて秋に多くの餌を食べる。","example_ko":"곰은 겨울잠에 대비해 가을에 많은 먹이를 먹는다."},
+    {"key":"n1-2790","word":"ご苦労様","reading":"ごくろうさま","meaning_ko":"수고했어요; 수고하셨습니다","meaning_ja":"相手の労力をねぎらう言葉。主に目上から目下へ使うことが多い。","part_of_speech":"感動詞","example_ja":"今日は遅くまでご苦労様でした。","example_ko":"오늘 늦게까지 수고하셨습니다.","note":"目上の人には『お疲れ様です／でした』のほうが一般的に無難。"},
+    {"key":"n1-2791","word":"化繊","reading":"かせん","meaning_ko":"화학섬유; 합성섬유","meaning_ja":"化学的に作られた繊維の総称。","part_of_speech":"普通名詞","example_ja":"この服は化繊なので乾きやすい。","example_ko":"이 옷은 화학섬유라서 잘 마른다."},
+    {"key":"n1-2792","word":"渡り鳥","reading":"わたりどり","meaning_ko":"철새","meaning_ja":"季節に応じて長い距離を移動する鳥。","part_of_speech":"普通名詞","example_ja":"春になると多くの渡り鳥が戻ってくる。","example_ko":"봄이 되면 많은 철새가 돌아온다."},
+    {"key":"n1-2793","word":"図々しい","reading":"ずうずうしい","meaning_ko":"뻔뻔하다; 염치없다","meaning_ja":"恥ずかしがらず、遠慮なく厚かましく振る舞う。","part_of_speech":"い形容詞","example_ja":"初対面でそこまで頼むのは少し図々しい。","example_ko":"초면에 거기까지 부탁하는 건 조금 뻔뻔하다."},
+    {"key":"n1-2794","word":"伝言","reading":"つてこと","meaning_ko":"전언; 전해 들은 말; 소문","meaning_ja":"人づてに伝えられる言葉・知らせ。","part_of_speech":"普通名詞","example_ja":"彼の消息を人づての伝言で知った。","example_ko":"그의 소식을 사람을 통해 전해 들은 말로 알게 됐다.","note":"現代の一般的な『伝言』の読みは『でんごん』。候補の『つてこと』は非常にまれ・古風。"},
+    {"key":"n1-2795","word":"ミスプリント","reading":"ミスプリント","meaning_ko":"오식; 인쇄 오류; 오타","meaning_ja":"印刷上の誤り。誤植。","part_of_speech":"普通名詞","example_ja":"資料にミスプリントがあったので修正した。","example_ko":"자료에 인쇄 오류가 있어서 수정했다."},
+    {"key":"n1-2796","word":"ずばり","reading":"ずばり","meaning_ko":"딱 잘라; 정곡을 찔러; 단도직입적으로","meaning_ja":"要点を外さず、はっきりと言ったり当てたりするさま。","part_of_speech":"副詞","example_ja":"彼は問題の原因をずばり指摘した。","example_ko":"그는 문제의 원인을 정확히 짚었다.","note":"候補KO『척』は意味が狭く不自然なため修正。"},
+    {"key":"n1-2797","word":"馴れ馴れしい","reading":"なれなれしい","meaning_ko":"지나치게 친한 척하다; 스스럼없다; 친한 체하다","meaning_ja":"まだ親しくない相手に、必要以上に親しげな態度を取る。","part_of_speech":"い形容詞","example_ja":"初対面なのに馴れ馴れしい話し方をされて戸惑った。","example_ko":"초면인데도 지나치게 친한 척하는 말투라 당황했다."}
+  ]
+}
