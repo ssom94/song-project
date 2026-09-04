@@ -10,8 +10,9 @@
 		style.id = 'jlpt-memory-practice-style';
 		style.textContent = `
 			.jlpt-memory-practice-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
-			.jlpt-memory-practice-toolbar button{border:1px solid #ccd6e3;border-radius:9px;background:#fff;padding:8px 12px;font:inherit;font-weight:700;cursor:pointer}
-			.jlpt-memory-practice-toolbar button.is-active{background:#26364e;color:#fff;border-color:#26364e}
+			.jlpt-memory-practice-toolbar button{border:1px solid #8f4055;border-radius:10px;background:#9e4962;color:#fff;padding:9px 14px;font:inherit;font-weight:800;cursor:pointer;box-shadow:0 3px 10px rgba(122,45,66,.18);transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+			.jlpt-memory-practice-toolbar button:active{transform:translateY(1px)}
+			.jlpt-memory-practice-toolbar button.is-active{background:#6f2f43;color:#fff;border-color:#6f2f43;box-shadow:0 4px 12px rgba(95,35,54,.24)}
 			.jlpt-memory-answer-fields{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
 			.jlpt-memory-practice-active .jlpt-memory-answer-fields,
 			#jlpt-study-detail.is-memory-mode .jlpt-memory-answer-fields{display:grid}
@@ -29,7 +30,7 @@
 			.jlpt-memory-practice-active .jlpt-archive-word[data-memory-word] > small{visibility:hidden}
 			.jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > span,
 			.jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > small{visibility:visible}
-			@media(max-width:640px){.jlpt-memory-answer-fields{grid-template-columns:1fr}}
+			@media(max-width:640px){.jlpt-memory-answer-fields{grid-template-columns:1fr}.jlpt-memory-practice-toolbar button{min-height:42px;padding:10px 16px}}
 		`;
 		document.head.appendChild(style);
 	}
