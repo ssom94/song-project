@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1641-1660",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage and ambiguous readings are noted.",
+  "words": [
+    {"key":"n1-1641","word":"出費","reading":"しゅっぴ","meaning_ko":"지출; 비용이 나감","meaning_ja":"金銭を支払って使うこと。また、その金額。","part_of_speech":"サ変名詞","example_ja":"引っ越しの時期は家具や手続きで何かと出費がかさむ。","example_ko":"이사 시기에는 가구와 각종 절차 때문에 이런저런 지출이 늘어난다."},
+    {"key":"n1-1642","word":"畜産","reading":"ちくさん","meaning_ko":"축산","meaning_ja":"牛・豚・鶏などの家畜を飼育し、肉・乳・卵などを生産する産業。","part_of_speech":"普通名詞","example_ja":"飼料価格の高騰が畜産農家の経営を圧迫している。","example_ko":"사료 가격 급등이 축산 농가의 경영을 압박하고 있다."},
+    {"key":"n1-1643","word":"前売り","reading":"まえうり","meaning_ko":"예매; 선판매","meaning_ja":"公演・映画・乗車券などを利用日より前に販売すること。","part_of_speech":"サ変名詞","example_ja":"人気公演なので、当日券ではなく前売り券を購入した。","example_ko":"인기 공연이라 당일권이 아니라 예매권을 구입했다."},
+    {"key":"n1-1644","word":"落ち込む","reading":"おちこむ","meaning_ko":"낙담하다; 침체되다; 움푹 들어가다","meaning_ja":"気分・成績・売上などが低下する。また、表面が周囲より低くへこむ。","part_of_speech":"五段動詞","example_ja":"失敗して落ち込んでいたが、原因を整理して次の対策を考えた。","example_ko":"실패해서 낙담했지만 원인을 정리해 다음 대책을 생각했다."},
+    {"key":"n1-1645","word":"摘む","reading":"つまむ","meaning_ko":"집다; 꼬집듯 집어 올리다","meaning_ja":"指先で物の一部を挟んで持つ。","part_of_speech":"五段動詞","example_ja":"小さな部品は指でつままず、専用の工具で扱ってください。","example_ko":"작은 부품은 손가락으로 집지 말고 전용 공구로 다뤄 주세요.","note":"『摘む』は『つむ』とも読み、その場合は花・芽などを摘み取る意味が中心。"},
+    {"key":"n1-1646","word":"勤労","reading":"きんろう","meaning_ko":"근로; 노동","meaning_ja":"仕事に励み、働くこと。","part_of_speech":"サ変名詞","example_ja":"勤労によって得た所得には一定の条件で税が課される。","example_ko":"근로로 얻은 소득에는 일정 조건에서 세금이 부과된다."},
+    {"key":"n1-1647","word":"物議","reading":"ぶつぎ","meaning_ko":"물의; 논란","meaning_ja":"世間で多くの人が問題として取り上げ、議論すること。","part_of_speech":"普通名詞","example_ja":"その発言は誤解を招き、社内外で物議を醸した。","example_ko":"그 발언은 오해를 불러 회사 안팎에서 논란을 일으켰다."},
+    {"key":"n1-1648","word":"快い","reading":"こころよい","meaning_ko":"기분 좋다; 상쾌하다","meaning_ja":"気分・感覚がよく、不快さがない。","part_of_speech":"い形容詞","example_ja":"窓を開けると快い風が入り、部屋の空気が一変した。","example_ko":"창문을 여니 기분 좋은 바람이 들어와 방의 공기가 확 바뀌었다."},
+    {"key":"n1-1649","word":"尊い","reading":"たっとい","meaning_ko":"존귀하다; 매우 귀중하다","meaning_ja":"非常に価値が高く、敬うべきである。また、かけがえがなく貴重である。","part_of_speech":"い形容詞","example_ja":"災害現場で人命を守るために働く姿は尊い。","example_ko":"재난 현장에서 생명을 지키기 위해 일하는 모습은 존귀하다.","note":"『とうとい』も一般的な読み。『たっとい』は同義の別読。"},
+    {"key":"n1-1650","word":"旅券","reading":"りょけん","meaning_ko":"여권; 패스포트","meaning_ja":"外国へ渡航する人の身分・国籍を公的に証明する文書。","part_of_speech":"普通名詞","example_ja":"海外出張の前に旅券の有効期限を確認しておいた。","example_ko":"해외 출장 전에 여권 유효기간을 확인해 두었다."},
+    {"key":"n1-1651","word":"慣行","reading":"かんこう","meaning_ko":"관행","meaning_ja":"社会・組織などで長く繰り返され、習慣として定着したやり方。","part_of_speech":"普通名詞","example_ja":"昔からの慣行でも、合理性がなければ見直す必要がある。","example_ko":"오래된 관행이라도 합리성이 없다면 재검토할 필요가 있다."},
+    {"key":"n1-1652","word":"几帳面","reading":"きちょうめん","meaning_ko":"꼼꼼함; 빈틈없음","meaning_ja":"細かい点まできちんとし、物事を丁寧に処理するさま。","part_of_speech":"な形容詞","example_ja":"彼は几帳面な性格で、作業記録を毎日欠かさず残している。","example_ko":"그는 꼼꼼한 성격이라 작업 기록을 매일 빠짐없이 남긴다."},
+    {"key":"n1-1653","word":"精密","reading":"せいみつ","meaning_ko":"정밀함; 정교함","meaning_ja":"細部まで正確で、非常に細かく作られているさま。","part_of_speech":"な形容詞","example_ja":"この装置は精密な測定が必要な研究で使用されている。","example_ko":"이 장치는 정밀한 측정이 필요한 연구에서 사용되고 있다."},
+    {"key":"n1-1654","word":"陰気","reading":"いんき","meaning_ko":"음침함; 우울하고 어두운 분위기","meaning_ja":"雰囲気・性格などが暗く、晴れやかでないさま。","part_of_speech":"な形容詞","example_ja":"照明を変えたことで、陰気だった部屋の印象が明るくなった。","example_ko":"조명을 바꾸자 음침했던 방의 인상이 밝아졌다.","note":"한국어 한자어 '음기(陰氣)'보다 일본어에서는 '어둡고 침침한 분위기·성격' 의미가 중심이다."},
+    {"key":"n1-1655","word":"遠ざかる","reading":"とおざかる","meaning_ko":"멀어지다; 희박해지다","meaning_ja":"距離・関係・可能性などが次第に遠くなる。","part_of_speech":"五段動詞","example_ja":"追加の遅延が発生し、予定どおりの完成はさらに遠ざかった。","example_ko":"추가 지연이 발생해 예정대로 완성할 가능성이 더 멀어졌다."},
+    {"key":"n1-1656","word":"婉曲","reading":"えんきょく","meaning_ko":"완곡함; 에둘러 표현함","meaning_ja":"直接的な言い方を避け、角が立たないよう遠回しに表現すること。","part_of_speech":"な形容詞","example_ja":"相手を傷つけないよう、婉曲な表現で改善を求めた。","example_ko":"상대를 상처 입히지 않도록 완곡한 표현으로 개선을 요구했다."},
+    {"key":"n1-1657","word":"窮屈","reading":"きゅうくつ","meaning_ko":"비좁음; 답답함; 제약이 많음","meaning_ja":"空間が狭くて自由に動きにくい。また、規則・雰囲気などに拘束されて自由がない。","part_of_speech":"な形容詞","example_ja":"細かい規則が多すぎると、現場は窮屈に感じる。","example_ko":"세세한 규칙이 너무 많으면 현장은 답답하게 느낀다."},
+    {"key":"n1-1658","word":"奇数","reading":"きすう","meaning_ko":"홀수","meaning_ja":"二で割り切れない整数。","part_of_speech":"普通名詞","example_ja":"座席番号が奇数の人はこちらの列に並んでください。","example_ko":"좌석 번호가 홀수인 사람은 이 줄에 서 주세요."},
+    {"key":"n1-1659","word":"裁く","reading":"さばく","meaning_ko":"재판하다; 판단하다","meaning_ja":"法律・基準などに基づいて罪・是非・優劣を判断する。","part_of_speech":"五段動詞","example_ja":"裁判官は提出された証拠に基づいて事件を裁く。","example_ko":"재판관은 제출된 증거를 바탕으로 사건을 재판한다."},
+    {"key":"n1-1660","word":"適性","reading":"てきせい","meaning_ko":"적성; 적합한 성질·능력","meaning_ja":"特定の仕事・活動などに向いている性質・能力。","part_of_speech":"普通名詞","example_ja":"配属前に本人の希望だけでなく職務への適性も確認する。","example_ko":"배치 전에 본인 희망뿐 아니라 직무 적성도 확인한다."}
+  ]
+}
