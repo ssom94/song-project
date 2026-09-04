@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1321-1340",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1321","word":"漂う","reading":"ただよう","meaning_ko":"떠다니다; 감돌다; 풍기다","meaning_ja":"空中・水面などを定まった方向なく浮いて移動する。また、香り・雰囲気・気配などが周囲に感じられる。","part_of_speech":"五段動詞","example_ja":"会場には開演前から緊張した空気が漂っていた。","example_ko":"행사장에는 개막 전부터 긴장된 분위기가 감돌고 있었다."},
+    {"key":"n1-1322","word":"絡む","reading":"からむ","meaning_ko":"얽히다; 관련되다; 시비를 걸다","meaning_ja":"糸・物などが巻き付いて離れにくくなる。また、複数の事情・人間関係などが複雑に関係する。","part_of_speech":"五段動詞","example_ja":"この問題には法律と技術の両方が絡んでいる。","example_ko":"이 문제에는 법률과 기술 양쪽이 얽혀 있다."},
+    {"key":"n1-1323","word":"態々","reading":"わざわざ","meaning_ko":"일부러; 모처럼 수고해서","meaning_ja":"そのためだけに特別に手間や時間をかけて行うさま。通常は『わざわざ』と書く。","part_of_speech":"副詞","example_ja":"忙しい中、わざわざ説明に来ていただきありがとうございます。","example_ko":"바쁜 와중에 일부러 설명하러 와 주셔서 감사합니다.","note":"現代では通常かな書きの『わざわざ』を用いる。"},
+    {"key":"n1-1324","word":"鳥居","reading":"とりい","meaning_ko":"도리이; 신사 입구의 문","meaning_ja":"神社の入口などに立てられる、二本の柱と横木からなる門状の構造物。","part_of_speech":"普通名詞","example_ja":"参道の入口に大きな朱色の鳥居が立っている。","example_ko":"참배길 입구에 큰 주홍색 도리이가 서 있다."},
+    {"key":"n1-1325","word":"いっそ","reading":"いっそ","meaning_ko":"차라리; 아예","meaning_ja":"中途半端な方法を選ぶより、思い切って別の方法を選ぶ方がよいという気持ちを表す。","part_of_speech":"副詞","example_ja":"修理費が高いなら、いっそ新しい機種に買い替えた方がいい。","example_ko":"수리비가 비싸다면 차라리 새 기종으로 바꾸는 편이 낫다."},
+    {"key":"n1-1326","word":"賢明","reading":"けんめい","meaning_ko":"현명함; 사리에 밝음","meaning_ja":"状況を正しく判断し、道理にかなった適切な選択ができるさま。","part_of_speech":"な形容詞","example_ja":"十分な情報がない段階では、結論を急がないのが賢明だ。","example_ko":"충분한 정보가 없는 단계에서는 결론을 서두르지 않는 것이 현명하다."},
+    {"key":"n1-1327","word":"私有","reading":"しゆう","meaning_ko":"사유; 개인 소유","meaning_ja":"土地・財産などを個人や民間団体が所有すること。","part_of_speech":"サ変名詞","example_ja":"この道路の先は私有地のため、許可なく立ち入れない。","example_ko":"이 도로 끝은 사유지이므로 허가 없이 들어갈 수 없다."},
+    {"key":"n1-1328","word":"気まぐれ","reading":"きまぐれ","meaning_ko":"변덕스러움; 변덕","meaning_ja":"その時々の気分によって考えや行動が変わり、一定しないさま。","part_of_speech":"な形容詞","example_ja":"彼の気まぐれな判断に振り回されないよう、手順を明文化した。","example_ko":"그의 변덕스러운 판단에 휘둘리지 않도록 절차를 명문화했다."},
+    {"key":"n1-1329","word":"辞退","reading":"じたい","meaning_ko":"사양; 사퇴; 참가를 거절함","meaning_ja":"勧められた地位・権利・参加・受賞などを自分から断ること。","part_of_speech":"サ変名詞","example_ja":"本人は健康上の理由から大会への出場を辞退した。","example_ko":"본인은 건강상의 이유로 대회 출전을 사양했다."},
+    {"key":"n1-1330","word":"拘束","reading":"こうそく","meaning_ko":"구속; 속박; 자유를 제한함","meaning_ja":"身体・行動・時間などの自由を制限し、自由に動けないようにすること。","part_of_speech":"サ変名詞","example_ja":"長時間の会議で社員を必要以上に拘束しないようにした。","example_ko":"장시간 회의로 직원을 필요 이상으로 붙잡아 두지 않도록 했다."},
+    {"key":"n1-1331","word":"黒字","reading":"くろじ","meaning_ko":"흑자","meaning_ja":"収入・売上などが支出・費用を上回り、利益が出ている状態。","part_of_speech":"普通名詞","example_ja":"新規事業は三年目にして初めて黒字に転じた。","example_ko":"신규 사업은 3년째에 처음으로 흑자로 전환했다."},
+    {"key":"n1-1332","word":"国交","reading":"こっこう","meaning_ko":"국교; 국가 간 외교 관계","meaning_ja":"国家と国家との間に結ばれる公式な外交関係。","part_of_speech":"普通名詞","example_ja":"両国は長い交渉の末、正式に国交を樹立した。","example_ko":"양국은 긴 협상 끝에 정식으로 국교를 수립했다."},
+    {"key":"n1-1333","word":"柔軟","reading":"じゅうなん","meaning_ko":"유연함; 융통성 있음","meaning_ja":"物がしなやかで曲がりやすいさま。また、考え方・対応が状況に応じて変えられるさま。","part_of_speech":"な形容詞","example_ja":"想定外の変更にも柔軟に対応できる設計が望ましい。","example_ko":"예상 밖의 변경에도 유연하게 대응할 수 있는 설계가 바람직하다."},
+    {"key":"n1-1334","word":"尽きる","reading":"つきる","meaning_ko":"다하다; 바닥나다; 끝나다","meaning_ja":"数量・力・話題・命などがすべてなくなり、それ以上続かなくなる。","part_of_speech":"一段動詞","example_ja":"議論は尽きないが、今日はここで結論をまとめることにした。","example_ko":"논의는 끝이 없지만 오늘은 여기서 결론을 정리하기로 했다."},
+    {"key":"n1-1335","word":"侮辱","reading":"ぶじょく","meaning_ko":"모욕; 업신여김","meaning_ja":"相手を見下し、言葉や態度によって名誉・尊厳を傷つけること。","part_of_speech":"サ変名詞","example_ja":"相手の出身を理由に侮辱する発言は許されない。","example_ko":"상대의 출신을 이유로 모욕하는 발언은 용납될 수 없다."},
+    {"key":"n1-1336","word":"アルミ","reading":"アルミ","meaning_ko":"알루미늄","meaning_ja":"軽くて加工しやすく、耐食性にも優れた銀白色の金属『アルミニウム』の略。","part_of_speech":"普通名詞","example_ja":"この容器は軽量化のためアルミで作られている。","example_ko":"이 용기는 경량화를 위해 알루미늄으로 만들어졌다."},
+    {"key":"n1-1337","word":"結束","reading":"けっそく","meaning_ko":"결속; 단결","meaning_ja":"同じ目的を持つ人々が心や力を一つにまとめること。","part_of_speech":"サ変名詞","example_ja":"困難な状況を乗り越えるには、チームの結束が欠かせない。","example_ko":"어려운 상황을 극복하려면 팀의 결속이 필수다."},
+    {"key":"n1-1338","word":"頼み","reading":"たのみ","meaning_ko":"부탁; 의지할 대상; 기대","meaning_ja":"相手に何かをしてほしいとお願いすること。また、頼りにする人・物・希望。","part_of_speech":"普通名詞","example_ja":"急な頼みだったが、同僚は快く引き受けてくれた。","example_ko":"갑작스러운 부탁이었지만 동료는 흔쾌히 맡아 주었다."},
+    {"key":"n1-1339","word":"麻痺","reading":"まひ","meaning_ko":"마비; 기능 정지","meaning_ja":"神経・筋肉などが正常に働かず、感覚や運動機能が失われること。また比喩的に機能が停止すること。","part_of_speech":"サ変名詞","example_ja":"大雪の影響で都市の交通網が一時的に麻痺した。","example_ko":"폭설의 영향으로 도시 교통망이 일시적으로 마비되었다."},
+    {"key":"n1-1340","word":"諸君","reading":"しょくん","meaning_ko":"제군; 여러분","meaning_ja":"話し手が同輩または目下の複数の人に、一定の敬意を込めて呼びかける語。","part_of_speech":"普通名詞","example_ja":"指導者は若者たちに向かって『諸君の挑戦に期待する』と語った。","example_ko":"지도자는 젊은이들을 향해 '여러분의 도전을 기대한다'고 말했다."}
+  ]
+}
