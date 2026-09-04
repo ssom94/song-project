@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1561-1580",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1561","word":"戦災","reading":"せんさい","meaning_ko":"전재; 전쟁으로 인한 재해","meaning_ja":"戦争によって人命・建物・財産などが受ける災害・被害。","part_of_speech":"普通名詞","example_ja":"この地域には戦災を免れた古い建物が今も残っている。","example_ko":"이 지역에는 전쟁 피해를 피한 오래된 건물이 지금도 남아 있다."},
+    {"key":"n1-1562","word":"悩ます","reading":"なやます","meaning_ko":"괴롭히다; 고민하게 하다","meaning_ja":"心配・問題などによって、人を苦しませたり困らせたりする。","part_of_speech":"五段動詞","example_ja":"慢性的な人手不足が多くの中小企業を悩ませている。","example_ko":"만성적인 인력 부족이 많은 중소기업을 괴롭히고 있다."},
+    {"key":"n1-1563","word":"渋い","reading":"しぶい","meaning_ko":"떫다; 탐탁지 않다; 차분하고 멋스럽다","meaning_ja":"柿などのように舌がしびれる味がする。また、表情・反応が不満そうであることや、派手でなく落ち着いた趣があることも表す。","part_of_speech":"い形容詞","example_ja":"予算案を示すと、部長は少し渋い顔をした。","example_ko":"예산안을 보여 주자 부장은 조금 탐탁지 않은 표정을 지었다."},
+    {"key":"n1-1564","word":"断面","reading":"だんめん","meaning_ko":"단면; 절단면","meaning_ja":"物を切ったときに現れる面。また比喩的に、物事の一つの側面。","part_of_speech":"普通名詞","example_ja":"材料の断面を顕微鏡で観察し、内部構造を調べた。","example_ko":"재료의 단면을 현미경으로 관찰해 내부 구조를 조사했다."},
+    {"key":"n1-1565","word":"海運","reading":"かいうん","meaning_ko":"해운","meaning_ja":"船を使って旅客・貨物を海上輸送すること。また、その産業。","part_of_speech":"普通名詞","example_ja":"国際貿易の多くは海運によって支えられている。","example_ko":"국제 무역의 많은 부분은 해운에 의해 뒷받침되고 있다."},
+    {"key":"n1-1566","word":"満場","reading":"まんじょう","meaning_ko":"장내 전체; 참석자 전원","meaning_ja":"会場にいる人全員、または会場全体。『満場一致』などの形でよく用いる。","part_of_speech":"普通名詞","example_ja":"提案は満場一致で可決された。","example_ko":"제안은 만장일치로 가결되었다."},
+    {"key":"n1-1567","word":"肉親","reading":"にくしん","meaning_ko":"육친; 혈육","meaning_ja":"親子・兄弟姉妹など、血のつながりが非常に近い家族。","part_of_speech":"普通名詞","example_ja":"災害後、離れ離れになった肉親を捜す人が相次いだ。","example_ko":"재해 후 헤어진 혈육을 찾는 사람들이 잇따랐다."},
+    {"key":"n1-1568","word":"近視","reading":"きんし","meaning_ko":"근시","meaning_ja":"近くは見えるが、遠くの物がはっきり見えにくい視力の状態。","part_of_speech":"普通名詞","example_ja":"近視が進み、遠くの標識が見えにくくなった。","example_ko":"근시가 심해져 먼 표지판이 잘 보이지 않게 되었다."},
+    {"key":"n1-1569","word":"名札","reading":"なふだ","meaning_ko":"명찰; 이름표","meaning_ja":"氏名・所属などを書いて、衣服・机・場所などに付ける札。","part_of_speech":"普通名詞","example_ja":"受付で名札を受け取り、胸につけて会場に入った。","example_ko":"접수처에서 명찰을 받아 가슴에 달고 행사장에 들어갔다."},
+    {"key":"n1-1570","word":"封鎖","reading":"ふうさ","meaning_ko":"봉쇄; 차단","meaning_ja":"出入り・通行・交通などができないように閉じて遮断すること。","part_of_speech":"サ変名詞","example_ja":"事故の影響で道路の一部が一時封鎖された。","example_ko":"사고 영향으로 도로 일부가 일시 봉쇄되었다."},
+    {"key":"n1-1571","word":"修了","reading":"しゅうりょう","meaning_ko":"수료","meaning_ja":"学校・研修などで定められた課程をすべて終えること。","part_of_speech":"サ変名詞","example_ja":"半年間の研修を修了した社員に証明書が授与された。","example_ko":"6개월간의 연수를 수료한 사원들에게 증명서가 수여되었다."},
+    {"key":"n1-1572","word":"漁船","reading":"ぎょせん","meaning_ko":"어선; 고기잡이배","meaning_ja":"魚介類をとる漁業のために使う船。","part_of_speech":"普通名詞","example_ja":"早朝、港から多くの漁船が一斉に出港した。","example_ko":"이른 아침 항구에서 많은 어선이 일제히 출항했다."},
+    {"key":"n1-1573","word":"天災","reading":"てんさい","meaning_ko":"천재; 자연재해","meaning_ja":"地震・台風・洪水・干ばつなど、自然現象によって起こる災害。","part_of_speech":"普通名詞","example_ja":"天災による損害を完全に防ぐことは難しいが、備えはできる。","example_ko":"자연재해로 인한 피해를 완전히 막기는 어렵지만 대비는 할 수 있다."},
+    {"key":"n1-1574","word":"比重","reading":"ひじゅう","meaning_ko":"비중; 중요도","meaning_ja":"物理では基準物質に対する密度の比。比喩的には、全体の中で占める重要さ・割合。","part_of_speech":"普通名詞","example_ja":"今年は新規開発より既存サービスの改善に比重を置く。","example_ko":"올해는 신규 개발보다 기존 서비스 개선에 비중을 둔다."},
+    {"key":"n1-1575","word":"区切り","reading":"くぎり","meaning_ko":"구분; 매듭; 한 단락","meaning_ja":"連続する物事を分ける境目。また、仕事・期間などのひとまとまりが終わる節目。","part_of_speech":"普通名詞","example_ja":"この作業に区切りがついたら、次の工程へ進もう。","example_ko":"이 작업이 한 단락 마무리되면 다음 공정으로 넘어가자."},
+    {"key":"n1-1576","word":"分業","reading":"ぶんぎょう","meaning_ko":"분업","meaning_ja":"一つの仕事を複数の人・組織で役割ごとに分けて行うこと。","part_of_speech":"サ変名詞","example_ja":"設計と実装を適切に分業することで、作業効率が上がった。","example_ko":"설계와 구현을 적절히 분업해 작업 효율이 높아졌다."},
+    {"key":"n1-1577","word":"拡散","reading":"かくさん","meaning_ko":"확산; 퍼짐","meaning_ja":"物質・情報・影響などが広い範囲へ散って広がること。","part_of_speech":"サ変名詞","example_ja":"誤った情報がSNSで急速に拡散した。","example_ko":"잘못된 정보가 SNS에서 빠르게 확산되었다."},
+    {"key":"n1-1578","word":"恥じる","reading":"はじる","meaning_ko":"부끄러워하다; 수치스럽게 여기다","meaning_ja":"自分の行為・状態などを恥ずかしいと思う。","part_of_speech":"一段動詞","example_ja":"失敗そのものを恥じるより、そこから学ぶ姿勢が大切だ。","example_ko":"실패 자체를 부끄러워하기보다 거기서 배우는 자세가 중요하다."},
+    {"key":"n1-1579","word":"血管","reading":"けっかん","meaning_ko":"혈관","meaning_ja":"体内で血液を運ぶ管。動脈・静脈・毛細血管などがある。","part_of_speech":"普通名詞","example_ja":"運動には血管の健康を保つ効果も期待されている。","example_ko":"운동에는 혈관 건강을 유지하는 효과도 기대되고 있다."},
+    {"key":"n1-1580","word":"悲惨","reading":"ひさん","meaning_ko":"비참함; 참혹함","meaning_ja":"目を背けたくなるほど痛ましく、みじめでひどいさま。","part_of_speech":"な形容詞","example_ja":"長引く内戦によって住民の生活は悲惨な状況に置かれた。","example_ko":"장기화된 내전으로 주민들의 생활은 비참한 상황에 놓였다."}
+  ]
+}
