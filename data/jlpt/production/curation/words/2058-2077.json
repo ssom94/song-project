@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2058-2077",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2058","word":"モニター","reading":"モニター","meaning_ko":"모니터; 화면","meaning_ja":"コンピューターなどの映像を表示する画面・装置。","part_of_speech":"普通名詞","example_ja":"新しいモニターは文字が見やすい。","example_ko":"새 모니터는 글자가 보기 쉽다."},
+    {"key":"n1-2059","word":"連ねる","reading":"つらねる","meaning_ko":"잇다; 나란히 늘어놓다; 이름을 올리다","meaning_ja":"物を一列につなげたり並べたりする。また、名を列に加える。","part_of_speech":"一段動詞","example_ja":"多くの著名人が賛同者として名を連ねた。","example_ko":"많은 유명 인사가 찬동자로 이름을 올렸다.","note":"候補KRDICTの『늘어놓다』だけでは狭いためJMdictのlink/joinに合わせて補正。"},
+    {"key":"n1-2060","word":"団扇","reading":"うちわ","meaning_ko":"부채; 둥근 부채","meaning_ja":"柄の付いた平たい面であおいで風を起こす道具。","part_of_speech":"普通名詞","example_ja":"暑かったので団扇で風を送った。","example_ko":"더워서 부채로 바람을 일으켰다.","note":"現代では通常『うちわ』と仮名で書く。"},
+    {"key":"n1-2061","word":"察する","reading":"さっする","meaning_ko":"헤아리다; 짐작하다; 알아차리다","meaning_ja":"事情・気持ちなどを推測して理解する。","part_of_speech":"サ変動詞","example_ja":"彼の表情から事情を察した。","example_ko":"그의 표정에서 사정을 짐작했다."},
+    {"key":"n1-2062","word":"曲がる","reading":"まがる","meaning_ko":"굽다; 휘다; 방향을 틀다","meaning_ja":"まっすぐなものが曲線になる。また、進む方向を変える。","part_of_speech":"五段動詞","example_ja":"次の角を右に曲がってください。","example_ko":"다음 모퉁이에서 오른쪽으로 도세요."},
+    {"key":"n1-2063","word":"交える","reading":"まじえる","meaning_ko":"섞다; 주고받다; 교차시키다","meaning_ja":"異なるものを一緒にする。また、言葉・意見などを互いにやり取りする。","part_of_speech":"一段動詞","example_ja":"冗談を交えながら説明した。","example_ko":"농담을 섞어 가며 설명했다."},
+    {"key":"n1-2064","word":"届け","reading":"とどけ","meaning_ko":"신고; 신고서; 통지","meaning_ja":"役所・組織などに一定の事実を知らせること。また、その書類。","part_of_speech":"普通名詞","example_ja":"住所が変わったので変更の届けを出した。","example_ko":"주소가 바뀌어서 변경 신고를 냈다."},
+    {"key":"n1-2065","word":"票","reading":"ひょう","meaning_ko":"표; 투표; 표수","meaning_ja":"選挙などで意思を示す票。また、それを数える単位。","part_of_speech":"普通名詞・助数詞","example_ja":"その候補は多くの票を集めた。","example_ko":"그 후보는 많은 표를 얻었다."},
+    {"key":"n1-2066","word":"落ち葉","reading":"おちば","meaning_ko":"낙엽; 떨어진 잎","meaning_ja":"木から落ちた葉。","part_of_speech":"普通名詞","example_ja":"公園の道が落ち葉で覆われている。","example_ko":"공원 길이 낙엽으로 덮여 있다.","note":"候補の品詞『サ変名詞』は不適切なため普通名詞に修正。"},
+    {"key":"n1-2067","word":"特技","reading":"とくぎ","meaning_ko":"특기; 장기","meaning_ja":"特に得意としている技能・技術。","part_of_speech":"普通名詞","example_ja":"彼女の特技は暗算だ。","example_ko":"그녀의 특기는 암산이다."},
+    {"key":"n1-2068","word":"微か","reading":"かすか","meaning_ko":"희미함; 어렴풋함; 미약함","meaning_ja":"音・光・記憶などが弱く、はっきりしないさま。","part_of_speech":"な形容詞","example_ja":"遠くから微かな声が聞こえた。","example_ko":"멀리서 희미한 목소리가 들렸다."},
+    {"key":"n1-2069","word":"申し出る","reading":"もうしでる","meaning_ko":"신청하다; 제의하다; 자청하다; 말하고 나서다","meaning_ja":"自分から希望・意見・提案などを相手に伝える。","part_of_speech":"一段動詞","example_ja":"彼は自分から作業を手伝うと申し出た。","example_ko":"그는 스스로 작업을 돕겠다고 나섰다.","note":"候補KRDICTの『나서다』は一部用法のみのためJMdictに合わせて補正。"},
+    {"key":"n1-2070","word":"サイクル","reading":"サイクル","meaning_ko":"사이클; 주기; 순환","meaning_ja":"一定の変化を経て元の状態に戻るまでの一巡り。","part_of_speech":"普通名詞","example_ja":"この製品は開発サイクルが短い。","example_ko":"이 제품은 개발 주기가 짧다."},
+    {"key":"n1-2071","word":"招き","reading":"まねき","meaning_ko":"초대; 초청; 부름","meaning_ja":"人を招くこと。招待。","part_of_speech":"普通名詞","example_ja":"友人の招きで京都を訪れた。","example_ko":"친구의 초대로 교토를 방문했다."},
+    {"key":"n1-2072","word":"私物","reading":"しぶつ","meaning_ko":"사물; 개인 소지품; 개인 물품","meaning_ja":"個人が所有している物。","part_of_speech":"普通名詞","example_ja":"会社の机に私物を置きすぎないようにしている。","example_ko":"회사 책상에 개인 물품을 너무 많이 두지 않으려고 한다."},
+    {"key":"n1-2073","word":"粋","reading":"いき","meaning_ko":"멋스러움; 세련됨; 멋진","meaning_ja":"服装・振る舞いなどが洗練され、しゃれているさま。","part_of_speech":"な形容詞・普通名詞","example_ja":"彼は粋な着物の着こなしをしている。","example_ko":"그는 세련되게 기모노를 입고 있다.","note":"『すい』と読む場合の『精髄・粋』とは用法が異なる。"},
+    {"key":"n1-2074","word":"液","reading":"えき","meaning_ko":"액; 액체","meaning_ja":"水や油のように流動する物質。液体。","part_of_speech":"普通名詞","example_ja":"容器から液が漏れている。","example_ko":"용기에서 액체가 새고 있다."},
+    {"key":"n1-2075","word":"胴","reading":"どう","meaning_ko":"몸통; 동체","meaning_ja":"人や動物の頭・手足などを除いた体の中心部分。また、物の中央の部分。","part_of_speech":"普通名詞","example_ja":"人形の胴に布を巻いた。","example_ko":"인형의 몸통에 천을 감았다."},
+    {"key":"n1-2076","word":"回送","reading":"かいそう","meaning_ko":"회송; 빈 차량 이동; 전달","meaning_ja":"車両などを客を乗せず別の場所へ移動させること。また、送られてきたものを別へ送ること。","part_of_speech":"サ変名詞","example_ja":"この電車は終点から車庫へ回送される。","example_ko":"이 전철은 종점에서 차량기지로 회송된다."},
+    {"key":"n1-2077","word":"スタジオ","reading":"スタジオ","meaning_ko":"스튜디오; 촬영장; 녹음실","meaning_ja":"写真・映像の撮影や放送・録音などを行うための施設・部屋。","part_of_speech":"普通名詞","example_ja":"番組は都内のスタジオで収録された。","example_ko":"프로그램은 도쿄의 스튜디오에서 녹화되었다."}
+  ]
+}
