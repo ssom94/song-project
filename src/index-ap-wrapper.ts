@@ -29,8 +29,9 @@ import {
 	handleListAdminJapaneseJlptWrongNotes,
 } from './jlpt-practice';
 import { handleListJapaneseExamples, handleUpdateJapaneseExampleState } from './japanese-example-reading';
-import { handleGetPublicApDashboard } from './public/ap';
+import { handleGetPublicApDashboardReadOnly } from './public/ap-dashboard-read';
 import { handleGetPublicApConcepts } from './public/ap-concepts';
+import { handleGetPublicApConceptProgress, handlePatchAdminApConceptProgress } from './ap-concept-progress';
 import { handleGetPublicCategoryIcon } from './public/category-icon';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
 import { handleGetPublicPostWithAppearance } from './public/posts/appearance-detail';
@@ -58,8 +59,9 @@ export default {
 			case '/api/public/category-icon': return request.method === 'GET' ? handleGetPublicCategoryIcon(request, env) : methodNotAllowed('GET');
 			case '/api/public/site-background': return request.method === 'GET' ? handleGetPublicSiteBackground(request, env) : methodNotAllowed('GET');
 			case '/api/public/site-visuals': return request.method === 'GET' ? handleGetPublicSiteVisuals(request, env) : methodNotAllowed('GET');
-			case '/api/public/ap/dashboard': return request.method === 'GET' ? handleGetPublicApDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/public/ap/dashboard': return request.method === 'GET' ? handleGetPublicApDashboardReadOnly(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/concepts': return request.method === 'GET' ? handleGetPublicApConcepts(request, env) : methodNotAllowed('GET');
+			case '/api/public/ap/concept-progress': return request.method === 'GET' ? handleGetPublicApConceptProgress(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice': return request.method === 'GET' ? handleGetPublicApPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice/grade': return request.method === 'POST' ? handleGradePublicApPractice(request, env) : methodNotAllowed('POST');
 			case '/api/public/japanese/kanji-korean': return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
@@ -76,6 +78,7 @@ export default {
 			case '/api/admin/japanese/jlpt/practice/grade': return request.method === 'POST' ? handleGradeAdminJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/wrong-notes': return request.method === 'GET' ? handleListAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/wrong-notes': return request.method === 'GET' ? handleListAdminApWrongNotes(request, env) : methodNotAllowed('GET');
+			case '/api/admin/ap/concept-progress': return request.method === 'PATCH' ? handlePatchAdminApConceptProgress(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/study/export.xlsx': return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words': if (request.method === 'GET') return handleListAdminJapaneseWordsWithProvenance(request, env); return app.fetch(request, env);
 			case '/api/admin/ap/today': return request.method === 'GET' ? handleGetAdminApToday(request, env) : methodNotAllowed('GET');
