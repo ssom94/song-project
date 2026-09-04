@@ -4,6 +4,7 @@ interface ConceptRow {
   principle_ko: string; principle_ja: string; key_points_ko: string; key_points_ja: string;
   method_ko: string; method_ja: string; traps_ko: string; traps_ja: string;
   memory_ko: string; memory_ja: string; example_ko: string; example_ja: string; sort_order: number;
+  problem_type_count?: number;
 }
 interface TypeRow { id:number; type_no:number; type_name_ko:string; type_name_ja:string; sort_order:number; }
 interface QuestionRow {
@@ -22,6 +23,7 @@ function mapConcept(row: ConceptRow) {
   return {
     code: row.concept_code, examPart: row.exam_part, unitKo: row.unit_ko, unitJa: row.unit_ja,
     titleKo: row.title_ko, titleJa: row.title_ja, sortOrder: row.sort_order,
+    problemTypeCount: Number(row.problem_type_count ?? 0),
     sections: {
       definition: { ko: row.definition_ko, ja: row.definition_ja },
       principle: { ko: row.principle_ko, ja: row.principle_ja },
@@ -39,18 +41,24 @@ export async function handleGetPublicApConcepts(request: Request, env: Env): Pro
     const code = (url.searchParams.get('code') || '').trim().toUpperCase();
     if (!code) {
       const result = await env.song_project_db.prepare(`
-        SELECT id, concept_code, exam_part, unit_ko, unit_ja, title_ko, title_ja,
-          definition_ko, definition_ja, principle_ko, principle_ja, key_points_ko, key_points_ja,
-          method_ko, method_ja, traps_ko, traps_ja, memory_ko, memory_ja, example_ko, example_ja, sort_order
-        FROM ap_concepts WHERE is_published=1 ORDER BY sort_order ASC
+        SELECT c.id, c.concept_code, c.exam_part, c.unit_ko, c.unit_ja, c.title_ko, c.title_ja,
+          c.definition_ko, c.definition_ja, c.principle_ko, c.principle_ja, c.key_points_ko, c.key_points_ja,
+          c.method_ko, c.method_ja, c.traps_ko, c.traps_ja, c.memory_ko, c.memory_ja, c.example_ko, c.example_ja, c.sort_order,
+          COUNT(t.id) AS problem_type_count
+        FROM ap_concepts AS c
+        LEFT JOIN ap_concept_problem_types AS t ON t.concept_id = c.id
+        WHERE c.is_published=1
+        GROUP BY c.id
+        ORDER BY c.sort_order ASC
       `).all<ConceptRow>();
       return json({ ok:true, concepts: result.results.map(mapConcept) });
     }
     const row = await env.song_project_db.prepare(`
-      SELECT id, concept_code, exam_part, unit_ko, unit_ja, title_ko, title_ja,
-        definition_ko, definition_ja, principle_ko, principle_ja, key_points_ko, key_points_ja,
-        method_ko, method_ja, traps_ko, traps_ja, memory_ko, memory_ja, example_ko, example_ja, sort_order
-      FROM ap_concepts WHERE concept_code=?1 AND is_published=1 LIMIT 1
+      SELECT c.id, c.concept_code, c.exam_part, c.unit_ko, c.unit_ja, c.title_ko, c.title_ja,
+        c.definition_ko, c.definition_ja, c.principle_ko, c.principle_ja, c.key_points_ko, c.key_points_ja,
+        c.method_ko, c.method_ja, c.traps_ko, c.traps_ja, c.memory_ko, c.memory_ja, c.example_ko, c.example_ja, c.sort_order,
+        (SELECT COUNT(*) FROM ap_concept_problem_types t WHERE t.concept_id=c.id) AS problem_type_count
+      FROM ap_concepts c WHERE c.concept_code=?1 AND c.is_published=1 LIMIT 1
     `).bind(code).first<ConceptRow>();
     if (!row) return json({ ok:false, error:'AP_CONCEPT_NOT_FOUND' }, 404);
     const [typesResult, questionsResult] = await Promise.all([
