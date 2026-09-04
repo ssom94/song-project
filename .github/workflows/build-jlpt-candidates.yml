@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'scripts/jlpt/check-curation.mjs'
       - 'scripts/jlpt/prepare-production-candidates.mjs'
       - 'scripts/jlpt/enrich-from-krdict.py'
       - 'scripts/jlpt/build-word-enrichment-drafts.mjs'
@@ -34,6 +35,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Check curated JLPT identities and coverage
+        run: node scripts/jlpt/check-curation.mjs
 
       - name: Setup recoverable XML parser
         run: python3 -m pip install --disable-pip-version-check --quiet 'lxml==6.0.1'
