@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0901-0920",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0901","word":"朗読","reading":"ろうどく","meaning_ko":"낭독; 소리 내어 읽음","meaning_ja":"文章・詩などを、聞き手に伝わるよう声に出して読むこと。","part_of_speech":"サ変名詞","example_ja":"文学作品の朗読会には幅広い世代の参加者が集まった。","example_ko":"문학 작품 낭독회에는 다양한 세대의 참가자가 모였다."},
+    {"key":"n1-0902","word":"器官","reading":"きかん","meaning_ko":"기관; 생물체의 기관","meaning_ja":"生物の体を構成し、特定の形・働きを持つ部分。","part_of_speech":"普通名詞","example_ja":"心臓は全身に血液を送る重要な器官である。","example_ko":"심장은 전신에 혈액을 보내는 중요한 기관이다."},
+    {"key":"n1-0903","word":"対談","reading":"たいだん","meaning_ko":"대담; 서로 마주 보고 이야기함","meaning_ja":"二人ほどの人が、特定のテーマについて向かい合って話し合うこと。","part_of_speech":"サ変名詞","example_ja":"雑誌には研究者と起業家の対談が掲載されている。","example_ko":"잡지에는 연구자와 기업가의 대담이 실려 있다."},
+    {"key":"n1-0904","word":"学歴","reading":"がくれき","meaning_ko":"학력; 학업 경력","meaning_ja":"どの学校で学び、卒業したかなどの教育上の経歴。","part_of_speech":"普通名詞","example_ja":"採用では学歴だけでなく、実務経験や適性も重視している。","example_ko":"채용에서는 학력뿐 아니라 실무 경험과 적성도 중시하고 있다."},
+    {"key":"n1-0905","word":"共鳴","reading":"きょうめい","meaning_ko":"공명; 깊이 공감함","meaning_ja":"物理的に同じ振動数で響き合うこと。また比喩的に、他人の思想・感情に強く共感すること。","part_of_speech":"サ変名詞","example_ja":"若い世代の多くが、その作家の率直な主張に共鳴した。","example_ko":"젊은 세대의 많은 사람이 그 작가의 솔직한 주장에 깊이 공감했다."},
+    {"key":"n1-0906","word":"現像","reading":"げんぞう","meaning_ko":"현상; 사진 필름을 처리해 상을 나타냄","meaning_ja":"撮影したフィルム・感光材料などを薬品で処理し、記録された像を見える形にすること。","part_of_speech":"サ変名詞","example_ja":"昔は撮影したフィルムを写真店へ持ち込み、現像を頼んでいた。","example_ko":"예전에는 촬영한 필름을 사진관에 가져가 현상을 맡기곤 했다."},
+    {"key":"n1-0907","word":"入賞","reading":"にゅうしょう","meaning_ko":"입상","meaning_ja":"競技・コンテストなどで、賞を受けられる順位・成績に入ること。","part_of_speech":"サ変名詞","example_ja":"全国大会で入賞した作品は来月から市役所に展示される。","example_ko":"전국대회에서 입상한 작품은 다음 달부터 시청에 전시된다."},
+    {"key":"n1-0908","word":"弁論","reading":"べんろん","meaning_ko":"변론; 논리적으로 주장함","meaning_ja":"自分の立場・意見を論理的に述べること。特に法廷で当事者・弁護人が主張を述べること。","part_of_speech":"サ変名詞","example_ja":"裁判では双方の弁論を聞いたうえで、裁判官が判断を示す。","example_ko":"재판에서는 양측의 변론을 들은 뒤 판사가 판단을 내린다."},
+    {"key":"n1-0909","word":"左利き","reading":"ひだりきき","meaning_ko":"왼손잡이","meaning_ja":"右手より左手を主に使う人。また、左手のほうが器用なこと。","part_of_speech":"普通名詞","example_ja":"彼は左利きなので、はさみも左手用のものを使っている。","example_ko":"그는 왼손잡이라 가위도 왼손용을 사용하고 있다.","note":"古い用法で『酒好き』を指すこともあるが、現代の主要義は『左手を主に使う人』。"},
+    {"key":"n1-0910","word":"案の定","reading":"あんのじょう","meaning_ko":"아니나 다를까; 예상대로","meaning_ja":"予想していたとおりの結果になったことを表す語。","part_of_speech":"副詞","example_ja":"準備不足のまま本番を迎えたため、案の定いくつものミスが起きた。","example_ko":"준비가 부족한 채 본番을 맞아서 아니나 다를까 여러 실수가 발생했다."},
+    {"key":"n1-0911","word":"公用","reading":"こうよう","meaning_ko":"공용; 공무상 사용","meaning_ja":"国・自治体・組織などの公式な用務のために使うこと。","part_of_speech":"普通名詞","example_ja":"この車両は公用のため、私的な目的では利用できない。","example_ko":"이 차량은 공무용이어서 사적인 목적으로 이용할 수 없다."},
+    {"key":"n1-0912","word":"多忙","reading":"たぼう","meaning_ko":"다망; 매우 바쁨","meaning_ja":"仕事・用事が非常に多く、忙しいさま。","part_of_speech":"な形容詞","example_ja":"多忙な時期ほど、優先順位を決めて仕事を整理する必要がある。","example_ko":"매우 바쁜 시기일수록 우선순위를 정해 일을 정리할 필요가 있다."},
+    {"key":"n1-0913","word":"元素","reading":"げんそ","meaning_ko":"원소","meaning_ja":"化学的な方法ではそれ以上簡単な物質に分けられない、物質を構成する基本的な種類。","part_of_speech":"普通名詞","example_ja":"水は水素と酸素という二種類の元素からできている。","example_ko":"물은 수소와 산소라는 두 종류의 원소로 이루어져 있다."},
+    {"key":"n1-0914","word":"着工","reading":"ちゃっこう","meaning_ko":"착공; 공사를 시작함","meaning_ja":"建築・土木などの工事を実際に始めること。","part_of_speech":"サ変名詞","example_ja":"新しい病院は来春に着工し、二年後の完成を目指している。","example_ko":"새 병원은 내년 봄 착공해 2년 후 완공을 목표로 하고 있다."},
+    {"key":"n1-0915","word":"期日","reading":"きじつ","meaning_ko":"기일; 정해진 날짜","meaning_ja":"あらかじめ定められた日。ある事を行う期限・予定の日。","part_of_speech":"普通名詞","example_ja":"提出期日を過ぎた書類は原則として受け付けられない。","example_ko":"제출 기일이 지난 서류는 원칙적으로 접수되지 않는다."},
+    {"key":"n1-0916","word":"星座","reading":"せいざ","meaning_ko":"별자리; 성좌","meaning_ja":"夜空の星を一定の形に結び付け、人物・動物などの名を付けた区分。","part_of_speech":"普通名詞","example_ja":"冬の夜空ではオリオン座などの明るい星座を見つけやすい。","example_ko":"겨울 밤하늘에서는 오리온자리 같은 밝은 별자리를 찾기 쉽다."},
+    {"key":"n1-0917","word":"着席","reading":"ちゃくせき","meaning_ko":"착석; 자리에 앉음","meaning_ja":"自分の席について座ること。","part_of_speech":"サ変名詞","example_ja":"開始時刻の五分前までに着席してください。","example_ko":"시작 시각 5분 전까지 착석해 주세요."},
+    {"key":"n1-0918","word":"平常","reading":"へいじょう","meaning_ko":"평상시; 평소","meaning_ja":"特別な出来事がない、いつもどおりの状態・時。","part_of_speech":"普通名詞","example_ja":"災害時にも平常どおり対応できるよう、定期的に訓練を行っている。","example_ko":"재해 시에도 평상시처럼 대응할 수 있도록 정기적으로 훈련하고 있다."},
+    {"key":"n1-0919","word":"換算","reading":"かんさん","meaning_ko":"환산; 다른 단위로 바꾸어 계산함","meaning_ja":"ある単位・基準で表された数量を、別の単位・基準に直して計算すること。","part_of_speech":"サ変名詞","example_ja":"金額を現在の為替レートで円に換算すると、およそ十万円になる。","example_ko":"금액을 현재 환율로 엔화로 환산하면 약 10만 엔이 된다."},
+    {"key":"n1-0920","word":"弾力","reading":"だんりょく","meaning_ko":"탄력; 유연성","meaning_ja":"力を加えると変形し、力を除くともとに戻ろうとする性質。また比喩的に、状況に応じて柔軟に対応する力。","part_of_speech":"普通名詞","example_ja":"制度を運用する際には、例外にも対応できる弾力性が求められる。","example_ko":"제도를 운용할 때는 예외에도 대응할 수 있는 유연성이 요구된다."}
+  ]
+}
