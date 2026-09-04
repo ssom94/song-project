@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1978-1997",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-1978","word":"バー","reading":"バー","meaning_ko":"바; 술집; 가로대","meaning_ja":"酒を飲む店。また、横に渡した棒状のもの。","part_of_speech":"普通名詞","example_ja":"仕事帰りに駅前のバーで友人と話した。","example_ko":"퇴근길에 역 앞 바에서 친구와 이야기했다."},
+    {"key":"n1-1979","word":"芝","reading":"しば","meaning_ko":"잔디; 잔디밭","meaning_ja":"庭園・公園などに植える、細い葉が密に生える草。","part_of_speech":"普通名詞","example_ja":"公園の芝に座って昼食を食べた。","example_ko":"공원 잔디에 앉아 점심을 먹었다."},
+    {"key":"n1-1980","word":"司る","reading":"つかさどる","meaning_ko":"관장하다; 담당하다; 지배하다","meaning_ja":"ある仕事・機能などを責任を持って管理する。","part_of_speech":"五段動詞","example_ja":"この部署は社内システムの運用を司っている。","example_ko":"이 부서는 사내 시스템 운영을 관장하고 있다."},
+    {"key":"n1-1981","word":"雑","reading":"ざつ","meaning_ko":"거칠다; 조잡하다; 잡다하다","meaning_ja":"やり方が粗く丁寧でない。また、さまざまなものが入り交じっている。","part_of_speech":"な形容詞","example_ja":"急いで作ったため、資料のまとめ方が少し雑になった。","example_ko":"급하게 만들다 보니 자료 정리가 조금 조잡해졌다.","note":"候補の接頭辞義だけでなく、JMdictの rough/crude という形容動詞の中心義を採用。"},
+    {"key":"n1-1982","word":"キャッチ","reading":"キャッチ","meaning_ko":"잡기; 받아내기; 포착","meaning_ja":"飛んでくる物を受け取ること。また、情報などを捉えること。","part_of_speech":"サ変名詞","example_ja":"外野手が難しい打球を見事にキャッチした。","example_ko":"외야수가 어려운 타구를 멋지게 잡아냈다."},
+    {"key":"n1-1983","word":"セックス","reading":"セックス","meaning_ko":"성교; 성관계; 섹스","meaning_ja":"性的な交わり。性交。","part_of_speech":"サ変名詞","example_ja":"その教材ではセックスと健康について医学的に説明している。","example_ko":"그 교재에서는 성관계와 건강에 대해 의학적으로 설명하고 있다."},
+    {"key":"n1-1984","word":"ポーズ","reading":"ポーズ","meaning_ko":"포즈; 자세","meaning_ja":"写真・絵などのために取る姿勢。","part_of_speech":"普通名詞","example_ja":"写真を撮る前に、みんなで同じポーズを取った。","example_ko":"사진을 찍기 전에 모두 같은 포즈를 취했다.","note":"候補のJMdict英語『pause』は同音異義の取り違え。ここでは KRDICT の pose を採用。"},
+    {"key":"n1-1985","word":"遭難","reading":"そうなん","meaning_ko":"조난; 재난을 당함","meaning_ja":"登山・航海などで災難に遭い、身動きが取れなくなること。","part_of_speech":"サ変名詞","example_ja":"悪天候のため登山者が山中で遭難した。","example_ko":"악천후 때문에 등산객이 산에서 조난당했다."},
+    {"key":"n1-1986","word":"身なり","reading":"みなり","meaning_ko":"옷차림; 외모; 차림새","meaning_ja":"衣服・髪型などを含めた外見の様子。","part_of_speech":"普通名詞","example_ja":"面接なので、清潔感のある身なりを心がけた。","example_ko":"면접이라 깔끔한 옷차림을 신경 썼다."},
+    {"key":"n1-1987","word":"シナリオ","reading":"シナリオ","meaning_ko":"시나리오; 각본; 예상 전개","meaning_ja":"映画などの脚本。また、想定される出来事の展開や計画。","part_of_speech":"普通名詞","example_ja":"最悪のシナリオも想定して対策を準備した。","example_ko":"최악의 시나리오도 가정해 대책을 준비했다."},
+    {"key":"n1-1988","word":"麻","reading":"あさ","meaning_ko":"삼; 마; 삼 섬유","meaning_ja":"繊維を取る植物の総称。また、その繊維で作った布。","part_of_speech":"普通名詞","example_ja":"夏は通気性のよい麻のシャツをよく着る。","example_ko":"여름에는 통기성이 좋은 마 셔츠를 자주 입는다."},
+    {"key":"n1-1989","word":"フォーム","reading":"フォーム","meaning_ko":"폼; 자세; 형식","meaning_ja":"運動などでの身体の姿勢・型。また、形式・入力用の様式。","part_of_speech":"普通名詞","example_ja":"コーチに走るときのフォームを直してもらった。","example_ko":"코치에게 달릴 때의 자세를 교정받았다.","note":"JMdictには form/foam の語義があるが、ここでは日常的な form の中心義を採用。"},
+    {"key":"n1-1990","word":"盛り上がる","reading":"もりあがる","meaning_ko":"고조되다; 달아오르다; 부풀어 오르다","meaning_ja":"雰囲気・気運などが活発になる。また、形が高くふくらむ。","part_of_speech":"五段動詞","example_ja":"試合の終盤になると会場は一気に盛り上がった。","example_ko":"경기 막판이 되자 경기장 분위기가 단숨에 달아올랐다."},
+    {"key":"n1-1991","word":"嘆く","reading":"なげく","meaning_ko":"한탄하다; 슬퍼하다","meaning_ja":"悲しみ・残念さなどを強く感じてため息をついたり訴えたりする。","part_of_speech":"五段動詞","example_ja":"失敗を嘆くだけでなく、原因を考えることが大切だ。","example_ko":"실패를 한탄하기보다 원인을 생각하는 것이 중요하다."},
+    {"key":"n1-1992","word":"盾","reading":"たて","meaning_ko":"방패; 보호막","meaning_ja":"攻撃を防ぐために身を守る道具。また、比喩的に身を守るもの。","part_of_speech":"普通名詞","example_ja":"兵士は盾で矢を防いだ。","example_ko":"병사는 방패로 화살을 막았다."},
+    {"key":"n1-1993","word":"冷蔵","reading":"れいぞう","meaning_ko":"냉장","meaning_ja":"食品などを低温で保存すること。","part_of_speech":"サ変名詞","example_ja":"開封後は冷蔵して早めに食べてください。","example_ko":"개봉 후에는 냉장 보관하고 빨리 드세요."},
+    {"key":"n1-1994","word":"垢","reading":"あか","meaning_ko":"때; 찌든 때","meaning_ja":"皮膚・衣服などに付く汚れ。","part_of_speech":"普通名詞","example_ja":"浴槽の隅にたまった垢をきれいに落とした。","example_ko":"욕조 구석에 낀 때를 깨끗이 제거했다."},
+    {"key":"n1-1995","word":"捧げる","reading":"ささげる","meaning_ko":"바치다; 헌신하다; 올리다","meaning_ja":"神・人などに物を差し出す。また、時間・人生などをある目的に尽くす。","part_of_speech":"一段動詞","example_ja":"彼は長年、研究に人生を捧げてきた。","example_ko":"그는 오랫동안 연구에 인생을 바쳐 왔다."},
+    {"key":"n1-1996","word":"学士","reading":"がくし","meaning_ko":"학사; 학사 학위","meaning_ja":"大学の学部を卒業した者に授与される学位。また、その取得者。","part_of_speech":"普通名詞","example_ja":"大学を卒業し、工学の学士号を取得した。","example_ko":"대학을 졸업하고 공학 학사 학위를 취득했다."},
+    {"key":"n1-1997","word":"勇敢","reading":"ゆうかん","meaning_ko":"용감함; 용감하다","meaning_ja":"危険や困難を恐れず、勇気をもって行動するさま。","part_of_speech":"な形容詞","example_ja":"彼の勇敢な行動によって多くの人が助かった。","example_ko":"그의 용감한 행동으로 많은 사람이 도움을 받았다."}
+  ]
+}
