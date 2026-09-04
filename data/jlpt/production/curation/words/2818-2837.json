@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2818-2837",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2818","word":"強気","reading":"つよき","meaning_ko":"강경함; 자신만만함; 강세","meaning_ja":"気が強く、自信を持って積極的に出ること。また、市場などで値上がりを見込む姿勢。","part_of_speech":"名詞・な形容詞","example_ja":"彼は交渉で最後まで強気の姿勢を崩さなかった。","example_ko":"그는 협상에서 끝까지 강경한 태도를 굽히지 않았다.","note":"候補データの読み『ごうぎ』および英語 gloss『great, grand』は『強気』と不一致のため、現代標準の『つよき』に修正。"},
+    {"key":"n1-2819","word":"風車","reading":"かざぐるま","meaning_ko":"바람개비; 풍차","meaning_ja":"風を受けて羽根が回る玩具。また、風力を利用する装置を指すこともある。","part_of_speech":"普通名詞","example_ja":"子どもが色鮮やかな風車を持って走っている。","example_ko":"아이가 알록달록한 바람개비를 들고 뛰고 있다.","note":"装置としての『風車』は『ふうしゃ』とも読む。"},
+    {"key":"n1-2820","word":"特派","reading":"とくは","meaning_ko":"특파; 특별 파견","meaning_ja":"特別な任務のために人を派遣すること。","part_of_speech":"サ変名詞","example_ja":"新聞社は記者を現地に特派した。","example_ko":"신문사는 기자를 현지에 특파했다."},
+    {"key":"n1-2821","word":"真下","reading":"ました","meaning_ko":"바로 아래; 정하방","meaning_ja":"ある物の垂直方向のすぐ下。","part_of_speech":"普通名詞","example_ja":"窓の真下に車が止まっている。","example_ko":"창문 바로 아래에 차가 서 있다."},
+    {"key":"n1-2822","word":"体","reading":"てい","meaning_ko":"모양; 태; 상태; 체재","meaning_ja":"外から見た様子・ありさま・形。『～の体』の形でも使う。","part_of_speech":"普通名詞","example_ja":"彼は疲れ切った体で椅子に座り込んだ。","example_ko":"그는 완전히 지친 모습으로 의자에 주저앉았다.","note":"『体（からだ）』とは別読み。『ほうほうの体』などの慣用表現でも使う。"},
+    {"key":"n1-2823","word":"認める","reading":"したためる","meaning_ko":"쓰다; 적다; 작성하다","meaning_ja":"文章・手紙などを書く。","part_of_speech":"一段動詞","example_ja":"恩師への礼状を一通認めた。","example_ko":"은사에게 보낼 감사 편지를 한 통 썼다.","note":"一般的な『認める（みとめる）』とは別読み・別義。『したためる』は改まった表現。"},
+    {"key":"n1-2824","word":"例","reading":"ためし","meaning_ko":"예; 사례; 전례","meaning_ja":"実際にあった例・前例。『～た例がない』のようにも用いる。","part_of_speech":"普通名詞","example_ja":"これほど短期間で完成した例はない。","example_ko":"이렇게 짧은 기간에 완성된 사례는 없다.","note":"『例（れい）』とは別読み。"},
+    {"key":"n1-2825","word":"自転","reading":"じてん","meaning_ko":"자전","meaning_ja":"天体などが自身の軸を中心に回転すること。","part_of_speech":"サ変名詞","example_ja":"地球は約二十四時間で一回自転する。","example_ko":"지구는 약 24시간에 한 번 자전한다."},
+    {"key":"n1-2826","word":"辺り","reading":"ほとり","meaning_ko":"근처; 물가; 가장자리","meaning_ja":"ある場所の近く。特に川・湖などのそば。","part_of_speech":"普通名詞","example_ja":"湖のほとりに小さな宿がある。","example_ko":"호숫가에 작은 숙소가 있다.","note":"現代では『ほとり』を通常『辺』『畔』などと書き、『辺り』は一般に『あたり』と読む。候補表記は非標準的。"},
+    {"key":"n1-2827","word":"敵","reading":"かたき","meaning_ko":"적; 원수; 경쟁 상대","meaning_ja":"自分に害を与える敵や、恨みを持つ相手。","part_of_speech":"普通名詞","example_ja":"父の敵を討つという物語が描かれている。","example_ko":"아버지의 원수를 갚는 이야기가 그려져 있다.","note":"『敵（てき）』より感情的・古風な響きを持つことがある。"},
+    {"key":"n1-2828","word":"縁","reading":"えん","meaning_ko":"인연; 관계; 연고","meaning_ja":"人・物事を結び付ける関係や巡り合わせ。","part_of_speech":"普通名詞","example_ja":"不思議な縁で今の会社に入ることになった。","example_ko":"묘한 인연으로 지금 회사에 들어가게 됐다.","note":"候補KRDICTの『툇마루』は『縁（えん）』の中心義ではなく、『縁側』系の別用法なので除外。"},
+    {"key":"n1-2829","word":"汚れ","reading":"けがれ","meaning_ko":"더러움; 부정함; 오염","meaning_ja":"清浄・純粋でないこと。宗教的・精神的な不浄を指すこともある。","part_of_speech":"普通名詞","example_ja":"神事の前に身の汚れを清めるという考え方がある。","example_ko":"신사 의식 전에는 몸의 부정을 씻는다는 사고방식이 있다.","note":"一般的な物理的な『汚れ』は『よごれ』と読む。"},
+    {"key":"n1-2830","word":"帳","reading":"とばり","meaning_ko":"휘장; 장막","meaning_ja":"室内などを仕切ったり覆ったりするために垂らす布・幕。","part_of_speech":"普通名詞","example_ja":"夜の帳が静かに町を包んだ。","example_ko":"밤의 장막이 조용히 거리를 감쌌다.","note":"『夜の帳』のように文学的表現でよく見られる。"},
+    {"key":"n1-2831","word":"怒る","reading":"いかる","meaning_ko":"화내다; 분노하다","meaning_ja":"強い怒りを感じる。また、波などが荒れ立つこともいう。","part_of_speech":"五段動詞","example_ja":"不正を知った彼は激しく怒った。","example_ko":"부정을 알게 된 그는 크게 분노했다.","note":"日常的な読み『おこる』より文語的・強い響きがある。"},
+    {"key":"n1-2832","word":"暇","reading":"いとま","meaning_ko":"틈; 여가; 휴가; 작별","meaning_ja":"自由に使える時間。また、休暇・別れを表す古風な語。","part_of_speech":"普通名詞","example_ja":"忙しくて本を読む暇もない。","example_ko":"바빠서 책 읽을 틈도 없다.","note":"現代では多くの場合『ひま』と読む。『いとまを告げる』では別れの意。"},
+    {"key":"n1-2833","word":"粉々","reading":"こなごな","meaning_ko":"산산조각; 산산이","meaning_ja":"非常に細かく砕けた状態。","part_of_speech":"副詞・な形容詞","example_ja":"落とした皿が粉々に割れた。","example_ko":"떨어뜨린 접시가 산산조각 났다."},
+    {"key":"n1-2834","word":"嗚呼","reading":"ああ","meaning_ko":"아; 아아; 아뿔싸","meaning_ja":"驚き・嘆き・感動などを表す感動詞。","part_of_speech":"感動詞","example_ja":"嗚呼、なんという美しい景色だろう。","example_ko":"아, 정말 아름다운 풍경이구나.","note":"現代では通常『ああ』と仮名で書く。"},
+    {"key":"n1-2835","word":"明くる","reading":"あくる","meaning_ko":"다음의; 이튿날의","meaning_ja":"次の。翌の。主に『明くる日』『明くる年』の形で使う。","part_of_speech":"連体詞","example_ja":"明くる朝、私たちは早く町を出発した。","example_ko":"이튿날 아침 우리는 일찍 마을을 출발했다."},
+    {"key":"n1-2836","word":"貴女","reading":"あなた","meaning_ko":"당신; 귀하(여성에게)","meaning_ja":"女性を指して『あなた』と呼ぶ表記。","part_of_speech":"代名詞","example_ja":"貴女のご意見を伺いたいと思います。","example_ko":"당신의 의견을 듣고 싶습니다.","note":"現代では通常『あなた』と仮名で書き、『貴女』表記は限定的。"},
+    {"key":"n1-2837","word":"現われ","reading":"あらわれ","meaning_ko":"나타남; 표현; 징후","meaning_ja":"内面の状態などが外に現れたもの。表れ。","part_of_speech":"普通名詞","example_ja":"その行動は責任感の現われだ。","example_ko":"그 행동은 책임감의 표현이다.","note":"現代表記では『表れ』『現れ』が一般的。"}
+  ]
+}
