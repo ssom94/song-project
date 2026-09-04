@@ -34,25 +34,6 @@
 		document.head.appendChild(style);
 	}
 
-	function jstToday() {
-		return new Intl.DateTimeFormat('en-CA', {
-			timeZone: 'Asia/Tokyo',
-			year: 'numeric',
-			month: '2-digit',
-			day: '2-digit',
-		}).format(new Date());
-	}
-
-	function selectedStudyDate() {
-		return document.getElementById('jlpt-study-date')?.value || '';
-	}
-
-	function isVisibleFutureArchive(archive) {
-		if (!(archive instanceof HTMLElement) || archive.classList.contains('jlpt-history-hidden')) return false;
-		const date = selectedStudyDate();
-		return /^\d{4}-\d{2}-\d{2}$/.test(date) && date > jstToday();
-	}
-
 	function normalizeBase(value) {
 		return String(value || '').normalize('NFKC').trim().replace(/[\s　]+/g, '').toLowerCase();
 	}
@@ -130,7 +111,7 @@
 	}
 
 	function toolbar(container) {
-		let bar = container.querySelector(':scope > .jlpt-memory-practice-toolbar');
+		let bar = [...container.children].find((node) => node.classList?.contains('jlpt-memory-practice-toolbar'));
 		if (!(bar instanceof HTMLElement)) {
 			bar = document.createElement('div');
 			bar.className = 'jlpt-memory-practice-toolbar';
@@ -157,21 +138,29 @@
 		injectStyle();
 		document.body.classList.toggle('jlpt-memory-practice-active', enabled);
 		document.querySelectorAll('[data-memory-word="true"]').forEach(decorateWord);
+
 		const preview = document.getElementById('jlpt-preview-content');
 		if (preview?.querySelector('[data-memory-word="true"]')) toolbar(preview);
+
 		const archive = document.getElementById('jlpt-selected-date-card');
-		if (archive?.querySelector('[data-memory-word="true"]') || isVisibleFutureArchive(archive)) toolbar(archive);
+		if (archive instanceof HTMLElement && !archive.classList.contains('jlpt-history-hidden') && archive.querySelector('[data-memory-word="true"]')) {
+			toolbar(archive);
+		}
 	}
 
 	function scan() {
 		window.clearTimeout(timer);
-		timer = window.setTimeout(decorate, 80);
+		timer = window.setTimeout(decorate, 60);
 	}
 
 	function init() {
 		injectStyle();
 		decorate();
-		new MutationObserver(scan).observe(document.querySelector('.jlpt-content') || document.body, { childList: true, subtree: true });
+		const root = document.querySelector('.jlpt-content') || document.body;
+		new MutationObserver(scan).observe(root, { childList: true, subtree: true });
+		document.addEventListener('change', scan, true);
+		document.addEventListener('click', scan, true);
+		window.setInterval(decorate, 750);
 	}
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
