@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1381-1400",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1381","word":"倹約","reading":"けんやく","meaning_ko":"검약; 절약","meaning_ja":"お金・物・資源などを無駄に使わず、出費を抑えること。","part_of_speech":"サ変名詞","example_ja":"旅行資金を貯めるため、しばらく外食を控えて倹約している。","example_ko":"여행 자금을 모으기 위해 한동안 외식을 줄이며 절약하고 있다."},
+    {"key":"n1-1382","word":"閲覧","reading":"えつらん","meaning_ko":"열람","meaning_ja":"書類・資料・ウェブページなどを開いて内容を見ること。","part_of_speech":"サ変名詞","example_ja":"社外秘の資料は権限を持つ社員だけが閲覧できる。","example_ko":"사외비 자료는 권한이 있는 직원만 열람할 수 있다."},
+    {"key":"n1-1383","word":"雛","reading":"ひな","meaning_ko":"새끼 새; 병아리; 히나 인형의 준말","meaning_ja":"卵からかえって間もない鳥の子。また、『ひな人形』などで小さな人形を指すこともある。","part_of_speech":"普通名詞","example_ja":"巣の中では数羽の雛が親鳥の帰りを待っていた。","example_ko":"둥지 안에서는 여러 마리 새끼 새가 어미 새의 귀환을 기다리고 있었다."},
+    {"key":"n1-1384","word":"明瞭","reading":"めいりょう","meaning_ko":"명료함; 분명함","meaning_ja":"内容・発音・区別などがはっきりしていて、分かりやすいさま。","part_of_speech":"な形容詞","example_ja":"説明は簡潔で明瞭だったため、参加者から質問はほとんど出なかった。","example_ko":"설명이 간결하고 명료해서 참가자들의 질문이 거의 나오지 않았다."},
+    {"key":"n1-1385","word":"栄える","reading":"さかえる","meaning_ko":"번영하다; 번성하다","meaning_ja":"国・都市・産業・家系などが発展し、勢いが盛んになる。","part_of_speech":"一段動詞","example_ja":"港の整備をきっかけに、この町は商業都市として栄えた。","example_ko":"항구 정비를 계기로 이 도시는 상업 도시로 번영했다."},
+    {"key":"n1-1386","word":"免れる","reading":"まぬかれる","meaning_ko":"면하다; 모면하다; 벗어나다","meaning_ja":"好ましくない責任・処罰・危険・被害などを受けずに済む。","part_of_speech":"一段動詞","example_ja":"早めに避難したため、住民の多くは大きな被害を免れた。","example_ko":"일찍 대피했기 때문에 주민 대부분은 큰 피해를 면했다."},
+    {"key":"n1-1387","word":"傍ら","reading":"かたわら","meaning_ko":"곁; 한편으로는; ~하는 한편","meaning_ja":"すぐそば。また、主な仕事・活動をする一方で別のことも行うことを表す。","part_of_speech":"普通名詞","example_ja":"彼は会社員として働く傍ら、週末には地域の子どもたちに数学を教えている。","example_ko":"그는 회사원으로 일하는 한편 주말에는 지역 아이들에게 수학을 가르친다."},
+    {"key":"n1-1388","word":"追跡","reading":"ついせき","meaning_ko":"추적","meaning_ja":"人・物・情報などの動きや所在を、後を追って調べ続けること。","part_of_speech":"サ変名詞","example_ja":"配送番号を入力すると荷物の現在地を追跡できる。","example_ko":"배송 번호를 입력하면 화물의 현재 위치를 추적할 수 있다."},
+    {"key":"n1-1389","word":"豊作","reading":"ほうさく","meaning_ko":"풍작","meaning_ja":"農作物がよく実り、例年より多く収穫できること。","part_of_speech":"普通名詞","example_ja":"天候に恵まれ、今年の米は近年にない豊作となった。","example_ko":"날씨가 좋아 올해 쌀은 근래 보기 드문 풍작이 되었다."},
+    {"key":"n1-1390","word":"願書","reading":"がんしょ","meaning_ko":"원서; 지원서","meaning_ja":"学校・試験・資格などへの志願内容を記入し、提出する正式な書類。","part_of_speech":"普通名詞","example_ja":"入学願書は締切日までに郵送しなければならない。","example_ko":"입학 원서는 마감일까지 우편으로 보내야 한다."},
+    {"key":"n1-1391","word":"貯蓄","reading":"ちょちく","meaning_ko":"저축; 축적","meaning_ja":"将来に備えて金銭・財産などを蓄えておくこと。","part_of_speech":"サ変名詞","example_ja":"毎月一定額を貯蓄するため、自動積立を設定した。","example_ko":"매달 일정 금액을 저축하기 위해 자동 적립을 설정했다."},
+    {"key":"n1-1392","word":"養う","reading":"やしなう","meaning_ko":"기르다; 부양하다; 함양하다","meaning_ja":"人・動物を生活できるよう世話して育てる。また、能力・習慣・感覚などを育て身につける。","part_of_speech":"五段動詞","example_ja":"多様な文章を読むことで、物事を批判的に考える力を養うことができる。","example_ko":"다양한 글을 읽음으로써 사물을 비판적으로 생각하는 힘을 기를 수 있다."},
+    {"key":"n1-1393","word":"等級","reading":"とうきゅう","meaning_ko":"등급; 급수","meaning_ja":"品質・能力・地位などを一定の基準によって段階的に分けた区分。","part_of_speech":"普通名詞","example_ja":"製品は品質検査の結果に応じて複数の等級に分類される。","example_ko":"제품은 품질 검사 결과에 따라 여러 등급으로 분류된다."},
+    {"key":"n1-1394","word":"適宜","reading":"てきぎ","meaning_ko":"적절히; 필요에 따라; 수시로","meaning_ja":"その時の状況・必要性に応じて、ふさわしい方法や時期を選んで行うさま。","part_of_speech":"副詞","example_ja":"進捗状況に応じて、担当者を適宜追加してください。","example_ko":"진행 상황에 따라 담당자를 적절히 추가해 주세요."},
+    {"key":"n1-1395","word":"既婚","reading":"きこん","meaning_ko":"기혼","meaning_ja":"すでに結婚していること。","part_of_speech":"普通名詞","example_ja":"調査では回答者を未婚・既婚などの属性別に集計した。","example_ko":"조사에서는 응답자를 미혼·기혼 등의 속성별로 집계했다."},
+    {"key":"n1-1396","word":"偏見","reading":"へんけん","meaning_ko":"편견","meaning_ja":"十分な根拠がないまま、特定の人・集団・物事について偏った見方をすること。","part_of_speech":"普通名詞","example_ja":"年齢だけで能力を判断するのは偏見につながりかねない。","example_ko":"나이만으로 능력을 판단하는 것은 편견으로 이어질 수 있다."},
+    {"key":"n1-1397","word":"始発","reading":"しはつ","meaning_ko":"첫차; 첫 운행","meaning_ja":"その日の最初に出発する列車・バスなど。また、その最初の運行。","part_of_speech":"普通名詞","example_ja":"早朝の便に間に合うよう、始発の電車で空港へ向かった。","example_ko":"이른 아침 비행기를 타기 위해 첫 전철로 공항에 향했다."},
+    {"key":"n1-1398","word":"募る","reading":"つのる","meaning_ko":"모집하다; 모으다; 점점 심해지다","meaning_ja":"人・作品・寄付などを広く呼びかけて集める。また、不安・期待・思いなどの程度がますます強くなる。","part_of_speech":"五段動詞","example_ja":"会社は社内から新規事業のアイデアを募っている。","example_ko":"회사는 사내에서 신규 사업 아이디어를 모집하고 있다."},
+    {"key":"n1-1399","word":"逃す","reading":"のがす","meaning_ko":"놓치다; 기회를 잃다; 달아나게 하다","meaning_ja":"捕らえられた人・動物などを逃がす。また、機会・好機などをつかめず失う。","part_of_speech":"五段動詞","example_ja":"重要な変化の兆候を見逃さず、改善の機会を逃さないことが大切だ。","example_ko":"중요한 변화의 징후를 놓치지 않고 개선의 기회를 잃지 않는 것이 중요하다."},
+    {"key":"n1-1400","word":"海峡","reading":"かいきょう","meaning_ko":"해협","meaning_ja":"二つの陸地に挟まれ、二つの海域を結ぶ細長い海の部分。","part_of_speech":"普通名詞","example_ja":"この海峡は国際的な海上交通の重要なルートになっている。","example_ko":"이 해협은 국제 해상 교통의 중요한 항로가 되고 있다."}
+  ]
+}
