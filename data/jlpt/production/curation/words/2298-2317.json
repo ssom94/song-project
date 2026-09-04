@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2298-2317",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2298","word":"妬む","reading":"ねたむ","meaning_ko":"질투하다; 시샘하다; 부러워하며 미워하다","meaning_ja":"他人の成功・能力・幸福などをうらやみ、憎らしく思う。","part_of_speech":"五段動詞","example_ja":"他人の成功を妬むより、自分の目標に集中したほうがいい。","example_ko":"다른 사람의 성공을 질투하기보다 자신의 목표에 집중하는 편이 좋다."},
+    {"key":"n1-2299","word":"類推","reading":"るいすい","meaning_ko":"유추; 비슷한 사례로 미루어 짐작함","meaning_ja":"似た性質・事例をもとに、別の事柄について推測すること。","part_of_speech":"サ変名詞","example_ja":"過去の事例から類推すると、今回も同じ原因の可能性が高い。","example_ko":"과거 사례에서 유추하면 이번에도 같은 원인일 가능성이 높다."},
+    {"key":"n1-2300","word":"仲人","reading":"ちゅうにん","meaning_ko":"중매인; 중개인","meaning_ja":"人と人との間に立って関係を取り持つ人。特に結婚の仲立ちをする人。","part_of_speech":"普通名詞","example_ja":"昔は仲人を通して結婚相手を紹介してもらうことも多かった。","example_ko":"예전에는 중매인을 통해 결혼 상대를 소개받는 경우도 많았다.","note":"一般的な読みは『なこうど』。候補見出しの読み『ちゅうにん』は別読みとして収録。"},
+    {"key":"n1-2301","word":"弱る","reading":"よわる","meaning_ko":"약해지다; 쇠약해지다; 곤란해하다","meaning_ja":"体力・気力・勢いなどが弱くなる。また、困ってどうしたらよいか分からなくなる。","part_of_speech":"五段動詞","example_ja":"暑さが続いて、庭の植物もすっかり弱っている。","example_ko":"더위가 계속되어 정원의 식물도 완전히 약해져 있다."},
+    {"key":"n1-2302","word":"汽船","reading":"きせん","meaning_ko":"기선; 증기선","meaning_ja":"蒸気機関を動力として進む船。","part_of_speech":"普通名詞","example_ja":"汽船の発達によって海上輸送は大きく変化した。","example_ko":"증기선의 발달로 해상 운송은 크게 변화했다."},
+    {"key":"n1-2303","word":"売り出し","reading":"うりだし","meaning_ko":"판매 개시; 특매; 세일","meaning_ja":"商品を売り始めること。また、特別に値段を下げて大量に販売すること。","part_of_speech":"普通名詞","example_ja":"商店街では週末に大売り出しが行われる。","example_ko":"상점가에서는 주말에 대규모 할인 판매가 열린다."},
+    {"key":"n1-2304","word":"容易い","reading":"たやすい","meaning_ko":"쉽다; 용이하다; 손쉽다","meaning_ja":"難しくなく、簡単にできる。","part_of_speech":"い形容詞","example_ja":"長年の問題を解決するのは、決して容易いことではない。","example_ko":"오랜 문제를 해결하는 것은 결코 쉬운 일이 아니다."},
+    {"key":"n1-2305","word":"軒並み","reading":"のきなみ","meaning_ko":"집들이 줄지어 있음; 하나같이; 모조리","meaning_ja":"家が軒を並べて続いていること。また、複数のものが例外なく同じような状態になるさま。","part_of_speech":"名詞・副詞","example_ja":"原材料費の上昇で、各社の商品価格が軒並み上がった。","example_ko":"원재료비 상승으로 각 회사의 상품 가격이 하나같이 올랐다.","note":"候補JMdict gloss『row of houses』に加え、現代で頻出する副詞用法『一様に・例外なく』を補完。"},
+    {"key":"n1-2306","word":"顔付き","reading":"かおつき","meaning_ko":"얼굴 생김새; 표정; 얼굴빛","meaning_ja":"顔の形・特徴。また、顔に現れる表情や様子。","part_of_speech":"普通名詞","example_ja":"説明を聞くうちに、彼の顔付きが次第に真剣になった。","example_ko":"설명을 듣는 동안 그의 표정이 점차 진지해졌다.","note":"候補KO『얼굴색』だけでは狭いため、JMdictの features/expression を反映。"},
+    {"key":"n1-2307","word":"差し掛かる","reading":"さしかかる","meaning_ko":"접어들다; 다다르다; 가까워지다","meaning_ja":"ある場所に近づく。また、ある時期・段階に入ろうとする。","part_of_speech":"五段動詞","example_ja":"夕方に差し掛かるころ、急に雨が降り始めた。","example_ko":"저녁 무렵에 접어들 즈음 갑자기 비가 내리기 시작했다."},
+    {"key":"n1-2308","word":"眩しい","reading":"まぶしい","meaning_ko":"눈부시다; 빛나고 찬란하다","meaning_ja":"光が強すぎて目を開けていにくい。また、比喩的に非常に輝かしく感じる。","part_of_speech":"い形容詞","example_ja":"朝日が眩しくて、思わず目を細めた。","example_ko":"아침 햇살이 눈부셔서 나도 모르게 눈을 가늘게 떴다."},
+    {"key":"n1-2309","word":"酪農","reading":"らくのう","meaning_ko":"낙농; 젖소 등을 길러 유제품을 생산하는 산업","meaning_ja":"牛などを飼育し、乳や乳製品を生産する農業。","part_of_speech":"普通名詞","example_ja":"北海道では酪農が盛んな地域が多い。","example_ko":"홋카이도에는 낙농이 활발한 지역이 많다."},
+    {"key":"n1-2310","word":"和らげる","reading":"やわらげる","meaning_ko":"누그러뜨리다; 완화하다; 덜어 주다","meaning_ja":"強さ・苦痛・緊張・怒りなどを弱くし、穏やかにする。","part_of_speech":"一段動詞","example_ja":"この薬には痛みを和らげる効果がある。","example_ko":"이 약에는 통증을 완화하는 효과가 있다."},
+    {"key":"n1-2311","word":"原っぱ","reading":"はらっぱ","meaning_ko":"들판; 빈터; 넓은 풀밭","meaning_ja":"草などが生えた、広く開けた平らな土地。","part_of_speech":"普通名詞","example_ja":"子どもたちは原っぱを走り回って遊んでいた。","example_ko":"아이들은 넓은 들판을 뛰어다니며 놀고 있었다."},
+    {"key":"n1-2312","word":"強いて","reading":"しいて","meaning_ko":"굳이; 억지로; 강제로","meaning_ja":"無理を押して行うさま。また、あえて一つを選ぶなら、という意味で使う。","part_of_speech":"副詞","example_ja":"強いて一つ選ぶなら、この案が最も現実的だ。","example_ko":"굳이 하나를 고르자면 이 안이 가장 현실적이다.","note":"候補KO『바득바득』は狭く不自然なため、現代の主要用法『굳이・억지로』へ修正。"},
+    {"key":"n1-2313","word":"埋蔵","reading":"まいぞう","meaning_ko":"매장; 땅속에 묻혀 있음; 매장되어 보존됨","meaning_ja":"地下などに埋めて保存すること。また、地下に資源・遺物などが存在すること。","part_of_speech":"サ変名詞","example_ja":"この地域には豊富な天然資源が埋蔵されている。","example_ko":"이 지역에는 풍부한 천연자원이 매장되어 있다."},
+    {"key":"n1-2314","word":"三日月","reading":"みかづき","meaning_ko":"초승달; 가느다란 초승달 모양의 달","meaning_ja":"新月の後、細い弓形に見える月。","part_of_speech":"普通名詞","example_ja":"西の空に細い三日月が浮かんでいた。","example_ko":"서쪽 하늘에 가느다란 초승달이 떠 있었다."},
+    {"key":"n1-2315","word":"領海","reading":"りょうかい","meaning_ko":"영해","meaning_ja":"沿岸国の主権が及ぶ、海岸から一定範囲の海域。","part_of_speech":"普通名詞","example_ja":"外国船が領海に入ったことが確認された。","example_ko":"외국 선박이 영해에 들어온 것이 확인됐다."},
+    {"key":"n1-2316","word":"出直し","reading":"でなおし","meaning_ko":"다시 시작함; 처음부터 새로 함; 재출발","meaning_ja":"いったん失敗・中断したことを、改めて最初からやり直すこと。","part_of_speech":"サ変名詞","example_ja":"今回は準備不足だったので、一から出直しだ。","example_ko":"이번에는 준비가 부족했으니 처음부터 다시 시작해야 한다.","note":"候補JMdict英語 gloss『adjustment, touch up』は見出しとの整合が弱いため、現代日本語の中心義で補正。"},
+    {"key":"n1-2317","word":"安っぽい","reading":"やすっぽい","meaning_ko":"싸구려처럼 보이다; 값싸 보이다; 천박해 보이다","meaning_ja":"値段が安そうに見え、品質・品格が低く感じられる。","part_of_speech":"い形容詞","example_ja":"素材が薄いため、少し安っぽく見える。","example_ko":"소재가 얇아서 조금 싸구려처럼 보인다.","note":"単に価格が安い『安い』とは異なり、見た目・印象の低品質感を表す。"}
+  ]
+}
