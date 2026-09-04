@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1998-2017",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-1998","word":"強まる","reading":"つよまる","meaning_ko":"강해지다; 거세지다","meaning_ja":"力・程度・勢いなどが強くなる。","part_of_speech":"五段動詞","example_ja":"台風が近づくにつれて風が強まってきた。","example_ko":"태풍이 가까워지면서 바람이 거세졌다."},
+    {"key":"n1-1999","word":"差し出す","reading":"さしだす","meaning_ko":"내밀다; 제출하다; 내놓다","meaning_ja":"相手の方へ物を出す。また、書類などを提出する。","part_of_speech":"五段動詞","example_ja":"受付で身分証明書を差し出した。","example_ko":"접수처에서 신분증을 내밀었다."},
+    {"key":"n1-2000","word":"シック","reading":"シック","meaning_ko":"세련된; 차분하고 멋진","meaning_ja":"派手ではなく、上品で洗練されているさま。","part_of_speech":"な形容詞","example_ja":"店内は黒を基調としたシックな雰囲気だった。","example_ko":"가게 안은 검은색을 중심으로 한 차분하고 세련된 분위기였다."},
+    {"key":"n1-2001","word":"乙","reading":"おつ","meaning_ko":"을; 둘째 등급; 색다르고 멋스러움","meaning_ja":"甲に次ぐ第二のもの。また、少し変わっていて趣があるさま。","part_of_speech":"普通名詞・な形容詞","example_ja":"こういう昔風の店も乙なものだ。","example_ko":"이런 옛날식 가게도 꽤 운치가 있다."},
+    {"key":"n1-2002","word":"しょっちゅう","reading":"しょっちゅう","meaning_ko":"자주; 늘; 수시로","meaning_ja":"非常に頻繁に。いつもと言ってよいほど。","part_of_speech":"副詞","example_ja":"彼は仕事中もしょっちゅうスマートフォンを確認している。","example_ko":"그는 일하는 중에도 자주 스마트폰을 확인한다."},
+    {"key":"n1-2003","word":"進み","reading":"すすみ","meaning_ko":"진행; 진척","meaning_ja":"物事が前へ進むこと。また、その進み具合。","part_of_speech":"普通名詞","example_ja":"作業の進みが予定より少し遅れている。","example_ko":"작업 진척이 예정보다 조금 늦다."},
+    {"key":"n1-2004","word":"退く","reading":"しりぞく","meaning_ko":"물러나다; 후퇴하다; 퇴임하다","meaning_ja":"後ろへ下がる。また、地位・役職などを離れる。","part_of_speech":"五段動詞","example_ja":"彼は責任を取って社長の座を退いた。","example_ko":"그는 책임을 지고 사장 자리에서 물러났다."},
+    {"key":"n1-2005","word":"態と","reading":"わざと","meaning_ko":"일부러; 고의로","meaning_ja":"意図的に。故意に。","part_of_speech":"副詞","example_ja":"彼は冗談だと分かっていて、わざと真面目に答えた。","example_ko":"그는 농담인 줄 알면서도 일부러 진지하게 대답했다.","note":"現代では通常『わざと』と仮名で書く。"},
+    {"key":"n1-2006","word":"コンタクト","reading":"コンタクト","meaning_ko":"접촉; 연락; 콘택트렌즈","meaning_ja":"接触・連絡。また、コンタクトレンズの略。","part_of_speech":"サ変名詞","example_ja":"担当者と直接コンタクトを取って確認した。","example_ko":"담당자와 직접 연락해 확인했다.","note":"候補はレンズ義に偏っていたため、JMdictの contact の中心義も補完。"},
+    {"key":"n1-2007","word":"象","reading":"しょう","meaning_ko":"현상; 모습; 상","meaning_ja":"現れた形・姿。特に『現象』などの語で用いられる。","part_of_speech":"普通名詞","example_ja":"社会現象を一つの象として捉えて分析する。","example_ko":"사회 현상을 하나의 모습으로 파악해 분석한다.","note":"候補の韓国語『코끼리』は読み『ぞう』の別語義。JMdict の phenomenon に合わせて修正。"},
+    {"key":"n1-2008","word":"柵","reading":"さく","meaning_ko":"울타리; 펜스; 목책","meaning_ja":"木・金属などを並べて作る囲い。","part_of_speech":"普通名詞","example_ja":"動物が外へ出ないように柵を設けた。","example_ko":"동물이 밖으로 나가지 못하게 울타리를 설치했다.","note":"候補の韓国語『굴레』は読み『しがらみ』の別語義。読み『さく』では fence/paling。"},
+    {"key":"n1-2009","word":"フロント","reading":"フロント","meaning_ko":"프런트; 접수대; 전면","meaning_ja":"ホテルなどの受付。また、物の前面。","part_of_speech":"普通名詞","example_ja":"ホテルのフロントでチェックインの手続きをした。","example_ko":"호텔 프런트에서 체크인 절차를 밟았다."},
+    {"key":"n1-2010","word":"制する","reading":"せいする","meaning_ko":"제압하다; 통제하다; 억제하다","meaning_ja":"相手・状況などを抑えて自分の支配下に置く。","part_of_speech":"サ変動詞","example_ja":"終盤に得点を重ねて試合を制した。","example_ko":"후반에 득점을 거듭해 경기를 제압했다."},
+    {"key":"n1-2011","word":"荷造り","reading":"にづくり","meaning_ko":"짐 싸기; 포장","meaning_ja":"運搬・旅行などのために荷物をまとめて包むこと。","part_of_speech":"サ変名詞","example_ja":"引っ越し前日に夜遅くまで荷造りをした。","example_ko":"이사 전날 밤늦게까지 짐을 쌌다."},
+    {"key":"n1-2012","word":"背負う","reading":"しょう","meaning_ko":"짊어지다; 등에 메다; 부담을 떠안다","meaning_ja":"背中に物を載せて持つ。また、責任・負担などを引き受ける。","part_of_speech":"五段動詞","example_ja":"彼は家族の期待を背負って大会に出場した。","example_ko":"그는 가족의 기대를 짊어지고 대회에 출전했다.","note":"読み『しょう』は口語的。『せおう』も一般的。"},
+    {"key":"n1-2013","word":"励む","reading":"はげむ","meaning_ko":"힘쓰다; 노력하다; 매진하다","meaning_ja":"目標に向かって一生懸命努力する。","part_of_speech":"五段動詞","example_ja":"資格取得を目指して毎日勉強に励んでいる。","example_ko":"자격증 취득을 목표로 매일 공부에 힘쓰고 있다."},
+    {"key":"n1-2014","word":"当てはまる","reading":"あてはまる","meaning_ko":"해당하다; 들어맞다; 적용되다","meaning_ja":"条件・規則・例などにぴったり合う。","part_of_speech":"五段動詞","example_ja":"この条件に当てはまる人だけが申請できる。","example_ko":"이 조건에 해당하는 사람만 신청할 수 있다."},
+    {"key":"n1-2015","word":"乳","reading":"ちち","meaning_ko":"젖; 모유; 유방","meaning_ja":"人・動物の乳房から出る乳汁。また、乳房。","part_of_speech":"普通名詞","example_ja":"子牛は母親の乳を飲んで育つ。","example_ko":"송아지는 어미의 젖을 먹고 자란다."},
+    {"key":"n1-2016","word":"纏め","reading":"まとめ","meaning_ko":"정리; 요약; 결론","meaning_ja":"ばらばらのものを整理して一つにすること。また、その結果。","part_of_speech":"普通名詞","example_ja":"会議の内容を短くまとめにして共有した。","example_ko":"회의 내용을 짧게 정리해 공유했다.","note":"現代では通常『まとめ』と仮名で書く。"},
+    {"key":"n1-2017","word":"没落","reading":"ぼつらく","meaning_ko":"몰락; 쇠퇴","meaning_ja":"栄えていた家・組織・勢力などが衰えて地位を失うこと。","part_of_speech":"サ変名詞","example_ja":"その一族は戦後急速に没落した。","example_ko":"그 가문은 전후 급속히 몰락했다.","note":"候補の『함몰』はこの語義には不適切。"}
+  ]
+}
