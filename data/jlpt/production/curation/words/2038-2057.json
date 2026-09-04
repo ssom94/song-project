@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2038-2057",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2038","word":"ガイドブック","reading":"ガイドブック","meaning_ko":"가이드북; 안내서","meaning_ja":"旅行・観光・利用方法などを案内する本。","part_of_speech":"普通名詞","example_ja":"旅行前に京都のガイドブックを買った。","example_ko":"여행 전에 교토 가이드북을 샀다."},
+    {"key":"n1-2039","word":"切り替える","reading":"きりかえる","meaning_ko":"전환하다; 바꾸다","meaning_ja":"それまでの状態・方法・考えなどを別のものに変える。","part_of_speech":"一段動詞","example_ja":"問題が起きたので、すぐに予備回線へ切り替えた。","example_ko":"문제가 생겨 즉시 예비 회선으로 전환했다."},
+    {"key":"n1-2040","word":"デザート","reading":"デザート","meaning_ko":"디저트; 후식","meaning_ja":"食事の後に食べる果物・菓子など。","part_of_speech":"普通名詞","example_ja":"食後のデザートにアイスクリームを注文した。","example_ko":"식후 디저트로 아이스크림을 주문했다."},
+    {"key":"n1-2041","word":"ブーツ","reading":"ブーツ","meaning_ko":"부츠; 목이 긴 신발","meaning_ja":"足首より上まで覆う長い靴。","part_of_speech":"普通名詞","example_ja":"雪の日なので防水のブーツを履いた。","example_ko":"눈 오는 날이라 방수 부츠를 신었다."},
+    {"key":"n1-2042","word":"面する","reading":"めんする","meaning_ko":"면하다; 마주하다; 접하다","meaning_ja":"ある方向・場所に正面を向けて接している。","part_of_speech":"サ変動詞","example_ja":"このホテルの部屋は海に面している。","example_ko":"이 호텔 객실은 바다를 향하고 있다."},
+    {"key":"n1-2043","word":"慌てる","reading":"あわてる","meaning_ko":"당황하다; 허둥대다","meaning_ja":"急な出来事に驚き、落ち着きを失う。","part_of_speech":"一段動詞","example_ja":"財布が見つからなくても、まず慌てずに探そう。","example_ko":"지갑이 안 보여도 우선 당황하지 말고 찾아보자."},
+    {"key":"n1-2044","word":"帯びる","reading":"おびる","meaning_ko":"띠다; 지니다; 맡다","meaning_ja":"ある性質・色・雰囲気などを含んで持つ。また、任務などを受け持つ。","part_of_speech":"一段動詞","example_ja":"空が少し赤みを帯びてきた。","example_ko":"하늘이 조금 붉은 기를 띠기 시작했다."},
+    {"key":"n1-2045","word":"農耕","reading":"のうこう","meaning_ko":"농경; 경작","meaning_ja":"田畑を耕して農作物を作ること。","part_of_speech":"普通名詞・サ変名詞","example_ja":"この地域では古くから農耕が盛んだった。","example_ko":"이 지역에서는 예로부터 농경이 활발했다."},
+    {"key":"n1-2046","word":"杖","reading":"つえ","meaning_ko":"지팡이","meaning_ja":"歩くときに体を支えるために使う棒。","part_of_speech":"普通名詞","example_ja":"祖父は外出するときに杖を使っている。","example_ko":"할아버지는 외출할 때 지팡이를 사용하신다."},
+    {"key":"n1-2047","word":"兎も角","reading":"ともかく","meaning_ko":"어쨌든; 여하튼; 제쳐두고","meaning_ja":"他のことはさておき、まずその点について言うさま。","part_of_speech":"副詞","example_ja":"結果はともかく、最後までやってみよう。","example_ko":"결과는 어쨌든 끝까지 해 보자.","note":"現代では通常『ともかく』と仮名で書く。"},
+    {"key":"n1-2048","word":"ミュージック","reading":"ミュージック","meaning_ko":"음악; 뮤직","meaning_ja":"音楽。","part_of_speech":"普通名詞","example_ja":"店内には落ち着いたミュージックが流れていた。","example_ko":"가게 안에는 차분한 음악이 흐르고 있었다."},
+    {"key":"n1-2049","word":"興業","reading":"こうぎょう","meaning_ko":"사업 진흥; 산업 사업; 흥업","meaning_ja":"事業・産業を起こし、盛んにすること。","part_of_speech":"サ変名詞","example_ja":"政府は地域の興業を支援するため新制度を設けた。","example_ko":"정부는 지역 산업 진흥을 지원하기 위해 새 제도를 마련했다.","note":"『興行（こうぎょう）＝공연·흥행』とは別語。"},
+    {"key":"n1-2050","word":"レギュラー","reading":"レギュラー","meaning_ko":"정규; 주전; 레귤러","meaning_ja":"正式・通常のもの。また、スポーツなどの正規の出場選手。","part_of_speech":"普通名詞・な形容詞","example_ja":"彼は今季からチームのレギュラーに選ばれた。","example_ko":"그는 이번 시즌부터 팀의 주전으로 뽑혔다."},
+    {"key":"n1-2051","word":"茹でる","reading":"ゆでる","meaning_ko":"삶다; 데치다","meaning_ja":"食材を熱湯に入れて加熱する。","part_of_speech":"一段動詞","example_ja":"パスタを塩を入れた湯で八分ほど茹でる。","example_ko":"파스타를 소금을 넣은 물에 약 8분간 삶는다."},
+    {"key":"n1-2052","word":"顎","reading":"あご","meaning_ko":"턱; 아래턱","meaning_ja":"顔の口の下にある部分。また、上下の顎の骨・器官。","part_of_speech":"普通名詞","example_ja":"転んだときに顎を強く打った。","example_ko":"넘어질 때 턱을 세게 부딪쳤다."},
+    {"key":"n1-2053","word":"衰える","reading":"おとろえる","meaning_ko":"쇠하다; 약해지다; 쇠퇴하다","meaning_ja":"力・能力・勢いなどが以前より弱くなる。","part_of_speech":"一段動詞","example_ja":"運動をやめると体力は少しずつ衰える。","example_ko":"운동을 그만두면 체력은 조금씩 약해진다."},
+    {"key":"n1-2054","word":"パチンコ","reading":"パチンコ","meaning_ko":"파친코","meaning_ja":"多数の小さな鋼球を盤面に打ち出して遊ぶ日本の遊技。","part_of_speech":"普通名詞","example_ja":"駅前には大きなパチンコ店がある。","example_ko":"역 앞에는 큰 파친코 가게가 있다."},
+    {"key":"n1-2055","word":"差異","reading":"さい","meaning_ko":"차이; 차이점","meaning_ja":"二つ以上のものの間にある違い。","part_of_speech":"普通名詞","example_ja":"二つの方式には性能面で大きな差異はない。","example_ko":"두 방식에는 성능 면에서 큰 차이가 없다."},
+    {"key":"n1-2056","word":"ストライキ","reading":"ストライキ","meaning_ko":"파업; 스트라이크","meaning_ja":"労働者が要求を実現するため集団で仕事を停止すること。","part_of_speech":"サ変名詞","example_ja":"賃金交渉が決裂し、労働組合はストライキに入った。","example_ko":"임금 협상이 결렬되어 노동조합은 파업에 들어갔다."},
+    {"key":"n1-2057","word":"危害","reading":"きがい","meaning_ko":"위해; 피해; 해를 끼침","meaning_ja":"人・物に危険や損害を与えること。また、その害。","part_of_speech":"普通名詞","example_ja":"他人に危害を加える行為は決して許されない。","example_ko":"타인에게 위해를 가하는 행위는 결코 용납되지 않는다.","note":"候補の『위험과 재해』보다 JMdict의 injury/harm 의미에 맞춰 보정。"}
+  ]
+}
