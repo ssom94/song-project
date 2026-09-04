@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2178-2197",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2178","word":"インテリ","reading":"インテリ","meaning_ko":"지식인; 인텔리","meaning_ja":"知識・教養の高い人。知識人。","part_of_speech":"普通名詞","example_ja":"彼はインテリらしい落ち着いた話し方をする。","example_ko":"그는 지식인다운 차분한 말투를 쓴다."},
+    {"key":"n1-2179","word":"覆す","reading":"くつがえす","meaning_ko":"뒤집다; 번복하다; 전복하다","meaning_ja":"それまでの考え・決定・制度などを根本から変える。物をひっくり返す意味でも使う。","part_of_speech":"五段動詞","example_ja":"新しい証拠が従来の説を覆した。","example_ko":"새로운 증거가 기존 학설을 뒤집었다."},
+    {"key":"n1-2180","word":"蜂蜜","reading":"はちみつ","meaning_ko":"꿀; 벌꿀","meaning_ja":"ミツバチが花の蜜を集め、巣に蓄えた甘い液体。","part_of_speech":"普通名詞","example_ja":"紅茶に蜂蜜を少し入れた。","example_ko":"홍차에 꿀을 조금 넣었다.","note":"候補の『꿀떡』はKRDICT側の派生語ノイズのため除外。"},
+    {"key":"n1-2181","word":"清らか","reading":"きよらか","meaning_ko":"맑고 깨끗함; 순수함","meaning_ja":"汚れがなく清潔・純粋で美しいさま。","part_of_speech":"な形容詞","example_ja":"山から清らかな水が流れている。","example_ko":"산에서 맑고 깨끗한 물이 흐르고 있다."},
+    {"key":"n1-2182","word":"埋まる","reading":"うずまる","meaning_ko":"파묻히다; 가득 차다","meaning_ja":"物に覆われて見えなくなる。また、周囲が物でいっぱいになる。","part_of_speech":"五段動詞","example_ja":"道が落ち葉で埋まっていた。","example_ko":"길이 낙엽에 파묻혀 있었다.","note":"この読みは『うずまる』。『うまる』とも読むが用法・語感が異なる場合がある。"},
+    {"key":"n1-2183","word":"アワー","reading":"アワー","meaning_ko":"아워; 시간","meaning_ja":"英語 hour から来た語で、一時間や時間帯を表す。","part_of_speech":"普通名詞","example_ja":"番組はゴールデンアワーに放送される。","example_ko":"프로그램은 골든아워에 방송된다."},
+    {"key":"n1-2184","word":"ガレージ","reading":"ガレージ","meaning_ko":"차고; 차고지","meaning_ja":"自動車などを入れておく建物・スペース。","part_of_speech":"普通名詞","example_ja":"車をガレージに入れた。","example_ko":"차를 차고에 넣었다."},
+    {"key":"n1-2185","word":"喧しい","reading":"やかましい","meaning_ko":"시끄럽다; 까다롭다; 엄격하다","meaning_ja":"音がうるさい。また、細かいことに厳しい・口うるさい。","part_of_speech":"い形容詞","example_ja":"隣の工事の音が朝から喧しい。","example_ko":"옆 공사 소리가 아침부터 시끄럽다.","note":"現代では通常『やかましい』と仮名で書くことも多い。"},
+    {"key":"n1-2186","word":"蕾","reading":"つぼみ","meaning_ko":"꽃봉오리; 봉오리","meaning_ja":"まだ開いていない花。花のつぼみ。","part_of_speech":"普通名詞","example_ja":"桜の蕾が少しずつ膨らんできた。","example_ko":"벚꽃 봉오리가 조금씩 부풀기 시작했다."},
+    {"key":"n1-2187","word":"捕鯨","reading":"ほげい","meaning_ko":"포경; 고래잡이","meaning_ja":"鯨を捕獲すること。","part_of_speech":"サ変名詞","example_ja":"捕鯨の歴史について資料を調べた。","example_ko":"포경의 역사에 대해 자료를 조사했다.","note":"候補の品詞『普通名詞』より『捕鯨する』が可能なためサ変名詞として整理。"},
+    {"key":"n1-2188","word":"滞納","reading":"たいのう","meaning_ko":"체납; 연체","meaning_ja":"税金・料金などを期限までに納めず、支払いが遅れていること。","part_of_speech":"サ変名詞","example_ja":"税金を滞納すると延滞金が発生することがある。","example_ko":"세금을 체납하면 연체금이 발생할 수 있다."},
+    {"key":"n1-2189","word":"ホース","reading":"ホース","meaning_ko":"호스","meaning_ja":"水・ガスなどを通す柔らかい管。","part_of_speech":"普通名詞","example_ja":"庭の花にホースで水をまいた。","example_ko":"정원 꽃에 호스로 물을 뿌렸다."},
+    {"key":"n1-2190","word":"ボルト","reading":"ボルト","meaning_ko":"볼트; 전압 단위 볼트","meaning_ja":"物を締め付けるねじ状の部品。また、電圧の単位 volt。","part_of_speech":"普通名詞","example_ja":"緩んだボルトを工具で締め直した。","example_ko":"느슨해진 볼트를 공구로 다시 조였다.","note":"日本語では bolt と volt が同音の『ボルト』。文脈で区別する。"},
+    {"key":"n1-2191","word":"顧みる","reading":"かえりみる","meaning_ko":"돌아보다; 돌이켜보다; 돌보다","meaning_ja":"過去を振り返って考える。また、周囲や人のことを気にかける。","part_of_speech":"一段動詞","example_ja":"これまでの行動を顧みて反省した。","example_ko":"지금까지의 행동을 돌아보며 반성했다."},
+    {"key":"n1-2192","word":"脆い","reading":"もろい","meaning_ko":"부서지기 쉽다; 약하다; 여리다","meaning_ja":"壊れやすく丈夫でない。また、精神的に弱い。","part_of_speech":"い形容詞","example_ja":"この素材は軽いが衝撃には脆い。","example_ko":"이 소재는 가볍지만 충격에는 약하다."},
+    {"key":"n1-2193","word":"踵","reading":"かかと","meaning_ko":"발뒤꿈치; 신발 굽","meaning_ja":"足の後ろ側の部分。また、靴のその部分。","part_of_speech":"普通名詞","example_ja":"長く歩いて踵が痛くなった。","example_ko":"오래 걸어서 발뒤꿈치가 아파졌다."},
+    {"key":"n1-2194","word":"進呈","reading":"しんてい","meaning_ko":"증정; 드림","meaning_ja":"人に物を贈ること。やや改まった表現。","part_of_speech":"サ変名詞","example_ja":"応募者全員に記念品を進呈します。","example_ko":"응모자 전원에게 기념품을 증정합니다."},
+    {"key":"n1-2195","word":"駆ける","reading":"かける","meaning_ko":"달리다; 뛰어가다; 질주하다","meaning_ja":"速く走る。特に人や馬などが勢いよく走る。","part_of_speech":"一段動詞","example_ja":"馬が草原を勢いよく駆けていった。","example_ko":"말이 초원을 힘차게 달려갔다."},
+    {"key":"n1-2196","word":"逞しい","reading":"たくましい","meaning_ko":"튼튼하다; 우람하다; 늠름하다","meaning_ja":"体・精神などが強く、力に満ちている。","part_of_speech":"い形容詞","example_ja":"子どもが以前より逞しく成長した。","example_ko":"아이가 전보다 튼튼하고 씩씩하게 자랐다."},
+    {"key":"n1-2197","word":"飽和","reading":"ほうわ","meaning_ko":"포화; 포화 상태","meaning_ja":"それ以上受け入れられないほど満ちた状態。","part_of_speech":"サ変名詞・普通名詞","example_ja":"市場はすでに飽和状態に近い。","example_ko":"시장은 이미 포화 상태에 가깝다."}
+  ]
+}
