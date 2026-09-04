@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2458-2477",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2458","word":"矢","reading":"や","meaning_ko":"화살","meaning_ja":"弓につがえ、弦の力で飛ばす先の尖った細長い道具。","part_of_speech":"普通名詞","example_ja":"的の中心に矢が刺さった。","example_ko":"과녁 한가운데에 화살이 꽂혔다."},
+    {"key":"n1-2459","word":"済みません","reading":"すみません","meaning_ko":"죄송합니다; 실례합니다; 고맙습니다","meaning_ja":"謝罪・呼びかけ・依頼、また軽い感謝などに用いる表現。","part_of_speech":"感動詞","example_ja":"済みません、駅までの道を教えてください。","example_ko":"실례합니다, 역까지 가는 길을 알려 주세요.","note":"現代では通常『すみません』と仮名で書く。"},
+    {"key":"n1-2460","word":"隠居","reading":"いんきょ","meaning_ko":"은퇴; 은거; 은퇴한 사람","meaning_ja":"仕事や家業などの第一線から退いて静かに暮らすこと。また、その人。","part_of_speech":"サ変名詞","example_ja":"祖父は店を息子に任せて隠居した。","example_ko":"할아버지는 가게를 아들에게 맡기고 은퇴했다.","note":"候補の『퇴거』は中心義ではないため除外。"},
+    {"key":"n1-2461","word":"何だか","reading":"なんだか","meaning_ko":"왠지; 어쩐지; 어딘가","meaning_ja":"理由ははっきりしないが、何となく。","part_of_speech":"副詞","example_ja":"今日は何だかいつもより静かだ。","example_ko":"오늘은 왠지 평소보다 조용하다.","note":"現代では通常『なんだか』と仮名で書く。"},
+    {"key":"n1-2462","word":"可成","reading":"かなり","meaning_ko":"꽤; 상당히","meaning_ja":"程度が予想以上に大きいさま。相当に。","part_of_speech":"副詞","example_ja":"駅から会場まではかなり距離がある。","example_ko":"역에서 행사장까지는 꽤 거리가 있다.","note":"現代では通常『かなり』と仮名で書く。候補品詞『な形容詞』から副詞に修正。"},
+    {"key":"n1-2463","word":"且つ","reading":"かつ","meaning_ko":"그리고; 또한; 동시에","meaning_ja":"二つの事柄が並行して成り立つことを示す語。そして、そのうえ。","part_of_speech":"接続詞・副詞","example_ja":"この方法は簡単で、且つ効果も高い。","example_ko":"이 방법은 간단하면서도 효과도 높다.","note":"現代では『かつ』と仮名で書くことも多い。"},
+    {"key":"n1-2464","word":"演ずる","reading":"えんずる","meaning_ko":"연기하다; 연주하다; 역할을 하다","meaning_ja":"劇などで役を演じる。また、音楽などを演奏する。","part_of_speech":"サ変動詞","example_ja":"彼は舞台で重要な役を演ずる。","example_ko":"그는 무대에서 중요한 역할을 연기한다.","note":"『演じる』とほぼ同義。"},
+    {"key":"n1-2465","word":"自ずから","reading":"おのずから","meaning_ko":"저절로; 자연히; 자연스럽게","meaning_ja":"特別に働きかけなくても自然にそうなるさま。","part_of_speech":"副詞","example_ja":"経験を積めば、自ずから判断力も身についてくる。","example_ko":"경험을 쌓으면 자연히 판단력도 생긴다."},
+    {"key":"n1-2466","word":"其れから","reading":"それから","meaning_ko":"그 후에; 그리고 나서; 그리고","meaning_ja":"ある事柄の後に別の事柄が続くことを示す語。","part_of_speech":"接続詞","example_ja":"資料を確認して、それから担当者に連絡します。","example_ko":"자료를 확인하고 그다음 담당자에게 연락하겠습니다.","note":"現代では通常『それから』と仮名で書く。"},
+    {"key":"n1-2467","word":"夜中","reading":"やちゅう","meaning_ko":"밤새; 밤사이; 밤 동안","meaning_ja":"夜の間。夜通し。","part_of_speech":"普通名詞・副詞","example_ja":"台風のため夜中ずっと強い風が吹いていた。","example_ko":"태풍 때문에 밤새 강한 바람이 불었다.","note":"『やちゅう』は『夜の間』の意の読み。一般的な『真夜中』の意味では『よなか』と読む。"},
+    {"key":"n1-2468","word":"保障","reading":"ほしょう","meaning_ko":"보장; 보호","meaning_ja":"権利・安全・生活などが損なわれないよう守ること。","part_of_speech":"サ変名詞","example_ja":"憲法は国民の基本的人権を保障している。","example_ko":"헌법은 국민의 기본적 인권을 보장하고 있다.","note":"品質や事実を請け合う『保証』と区別。"},
+    {"key":"n1-2469","word":"金庫","reading":"かねぐら","meaning_ko":"금고; 금전 보관 창고","meaning_ja":"金銭や貴重品を保管するための箱や蔵。","part_of_speech":"普通名詞","example_ja":"昔、この蔵は商家の金庫として使われていた。","example_ko":"옛날 이 창고는 상가의 금고로 사용되었다.","note":"現代の一般的な『金庫』の読みは『きんこ』。『かねぐら』は和語的な読み。"},
+    {"key":"n1-2470","word":"構え","reading":"かまえ","meaning_ko":"자세; 태세; 구조; 외관","meaning_ja":"物事に対応する姿勢や身構え。また、建物などの造り・外観。","part_of_speech":"普通名詞","example_ja":"相手の攻撃に備えて構えを取った。","example_ko":"상대의 공격에 대비해 자세를 취했다.","note":"候補の『꾸밈새』だけでは狭いため、JMdictの posture/pose/style を反映。"},
+    {"key":"n1-2471","word":"如何しても","reading":"どうしても","meaning_ko":"아무래도; 어떻게 해서든; 도저히","meaning_ja":"どんな方法を使ってでも。また、どうやってもある結果を避けられないさま。","part_of_speech":"副詞","example_ja":"この問題だけはどうしても今日中に解決したい。","example_ko":"이 문제만은 어떻게 해서든 오늘 안에 해결하고 싶다.","note":"現代では通常『どうしても』と仮名で書く。"},
+    {"key":"n1-2472","word":"従業員","reading":"じゅうぎょういん","meaning_ko":"종업원; 직원; 근로자","meaning_ja":"会社・店などに雇われ、その業務に従事する人。","part_of_speech":"普通名詞","example_ja":"この会社では約五百人の従業員が働いている。","example_ko":"이 회사에서는 약 500명의 직원이 일하고 있다."},
+    {"key":"n1-2473","word":"一見","reading":"いちげん","meaning_ko":"초면; 처음 방문함; 낯선 손님","meaning_ja":"その人や店などと初めて顔を合わせること。また、初めて訪れる客。","part_of_speech":"普通名詞","example_ja":"その店は一見の客でも丁寧に迎えてくれた。","example_ko":"그 가게는 처음 온 손님도 친절하게 맞아 주었다.","note":"『一見（いっけん）＝한눈에/겉보기에는』とは別の読み・語義。『一見さん（いちげんさん）』でよく使う。"},
+    {"key":"n1-2474","word":"矢っ張り","reading":"やっぱり","meaning_ko":"역시; 역시나; 결국","meaning_ja":"予想・判断したとおりであるさま。また、いろいろ考えた末にもとの判断に戻るさま。","part_of_speech":"副詞","example_ja":"迷ったけれど、やっぱりこの案に決めた。","example_ko":"고민했지만 역시 이 안으로 정했다.","note":"現代では通常『やっぱり』と仮名で書く。"},
+    {"key":"n1-2475","word":"何時でも","reading":"いつでも","meaning_ko":"언제든지; 언제나","meaning_ja":"どの時でも。必要な時にはいつであっても。","part_of_speech":"副詞","example_ja":"困ったことがあれば、いつでも相談してください。","example_ko":"곤란한 일이 있으면 언제든지 상담해 주세요.","note":"現代では通常『いつでも』と仮名で書く。"},
+    {"key":"n1-2476","word":"若しも","reading":"もしも","meaning_ko":"만약; 만일","meaning_ja":"まだ起きていないことを仮定して述べる語。","part_of_speech":"副詞","example_ja":"もしも予定が変わったら、早めに連絡してください。","example_ko":"만약 일정이 바뀌면 일찍 연락해 주세요.","note":"現代では通常『もしも』と仮名で書く。"},
+    {"key":"n1-2477","word":"その内","reading":"そのうち","meaning_ko":"조만간; 언젠가는; 그중","meaning_ja":"あまり遠くない将来に。やがて。また、すでに挙げたものの中で。","part_of_speech":"副詞・連語","example_ja":"今は難しくても、そのうち慣れてくるよ。","example_ko":"지금은 어려워도 조만간 익숙해질 거야.","note":"時間的用法では通常『そのうち』と仮名で書く。"}
+  ]
+}
