@@ -70,6 +70,14 @@ const LOW_VALUE_EXCLUDED_IDENTITIES = new Set([
   ['高', 'たか'],
 ].map(([word, reading]) => pairKey(word, reading)));
 
+// Upstream classification occasionally contains a word/reading pairing that
+// passes its source metadata but is not a valid study identity in Japanese.
+// Keep these explicit so the deterministic 3,000-word build cannot reinsert
+// a manually rejected bad source pair after curation cleanup.
+const KNOWN_BAD_SOURCE_IDENTITIES = new Set([
+  ['姉妹', 'きょうだい'],
+].map(([word, reading]) => pairKey(word, reading)));
+
 function validJapaneseHeadword(text) {
   if (!text || text.length > 40) return false;
   if (/[\u0000-\u001f\u007f]/u.test(text)) return false;
@@ -182,6 +190,7 @@ for (const entry of rawN1) {
   else if (!validReading(reading)) reason = 'invalid_reading';
   else if (!meaningEn) reason = 'missing_english_gloss';
   else if (!id) reason = 'missing_jmdict_seq';
+  else if (KNOWN_BAD_SOURCE_IDENTITIES.has(key)) reason = 'known_bad_source_identity';
   else if (LOW_VALUE_EXCLUDED_IDENTITIES.has(key)) reason = 'low_value_morpheme_or_elementary_form';
   if (reason) {
     rejected.push({ word, reading, jmdict_seq: id || null, reason });
@@ -259,7 +268,7 @@ await fs.writeFile(path.join(OUT_DIR, 'n1-source-3000.json'), JSON.stringify({
   generatedAt: new Date().toISOString(),
   target: 3000,
   sourceCandidateCount: rawN1.length,
-  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence',
+  selectionRule: 'valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, known bad source identities, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence',
   candidates: selected,
 }, null, 2) + '\n');
 
