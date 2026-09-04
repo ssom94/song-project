@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1041-1060",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-1041","word":"明るい","reading":"あかるい","meaning_ko":"밝다; 전망이 좋다; ~에 정통하다","meaning_ja":"光が十分で明るい。性格・雰囲気が朗らかである。また『事情に明るい』の形で詳しいことを表す。","part_of_speech":"い形容詞","example_ja":"彼は現地の法律事情に明るいため、海外案件の相談役を務めている。","example_ko":"그는 현지 법률 사정에 밝아 해외 안건의 자문역을 맡고 있다."},
+    {"key":"n1-1042","word":"治安","reading":"ちあん","meaning_ko":"치안","meaning_ja":"社会の安全・秩序が保たれている状態。また、それを維持すること。","part_of_speech":"普通名詞","example_ja":"観光客の増加に伴い、地域の治安維持も重要な課題となっている。","example_ko":"관광객 증가에 따라 지역의 치안 유지도 중요한 과제가 되고 있다."},
+    {"key":"n1-1043","word":"要する","reading":"ようする","meaning_ko":"필요로 하다; 요하다","meaning_ja":"時間・費用・努力などを必要とする。","part_of_speech":"サ変動詞","example_ja":"この手続きは完了までに通常二週間程度を要する。","example_ko":"이 절차는 완료까지 보통 2주 정도가 필요하다."},
+    {"key":"n1-1044","word":"以て","reading":"もって","meaning_ko":"~로써; ~을 가지고; ~을 기하여","meaning_ja":"手段・方法を表す文語的な語。また『本日をもって』のように時点・区切りを示す。","part_of_speech":"その他","example_ja":"本日をもって旧制度の受付を終了します。","example_ko":"오늘을 기하여 구제도의 접수를 종료합니다.","note":"現代では公的・硬い表現で使われることが多い。通常かな書きの『もって』も多い。"},
+    {"key":"n1-1045","word":"赤字","reading":"あかじ","meaning_ko":"적자","meaning_ja":"支出が収入を上回り、損失が出ている状態。また、その損失額。","part_of_speech":"普通名詞","example_ja":"利用者の減少が続き、路線は三年連続で赤字となった。","example_ko":"이용자 감소가 이어져 노선은 3년 연속 적자를 기록했다."},
+    {"key":"n1-1046","word":"排除","reading":"はいじょ","meaning_ko":"배제; 제거","meaning_ja":"不要・不適切とみなしたものを取り除き、外へ押し出すこと。","part_of_speech":"サ変名詞","example_ja":"特定の立場の人だけを議論から排除してはならない。","example_ko":"특정 입장의 사람만 논의에서 배제해서는 안 된다."},
+    {"key":"n1-1047","word":"沿い","reading":"ぞい","meaning_ko":"~을 따라; ~변","meaning_ja":"『川沿い』『線路沿い』のように、ある場所・線に沿った位置を表す語。","part_of_speech":"その他","example_ja":"川沿いの遊歩道は春になると多くの人でにぎわう。","example_ko":"강변 산책로는 봄이 되면 많은 사람으로 붐빈다."},
+    {"key":"n1-1048","word":"超","reading":"ちょう","meaning_ko":"초-; 매우; 한계를 넘는","meaning_ja":"基準・範囲を越えること。また口語では『非常に』の意味を加える接頭語。","part_of_speech":"その他","example_ja":"この装置は従来品を超える高精度な測定を可能にした。","example_ko":"이 장치는 기존 제품을 뛰어넘는 고정밀 측정을 가능하게 했다.","note":"接頭語として『超高速』『超高齢社会』などに使う。"},
+    {"key":"n1-1049","word":"覚え","reading":"おぼえ","meaning_ko":"기억; 기억하고 있음; 익힌 정도","meaning_ja":"記憶していること。また、身に覚えがあることや、物事を覚える能力・程度。","part_of_speech":"普通名詞","example_ja":"その契約に署名した覚えがないため、記録を確認してほしい。","example_ko":"그 계약에 서명한 기억이 없어 기록을 확인해 주길 바란다."},
+    {"key":"n1-1050","word":"取り扱い","reading":"とりあつかい","meaning_ko":"취급; 처리; 취급 방법","meaning_ja":"物・情報・人などを扱うこと。また、その方法・待遇。","part_of_speech":"普通名詞","example_ja":"個人情報の取り扱いについては社内規程を厳守してください。","example_ko":"개인정보 취급에 대해서는 사내 규정을 엄수해 주세요."},
+    {"key":"n1-1051","word":"流し","reading":"ながし","meaning_ko":"싱크대; 개수대","meaning_ja":"台所などで水を使って物を洗う設備・場所。ほかに古い職業名などの用法もある。","part_of_speech":"普通名詞","example_ja":"食器を洗った後、流しの周りの水気も拭き取った。","example_ko":"식기를 씻은 뒤 싱크대 주변의 물기도 닦아 냈다.","note":"『流し台』の略が現代の主要義。銭湯の垢すりなど古い用法もある。"},
+    {"key":"n1-1052","word":"試み","reading":"こころみ","meaning_ko":"시도; 시험적인 시도","meaning_ja":"新しい方法・可能性などを試してみること。","part_of_speech":"普通名詞","example_ja":"この制度は地域の課題を住民自身で解決しようとする新しい試みだ。","example_ko":"이 제도는 지역 과제를 주민 스스로 해결하려는 새로운 시도다."},
+    {"key":"n1-1053","word":"消息","reading":"しょうそく","meaning_ko":"소식; 행방; 근황","meaning_ja":"離れている人の近況・行方についての知らせ。","part_of_speech":"普通名詞","example_ja":"事故の後、数日間消息が分からなかった登山者が無事発見された。","example_ko":"사고 후 며칠간 소식이 끊겼던 등산객이 무사히 발견됐다."},
+    {"key":"n1-1054","word":"世論","reading":"せろん","meaning_ko":"여론","meaning_ja":"社会の多くの人々が共有する意見・評価。『よろん』とも読む。","part_of_speech":"普通名詞","example_ja":"政策への世論の反応を受け、政府は説明会を追加で開くことにした。","example_ko":"정책에 대한 여론의 반응을 받아 정부는 설명회를 추가로 열기로 했다.","note":"現代では『よろん』も非常に一般的。『せろん』との両読みを区別して覚える。"},
+    {"key":"n1-1055","word":"易い","reading":"やすい","meaning_ko":"쉽다; ~하기 쉽다","meaning_ja":"行為が容易であること。また動詞の連用形に付き『〜しやすい』の意味を表す。","part_of_speech":"い形容詞","example_ja":"専門用語を減らすと、初めて読む人にも理解し易い文章になる。","example_ko":"전문용어를 줄이면 처음 읽는 사람도 이해하기 쉬운 문장이 된다."},
+    {"key":"n1-1056","word":"災害","reading":"さいがい","meaning_ko":"재해; 재난","meaning_ja":"地震・台風・洪水・火災などによって生じる大きな被害。","part_of_speech":"普通名詞","example_ja":"災害に備えて、各家庭で飲料水と食料を備蓄することが推奨されている。","example_ko":"재해에 대비해 각 가정에서 식수와 식량을 비축하는 것이 권장된다."},
+    {"key":"n1-1057","word":"軌道","reading":"きどう","meaning_ko":"궤도; 정상적인 진행 단계","meaning_ja":"物体が一定の規則で動く道筋。また比喩的に、事業などが順調に進む状態。","part_of_speech":"普通名詞","example_ja":"新規事業が軌道に乗るまでには予想以上の時間がかかった。","example_ko":"신규 사업이 궤도에 오르기까지 예상보다 많은 시간이 걸렸다."},
+    {"key":"n1-1058","word":"年生","reading":"ねんせい","meaning_ko":"~학년생","meaning_ja":"学校の学年を表す語。『一年生』『三年生』などの形で使う。","part_of_speech":"その他","example_ja":"大学三年生を対象とした就職説明会が来月開かれる。","example_ko":"대학교 3학년생을 대상으로 한 취업 설명회가 다음 달 열린다."},
+    {"key":"n1-1059","word":"効率","reading":"こうりつ","meaning_ko":"효율; 능률","meaning_ja":"投入した時間・労力・費用に対して、どれだけ成果を得られるかという割合・程度。","part_of_speech":"普通名詞","example_ja":"作業手順を標準化したことで、処理効率が大幅に向上した。","example_ko":"작업 절차를 표준화해 처리 효율이 크게 향상됐다."},
+    {"key":"n1-1060","word":"如何に","reading":"いかに","meaning_ko":"어떻게; 얼마나; 아무리 ~해도","meaning_ja":"方法・程度を問う硬い表現。また『いかに〜ても』で『どんなに〜ても』の意味を表す。","part_of_speech":"副詞","example_ja":"限られた予算を如何に有効に使うかが問われている。","example_ko":"한정된 예산을 어떻게 효과적으로 사용할지가 문제되고 있다."}
+  ]
+}
