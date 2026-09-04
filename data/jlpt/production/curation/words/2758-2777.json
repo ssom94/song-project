@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2758-2777",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2758","word":"据え付ける","reading":"すえつける","meaning_ko":"설치하다; 고정해서 달다","meaning_ja":"機械・設備などを動かないように一定の場所へ取り付ける。","part_of_speech":"一段動詞","example_ja":"工場に新しい機械を据え付けた。","example_ko":"공장에 새 기계를 설치했다."},
+    {"key":"n1-2759","word":"若しかすると","reading":"もしかすると","meaning_ko":"어쩌면; 혹시","meaning_ja":"可能性は高くないが、あることが起こるかもしれないと推測する表現。","part_of_speech":"副詞","example_ja":"もしかすると明日は雪になるかもしれない。","example_ko":"어쩌면 내일은 눈이 올지도 모른다.","note":"現代では通常『もしかすると』と仮名で書く。"},
+    {"key":"n1-2760","word":"疾っくに","reading":"とっくに","meaning_ko":"벌써; 오래전에","meaning_ja":"かなり前に。すでに。","part_of_speech":"副詞","example_ja":"その仕事なら、とっくに終わっている。","example_ko":"그 일이라면 벌써 끝났다.","note":"現代では通常『とっくに』と仮名で書く。"},
+    {"key":"n1-2761","word":"ソックス","reading":"ソックス","meaning_ko":"양말; 삭스","meaning_ja":"足に履く短めの靴下。","part_of_speech":"普通名詞","example_ja":"白いソックスを三足買った。","example_ko":"흰 양말을 세 켤레 샀다."},
+    {"key":"n1-2762","word":"お襁褓","reading":"おむつ","meaning_ko":"기저귀","meaning_ja":"乳幼児などの排泄物を受けるために腰まわりに着けるもの。","part_of_speech":"普通名詞","example_ja":"赤ちゃんのおむつを替えた。","example_ko":"아기의 기저귀를 갈았다.","note":"『お襁褓』は難読表記で、現代では通常『おむつ』と書く。"},
+    {"key":"n1-2763","word":"ゼリー","reading":"ゼリー","meaning_ko":"젤리; 젤리状의 디저트","meaning_ja":"果汁などをゼラチン等で固めた柔らかい食品。","part_of_speech":"普通名詞","example_ja":"食後に果物のゼリーを食べた。","example_ko":"식후에 과일 젤리를 먹었다.","note":"候補英語 gloss の固有名詞 Jerry はこの見出しでは除外。"},
+    {"key":"n1-2764","word":"パトカー","reading":"パトカー","meaning_ko":"순찰차; 경찰차","meaning_ja":"警察が巡回・出動などに使う車。","part_of_speech":"普通名詞","example_ja":"事故現場にパトカーが到着した。","example_ko":"사고 현장에 경찰차가 도착했다."},
+    {"key":"n1-2765","word":"揶揄う","reading":"からかう","meaning_ko":"놀리다; 조롱하다; 장난스럽게 건드리다","meaning_ja":"相手を冗談半分に困らせたり、ばかにしたりする。","part_of_speech":"五段動詞","example_ja":"友達の失敗をいつまでもからかうのはよくない。","example_ko":"친구의 실수를 계속 놀리는 것은 좋지 않다.","note":"現代では通常『からかう』と仮名で書く。"},
+    {"key":"n1-2766","word":"草臥れる","reading":"くたびれる","meaning_ko":"지치다; 녹초가 되다; 낡다","meaning_ja":"疲れて元気がなくなる。また、物が長く使われて古びる。","part_of_speech":"一段動詞","example_ja":"一日中歩き回ってすっかりくたびれた。","example_ko":"하루 종일 돌아다녀 완전히 지쳤다.","note":"現代では通常『くたびれる』と仮名で書く。"},
+    {"key":"n1-2767","word":"情け深い","reading":"なさけぶかい","meaning_ko":"인정이 많다; 자비롭다","meaning_ja":"人に対する思いやりや慈しみの気持ちが強い。","part_of_speech":"い形容詞","example_ja":"彼は困っている人を放っておけない情け深い人だ。","example_ko":"그는 곤란한 사람을 그냥 지나치지 못하는 인정 많은 사람이다."},
+    {"key":"n1-2768","word":"檻","reading":"おり","meaning_ko":"우리; 철창; 감금 공간","meaning_ja":"動物などを閉じ込めておく囲い。また、比喩的に自由を奪う場所。","part_of_speech":"普通名詞","example_ja":"動物園では猛獣が丈夫な檻の中にいた。","example_ko":"동물원에서는 맹수가 튼튼한 우리 안에 있었다."},
+    {"key":"n1-2769","word":"テレックス","reading":"テレックス","meaning_ko":"텔렉스; 가입전신","meaning_ja":"文字を電気通信で送受信する旧来の通信システム。","part_of_speech":"普通名詞","example_ja":"昔は海外との連絡にテレックスが使われていた。","example_ko":"예전에는 해외와 연락할 때 텔렉스가 사용됐다.","note":"現在では歴史的・旧式の通信手段として扱われることが多い。"},
+    {"key":"n1-2770","word":"左様なら","reading":"さようなら","meaning_ko":"안녕히 가세요; 안녕; 작별 인사","meaning_ja":"別れるときに使う挨拶。","part_of_speech":"感動詞","example_ja":"それでは、また会う日までさようなら。","example_ko":"그럼 다시 만날 날까지 안녕.","note":"現代では通常『さようなら』と仮名で書く。"},
+    {"key":"n1-2771","word":"だぶだぶ","reading":"だぶだぶ","meaning_ko":"헐렁헐렁; 너무 커서 남는 모양","meaning_ja":"衣服などが体に比べて大きく、ゆるく余っているさま。","part_of_speech":"副詞・な形容詞","example_ja":"兄の服を借りたら、私にはだぶだぶだった。","example_ko":"형 옷을 빌려 입었더니 나에게는 너무 헐렁했다.","note":"候補KRDICTの水音関連訳はこのJMdict見出しの中心義ではないため除外。"},
+    {"key":"n1-2772","word":"綻びる","reading":"ほころびる","meaning_ko":"솔기가 터지다; 벌어지다; 미소가 번지다","meaning_ja":"縫い目などがほどけて開く。また、つぼみや表情が開くようにほぐれる。","part_of_speech":"一段動詞","example_ja":"古いシャツの袖口が綻びてきた。","example_ko":"낡은 셔츠 소맷단의 솔기가 터지기 시작했다."},
+    {"key":"n1-2773","word":"ぼやける","reading":"ぼやける","meaning_ko":"흐려지다; 흐릿해지다; 초점이 모호해지다","meaning_ja":"形・色・輪郭などがはっきりしなくなる。","part_of_speech":"一段動詞","example_ja":"カメラが動いて写真が少しぼやけた。","example_ko":"카메라가 움직여 사진이 조금 흐릿해졌다."},
+    {"key":"n1-2774","word":"夜更かし","reading":"よふかし","meaning_ko":"밤늦게까지 깨어 있음; 밤샘","meaning_ja":"夜遅くまで寝ずに起きていること。","part_of_speech":"サ変名詞","example_ja":"夜更かしが続くと朝起きるのがつらい。","example_ko":"밤늦게까지 깨어 있는 날이 계속되면 아침에 일어나기 힘들다."},
+    {"key":"n1-2775","word":"隔週","reading":"かくしゅう","meaning_ko":"격주; 한 주 걸러","meaning_ja":"一週間おき。二週間に一度の間隔。","part_of_speech":"普通名詞・副詞","example_ja":"この会議は隔週で開かれる。","example_ko":"이 회의는 격주로 열린다.","note":"候補品詞『副詞』だけでは狭いため名詞用法も補完。"},
+    {"key":"n1-2776","word":"くっ付ける","reading":"くっつける","meaning_ko":"붙이다; 맞닿게 하다; 결합시키다","meaning_ja":"二つのものを接触させ、離れないようにつける。","part_of_speech":"一段動詞","example_ja":"割れた部品を接着剤でくっ付けた。","example_ko":"깨진 부품을 접착제로 붙였다.","note":"現代では通常『くっつける』と仮名で書く。"},
+    {"key":"n1-2777","word":"しくじる","reading":"しくじる","meaning_ko":"실수하다; 일을 망치다; 실패하다","meaning_ja":"やり方を誤って失敗する。","part_of_speech":"五段動詞","example_ja":"大事な場面でしくじってしまった。","example_ko":"중요한 순간에 실수하고 말았다.","note":"候補KO『잡치다』は俗語的すぎるため標準的な訳に修正。"}
+  ]
+}
