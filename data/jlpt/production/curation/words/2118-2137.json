@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2118-2137",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2118","word":"付け加える","reading":"つけくわえる","meaning_ko":"덧붙이다; 추가하다; 부가하다","meaning_ja":"すでにあるものに、さらに説明・内容などを加える。","part_of_speech":"一段動詞","example_ja":"最後に一つだけ説明を付け加えた。","example_ko":"마지막으로 설명을 하나만 덧붙였다."},
+    {"key":"n1-2119","word":"郷里","reading":"きょうり","meaning_ko":"고향; 출신지","meaning_ja":"生まれ育った土地。故郷。","part_of_speech":"普通名詞","example_ja":"退職後は郷里に戻るつもりだ。","example_ko":"퇴직 후에는 고향으로 돌아갈 생각이다.","note":"候補의『촌・시골』은 문맥에 따라 가능하지만 기본의는 hometown/birthplace."},
+    {"key":"n1-2120","word":"沼","reading":"ぬま","meaning_ko":"늪; 소택지; 연못","meaning_ja":"泥が多く、水がたまっている比較的浅い水域。","part_of_speech":"普通名詞","example_ja":"森の奥に小さな沼がある。","example_ko":"숲 깊숙한 곳에 작은 늪이 있다."},
+    {"key":"n1-2121","word":"衆議院","reading":"しゅうぎいん","meaning_ko":"중의원; 일본 국회의 하원","meaning_ja":"日本の国会を構成する二つの議院の一つ。","part_of_speech":"普通名詞","example_ja":"予算案は衆議院で審議された。","example_ko":"예산안은 중의원에서 심의되었다."},
+    {"key":"n1-2122","word":"特産","reading":"とくさん","meaning_ko":"특산; 특산품","meaning_ja":"ある地域で特に多く産出されること。また、その産物。","part_of_speech":"普通名詞","example_ja":"この町はみかんの特産地として知られている。","example_ko":"이 마을은 귤 특산지로 알려져 있다.","note":"単独では名詞用法が中心のため候補の『サ変名詞』を普通名詞に整理。"},
+    {"key":"n1-2123","word":"酸っぱい","reading":"すっぱい","meaning_ko":"시다; 시큼하다","meaning_ja":"酸味が強い。酢やレモンのような味がする。","part_of_speech":"い形容詞","example_ja":"このレモンはとても酸っぱい。","example_ko":"이 레몬은 매우 시다."},
+    {"key":"n1-2124","word":"化ける","reading":"ばける","meaning_ko":"둔갑하다; 변신하다; 전혀 다른 모습이 되다","meaning_ja":"別の姿・性質のものに変わる。特に妖怪などが姿を変える。","part_of_speech":"一段動詞","example_ja":"昔話では狐が人間に化けることがある。","example_ko":"옛이야기에서는 여우가 사람으로 둔갑하기도 한다."},
+    {"key":"n1-2125","word":"乱れる","reading":"みだれる","meaning_ko":"흐트러지다; 어지러워지다; 혼란해지다","meaning_ja":"整っていたもの・秩序・心などが崩れて不規則になる。","part_of_speech":"一段動詞","example_ja":"強い風で髪が乱れた。","example_ko":"강한 바람에 머리가 흐트러졌다."},
+    {"key":"n1-2126","word":"障る","reading":"さわる","meaning_ko":"지장을 주다; 해가 되다; 방해하다","meaning_ja":"何かの妨げになる。また、健康などに悪い影響を与える。","part_of_speech":"五段動詞","example_ja":"夜更かしは体に障る。","example_ko":"밤샘은 몸에 해롭다.","note":"同音の『触る（만지다）』とは別語。『気に障る』も頻出。"},
+    {"key":"n1-2127","word":"連なる","reading":"つらなる","meaning_ko":"이어지다; 줄지어 늘어서다; 연속되다","meaning_ja":"多くのものが一列に続く。また、つながって続く。","part_of_speech":"五段動詞","example_ja":"遠くまで山々が連なっている。","example_ko":"멀리까지 산들이 이어져 있다."},
+    {"key":"n1-2128","word":"鍛える","reading":"きたえる","meaning_ko":"단련하다; 훈련하다; 담금질하다","meaning_ja":"訓練して心身・能力を強くする。また、金属を打って強くする。","part_of_speech":"一段動詞","example_ja":"毎朝走って体を鍛えている。","example_ko":"매일 아침 달리며 몸을 단련하고 있다."},
+    {"key":"n1-2129","word":"丘陵","reading":"きゅうりょう","meaning_ko":"구릉; 낮은 언덕 지대","meaning_ja":"低い山や丘が続いている地形。","part_of_speech":"普通名詞","example_ja":"丘陵地帯には畑が広がっている。","example_ko":"구릉 지대에는 밭이 펼쳐져 있다."},
+    {"key":"n1-2130","word":"レントゲン","reading":"レントゲン","meaning_ko":"엑스레이; X선 촬영","meaning_ja":"X線。また、X線を使った撮影・検査。","part_of_speech":"普通名詞","example_ja":"病院で胸のレントゲンを撮った。","example_ko":"병원에서 가슴 엑스레이를 찍었다."},
+    {"key":"n1-2131","word":"セクション","reading":"セクション","meaning_ko":"섹션; 부분; 부문","meaning_ja":"全体を区切った一部分。また、組織の部門。","part_of_speech":"普通名詞","example_ja":"報告書を三つのセクションに分けた。","example_ko":"보고서를 세 개의 섹션으로 나눴다."},
+    {"key":"n1-2132","word":"計器","reading":"けいき","meaning_ko":"계기; 측정기; 계측기","meaning_ja":"温度・圧力・速度などを測定して示す器具。","part_of_speech":"普通名詞","example_ja":"運転前にすべての計器を確認した。","example_ko":"운전 전에 모든 계기를 확인했다."},
+    {"key":"n1-2133","word":"版画","reading":"はんが","meaning_ko":"판화","meaning_ja":"木・金属などの版に図柄を作り、紙などに刷った絵。","part_of_speech":"普通名詞","example_ja":"美術館で江戸時代の版画を見た。","example_ko":"미술관에서 에도 시대의 판화를 봤다."},
+    {"key":"n1-2134","word":"ベストセラー","reading":"ベストセラー","meaning_ko":"베스트셀러; 많이 팔린 상품","meaning_ja":"一定期間に非常によく売れた本・商品。","part_of_speech":"普通名詞","example_ja":"その小説は発売直後にベストセラーになった。","example_ko":"그 소설은 발매 직후 베스트셀러가 되었다."},
+    {"key":"n1-2135","word":"鈍感","reading":"どんかん","meaning_ko":"둔감함; 눈치가 둔함","meaning_ja":"感覚・感情・周囲の変化などを感じ取る力が鈍いこと。","part_of_speech":"普通名詞・な形容詞","example_ja":"彼は周囲の視線にかなり鈍感だ。","example_ko":"그는 주변의 시선에 상당히 둔감하다."},
+    {"key":"n1-2136","word":"粘り","reading":"ねばり","meaning_ko":"끈기; 점성; 끈끈함","meaning_ja":"粘りつく性質。また、簡単にはあきらめない強さ。","part_of_speech":"普通名詞","example_ja":"最後まで粘りを見せて逆転した。","example_ko":"끝까지 끈기를 보여 역전했다.","note":"JMdictには物理的なstickiness/viscosityと比喩的な粘り強さの両用法がある。"},
+    {"key":"n1-2137","word":"矢鱈","reading":"やたら","meaning_ko":"마구; 함부로; 몹시","meaning_ja":"程度・回数などがむやみに多いさま。また、考えなく行うさま。","part_of_speech":"副詞・な形容詞","example_ja":"今日はやたらと電話が多い。","example_ko":"오늘은 유난히 전화가 많다.","note":"現代では通常『やたら』と仮名で書く。"}
+  ]
+}
