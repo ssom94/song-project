@@ -11196,18 +11196,18 @@
     {
       "key": "n1-2911",
       "sequence_no": 2911,
-      "word": "造り",
-      "reading": "つくり",
-      "meaning_ko": "구조; 만듦새; 제작",
-      "meaning_ja": "物の作り方・構造・外観。",
+      "word": "聴覚",
+      "reading": "ちょうかく",
+      "meaning_ko": "청각; 듣는 감각",
+      "meaning_ja": "音を感じ取り、聞き分ける感覚。",
       "part_of_speech": "普通名詞",
-      "example_ja": "この家は地震に強い造りになっている。",
-      "example_ko": "이 집은 지진에 강한 구조로 되어 있다.",
+      "example_ja": "大きな音を長時間聞き続けると、聴覚に負担がかかる。",
+      "example_ko": "큰 소리를 오랫동안 계속 들으면 청각에 부담이 간다.",
       "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1297250",
-        "meaning_en": "make up, structure, physique",
+        "jmdict_seq": "1428880",
+        "meaning_en": "the sense of hearing",
         "curated_file": "data/jlpt/production/curation/words/2898-2917.json",
         "curated_original_key": "n1-2911",
         "legacy_curated_file": null,
@@ -11217,10 +11217,10 @@
             "surface_exact",
             "reading_exact"
           ],
-          "source_file": "009.xml",
-          "meaning_ko": "조성 | 꾸밈새",
-          "definition_ko": "무엇을 만들어서 이룸. | 분위기나 흐름 등을 만듦. | 꾸민 모양새.",
-          "meaning_ja_source": "ぞうせい【造成】。つくり【作り・造り】。けいせい【形成】。そうせつ【創設】 | つくり【作り・造り】。けいせい【形成】 | つくり【作り・造り】。よそおい【装い】。かまえ【構え】"
+          "source_file": "010.xml",
+          "meaning_ko": "청각",
+          "definition_ko": "귀로 소리를 듣는 감각.",
+          "meaning_ja_source": "ちょうかく【聴覚】"
         }
       }
     },
@@ -11530,31 +11530,30 @@
     {
       "key": "n1-2924",
       "sequence_no": 2924,
-      "word": "馴らす",
-      "reading": "ならす",
-      "meaning_ko": "길들이다; 익숙하게 하다",
-      "meaning_ja": "人や動物を環境・扱いに慣れさせる。",
-      "part_of_speech": "五段動詞",
-      "example_ja": "子犬を少しずつ新しい環境に馴らした。",
-      "example_ko": "강아지를 조금씩 새로운 환경에 익숙하게 했다.",
+      "word": "審判",
+      "reading": "しんばん",
+      "meaning_ko": "심판; 판정; 재판",
+      "meaning_ja": "物事の是非・勝敗などを判定すること。また、競技で判定を行う人。裁判・審理の意味でも用いる。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "試合では公平な審判が求められる。",
+      "example_ko": "경기에서는 공정한 심판이 요구된다.",
       "review_status": "curated_ready_for_final_review",
       "evidence": {
         "candidate_source": "waller-n1-via-stephenmk+jmdict-normalized",
-        "jmdict_seq": "1212650",
-        "meaning_en": "to domesticate, to tame",
+        "jmdict_seq": "1360410",
+        "meaning_en": "refereeing, trial, judgement, umpire, referee",
         "curated_file": "data/jlpt/production/curation/words/2918-2937.json",
         "curated_original_key": "n1-2924",
         "legacy_curated_file": null,
         "krdict": {
-          "score": 5,
+          "score": 3,
           "reasons": [
-            "surface_exact",
-            "reading_exact"
+            "surface_exact"
           ],
-          "source_file": "008.xml",
-          "meaning_ko": "적응시키다",
-          "definition_ko": "어떠한 조건이나 환경에 익숙해지게 하거나 알맞게 변화하게 하다.",
-          "meaning_ja_source": "てきおうさせる【適応さえる】。ならす【慣らす・馴らす】"
+          "source_file": "006.xml",
+          "meaning_ko": "심판",
+          "definition_ko": "어떤 문제나 사람에 대하여 잘잘못을 따져 결정을 내림.",
+          "meaning_ja_source": "しんぱん【審判】"
         }
       }
     },

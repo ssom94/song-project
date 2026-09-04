@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T07:24:59.282Z",
+  "generatedAt": "2026-09-04T07:37:58.443Z",
   "target": 3000,
   "sourceCandidateCount": 3427,
-  "selectionRule": "valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence; curated word+reading identities are permanently locked to their reviewed n1-#### keys; only uncurated slots are filled from the ranked candidate pool",
+  "selectionRule": "valid unique Waller N1 candidates; require canonical JMdict word+reading applicability; exclude obsolete/rare/search-only readings, known low-value elementary morphemes, known bad source identities, and pure affix/counter entries; prefer common JMdict matches and multi-corpus frequency evidence; curated word+reading identities are permanently locked to their reviewed n1-#### keys; only uncurated slots are filled from the ranked candidate pool",
   "candidates": [
     {
       "key": "n1-0001",
@@ -69642,26 +69642,25 @@
     {
       "key": "n1-2911",
       "sequence_no": 2911,
-      "word": "造り",
-      "reading": "つくり",
-      "meaning_en": "make up, structure, physique",
-      "jmdict_seq": "1297250",
+      "word": "聴覚",
+      "reading": "ちょうかく",
+      "meaning_en": "the sense of hearing",
+      "jmdict_seq": "1428880",
       "part_of_speech": "普通名詞",
       "pos_tags": [
-        "n",
-        "n-pref"
+        "n"
       ],
       "reading_tags": [],
       "jmdict_common": true,
       "jmdict_canonical_match": true,
       "frequency": {
-        "corpus": null,
+        "corpus": 13382,
         "subtitles": null,
-        "web": null,
-        "wikipedia": null
+        "web": 8655,
+        "wikipedia": 12539
       },
       "source": "waller-n1-via-stephenmk+jmdict-normalized",
-      "quality_score": 240000
+      "quality_score": 94402
     },
     {
       "key": "n1-2912",
@@ -69950,26 +69949,27 @@
     {
       "key": "n1-2924",
       "sequence_no": 2924,
-      "word": "馴らす",
-      "reading": "ならす",
-      "meaning_en": "to domesticate, to tame",
-      "jmdict_seq": "1212650",
-      "part_of_speech": "五段動詞",
+      "word": "審判",
+      "reading": "しんばん",
+      "meaning_en": "refereeing, trial, judgement, umpire, referee",
+      "jmdict_seq": "1360410",
+      "part_of_speech": "サ変名詞",
       "pos_tags": [
-        "v5s",
+        "n",
+        "vs",
         "vt"
       ],
       "reading_tags": [],
       "jmdict_common": true,
       "jmdict_canonical_match": true,
       "frequency": {
-        "corpus": null,
+        "corpus": 2135,
         "subtitles": null,
-        "web": null,
-        "wikipedia": null
+        "web": 3216,
+        "wikipedia": 5499
       },
       "source": "waller-n1-via-stephenmk+jmdict-normalized",
-      "quality_score": 240000
+      "quality_score": 89137
     },
     {
       "key": "n1-2925",
