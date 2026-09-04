@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1481-1500",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage and pronunciation distinctions are noted.",
+  "words": [
+    {"key":"n1-1481","word":"欲望","reading":"よくぼう","meaning_ko":"욕망; 강한 욕구","meaning_ja":"物・地位・快楽などを強く手に入れたい、満たしたいと思う気持ち。","part_of_speech":"普通名詞","example_ja":"目先の欲望だけで判断すると、長期的な利益を失うことがある。","example_ko":"눈앞의 욕망만으로 판단하면 장기적인 이익을 잃을 수 있다."},
+    {"key":"n1-1482","word":"身振り","reading":"みぶり","meaning_ko":"몸짓; 제스처","meaning_ja":"意思・感情などを表すために、手・体を動かすこと。また、その動作。","part_of_speech":"普通名詞","example_ja":"言葉が通じなくても、身振りを交えればある程度は意思を伝えられる。","example_ko":"말이 통하지 않아도 몸짓을 섞으면 어느 정도 의사를 전달할 수 있다."},
+    {"key":"n1-1483","word":"土俵","reading":"どひょう","meaning_ko":"도효; 스모 경기장; 비유적으로 활동 무대","meaning_ja":"相撲を取る円形の競技場。また比喩的に、競争・議論・活動が行われる場。","part_of_speech":"普通名詞","example_ja":"価格だけで競うのではなく、品質という土俵で勝負したい。","example_ko":"가격만으로 경쟁하지 않고 품질이라는 무대에서 승부하고 싶다."},
+    {"key":"n1-1484","word":"きっちり","reading":"きっちり","meaning_ko":"딱 맞게; 정확히; 빈틈없이","meaning_ja":"数量・時間・大きさなどがちょうど合うさま。また、仕事などを抜けなく正確に行うさま。","part_of_speech":"副詞","example_ja":"予定どおり九時きっちりに会議が始まった。","example_ko":"예정대로 정확히 9시에 회의가 시작됐다."},
+    {"key":"n1-1485","word":"行き違い","reading":"いきちがい","meaning_ko":"엇갈림; 오해; 의사소통 착오","meaning_ja":"互いに別の方向へ進んですれ違うこと。また、連絡・理解・意図などがうまくかみ合わず誤解が生じること。","part_of_speech":"普通名詞","example_ja":"担当者同士の認識の行き違いから、同じ作業を二重に進めてしまった。","example_ko":"담당자끼리 인식이 엇갈려 같은 작업을 이중으로 진행해 버렸다."},
+    {"key":"n1-1486","word":"手際","reading":"てぎわ","meaning_ko":"솜씨; 일처리 능숙함","meaning_ja":"仕事・作業を処理する方法や、その進め方の上手さ。","part_of_speech":"普通名詞","example_ja":"経験豊富な担当者は、トラブルにも手際よく対応した。","example_ko":"경험 많은 담당자는 문제에도 능숙하게 대응했다."},
+    {"key":"n1-1487","word":"好ましい","reading":"このましい","meaning_ko":"바람직하다; 호감이 간다","meaning_ja":"良い・望ましいと感じられ、受け入れたいと思うさま。","part_of_speech":"い形容詞","example_ja":"利用者に誤解を与えないよう、より好ましい表現に修正した。","example_ko":"이용자에게 오해를 주지 않도록 더 바람직한 표현으로 수정했다."},
+    {"key":"n1-1488","word":"均衡","reading":"きんこう","meaning_ko":"균형; 평형","meaning_ja":"複数の力・要素・利益などが一方に偏らず、釣り合っている状態。","part_of_speech":"普通名詞","example_ja":"都市開発では経済性と環境保護の均衡を取る必要がある。","example_ko":"도시 개발에서는 경제성과 환경 보호의 균형을 맞출 필요가 있다."},
+    {"key":"n1-1489","word":"逃走","reading":"とうそう","meaning_ko":"도주; 달아남","meaning_ja":"追跡・逮捕などを避けるため、その場から逃げ去ること。","part_of_speech":"サ変名詞","example_ja":"容疑者は現場から車で逃走したが、その日のうちに逮捕された。","example_ko":"용의자는 현장에서 차로 도주했지만 그날 안에 체포됐다."},
+    {"key":"n1-1490","word":"締め切り","reading":"しめきり","meaning_ko":"마감; 기한","meaning_ja":"応募・提出・受付などを終了する期限・時刻。","part_of_speech":"普通名詞","example_ja":"申請の締め切りは今月末なので、早めに必要書類を準備してください。","example_ko":"신청 마감은 이달 말이므로 필요한 서류를 미리 준비해 주세요."},
+    {"key":"n1-1491","word":"頑固","reading":"がんこ","meaning_ko":"완고함; 고집이 셈","meaning_ja":"自分の考え・態度をなかなか変えず、人の意見を受け入れにくいさま。また、汚れなどが落ちにくいさま。","part_of_speech":"な形容詞","example_ja":"自分の方法に頑固にこだわるだけでは、状況の変化に対応できない。","example_ko":"자기 방식만 완고하게 고집해서는 상황 변화에 대응할 수 없다."},
+    {"key":"n1-1492","word":"新築","reading":"しんちく","meaning_ko":"신축; 새로 지음; 새 건물","meaning_ja":"建物を新しく建てること。また、新しく建てられた建物。","part_of_speech":"サ変名詞","example_ja":"駅の近くに新築のマンションが完成した。","example_ko":"역 근처에 신축 아파트가 완공됐다."},
+    {"key":"n1-1493","word":"仕上げる","reading":"しあげる","meaning_ko":"마무리하다; 완성하다","meaning_ja":"作業・作品・文章などに最後の手を加え、完成した状態にする。","part_of_speech":"一段動詞","example_ja":"報告書は内容を確認したうえで、今日中に仕上げる予定だ。","example_ko":"보고서는 내용을 확인한 뒤 오늘 안에 마무리할 예정이다."},
+    {"key":"n1-1494","word":"脅かす","reading":"おどかす","meaning_ko":"겁주다; 위협하다","meaning_ja":"相手が怖がるような言葉・行動をして驚かせたり恐れさせたりする。","part_of_speech":"五段動詞","example_ja":"冗談のつもりでも、相手を脅かすような発言は避けるべきだ。","example_ko":"농담이라고 해도 상대를 겁주는 발언은 피해야 한다.","note":"『脅かす（おびやかす）』は安全・地位などを脅威にさらす意味で、読みと用法が異なる。"},
+    {"key":"n1-1495","word":"簡潔","reading":"かんけつ","meaning_ko":"간결함; 짧고 명확함","meaning_ja":"余分な内容がなく、短くまとまって分かりやすいさま。","part_of_speech":"な形容詞","example_ja":"障害報告は事実と原因を簡潔にまとめることが重要だ。","example_ko":"장애 보고는 사실과 원인을 간결하게 정리하는 것이 중요하다."},
+    {"key":"n1-1496","word":"悲鳴","reading":"ひめい","meaning_ko":"비명; 비유적으로 감당하기 힘든 호소","meaning_ja":"恐怖・苦痛・驚きなどによって思わず上げる鋭い声。また比喩的に、非常に苦しい状態を訴える声。","part_of_speech":"普通名詞","example_ja":"急な物価上昇に、多くの事業者が悲鳴を上げている。","example_ko":"급격한 물가 상승에 많은 사업자가 비명을 지르고 있다."},
+    {"key":"n1-1497","word":"じっくり","reading":"じっくり","meaning_ko":"차분히; 충분히; 꼼꼼히","meaning_ja":"時間をかけて、落ち着いて十分に考えたり取り組んだりするさま。","part_of_speech":"副詞","example_ja":"転職先は条件だけで決めず、仕事内容も含めてじっくり考えたい。","example_ko":"이직할 곳은 조건만으로 정하지 않고 업무 내용까지 포함해 차분히 생각하고 싶다."},
+    {"key":"n1-1498","word":"手引き","reading":"てびき","meaning_ko":"안내; 지침; 안내서","meaning_ja":"方法・手順・方向などを教えて案内すること。また、そのための説明書・案内書。","part_of_speech":"普通名詞","example_ja":"初めて利用する人向けに、申請手続きの手引きを公開した。","example_ko":"처음 이용하는 사람을 위해 신청 절차 안내서를 공개했다."},
+    {"key":"n1-1499","word":"並列","reading":"へいれつ","meaning_ko":"병렬; 나란히 배치함","meaning_ja":"複数のものを同じ段階・位置関係で並べること。コンピュータでは複数の処理を同時に進める意味でも使う。","part_of_speech":"サ変名詞","example_ja":"処理時間を短縮するため、独立した作業を並列で実行する。","example_ko":"처리 시간을 줄이기 위해 독립된 작업을 병렬로 실행한다."},
+    {"key":"n1-1500","word":"猛烈","reading":"もうれつ","meaning_ko":"맹렬함; 매우 격렬함","meaning_ja":"勢い・程度が非常に激しく、並外れて強いさま。","part_of_speech":"な形容詞","example_ja":"台風の接近に伴い、沿岸部では猛烈な風が吹いている。","example_ko":"태풍 접근에 따라 해안 지역에는 매우 거센 바람이 불고 있다."}
+  ]
+}
