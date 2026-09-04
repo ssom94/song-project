@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "0921-0940",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common JLPT usage and nonstandard readings are corrected or noted.",
+  "words": [
+    {"key":"n1-0921","word":"境遇","reading":"きょうぐう","meaning_ko":"처지; 놓인 환경과 상황","meaning_ja":"人が置かれている生活上・社会上の立場や環境。","part_of_speech":"普通名詞","example_ja":"似た境遇で育った二人は、互いの苦労をよく理解していた。","example_ko":"비슷한 처지에서 자란 두 사람은 서로의 고생을 잘 이해하고 있었다."},
+    {"key":"n1-0922","word":"無難","reading":"ぶなん","meaning_ko":"무난함; 탈이 없음","meaning_ja":"大きな欠点や危険がなく、問題なく済ませられるさま。","part_of_speech":"な形容詞","example_ja":"初対面の場では、まず無難な話題から会話を始める人が多い。","example_ko":"첫 만남에서는 우선 무난한 화제로 대화를 시작하는 사람이 많다."},
+    {"key":"n1-0923","word":"内訳","reading":"うちわけ","meaning_ko":"내역; 세부 구성","meaning_ja":"合計額・総数などを、項目ごとに分けた詳しい内容。","part_of_speech":"普通名詞","example_ja":"見積書には費用の内訳を項目ごとに明記してください。","example_ko":"견적서에는 비용 내역을 항목별로 명확히 적어 주세요."},
+    {"key":"n1-0924","word":"長編","reading":"ちょうへん","meaning_ko":"장편; 긴 작품","meaning_ja":"小説・映画などで、内容が長く大規模な作品。","part_of_speech":"普通名詞","example_ja":"その監督は十年ぶりに長編映画を発表した。","example_ko":"그 감독은 10년 만에 장편 영화를 발표했다."},
+    {"key":"n1-0925","word":"田園","reading":"でんえん","meaning_ko":"전원; 논밭이 펼쳐진 농촌","meaning_ja":"田畑が広がる、のどかな農村地域。また、その風景。","part_of_speech":"普通名詞","example_ja":"列車の窓から緑豊かな田園風景が一面に広がって見えた。","example_ko":"열차 창밖으로 푸른 전원 풍경이 한가득 펼쳐져 보였다."},
+    {"key":"n1-0926","word":"出社","reading":"しゅっしゃ","meaning_ko":"출사; 회사에 출근함","meaning_ja":"勤務する会社へ行くこと。","part_of_speech":"サ変名詞","example_ja":"明日は午前中だけ在宅勤務をし、午後から出社する予定だ。","example_ko":"내일은 오전만 재택근무를 하고 오후부터 회사에 출근할 예정이다."},
+    {"key":"n1-0927","word":"母校","reading":"ぼこう","meaning_ko":"모교","meaning_ja":"自分が以前通い、特に卒業した学校。","part_of_speech":"普通名詞","example_ja":"卒業後十年ぶりに母校を訪れ、恩師と再会した。","example_ko":"졸업 후 10년 만에 모교를 찾아 은사와 다시 만났다."},
+    {"key":"n1-0928","word":"本場","reading":"ほんば","meaning_ko":"본고장; 그 분야의 중심지","meaning_ja":"ある産物・技術・文化などが本来盛んで、中心となっている土地。","part_of_speech":"普通名詞","example_ja":"本場の料理を味わうために、休暇を利用して現地を訪れた。","example_ko":"본고장의 요리를 맛보기 위해 휴가를 이용해 현지를 찾았다."},
+    {"key":"n1-0929","word":"歓声","reading":"かんせい","meaning_ko":"환호성; 기쁨의 함성","meaning_ja":"喜び・興奮などから大勢の人が上げる声。","part_of_speech":"普通名詞","example_ja":"決勝点が入った瞬間、観客席から大きな歓声が上がった。","example_ko":"결승골이 들어간 순간 관중석에서 큰 환호성이 터졌다."},
+    {"key":"n1-0930","word":"主食","reading":"しゅしょく","meaning_ko":"주식; 주식품","meaning_ja":"日常の食事で中心となる食べ物。","part_of_speech":"普通名詞","example_ja":"地域によって米やパンなど主食となる食品は異なる。","example_ko":"지역에 따라 쌀이나 빵 등 주식이 되는 식품은 다르다."},
+    {"key":"n1-0931","word":"断然","reading":"だんぜん","meaning_ko":"단연; 압도적으로","meaning_ja":"他と比べて明らかに程度が上であるさま。また、きっぱりとしたさま。","part_of_speech":"副詞","example_ja":"複数の案を比較した結果、費用対効果ではこの案が断然優れていた。","example_ko":"여러 안을 비교한 결과 비용 대비 효과에서는 이 안이 단연 뛰어났다."},
+    {"key":"n1-0932","word":"観覧","reading":"かんらん","meaning_ko":"관람","meaning_ja":"展示・公演・競技などを見て楽しむこと。","part_of_speech":"サ変名詞","example_ja":"特別展を観覧するには事前予約が必要です。","example_ko":"특별전을 관람하려면 사전 예약이 필요합니다."},
+    {"key":"n1-0933","word":"売れ行き","reading":"うれゆき","meaning_ko":"판매 추이; 판매 실적","meaning_ja":"商品がどの程度売れているかという状況・勢い。","part_of_speech":"普通名詞","example_ja":"新製品は発売直後から売れ行きが好調で、追加生産が決まった。","example_ko":"신제품은 출시 직후부터 판매 실적이 좋아 추가 생산이 결정됐다."},
+    {"key":"n1-0934","word":"否決","reading":"ひけつ","meaning_ko":"부결","meaning_ja":"会議・議会などで、提案・議案を認めないと決定すること。","part_of_speech":"サ変名詞","example_ja":"予算案は賛成票が過半数に届かず否決された。","example_ko":"예산안은 찬성표가 과반수에 미치지 못해 부결됐다."},
+    {"key":"n1-0935","word":"書評","reading":"しょひょう","meaning_ko":"서평","meaning_ja":"本の内容・価値などを批評し評価した文章。","part_of_speech":"普通名詞","example_ja":"新聞に掲載された書評を読んで、その本に興味を持った。","example_ko":"신문에 실린 서평을 읽고 그 책에 관심을 갖게 됐다."},
+    {"key":"n1-0936","word":"増進","reading":"ぞうしん","meaning_ko":"증진; 더욱 향상시킴","meaning_ja":"能力・健康・利益などをさらに高め、進ませること。","part_of_speech":"サ変名詞","example_ja":"社員の健康増進を目的に、運動習慣を支援する制度を導入した。","example_ko":"직원의 건강 증진을 목적으로 운동 습관을 지원하는 제도를 도입했다."},
+    {"key":"n1-0937","word":"後回し","reading":"あとまわし","meaning_ko":"뒤로 미룸; 뒷전","meaning_ja":"ある事をすぐ行わず、他の事を先にして後に回すこと。","part_of_speech":"普通名詞","example_ja":"重要だが急ぎでない課題を後回しにし続けると、いずれ問題が大きくなる。","example_ko":"중요하지만 급하지 않은 과제를 계속 뒤로 미루면 결국 문제가 커진다."},
+    {"key":"n1-0938","word":"採算","reading":"さいさん","meaning_ko":"채산; 수지 타산","meaning_ja":"収入と費用を比較したとき、事業として利益が出るかどうかの計算。","part_of_speech":"普通名詞","example_ja":"利用者が少なすぎるため、この路線は採算が取れていない。","example_ko":"이용자가 너무 적어 이 노선은 수지가 맞지 않고 있다."},
+    {"key":"n1-0939","word":"採決","reading":"さいけつ","meaning_ko":"표결; 의결을 위한 투표","meaning_ja":"会議で議案について賛否を問い、決定すること。","part_of_speech":"サ変名詞","example_ja":"十分な討議を終えた後、議長は議案の採決に入った。","example_ko":"충분한 토의를 마친 뒤 의장은 의안 표결에 들어갔다."},
+    {"key":"n1-0940","word":"前置き","reading":"まえおき","meaning_ko":"서두; 본론 전에 하는 말","meaning_ja":"本題に入る前に述べる説明・言葉。","part_of_speech":"普通名詞","example_ja":"長い前置きは省いて、結論から説明してもらえますか。","example_ko":"긴 서두는 생략하고 결론부터 설명해 주실 수 있나요?"}
+  ]
+}
