@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2638-2657",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2638","word":"余所見","reading":"よそみ","meaning_ko":"곁눈질; 한눈팔기","meaning_ja":"見るべき所から目をそらし、別の方を見ること。","part_of_speech":"サ変名詞","example_ja":"運転中に余所見をしてはいけない。","example_ko":"운전 중에 한눈을 팔아서는 안 된다."},
+    {"key":"n1-2639","word":"先天的","reading":"せんてんてき","meaning_ko":"선천적","meaning_ja":"生まれつき備わっているさま。","part_of_speech":"な形容詞","example_ja":"その特徴には先天的な要因も関係している。","example_ko":"그 특징에는 선천적인 요인도 관련되어 있다."},
+    {"key":"n1-2640","word":"即する","reading":"そくする","meaning_ko":"부합하다; 따르다; ~에 입각하다","meaning_ja":"事実・基準・状況などに合うようにする。基づく。","part_of_speech":"サ変動詞","example_ja":"現場の実情に即した制度が必要だ。","example_ko":"현장의 실정에 맞는 제도가 필요하다.","note":"候補品詞『サ変名詞』から動詞用法に合わせて修正。"},
+    {"key":"n1-2641","word":"目蓋","reading":"まぶた","meaning_ko":"눈꺼풀","meaning_ja":"目を閉じると眼球を覆う皮膚。","part_of_speech":"普通名詞","example_ja":"眠くて目蓋が重い。","example_ko":"졸려서 눈꺼풀이 무겁다.","note":"現代では『瞼』『まぶた』が一般的。"},
+    {"key":"n1-2642","word":"唾","reading":"つば","meaning_ko":"침; 타액","meaning_ja":"口の中で分泌される液体。唾液。","part_of_speech":"普通名詞","example_ja":"緊張で口が乾き、唾を飲み込んだ。","example_ko":"긴장해서 입이 말라 침을 삼켰다."},
+    {"key":"n1-2643","word":"火燵","reading":"こたつ","meaning_ko":"고타쓰; 난방 탁자","meaning_ja":"布団を掛けた低い机の下に暖房器具を入れた日本の暖房設備。","part_of_speech":"普通名詞","example_ja":"冬は家族でこたつを囲むことが多い。","example_ko":"겨울에는 가족이 고타쓰에 둘러앉는 일이 많다.","note":"現代では通常『こたつ』『炬燵』と書く。"},
+    {"key":"n1-2644","word":"時刻表","reading":"じこくひょう","meaning_ko":"시각표; 시간표; 운행 시간표","meaning_ja":"列車・バス・船などの発着時刻をまとめた表。","part_of_speech":"普通名詞","example_ja":"駅の時刻表で次の電車を確認した。","example_ko":"역의 시간표에서 다음 전철을 확인했다."},
+    {"key":"n1-2645","word":"嚏","reading":"くしゃみ","meaning_ko":"재채기","meaning_ja":"鼻への刺激で、急に強く息を吐き出す生理現象。","part_of_speech":"サ変名詞","example_ja":"花粉のせいでくしゃみが止まらない。","example_ko":"꽃가루 때문에 재채기가 멈추지 않는다.","note":"現代では通常『くしゃみ』と仮名で書く。"},
+    {"key":"n1-2646","word":"剥がす","reading":"はがす","meaning_ko":"떼다; 벗기다; 뜯어내다","meaning_ja":"付着している物を表面から取り離す。","part_of_speech":"五段動詞","example_ja":"箱に貼ってある古いシールを剥がした。","example_ko":"상자에 붙어 있는 오래된 스티커를 떼었다."},
+    {"key":"n1-2647","word":"足し算","reading":"たしざん","meaning_ko":"덧셈; 더하기","meaning_ja":"数を足して合計を求める計算。","part_of_speech":"普通名詞・サ変名詞","example_ja":"子どもが簡単な足し算を練習している。","example_ko":"아이가 간단한 덧셈을 연습하고 있다."},
+    {"key":"n1-2648","word":"ナイター","reading":"ナイター","meaning_ko":"야간 경기; 나이터","meaning_ja":"照明設備を使って夜に行うスポーツの試合。特に野球でよく使う。","part_of_speech":"普通名詞","example_ja":"今夜は球場でナイターがある。","example_ko":"오늘 밤은 야구장에서 야간 경기가 있다.","note":"和製英語。"},
+    {"key":"n1-2649","word":"危ぶむ","reading":"あやぶむ","meaning_ko":"위태롭게 여기다; 우려하다; 의심하다","meaning_ja":"うまくいくか、安全かなどについて不安・疑いを持つ。","part_of_speech":"五段動詞","example_ja":"専門家は計画の実現性を危ぶんでいる。","example_ko":"전문가들은 계획의 실현 가능성을 우려하고 있다."},
+    {"key":"n1-2650","word":"紛らわしい","reading":"まぎらわしい","meaning_ko":"헷갈리기 쉽다; 혼동하기 쉽다; 애매하다","meaning_ja":"似ていて区別しにくく、間違えやすい。","part_of_speech":"い形容詞","example_ja":"この二つの名前は紛らわしいので注意が必要だ。","example_ko":"이 두 이름은 헷갈리기 쉬워 주의가 필요하다."},
+    {"key":"n1-2651","word":"取り次ぐ","reading":"とりつぐ","meaning_ko":"전달하다; 중개하다; 전화를 연결하다","meaning_ja":"人と人の間に入って、用件・電話などを相手へ伝える。","part_of_speech":"五段動詞","example_ja":"担当者に電話を取り次いでもらった。","example_ko":"담당자에게 전화를 연결해 달라고 했다.","note":"候補KO『바꾸다』だけでは狭いためJMdictの convey/act as agent を反映。"},
+    {"key":"n1-2652","word":"遅らす","reading":"おくらす","meaning_ko":"늦추다; 지연시키다","meaning_ja":"予定・時刻・進行などを後へずらす。","part_of_speech":"五段動詞","example_ja":"悪天候のため出発を一時間遅らした。","example_ko":"악천후 때문에 출발을 한 시간 늦췄다.","note":"『遅らせる』も一般的。"},
+    {"key":"n1-2653","word":"和文","reading":"わぶん","meaning_ko":"일본어 문장; 일본문; 일본어 글","meaning_ja":"日本語で書かれた文章。特に外国語文に対する日本語文。","part_of_speech":"普通名詞","example_ja":"英文を和文に訳す練習をした。","example_ko":"영문을 일본어 문장으로 번역하는 연습을 했다."},
+    {"key":"n1-2654","word":"聳える","reading":"そびえる","meaning_ko":"우뚝 솟다; 높이 치솟다","meaning_ja":"山・建物などが非常に高く立つ。","part_of_speech":"一段動詞","example_ja":"街の中心に高層ビルが聳えている。","example_ko":"도시 중심에 고층 빌딩이 우뚝 솟아 있다."},
+    {"key":"n1-2655","word":"遊牧","reading":"ゆうぼく","meaning_ko":"유목","meaning_ja":"家畜とともに牧草・水を求めて移動しながら生活すること。","part_of_speech":"サ変名詞","example_ja":"この地域では昔から遊牧が行われてきた。","example_ko":"이 지역에서는 예전부터 유목이 이루어져 왔다."},
+    {"key":"n1-2656","word":"小児科","reading":"しょうにか","meaning_ko":"소아과","meaning_ja":"子どもの病気を専門に診療する医学分野・診療科。","part_of_speech":"普通名詞","example_ja":"子どもが熱を出したので小児科へ連れて行った。","example_ko":"아이가 열이 나서 소아과에 데려갔다."},
+    {"key":"n1-2657","word":"待ち遠しい","reading":"まちどおしい","meaning_ko":"손꼽아 기다려지다; 몹시 기다려지다","meaning_ja":"その時・出来事が早く来てほしいと強く期待する。","part_of_speech":"い形容詞","example_ja":"家族に会える日が待ち遠しい。","example_ko":"가족을 만날 날이 손꼽아 기다려진다.","note":"候補KO『오늘내일하다』は現代韓国語の自然な対応ではないため修正。"}
+  ]
+}
