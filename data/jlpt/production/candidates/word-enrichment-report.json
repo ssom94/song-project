@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T04:21:08.621Z",
+  "generatedAt": "2026-09-04T04:23:25.240Z",
   "candidateCount": 3000,
-  "curatedOverrides": 1930,
+  "curatedOverrides": 1950,
   "curatedKeyDrift": 1697,
   "retiredCuratedRecords": 12,
   "retiredCuratedIdentities": [
@@ -70,9 +70,9 @@
   "legacyExactMatches": 73,
   "krdictExactMatches": 2416,
   "sourceBackedKoreanGlosses": 2646,
-  "withCuratedExamples": 1932,
-  "readyForFinalReview": 1932,
-  "needsExamples": 714,
+  "withCuratedExamples": 1952,
+  "readyForFinalReview": 1952,
+  "needsExamples": 694,
   "needsKoreanGloss": 354,
   "unresolvedKeys": [
     "n1-1965",
