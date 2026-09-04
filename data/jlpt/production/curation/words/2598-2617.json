@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "range": "2598-2617",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2598","word":"カンニング","reading":"カンニング","meaning_ko":"커닝; 시험 부정행위","meaning_ja":"試験で他人の答案や隠した資料などを見て不正に答えること。","part_of_speech":"サ変名詞","example_ja":"試験中のカンニングは禁止されている。","example_ko":"시험 중 커닝은 금지되어 있다.","note":"英語 cunning とは日本語での意味が異なる和製的用法。"},
+    {"key":"n1-2599","word":"お八つ","reading":"おやつ","meaning_ko":"간식; 새참","meaning_ja":"食事と食事の間に食べる軽い食べ物。","part_of_speech":"普通名詞","example_ja":"子どもに三時のおやつを用意した。","example_ko":"아이에게 세 시 간식을 준비했다.","note":"現代では通常『おやつ』と仮名で書く。"},
+    {"key":"n1-2600","word":"宛","reading":"あて","meaning_ko":"~앞; 수신처; 대상","meaning_ja":"手紙・荷物などの送り先や相手を表す語。","part_of_speech":"普通名詞・接尾辞","example_ja":"この書類は人事部長宛に送ってください。","example_ko":"이 서류는 인사부장 앞으로 보내 주세요."},
+    {"key":"n1-2601","word":"賭ける","reading":"かける","meaning_ko":"걸다; 내기하다; 목숨 등을 걸다","meaning_ja":"勝負に金品などを出す。また、命・名誉などを危険にさらす覚悟をする。","part_of_speech":"一段動詞","example_ja":"彼は自分の名誉を賭けて真相を明らかにした。","example_ko":"그는 자신의 명예를 걸고 진상을 밝혔다.","note":"候補KO의 주변 번역을 JMdict의 wager/risk 중심으로 정리。"},
+    {"key":"n1-2602","word":"皺","reading":"しわ","meaning_ko":"주름; 구김살","meaning_ja":"皮膚・紙・布などにできる細い筋や折れ目。","part_of_speech":"普通名詞","example_ja":"シャツの皺をアイロンで伸ばした。","example_ko":"셔츠의 주름을 다리미로 폈다.","note":"候補KO『살』은 중심의가 아니므로 제외。"},
+    {"key":"n1-2603","word":"フィルター","reading":"フィルター","meaning_ko":"필터; 여과 장치","meaning_ja":"不要なものを取り除くために通過させる装置。また、写真・映像などの効果用具。","part_of_speech":"普通名詞","example_ja":"エアコンのフィルターを掃除した。","example_ko":"에어컨 필터를 청소했다.","note":"候補定義より広く、JMdictの camera filter 用法も含めて整理。"},
+    {"key":"n1-2604","word":"申し入れる","reading":"もうしいれる","meaning_ko":"제안하다; 요청하다; 신청하다","meaning_ja":"相手に意見・希望・要求などを正式に伝える。","part_of_speech":"一段動詞","example_ja":"労働組合は会社側に待遇改善を申し入れた。","example_ko":"노동조합은 회사 측에 처우 개선을 요청했다."},
+    {"key":"n1-2605","word":"引きずる","reading":"ひきずる","meaning_ko":"질질 끌다; 계속 영향을 받다; 오래 끌다","meaning_ja":"物を地面などにつけたまま引く。また、過去の出来事・感情などの影響を長く残す。","part_of_speech":"五段動詞","example_ja":"失敗をいつまでも引きずらないほうがいい。","example_ko":"실패를 언제까지나 끌고 가지 않는 편이 좋다."},
+    {"key":"n1-2606","word":"百科事典","reading":"ひゃっかじてん","meaning_ko":"백과사전","meaning_ja":"さまざまな分野の知識を体系的にまとめた事典。","part_of_speech":"普通名詞","example_ja":"分からない人物について百科事典で調べた。","example_ko":"모르는 인물에 대해 백과사전으로 찾아봤다."},
+    {"key":"n1-2607","word":"丸っきり","reading":"まるっきり","meaning_ko":"완전히; 전혀; 도무지","meaning_ja":"完全に。特に否定表現とともに『全然』の意味で使う。","part_of_speech":"副詞","example_ja":"その話は丸っきりの嘘だった。","example_ko":"그 이야기는 완전한 거짓말이었다."},
+    {"key":"n1-2608","word":"亜爾加里","reading":"アルカリ","meaning_ko":"알칼리; 알칼리성 물질","meaning_ja":"水溶液で塩基性を示す物質。アルカリ。","part_of_speech":"普通名詞","example_ja":"この洗剤は弱いアルカリ性だ。","example_ko":"이 세제는 약한 알칼리성이다.","note":"『亜爾加里』は歴史的な当て字で、現代では通常『アルカリ』と書く。"},
+    {"key":"n1-2609","word":"縁側","reading":"えんがわ","meaning_ko":"툇마루; 일본식 집의 가장자리 마루","meaning_ja":"和風建築で、部屋の外側に沿って設けられた細長い板敷きの部分。","part_of_speech":"普通名詞","example_ja":"祖母は縁側に座って庭を眺めていた。","example_ko":"할머니는 툇마루에 앉아 정원을 바라보고 계셨다.","note":"候補KRDICT의 한옥 설명은 일본어『縁側』정의로는 부정확하여 수정。"},
+    {"key":"n1-2610","word":"お洒落","reading":"おしゃれ","meaning_ko":"멋내기; 세련됨; 멋쟁이","meaning_ja":"服装などに気を配って洗練されていること。また、そのような人。","part_of_speech":"名詞・な形容詞","example_ja":"彼女はいつもお洒落な服を着ている。","example_ko":"그녀는 언제나 세련된 옷을 입고 있다.","note":"候補品詞『サ変名詞』から実際の用法に合わせて修正。"},
+    {"key":"n1-2611","word":"何気ない","reading":"なにげない","meaning_ko":"무심한; 아무렇지 않은; 별 뜻 없는","meaning_ja":"特別な意図・関心がないように見えるさま。","part_of_speech":"い形容詞","example_ja":"彼の何気ない一言に救われた。","example_ko":"그의 무심코 한 한마디에 위로받았다.","note":"候補の『아무런 생각이나 감정이 없다』より、casual/unconcerned の自然な意味に修正。"},
+    {"key":"n1-2612","word":"受身","reading":"うけみ","meaning_ko":"수동; 수동태; 수세적인 태도","meaning_ja":"他からの動作を受ける文法形式。また、自分から積極的に動かない態度。","part_of_speech":"普通名詞・な形容詞","example_ja":"指示を待つだけの受身の姿勢では成長しにくい。","example_ko":"지시만 기다리는 수동적인 자세로는 성장하기 어렵다."},
+    {"key":"n1-2613","word":"股","reading":"また","meaning_ko":"가랑이; 사타구니; 갈라진 부분","meaning_ja":"両脚が分かれる部分。また、物が二つに分かれる部分。","part_of_speech":"普通名詞","example_ja":"ズボンの股の部分が破れてしまった。","example_ko":"바지 가랑이 부분이 찢어졌다."},
+    {"key":"n1-2614","word":"跨ぐ","reading":"またぐ","meaning_ko":"가랑이를 벌려 넘다; 걸터앉다; 걸치다","meaning_ja":"足を左右に開いて物の上を越える、またはまたがって乗る。","part_of_speech":"五段動詞","example_ja":"道路の溝を跨いで反対側へ渡った。","example_ko":"도로의 도랑을 성큼 넘어 반대편으로 갔다."},
+    {"key":"n1-2615","word":"罵る","reading":"ののしる","meaning_ko":"욕하다; 매도하다; 험담하다","meaning_ja":"相手を激しい言葉で非難・侮辱する。","part_of_speech":"五段動詞","example_ja":"人前で相手を罵るような行為はよくない。","example_ko":"사람들 앞에서 상대를 욕하는 행동은 좋지 않다."},
+    {"key":"n1-2616","word":"荷","reading":"に","meaning_ko":"짐; 화물; 부담","meaning_ja":"運ぶための荷物。また、比喩的に責任・負担。","part_of_speech":"普通名詞","example_ja":"その役職は彼には少し荷が重いかもしれない。","example_ko":"그 직책은 그에게 조금 부담이 클지도 모른다."},
+    {"key":"n1-2617","word":"ハンガー","reading":"ハンガー","meaning_ko":"옷걸이","meaning_ja":"衣服を掛けておくための道具。","part_of_speech":"普通名詞","example_ja":"コートをハンガーに掛けた。","example_ko":"코트를 옷걸이에 걸었다.","note":"JMdict 영어 gloss에 hangar/hunger가 함께 보이지만 이 항목의 중심의는 coat hanger."
+    }
+  ]
+}
