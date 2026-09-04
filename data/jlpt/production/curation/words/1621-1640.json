@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1621-1640",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1621","word":"染まる","reading":"そまる","meaning_ko":"물들다; 영향을 받아 동화되다","meaning_ja":"色がつく。また比喩的に、思想・習慣・雰囲気などの影響を受け、その傾向を持つようになる。","part_of_speech":"五段動詞","example_ja":"夕日で空全体が赤く染まった。","example_ko":"석양으로 하늘 전체가 붉게 물들었다."},
+    {"key":"n1-1622","word":"大空","reading":"おおぞら","meaning_ko":"넓은 하늘; 창공","meaning_ja":"広々と果てしなく感じられる空。","part_of_speech":"普通名詞","example_ja":"鳥の群れが大空をゆっくり横切っていった。","example_ko":"새 떼가 넓은 하늘을 천천히 가로질러 갔다."},
+    {"key":"n1-1623","word":"庶務","reading":"しょむ","meaning_ko":"서무; 일반 행정 업무","meaning_ja":"組織で、文書・備品・連絡・施設管理など幅広い日常事務を扱う仕事。","part_of_speech":"普通名詞","example_ja":"備品の発注や郵便物の管理は庶務担当が行っている。","example_ko":"비품 발주와 우편물 관리는 서무 담당이 하고 있다."},
+    {"key":"n1-1624","word":"操る","reading":"あやつる","meaning_ko":"조종하다; 다루다; 마음대로 움직이다","meaning_ja":"機械・道具・言語などを巧みに扱う。また、人を意図どおりに動かす。","part_of_speech":"五段動詞","example_ja":"彼は三か国語を自在に操り、海外との交渉を担当している。","example_ko":"그는 세 나라 말을 자유자재로 구사하며 해외 협상을 담당하고 있다."},
+    {"key":"n1-1625","word":"船舶","reading":"せんぱく","meaning_ko":"선박","meaning_ja":"海・川などを航行する船の総称。特に法律・運輸などの分野で用いる。","part_of_speech":"普通名詞","example_ja":"港では大型船舶の入港に合わせて荷役作業が始まった。","example_ko":"항구에서는 대형 선박 입항에 맞춰 하역 작업이 시작되었다."},
+    {"key":"n1-1626","word":"眼科","reading":"がんか","meaning_ko":"안과","meaning_ja":"目の病気・視力などを診察・治療する医学分野。また、その診療科。","part_of_speech":"普通名詞","example_ja":"視界が急にぼやけたため、念のため眼科を受診した。","example_ko":"시야가 갑자기 흐려져 만일을 위해 안과 진료를 받았다."},
+    {"key":"n1-1627","word":"繁盛","reading":"はんじょう","meaning_ko":"번창; 성업","meaning_ja":"商売・店などに客が多く集まり、非常に栄えること。","part_of_speech":"サ変名詞","example_ja":"駅前に移転してから店は以前より繁盛するようになった。","example_ko":"역 앞으로 이전한 뒤 가게는 이전보다 더 번창하게 되었다."},
+    {"key":"n1-1628","word":"扶養","reading":"ふよう","meaning_ko":"부양","meaning_ja":"自力で生活することが難しい家族などの生活を経済的に支えること。","part_of_speech":"サ変名詞","example_ja":"税制度では扶養する家族の人数が控除額に影響する場合がある。","example_ko":"세제에서는 부양 가족 수가 공제액에 영향을 주는 경우가 있다."},
+    {"key":"n1-1629","word":"押し込む","reading":"おしこむ","meaning_ko":"밀어 넣다; 억지로 집어넣다","meaning_ja":"力を加えて物・人を狭い場所の中へ入れる。","part_of_speech":"五段動詞","example_ja":"荷物を無理に箱へ押し込むと、中の商品が壊れるおそれがある。","example_ko":"짐을 억지로 상자에 밀어 넣으면 안의 상품이 망가질 우려가 있다."},
+    {"key":"n1-1630","word":"傾斜","reading":"けいしゃ","meaning_ko":"경사; 기울기","meaning_ja":"水平・垂直な基準に対して斜めに傾いていること。また、その角度。","part_of_speech":"サ変名詞","example_ja":"この坂は傾斜が急なので、自転車では注意が必要だ。","example_ko":"이 언덕은 경사가 급해서 자전거로 갈 때 주의가 필요하다."},
+    {"key":"n1-1631","word":"異性","reading":"いせい","meaning_ko":"이성; 다른 성별","meaning_ja":"自分とは異なる性別の人。","part_of_speech":"普通名詞","example_ja":"異性との交友関係だけを特別視する必要はない。","example_ko":"이성과의 교우 관계만 특별하게 볼 필요는 없다."},
+    {"key":"n1-1632","word":"行員","reading":"こういん","meaning_ko":"은행원","meaning_ja":"銀行に勤務する職員。","part_of_speech":"普通名詞","example_ja":"窓口の行員が口座開設の手続きを丁寧に説明してくれた。","example_ko":"창구 은행원이 계좌 개설 절차를 친절하게 설명해 주었다."},
+    {"key":"n1-1633","word":"焦る","reading":"あせる","meaning_ko":"초조해하다; 조급해하다","meaning_ja":"思いどおりに進まないことなどで落ち着きを失い、急いで何とかしようとする。","part_of_speech":"五段動詞","example_ja":"時間が足りなくても焦らず、優先順位を決めて対応しよう。","example_ko":"시간이 부족해도 조급해하지 말고 우선순위를 정해 대응하자."},
+    {"key":"n1-1634","word":"根底","reading":"こんてい","meaning_ko":"근저; 밑바탕; 근본","meaning_ja":"考え・制度・問題などを成り立たせている最も基本的な部分。","part_of_speech":"普通名詞","example_ja":"この議論の根底には、働き方に対する価値観の違いがある。","example_ko":"이 논의의 밑바탕에는 일하는 방식에 대한 가치관 차이가 있다."},
+    {"key":"n1-1635","word":"麻酔","reading":"ますい","meaning_ko":"마취","meaning_ja":"手術・処置の際に薬を用いて痛みや感覚、場合によっては意識を一時的に失わせること。","part_of_speech":"サ変名詞","example_ja":"手術は全身麻酔で行われ、数時間後に意識が戻った。","example_ko":"수술은 전신마취로 진행되었고 몇 시간 뒤 의식이 돌아왔다."},
+    {"key":"n1-1636","word":"必修","reading":"ひっしゅう","meaning_ko":"필수 이수","meaning_ja":"学校などで、必ず履修・修得しなければならないこと。","part_of_speech":"普通名詞","example_ja":"この科目は一年生全員の必修となっている。","example_ko":"이 과목은 1학년 전원의 필수 과목으로 지정되어 있다."},
+    {"key":"n1-1637","word":"所々","reading":"しょしょ","meaning_ko":"여기저기; 곳곳","meaning_ja":"複数の場所。あちらこちら。","part_of_speech":"普通名詞","example_ja":"古い資料なので、所々に文字が読みにくい部分がある。","example_ko":"오래된 자료라 곳곳에 글자가 읽기 어려운 부분이 있다.","note":"『ところどころ』と読む形も非常に一般的。"},
+    {"key":"n1-1638","word":"降水","reading":"こうすい","meaning_ko":"강수; 비나 눈이 내림","meaning_ja":"雨・雪・みぞれなどが大気中から地上へ落ちること。","part_of_speech":"サ変名詞","example_ja":"この地域では夏に降水量が大きく増える。","example_ko":"이 지역에서는 여름에 강수량이 크게 늘어난다."},
+    {"key":"n1-1639","word":"怪獣","reading":"かいじゅう","meaning_ko":"괴수","meaning_ja":"空想上の、巨大で恐ろしい姿をした動物・生物。","part_of_speech":"普通名詞","example_ja":"その映画では巨大な怪獣が都市に現れる。","example_ko":"그 영화에서는 거대한 괴수가 도시에 나타난다."},
+    {"key":"n1-1640","word":"凶作","reading":"きょうさく","meaning_ko":"흉작","meaning_ja":"天候不順・災害などで農作物の収穫量が平年より著しく少ないこと。","part_of_speech":"普通名詞","example_ja":"長い干ばつの影響で今年は深刻な凶作となった。","example_ko":"긴 가뭄의 영향으로 올해는 심각한 흉작이 되었다."}
+  ]
+}
