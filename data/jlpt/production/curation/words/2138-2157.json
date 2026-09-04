@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2138-2157",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2138","word":"辛抱","reading":"しんぼう","meaning_ko":"인내; 참음; 견딤","meaning_ja":"苦しさ・つらさなどを我慢して耐えること。","part_of_speech":"サ変名詞","example_ja":"もう少し辛抱すれば状況は良くなる。","example_ko":"조금만 더 참으면 상황이 좋아질 것이다."},
+    {"key":"n1-2139","word":"見逃す","reading":"みのがす","meaning_ko":"놓치다; 간과하다; 눈감아 주다","meaning_ja":"見るべきものを見落とす。また、過失などを知りながら問題にせず許す。","part_of_speech":"五段動詞","example_ja":"重要な変化を見逃してはいけない。","example_ko":"중요한 변화를 놓쳐서는 안 된다."},
+    {"key":"n1-2140","word":"パンク","reading":"パンク","meaning_ko":"펑크; 타이어가 터짐; 펑크 록","meaning_ja":"タイヤなどに穴が開いて空気が抜けること。また、音楽のパンクを指す。","part_of_speech":"サ変名詞・普通名詞","example_ja":"高速道路で車のタイヤがパンクした。","example_ko":"고속도로에서 자동차 타이어가 펑크 났다."},
+    {"key":"n1-2141","word":"捲る","reading":"まくる","meaning_ko":"걷어 올리다; 젖히다; 마구 ~하다","meaning_ja":"袖などを巻き上げる。また、動詞の連用形に付き、その動作を激しく・続けて行うことを表す。","part_of_speech":"五段動詞・補助動詞","example_ja":"暑かったのでシャツの袖を捲った。","example_ko":"더워서 셔츠 소매를 걷어 올렸다.","note":"現代では『まくる』と仮名で書くことも多い。『走りまくる』など補助動詞用法も重要。"},
+    {"key":"n1-2142","word":"前もって","reading":"まえもって","meaning_ko":"미리; 사전에","meaning_ja":"あることが起こる前にあらかじめ。","part_of_speech":"副詞","example_ja":"参加できない場合は前もって連絡してください。","example_ko":"참가할 수 없는 경우에는 미리 연락해 주세요."},
+    {"key":"n1-2143","word":"竿","reading":"さお","meaning_ko":"장대; 낚싯대; 봉","meaning_ja":"細長い棒。特に釣り竿・物干し竿など。","part_of_speech":"普通名詞","example_ja":"洗濯物を竿に掛けて干した。","example_ko":"빨래를 장대에 걸어 말렸다."},
+    {"key":"n1-2144","word":"祝賀","reading":"しゅくが","meaning_ko":"축하; 경축","meaning_ja":"めでたい出来事を喜び祝うこと。","part_of_speech":"サ変名詞","example_ja":"創立百周年の祝賀行事が開かれた。","example_ko":"창립 100주년 축하 행사가 열렸다."},
+    {"key":"n1-2145","word":"字体","reading":"じたい","meaning_ko":"자체; 글자 모양; 서체","meaning_ja":"文字の形・書き方の型。","part_of_speech":"普通名詞","example_ja":"この漢字は古い字体で書かれている。","example_ko":"이 한자는 옛 글자체로 쓰여 있다.","note":"厳密には『字体』とフォント・書体は区別される場合がある。"},
+    {"key":"n1-2146","word":"賑わう","reading":"にぎわう","meaning_ko":"붐비다; 번성하다; 활기를 띠다","meaning_ja":"人が多く集まり活気に満ちる。また、商売などが繁盛する。","part_of_speech":"五段動詞","example_ja":"週末の商店街は観光客で賑わっている。","example_ko":"주말 상점가는 관광객으로 붐빈다."},
+    {"key":"n1-2147","word":"苛々","reading":"いらいら","meaning_ko":"초조함; 짜증; 안절부절못함","meaning_ja":"思いどおりにならず、落ち着かず腹立たしい気持ちになること。","part_of_speech":"副詞・サ変名詞","example_ja":"電車がなかなか来なくて苛々した。","example_ko":"전철이 좀처럼 오지 않아 짜증이 났다.","note":"現代では通常『いらいら』と仮名で書く。"},
+    {"key":"n1-2148","word":"膜","reading":"まく","meaning_ko":"막; 얇은 막","meaning_ja":"物の表面や内部を覆う薄い層・組織。","part_of_speech":"普通名詞","example_ja":"表面に薄い膜ができている。","example_ko":"표면에 얇은 막이 생겨 있다."},
+    {"key":"n1-2149","word":"取り巻く","reading":"とりまく","meaning_ko":"둘러싸다; 에워싸다; 주변을 둘러싼","meaning_ja":"あるものの周囲を囲む。また、その周辺に存在して影響を与える。","part_of_speech":"五段動詞","example_ja":"企業を取り巻く環境は大きく変化している。","example_ko":"기업을 둘러싼 환경은 크게 변화하고 있다."},
+    {"key":"n1-2150","word":"漁村","reading":"ぎょそん","meaning_ko":"어촌; 어촌 마을","meaning_ja":"漁業を主な生業とする人々が暮らす村。","part_of_speech":"普通名詞","example_ja":"その小さな漁村は新鮮な魚で有名だ。","example_ko":"그 작은 어촌은 신선한 생선으로 유명하다."},
+    {"key":"n1-2151","word":"阻む","reading":"はばむ","meaning_ko":"가로막다; 방해하다; 저지하다","meaning_ja":"進行・実現などを妨げて止める。","part_of_speech":"五段動詞","example_ja":"大雪が救助隊の進行を阻んだ。","example_ko":"폭설이 구조대의 진행을 가로막았다."},
+    {"key":"n1-2152","word":"兎角","reading":"とかく","meaning_ko":"이래저래; 아무튼; 자칫 ~하기 쉽다","meaning_ja":"あれこれ。何かにつけて。また、ある傾向になりやすいさま。","part_of_speech":"副詞","example_ja":"忙しいと、とかく確認を忘れがちだ。","example_ko":"바쁘면 자칫 확인을 잊기 쉽다.","note":"候補の品詞『サ変名詞』は不適切。現代では通常『とかく』と仮名で書く。"},
+    {"key":"n1-2153","word":"肺","reading":"はい","meaning_ko":"폐; 허파","meaning_ja":"胸部にあり、呼吸を行う器官。","part_of_speech":"普通名詞","example_ja":"肺は呼吸に重要な役割を果たす。","example_ko":"폐는 호흡에 중요한 역할을 한다."},
+    {"key":"n1-2154","word":"甚だ","reading":"はなはだ","meaning_ko":"매우; 몹시; 심히","meaning_ja":"程度が普通を大きく超えているさま。非常に。","part_of_speech":"副詞","example_ja":"その説明は甚だ不十分だ。","example_ko":"그 설명은 매우 불충분하다.","note":"やや硬い表現。"},
+    {"key":"n1-2155","word":"姓名","reading":"せいめい","meaning_ko":"성명; 성과 이름","meaning_ja":"姓と名。氏名。","part_of_speech":"普通名詞","example_ja":"申込書に姓名を記入してください。","example_ko":"신청서에 성명을 기입해 주세요."},
+    {"key":"n1-2156","word":"追い出す","reading":"おいだす","meaning_ko":"쫓아내다; 몰아내다; 축출하다","meaning_ja":"人・動物などをその場所・集団から強制的に外へ出す。","part_of_speech":"五段動詞","example_ja":"店員は迷惑行為を続ける客を店から追い出した。","example_ko":"점원은 민폐 행동을 계속하는 손님을 가게에서 내쫓았다."},
+    {"key":"n1-2157","word":"折衷","reading":"せっちゅう","meaning_ko":"절충; 절충안","meaning_ja":"異なる意見・方式などから良い部分を取り入れ、調和させること。","part_of_speech":"サ変名詞","example_ja":"双方の案を折衷して新しい計画を作った。","example_ko":"양쪽 안을 절충해 새로운 계획을 만들었다."}
+  ]
+}
