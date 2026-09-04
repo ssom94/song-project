@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1221-1240",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Honorific/archaic senses and alternate readings are narrowed or noted for modern JLPT study.",
+  "words": [
+    {"key":"n1-1221","word":"旦那","reading":"だんな","meaning_ko":"남편; 주인어른","meaning_ja":"自分・他人の夫をややくだけていう語。また、古くは主人・雇い主などを敬っていう語。","part_of_speech":"普通名詞","example_ja":"彼女は旦那さんと相談してから参加するか決めるそうだ。","example_ko":"그녀는 남편과 상의한 뒤 참가할지 결정한다고 한다."},
+    {"key":"n1-1222","word":"紳士","reading":"しんし","meaning_ko":"신사; 교양과 예의를 갖춘 남성","meaning_ja":"礼儀・教養を備えた上品な男性。また、男性を丁寧に指す語。","part_of_speech":"普通名詞","example_ja":"彼は誰に対しても丁寧に接する紳士的な人物だ。","example_ko":"그는 누구에게나 정중하게 대하는 신사적인 인물이다."},
+    {"key":"n1-1223","word":"一筋","reading":"ひとすじ","meaning_ko":"한길; 오직 한 가지; 한 줄기","meaning_ja":"一本の細い線・道。また、一つのことだけに心を向けて続けること。","part_of_speech":"普通名詞","example_ja":"彼は三十年間、研究一筋でこの分野に取り組んできた。","example_ko":"그는 30년 동안 연구 한길만 걸으며 이 분야에 힘써 왔다."},
+    {"key":"n1-1224","word":"威力","reading":"いりょく","meaning_ko":"위력; 강한 효과","meaning_ja":"相手・物事を圧倒するほどの強い力・効果。","part_of_speech":"普通名詞","example_ja":"新しい分析手法は大量データを扱う場面で特に威力を発揮する。","example_ko":"새 분석 기법은 대량 데이터를 다루는 상황에서 특히 위력을 발휘한다."},
+    {"key":"n1-1225","word":"子息","reading":"しそく","meaning_ko":"아드님; 아들","meaning_ja":"他人の息子を敬っていう語。","part_of_speech":"普通名詞","example_ja":"社長のご子息も同じ業界で働いているそうだ。","example_ko":"사장님의 아드님도 같은 업계에서 일하고 있다고 한다.","note":"現代語の『子息』は基本的に『息子』を指す。"},
+    {"key":"n1-1226","word":"込める","reading":"こめる","meaning_ko":"담다; 넣다; 힘을 주다","meaning_ja":"気持ち・意味・力などを中に含ませる。また、弾・物などを内部に入れる。","part_of_speech":"一段動詞","example_ja":"感謝の気持ちを込めて、支えてくれた人たちに手紙を書いた。","example_ko":"감사의 마음을 담아 도와준 사람들에게 편지를 썼다."},
+    {"key":"n1-1227","word":"誠","reading":"まこと","meaning_ko":"진심; 성의; 진실","meaning_ja":"偽りのない真実の心。まごころ。","part_of_speech":"普通名詞","example_ja":"誠を尽くして説明すれば、相手にもこちらの考えが伝わるだろう。","example_ko":"진심을 다해 설명하면 상대에게도 이쪽의 생각이 전해질 것이다."},
+    {"key":"n1-1228","word":"完璧","reading":"かんぺき","meaning_ko":"완벽","meaning_ja":"欠点・不足がまったくなく、完全であること。","part_of_speech":"な形容詞","example_ja":"最初から完璧を求めるより、改善を重ねる方が現実的だ。","example_ko":"처음부터 완벽을 추구하기보다 개선을 거듭하는 편이 현실적이다."},
+    {"key":"n1-1229","word":"沿う","reading":"そう","meaning_ko":"따르다; ~을 따라가다","meaning_ja":"線・道・川などに従って進む。また、方針・希望・目的などに合うようにする。","part_of_speech":"五段動詞","example_ja":"利用者の要望に沿う形で画面構成を見直した。","example_ko":"사용자의 요구에 맞는 형태로 화면 구성을 재검토했다."},
+    {"key":"n1-1230","word":"家来","reading":"けらい","meaning_ko":"가신; 부하","meaning_ja":"昔、主君に仕えて命令に従った武士・従者。","part_of_speech":"普通名詞","example_ja":"物語では忠実な家来が主君を危機から救う。","example_ko":"이야기에서는 충성스러운 가신이 주군을 위기에서 구한다."},
+    {"key":"n1-1231","word":"優美","reading":"ゆうび","meaning_ko":"우아함; 아름답고 품위 있음","meaning_ja":"上品で美しく、落ち着いた趣があるさま。","part_of_speech":"な形容詞","example_ja":"その建物は曲線を生かした優美なデザインで知られている。","example_ko":"그 건물은 곡선을 살린 우아한 디자인으로 알려져 있다."},
+    {"key":"n1-1232","word":"重複","reading":"じゅうふく","meaning_ko":"중복","meaning_ja":"同じ内容・事柄などが二重以上に重なること。","part_of_speech":"サ変名詞","example_ja":"登録データに重複がないか、投入前にチェックする。","example_ko":"등록 데이터에 중복이 없는지 투입 전에 확인한다.","note":"『ちょうふく』とも読む。現代では両方使われる。"},
+    {"key":"n1-1233","word":"格差","reading":"かくさ","meaning_ko":"격차","meaning_ja":"所得・能力・待遇・地域などの間にある大きな差。","part_of_speech":"普通名詞","example_ja":"地域による教育環境の格差を縮める対策が求められている。","example_ko":"지역에 따른 교육 환경 격차를 줄이는 대책이 요구되고 있다."},
+    {"key":"n1-1234","word":"短縮","reading":"たんしゅく","meaning_ko":"단축","meaning_ja":"時間・距離・期間などを短くすること。","part_of_speech":"サ変名詞","example_ja":"処理を自動化したことで作業時間を大幅に短縮できた。","example_ko":"처리를 자동화해 작업 시간을 크게 단축할 수 있었다."},
+    {"key":"n1-1235","word":"守備","reading":"しゅび","meaning_ko":"수비; 방어","meaning_ja":"相手の攻撃を防いで守ること。特にスポーツで自陣・守る側の働きをいう。","part_of_speech":"サ変名詞","example_ja":"このチームは攻撃力だけでなく守備も安定している。","example_ko":"이 팀은 공격력뿐 아니라 수비도 안정적이다."},
+    {"key":"n1-1236","word":"観衆","reading":"かんしゅう","meaning_ko":"관중; 관객","meaning_ja":"競技・公演などを見るために集まった大勢の人々。","part_of_speech":"普通名詞","example_ja":"試合終了の瞬間、観衆から大きな歓声が上がった。","example_ko":"경기가 끝나는 순간 관중에게서 큰 환호성이 터졌다."},
+    {"key":"n1-1237","word":"辿る","reading":"たどる","meaning_ko":"더듬어 가다; 따라가다; 추적하다","meaning_ja":"道・経過・記憶・歴史などを順に追って進む。","part_of_speech":"五段動詞","example_ja":"記録を辿ると、問題は数か月前から少しずつ発生していた。","example_ko":"기록을 따라가 보면 문제는 몇 달 전부터 조금씩 발생하고 있었다."},
+    {"key":"n1-1238","word":"悩み","reading":"なやみ","meaning_ko":"고민; 걱정거리","meaning_ja":"解決できず心を苦しめている問題・心配。","part_of_speech":"普通名詞","example_ja":"一人で悩みを抱え込まず、早めに周囲へ相談した方がいい。","example_ko":"혼자 고민을 끌어안지 말고 일찍 주변에 상담하는 편이 좋다."},
+    {"key":"n1-1239","word":"首脳","reading":"しゅのう","meaning_ko":"수뇌; 최고 지도자","meaning_ja":"国・政府・組織などの中心となる最高幹부・指導者。","part_of_speech":"普通名詞","example_ja":"両国の首脳は会談で経済協力について意見を交わした。","example_ko":"양국 정상은 회담에서 경제 협력에 대해 의견을 나눴다."},
+    {"key":"n1-1240","word":"新興","reading":"しんこう","meaning_ko":"신흥; 새롭게 생겨 세력을 얻음","meaning_ja":"新しい勢力・企業・産業・国などが現れ、発展してくること。","part_of_speech":"普通名詞","example_ja":"新興企業が新しいサービスで市場に参入している。","example_ko":"신흥 기업이 새로운 서비스로 시장에 진입하고 있다."}
+  ]
+}
