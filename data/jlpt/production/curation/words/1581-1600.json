@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1581-1600",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern JLPT usage.",
+  "words": [
+    {"key":"n1-1581","word":"脚色","reading":"きゃくしょく","meaning_ko":"각색; 윤색","meaning_ja":"小説・事実などを舞台・映画向けに作り変えること。また、事実に手を加えて話を面白く見せること。","part_of_speech":"サ変名詞","example_ja":"実話をもとにした作品だが、物語には一部脚色が加えられている。","example_ko":"실화를 바탕으로 한 작품이지만 이야기에는 일부 각색이 더해져 있다."},
+    {"key":"n1-1582","word":"刺繍","reading":"ししゅう","meaning_ko":"자수","meaning_ja":"布に色糸などを縫い込んで、模様・文字・絵を表すこと。また、その作品。","part_of_speech":"サ変名詞","example_ja":"祖母は布に花の模様を刺繍して小さな袋を作った。","example_ko":"할머니는 천에 꽃무늬를 자수해 작은 주머니를 만들었다."},
+    {"key":"n1-1583","word":"出鱈目","reading":"でたらめ","meaning_ko":"엉터리; 터무니없음","meaning_ja":"根拠・筋道がなく、いい加減であるさま。また、そのような言動。","part_of_speech":"な形容詞","example_ja":"確認せずに出鱈目な数字を報告してはいけない。","example_ko":"확인도 하지 않고 엉터리 숫자를 보고해서는 안 된다.","note":"現代では通常『でたらめ』と仮名で書く。"},
+    {"key":"n1-1584","word":"固体","reading":"こたい","meaning_ko":"고체","meaning_ja":"一定の形と体積を保つ物質の状態。液体・気体と対になる。","part_of_speech":"普通名詞","example_ja":"水は温度によって固体・液体・気体の状態に変化する。","example_ko":"물은 온도에 따라 고체·액체·기체 상태로 변한다."},
+    {"key":"n1-1585","word":"高尚","reading":"こうしょう","meaning_ko":"고상함; 수준이 높음","meaning_ja":"思想・趣味・内容などが上品で、精神的・知的な水準が高いさま。","part_of_speech":"な形容詞","example_ja":"高尚な理想を語るだけでなく、実行可能な方法も示す必要がある。","example_ko":"고상한 이상을 말하는 것뿐 아니라 실행 가능한 방법도 제시할 필요가 있다."},
+    {"key":"n1-1586","word":"お手上げ","reading":"おてあげ","meaning_ko":"속수무책; 두 손 듦","meaning_ja":"どうしてよいか分からず、もはや自分では対処できない状態。","part_of_speech":"普通名詞","example_ja":"原因が全く再現できず、現場だけではお手上げの状態だった。","example_ko":"원인이 전혀 재현되지 않아 현장만으로는 속수무책인 상태였다."},
+    {"key":"n1-1587","word":"火花","reading":"ひばな","meaning_ko":"불꽃; 불티","meaning_ja":"燃えている物や金属の衝突などから飛び散る小さな光。また比喩的に、激しい対立を表す。","part_of_speech":"普通名詞","example_ja":"金属を切断すると、工具の先から火花が飛び散った。","example_ko":"금속을 절단하자 공구 끝에서 불꽃이 튀었다."},
+    {"key":"n1-1588","word":"噴出","reading":"ふんしゅつ","meaning_ko":"분출; 솟구쳐 나옴","meaning_ja":"液体・気体などが強い勢いで外へ噴き出すこと。","part_of_speech":"サ変名詞","example_ja":"配管が破損し、内部の蒸気が一気に噴出した。","example_ko":"배관이 파손되어 내부 증기가 한꺼번에 분출했다."},
+    {"key":"n1-1589","word":"捕獲","reading":"ほかく","meaning_ko":"포획; 붙잡음","meaning_ja":"逃げる動物・人物などを捕らえること。","part_of_speech":"サ変名詞","example_ja":"市は住宅地に現れた野生動物の捕獲を専門業者に依頼した。","example_ko":"시는 주택가에 나타난 야생동물 포획을 전문 업체에 의뢰했다."},
+    {"key":"n1-1590","word":"私用","reading":"しよう","meaning_ko":"사적인 용무; 개인 용도","meaning_ja":"仕事・公務ではない、個人的な用事や用途。","part_of_speech":"普通名詞","example_ja":"社用車を私用で使うことは禁止されている。","example_ko":"회사 차량을 사적인 용도로 사용하는 것은 금지되어 있다."},
+    {"key":"n1-1591","word":"寄贈","reading":"きそう","meaning_ko":"기증; 증정","meaning_ja":"学校・図書館・団体などに、物品を無償で贈ること。","part_of_speech":"サ変名詞","example_ja":"卒業生から大学図書館へ貴重な資料が寄贈された。","example_ko":"졸업생이 대학 도서관에 귀중한 자료를 기증했다."},
+    {"key":"n1-1592","word":"新婚","reading":"しんこん","meaning_ko":"신혼","meaning_ja":"結婚して間もないこと。また、その時期。","part_of_speech":"普通名詞","example_ja":"二人は新婚生活を始めるため、新しい部屋を借りた。","example_ko":"두 사람은 신혼생활을 시작하기 위해 새 집을 빌렸다."},
+    {"key":"n1-1593","word":"出題","reading":"しゅつだい","meaning_ko":"출제","meaning_ja":"試験・クイズなどで問題を作って提示すること。","part_of_speech":"サ変名詞","example_ja":"今年の試験では実務に近い判断問題が多く出題された。","example_ko":"올해 시험에서는 실무에 가까운 판단 문제가 많이 출제되었다."},
+    {"key":"n1-1594","word":"林業","reading":"りんぎょう","meaning_ko":"임업","meaning_ja":"森林を育成・管理し、木材などの資源を生産・利用する産業。","part_of_speech":"普通名詞","example_ja":"担い手不足は地域の林業が抱える大きな課題だ。","example_ko":"인력 부족은 지역 임업이 안고 있는 큰 과제다."},
+    {"key":"n1-1595","word":"趣","reading":"おもむき","meaning_ko":"정취; 운치; 특유의 느낌","meaning_ja":"物・場所・作品などから感じられる独特の味わい・雰囲気。","part_of_speech":"普通名詞","example_ja":"古い町並みには現代の都市にはない趣がある。","example_ko":"오래된 거리에는 현대 도시에는 없는 정취가 있다."},
+    {"key":"n1-1596","word":"志す","reading":"こころざす","meaning_ko":"뜻하다; 목표로 삼다","meaning_ja":"将来ある職業・目標を実現しようと心に決める。","part_of_speech":"五段動詞","example_ja":"高校時代の経験をきっかけに、医師を志すようになった。","example_ko":"고등학교 시절의 경험을 계기로 의사를 목표로 하게 되었다."},
+    {"key":"n1-1597","word":"海流","reading":"かいりゅう","meaning_ko":"해류","meaning_ja":"海水が一定の方向・速度で大規模に流れる現象。","part_of_speech":"普通名詞","example_ja":"海流の変化は魚の分布や気候にも影響を与える。","example_ko":"해류 변화는 물고기 분포와 기후에도 영향을 준다."},
+    {"key":"n1-1598","word":"抑圧","reading":"よくあつ","meaning_ko":"억압","meaning_ja":"権力・圧力によって人の自由な行動・感情・意見などを強く押さえつけること。","part_of_speech":"サ変名詞","example_ja":"表現の自由を抑圧する制度には強い批判が集まった。","example_ko":"표현의 자유를 억압하는 제도에 강한 비판이 모였다."},
+    {"key":"n1-1599","word":"一様","reading":"いちよう","meaning_ko":"한결같음; 동일함; 획일적임","meaning_ja":"全部が同じような状態・様子で、違いがほとんどないさま。","part_of_speech":"な形容詞","example_ja":"利用者の反応は一様ではなく、評価が大きく分かれた。","example_ko":"이용자 반응은 한결같지 않았고 평가가 크게 갈렸다."},
+    {"key":"n1-1600","word":"鉛","reading":"なまり","meaning_ko":"납","meaning_ja":"重くて柔らかい灰色の金属元素。電池・遮蔽材などに使われる。","part_of_speech":"普通名詞","example_ja":"古い塗料には鉛が含まれている場合があるため注意が必要だ。","example_ko":"오래된 페인트에는 납이 포함된 경우가 있어 주의가 필요하다."}
+  ]
+}
