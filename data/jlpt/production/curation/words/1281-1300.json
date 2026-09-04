@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "1281-1300",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad source senses are narrowed to common modern JLPT usage; unusual readings are explicitly noted.",
+  "words": [
+    {"key":"n1-1281","word":"引き上げる","reading":"ひきあげる","meaning_ko":"끌어올리다; 인상하다; 철수하다","meaning_ja":"物を上へ引き上げる。また、価格・水準・地位などを高くする。文脈によってはその場から引き払う意味にも用いる。","part_of_speech":"一段動詞","example_ja":"会社は来年度から基本給を段階的に引き上げる方針だ。","example_ko":"회사는 내년부터 기본급을 단계적으로 인상할 방침이다."},
+    {"key":"n1-1282","word":"追い込む","reading":"おいこむ","meaning_ko":"몰아넣다; 궁지로 몰다","meaning_ja":"人・動物などをある場所へ追って入れる。また、相手を逃げ道のない困難な状況に陥らせる。","part_of_speech":"五段動詞","example_ja":"過度な納期短縮は現場を厳しい状況に追い込むおそれがある。","example_ko":"지나친 납기 단축은 현장을 어려운 상황으로 몰아넣을 우려가 있다."},
+    {"key":"n1-1283","word":"赴く","reading":"おもむく","meaning_ko":"가다; 향하다; 부임하다","meaning_ja":"ある場所・任務・方向へ向かって行く。","part_of_speech":"五段動詞","example_ja":"担当者は現地調査のため被災地域へ赴いた。","example_ko":"담당자는 현지 조사를 위해 피해 지역으로 향했다."},
+    {"key":"n1-1284","word":"恥","reading":"はじ","meaning_ko":"수치; 부끄러움","meaning_ja":"自分の欠点・失敗・不名誉な行為などによって感じる強い羞恥。","part_of_speech":"普通名詞","example_ja":"失敗そのものを恥と考えるより、そこから学ぶ姿勢が大切だ。","example_ko":"실패 자체를 수치로 여기기보다 거기서 배우는 자세가 중요하다."},
+    {"key":"n1-1285","word":"救援","reading":"きゅうえん","meaning_ko":"구원; 구조; 구호 지원","meaning_ja":"災害・事故・戦争などで困難な状況にある人々を助け、必要な物資・人員などを送ること。","part_of_speech":"サ変名詞","example_ja":"被災地には各地から救援物資が届けられた。","example_ko":"재해 지역에는 각지에서 구호 물자가 전달되었다."},
+    {"key":"n1-1286","word":"法廷","reading":"ほうてい","meaning_ko":"법정","meaning_ja":"裁判官・当事者などが集まり、裁判の審理を行う場所。","part_of_speech":"普通名詞","example_ja":"証人は法廷で当時の状況を詳しく説明した。","example_ko":"증인은 법정에서 당시 상황을 자세히 설명했다."},
+    {"key":"n1-1287","word":"蝶","reading":"ちょう","meaning_ko":"나비","meaning_ja":"二対の大きな羽を持ち、花の蜜などを吸う昆虫。","part_of_speech":"普通名詞","example_ja":"春になると庭の花に多くの蝶が集まる。","example_ko":"봄이 되면 정원의 꽃에 많은 나비가 모인다."},
+    {"key":"n1-1288","word":"消去","reading":"しょうきょ","meaning_ko":"삭제; 소거","meaning_ja":"文字・記録・データ・痕跡などを消してなくすこと。","part_of_speech":"サ変名詞","example_ja":"誤って重要なデータを消去しないよう確認画面を設けた。","example_ko":"실수로 중요한 데이터를 삭제하지 않도록 확인 화면을 마련했다."},
+    {"key":"n1-1289","word":"沿岸","reading":"えんがん","meaning_ko":"연안; 해안가","meaning_ja":"海・湖・川などの岸に沿った地域。","part_of_speech":"普通名詞","example_ja":"台風の接近に伴い、沿岸地域では高波への警戒が続いている。","example_ko":"태풍 접근에 따라 연안 지역에서는 높은 파도에 대한 경계가 이어지고 있다."},
+    {"key":"n1-1290","word":"休戦","reading":"きゅうせん","meaning_ko":"휴전","meaning_ja":"交戦している双方が合意などによって戦闘を一時中止すること。","part_of_speech":"サ変名詞","example_ja":"双方は人道支援のため一時休戦に合意した。","example_ko":"양측은 인도적 지원을 위해 일시 휴전에 합의했다."},
+    {"key":"n1-1291","word":"自首","reading":"じしゅ","meaning_ko":"자수","meaning_ja":"犯罪を犯した者が、捜査機関に自ら出向いて罪を申し出ること。","part_of_speech":"サ変名詞","example_ja":"容疑者は事件の翌日に警察へ自首した。","example_ko":"용의자는 사건 다음 날 경찰에 자수했다."},
+    {"key":"n1-1292","word":"申告","reading":"しんこく","meaning_ko":"신고; 신고함","meaning_ja":"行政機関などに事実・所得・数量などを正式に知らせること。","part_of_speech":"サ変名詞","example_ja":"所得税は期限内に正しく申告する必要がある。","example_ko":"소득세는 기한 내에 정확히 신고할 필요가 있다."},
+    {"key":"n1-1293","word":"一心","reading":"いっしん","meaning_ko":"일심; 한마음; 오직 한 가지에 집중함","meaning_ja":"一つのことだけに心を集中すること。また、心を一つにすること。","part_of_speech":"普通名詞","example_ja":"彼は目標達成だけを考え、一心に練習を続けた。","example_ko":"그는 목표 달성만 생각하며 한마음으로 연습을 계속했다."},
+    {"key":"n1-1294","word":"没収","reading":"ぼっしゅう","meaning_ko":"몰수; 압수","meaning_ja":"法律・規則などに基づき、財産・物品などを強制的に取り上げること。","part_of_speech":"サ変名詞","example_ja":"不正に得た資産は裁判所の命令で没収された。","example_ko":"부정하게 얻은 자산은 법원 명령으로 몰수되었다."},
+    {"key":"n1-1295","word":"返答","reading":"へんとう","meaning_ko":"대답; 회답","meaning_ja":"質問・依頼・呼びかけなどに対して答えること。また、その答え。","part_of_speech":"サ変名詞","example_ja":"先方から返答がないため、明日もう一度連絡する。","example_ko":"상대방에게서 답변이 없어 내일 다시 연락한다."},
+    {"key":"n1-1296","word":"運送","reading":"うんそう","meaning_ko":"운송; 운반","meaning_ja":"人・荷物・商品などを車両・船・航空機などで目的地まで運ぶこと。","part_of_speech":"サ変名詞","example_ja":"大型機器の運送には専門業者を利用することになった。","example_ko":"대형 장비 운송에는 전문 업체를 이용하기로 했다."},
+    {"key":"n1-1297","word":"花粉","reading":"かふん","meaning_ko":"꽃가루","meaning_ja":"花の雄しべで作られ、受粉に関わる細かな粉状のもの。","part_of_speech":"普通名詞","example_ja":"春は花粉が多く飛ぶため、マスクを着ける人が増える。","example_ko":"봄에는 꽃가루가 많이 날려 마스크를 쓰는 사람이 늘어난다."},
+    {"key":"n1-1298","word":"質疑","reading":"しつぎ","meaning_ko":"질의; 질문과 답변","meaning_ja":"疑問点について質問すること。特に会議・講演などで行う質問と応答。","part_of_speech":"サ変名詞","example_ja":"説明の後に十分な質疑の時間を設けた。","example_ko":"설명 후 충분한 질의 시간을 마련했다."},
+    {"key":"n1-1299","word":"繁殖","reading":"はんしょく","meaning_ko":"번식","meaning_ja":"生物が子孫を増やし、個体数を増加させること。","part_of_speech":"サ変名詞","example_ja":"外来種が急速に繁殖し、生態系への影響が懸念されている。","example_ko":"외래종이 빠르게 번식해 생태계에 미칠 영향이 우려되고 있다."},
+    {"key":"n1-1300","word":"吐く","reading":"つく","meaning_ko":"(거짓말·한숨 등을) 내뱉다; 하다","meaning_ja":"『嘘をつく』『ため息をつく』など、一定の表現で口から言葉・息などを出す意味を表す。","part_of_speech":"五段動詞","example_ja":"その場を逃れるために嘘を吐くのは、問題をさらに大きくする。","example_ko":"그 자리를 모면하려고 거짓말을 하는 것은 문제를 더 키운다.","note":"『吐く』は通常『はく』とも読む。『つく』は主に『嘘を吐く』など特定の表現で用いられる。"}
+  ]
+}
