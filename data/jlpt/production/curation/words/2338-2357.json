@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2338-2357",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2338","word":"見晴らし","reading":"みはらし","meaning_ko":"전망; 조망; 멀리 내다보이는 경치","meaning_ja":"遠くまで広く見渡せること。また、その眺め。","part_of_speech":"普通名詞","example_ja":"山頂からの見晴らしは素晴らしかった。","example_ko":"산 정상에서 바라본 전망은 훌륭했다."},
+    {"key":"n1-2339","word":"怯える","reading":"おびえる","meaning_ko":"겁먹다; 두려워하다; 무서워 떨다","meaning_ja":"恐怖を感じて怖がる。恐ろしさのために不安になる。","part_of_speech":"一段動詞","example_ja":"子どもは大きな雷の音に怯えていた。","example_ko":"아이는 큰 천둥소리에 겁먹고 있었다."},
+    {"key":"n1-2340","word":"窒息","reading":"ちっそく","meaning_ko":"질식","meaning_ja":"気道がふさがる、酸素が不足するなどして呼吸できなくなること。","part_of_speech":"サ変名詞","example_ja":"煙を大量に吸い込むと窒息する危険がある。","example_ko":"연기를 대량으로 들이마시면 질식할 위험이 있다."},
+    {"key":"n1-2341","word":"夥しい","reading":"おびただしい","meaning_ko":"엄청나게 많다; 수없이 많다; 막대하다","meaning_ja":"数量・程度が非常に多い、または甚だしい。","part_of_speech":"い形容詞","example_ja":"災害現場には夥しい量の土砂が流れ込んでいた。","example_ko":"재해 현장에는 엄청난 양의 토사가 밀려들어 와 있었다."},
+    {"key":"n1-2342","word":"和やか","reading":"なごやか","meaning_ko":"화기애애하다; 온화하다; 부드럽고 평온하다","meaning_ja":"雰囲気・表情などが穏やかで、打ち解けているさま。","part_of_speech":"な形容詞","example_ja":"会食は終始和やかな雰囲気で進んだ。","example_ko":"회식은 처음부터 끝까지 화기애애한 분위기로 진행됐다."},
+    {"key":"n1-2343","word":"生やす","reading":"はやす","meaning_ko":"기르다; 자라게 하다","meaning_ja":"髪・ひげ・草木などを生えたまま伸ばす、または生えるようにする。","part_of_speech":"五段動詞","example_ja":"彼は最近、あごひげを生やしている。","example_ko":"그는 최근 턱수염을 기르고 있다."},
+    {"key":"n1-2344","word":"ポンプ","reading":"ポンプ","meaning_ko":"펌프; 양수기","meaning_ja":"圧力を利用して液体・気体を吸い上げたり送り出したりする装置。","part_of_speech":"普通名詞","example_ja":"ポンプを使って地下から水をくみ上げる。","example_ko":"펌프를 사용해 지하에서 물을 퍼 올린다."},
+    {"key":"n1-2345","word":"聴講","reading":"ちょうこう","meaning_ko":"청강; 강의를 들음","meaning_ja":"講義・講演などを聴くこと。特に、正規の履修者でなく授業を聴くこと。","part_of_speech":"サ変名詞","example_ja":"興味のある教授の講義を聴講することにした。","example_ko":"관심 있는 교수의 강의를 청강하기로 했다."},
+    {"key":"n1-2346","word":"税務署","reading":"ぜいむしょ","meaning_ko":"세무서","meaning_ja":"国税の申告・納付・徴収などを担当する行政機関。","part_of_speech":"普通名詞","example_ja":"確定申告について税務署に相談した。","example_ko":"확정신고에 관해 세무서에 상담했다."},
+    {"key":"n1-2347","word":"がっちり","reading":"がっちり","meaning_ko":"튼튼하게; 단단히; 야무지게; 체격이 다부지게","meaning_ja":"体格・構造などが丈夫でしっかりしているさま。また、物をしっかり組み合わせるさま。","part_of_speech":"副詞","example_ja":"彼は肩幅が広く、がっちりした体格をしている。","example_ko":"그는 어깨가 넓고 체격이 다부지다.","note":"候補品詞『サ変名詞』は不適切なため副詞として整理。JMdictには『抜け目なく計算高い』用法もある。"},
+    {"key":"n1-2348","word":"ヤング","reading":"ヤング","meaning_ko":"젊은; 젊은이; 청년층","meaning_ja":"若いこと、若者を表す外来語。","part_of_speech":"普通名詞","example_ja":"この商品は主にヤング層を対象にしている。","example_ko":"이 상품은 주로 젊은 층을 대상으로 한다.","note":"現在の日常語では単独の『ヤング』はやや古風で、『若者』『若年層』なども一般的。"},
+    {"key":"n1-2349","word":"卑しい","reading":"いやしい","meaning_ko":"천하다; 상스럽다; 비열하다; 탐욕스럽다","meaning_ja":"品性・言動などが下品で、品位に欠ける。また、欲深く浅ましい。","part_of_speech":"い形容詞","example_ja":"人の弱みにつけ込むような卑しい行為はやめるべきだ。","example_ko":"남의 약점을 이용하는 비열한 행동은 그만두어야 한다.","note":"歴史的には身分が低い意味もあるが、現代では品性・態度への評価として使われることが多い。"},
+    {"key":"n1-2350","word":"チェンジ","reading":"チェンジ","meaning_ko":"체인지; 변경; 교체","meaning_ja":"変えること、取り替えること。交代。","part_of_speech":"サ変名詞","example_ja":"雰囲気を変えるために髪型をチェンジした。","example_ko":"분위기를 바꾸기 위해 헤어스타일을 바꿨다."},
+    {"key":"n1-2351","word":"投げ出す","reading":"なげだす","meaning_ko":"내던지다; 팽개치다; 중도에 포기하다; 희생하다","meaning_ja":"物を放り出す。また、仕事・責任などを途中で放棄する。さらに、命・財産などを惜しまず差し出す。","part_of_speech":"五段動詞","example_ja":"難しいからといって、途中で仕事を投げ出してはいけない。","example_ko":"어렵다고 해서 도중에 일을 팽개쳐서는 안 된다."},
+    {"key":"n1-2352","word":"綴じる","reading":"とじる","meaning_ko":"철하다; 묶어 제본하다; 파일로 묶다","meaning_ja":"複数の紙などを糸・針金・金具などで一つにまとめる。","part_of_speech":"一段動詞","example_ja":"会議資料を順番に並べてファイルに綴じた。","example_ko":"회의 자료를 순서대로 정리해 파일에 철했다."},
+    {"key":"n1-2353","word":"放射能","reading":"ほうしゃのう","meaning_ko":"방사능","meaning_ja":"放射性物質が放射線を出す性質・能力。","part_of_speech":"普通名詞","example_ja":"事故後、周辺地域の放射能が継続的に測定された。","example_ko":"사고 후 주변 지역의 방사능이 지속적으로 측정됐다.","note":"候補定義の『人体に有毒な電子波』は科学的に不正確なため、radioactivity の標準的な意味へ修正。"},
+    {"key":"n1-2354","word":"混血","reading":"こんけつ","meaning_ko":"혼혈; 서로 다른 계통의 혈통이 섞임","meaning_ja":"異なる人種・民族的背景などを持つ親の血統が混じること。また、その出自を指す語。","part_of_speech":"サ変名詞","example_ja":"古い資料では『混血』という表現が使われていることがある。","example_ko":"오래된 자료에서는 '혼혈'이라는 표현이 사용되는 경우가 있다.","note":"人を分類する語としては文脈によって古風・不適切に響く場合があり、現在は具体的な背景を説明する表現が望まれることも多い。"},
+    {"key":"n1-2355","word":"怠い","reading":"だるい","meaning_ko":"몸이 나른하다; 몸이 무겁다; 기운이 없다","meaning_ja":"体が重く、力が入らず、動くのがおっくうに感じる。","part_of_speech":"い形容詞","example_ja":"寝不足のせいか、朝から体が怠い。","example_ko":"잠이 부족해서인지 아침부터 몸이 나른하다.","note":"現代では通常『だるい』と仮名で書く。"},
+    {"key":"n1-2356","word":"出入り口","reading":"でいりぐち","meaning_ko":"출입구; 출입문","meaning_ja":"建物・場所などに出入りするための口・通路。","part_of_speech":"普通名詞","example_ja":"非常時には出入り口の前に荷物を置かないでください。","example_ko":"비상시를 위해 출입구 앞에 짐을 두지 마세요."},
+    {"key":"n1-2357","word":"厳か","reading":"おごそか","meaning_ko":"엄숙하다; 장엄하다; 위엄 있다","meaning_ja":"重々しく、威厳があり、身が引き締まるような雰囲気であるさま。","part_of_speech":"な形容詞","example_ja":"式典は厳かな雰囲気の中で行われた。","example_ko":"식전은 엄숙한 분위기 속에서 진행됐다."}
+  ]
+}
