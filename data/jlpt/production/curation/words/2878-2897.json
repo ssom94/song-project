@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2878-2897",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2878","word":"ご馳走さま","reading":"ごちそうさま","meaning_ko":"잘 먹었습니다","meaning_ja":"食事を終えた後に感謝を表す挨拶。","part_of_speech":"感動詞","example_ja":"ご馳走さまでした。とてもおいしかったです。","example_ko":"잘 먹었습니다. 정말 맛있었습니다."},
+    {"key":"n1-2879","word":"御免ください","reading":"ごめんください","meaning_ko":"계십니까; 실례합니다","meaning_ja":"他人の家を訪ねたときなどに、相手を呼ぶ挨拶。","part_of_speech":"定型表現","example_ja":"ごめんください。田中さんはいらっしゃいますか。","example_ko":"계십니까? 다나카 씨 계신가요?","note":"訪問時の呼びかけ。"},
+    {"key":"n1-2880","word":"篭る","reading":"こもる","meaning_ko":"틀어박히다; 차다; 담기다","meaning_ja":"中に入ったまま外へ出ない。また、空気・声・感情などが内部にこもる。","part_of_speech":"五段動詞","example_ja":"雨の日は家に篭って本を読むことが多い。","example_ko":"비 오는 날은 집에 틀어박혀 책을 읽는 경우가 많다.","note":"現代表記では『籠る』または『こもる』が一般的。"},
+    {"key":"n1-2881","word":"此れ等","reading":"これら","meaning_ko":"이것들; 이들","meaning_ja":"複数の近くの物事・人を指す語。","part_of_speech":"代名詞","example_ja":"これらの資料を先に確認してください。","example_ko":"이 자료들을 먼저 확인해 주세요.","note":"現代では通常『これら』と仮名で書く。"},
+    {"key":"n1-2882","word":"逆上る","reading":"さかのぼる","meaning_ko":"거슬러 올라가다; 소급하다","meaning_ja":"流れに逆らって上流へ進む。また、過去の時点まで戻る。","part_of_speech":"五段動詞","example_ja":"記録を十年前までさかのぼって調べた。","example_ko":"기록을 10년 전까지 거슬러 올라가 조사했다.","note":"通常は『遡る』表記が一般的。"},
+    {"key":"n1-2883","word":"座談会","reading":"ざだんかい","meaning_ko":"좌담회; 원탁 토론","meaning_ja":"数人が集まり、自由に意見を交わす会。","part_of_speech":"普通名詞","example_ja":"専門家を招いて座談会を開いた。","example_ko":"전문가를 초청해 좌담회를 열었다."},
+    {"key":"n1-2884","word":"颯っと","reading":"さっと","meaning_ko":"재빨리; 휙; 얼른","meaning_ja":"動作が素早く行われるさま。","part_of_speech":"副詞","example_ja":"彼は資料にさっと目を通した。","example_ko":"그는 자료를 재빨리 훑어봤다.","note":"通常は『さっと』と仮名で書く。"},
+    {"key":"n1-2885","word":"偖","reading":"さて","meaning_ko":"자; 그런데; 그건 그렇고","meaning_ja":"話題を切り替えたり、本題に入ったりするときの語。","part_of_speech":"接続詞・感動詞","example_ja":"さて、次の問題に移りましょう。","example_ko":"자, 다음 문제로 넘어갑시다.","note":"通常は『さて』表記。"},
+    {"key":"n1-2886","word":"錆び","reading":"さび","meaning_ko":"녹; 녹슨 상태","meaning_ja":"金属の表面に生じる酸化物。","part_of_speech":"普通名詞","example_ja":"古い自転車のチェーンに錆びが出ている。","example_ko":"오래된 자전거 체인에 녹이 슬어 있다."},
+    {"key":"n1-2887","word":"侍","reading":"さむらい","meaning_ko":"사무라이; 무사","meaning_ja":"日本の武士。","part_of_speech":"普通名詞","example_ja":"その映画は江戸時代の侍を描いている。","example_ko":"그 영화는 에도 시대의 사무라이를 그리고 있다."},
+    {"key":"n1-2888","word":"サンキュー","reading":"サンキュー","meaning_ko":"고마워; 땡큐","meaning_ja":"英語 thank you から来た、くだけた感謝表現。","part_of_speech":"感動詞","example_ja":"手伝ってくれてサンキュー。","example_ko":"도와줘서 고마워."},
+    {"key":"n1-2889","word":"明々後日","reading":"しあさって","meaning_ko":"글피","meaning_ja":"明日の三日後。今日から数えて四日後。","part_of_speech":"普通名詞・副詞","example_ja":"明々後日にまた会いましょう。","example_ko":"글피에 다시 만납시다."},
+    {"key":"n1-2890","word":"而も","reading":"しかも","meaning_ko":"게다가; 더욱이; 그런데도","meaning_ja":"前の内容にさらに付け加える語。文脈により逆接的にも用いる。","part_of_speech":"接続詞","example_ja":"この店は安い。しかも味もいい。","example_ko":"이 가게는 싸다. 게다가 맛도 좋다.","note":"通常は『しかも』と仮名で書く。"},
+    {"key":"n1-2891","word":"雫","reading":"しずく","meaning_ko":"물방울; 방울","meaning_ja":"液体の小さな滴。","part_of_speech":"普通名詞","example_ja":"葉の先から雨の雫が落ちた。","example_ko":"잎 끝에서 빗방울이 떨어졌다."},
+    {"key":"n1-2892","word":"屡","reading":"しばしば","meaning_ko":"자주; 종종; 여러 번","meaning_ja":"何度も。頻繁に。","part_of_speech":"副詞","example_ja":"この地域では冬にしばしば雪が降る。","example_ko":"이 지역에서는 겨울에 종종 눈이 온다.","note":"通常は『しばしば』と仮名で書く。"},
+    {"key":"n1-2893","word":"耳鼻科","reading":"じびか","meaning_ko":"이비인후과","meaning_ja":"耳・鼻・喉などを診療する診療科。","part_of_speech":"普通名詞","example_ja":"鼻炎がひどいので耳鼻科を受診した。","example_ko":"비염이 심해서 이비인후과 진료를 받았다."},
+    {"key":"n1-2894","word":"ジャンパー","reading":"ジャンパー","meaning_ko":"점퍼; 재킷","meaning_ja":"活動しやすい短めの上着。","part_of_speech":"普通名詞","example_ja":"寒かったので厚手のジャンパーを着た。","example_ko":"추워서 두꺼운 점퍼를 입었다."},
+    {"key":"n1-2895","word":"準じる","reading":"じゅんじる","meaning_ko":"준하다; 따르다; 적용하다","meaning_ja":"ある基準・例に従う。また、それと同様に扱う。","part_of_speech":"一段動詞","example_ja":"待遇は正社員に準じる。","example_ko":"대우는 정규직에 준한다."},
+    {"key":"n1-2896","word":"嬢","reading":"じょう","meaning_ko":"아가씨; 젊은 여성; ~양","meaning_ja":"若い女性を指す語。また、女性を表す接尾語。","part_of_speech":"普通名詞・接尾辞","example_ja":"受付嬢が来客を案内した。","example_ko":"안내 데스크 여직원이 방문객을 안내했다.","note":"候補KRDICTの接尾辞義だけでなく名詞義も補完。"},
+    {"key":"n1-2897","word":"セレモニー","reading":"セレモニー","meaning_ko":"의식; 행사; 세리머니","meaning_ja":"公式の儀式や式典。","part_of_speech":"普通名詞","example_ja":"開会セレモニーが午前十時に始まる。","example_ko":"개회식이 오전 10시에 시작된다."}
+  ]
+}
