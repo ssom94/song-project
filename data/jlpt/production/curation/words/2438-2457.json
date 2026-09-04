@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2438-2457",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2438","word":"煙草","reading":"たばこ","meaning_ko":"담배; 담배 식물","meaning_ja":"葉を乾燥させて喫煙用などに加工する植物。また、その製品。","part_of_speech":"普通名詞","example_ja":"この建物の中では煙草を吸うことができない。","example_ko":"이 건물 안에서는 담배를 피울 수 없다.","note":"現代では通常『たばこ』『タバコ』と書く。"},
+    {"key":"n1-2439","word":"お願いします","reading":"おねがいします","meaning_ko":"부탁합니다; 부탁드려요; 잘 부탁드립니다","meaning_ja":"相手に依頼・要望を丁寧に伝える表現。","part_of_speech":"定型表現","example_ja":"こちらの書類も確認をお願いします。","example_ko":"이 서류도 확인 부탁드립니다."},
+    {"key":"n1-2440","word":"所が","reading":"ところが","meaning_ko":"그런데; 그러나; 하지만 예상과 달리","meaning_ja":"前の内容から予想される結果とは反対・意外な事柄を続ける接続詞。","part_of_speech":"接続詞","example_ja":"簡単だと思っていた。ところが、実際はかなり難しかった。","example_ko":"간단할 거라고 생각했다. 그런데 실제로는 꽤 어려웠다.","note":"現代では通常『ところが』と仮名で書く。"},
+    {"key":"n1-2441","word":"振り","reading":"ふり","meaning_ko":"척; 시늉; 태도; 모습","meaning_ja":"実際にはそうでないのに、そのように見せる態度・動作。また、様子・態度。","part_of_speech":"普通名詞","example_ja":"彼は知らない振りをして、その場を通り過ぎた。","example_ko":"그는 모르는 척하며 그 자리를 지나갔다."},
+    {"key":"n1-2442","word":"何処か","reading":"どこか","meaning_ko":"어딘가; 어디엔가; 어딘지","meaning_ja":"特定できないある場所。また、はっきり説明できない何らかの点。","part_of_speech":"代名詞・副詞","example_ja":"週末はどこか静かな場所へ行きたい。","example_ko":"주말에는 어딘가 조용한 곳에 가고 싶다.","note":"現代では通常『どこか』と仮名で書く。"},
+    {"key":"n1-2443","word":"現われる","reading":"あらわれる","meaning_ko":"나타나다; 드러나다; 모습을 보이다","meaning_ja":"見えなかったものが見えるようになる。また、性質・感情・結果などが表面に出る。","part_of_speech":"一段動詞","example_ja":"努力の成果が少しずつ数字に現われてきた。","example_ko":"노력의 성과가 조금씩 수치로 나타나기 시작했다.","note":"現代の標準的な表記は『現れる』。"},
+    {"key":"n1-2444","word":"画","reading":"かく","meaning_ko":"획; 한 획","meaning_ja":"漢字などを書くとき、一度に書く線や点。","part_of_speech":"普通名詞","example_ja":"この漢字は全部で十二画ある。","example_ko":"이 한자는 모두 12획이다."},
+    {"key":"n1-2445","word":"身体","reading":"からだ","meaning_ko":"몸; 신체","meaning_ja":"人・動物の体全体。身体。","part_of_speech":"普通名詞","example_ja":"無理をせず、身体を大切にしてください。","example_ko":"무리하지 말고 몸을 소중히 하세요.","note":"『身体』は通常『しんたい』とも読む。『からだ』と読む場合は『体』表記も一般的。"},
+    {"key":"n1-2446","word":"其れで","reading":"それで","meaning_ko":"그래서; 그러므로; 그 결과","meaning_ja":"前の事柄を理由・原因として、その結果を述べる接続詞。","part_of_speech":"接続詞","example_ja":"電車が止まっていた。それで会社に遅れた。","example_ko":"전철이 멈춰 있었다. 그래서 회사에 늦었다.","note":"現代では通常『それで』と仮名で書く。"},
+    {"key":"n1-2447","word":"ぐらい","reading":"ぐらい","meaning_ko":"~정도; ~쯤; ~만큼","meaning_ja":"数量・程度のおおよその範囲、または程度を表す助詞。","part_of_speech":"助詞","example_ja":"駅まで十分ぐらい歩きます。","example_ko":"역까지 10분 정도 걷습니다.","note":"『くらい』も同じ意味で使う。"},
+    {"key":"n1-2448","word":"凡ゆる","reading":"あらゆる","meaning_ko":"모든; 온갖; 가능한 모든","meaning_ja":"存在するすべての種類・範囲に及ぶさま。","part_of_speech":"連体詞","example_ja":"あらゆる可能性を考えて準備した。","example_ko":"모든 가능성을 생각해 준비했다.","note":"現代では通常『あらゆる』と仮名で書く。"},
+    {"key":"n1-2449","word":"其処で","reading":"そこで","meaning_ko":"그래서; 이에; 그러자","meaning_ja":"前の状況を受けて、次の行動・判断につなげる接続詞。","part_of_speech":"接続詞","example_ja":"問題が見つかった。そこで、全体をもう一度確認することにした。","example_ko":"문제가 발견됐다. 그래서 전체를 다시 확인하기로 했다.","note":"現代では通常『そこで』と仮名で書く。"},
+    {"key":"n1-2450","word":"屹度","reading":"きっと","meaning_ko":"분명; 틀림없이; 반드시","meaning_ja":"話し手が高い確信を持って予想するさま。必ず、間違いなく。","part_of_speech":"副詞","example_ja":"努力を続ければ、きっと結果が出る。","example_ko":"노력을 계속하면 분명 결과가 나올 것이다.","note":"現代では通常『きっと』と仮名で書く。"},
+    {"key":"n1-2451","word":"戦","reading":"いくさ","meaning_ko":"전쟁; 싸움; 전투","meaning_ja":"軍勢同士の戦い。戦争・戦闘を表す古風な語。","part_of_speech":"普通名詞","example_ja":"昔、この地域で大きな戦があったという。","example_ko":"옛날 이 지역에서 큰 전투가 있었다고 한다.","note":"古風・文学的表現。現代では『戦争』『戦い』が一般的。"},
+    {"key":"n1-2452","word":"有難う","reading":"ありがとう","meaning_ko":"고마워; 감사합니다","meaning_ja":"感謝の気持ちを表す挨拶。","part_of_speech":"感動詞","example_ja":"手伝ってくれて、本当にありがとう。","example_ko":"도와줘서 정말 고마워.","note":"現代では通常『ありがとう』と仮名で書く。"},
+    {"key":"n1-2453","word":"其れに","reading":"それに","meaning_ko":"게다가; 그뿐만 아니라; 그리고 또","meaning_ja":"前の内容にさらに別の事柄を付け加える接続詞。","part_of_speech":"接続詞","example_ja":"この店は安い。それに、料理もおいしい。","example_ko":"이 가게는 싸다. 게다가 음식도 맛있다.","note":"現代では通常『それに』と仮名で書く。"},
+    {"key":"n1-2454","word":"毎","reading":"ごと","meaning_ko":"~마다; 각각; 매번","meaning_ja":"名詞に付いて、その一つ一つ・そのたびごと、という意味を表す。","part_of_speech":"接尾辞","example_ja":"一週間ごとに進捗を確認する。","example_ko":"1주일마다 진행 상황을 확인한다.","note":"単独で『毎』と書くより『～ごと』の形で使うことが多い。"},
+    {"key":"n1-2455","word":"捕らえる","reading":"とらえる","meaning_ko":"붙잡다; 포착하다; 사로잡다","meaning_ja":"逃げるものをつかまえる。また、物事・意味・特徴などをしっかりつかむ。","part_of_speech":"一段動詞","example_ja":"警察は逃げた容疑者をその日のうちに捕らえた。","example_ko":"경찰은 도망간 용의자를 그날 안에 붙잡았다.","note":"抽象的な意味では『捉える』表記も一般的。"},
+    {"key":"n1-2456","word":"先に","reading":"さきに","meaning_ko":"먼저; 앞서; 이전에","meaning_ja":"時間・順序で前に。ほかより早く。","part_of_speech":"副詞","example_ja":"私は先に会議室へ行って準備しておきます。","example_ko":"저는 먼저 회의실에 가서 준비해 두겠습니다."},
+    {"key":"n1-2457","word":"或る","reading":"ある","meaning_ko":"어떤; 어느; 한","meaning_ja":"具体的に名を示さず、不特定の一つを指す連体詞。","part_of_speech":"連体詞","example_ja":"ある日、知らない番号から電話がかかってきた。","example_ko":"어느 날 모르는 번호로 전화가 걸려 왔다.","note":"現代では通常『ある』と仮名で書く。"}
+  ]
+}
