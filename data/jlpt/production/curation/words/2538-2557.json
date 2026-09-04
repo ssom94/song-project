@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "range": "2538-2557",
+  "reviewedBy": "openai-assisted-manual-review",
+  "reviewPolicy": "JMdict identity + KRDICT/JMdict sense check; examples are original Japanese sentences reviewed for target-sense fit. Broad or noisy source senses are narrowed to common modern usage, with orthography/register notes where needed.",
+  "words": [
+    {"key":"n1-2538","word":"掌","reading":"たなごころ","meaning_ko":"손바닥","meaning_ja":"手の内側の面。手のひら。","part_of_speech":"普通名詞","example_ja":"小さな石を掌に載せて眺めた。","example_ko":"작은 돌을 손바닥에 올려놓고 바라봤다.","note":"『たなごころ』は文語的・古風な語。現代では『手のひら』が一般的。候補の『손뼉』は除外。"},
+    {"key":"n1-2539","word":"蜜","reading":"みつ","meaning_ko":"꿀; 꽃꿀; 단 즙","meaning_ja":"花などから得られる甘い液。また、蜂が集めて作る蜂蜜。","part_of_speech":"普通名詞","example_ja":"花の蜜を求めて蜂が集まってきた。","example_ko":"꽃꿀을 찾아 벌들이 모여들었다.","note":"『蜂蜜』に限らず nectar の意味もある。"},
+    {"key":"n1-2540","word":"ナプキン","reading":"ナプキン","meaning_ko":"냅킨; 생리용 패드","meaning_ja":"食事の際に口や手を拭く布・紙。また、『生理用ナプキン』の略としても使う。","part_of_speech":"普通名詞","example_ja":"食事の前にナプキンを膝の上に広げた。","example_ko":"식사 전에 냅킨을 무릎 위에 펼쳤다."},
+    {"key":"n1-2541","word":"切っ掛け","reading":"きっかけ","meaning_ko":"계기; 기회; 발단","meaning_ja":"物事を始めたり、変化が起こったりする原因・機会。","part_of_speech":"普通名詞","example_ja":"友人の勧めが日本語を学び始めるきっかけになった。","example_ko":"친구의 권유가 일본어 공부를 시작하는 계기가 되었다.","note":"現代では通常『きっかけ』と仮名で書く。"},
+    {"key":"n1-2542","word":"匙","reading":"さじ","meaning_ko":"숟가락; 스푼","meaning_ja":"食べ物や薬などをすくうための小さな道具。スプーン。","part_of_speech":"普通名詞","example_ja":"砂糖を匙一杯だけ加えた。","example_ko":"설탕을 한 숟가락만 넣었다.","note":"『匙を投げる』など慣用句にも使う。"},
+    {"key":"n1-2543","word":"藁","reading":"わら","meaning_ko":"짚; 볏짚","meaning_ja":"稲などの穀物から実を取った後に残る乾いた茎。","part_of_speech":"普通名詞","example_ja":"昔は藁を使って縄や草履を作った。","example_ko":"옛날에는 짚으로 새끼줄이나 짚신을 만들었다."},
+    {"key":"n1-2544","word":"タイマー","reading":"タイマー","meaning_ko":"타이머; 시간 설정 장치","meaning_ja":"設定した時間を計ったり、一定時間後に機器を作動・停止させたりする装置。","part_of_speech":"普通名詞","example_ja":"料理が焦げないようにタイマーを十分に設定した。","example_ko":"요리가 타지 않도록 타이머를 10분으로 설정했다."},
+    {"key":"n1-2545","word":"粗筋","reading":"あらすじ","meaning_ko":"줄거리; 개요","meaning_ja":"物語・文章などの大まかな内容や展開。","part_of_speech":"普通名詞","example_ja":"映画を見る前に粗筋だけを読んだ。","example_ko":"영화를 보기 전에 줄거리만 읽었다.","note":"現代では『あらすじ』と仮名で書くことも多い。"},
+    {"key":"n1-2546","word":"努めて","reading":"つとめて","meaning_ko":"애써; 되도록; 가능한 한 노력하여","meaning_ja":"意識して努力し、できるだけそうするさま。","part_of_speech":"副詞","example_ja":"会議では努めて冷静に話すようにした。","example_ko":"회의에서는 애써 냉정하게 말하려고 했다.","note":"『努めて～する』の形で、意識的な努力を表す。"},
+    {"key":"n1-2547","word":"ソロ","reading":"ソロ","meaning_ko":"솔로; 독창; 독주","meaning_ja":"歌唱・演奏などを一人で行うこと。また、その部分。","part_of_speech":"普通名詞","example_ja":"彼女はコンサートで初めてソロを担当した。","example_ko":"그녀는 콘서트에서 처음으로 솔로를 맡았다."},
+    {"key":"n1-2548","word":"背く","reading":"そむく","meaning_ko":"거스르다; 어기다; 배반하다; 등지다","meaning_ja":"命令・約束・期待・道理などに反する。また、人や組織に背を向ける。","part_of_speech":"五段動詞","example_ja":"上司の命令に背いて独断で行動した。","example_ko":"상사의 명령을 어기고 독단적으로 행동했다.","note":"候補KRDICTの過度に広い周辺義をJMdictの run counter to/disobey に合わせて整理。"},
+    {"key":"n1-2549","word":"お早う","reading":"おはよう","meaning_ko":"좋은 아침; 안녕하세요(아침 인사)","meaning_ja":"朝、人に会ったときに使う挨拶。","part_of_speech":"感動詞","example_ja":"お早う。今日はずいぶん早いね。","example_ko":"좋은 아침. 오늘은 꽤 일찍 왔네.","note":"現代では通常『おはよう』と仮名で書く。丁寧形は『おはようございます』。"},
+    {"key":"n1-2550","word":"何となく","reading":"なんとなく","meaning_ko":"왠지; 어쩐지; 특별한 이유 없이","meaning_ja":"はっきりした理由はないが、何かそう感じるさま。","part_of_speech":"副詞","example_ja":"何となく今日はいいことがありそうな気がする。","example_ko":"왠지 오늘은 좋은 일이 있을 것 같은 기분이 든다.","note":"候補の『슬며시/슬그머니』は中心義から外れるため除外。"},
+    {"key":"n1-2551","word":"堪らない","reading":"たまらない","meaning_ko":"견딜 수 없다; 참을 수 없다; 너무 ~하다","meaning_ja":"我慢できないほど程度が激しい。また、非常に魅力的でたまらなく感じる。","part_of_speech":"い形容詞","example_ja":"真夏の満員電車は暑くて堪らない。","example_ko":"한여름의 만원 전철은 더워서 견딜 수가 없다.","note":"現代では通常『たまらない』と仮名で書く。"},
+    {"key":"n1-2552","word":"マッサージ","reading":"マッサージ","meaning_ko":"마사지; 안마","meaning_ja":"手などで体を揉んだりさすったりして、筋肉の緊張や疲れを和らげること。","part_of_speech":"サ変名詞","example_ja":"肩が凝ったのでマッサージを受けた。","example_ko":"어깨가 뭉쳐서 마사지를 받았다."},
+    {"key":"n1-2553","word":"何とも","reading":"なんとも","meaning_ko":"뭐라고도; 정말; 아무렇지도","meaning_ja":"言葉ではうまく表せないほど。また、否定表現とともに『少しも・何も』の意を表す。","part_of_speech":"副詞","example_ja":"その景色は何とも言えないほど美しかった。","example_ko":"그 풍경은 뭐라고 말할 수 없을 정도로 아름다웠다.","note":"『何ともない』では『아무렇지도 않다』の意味。"},
+    {"key":"n1-2554","word":"明白","reading":"あからさま","meaning_ko":"노골적; 공공연함; 숨김없음","meaning_ja":"隠そうとせず、はっきり表に出しているさま。露骨。","part_of_speech":"な形容詞","example_ja":"彼はあからさまに不満そうな表情を見せた。","example_ko":"그는 노골적으로 불만스러운 표정을 보였다.","note":"『明白（めいはく）』とは別読み。『あからさま』は通常仮名表記。"},
+    {"key":"n1-2555","word":"吊るす","reading":"つるす","meaning_ko":"매달다; 걸어 두다","meaning_ja":"紐などを使い、物を高い所から下げた状態にする。","part_of_speech":"五段動詞","example_ja":"濡れた服をベランダに吊るして乾かした。","example_ko":"젖은 옷을 베란다에 매달아 말렸다.","note":"候補の『치다』など周辺訳を除き、JMdictの to hang に整理。"},
+    {"key":"n1-2556","word":"お休み","reading":"おやすみ","meaning_ko":"잘 자; 휴식; 휴일; 결석","meaning_ja":"寝る前の挨拶。また、休むこと・休みの日・欠席を丁寧に表す語。","part_of_speech":"感動詞・普通名詞","example_ja":"もう遅いから、お休み。また明日。","example_ko":"이제 늦었으니 잘 자. 내일 보자.","note":"挨拶と名詞の両用法がある。"},
+    {"key":"n1-2557","word":"頻りに","reading":"しきりに","meaning_ko":"자꾸; 빈번히; 연거푸; 열심히","meaning_ja":"同じことを何度も繰り返すさま。また、強く熱心に行うさま。","part_of_speech":"副詞","example_ja":"彼は時計をしきりに気にしていた。","example_ko":"그는 자꾸 시계를 신경 쓰고 있었다.","note":"現代では通常『しきりに』と仮名で書く。"}
+  ]
+}
