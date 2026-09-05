@@ -1,0 +1,45 @@
+{
+  "subject": "B",
+  "examNo": 1,
+  "questions": [
+    {
+      "questionNo": 6,
+      "sectionCode": "DATABASE",
+      "type": "written",
+      "promptJa": "受注管理DBで発生している検索遅延とデッドロックについて，SQLとトランザクションの情報を基に設問に答えよ。",
+      "promptKo": "수주관리 DB에서 발생하는 검색 지연과 데드록에 대해 SQL과 트랜잭션 정보를 바탕으로 물음에 답하시오.",
+      "content": {
+        "passageJa": "D社の受注管理システムではorders表に約2,000万件のデータがある。顧客ごとの直近期間の注文を検索する処理が遅く，さらに二つの更新処理が同時実行された際にデッドロックが発生した。DBMSはB-treeインデックスと行ロックを用いる。",
+        "passageKo": "D사의 수주관리 시스템 orders 테이블에는 약 2,000만 건의 데이터가 있다. 고객별 최근 기간 주문 검색이 느리고, 두 개의 갱신처리가 동시에 실행될 때 데드록도 발생했다. DBMS는 B-tree 인덱스와 행 잠금을 사용한다.",
+        "logs": [
+          "SELECT order_id, order_date, amount\nFROM orders\nWHERE customer_id = :customer\n  AND order_date BETWEEN :from AND :to\nORDER BY order_date DESC;",
+          "T1: UPDATE orders SET status='PAID' WHERE order_id=101;  -- lock 101\nT2: UPDATE orders SET status='PAID' WHERE order_id=202;  -- lock 202\nT1: UPDATE orders SET status='PAID' WHERE order_id=202;  -- wait\nT2: UPDATE orders SET status='PAID' WHERE order_id=101;  -- wait"
+        ],
+        "tables": [
+          {"titleJa":"既存インデックス","headers":["名称","列"],"rows":[["PK_orders","order_id"],["idx_order_date","order_date"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"検索SQLを効率化するため追加する複合インデックスの列順として適切なものを答えよ。","promptKo":"검색 SQL을 효율화하기 위해 추가할 복합 인덱스의 적절한 컬럼 순서를 쓰시오."},
+          {"key":"q2","promptJa":"q1の先頭列にcustomer_idを置く理由を，検索条件との関係で説明せよ。","promptKo":"q1의 첫 컬럼에 customer_id를 두는 이유를 검색조건과 관련지어 설명하시오."},
+          {"key":"q3","promptJa":"示したT1とT2がデッドロックになる理由を答えよ。","promptKo":"제시된 T1과 T2가 데드록이 되는 이유를 쓰시오."},
+          {"key":"q4","promptJa":"同種デッドロックを抑制するため，アプリケーション側で採用できる対策を一つ答えよ。","promptKo":"동종 데드록을 억제하기 위해 애플리케이션 측에서 채택할 수 있는 대책 한 가지를 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: (customer_id, order_date)。\nq2: customer_idは等価条件で対象顧客を先に絞り込み，その範囲でorder_dateの範囲検索と並び順を利用できるため。\nq3: T1とT2が互いに相手の保持する行ロックを待つ循環待ちになっているため。\nq4: 複数行を更新するときはorder_idの昇順など同一順序でロックを取得する。",
+      "modelAnswerKo": "q1: (customer_id, order_date).\nq2: customer_id 동등조건으로 대상 고객을 먼저 좁힌 뒤 그 범위에서 order_date 범위검색과 정렬을 활용할 수 있기 때문이다.\nq3: T1과 T2가 서로 상대가 가진 행 잠금을 기다리는 순환대기 상태이기 때문이다.\nq4: 여러 행을 갱신할 때 order_id 오름차순 등 동일 순서로 잠금을 획득한다.",
+      "explanationJa": "等価条件のcustomer_idを先頭，範囲条件・ORDER BYに使うorder_dateを後ろに置く複合インデックスがこの検索に適する。デッドロックは101と202を逆順に取得したため循環待ちが成立している。全処理でロック取得順を統一すれば循環待ちの発生可能性を下げられる。",
+      "explanationKo": "동등조건 customer_id를 선두, 범위조건·ORDER BY에 쓰는 order_date를 뒤에 둔 복합 인덱스가 적합하다. 데드록은 101과 202를 반대 순서로 잠가 순환대기가 성립한 것이다. 모든 처리에서 잠금 획득순서를 통일하면 발생 가능성을 낮출 수 있다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"(customer_id, order_date)","modelKo":"(customer_id, order_date)"},
+          {"key":"q2","score":5,"modelJa":"customer_idで等価絞込み後にorder_date範囲検索","modelKo":"customer_id 동등 필터 후 order_date 범위검색"},
+          {"key":"q3","score":5,"modelJa":"互いのロックを待つ循環待ち","modelKo":"서로의 잠금을 기다리는 순환대기"},
+          {"key":"q4","score":5,"modelJa":"ロック取得順序を統一","modelKo":"잠금 획득순서 통일"}
+        ]
+      }
+    }
+  ]
+}
