@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "subjects": {
     "A": {
       "durationMinutes": 150,
@@ -51,7 +51,7 @@
       "examNo": 3,
       "files": ["A-03-01.json", "A-03-02.json", "A-03-03.json", "A-03-04.json"],
       "status": "ready",
-      "answerPositionDistribution": [20, 20, 20, 20]
+      "answerPositionDistribution": [21, 21, 19, 19]
     },
     { "subject": "B", "examNo": 1, "files": ["B-01-01.json", "B-01-02.json", "B-01-03.json", "B-01-04.json", "B-01-05.json", "B-01-06.json", "B-01-07.json", "B-01-08.json", "B-01-09.json", "B-01-10.json", "B-01-11.json"], "status": "ready" },
     { "subject": "B", "examNo": 2, "files": ["B-02-01.json", "B-02-02.json", "B-02-03.json", "B-02-04.json", "B-02-05.json", "B-02-06.json", "B-02-07.json", "B-02-08.json", "B-02-09.json", "B-02-10.json", "B-02-11.json"], "status": "ready" },
