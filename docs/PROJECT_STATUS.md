@@ -74,48 +74,64 @@
 - 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
 - 정답 위치 0/1/2/3 각각 20문제로 설계.
 - A1 문제 문장을 그대로 재사용하지 않고 상황·수치·보기까지 신규 작성.
-- 계산형(2의 보수, CPU, 캐시, RAID5, subnet, 기대손실, 압축전송, 표본화, CPM/EVM, SLA, ROI, BEP, NPV, 감가상각, 재고회전율 등) 재검산.
-- Q49 압축률 표현의 모호성 제거 완료.
+- 계산형 재검산 및 Q49 압축률 표현 모호성 제거 완료.
 - `npm run ap:mock:a2:build` → `migrations/0080_ap_mock_exam_a02_questions.sql`.
 
 ## 科目B 모의고사 2회 — ready
-원본: `B-02-01.json`~`B-02-11.json`.
-- Q1 SECURITY: CI 빌드로그 API 토큰 노출, 토큰 폐기/로테이션, 시크릿 마스킹.
-- Q2 STRATEGY: 신규 서비스 공헌이익, 손익분기점, 투자회수 판단.
-- Q3 PROGRAMMING: 다익스트라 최단경로 및 음수 간선 조건.
-- Q4 ARCHITECTURE: 피크 처리량, 메시지큐, DB 이중화.
-- Q5 NETWORK: VPN MTU, DF, PMTUD, ICMP 차단 분석.
-- Q6 DATABASE: 정규화, 갱신 이상, REPEATABLE READ.
-- Q7 EMBEDDED: 12비트 ADC, 외부 인터럽트, 100ms 주기, PWM 듀티비.
-- Q8 SYSTEM_DEV: 500만건 데이터이관, 시간 계산, 건수/해시 검증, 롤백.
-- Q9 PROJECT_MGMT: 위험 EMV 및 컨틴전시 예비비.
-- Q10 SERVICE_MGMT: RTO/RPO, 복구시간, 데이터손실, 리스토어 시험. 일본어/한국어의 증분백업 용어를 `増分バックアップ / 증분 백업`으로 통일 완료.
-- Q11 AUDIT: B1의 변경관리 감사와 겹치던 초안을 폐기하고, 외부위탁 특권ID·퇴사자 계정·공용ID 추적성 감사 시나리오로 교체.
-- 계산형 재검산, manifest `ready`.
+- `B-02-01.json`~`B-02-11.json`.
+- Q1 SECURITY: CI 빌드로그 API 토큰 노출.
+- Q2 STRATEGY: 공헌이익·손익분기점.
+- Q3 PROGRAMMING: 다익스트라 최단경로.
+- Q4 ARCHITECTURE: 처리량·메시지큐·DB 이중화.
+- Q5 NETWORK: VPN MTU·PMTUD.
+- Q6 DATABASE: 정규화·REPEATABLE READ.
+- Q7 EMBEDDED: ADC·인터럽트·PWM.
+- Q8 SYSTEM_DEV: 대량 데이터이관 검증·롤백.
+- Q9 PROJECT_MGMT: 위험 EMV.
+- Q10 SERVICE_MGMT: RTO/RPO, `増分バックアップ / 증분 백업` 용어 통일 완료.
+- Q11 AUDIT: 외부위탁 특권ID·퇴사자 계정·공용ID 추적성 감사로 B1과 중복 제거.
 - `npm run ap:mock:b2:build` → `migrations/0081_ap_mock_exam_b02_questions.sql`.
 
 ## 科目A 모의고사 3회 — ready
 - `A-03-01.json`~`A-03-04.json`, Q1~Q80.
 - 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
-- 정답 위치는 Q1부터 ①②③④ 순환 방식으로 설계하여 0/1/2/3 각각 20문제.
-- A1/A2의 문장을 그대로 재사용하지 않고 자료구조·OS·DB·네트워크·보안·분산/API·PM·서비스관리·전략/재무/법무를 새로운 상황과 수치로 구성.
-- 계산형 재검산: 조건부확률, 재귀, 이분탐색, LRU, CPU 실행시간, Amdahl, 캐시 set수, 직렬가용성, /27 host수, 순환복잡도, 표본화, PERT, CPI, SLA 허용중단시간, 시장점유율, 공헌이익, BEP, ROI, NPV, 정액법 감가상각, 재고회전율, 유동비율.
-- manifest에서 A-03 `ready` 전환.
+- 정답 위치는 0/1/2/3 각각 20문제.
+- A1/A2 문장을 그대로 재사용하지 않고 새로운 상황과 수치로 구성.
+- 계산형 전수 재검산 완료.
 - `npm run ap:mock:a3:build` → `migrations/0082_ap_mock_exam_a03_questions.sql`.
 
+## 科目B 모의고사 3회 — ready
+- `B-03-01.json`~`B-03-11.json`.
+- Q1 SECURITY: SSRF를 통한 클라우드 메타데이터 접근과 임시 자격정보 유출 — 필수.
+- Q2 STRATEGY: EC 구매 퍼널 전환율 및 개선시책 비교.
+- Q3 PROGRAMMING: 동적계획법(DP) 최소비용 계산.
+- Q4 ARCHITECTURE: 마이크로서비스 재시도, Idempotency Key, 지수 백오프, Circuit Breaker.
+- Q5 NETWORK: DNS TTL·캐시·장애전환. DNS 비의존 자동전환 답안을 글로벌 로드밸런서로 명확화.
+- Q6 DATABASE: 비동기 복제지연과 read-after-write 일관성.
+- Q7 EMBEDDED: Duty Cycle, 평균소비전류, 배터리 동작시간, Sleep/Timer Interrupt.
+- Q8 SYSTEM_DEV: Canary Release, Feature Flag, 오류율 기반 전개판단.
+- Q9 PROJECT_MGMT: PERT 3점 추정 — 기대 8일, 표준편차 2일.
+- Q10 SERVICE_MGMT: SLO/Error Budget — 43.2분, 약65% 소비, 15.2분 잔여.
+- Q11 AUDIT: 매출 일일배치 건수·금액 대사 및 장기 미처리 예외 감사.
+- B1/B2의 인증사고·CI 토큰, BFS/Dijkstra, 기존 DB/네트워크/감사 시나리오를 그대로 재사용하지 않도록 신규 작성.
+- 각 문제 20점, 4개 소문항×5점, Q1 SECURITY만 mandatory.
+- manifest에서 B-03 `ready` 전환.
+- `npm run ap:mock:b3:build` → `migrations/0083_ap_mock_exam_b03_questions.sql`.
+
 ## 적용 명령 흐름
-- `npm run ap:validate`: 기존 AP 문제은행 + 전체 모의고사 검증.
-- `npm run ap:mock:build`: A1/B1/A2/B2/A3를 한 번에 중복/구조 검증 후 0078~0082 SQL 생성.
+- `npm run ap:validate`: 기존 AP 문제은행 + A1~A3/B1~B3 전체 모의고사 검증.
+- `npm run ap:mock:build`: 6회차 전체 중복/구조 검증 후 `0078`~`0083` SQL 생성.
 - `npm run db:migrate:local`: 검증/SQL 생성 성공 후 로컬 D1 migration 적용.
 - `npm run db:migrate:remote`: 검증/SQL 생성 성공 후 원격 D1 migration 적용.
 - `npm run dev`: `db:migrate:local` 선행.
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 科目B 모의고사 3회 11문제 신규 제작.
-2. B3는 B1/B2와 시나리오·자료·계산유형을 중복하지 않도록 구성.
-3. B3 사실/모범답안/부분점수/분야분포 검증 후 ready.
-4. 마지막으로 A1~A3/B1~B3 총 6회차 전체 중복·정답·표현·DB 빌드 검증.
+1. A1~A3/B1~B3 총 6회차 전체 최종 검증 실행.
+2. 문제번호/분야분포/정답분포/필수문제/배점/소문항/정답·해설/일본어 표현/회차 간 fingerprint 중복 확인.
+3. `npm run ap:validate`와 `npm run ap:mock:build` 실제 실행 결과 PASS 확인.
+4. 로컬 D1에 0078~0083 적용 후 모의고사 목록/시작/자동저장/재개/제출/결과 화면 통합 테스트.
+5. 이상 없으면 원격 D1 반영 준비.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
