@@ -1,4 +1,4 @@
-import { pbkdf2Sync, scryptSync } from 'node:crypto';
+import { createHash, pbkdf2Sync, scryptSync } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import readline from 'node:readline/promises';
 import process from 'node:process';
@@ -19,6 +19,10 @@ function timingSafeEqualSimple(left, right) {
   return diff === 0;
 }
 
+function hashFingerprint(value) {
+  return createHash('sha256').update(String(value), 'utf8').digest('hex').slice(0, 12);
+}
+
 function sqlEscape(value) {
   return String(value).replaceAll("'", "''");
 }
@@ -32,9 +36,7 @@ function runWranglerJson(sql) {
   );
 
   if (result.error) throw result.error;
-  if (result.status !== 0) {
-    throw new Error((result.stderr || result.stdout || 'wrangler 실행 실패').trim());
-  }
+  if (result.status !== 0) throw new Error((result.stderr || result.stdout || 'wrangler 실행 실패').trim());
 
   let parsed;
   try {
@@ -56,7 +58,6 @@ function askHiddenRaw(prompt) {
   if (!process.stdin.isTTY || typeof process.stdin.setRawMode !== 'function') {
     throw new Error('이 터미널에서는 숨김 입력을 사용할 수 없습니다.');
   }
-
   process.stdout.write(prompt);
   process.stdin.setEncoding('utf8');
   process.stdin.setRawMode(true);
@@ -114,7 +115,6 @@ async function askHidden(rl, prompt) {
 function verifyEncodedPassword(password, encodedHash) {
   const parts = String(encodedHash || '').split('$');
   const algorithm = parts[0] || 'unknown';
-
   try {
     if (algorithm === 'pbkdf2-sha256') {
       const iterations = Number.parseInt(parts[1] || '', 10);
@@ -137,17 +137,13 @@ function verifyEncodedPassword(password, encodedHash) {
         return { algorithm, validFormat: false, matches: false };
       }
       const actual = scryptSync(password, salt, expected.length, {
-        N: cost,
-        r: blockSize,
-        p: parallelization,
-        maxmem: 64 * 1024 * 1024,
+        N: cost, r: blockSize, p: parallelization, maxmem: 64 * 1024 * 1024,
       });
       return { algorithm, validFormat: true, matches: timingSafeEqualSimple(actual, expected) };
     }
   } catch (error) {
     return { algorithm, validFormat: false, matches: false, error: error instanceof Error ? error.message : String(error) };
   }
-
   return { algorithm, validFormat: false, matches: false };
 }
 
@@ -159,12 +155,7 @@ async function verifyAgainstLiveApi(username, password) {
   });
   const requestId = response.headers.get('x-request-id');
   const data = await response.json().catch(() => ({}));
-  return {
-    status: response.status,
-    requestId,
-    authenticated: data?.authenticated === true,
-    error: data?.error ?? null,
-  };
+  return { status: response.status, requestId, authenticated: data?.authenticated === true, error: data?.error ?? null };
 }
 
 if (!process.stdin.isTTY || !process.stdout.isTTY) {
@@ -198,10 +189,8 @@ try {
         const now = Date.now();
         const lockedUntil = admin.locked_until ? Date.parse(admin.locked_until) : Number.NaN;
         const currentlyLocked = Number.isFinite(lockedUntil) && lockedUntil > now;
-        const passwordShape = {
-          charLength: password.length,
-          utf8Bytes: Buffer.byteLength(password, 'utf8'),
-        };
+        const passwordShape = { charLength: password.length, utf8Bytes: Buffer.byteLength(password, 'utf8') };
+        const fingerprint = hashFingerprint(admin.password_hash);
 
         console.log('\n=== 로그인 진단 결과 ===');
         console.log(`계정 조회: ✅ id=${admin.id}, username=${admin.username}`);
@@ -210,6 +199,7 @@ try {
         console.log(`로그인 잠금: ${currentlyLocked ? `❌ locked until ${admin.locked_until}` : '✅ not locked'}`);
         console.log(`입력 비밀번호 길이: ${passwordShape.charLength}자 / UTF-8 ${passwordShape.utf8Bytes}바이트`);
         console.log(`저장 해시 형식: ${verification.validFormat ? '✅' : '❌'} ${verification.algorithm}`);
+        console.log(`D1 저장 해시 지문(SHA-256 앞12): ${fingerprint}`);
         console.log(`입력 비밀번호 ↔ 원격 D1 해시: ${verification.matches ? '✅ MATCH' : '❌ MISMATCH'}`);
         if (verification.error) console.log(`해시 검증 오류: ${verification.error}`);
 
@@ -224,13 +214,12 @@ try {
 
           if (live.authenticated) {
             console.log('\n✅ 동일 문자열로 운영 API 로그인까지 성공했습니다.');
-            console.log('브라우저에서만 실패한다면 브라우저 자동완성/입력값이 다른 것이 원인입니다.');
           } else if (live.status === 401 && live.error === 'INVALID_CREDENTIALS') {
             console.log('\n❌ 같은 문자열이 D1에서는 MATCH인데 운영 Worker에서만 불일치합니다.');
-            console.log('브라우저 문제는 배제됐습니다. Worker 비밀번호 검증 런타임을 계속 점검해야 합니다.');
+            console.log(`tail의 [auth-password] hashFingerprint가 위 D1 지문 ${fingerprint}와 같은지 비교하세요.`);
             process.exitCode = 2;
           } else {
-            console.log('\n⚠️ 운영 API가 비밀번호 불일치 외의 응답을 반환했습니다. 위 HTTP/error/requestId를 확인하세요.');
+            console.log('\n⚠️ 운영 API가 비밀번호 불일치 외의 응답을 반환했습니다.');
             process.exitCode = 3;
           }
         } else {
