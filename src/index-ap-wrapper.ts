@@ -15,8 +15,11 @@ import {
 } from './ap-practice';
 import {
 	handleGetPublicApMockExam,
+	handleGradeAdminApMockExamWritten,
 	handleListPublicApMockExams,
+	handleSaveAdminApMockExamAnswer,
 	handleStartAdminApMockExam,
+	handleSubmitAdminApMockExam,
 } from './ap-mock-exams';
 import {
 	handleCreateAdminCategoryWithAppearance,
@@ -87,6 +90,9 @@ export default {
 			case '/api/admin/ap/wrong-notes': return request.method === 'GET' ? handleListAdminApWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/concept-progress': return request.method === 'PATCH' ? handlePatchAdminApConceptProgress(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/ap/mock-exams/start': return request.method === 'POST' ? handleStartAdminApMockExam(request, env) : methodNotAllowed('POST');
+			case '/api/admin/ap/mock-exams/answer': return request.method === 'POST' ? handleSaveAdminApMockExamAnswer(request, env) : methodNotAllowed('POST');
+			case '/api/admin/ap/mock-exams/submit': return request.method === 'POST' ? handleSubmitAdminApMockExam(request, env) : methodNotAllowed('POST');
+			case '/api/admin/ap/mock-exams/grade-written': return request.method === 'POST' ? handleGradeAdminApMockExamWritten(request, env) : methodNotAllowed('POST');
 			case '/api/admin/study/export.xlsx': return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words': if (request.method === 'GET') return handleListAdminJapaneseWordsWithProvenance(request, env); return app.fetch(request, env);
 			case '/api/admin/ap/today': return request.method === 'GET' ? handleGetAdminApToday(request, env) : methodNotAllowed('GET');
