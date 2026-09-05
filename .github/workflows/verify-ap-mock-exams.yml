@@ -1,0 +1,68 @@
+name: Verify AP Mock Exams
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/ap/mock-exams/**'
+      - 'scripts/ap/**'
+      - 'src/ap-mock-exams.ts'
+      - 'public/assets/js/study/ap-mock-exams*.js'
+      - 'public/ko/study/ap/mock-exams/**'
+      - 'public/ja/study/ap/mock-exams/**'
+      - 'migrations/0076_ap_mock_exam_foundation.sql'
+      - 'migrations/0077_ap_mock_exam_structured_written_answers.sql'
+      - 'package.json'
+      - '.github/workflows/verify-ap-mock-exams.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/ap/mock-exams/**'
+      - 'scripts/ap/**'
+      - 'src/ap-mock-exams.ts'
+      - 'public/assets/js/study/ap-mock-exams*.js'
+      - 'public/ko/study/ap/mock-exams/**'
+      - 'public/ja/study/ap/mock-exams/**'
+      - 'migrations/0076_ap_mock_exam_foundation.sql'
+      - 'migrations/0077_ap_mock_exam_structured_written_answers.sql'
+      - 'package.json'
+      - '.github/workflows/verify-ap-mock-exams.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-ap-mock-exams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check mock exam browser scripts
+        run: |
+          node --check public/assets/js/study/ap-mock-exams-list.js
+          node --check public/assets/js/study/ap-mock-exams-submit-guard.js
+          node --check public/assets/js/study/ap-mock-exams.js
+
+      - name: Validate all six mock exam rounds
+        run: npm run ap:validate-mock-exams
+
+      - name: Build all mock exam migrations
+        run: npm run ap:mock:build
+
+      - name: Verify generated migrations
+        run: |
+          test -s migrations/0078_ap_mock_exam_a01_questions.sql
+          test -s migrations/0079_ap_mock_exam_b01_questions.sql
+          test -s migrations/0080_ap_mock_exam_a02_questions.sql
+          test -s migrations/0081_ap_mock_exam_b02_questions.sql
+          test -s migrations/0082_ap_mock_exam_a03_questions.sql
+          test -s migrations/0083_ap_mock_exam_b03_questions.sql
