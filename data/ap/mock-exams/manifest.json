@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "subjects": {
     "A": {
       "durationMinutes": 150,
@@ -13,8 +13,22 @@
       "durationMinutes": 150,
       "questionCount": 11,
       "answerCount": 5,
+      "scorePerAnswer": 20,
       "totalScore": 100,
-      "passingScore": 60
+      "passingScore": 60,
+      "sectionDistribution": {
+        "SECURITY": 1,
+        "STRATEGY": 1,
+        "PROGRAMMING": 1,
+        "ARCHITECTURE": 1,
+        "NETWORK": 1,
+        "DATABASE": 1,
+        "EMBEDDED": 1,
+        "SYSTEM_DEV": 1,
+        "PROJECT_MGMT": 1,
+        "SERVICE_MGMT": 1,
+        "AUDIT": 1
+      }
     }
   },
   "rounds": [
@@ -27,7 +41,7 @@
     },
     { "subject": "A", "examNo": 2, "file": "A-02.json", "status": "draft" },
     { "subject": "A", "examNo": 3, "file": "A-03.json", "status": "draft" },
-    { "subject": "B", "examNo": 1, "file": "B-01.json", "status": "draft" },
+    { "subject": "B", "examNo": 1, "files": ["B-01-01.json", "B-01-02.json", "B-01-03.json", "B-01-04.json", "B-01-05.json", "B-01-06.json", "B-01-07.json", "B-01-08.json", "B-01-09.json", "B-01-10.json", "B-01-11.json"], "status": "draft" },
     { "subject": "B", "examNo": 2, "file": "B-02.json", "status": "draft" },
     { "subject": "B", "examNo": 3, "file": "B-03.json", "status": "draft" }
   ]
