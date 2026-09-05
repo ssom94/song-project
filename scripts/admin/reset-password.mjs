@@ -95,8 +95,6 @@ try {
     console.error('관리자 아이디를 입력해야 합니다.');
     process.exitCode = 1;
   } else {
-    // Windows uses Node raw-mode input so password entry stays inside the same terminal.
-    // Unix/Termux keeps one readline instance and temporarily disables terminal echo.
     const password = process.platform === 'win32'
       ? await askHiddenRaw('새 비밀번호: ')
       : await askHiddenUnix(rl, '새 비밀번호: ');
@@ -116,9 +114,9 @@ try {
       const passwordHash = `pbkdf2-sha256$${ITERATIONS}$${base64Url(salt)}$${base64Url(derived)}`;
       const escapedUser = sqlEscape(username);
       const escapedHash = sqlEscape(passwordHash);
-      const sql = `UPDATE admins SET password_hash='${escapedHash}', updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE username='${escapedUser}'; DELETE FROM admin_sessions WHERE admin_id=(SELECT id FROM admins WHERE username='${escapedUser}');`;
+      const sql = `UPDATE admins SET password_hash='${escapedHash}', failed_login_count=0, locked_until=NULL, updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now') WHERE username='${escapedUser}' COLLATE NOCASE; DELETE FROM admin_sessions WHERE admin_id=(SELECT id FROM admins WHERE username='${escapedUser}' COLLATE NOCASE); SELECT id, username, status, two_factor_enabled, failed_login_count, locked_until FROM admins WHERE username='${escapedUser}' COLLATE NOCASE LIMIT 1;`;
 
-      console.log('\n원격 D1에서 비밀번호를 변경하고 기존 로그인 세션을 모두 종료합니다...');
+      console.log('\n원격 D1에서 비밀번호와 계정 잠금 상태를 초기화하고 기존 로그인 세션을 모두 종료합니다...');
       const result = spawnSync('npx', ['wrangler', 'd1', 'execute', DATABASE, '--remote', '--command', sql], {
         stdio: 'inherit',
         shell: process.platform === 'win32',
@@ -128,10 +126,10 @@ try {
         console.error(result.error.message);
         process.exitCode = 1;
       } else if (result.status !== 0) {
-        console.error('\n비밀번호 변경에 실패했습니다. D1 한도 초과 상태라면 한도 초기화 후 다시 실행해주세요.');
+        console.error('\n비밀번호 변경에 실패했습니다.');
         process.exitCode = result.status ?? 1;
       } else {
-        console.log('\n관리자 비밀번호를 변경했습니다. 새 비밀번호로 다시 로그인해주세요.');
+        console.log('\n관리자 비밀번호와 잠금 상태를 초기화했습니다. 위 출력의 status / two_factor_enabled 값을 확인해주세요.');
       }
     }
   }
