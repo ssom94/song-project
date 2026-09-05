@@ -1,0 +1,34 @@
+{
+  "subject": "B",
+  "examNo": 2,
+  "questions": [
+    {
+      "questionNo": 3,
+      "sectionCode": "PROGRAMMING",
+      "type": "written",
+      "promptJa": "重み付きグラフに対してダイクストラ法を適用し，最短距離と処理上の注意点を答えよ。",
+      "promptKo": "가중 그래프에 다익스트라 알고리즘을 적용해 최단거리와 처리상의 주의점을 답하시오.",
+      "content": {
+        "passageJa": "頂点Aを始点とし，全ての辺の重みは非負とする。辺はA-B:4，A-C:2，C-B:1，B-D:5，C-D:8，C-E:10，D-E:2である。",
+        "passageKo": "정점 A를 시작점으로 하고 모든 간선 가중치는 음수가 아니다. 간선은 A-B:4, A-C:2, C-B:1, B-D:5, C-D:8, C-E:10, D-E:2이다.",
+        "tables": [
+          {"titleJa":"辺と重み","headers":["辺","重み"],"rows":[["A-B","4"],["A-C","2"],["C-B","1"],["B-D","5"],["C-D","8"],["C-E","10"],["D-E","2"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"AからBへの最短距離を求めよ。","promptKo":"A에서 B까지의 최단거리를 구하시오."},
+          {"key":"q2","promptJa":"AからDへの最短距離を求めよ。","promptKo":"A에서 D까지의 최단거리를 구하시오."},
+          {"key":"q3","promptJa":"AからEへの最短距離を求めよ。","promptKo":"A에서 E까지의 최단거리를 구하시오."},
+          {"key":"q4","promptJa":"ダイクストラ法をそのまま適用できない代表的な条件を答えよ。","promptKo":"다익스트라 알고리즘을 그대로 적용할 수 없는 대표적 조건을 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 3。\nq2: 8。\nq3: 10。\nq4: 負の重みを持つ辺が存在する場合。",
+      "modelAnswerKo": "q1: 3.\nq2: 8.\nq3: 10.\nq4: 음수 가중치 간선이 존재하는 경우.",
+      "explanationJa": "BはA-C-Bで2+1=3。DはA-C-B-Dで2+1+5=8。Eはその経路にD-Eの2を加えて10となる。ダイクストラ法は確定済み距離が後から短くなる負辺を前提としていない。",
+      "explanationKo": "B는 A-C-B로 2+1=3. D는 A-C-B-D로 2+1+5=8. E는 여기에 D-E의 2를 더해 10이다. 다익스트라 알고리즘은 확정된 거리가 나중에 더 짧아질 수 있는 음수 간선을 전제로 하지 않는다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": "B-10",
+      "gradingSchema": {"criteria":[{"key":"q1","score":5,"modelJa":"3","modelKo":"3"},{"key":"q2","score":5,"modelJa":"8","modelKo":"8"},{"key":"q3","score":5,"modelJa":"10","modelKo":"10"},{"key":"q4","score":5,"modelJa":"負の重みの辺","modelKo":"음수 가중치 간선"}]}
+    }
+  ]
+}
