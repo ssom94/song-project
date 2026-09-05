@@ -5,6 +5,19 @@
 
 	function qs(id) { return document.getElementById(id); }
 	function esc(value) { return String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+	function jstDateText(value) {
+		if (!value) return '-';
+		const date = new Date(value);
+		if (Number.isNaN(date.getTime())) return '-';
+		const parts = new Intl.DateTimeFormat('en-CA', {
+			timeZone: 'Asia/Tokyo',
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit',
+		}).formatToParts(date);
+		const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+		return `${values.year}-${values.month}-${values.day}`;
+	}
 	async function fetchJson(url) {
 		const response = await fetch(url, { credentials: 'same-origin' });
 		const data = await response.json().catch(() => ({}));
@@ -68,11 +81,12 @@
 				const statusClass = exam.state === 'completed' ? ' is-completed' : exam.state === 'in_progress' ? ' is-progress' : '';
 				const detailUrl = `/${lang}/study/ap/mock-exams/exam/?subject=${exam.subject}&no=${exam.examNo}`;
 				const disabled = exam.actionMode === 'preparing';
+				const attemptDate = jstDateText(exam.attempt?.startedAt);
 				return `<tr>
 					<td><strong>${esc(t(exam.titleKo, exam.titleJa))}</strong></td>
 					<td><span class="ap-mock-status${statusClass}">${esc(stateLabel(exam))}</span></td>
 					<td class="ap-mock-score">${esc(progressResultText(exam))}</td>
-					<td>${esc(exam.attempt?.submittedAt ? exam.attempt.submittedAt.slice(0,10) : exam.attempt?.startedAt ? exam.attempt.startedAt.slice(0,10) : '-')}</td>
+					<td>${esc(attemptDate)}</td>
 					<td>${esc(`${exam.loadedQuestionCount} / ${exam.questionCountTarget}`)}</td>
 					<td>${disabled ? `<span class="ap-mock-button" aria-disabled="true">${esc(actionLabel(exam))}</span>` : `<a class="ap-mock-button" href="${detailUrl}">${esc(actionLabel(exam))}</a>`}</td>
 				</tr>`;
