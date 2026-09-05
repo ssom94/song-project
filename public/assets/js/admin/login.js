@@ -68,6 +68,7 @@
 						rememberMe: rememberInput.checked,
 					}),
 				});
+				const requestId = response.headers.get('X-Request-Id');
 				const data = await response.json().catch(() => ({}));
 
 				if (response.ok && data.authenticated) {
@@ -76,13 +77,33 @@
 					return;
 				}
 
-				if (data.error === 'TWO_FACTOR_REQUIRED') {
+				if (response.status === 403 && data.error === 'TWO_FACTOR_REQUIRED') {
 					setStatus('2段階認証が必要です。');
 					return;
 				}
 
-				setStatus('ユーザー名またはパスワードが正しくありません。');
-			} catch {
+				if (response.status === 401 && data.error === 'INVALID_CREDENTIALS') {
+					setStatus('ユーザー名またはパスワードが正しくありません。');
+					return;
+				}
+
+				if (response.status === 400) {
+					setStatus('ログイン要求の形式が正しくありません。');
+					return;
+				}
+
+				if (response.status >= 500) {
+					const suffix = requestId ? ` (ID: ${requestId})` : '';
+					setStatus(`ログインAPIでサーバーエラーが発生しました。HTTP ${response.status}${suffix}`);
+					console.error('Admin login API server error', { status: response.status, error: data.error, requestId });
+					return;
+				}
+
+				const suffix = requestId ? ` (ID: ${requestId})` : '';
+				setStatus(`ログインに失敗しました。HTTP ${response.status}${suffix}`);
+				console.error('Admin login API unexpected response', { status: response.status, error: data.error, requestId });
+			} catch (error) {
+				console.error('Admin login request failed', error);
 				setStatus('通信に失敗しました。しばらくしてから再度お試しください。');
 			} finally {
 				submitButton.disabled = false;
