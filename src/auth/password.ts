@@ -1,12 +1,14 @@
 import { pbkdf2Sync, randomBytes, scrypt as nodeScrypt } from 'node:crypto';
 
 const SCRYPT_ALGORITHM = 'scrypt';
+const SCRYPT_COST = 16_384;
+const SCRYPT_BLOCK_SIZE = 8;
+const SCRYPT_PARALLELIZATION = 1;
+const SCRYPT_KEY_LENGTH = 32;
+const SCRYPT_MAX_MEMORY = 64 * 1024 * 1024;
 const PBKDF2_ALGORITHM = 'pbkdf2-sha256';
 const PBKDF2_DIGEST = 'sha256';
-const PBKDF2_ITERATIONS = 210_000;
-const PBKDF2_KEY_LENGTH = 32;
-const SCRYPT_MAX_MEMORY = 64 * 1024 * 1024;
-const AUTH_VERIFIER_BUILD = 'dual-pbkdf2-v2';
+const AUTH_VERIFIER_BUILD = 'scrypt-v3';
 
 export interface PasswordVerificationResult {
 	matches: boolean;
@@ -87,7 +89,15 @@ async function verifyScrypt(password: string, encodedHash: string): Promise<Pass
 		if (salt.length < 16 || expectedHash.length < 32) return { matches: false, algorithm, formatValid: false };
 		const derivedHash = await deriveScrypt(password, salt, expectedHash.length, cost, blockSize, parallelization);
 		return { matches: constantTimeEqual(derivedHash, expectedHash), algorithm, formatValid: true };
-	} catch {
+	} catch (error) {
+		console.warn('[auth-password] scrypt_error', {
+			build: AUTH_VERIFIER_BUILD,
+			cost,
+			blockSize,
+			parallelization,
+			hashFingerprint: await encodedHashFingerprint(encodedHash),
+			message: error instanceof Error ? error.message : String(error),
+		});
 		return { matches: false, algorithm, formatValid: true };
 	}
 }
@@ -165,8 +175,15 @@ async function verifyPbkdf2(password: string, encodedHash: string): Promise<Pass
 
 export async function hashPassword(password: string): Promise<string> {
 	const salt = new Uint8Array(randomBytes(16));
-	const derivedHash = pbkdf2Sync(password, salt, PBKDF2_ITERATIONS, PBKDF2_KEY_LENGTH, PBKDF2_DIGEST);
-	return `${PBKDF2_ALGORITHM}$${PBKDF2_ITERATIONS}$${bytesToBase64Url(salt)}$${bytesToBase64Url(new Uint8Array(derivedHash))}`;
+	const derivedHash = await deriveScrypt(
+		password,
+		salt,
+		SCRYPT_KEY_LENGTH,
+		SCRYPT_COST,
+		SCRYPT_BLOCK_SIZE,
+		SCRYPT_PARALLELIZATION,
+	);
+	return `${SCRYPT_ALGORITHM}$${SCRYPT_COST}$${SCRYPT_BLOCK_SIZE}$${SCRYPT_PARALLELIZATION}$${bytesToBase64Url(salt)}$${bytesToBase64Url(derivedHash)}`;
 }
 
 export async function verifyPasswordDetailed(password: string, encodedHash: string): Promise<PasswordVerificationResult> {
