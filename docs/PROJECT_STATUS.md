@@ -91,24 +91,31 @@
 - Q9 PROJECT_MGMT: 위험 EMV 및 컨틴전시 예비비.
 - Q10 SERVICE_MGMT: RTO/RPO, 복구시간, 데이터손실, 리스토어 시험. 일본어/한국어의 증분백업 용어를 `増分バックアップ / 증분 백업`으로 통일 완료.
 - Q11 AUDIT: B1의 변경관리 감사와 겹치던 초안을 폐기하고, 외부위탁 특권ID·퇴사자 계정·공용ID 추적성 감사 시나리오로 교체.
-- B1과 동일 시나리오를 재사용하지 않고 문제·수치·자료를 신규 작성.
-- 계산형(손익분기점, Dijkstra, 서버대수, ADC, 데이터이관시간, EMV, RTO/RPO) 재검산.
-- manifest에서 B-02 `ready` 전환.
+- 계산형 재검산, manifest `ready`.
 - `npm run ap:mock:b2:build` → `migrations/0081_ap_mock_exam_b02_questions.sql`.
+
+## 科目A 모의고사 3회 — ready
+- `A-03-01.json`~`A-03-04.json`, Q1~Q80.
+- 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
+- 정답 위치는 Q1부터 ①②③④ 순환 방식으로 설계하여 0/1/2/3 각각 20문제.
+- A1/A2의 문장을 그대로 재사용하지 않고 자료구조·OS·DB·네트워크·보안·분산/API·PM·서비스관리·전략/재무/법무를 새로운 상황과 수치로 구성.
+- 계산형 재검산: 조건부확률, 재귀, 이분탐색, LRU, CPU 실행시간, Amdahl, 캐시 set수, 직렬가용성, /27 host수, 순환복잡도, 표본화, PERT, CPI, SLA 허용중단시간, 시장점유율, 공헌이익, BEP, ROI, NPV, 정액법 감가상각, 재고회전율, 유동비율.
+- manifest에서 A-03 `ready` 전환.
+- `npm run ap:mock:a3:build` → `migrations/0082_ap_mock_exam_a03_questions.sql`.
 
 ## 적용 명령 흐름
 - `npm run ap:validate`: 기존 AP 문제은행 + 전체 모의고사 검증.
-- `npm run ap:mock:build`: A1/B1/A2/B2를 한 번에 중복/구조 검증 후 0078~0081 SQL 생성.
+- `npm run ap:mock:build`: A1/B1/A2/B2/A3를 한 번에 중복/구조 검증 후 0078~0082 SQL 생성.
 - `npm run db:migrate:local`: 검증/SQL 생성 성공 후 로컬 D1 migration 적용.
 - `npm run db:migrate:remote`: 검증/SQL 생성 성공 후 원격 D1 migration 적용.
 - `npm run dev`: `db:migrate:local` 선행.
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 科目A 모의고사 3회 80문제 신규 제작.
-2. A3는 A1/A2 및 기존 AP 문제은행과 상황·수치·보기까지 중복 없이 구성.
-3. A3 사실/계산/정답분포/분야분포 검증 후 ready.
-4. 이후 科目B 3회 제작 및 최종 6회차 전체 검증.
+1. 科目B 모의고사 3회 11문제 신규 제작.
+2. B3는 B1/B2와 시나리오·자료·계산유형을 중복하지 않도록 구성.
+3. B3 사실/모범답안/부분점수/분야분포 검증 후 ready.
+4. 마지막으로 A1~A3/B1~B3 총 6회차 전체 중복·정답·표현·DB 빌드 검증.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
