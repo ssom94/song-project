@@ -27,21 +27,21 @@
 - `0076_ap_mock_exam_foundation.sql`: 시험/문제/응시/답안 기본 테이블.
 - `0077_ap_mock_exam_structured_written_answers.sql`: 科目B 장문/표/로그/구조화 답안 및 채점기준 저장 컬럼.
 - 科目A/科目B 탭, 1/2/3회 목록, 미실시/진행중/실시완료 표시.
-- 답안은 `(attempt_id, question_id)` PK 기반 UPSERT로 **문제 한 개를 풀 때마다 자동저장**한다.
-- 진행 중 브라우저를 닫아도 같은 `in_progress` 응시기록을 재사용해 이어서 풀 수 있다.
-- 150분 타이머는 서버 `started_at` 기준이며 재접속 시 남은시간을 복원한다.
-- 科目A 최종 제출 시 자동채점.
-- 科目B는 11문제 중 정확히 5문제 선택, Q1 정보보안 필수, 문제당 20점, 선택한 5문제만 합산해 100점.
+- 답안은 `(attempt_id, question_id)` PK 기반 UPSERT로 문제 한 개를 풀 때마다 자동저장.
+- 진행 중 브라우저를 닫아도 같은 `in_progress` 응시기록에서 이어서 풀 수 있음.
+- 150분 타이머는 서버 `started_at` 기준이며 재접속 시 남은시간 복원.
+- 科目A 최종 제출 자동채점.
+- 科目B는 11문제 중 정확히 5문제 선택, Q1 정보보안 필수, 문제당 20점, 선택한 5문제 합산 100점.
 - 科目B 부분점수 및 구조화 답안(`answer_json`) 지원.
 - 결과에서 답안/정답·모범답안/상세해설/관련 개념 확인.
 
 ### 모의고사 목록 진행률/결과 표시
-- 목록 페이지는 추가 전체스캔 없이 기존 `attempt.answeredCount`, `score`를 사용한다.
-- 미실시 예: `80 / - (-)`.
-- 진행 중 예: `80 / 23문제 풀이 중` / `80 / 23問解答済み`.
-- 科目A 완료 예: `80 / 61정답 (76.25점)`.
-- 科目B 완료는 부분점수 구조라 `11 / 5문제 채점 (72점)` 형태로 표시.
-- 진행 중 회차의 버튼은 `계속 풀기 / 続きから`, 완료 회차는 `결과·해설 보기 / 結果・解説を見る`.
+- 목록은 추가 전체스캔 없이 기존 `attempt.answeredCount`, `score` 사용.
+- 미실시: `80 / - (-)`.
+- 진행 중: `80 / 23문제 풀이 중` / `80 / 23問解答済み`.
+- 科目A 완료: `80 / 61정답 (76.25점)` 형식.
+- 科目B 완료: 부분점수 구조 때문에 `11 / 5문제 채점 (72점)` 형식.
+- 진행 중 버튼: `계속 풀기 / 続きから`; 완료 버튼: `결과·해설 보기 / 結果・解説を見る`.
 - 목록 전용 스크립트: `public/assets/js/study/ap-mock-exams-list.js`.
 
 ### 중복/품질 검증
@@ -50,60 +50,70 @@
 - DB `fingerprint` GLOBAL UNIQUE.
 - `(mock_exam_id, admin_id, attempt_no)` UNIQUE.
 - 회차별 동시 `in_progress` 1개만 허용.
-- source JSON의 수동 fingerprint 값은 신뢰하지 않는다.
-- `scripts/ap/mock-exam-utils.mjs`가 일본어 문제 본문·장문 지문·로그·표·선택지·소문항을 NFKC 정규화한 뒤 SHA-256을 계산한다.
-- validator와 DB builder가 같은 계산함수를 사용하므로 회차 간 동일/재사용 시나리오를 내용 기준으로 차단한다.
-- `scripts/ap/validate-mock-exams.mjs`는 문제번호, 분야분포, 선택지, 배점, 필수문제, 소문항 key, 채점기준 합계까지 검증한다.
+- source JSON의 수동 fingerprint 값은 신뢰하지 않음.
+- `scripts/ap/mock-exam-utils.mjs`가 일본어 문제 본문·장문 지문·로그·표·선택지·소문항을 NFKC 정규화 후 SHA-256 계산.
+- validator와 DB builder가 같은 계산함수를 사용하므로 회차 간 동일/재사용 문제와 시나리오를 내용 기준으로 차단.
+- `scripts/ap/validate-mock-exams.mjs`는 문제번호, 분야분포, 선택지, 배점, 필수문제, 소문항 key, 채점기준 합계까지 검증.
 
 ## 科目A 모의고사 1회 — ready
-- 원본: `A-01-01.json` ~ `A-01-04.json`, Q1~Q80.
-- 80문제 / 150분 / 전 문항 4지선다.
-- T 50 / M 10 / S 20.
-- 각 1.25점, 총 100점.
+- `A-01-01.json`~`A-01-04.json`, Q1~Q80.
+- 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
 - 정답 위치 0/1/2/3 각각 20문제.
-- Q51 CPM 정답 위치 오류 발견 후 수정 완료.
-- 공개 기출 문장을 복사하지 않고 신규 작성.
-- DB 등록용 파일은 `npm run ap:mock:a1:build`가 검증 후 `migrations/0078_ap_mock_exam_a01_questions.sql`로 생성한다.
+- Q51 CPM 정답 위치 오류 수정 완료.
+- `npm run ap:mock:a1:build` → `migrations/0078_ap_mock_exam_a01_questions.sql`.
 
 ## 科目B 모의고사 1회 — ready
-- `B-01-01.json`~`B-01-11.json`, 11개 공식 출제 분야를 한 번씩 구성.
-- Q1 정보보안 필수, 11문제 중 5문제 선택.
+- `B-01-01.json`~`B-01-11.json`.
+- 11개 공식 분야를 한 번씩 구성, Q1 SECURITY 필수, 5문제 선택.
 - 각 문제 20점, 4개 소문항×5점.
-- Password Spraying 문제는 답이 유일하도록 로그 근거를 보강.
-- 계산형(LTV, BFS 거리, subnet, sampling, CPM/EVM, availability) 재검산 완료.
-- 공개 기출 문장을 복사하지 않고 신규 작성.
-- DB 등록용 파일은 `npm run ap:mock:b1:build`가 검증 후 `migrations/0079_ap_mock_exam_b01_questions.sql`로 생성한다.
+- Password Spraying 문제 정답 유일성 보강 및 계산형 재검산 완료.
+- `npm run ap:mock:b1:build` → `migrations/0079_ap_mock_exam_b01_questions.sql`.
 
 ## 科目A 모의고사 2회 — ready
-- 원본: `A-02-01.json` ~ `A-02-04.json`, Q1~Q80.
-- 80문제 / 150분 / 전 문항 4지선다.
-- T 50 / M 10 / S 20.
-- 각 1.25점, 총 100점.
+- `A-02-01.json`~`A-02-04.json`, Q1~Q80.
+- 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
 - 정답 위치 0/1/2/3 각각 20문제로 설계.
-- A1의 문제 문장을 그대로 재사용하지 않고 상황·수치·보기까지 새로 작성.
-- 계산형: 2의 보수, CPU 실행시간, 평균 캐시시간, RAID5, subnet, 연간기대손실, 압축전송, 표본화, CPM/EVM, SLA 가동률, ROI, BEP, NPV, 감가상각, 재고회전율 등을 재검산.
-- Q49의 `압축률 40%` 표현은 해석 모호성을 제거해 `압축 후 크기가 원본의 40%`라고 명시하도록 보정.
-- manifest에서 A-02를 4분할 원본 기준 `ready`로 전환.
-- DB 등록용 파일은 `npm run ap:mock:a2:build`가 전체 중복/구조 검증 후 `migrations/0080_ap_mock_exam_a02_questions.sql`로 생성한다.
+- A1 문제 문장을 그대로 재사용하지 않고 상황·수치·보기까지 신규 작성.
+- 계산형(2의 보수, CPU, 캐시, RAID5, subnet, 기대손실, 압축전송, 표본화, CPM/EVM, SLA, ROI, BEP, NPV, 감가상각, 재고회전율 등) 재검산.
+- Q49 압축률 표현의 모호성 제거 완료.
+- `npm run ap:mock:a2:build` → `migrations/0080_ap_mock_exam_a02_questions.sql`.
+
+## 科目B 모의고사 2회 — ready
+원본: `B-02-01.json`~`B-02-11.json`.
+- Q1 SECURITY: CI 빌드로그 API 토큰 노출, 토큰 폐기/로테이션, 시크릿 마스킹.
+- Q2 STRATEGY: 신규 서비스 공헌이익, 손익분기점, 투자회수 판단.
+- Q3 PROGRAMMING: 다익스트라 최단경로 및 음수 간선 조건.
+- Q4 ARCHITECTURE: 피크 처리량, 메시지큐, DB 이중화.
+- Q5 NETWORK: VPN MTU, DF, PMTUD, ICMP 차단 분석.
+- Q6 DATABASE: 정규화, 갱신 이상, REPEATABLE READ.
+- Q7 EMBEDDED: 12비트 ADC, 외부 인터럽트, 100ms 주기, PWM 듀티비.
+- Q8 SYSTEM_DEV: 500만건 데이터이관, 시간 계산, 건수/해시 검증, 롤백.
+- Q9 PROJECT_MGMT: 위험 EMV 및 컨틴전시 예비비.
+- Q10 SERVICE_MGMT: RTO/RPO, 복구시간, 데이터손실, 리스토어 시험.
+- Q11 AUDIT: 변경승인 통제, 직무분장, 조작로그 감사증거.
+- B1과 동일 시나리오를 재사용하지 않고 문제·수치·자료를 신규 작성.
+- 계산형(손익분기점, Dijkstra, 서버대수, ADC, 데이터이관시간, EMV, RTO/RPO) 재검산.
+- manifest에서 B-02 `ready` 전환.
+- `npm run ap:mock:b2:build` → `migrations/0081_ap_mock_exam_b02_questions.sql`.
 
 ## 적용 명령 흐름
-- `npm run ap:validate`: 기존 AP 문제은행 + 모든 모의고사 회차 검증.
-- `npm run ap:mock:build`: 현재 ready인 A1/B1/A2 전체 검증 후 0078/0079/0080 SQL 생성.
-- `npm run db:migrate:local`: 위 검증/SQL 생성 성공 후 로컬 D1 migration 적용.
-- `npm run db:migrate:remote`: 위 검증/SQL 생성 성공 후 원격 D1 migration 적용.
-- `npm run dev`는 `db:migrate:local`을 먼저 실행하므로 별도 회차 등록 명령을 외울 필요가 없다.
-- 검증 실패 시 migration 생성/적용 흐름이 중단된다.
+- `npm run ap:validate`: 기존 AP 문제은행 + 전체 모의고사 검증.
+- `npm run ap:mock:build`: A1/B1/A2/B2를 한 번에 중복/구조 검증 후 0078~0081 SQL 생성.
+- `npm run db:migrate:local`: 검증/SQL 생성 성공 후 로컬 D1 migration 적용.
+- `npm run db:migrate:remote`: 검증/SQL 생성 성공 후 원격 D1 migration 적용.
+- `npm run dev`: `db:migrate:local` 선행.
+- 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 科目B 모의고사 2회 11문제 신규 제작.
-2. B2는 B1과 다른 시나리오/수치/로그/표로 구성하며 Q1 SECURITY 필수 유지.
-3. B2 사실/계산/모범답안/부분점수/회차 간 fingerprint 중복 검증 후 ready.
-4. 이후 科目A 3회 → 科目B 3회 순서.
+1. 科目A 모의고사 3회 80문제 신규 제작.
+2. A3는 A1/A2 및 기존 AP 문제은행과 상황·수치·보기까지 중복 없이 구성.
+3. A3 사실/계산/정답분포/분야분포 검증 후 ready.
+4. 이후 科目B 3회 제작 및 최종 6회차 전체 검증.
 
 ## 운영 원칙
-- 기존 migration은 가능하면 수정하지 않고 후속 migration을 추가한다.
-- Cloudflare D1 무료 row-read 한도를 고려해 전체 스캔/반복 SELECT·COUNT를 피한다.
-- 배치 INSERT/UPSERT, VALUES/CTE, 인덱스 기반 JOIN을 우선한다.
-- 모의고사는 ready 전 구조·중복·정답·해설 검증을 통과해야 한다.
-- 다른 회차에서 동일 문제/시나리오를 그대로 재사용하지 않는다.
-- Git 실제 스키마/코드를 확인하기 전에는 테이블/컬럼을 추측하지 않는다.
+- 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
+- Cloudflare D1 무료 row-read 한도를 고려해 전체 스캔/반복 SELECT·COUNT 회피.
+- 배치 INSERT/UPSERT, VALUES/CTE, 인덱스 기반 JOIN 우선.
+- 모의고사는 ready 전 구조·중복·정답·해설 검증 통과 필수.
+- 다른 회차에서 동일 문제/시나리오 그대로 재사용 금지.
+- Git 실제 스키마/코드를 확인하기 전 테이블/컬럼 추측 금지.
