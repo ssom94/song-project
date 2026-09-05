@@ -13,6 +13,7 @@ interface PublicPostListRow {
 	title: string;
 	slug: string;
 	excerpt: string | null;
+	category_id: number | null;
 	category_name: string | null;
 	tag_names: string | null;
 	published_at: string | null;
@@ -26,6 +27,9 @@ interface CountRow {
 }
 
 interface CategoryCountRow {
+	category_id: number;
+	parent_id: number | null;
+	depth: number;
 	category_name: string;
 	post_count: number;
 }
@@ -50,7 +54,7 @@ function parsePage(request: Request): number {
 }
 
 function parseCategory(request: Request): string {
-	return (new URL(request.url).searchParams.get('category') ?? '').trim().slice(0, 120);
+	return (new URL(request.url).searchParams.get('category') ?? '').trim().slice(0, 240);
 }
 
 function requestedManageView(request: Request): boolean {
@@ -59,7 +63,58 @@ function requestedManageView(request: Request): boolean {
 
 function basePostCte(): string {
 	return `
-		WITH visible_posts AS (
+		WITH RECURSIVE
+		category_labels AS (
+			SELECT
+				c.id,
+				c.parent_id,
+				c.display_order,
+				COALESCE(requested.name, ja.name, ko.name, '#' || c.id) AS name
+			FROM categories AS c
+			LEFT JOIN category_translations AS requested
+				ON requested.category_id = c.id AND requested.language_code = ?1
+			LEFT JOIN category_translations AS ja
+				ON ja.category_id = c.id AND ja.language_code = 'ja'
+			LEFT JOIN category_translations AS ko
+				ON ko.category_id = c.id AND ko.language_code = 'ko'
+			WHERE c.deleted_at IS NULL
+		),
+		category_tree AS (
+			SELECT
+				id,
+				parent_id,
+				display_order,
+				name,
+				name AS path,
+				0 AS depth,
+				printf('%010d-%010d', display_order, id) AS sort_path
+			FROM category_labels
+			WHERE parent_id IS NULL
+
+			UNION ALL
+
+			SELECT
+				child.id,
+				child.parent_id,
+				child.display_order,
+				child.name,
+				parent.path || ' > ' || child.name AS path,
+				parent.depth + 1 AS depth,
+				parent.sort_path || '/' || printf('%010d-%010d', child.display_order, child.id) AS sort_path
+			FROM category_labels AS child
+			INNER JOIN category_tree AS parent ON parent.id = child.parent_id
+		),
+		category_descendants AS (
+			SELECT id AS root_id, id AS category_id
+			FROM category_tree
+
+			UNION ALL
+
+			SELECT descendants.root_id, child.id AS category_id
+			FROM category_descendants AS descendants
+			INNER JOIN category_tree AS child ON child.parent_id = descendants.category_id
+		),
+		visible_posts AS (
 			SELECT
 				p.id,
 				p.status,
@@ -68,7 +123,8 @@ function basePostCte(): string {
 				pt.title,
 				pt.slug,
 				pt.excerpt,
-				ct.name AS category_name,
+				p.category_id,
+				category_tree.name AS category_name,
 				(
 					SELECT GROUP_CONCAT(tt.name, CHAR(31))
 					FROM post_tags AS ptag
@@ -97,12 +153,23 @@ function basePostCte(): string {
 					ELSE p.original_language
 				END
 				AND pt.translation_status IN ('original', 'translated', 'reviewed')
-			LEFT JOIN category_translations AS ct
-				ON ct.category_id = p.category_id AND ct.language_code = pt.language_code
+			LEFT JOIN category_tree ON category_tree.id = p.category_id
 			WHERE (p.status = 'published' OR (?2 = 1 AND p.status = 'private'))
 				AND p.deleted_at IS NULL
 		)
 	`;
+}
+
+function categoryFilterSql(): string {
+	return `(
+		?3 = ''
+		OR category_id IN (
+			SELECT descendants.category_id
+			FROM category_descendants AS descendants
+			INNER JOIN category_tree AS root ON root.id = descendants.root_id
+			WHERE root.path = ?3 OR root.name = ?3
+		)
+	)`;
 }
 
 export async function handleListPublicPosts(request: Request, env: Env): Promise<Response> {
@@ -121,7 +188,7 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 			.prepare(`${basePostCte()}
 				SELECT COUNT(*) AS total
 				FROM visible_posts
-				WHERE (?3 = '' OR category_name = ?3)
+				WHERE ${categoryFilterSql()}
 			`)
 			.bind(language, adminFlag, category)
 			.first<CountRow>();
@@ -137,7 +204,7 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 					visible_posts.*,
 					(SELECT COUNT(*) FROM visible_posts) AS global_total
 				FROM visible_posts
-				WHERE (?3 = '' OR category_name = ?3)
+				WHERE ${categoryFilterSql()}
 				ORDER BY global_row_number ASC
 				LIMIT ?4 OFFSET ?5
 			`)
@@ -146,11 +213,26 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 
 		const categoryResult = await env.song_project_db
 			.prepare(`${basePostCte()}
-				SELECT category_name, COUNT(*) AS post_count
-				FROM visible_posts
-				WHERE category_name IS NOT NULL AND TRIM(category_name) <> ''
-				GROUP BY category_name
-				ORDER BY category_name COLLATE NOCASE ASC
+				SELECT
+					category_tree.id AS category_id,
+					category_tree.parent_id,
+					category_tree.depth,
+					category_tree.path AS category_name,
+					COUNT(DISTINCT visible_posts.id) AS post_count,
+					category_tree.sort_path
+				FROM category_tree
+				INNER JOIN category_descendants
+					ON category_descendants.root_id = category_tree.id
+				LEFT JOIN visible_posts
+					ON visible_posts.category_id = category_descendants.category_id
+				GROUP BY
+					category_tree.id,
+					category_tree.parent_id,
+					category_tree.depth,
+					category_tree.path,
+					category_tree.sort_path
+				HAVING COUNT(visible_posts.id) > 0
+				ORDER BY category_tree.sort_path ASC
 			`)
 			.bind(language, adminFlag)
 			.all<CategoryCountRow>();
@@ -167,6 +249,9 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 				totalPages: totalItems === 0 ? 0 : totalPages,
 			},
 			categories: categoryResult.results.map((row) => ({
+				id: row.category_id,
+				parentId: row.parent_id,
+				depth: Number(row.depth ?? 0),
 				name: row.category_name,
 				count: Number(row.post_count ?? 0),
 			})),
