@@ -1,0 +1,34 @@
+{
+  "subject": "B",
+  "examNo": 2,
+  "questions": [
+    {
+      "questionNo": 5,
+      "sectionCode": "NETWORK",
+      "type": "written",
+      "promptJa": "拠点間通信の遅延とパケット断片化の原因をネットワーク設定から分析せよ。",
+      "promptKo": "거점 간 통신 지연과 패킷 단편화 원인을 네트워크 설정에서 분석하시오.",
+      "content": {
+        "passageJa": "本社とクラウドVPCをVPNで接続している。LAN側MTUは1500バイト，VPNトンネル区間で利用可能なMTUは1400バイトである。アプリケーションはDFビットを付けた1450バイトのIPパケットを送信しているが，経路上のICMP Fragmentation Neededがファイアウォールで遮断されている。",
+        "passageKo": "본사와 클라우드 VPC를 VPN으로 연결한다. LAN MTU는 1500바이트, VPN 터널 구간에서 사용 가능한 MTU는 1400바이트다. 애플리케이션은 DF 비트가 설정된 1450바이트 IP 패킷을 보내지만 경로상의 ICMP Fragmentation Needed가 방화벽에서 차단된다.",
+        "tables": [
+          {"titleJa":"経路設定","headers":["区間","MTU"],"rows":[["本社LAN","1500"],["VPNトンネル","1400"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"1450バイトのDF付きパケットがVPN区間をそのまま通過できない理由を答えよ。","promptKo":"1450바이트 DF 패킷이 VPN 구간을 그대로 통과할 수 없는 이유를 쓰시오."},
+          {"key":"q2","promptJa":"Path MTU Discoveryが正常に働かない直接の原因を答えよ。","promptKo":"Path MTU Discovery가 정상 작동하지 않는 직접 원인을 쓰시오."},
+          {"key":"q3","promptJa":"アプリケーション側で回避する代表的な方法を一つ答えよ。","promptKo":"애플리케이션 측에서 회피할 대표적 방법 하나를 쓰시오."},
+          {"key":"q4","promptJa":"ネットワーク側で優先して見直すべき設定を答えよ。","promptKo":"네트워크 측에서 우선 재검토해야 할 설정을 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 1450バイトがVPN区間MTU1400を超え，DFにより断片化できないため。\nq2: ICMP Fragmentation Neededがファイアウォールで遮断されているため。\nq3: MSS/送信サイズを小さくする。\nq4: 必要なICMPを許可してPath MTU Discoveryを機能させる。",
+      "modelAnswerKo": "q1: 1450바이트가 VPN MTU 1400을 초과하고 DF 때문에 단편화할 수 없기 때문.\nq2: ICMP Fragmentation Needed가 방화벽에서 차단되기 때문.\nq3: MSS/송신 크기를 줄인다.\nq4: 필요한 ICMP를 허용해 Path MTU Discovery가 동작하게 한다.",
+      "explanationJa": "DF付きパケットは経路MTUを超えると中継装置で断片化できない。送信元へ適切なICMPが返ればPMTUDでサイズを調整できるが，これを遮断するとブラックホールMTU問題が起こり得る。",
+      "explanationKo": "DF 패킷은 경로 MTU를 초과하면 중계장치에서 단편화할 수 없다. 송신원에 적절한 ICMP가 돌아오면 PMTUD로 크기를 조절할 수 있지만 이를 차단하면 블랙홀 MTU 문제가 발생할 수 있다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": "A-35",
+      "gradingSchema": {"criteria":[{"key":"q1","score":5,"modelJa":"1450>1400かつDFで断片化不可","modelKo":"1450>1400이고 DF로 단편화 불가"},{"key":"q2","score":5,"modelJa":"必要ICMPの遮断","modelKo":"필요 ICMP 차단"},{"key":"q3","score":5,"modelJa":"MSS又は送信サイズ縮小","modelKo":"MSS 또는 송신크기 축소"},{"key":"q4","score":5,"modelJa":"ICMP許可・PMTUD復旧","modelKo":"ICMP 허용·PMTUD 복구"}]}
+    }
+  ]
+}
