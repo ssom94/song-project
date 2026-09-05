@@ -1,0 +1,48 @@
+{
+  "subject": "B",
+  "examNo": 1,
+  "questions": [
+    {
+      "questionNo": 3,
+      "sectionCode": "PROGRAMMING",
+      "type": "written",
+      "promptJa": "無向グラフを幅優先探索する疑似コードについて，実行過程と計算量を答えよ。",
+      "promptKo": "무방향 그래프를 너비우선탐색하는 의사코드에 대해 실행 과정과 계산량을 답하시오.",
+      "content": {
+        "passageJa": "U社では拠点間接続の最短ホップ数を求めるため，幅優先探索を利用する。頂点はA～Fであり，隣接頂点は表の左から順にキューへ追加する。visitedは頂点をキューへ追加した時点でtrueにする。開始頂点をAとする。",
+        "passageKo": "U사는 거점 간 연결의 최소 홉 수를 구하기 위해 너비우선탐색을 사용한다. 정점은 A~F이고 인접 정점은 표의 왼쪽부터 큐에 추가한다. visited는 정점을 큐에 넣는 시점에 true로 한다. 시작정점은 A이다.",
+        "logs": [
+          "queue ← [A]\nvisited[A] ← true\ndist[A] ← 0\nwhile queue is not empty\n  v ← dequeue(queue)\n  for each u in adjacent[v]\n    if visited[u] = false\n      visited[u] ← true\n      dist[u] ← dist[v] + 1\n      enqueue(queue, u)"
+        ],
+        "tables": [
+          {
+            "titleJa": "隣接リスト",
+            "headers": ["頂点", "隣接頂点"],
+            "rows": [["A", "B, C"], ["B", "A, D, E"], ["C", "A, E"], ["D", "B, F"], ["E", "B, C, F"], ["F", "D, E"]]
+          }
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"Aを取り出した直後にキューへ追加される頂点を順に答えよ。","promptKo":"A를 꺼낸 직후 큐에 추가되는 정점을 순서대로 쓰시오."},
+          {"key":"q2","promptJa":"探索終了時のdist[F]の値を答えよ。","promptKo":"탐색 종료 시 dist[F] 값을 쓰시오."},
+          {"key":"q3","promptJa":"隣接リストを用いたこの幅優先探索の時間計算量を，頂点数Vと辺数Eを用いて答えよ。","promptKo":"인접리스트를 이용한 이 너비우선탐색의 시간복잡도를 정점 수 V와 간선 수 E로 나타내시오."},
+          {"key":"q4","promptJa":"visitedをenqueue時ではなくdequeue時にtrueに変更すると，同じ頂点がキューへ複数回入る可能性がある理由を簡潔に説明せよ。","promptKo":"visited를 enqueue 시점이 아니라 dequeue 시점에 true로 바꾸면 같은 정점이 큐에 여러 번 들어갈 수 있는 이유를 간단히 설명하시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: B, C。\nq2: 3。\nq3: O(V+E)。\nq4: ある頂点が取り出される前に複数の隣接頂点から未訪問と判定され，それぞれからenqueueされ得るため。",
+      "modelAnswerKo": "q1: B, C.\nq2: 3.\nq3: O(V+E).\nq4: 어떤 정점이 dequeue되기 전에 여러 인접 정점에서 아직 미방문으로 판단되어 각각 enqueue될 수 있기 때문이다.",
+      "explanationJa": "AからB,Cが距離1，BからD,Eが距離2，DまたはEからFが距離3となる。隣接リストのBFSは各頂点と各辺を高々定数回処理するのでO(V+E)である。重複enqueueを防ぐには，キューへ入れた時点で訪問済みにする。",
+      "explanationKo": "A에서 B,C가 거리1, B에서 D,E가 거리2, D 또는 E에서 F가 거리3이 된다. 인접리스트 BFS는 각 정점과 간선을 최대 상수 횟수 처리하므로 O(V+E)이다. 중복 enqueue를 막으려면 큐에 넣는 시점에 방문처리한다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": "B-08",
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"B, C","modelKo":"B, C"},
+          {"key":"q2","score":5,"modelJa":"3","modelKo":"3"},
+          {"key":"q3","score":5,"modelJa":"O(V+E)","modelKo":"O(V+E)"},
+          {"key":"q4","score":5,"modelJa":"dequeue前に複数経路から未訪問と判定されるため","modelKo":"dequeue 전에 여러 경로에서 미방문으로 판단되기 때문"}
+        ]
+      }
+    }
+  ]
+}
