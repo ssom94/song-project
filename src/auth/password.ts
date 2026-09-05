@@ -1,9 +1,10 @@
-import { scrypt as nodeScrypt } from 'node:crypto';
+import { pbkdf2Sync, randomBytes, scrypt as nodeScrypt } from 'node:crypto';
 
 const SCRYPT_ALGORITHM = 'scrypt';
 const PBKDF2_ALGORITHM = 'pbkdf2-sha256';
-const PBKDF2_HASH = 'SHA-256';
+const PBKDF2_DIGEST = 'sha256';
 const PBKDF2_ITERATIONS = 210_000;
+const PBKDF2_KEY_LENGTH = 32;
 const SCRYPT_MAX_MEMORY = 64 * 1024 * 1024;
 
 function bytesToBase64Url(bytes: Uint8Array): string {
@@ -127,51 +128,17 @@ async function verifyPbkdf2(password: string, encodedHash: string): Promise<bool
 			return false;
 		}
 
-		const keyMaterial = await crypto.subtle.importKey(
-			'raw',
-			new TextEncoder().encode(password),
-			'PBKDF2',
-			false,
-			['deriveBits'],
-		);
-
-		const derivedBits = await crypto.subtle.deriveBits(
-			{
-				name: 'PBKDF2',
-				hash: PBKDF2_HASH,
-				salt,
-				iterations,
-			},
-			keyMaterial,
-			expectedHash.length * 8,
-		);
-
-		return constantTimeEqual(new Uint8Array(derivedBits), expectedHash);
+		const derivedHash = pbkdf2Sync(password, salt, iterations, expectedHash.length, PBKDF2_DIGEST);
+		return constantTimeEqual(new Uint8Array(derivedHash), expectedHash);
 	} catch {
 		return false;
 	}
 }
 
 export async function hashPassword(password: string): Promise<string> {
-	const salt = crypto.getRandomValues(new Uint8Array(16));
-	const keyMaterial = await crypto.subtle.importKey(
-		'raw',
-		new TextEncoder().encode(password),
-		'PBKDF2',
-		false,
-		['deriveBits'],
-	);
-	const derivedBits = await crypto.subtle.deriveBits(
-		{
-			name: 'PBKDF2',
-			hash: PBKDF2_HASH,
-			salt,
-			iterations: PBKDF2_ITERATIONS,
-		},
-		keyMaterial,
-		256,
-	);
-	return `${PBKDF2_ALGORITHM}$${PBKDF2_ITERATIONS}$${bytesToBase64Url(salt)}$${bytesToBase64Url(new Uint8Array(derivedBits))}`;
+	const salt = new Uint8Array(randomBytes(16));
+	const derivedHash = pbkdf2Sync(password, salt, PBKDF2_ITERATIONS, PBKDF2_KEY_LENGTH, PBKDF2_DIGEST);
+	return `${PBKDF2_ALGORITHM}$${PBKDF2_ITERATIONS}$${bytesToBase64Url(salt)}$${bytesToBase64Url(new Uint8Array(derivedHash))}`;
 }
 
 export async function verifyPassword(password: string, encodedHash: string): Promise<boolean> {
