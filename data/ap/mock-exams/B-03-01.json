@@ -1,0 +1,48 @@
+{
+  "subject": "B",
+  "examNo": 3,
+  "questions": [
+    {
+      "questionNo": 1,
+      "sectionCode": "SECURITY",
+      "type": "written",
+      "promptJa": "画像取得APIを悪用したSSRFとクラウド資格情報の不正利用について，ログを基に設問に答えよ。",
+      "promptKo": "이미지 취득 API를 악용한 SSRF와 클라우드 자격정보 부정사용에 대해 로그를 바탕으로 물음에 답하시오.",
+      "content": {
+        "passageJa": "C社のWebサービスには，利用者が指定したURLから画像を取得してサムネイルを生成するAPIがある。APIサーバはクラウド上で動作し，オブジェクトストレージへの書込み権限をもつ実行ロールが付与されている。監視担当者は，通常とは異なる宛先へのHTTP要求と，その直後のオブジェクトストレージ操作を検知した。APIサーバからインターネットへの通信は必要だが，クラウドのメタデータサービスへのアクセス制御は設定されていなかった。",
+        "passageKo": "C사의 Web 서비스에는 사용자가 지정한 URL에서 이미지를 가져와 썸네일을 생성하는 API가 있다. API 서버는 클라우드에서 동작하며 오브젝트 스토리지 쓰기 권한을 가진 실행 역할이 부여되어 있다. 모니터링 담당자는 평소와 다른 목적지로의 HTTP 요청과 직후 발생한 오브젝트 스토리지 조작을 탐지했다. API 서버는 인터넷 통신이 필요하지만 클라우드 메타데이터 서비스에 대한 접근통제는 설정되어 있지 않았다.",
+        "logs": [
+          "14:21:07 WEB user=u203 path=/thumbnail?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/app-role status=200\n14:21:08 APP dst=169.254.169.254 status=200 bytes=1186\n14:22:11 STORAGE principal=app-role action=ListObjects bucket=customer-export src=198.51.100.44\n14:22:19 STORAGE principal=app-role action=GetObject key=exports/2026-09/customers.csv src=198.51.100.44"
+        ],
+        "tables": [
+          {
+            "titleJa": "通常時の実行ロール利用",
+            "headers": ["項目", "通常"],
+            "rows": [["送信元", "APIサーバのプライベートアドレス"], ["主な操作", "PutObject"], ["メタデータアクセス", "業務上不要"]]
+          }
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"最初の不正要求で利用された攻撃手法を答えよ。","promptKo":"첫 부정 요청에서 사용된 공격기법을 쓰시오."},
+          {"key":"q2","promptJa":"攻撃者がapp-roleの資格情報を取得できたと判断できる根拠を一つ答えよ。","promptKo":"공격자가 app-role 자격정보를 취득했다고 판단할 수 있는 근거 하나를 쓰시오."},
+          {"key":"q3","promptJa":"被害拡大を抑えるためapp-roleに対して直ちに行うべき措置を答えよ。","promptKo":"피해 확산을 막기 위해 app-role에 즉시 실시해야 할 조치를 쓰시오."},
+          {"key":"q4","promptJa":"同種のSSRFによるメタデータ取得を防ぐため，画像取得API側で実施すべき対策を一つ答えよ。","promptKo":"같은 SSRF를 통한 메타데이터 취득을 막기 위해 이미지 취득 API 측에서 실시할 대책 하나를 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: SSRF。\nq2: app-roleが通常と異なる外部IPからListObjects/GetObjectに利用されている。\nq3: app-roleの一時資格情報を失効させ，必要に応じてロール権限を一時停止・縮小する。\nq4: 取得先URLを許可リストで制限し，169.254.169.254などリンクローカル・内部アドレスへの接続を拒否する。",
+      "modelAnswerKo": "q1: SSRF.\nq2: app-role이 평소와 다른 외부 IP에서 ListObjects/GetObject에 사용됐다.\nq3: app-role의 임시 자격정보를 무효화하고 필요 시 역할 권한을 일시중지·축소한다.\nq4: 취득 대상 URL을 허용목록으로 제한하고 169.254.169.254 같은 링크로컬·내부 주소 접속을 거부한다.",
+      "explanationJa": "利用者入力のURLをサーバが取得する機能からリンクローカルのメタデータサービスへ到達しているためSSRFである。その直後，通常はAPIサーバからしか使われないapp-roleが外部IPからオブジェクト取得に使われており，資格情報の流出が強く示唆される。初動では資格情報を無効化し，恒久対策として取得先の制限，内部アドレス拒否，クラウド側のメタデータ保護を組み合わせる。",
+      "explanationKo": "사용자 입력 URL을 서버가 가져오는 기능을 통해 링크로컬 메타데이터 서비스에 접근했으므로 SSRF다. 직후 평소 API 서버에서만 쓰이던 app-role이 외부 IP에서 오브젝트 취득에 사용되어 자격정보 유출을 강하게 시사한다. 초동은 자격정보 무효화이며, 재발방지는 취득 대상 제한, 내부주소 차단, 클라우드 메타데이터 보호를 조합한다.",
+      "maxScore": 20,
+      "mandatory": true,
+      "sourceConceptCode": "B-01",
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"SSRF","modelKo":"SSRF"},
+          {"key":"q2","score":5,"modelJa":"app-roleが通常と異なる外部IPから利用されている","modelKo":"app-role이 평소와 다른 외부 IP에서 사용됨"},
+          {"key":"q3","score":5,"modelJa":"流出した一時資格情報を失効・ロール権限を停止又は縮小","modelKo":"유출 임시 자격정보 무효화·역할 권한 중지 또는 축소"},
+          {"key":"q4","score":5,"modelJa":"許可先制限とリンクローカル・内部アドレス拒否","modelKo":"허용 대상 제한 및 링크로컬·내부 주소 차단"}
+        ]
+      }
+    }
+  ]
+}
