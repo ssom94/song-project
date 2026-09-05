@@ -1,0 +1,41 @@
+{
+  "subject": "B",
+  "examNo": 3,
+  "questions": [
+    {
+      "questionNo": 4,
+      "sectionCode": "ARCHITECTURE",
+      "type": "written",
+      "promptJa": "マイクロサービス間の再試行によって発生した重複処理と障害連鎖について設問に答えよ。",
+      "promptKo": "마이크로서비스 간 재시도로 발생한 중복처리와 장애연쇄에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "E社の注文サービスは決済サービスを同期HTTPで呼び出す。決済サービスが一時的に遅延した際，注文サービスはタイムアウト後ただちに最大3回まで再試行する実装になっていた。決済APIにはリクエストを一意に識別するキーがなく，決済処理自体はタイムアウト後も完了する場合がある。障害時には同一注文について複数回の決済要求が記録され，さらに再試行が集中して決済サービスの負荷が上昇した。",
+        "passageKo": "E사의 주문 서비스는 결제 서비스를 동기 HTTP로 호출한다. 결제 서비스가 일시 지연되면 주문 서비스는 타임아웃 직후 최대 3회까지 재시도한다. 결제 API에는 요청을 고유하게 식별하는 키가 없고, 결제 처리는 타임아웃 뒤에도 완료될 수 있다. 장애 시 같은 주문에 여러 결제요청이 기록되고 재시도가 집중되어 결제 서비스 부하가 상승했다.",
+        "logs": [
+          "12:00:01 ORDER id=O900 pay request try=1 timeout=2s\n12:00:03 ORDER id=O900 pay request try=2 timeout=2s\n12:00:04 PAYMENT id=P771 order=O900 result=SUCCESS\n12:00:05 ORDER id=O900 pay request try=3 timeout=2s\n12:00:06 PAYMENT id=P772 order=O900 result=SUCCESS"
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"同一注文で複数決済が成立した主な原因を答えよ。","promptKo":"같은 주문에서 복수 결제가 성립한 주된 원인을 쓰시오."},
+          {"key":"q2","promptJa":"重複決済を防ぐため，APIに導入すべき仕組みを答えよ。","promptKo":"중복결제를 막기 위해 API에 도입할 구조를 쓰시오."},
+          {"key":"q3","promptJa":"再試行集中による障害連鎖を抑えるため，再試行間隔に用いるべき代表的な方式を答えよ。","promptKo":"재시도 집중에 따른 장애연쇄를 억제하기 위해 재시도 간격에 사용할 대표 방식을 쓰시오."},
+          {"key":"q4","promptJa":"決済サービスが継続的に失敗している場合に呼出しを一時停止する代表的な耐障害パターンを答えよ。","promptKo":"결제 서비스가 계속 실패할 때 호출을 일시 중단하는 대표 장애대응 패턴을 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: タイムアウト後に元の決済が完了しても，同一注文を識別せず再試行したため。\nq2: Idempotency Keyによる冪等性制御。\nq3: 指数バックオフ（必要に応じてジッタ付与）。\nq4: サーキットブレーカ。",
+      "modelAnswerKo": "q1: 타임아웃 뒤 원 결제가 완료돼도 같은 주문을 식별하지 않고 재시도했기 때문이다.\nq2: Idempotency Key를 이용한 멱등성 제어.\nq3: 지수 백오프(필요 시 jitter 포함).\nq4: 서킷 브레이커.",
+      "explanationJa": "タイムアウトは処理失敗を意味しないため，同じ業務要求をそのまま再送すると二重実行が起こり得る。業務キー又はIdempotency Keyで同一要求を識別し，同じ結果を再利用する必要がある。再試行は指数バックオフとジッタで集中を避け，継続障害時にはサーキットブレーカで呼出しを遮断する。",
+      "explanationKo": "타임아웃은 처리실패를 의미하지 않으므로 같은 업무요청을 그대로 재전송하면 이중실행이 생길 수 있다. 업무키 또는 Idempotency Key로 동일요청을 식별해 같은 결과를 재사용해야 한다. 재시도는 지수 백오프와 jitter로 집중을 피하고, 지속 장애 시 서킷 브레이커로 호출을 차단한다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"タイムアウト後の再試行が同一要求として識別されない","modelKo":"타임아웃 후 재시도가 동일요청으로 식별되지 않음"},
+          {"key":"q2","score":5,"modelJa":"Idempotency Keyによる冪等性","modelKo":"Idempotency Key 기반 멱등성"},
+          {"key":"q3","score":5,"modelJa":"指数バックオフ","modelKo":"지수 백오프"},
+          {"key":"q4","score":5,"modelJa":"サーキットブレーカ","modelKo":"서킷 브레이커"}
+        ]
+      }
+    }
+  ]
+}
