@@ -22,7 +22,7 @@
       "subject": "A",
       "examNo": 1,
       "files": ["A-01-01.json", "A-01-02.json", "A-01-03.json", "A-01-04.json"],
-      "status": "draft",
+      "status": "ready",
       "answerPositionDistribution": [20, 20, 20, 20]
     },
     { "subject": "A", "examNo": 2, "file": "A-02.json", "status": "draft" },
