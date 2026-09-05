@@ -4,6 +4,7 @@ import readline from 'node:readline/promises';
 import process from 'node:process';
 
 const DATABASE = 'song-project-db';
+const LIVE_LOGIN_URL = 'https://song-project.song-project.workers.dev/api/admin/auth/login';
 
 function base64UrlToBuffer(value) {
   const normalized = String(value).replace(/-/g, '+').replace(/_/g, '/');
@@ -150,6 +151,22 @@ function verifyEncodedPassword(password, encodedHash) {
   return { algorithm, validFormat: false, matches: false };
 }
 
+async function verifyAgainstLiveApi(username, password) {
+  const response = await fetch(LIVE_LOGIN_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password, rememberMe: false }),
+  });
+  const requestId = response.headers.get('x-request-id');
+  const data = await response.json().catch(() => ({}));
+  return {
+    status: response.status,
+    requestId,
+    authenticated: data?.authenticated === true,
+    error: data?.error ?? null,
+  };
+}
+
 if (!process.stdin.isTTY || !process.stdout.isTTY) {
   console.error('로그인 진단은 대화형 터미널에서 실행해주세요.');
   process.exit(1);
@@ -181,21 +198,43 @@ try {
         const now = Date.now();
         const lockedUntil = admin.locked_until ? Date.parse(admin.locked_until) : Number.NaN;
         const currentlyLocked = Number.isFinite(lockedUntil) && lockedUntil > now;
+        const passwordShape = {
+          charLength: password.length,
+          utf8Bytes: Buffer.byteLength(password, 'utf8'),
+        };
 
         console.log('\n=== 로그인 진단 결과 ===');
         console.log(`계정 조회: ✅ id=${admin.id}, username=${admin.username}`);
         console.log(`상태: ${admin.status === 'active' ? '✅ active' : `❌ ${admin.status}`}`);
         console.log(`2단계 인증: ${Number(admin.two_factor_enabled) === 1 ? '⚠️ enabled' : '✅ disabled'}`);
         console.log(`로그인 잠금: ${currentlyLocked ? `❌ locked until ${admin.locked_until}` : '✅ not locked'}`);
+        console.log(`입력 비밀번호 길이: ${passwordShape.charLength}자 / UTF-8 ${passwordShape.utf8Bytes}바이트`);
         console.log(`저장 해시 형식: ${verification.validFormat ? '✅' : '❌'} ${verification.algorithm}`);
         console.log(`입력 비밀번호 ↔ 원격 D1 해시: ${verification.matches ? '✅ MATCH' : '❌ MISMATCH'}`);
         if (verification.error) console.log(`해시 검증 오류: ${verification.error}`);
 
         if (admin.status === 'active' && !currentlyLocked && Number(admin.two_factor_enabled) !== 1 && verification.matches) {
-          console.log('\n✅ DB 기준으로는 이 아이디/비밀번호가 로그인 가능한 상태입니다.');
-          console.log('이 상태에서 웹 로그인이 실패하면 배포된 Worker/API 또는 배포 버전 문제를 우선 확인해야 합니다.');
+          console.log('\n동일한 비밀번호 문자열을 운영 로그인 API에 1회 전송해 비교합니다...');
+          const live = await verifyAgainstLiveApi(String(admin.username), password);
+          console.log('=== 운영 API 동일 문자열 검증 ===');
+          console.log(`HTTP 상태: ${live.status}`);
+          console.log(`authenticated: ${live.authenticated ? '✅ true' : '❌ false'}`);
+          console.log(`error: ${live.error ?? '-'}`);
+          console.log(`requestId: ${live.requestId ?? '-'}`);
+
+          if (live.authenticated) {
+            console.log('\n✅ 동일 문자열로 운영 API 로그인까지 성공했습니다.');
+            console.log('브라우저에서만 실패한다면 브라우저 자동완성/입력값이 다른 것이 원인입니다.');
+          } else if (live.status === 401 && live.error === 'INVALID_CREDENTIALS') {
+            console.log('\n❌ 같은 문자열이 D1에서는 MATCH인데 운영 Worker에서만 불일치합니다.');
+            console.log('브라우저 문제는 배제됐습니다. Worker 비밀번호 검증 런타임을 계속 점검해야 합니다.');
+            process.exitCode = 2;
+          } else {
+            console.log('\n⚠️ 운영 API가 비밀번호 불일치 외의 응답을 반환했습니다. 위 HTTP/error/requestId를 확인하세요.');
+            process.exitCode = 3;
+          }
         } else {
-          console.log('\n⚠️ 위 ❌/⚠️ 항목을 먼저 해결해야 합니다.');
+          console.log('\n⚠️ 위 ❌/⚠️ 항목을 먼저 해결해야 하므로 운영 API 호출은 생략합니다.');
         }
       }
     }
