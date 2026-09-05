@@ -36,9 +36,7 @@ function loadRoundQuestions(round) {
     }
     const data = readJson(file);
     if (!data) continue;
-    if (data.subject !== round.subject || Number(data.examNo) !== Number(round.examNo)) {
-      fail(where, 'subject/examNo must match manifest');
-    }
+    if (data.subject !== round.subject || Number(data.examNo) !== Number(round.examNo)) fail(where, 'subject/examNo must match manifest');
     const rows = Array.isArray(data.questions) ? data.questions : [];
     rows.forEach((q, index) => questions.push({ q, where: `${where}.questions[${index}]` }));
   }
@@ -57,6 +55,7 @@ function validateRound(round, spec) {
   const answerPositions = [0, 0, 0, 0];
   let totalScore = 0;
   let mandatoryCount = 0;
+  let mandatoryNo = null;
 
   for (const { q, where } of questions) {
     const no = Number(q?.questionNo);
@@ -74,7 +73,7 @@ function validateRound(round, spec) {
     const maxScore = Number(q?.maxScore);
     if (!Number.isFinite(maxScore) || maxScore <= 0) fail(where, 'maxScore must be > 0');
     else totalScore += maxScore;
-    if (q?.mandatory === true) mandatoryCount += 1;
+    if (q?.mandatory === true) { mandatoryCount += 1; mandatoryNo = no; }
 
     if (round.subject === 'A') {
       const optionsJa = Array.isArray(q?.optionsJa) ? q.optionsJa.map(clean) : [];
@@ -88,14 +87,28 @@ function validateRound(round, spec) {
       else answerPositions[answer] += 1;
     } else {
       if (q?.type !== 'written') fail(where, 'Subject B question type must be written');
-      if (!clean(q?.passageJa) && !q?.content) warn(where, 'passageJa or structured content is recommended for exam-style Subject B');
-      if (!clean(q?.modelAnswerJa) && !Array.isArray(q?.subquestions) && !q?.gradingSchema) {
-        fail(where, 'model answer/subquestions/grading schema are required');
+      if (!clean(q?.content?.passageJa) && !clean(q?.passageJa)) warn(where, 'exam-style Subject B should include a Japanese passage');
+      const subquestions = Array.isArray(q?.content?.subquestions) ? q.content.subquestions : [];
+      if (!subquestions.length) fail(where, 'Subject B must contain structured subquestions');
+      const keys = new Set();
+      for (const [index, sub] of subquestions.entries()) {
+        const subWhere = `${where}.content.subquestions[${index}]`;
+        const subKey = clean(sub?.key);
+        if (!subKey) fail(subWhere, 'key is required');
+        else if (keys.has(subKey)) fail(subWhere, `duplicate subquestion key ${subKey}`);
+        else keys.add(subKey);
+        if (!clean(sub?.promptJa)) fail(subWhere, 'promptJa is required');
+        if (!clean(sub?.promptKo)) fail(subWhere, 'promptKo is required');
+      }
+      const criteria = Array.isArray(q?.gradingSchema?.criteria) ? q.gradingSchema.criteria : [];
+      if (!criteria.length) fail(where, 'Subject B gradingSchema.criteria is required');
+      const criterionScore = criteria.reduce((sum, item) => sum + Number(item?.score || 0), 0);
+      if (Math.abs(criterionScore - maxScore) > 0.0001) fail(where, `grading criteria total must equal maxScore ${maxScore} (got ${criterionScore})`);
+      if (Number(spec.scorePerAnswer) > 0 && Math.abs(maxScore - Number(spec.scorePerAnswer)) > 0.0001) {
+        fail(where, `Subject B maxScore must be ${spec.scorePerAnswer}`);
       }
     }
 
-    // fingerprint is derived data. Never trust a hand-written fingerprint in JSON.
-    // Duplicate checks always use the normalized Japanese question content itself.
     const signature = normalizedQuestionSignature(q);
     const computed = computeQuestionFingerprint(q);
     const previousSig = signatures.get(signature);
@@ -108,14 +121,21 @@ function validateRound(round, spec) {
 
   if (round.status === 'ready') {
     if (numbers.size === spec.questionCount) {
-      for (let no = 1; no <= spec.questionCount; no += 1) {
-        if (!numbers.has(no)) fail(key, `missing questionNo ${no}`);
+      for (let no = 1; no <= spec.questionCount; no += 1) if (!numbers.has(no)) fail(key, `missing questionNo ${no}`);
+    }
+    if (round.subject === 'A' && Math.abs(totalScore - spec.totalScore) > 0.0001) {
+      fail(key, `question maxScore total must be ${spec.totalScore} (got ${totalScore})`);
+    }
+    if (round.subject === 'B') {
+      if (mandatoryCount !== 1 || mandatoryNo !== 1 || (sectionCounts.get('SECURITY') ?? 0) !== 1) {
+        fail(key, 'Subject B must have exactly one mandatory SECURITY question at questionNo 1');
+      }
+      const selectableTotal = Number(spec.answerCount) * Number(spec.scorePerAnswer);
+      if (selectableTotal !== Number(spec.totalScore)) {
+        fail(key, `answerCount × scorePerAnswer must equal totalScore (${selectableTotal} != ${spec.totalScore})`);
       }
     }
-    if (Math.abs(totalScore - spec.totalScore) > 0.0001) fail(key, `question maxScore total must be ${spec.totalScore} (got ${totalScore})`);
-    if (round.subject === 'B' && mandatoryCount < 1) fail(key, 'Subject B must contain at least one mandatory information-security question');
-
-    if (round.subject === 'A' && spec.sectionDistribution) {
+    if (spec.sectionDistribution) {
       for (const [section, expected] of Object.entries(spec.sectionDistribution)) {
         const actual = sectionCounts.get(section) ?? 0;
         if (actual !== expected) fail(key, `section ${section}: expected ${expected}, got ${actual}`);
