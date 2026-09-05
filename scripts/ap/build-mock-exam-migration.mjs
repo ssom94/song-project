@@ -33,8 +33,8 @@ function readJson(file) {
 const subject = arg('subject').toUpperCase();
 const examNo = Number(arg('exam'));
 const outputArg = arg('output');
-if (!['A', 'B'].includes(subject) || !Number.isInteger(examNo) || examNo <= 0) {
-  throw new Error('Usage: node scripts/ap/build-mock-exam-migration.mjs --subject=A --exam=1 --output=migrations/0077_ap_mock_exam_a01_questions.sql');
+if (!['A', 'B'].includes(subject) || !Number.isInteger(examNo) || examNo <= 0 || !outputArg) {
+  throw new Error('Usage: node scripts/ap/build-mock-exam-migration.mjs --subject=A --exam=1 --output=migrations/0078_ap_mock_exam_a01_questions.sql');
 }
 
 const manifest = readJson(MANIFEST);
@@ -51,12 +51,9 @@ for (const name of roundFiles(round)) {
   for (const question of Array.isArray(data.questions) ? data.questions : []) questions.push(question);
 }
 questions.sort((a, b) => Number(a.questionNo) - Number(b.questionNo));
-if (questions.length !== Number(spec.questionCount)) {
-  throw new Error(`Expected ${spec.questionCount} questions, got ${questions.length}`);
-}
+if (questions.length !== Number(spec.questionCount)) throw new Error(`Expected ${spec.questionCount} questions, got ${questions.length}`);
 
-const defaultOutput = path.join('migrations', `0077_ap_mock_exam_${subject.toLowerCase()}${String(examNo).padStart(2, '0')}_questions.sql`);
-const output = path.resolve(ROOT, outputArg || defaultOutput);
+const output = path.resolve(ROOT, outputArg);
 const examIdSql = `(SELECT id FROM ap_mock_exams WHERE subject=${sqlText(subject)} AND exam_no=${examNo} LIMIT 1)`;
 const lines = [
   `-- Generated AP mock exam ${subject}-${String(examNo).padStart(2, '0')}`,
@@ -72,17 +69,19 @@ for (const question of questions) {
   const correctChoice = subject === 'A' ? Number(question.correctChoice) : null;
   const modelAnswerKo = question.modelAnswerKo ?? null;
   const modelAnswerJa = question.modelAnswerJa ?? null;
+  const content = question.content ?? null;
+  const gradingSchema = question.gradingSchema ?? null;
   lines.push(
     'INSERT INTO ap_mock_exam_questions(',
     '  mock_exam_id, question_no, section_code, question_type,',
     '  prompt_ko, prompt_ja, choices_ko_json, choices_ja_json, correct_choice,',
     '  model_answer_ko, model_answer_ja, explanation_ko, explanation_ja,',
-    '  max_score, is_mandatory, source_concept_code, fingerprint',
+    '  max_score, is_mandatory, source_concept_code, fingerprint, content_json, grading_schema_json',
     ') VALUES (',
     `  ${examIdSql}, ${Number(question.questionNo)}, ${sqlText(clean(question.sectionCode))}, ${sqlText(type)},`,
     `  ${sqlText(question.promptKo)}, ${sqlText(question.promptJa)}, ${sqlJson(question.optionsKo ?? null)}, ${sqlJson(question.optionsJa ?? null)}, ${correctChoice == null ? 'NULL' : correctChoice},`,
     `  ${sqlText(modelAnswerKo)}, ${sqlText(modelAnswerJa)}, ${sqlText(question.explanationKo)}, ${sqlText(question.explanationJa)},`,
-    `  ${Number(question.maxScore)}, ${question.mandatory === true ? 1 : 0}, ${sqlText(question.sourceConceptCode)}, ${sqlText(fingerprint)}`,
+    `  ${Number(question.maxScore)}, ${question.mandatory === true ? 1 : 0}, ${sqlText(question.sourceConceptCode)}, ${sqlText(fingerprint)}, ${sqlJson(content)}, ${sqlJson(gradingSchema)}`,
     ') ON CONFLICT(mock_exam_id, question_no) DO UPDATE SET',
     '  section_code=excluded.section_code, question_type=excluded.question_type,',
     '  prompt_ko=excluded.prompt_ko, prompt_ja=excluded.prompt_ja,',
@@ -91,6 +90,7 @@ for (const question of questions) {
     '  explanation_ko=excluded.explanation_ko, explanation_ja=excluded.explanation_ja,',
     '  max_score=excluded.max_score, is_mandatory=excluded.is_mandatory,',
     '  source_concept_code=excluded.source_concept_code, fingerprint=excluded.fingerprint,',
+    '  content_json=excluded.content_json, grading_schema_json=excluded.grading_schema_json,',
     "  updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now');",
     '',
   );
