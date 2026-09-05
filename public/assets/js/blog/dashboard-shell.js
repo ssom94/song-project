@@ -296,30 +296,32 @@
 		sidebar.append(section, footer);
 	}
 
-	function renderCategories(posts, language = currentLanguage(), selectedCategory = '') {
+	function renderCategories(categories, language = currentLanguage(), selectedCategory = '') {
 		const container = byId('blog-sidebar-categories');
 		const empty = byId('blog-sidebar-categories-empty');
 		if (!container) return;
-		const counts = new Map();
-		for (const post of Array.isArray(posts) ? posts : []) {
-			const category = typeof post?.category === 'string' ? post.category.trim() : '';
-			if (!category) continue;
-			counts.set(category, (counts.get(category) ?? 0) + 1);
-		}
+		const entries = (Array.isArray(categories) ? categories : [])
+			.filter((category) => typeof category?.name === 'string' && category.name.trim())
+			.map((category) => ({
+				name: category.name.trim(),
+				count: Number(category.count || 0),
+				depth: Math.max(0, Number(category.depth || 0)),
+			}));
 		container.replaceChildren();
-		const entries = [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], language === 'ko' ? 'ko' : 'ja'));
 		if (empty) empty.hidden = entries.length > 0;
 		const selected = selectedCategory || activeCategory();
-		for (const [category, count] of entries) {
+		for (const category of entries) {
 			const link = document.createElement('a');
-			link.className = `blog-sidebar-category-link${selected === category ? ' is-active' : ''}`;
-			if (selected === category) link.setAttribute('aria-current', 'page');
-			link.href = `/${language}/posts/?category=${encodeURIComponent(category)}`;
+			link.className = `blog-sidebar-category-link${selected === category.name ? ' is-active' : ''}`;
+			link.dataset.categoryDepth = String(category.depth);
+			if (selected === category.name) link.setAttribute('aria-current', 'page');
+			link.href = `/${language}/posts/?category=${encodeURIComponent(category.name)}`;
 			const name = document.createElement('span');
-			name.textContent = category;
+			const leafName = category.name.split(' > ').pop() || category.name;
+			name.textContent = category.depth > 0 ? `${'　'.repeat(Math.max(0, category.depth - 1))}↳ ${leafName}` : leafName;
 			const badge = document.createElement('span');
 			badge.className = 'blog-sidebar-count';
-			badge.textContent = String(count);
+			badge.textContent = String(category.count);
 			link.append(name, badge);
 			container.appendChild(link);
 		}
@@ -330,7 +332,7 @@
 			const language = currentLanguage();
 			const response = await fetch(`/api/public/posts?lang=${language}`, { cache: 'no-store', credentials: 'same-origin' });
 			const result = await response.json().catch(() => null);
-			if (response.ok && Array.isArray(result?.posts)) renderCategories(result.posts, language);
+			if (response.ok && Array.isArray(result?.categories)) renderCategories(result.categories, language);
 		} catch (error) {
 			console.warn('Failed to load sidebar categories', error);
 		}
