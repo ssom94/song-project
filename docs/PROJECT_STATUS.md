@@ -44,6 +44,14 @@
 - 진행 중 버튼: `계속 풀기 / 続きから`; 완료 버튼: `결과·해설 보기 / 結果・解説を見る`.
 - 목록 전용 스크립트: `public/assets/js/study/ap-mock-exams-list.js`.
 
+### 제출/자동저장 통합 보강
+- 통합 흐름 점검 중, 서술형 답안을 입력한 직후 500ms debounce가 끝나기 전에 최종 제출하면 마지막 입력이 서버에 반영되지 않을 수 있는 경계조건을 발견.
+- `public/assets/js/study/ap-mock-exams-submit-guard.js`를 추가하여 일반 최종 제출 직전에 현재 화면의 모든 서술형 답안을 서버에 한 번 더 동기화한 후 제출하도록 보강.
+- 科目B 구조화 답안의 모든 소문항을 지운 경우 `{"q1":"","q2":""...}` 문자열이 답변 존재로 오인될 수 있는 문제를 UI 경로에서 방지. 전체 값이 공백이면 `answerJson: null`로 정규화해 기존 답안 행이 삭제되고 선택 해제로 처리되게 함.
+- 제한시간 종료에 의한 `force=true` 자동 제출은 서버가 만료 후 답안 저장을 거부하므로 추가 flush 없이 즉시 제출하도록 분리.
+- 가드는 한국어/일본어 모의고사 상세 페이지에서 기존 `ap-mock-exams.js`보다 먼저 로드됨.
+- 科目A 선택지는 change 시 즉시 저장되므로 별도 flush 대상이 아님.
+
 ### 중복/품질 검증
 - `(subject, exam_no)` UNIQUE.
 - `(mock_exam_id, question_no)` UNIQUE.
@@ -118,15 +126,19 @@
 - `npm run ap:mock:b3:build` → `migrations/0083_ap_mock_exam_b03_questions.sql`.
 
 ## 최종 검증 상태
-- GitHub Actions `Verify` run #905에서 최종 PASS 확인.
-- TypeScript check PASS.
-- 브라우저 JavaScript syntax check PASS.
-- Vitest 4개 파일 / 16개 테스트 PASS.
-- `npm run db:migrate:local` PASS.
-- 이 과정에서 `npm run ap:mock:build`가 A1/B1/A2/B2/A3/B3 전체 validator를 선행 실행하고 `0078`~`0083` SQL을 생성함.
-- 로컬 D1 migration 적용 PASS.
-- seeded catalog/study schema 검증 PASS.
-- 따라서 6회차의 파일구조·문제번호·분야분포·배점·필수문제·소문항 구조·fingerprint 중복검증 및 migration 생성 흐름이 CI에서 실제 통과한 상태.
+- 기존 전체 GitHub Actions `Verify` run #905에서 6회차 구축 기준 PASS 확인.
+- 통합 저장 보강 및 전용 CI 추가 후 `Verify AP Mock Exams` run #1 PASS.
+  - `ap-mock-exams-list.js`, `ap-mock-exams-submit-guard.js`, `ap-mock-exams.js` browser syntax PASS.
+  - A1~A3/B1~B3 6회차 validator PASS.
+  - `npm run ap:mock:build` PASS.
+  - `0078`~`0083` 생성 파일 존재 검증 PASS.
+- 같은 최신 커밋 기준 기존 전체 `Verify` run #910도 PASS.
+  - TypeScript check PASS.
+  - Browser JavaScript syntax check PASS.
+  - Vitest PASS.
+  - 로컬 D1 migration PASS.
+  - seeded catalog/study schema 검증 PASS.
+- 따라서 현재 Git 기준으로 모의고사 콘텐츠 6회차, migration 생성, 로컬 D1 적용, 주요 브라우저 스크립트 문법 및 제출 전 답안 동기화 보강까지 CI에서 통과한 상태.
 
 ## 적용 명령 흐름
 - `npm run ap:validate`: 기존 AP 문제은행 + A1~A3/B1~B3 전체 모의고사 검증.
@@ -137,10 +149,11 @@
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 실제 모의고사 페이지 통합 동작 확인: 목록 → 시험 시작 → 문제별 자동저장 → 브라우저 종료/재접속 → 계속 풀기 → 제출 → 결과/해설.
-2. 科目A 완료 시 `전체문제 / 정답 수 (점수)`, 진행 중 `전체문제 / 풀이 수` 표시 실제 화면 확인.
-3. 科目B 5문제 선택·Q1 필수·부분점수 저장 흐름 확인.
-4. 이상 없으면 `npm run db:migrate:remote`로 원격 D1 반영 준비.
+1. 사용자 Cloudflare 인증 환경에서 `git pull` 후 `npm run db:migrate:remote`로 `0076`~`0083` 미적용 migration을 원격 D1에 반영.
+2. 필요 시 `npm run deploy`로 최신 Worker/static assets 배포.
+3. 실제 서버에서 목록 → 시험 시작 → 1문제 저장 → 새로고침/재접속 → 계속 풀기 → 제출 → 결과/해설까지 스모크 테스트.
+4. 科目A 목록의 `전체문제 / 정답 수 (점수)`와 科目B의 5문제 선택/Q1 필수/부분점수 표시를 실제 서버에서 최종 확인.
+5. 이상 없으면 AP 모의고사 기능을 완료 처리.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
