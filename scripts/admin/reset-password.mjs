@@ -1,11 +1,14 @@
-import { pbkdf2Sync, randomBytes } from 'node:crypto';
+import { randomBytes, scryptSync } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import readline from 'node:readline/promises';
 import { Writable } from 'node:stream';
 import process from 'node:process';
 
-const ITERATIONS = 210_000;
+const SCRYPT_COST = 16_384;
+const SCRYPT_BLOCK_SIZE = 8;
+const SCRYPT_PARALLELIZATION = 1;
 const KEY_LENGTH = 32;
+const MAX_MEMORY = 64 * 1024 * 1024;
 const DATABASE = 'song-project-db';
 
 function base64Url(buffer) {
@@ -18,17 +21,30 @@ function base64UrlToBuffer(value) {
   return Buffer.from(padded, 'base64');
 }
 
-function verifyPbkdf2Password(password, encodedHash) {
-  const [algorithm, rawIterations, rawSalt, rawExpected] = String(encodedHash || '').split('$');
-  if (algorithm !== 'pbkdf2-sha256') return false;
-  const iterations = Number.parseInt(rawIterations || '', 10);
-  if (!Number.isSafeInteger(iterations) || iterations <= 0 || !rawSalt || !rawExpected) return false;
+function verifyScryptPassword(password, encodedHash) {
+  const [algorithm, rawCost, rawBlockSize, rawParallelization, rawSalt, rawExpected] = String(encodedHash || '').split('$');
+  if (algorithm !== 'scrypt') return false;
+
+  const cost = Number.parseInt(rawCost || '', 10);
+  const blockSize = Number.parseInt(rawBlockSize || '', 10);
+  const parallelization = Number.parseInt(rawParallelization || '', 10);
+  if (
+    !Number.isSafeInteger(cost) || cost < 16_384 ||
+    !Number.isSafeInteger(blockSize) || blockSize < 1 ||
+    !Number.isSafeInteger(parallelization) || parallelization < 1 ||
+    !rawSalt || !rawExpected
+  ) return false;
 
   const salt = base64UrlToBuffer(rawSalt);
   const expected = base64UrlToBuffer(rawExpected);
   if (salt.length < 16 || expected.length < 32) return false;
 
-  const actual = pbkdf2Sync(password, salt, iterations, expected.length, 'sha256');
+  const actual = scryptSync(password, salt, expected.length, {
+    N: cost,
+    r: blockSize,
+    p: parallelization,
+    maxmem: MAX_MEMORY,
+  });
   if (actual.length !== expected.length) return false;
   let diff = 0;
   for (let i = 0; i < actual.length; i += 1) diff |= actual[i] ^ expected[i];
@@ -164,12 +180,17 @@ try {
   if (password.length < 10) throw new Error('비밀번호는 최소 10자 이상으로 설정해주세요.');
 
   const salt = randomBytes(16);
-  const derived = pbkdf2Sync(password, salt, ITERATIONS, KEY_LENGTH, 'sha256');
-  const passwordHash = `pbkdf2-sha256$${ITERATIONS}$${base64Url(salt)}$${base64Url(derived)}`;
+  const derived = scryptSync(password, salt, KEY_LENGTH, {
+    N: SCRYPT_COST,
+    r: SCRYPT_BLOCK_SIZE,
+    p: SCRYPT_PARALLELIZATION,
+    maxmem: MAX_MEMORY,
+  });
+  const passwordHash = `scrypt$${SCRYPT_COST}$${SCRYPT_BLOCK_SIZE}$${SCRYPT_PARALLELIZATION}$${base64Url(salt)}$${base64Url(derived)}`;
   const escapedUser = sqlEscape(String(selected.username));
   const escapedHash = sqlEscape(passwordHash);
 
-  console.log('\n비밀번호 변경 + 계정 잠금 해제 + 기존 세션 종료를 적용합니다...');
+  console.log('\n비밀번호를 scrypt로 변경 + 계정 잠금 해제 + 기존 세션 종료를 적용합니다...');
   const rows = runRemoteD1(`
     UPDATE admins
     SET password_hash='${escapedHash}',
@@ -195,8 +216,8 @@ try {
     throw new Error('비밀번호 UPDATE 후 계정을 다시 조회하지 못했습니다. 변경 성공으로 처리하지 않습니다.');
   }
 
-  if (!verifyPbkdf2Password(password, updated.password_hash)) {
-    throw new Error('원격 D1에 저장된 새 password_hash가 방금 입력한 비밀번호와 일치하지 않습니다. 변경 성공으로 처리하지 않습니다.');
+  if (!verifyScryptPassword(password, updated.password_hash)) {
+    throw new Error('원격 D1에 저장된 새 scrypt password_hash가 방금 입력한 비밀번호와 일치하지 않습니다. 변경 성공으로 처리하지 않습니다.');
   }
 
   console.log('\n관리자 비밀번호 변경 완료');
@@ -210,6 +231,7 @@ try {
     locked_until: updated.locked_until,
     last_login_at: updated.last_login_at,
   }]);
+  console.log('저장 해시 형식: ✅ scrypt');
   console.log('원격 D1 저장 해시 재검증: ✅ MATCH');
   console.log('failed_login_count=0, locked_until=null이면 잠금도 해제된 상태입니다.');
   if (Number(updated.two_factor_enabled) === 1) {
