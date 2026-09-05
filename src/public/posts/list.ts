@@ -124,7 +124,7 @@ function basePostCte(): string {
 				pt.slug,
 				pt.excerpt,
 				p.category_id,
-				category_tree.name AS category_name,
+				category_tree.path AS category_name,
 				(
 					SELECT GROUP_CONCAT(tt.name, CHAR(31))
 					FROM post_tags AS ptag
