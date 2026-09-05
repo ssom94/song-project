@@ -1,0 +1,34 @@
+{
+  "subject": "B",
+  "examNo": 2,
+  "questions": [
+    {
+      "questionNo": 7,
+      "sectionCode": "EMBEDDED",
+      "type": "written",
+      "promptJa": "センサ制御装置のADC分解能，割込み処理，PWM制御について答えよ。",
+      "promptKo": "센서 제어장치의 ADC 분해능, 인터럽트 처리, PWM 제어에 대해 답하시오.",
+      "content": {
+        "passageJa": "制御装置は0～5Vを測定する12ビットADCを持つ。温度センサは100ms周期で読み取り，緊急停止スイッチは外部割込みで即時処理する。ファン速度はPWMで制御し，デューティ比60%を設定する。",
+        "passageKo": "제어장치는 0~5V를 측정하는 12비트 ADC를 가진다. 온도센서는 100ms 주기로 읽고 긴급정지 스위치는 외부 인터럽트로 즉시 처리한다. 팬 속도는 PWM으로 제어하며 듀티비 60%를 설정한다.",
+        "tables": [
+          {"titleJa":"装置仕様","headers":["項目","値"],"rows":[["ADC","12ビット, 0～5V"],["温度読取り周期","100ms"],["PWMデューティ比","60%"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"ADCの1LSB当たりの電圧をおよそ何mVと考えればよいか。","promptKo":"ADC의 1LSB당 전압은 약 몇 mV인가?"},
+          {"key":"q2","promptJa":"緊急停止を周期ポーリングではなく外部割込みにする主な利点を答えよ。","promptKo":"긴급정지를 주기 폴링이 아니라 외부 인터럽트로 처리하는 주된 장점을 쓰시오."},
+          {"key":"q3","promptJa":"周期100msは1秒当たり何回の温度読取りに相当するか。","promptKo":"주기 100ms는 초당 몇 회 온도 측정에 해당하는가?"},
+          {"key":"q4","promptJa":"PWMデューティ比60%の意味を簡潔に答えよ。","promptKo":"PWM 듀티비 60%의 의미를 간단히 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 約1.22mV。\nq2: イベント発生直後に低遅延で処理できる。\nq3: 10回/秒。\nq4: 1周期のうち出力ON時間が60%である。",
+      "modelAnswerKo": "q1: 약 1.22mV.\nq2: 이벤트 발생 직후 낮은 지연으로 처리할 수 있다.\nq3: 초당 10회.\nq4: 한 주기 중 출력 ON 시간이 60%이다.",
+      "explanationJa": "12ビットADCは4096段階なので5V/4096≈1.22mV。100ms周期は1秒/0.1秒=10回。緊急停止は割込みによりポーリング待ちを避け，PWM60%は周期中のON比率を表す。",
+      "explanationKo": "12비트 ADC는 4096단계이므로 5V/4096≈1.22mV이다. 100ms 주기는 1초/0.1초=10회. 긴급정지는 인터럽트로 폴링 대기를 피하고, PWM 60%는 주기 중 ON 비율을 뜻한다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": "B-13",
+      "gradingSchema": {"criteria":[{"key":"q1","score":5,"modelJa":"約1.22mV","modelKo":"약 1.22mV"},{"key":"q2","score":5,"modelJa":"低遅延で即時応答","modelKo":"저지연 즉시응답"},{"key":"q3","score":5,"modelJa":"10回/秒","modelKo":"초당 10회"},{"key":"q4","score":5,"modelJa":"周期中ON時間60%","modelKo":"주기 중 ON 시간 60%"}]}
+    }
+  ]
+}
