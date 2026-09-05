@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "subjects": {
+    "A": {
+      "durationMinutes": 150,
+      "questionCount": 80,
+      "answerCount": 80,
+      "totalScore": 100,
+      "passingScore": 60
+    },
+    "B": {
+      "durationMinutes": 150,
+      "questionCount": 11,
+      "answerCount": 5,
+      "totalScore": 100,
+      "passingScore": 60
+    }
+  },
+  "rounds": [
+    { "subject": "A", "examNo": 1, "file": "A-01.json", "status": "draft" },
+    { "subject": "A", "examNo": 2, "file": "A-02.json", "status": "draft" },
+    { "subject": "A", "examNo": 3, "file": "A-03.json", "status": "draft" },
+    { "subject": "B", "examNo": 1, "file": "B-01.json", "status": "draft" },
+    { "subject": "B", "examNo": 2, "file": "B-02.json", "status": "draft" },
+    { "subject": "B", "examNo": 3, "file": "B-03.json", "status": "draft" }
+  ]
+}
