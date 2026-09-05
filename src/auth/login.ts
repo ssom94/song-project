@@ -102,6 +102,13 @@ function errorMessage(error: unknown): string {
 	return error instanceof Error ? error.message : String(error);
 }
 
+function passwordShape(value: string): { charLength: number; utf8Bytes: number } {
+	return {
+		charLength: value.length,
+		utf8Bytes: new TextEncoder().encode(value).length,
+	};
+}
+
 export async function handleAdminLogin(request: Request, env: Env): Promise<Response> {
 	const requestId = crypto.randomUUID();
 	const respond = (data: unknown, status = 200, headers?: HeadersInit) =>
@@ -129,6 +136,7 @@ export async function handleAdminLogin(request: Request, env: Env): Promise<Resp
 
 	const username = body.username.trim();
 	const rememberMe = body.rememberMe === true;
+	const submittedPasswordShape = passwordShape(body.password);
 
 	try {
 		const admin = await env.song_project_db
@@ -152,7 +160,7 @@ export async function handleAdminLogin(request: Request, env: Env): Promise<Resp
 
 		if (!admin) {
 			await verifyPassword(body.password, DUMMY_PASSWORD_HASH);
-			console.warn('[admin-login] account_not_found', { requestId, username });
+			console.warn('[admin-login] account_not_found', { requestId, username, submittedPasswordShape });
 			return respond({ error: 'INVALID_CREDENTIALS' }, 401);
 		}
 
@@ -162,6 +170,7 @@ export async function handleAdminLogin(request: Request, env: Env): Promise<Resp
 				adminId: admin.id,
 				username: admin.username,
 				lockedUntil: admin.locked_until,
+				submittedPasswordShape,
 			});
 			return respond({ error: 'INVALID_CREDENTIALS' }, 401);
 		}
@@ -174,6 +183,7 @@ export async function handleAdminLogin(request: Request, env: Env): Promise<Resp
 				adminId: admin.id,
 				username: admin.username,
 				hashAlgorithm: admin.password_hash.split('$', 1)[0] || 'unknown',
+				submittedPasswordShape,
 			});
 			return respond({ error: 'INVALID_CREDENTIALS' }, 401);
 		}
@@ -233,6 +243,7 @@ export async function handleAdminLogin(request: Request, env: Env): Promise<Resp
 			adminId: admin.id,
 			username: admin.username,
 			rememberMe,
+			submittedPasswordShape,
 		});
 
 		return respond(
