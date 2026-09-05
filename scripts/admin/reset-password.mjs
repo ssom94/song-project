@@ -12,6 +12,29 @@ function base64Url(buffer) {
   return Buffer.from(buffer).toString('base64url');
 }
 
+function base64UrlToBuffer(value) {
+  const normalized = String(value).replace(/-/g, '+').replace(/_/g, '/');
+  const padded = normalized + '='.repeat((4 - (normalized.length % 4)) % 4);
+  return Buffer.from(padded, 'base64');
+}
+
+function verifyPbkdf2Password(password, encodedHash) {
+  const [algorithm, rawIterations, rawSalt, rawExpected] = String(encodedHash || '').split('$');
+  if (algorithm !== 'pbkdf2-sha256') return false;
+  const iterations = Number.parseInt(rawIterations || '', 10);
+  if (!Number.isSafeInteger(iterations) || iterations <= 0 || !rawSalt || !rawExpected) return false;
+
+  const salt = base64UrlToBuffer(rawSalt);
+  const expected = base64UrlToBuffer(rawExpected);
+  if (salt.length < 16 || expected.length < 32) return false;
+
+  const actual = pbkdf2Sync(password, salt, iterations, expected.length, 'sha256');
+  if (actual.length !== expected.length) return false;
+  let diff = 0;
+  for (let i = 0; i < actual.length; i += 1) diff |= actual[i] ^ expected[i];
+  return diff === 0;
+}
+
 function sqlEscape(value) {
   return String(value).replaceAll("'", "''");
 }
@@ -25,6 +48,7 @@ function extractRows(payload) {
   const rows = [];
   for (const block of blocks) {
     if (Array.isArray(block?.results)) rows.push(...block.results);
+    else if (Array.isArray(block?.result?.results)) rows.push(...block.result.results);
   }
   return rows;
 }
@@ -158,7 +182,7 @@ try {
     WHERE admin_id=(SELECT id FROM admins WHERE username='${escapedUser}' COLLATE NOCASE);
 
     SELECT id, username, display_name, status, two_factor_enabled,
-           failed_login_count, locked_until, last_login_at
+           failed_login_count, locked_until, last_login_at, password_hash
     FROM admins
     WHERE username='${escapedUser}' COLLATE NOCASE
     LIMIT 1;
@@ -171,8 +195,22 @@ try {
     throw new Error('비밀번호 UPDATE 후 계정을 다시 조회하지 못했습니다. 변경 성공으로 처리하지 않습니다.');
   }
 
+  if (!verifyPbkdf2Password(password, updated.password_hash)) {
+    throw new Error('원격 D1에 저장된 새 password_hash가 방금 입력한 비밀번호와 일치하지 않습니다. 변경 성공으로 처리하지 않습니다.');
+  }
+
   console.log('\n관리자 비밀번호 변경 완료');
-  console.table([updated]);
+  console.table([{
+    id: updated.id,
+    username: updated.username,
+    display_name: updated.display_name,
+    status: updated.status,
+    two_factor_enabled: updated.two_factor_enabled,
+    failed_login_count: updated.failed_login_count,
+    locked_until: updated.locked_until,
+    last_login_at: updated.last_login_at,
+  }]);
+  console.log('원격 D1 저장 해시 재검증: ✅ MATCH');
   console.log('failed_login_count=0, locked_until=null이면 잠금도 해제된 상태입니다.');
   if (Number(updated.two_factor_enabled) === 1) {
     console.warn('주의: two_factor_enabled=1 입니다. 비밀번호가 맞아도 로그인 API는 2FA 인증을 추가로 요구합니다.');
