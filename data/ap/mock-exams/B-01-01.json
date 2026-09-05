@@ -1,0 +1,48 @@
+{
+  "subject": "B",
+  "examNo": 1,
+  "questions": [
+    {
+      "questionNo": 1,
+      "sectionCode": "SECURITY",
+      "type": "written",
+      "promptJa": "S社のECシステムで発生した不審な認証と顧客情報アクセスについて，ログを基に設問に答えよ。",
+      "promptKo": "S사의 EC 시스템에서 발생한 의심스러운 인증과 고객정보 접근에 대해 로그를 바탕으로 물음에 답하시오.",
+      "content": {
+        "passageJa": "S社は法人向けECサービスを運営している。管理画面へのログインは原則としてパスワードとスマートフォン認証によるMFAを必須としているが，旧システムから移行した一部アカウントだけは例外設定が残っていた。9月4日10時頃，監視担当者は顧客情報APIの大量呼出しを検知した。認証基盤とAPIゲートウェイはNTPで時刻同期されている。担当者は，攻撃の種類，侵害されたアカウント，初動対応，再発防止策を判断することにした。",
+        "passageKo": "S사는 법인용 EC 서비스를 운영한다. 관리화면 로그인은 원칙적으로 비밀번호와 스마트폰 인증을 이용한 MFA가 필수지만, 구 시스템에서 이전된 일부 계정에는 예외 설정이 남아 있었다. 9월 4일 10시경 모니터링 담당자는 고객정보 API의 대량 호출을 탐지했다. 인증 기반과 API 게이트웨이는 NTP로 시각이 동기화되어 있다. 담당자는 공격 종류, 침해 계정, 초동대응, 재발방지책을 판단하기로 했다.",
+        "logs": [
+          "09:56:02 IdP src=203.0.113.77 user=acct001 result=FAIL method=password\n09:56:03 IdP src=203.0.113.77 user=acct002 result=FAIL method=password\n...\n09:58:41 IdP src=203.0.113.77 user=sales01 result=SUCCESS method=password mfa=SKIPPED reason=legacy_exception\n09:59:05 API src=203.0.113.77 user=sales01 path=/admin/customers/export result=200 rows=1200\n10:00:12 API src=203.0.113.77 user=sales01 path=/admin/customers/export result=200 rows=1200"
+        ],
+        "tables": [
+          {
+            "titleJa": "通常時のsales01",
+            "headers": ["項目", "通常値"],
+            "rows": [["接続元", "社内VPN"], ["MFA", "必須"], ["1時間当たり顧客情報出力", "0～2回"]]
+          }
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"ログに見られる攻撃手法として最も可能性が高いものを答えよ。","promptKo":"로그에서 보이는 공격기법으로 가장 가능성이 높은 것을 쓰시오."},
+          {"key":"q2","promptJa":"侵害されたと判断できるアカウント名を答えよ。","promptKo":"침해되었다고 판단할 수 있는 계정명을 쓰시오."},
+          {"key":"q3","promptJa":"被害拡大を抑えるため，sales01に対して直ちに行うべき認証上の措置を一つ答えよ。","promptKo":"피해 확산을 막기 위해 sales01에 즉시 실시해야 할 인증상의 조치 한 가지를 쓰시오."},
+          {"key":"q4","promptJa":"同種事故の再発防止として，legacy_exceptionに対して行うべき対策を答えよ。","promptKo":"동종 사고의 재발방지를 위해 legacy_exception에 대해 실시해야 할 대책을 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: パスワードスプレー攻撃。\nq2: sales01。\nq3: 当該アカウントのセッションを無効化し，一時的に利用停止する。\nq4: 例外設定を廃止し，対象アカウントにもMFAを強制する。",
+      "modelAnswerKo": "q1: 패스워드 스프레이 공격.\nq2: sales01.\nq3: 해당 계정의 세션을 무효화하고 일시 이용정지한다.\nq4: 예외 설정을 폐지하고 대상 계정에도 MFA를 강제한다.",
+      "explanationJa": "一つの送信元から多数のアカウントに対して少数回ずつ認証を試みているため，総当たりよりパスワードスプレーの特徴に合う。その後sales01だけが成功し，同じ送信元から大量の顧客情報が出力されている。初動では侵害済みセッションを止め，資格情報を再設定し，恒久対策としてMFA例外をなくすのが妥当である。",
+      "explanationKo": "하나의 송신원에서 다수 계정에 소수 횟수씩 인증을 시도하므로 무차별 대입보다 패스워드 스프레이의 특징에 가깝다. 이후 sales01만 성공하고 같은 송신원에서 대량 고객정보가 출력되었다. 초동에서는 침해 세션을 차단하고 자격정보를 재설정하며, 영구대책으로 MFA 예외를 없애는 것이 타당하다.",
+      "maxScore": 20,
+      "mandatory": true,
+      "sourceConceptCode": "B-06",
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"パスワードスプレー攻撃","modelKo":"패스워드 스프레이 공격"},
+          {"key":"q2","score":5,"modelJa":"sales01","modelKo":"sales01"},
+          {"key":"q3","score":5,"modelJa":"セッション無効化又はアカウント一時停止","modelKo":"세션 무효화 또는 계정 일시정지"},
+          {"key":"q4","score":5,"modelJa":"legacy_exceptionを廃止してMFAを強制","modelKo":"legacy_exception을 폐지하고 MFA 강제"}
+        ]
+      }
+    }
+  ]
+}
