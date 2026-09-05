@@ -14,6 +14,11 @@ import {
 	handleListAdminApWrongNotes,
 } from './ap-practice';
 import {
+	handleGetPublicApMockExam,
+	handleListPublicApMockExams,
+	handleStartAdminApMockExam,
+} from './ap-mock-exams';
+import {
 	handleCreateAdminCategoryWithAppearance,
 	handleUpdateAdminCategoryWithAppearance,
 } from './admin/categories/appearance-manage';
@@ -64,6 +69,8 @@ export default {
 			case '/api/public/ap/concept-progress': return request.method === 'GET' ? handleGetPublicApConceptProgress(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice': return request.method === 'GET' ? handleGetPublicApPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice/grade': return request.method === 'POST' ? handleGradePublicApPractice(request, env) : methodNotAllowed('POST');
+			case '/api/public/ap/mock-exams': return request.method === 'GET' ? handleListPublicApMockExams(request, env) : methodNotAllowed('GET');
+			case '/api/public/ap/mock-exams/detail': return request.method === 'GET' ? handleGetPublicApMockExam(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/kanji-korean': return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice': return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice/grade': return request.method === 'POST' ? handleGradePublicJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
@@ -79,6 +86,7 @@ export default {
 			case '/api/admin/japanese/jlpt/wrong-notes': return request.method === 'GET' ? handleListAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/wrong-notes': return request.method === 'GET' ? handleListAdminApWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/concept-progress': return request.method === 'PATCH' ? handlePatchAdminApConceptProgress(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/ap/mock-exams/start': return request.method === 'POST' ? handleStartAdminApMockExam(request, env) : methodNotAllowed('POST');
 			case '/api/admin/study/export.xlsx': return request.method === 'GET' ? handleExportStudyXlsx(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words': if (request.method === 'GET') return handleListAdminJapaneseWordsWithProvenance(request, env); return app.fetch(request, env);
 			case '/api/admin/ap/today': return request.method === 'GET' ? handleGetAdminApToday(request, env) : methodNotAllowed('GET');
