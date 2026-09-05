@@ -23,69 +23,79 @@
 
 ## AP 모의고사 기능
 
-### 기반/시험 엔진 완료
-- `0076_ap_mock_exam_foundation.sql`
-- 테이블: `ap_mock_exams`, `ap_mock_exam_questions`, `ap_mock_exam_attempts`, `ap_mock_exam_answers`.
-- 科目A/科目B 상단 탭 및 1/2/3회 리스트 구현.
-- 상태: 미실시 / 진행 중 / 실시완료.
-- 점수/실시일/준비 문제수 표시.
-- 시험 시작/재개/결과·해설 보기 구현.
-- 답안 자동저장 및 `(attempt_id, question_id)` PK UPSERT로 중복 답안 방지.
-- 서버 시작시간 기준 150분 타이머 및 재접속 남은시간 복원.
-- 科目A 최종 제출 자동채점.
-- 科目B 11문제 중 정확히 5문제 선택, 필수문제 포함 서버 검증, 부분점수 구조 구현.
-- 완료 후 사용자 답안/정답·모범답안/해설/관련 개념 링크 조회.
+### DB / 시험 엔진 완료
+- `0076_ap_mock_exam_foundation.sql`: 시험/문제/응시/답안 기본 테이블.
+- `0077_ap_mock_exam_structured_written_answers.sql`: 科目B 장문/표/로그/구조화 답안 및 채점기준 저장 컬럼.
+- 科目A/科目B 탭, 1/2/3회 목록, 미실시/진행중/실시완료, 점수/실시일 표시.
+- 답안 자동저장, 150분 타이머, 재접속 복원.
+- 科目A 자동채점.
+- 科目B는 11문제 중 정확히 5문제 선택, Q1 정보보안 필수, 문제당 20점, 선택한 5문제만 합산해 100점.
+- 科目B 부분점수 및 구조화 답안(`answer_json`) 지원.
+- 결과에서 답안/정답·모범답안/상세해설/관련 개념 확인.
 
-### 중복 방지
+### 중복/품질 검증
 - `(subject, exam_no)` UNIQUE.
 - `(mock_exam_id, question_no)` UNIQUE.
 - DB `fingerprint` GLOBAL UNIQUE.
 - `(mock_exam_id, admin_id, attempt_no)` UNIQUE.
 - 회차별 동시 `in_progress` 1개만 허용.
-- source JSON에 적힌 fingerprint는 신뢰하지 않는다.
-- validator와 DB builder 모두 일본어 문제 본문/지문/선택지를 NFKC 정규화한 뒤 SHA-256을 직접 계산한다.
-- 따라서 수동 fingerprint 수정으로 중복 검증을 우회할 수 없다.
+- source JSON의 수동 fingerprint 값은 신뢰하지 않는다.
+- `scripts/ap/mock-exam-utils.mjs`가 일본어 문제 본문·장문 지문·로그·표·선택지·소문항을 NFKC 정규화한 뒤 SHA-256을 계산한다.
+- validator와 DB builder가 같은 계산함수를 사용하므로 회차 간 동일/재사용 시나리오를 내용 기준으로 차단한다.
+- `scripts/ap/validate-mock-exams.mjs`는 문제번호, 분야분포, 선택지, 배점, 필수문제, 소문항 key, 채점기준 합계까지 검증한다.
 
-## 科目A 모의고사 1회
+## 科目A 모의고사 1회 — ready
+- 원본: `A-01-01.json` ~ `A-01-04.json`, Q1~Q80.
+- 80문제 / 150분 / 전 문항 4지선다.
+- T 50 / M 10 / S 20.
+- 각 1.25점, 총 100점.
+- 정답 위치 0/1/2/3 각각 20문제.
+- Q51 CPM 정답 위치 오류 발견 후 수정 완료.
+- 공개 기출 문장을 복사하지 않고 신규 작성.
+- DB 등록용 파일은 `npm run ap:mock:a1:build`가 검증 후 `migrations/0078_ap_mock_exam_a01_questions.sql`로 생성한다.
 
-### 원본 완료
-- `data/ap/mock-exams/A-01-01.json`: Q1~20
-- `data/ap/mock-exams/A-01-02.json`: Q21~40
-- `data/ap/mock-exams/A-01-03.json`: Q41~60
-- `data/ap/mock-exams/A-01-04.json`: Q61~80
-- 공개 기출 문장을 복사하지 않고 신규 문제로 작성.
-- Q51 CPM 계산 정답 위치 오류 발견 후 수정 완료.
+## 科目B 모의고사 1회 — ready
+원본은 문제별로 분리:
+- `B-01-01.json`: 정보보안 — 필수, 인증로그/Password Spraying/MFA 사고대응
+- `B-01-02.json`: 경영전략 — LTV/CAC, 해지율 개선
+- `B-01-03.json`: 프로그래밍 — BFS 추적/계산량
+- `B-01-04.json`: 시스템 아키텍처 — 세션 외부화, 캐시, DB 병목/이중화
+- `B-01-05.json`: 네트워크 — /26, 최장일치 경로, FW 규칙
+- `B-01-06.json`: 데이터베이스 — 복합 인덱스, 데드록/잠금 순서
+- `B-01-07.json`: 임베디드 — 샘플링, 링버퍼, 주기태스크, Watchdog
+- `B-01-08.json`: 정보시스템개발 — API 단계이행, 호환성, Contract Test, 멱등성/롤백
+- `B-01-09.json`: 프로젝트관리 — CPM + EVM(SPI/CPI)
+- `B-01-10.json`: 서비스관리 — SLA 가동률, 반복장애/문제관리
+- `B-01-11.json`: 시스템감사 — 직무분장, 변경승인, 감사증거
 
-### 최종 구성
-- 80문제 / 150분 / 4지선다 / 전 문항 응답.
-- T(테크놀로지) 50문제.
-- M(매니지먼트) 10문제.
-- S(스트래티지) 20문제.
-- 문제번호 Q1~Q80 연속.
-- 각 문제 1.25점 = 총점 100점.
-- 정답 위치 0/1/2/3 각각 정확히 20문제.
-- manifest에서 A-01을 `ready`로 전환.
+검증 기준:
+- 11문제 / 150분 / 5문제 선택.
+- Q1 SECURITY만 mandatory.
+- 11개 공식 출제 분야를 정확히 한 번씩 구성.
+- 각 문제 20점, 4개 소문항×5점으로 채점기준 합계 20점.
+- 실제 점수는 선택한 5문제만 합산하여 총 100점.
+- Q1 공격유형이 모호하지 않도록 동일한 소수 비밀번호 후보를 다수 계정에 시도한다는 근거를 추가해 Password Spraying으로 정답 유일성 보강.
+- 계산형(LTV, BFS 거리, subnet, sampling, CPM/EVM, availability) 재검산 완료.
+- 공개 기출 문장은 복사하지 않고 공개된 시험 구조/난이도를 참고해 신규 작성.
+- DB 등록용 파일은 `npm run ap:mock:b1:build`가 검증 후 `migrations/0079_ap_mock_exam_b01_questions.sql`로 생성한다.
 
-### 검증/DB 등록 자동화
-- `scripts/ap/mock-exam-utils.mjs`: fingerprint 공통 계산 함수.
-- `scripts/ap/normalize-mock-exams.mjs`: 필요 시 source fingerprint 정규화.
-- `scripts/ap/validate-mock-exams.mjs`: 회차/파일/문제번호/선택지/총점/분야분포/정답분포/전 회차 내용중복 검증.
-- `scripts/ap/build-mock-exam-migration.mjs`: 검증된 ready 회차를 D1 SQL로 변환. DB fingerprint는 항상 본문에서 새로 계산.
-- `npm run ap:mock:a1:build` → 검증 후 `migrations/0077_ap_mock_exam_a01_questions.sql` 생성.
-- `npm run db:migrate:local` / `npm run db:migrate:remote` 실행 시 A1 build가 먼저 자동 실행되므로 별도 등록 명령을 외울 필요 없음.
-- `npm run dev`도 `db:migrate:local`을 통해 같은 순서를 사용.
+## 적용 명령 흐름
+- `npm run ap:validate`: 기존 AP 문제은행 + 모의고사 전체 검증.
+- `npm run ap:mock:build`: A1/B1 전체 검증 후 0078/0079 SQL 생성.
+- `npm run db:migrate:local`: 모의고사 검증/SQL 생성 후 로컬 D1 migration 적용.
+- `npm run db:migrate:remote`: 모의고사 검증/SQL 생성 후 원격 D1 migration 적용.
+- `npm run dev`는 `db:migrate:local`을 먼저 실행하므로 별도 A1/B1 등록 명령을 외울 필요가 없다.
 
 ## 다음 작업
-1. 科目B 모의고사 1회 11문제 제작.
-2. 실제 시험형 장문 지문/표/로그/자료를 포함해 정보보안 필수 + 선택 10분야 구성.
-3. B1 전체 사실/모범답안/채점기준/부분점수 검증.
-4. B1 ready → DB 등록 빌드 연결.
-5. 이후 科目A 2회 → 科目B 2회 → A3 → B3 순서로 제작.
+1. 科目A 모의고사 2회 80문제 신규 제작.
+2. A2는 A1 및 전체 기존 문제은행과 내용 fingerprint 중복 없이 구성.
+3. A2 사실/계산/정답분포/분야분포 검증 후 ready.
+4. 이후 科目B 2회 → 科目A 3회 → 科目B 3회 순서.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration을 추가한다.
 - Cloudflare D1 무료 row-read 한도를 고려해 전체 스캔/반복 SELECT·COUNT를 피한다.
 - 배치 INSERT/UPSERT, VALUES/CTE, 인덱스 기반 JOIN을 우선한다.
 - 모의고사는 ready 전 구조·중복·정답·해설 검증을 통과해야 한다.
-- 다른 회차에서 동일 문제를 그대로 재사용하지 않는다.
+- 다른 회차에서 동일 문제/시나리오를 그대로 재사용하지 않는다.
 - Git 실제 스키마/코드를 확인하기 전에는 테이블/컬럼을 추측하지 않는다.
