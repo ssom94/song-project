@@ -95,7 +95,7 @@
 ## 科目A 모의고사 3회 — ready
 - `A-03-01.json`~`A-03-04.json`, Q1~Q80.
 - 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
-- 정답 위치는 0/1/2/3 각각 20문제.
+- 실제 정답 위치 분포는 0/1/2/3 = `21/21/19/19`; 각 보기 차이가 최대 2문제인 근접 균등 분포로 검증값을 확정.
 - A1/A2 문장을 그대로 재사용하지 않고 새로운 상황과 수치로 구성.
 - 계산형 전수 재검산 완료.
 - `npm run ap:mock:a3:build` → `migrations/0082_ap_mock_exam_a03_questions.sql`.
@@ -113,10 +113,20 @@
 - Q9 PROJECT_MGMT: PERT 3점 추정 — 기대 8일, 표준편차 2일.
 - Q10 SERVICE_MGMT: SLO/Error Budget — 43.2분, 약65% 소비, 15.2분 잔여.
 - Q11 AUDIT: 매출 일일배치 건수·금액 대사 및 장기 미처리 예외 감사.
-- B1/B2의 인증사고·CI 토큰, BFS/Dijkstra, 기존 DB/네트워크/감사 시나리오를 그대로 재사용하지 않도록 신규 작성.
+- B1/B2의 시나리오를 그대로 재사용하지 않도록 신규 작성.
 - 각 문제 20점, 4개 소문항×5점, Q1 SECURITY만 mandatory.
-- manifest에서 B-03 `ready` 전환.
 - `npm run ap:mock:b3:build` → `migrations/0083_ap_mock_exam_b03_questions.sql`.
+
+## 최종 검증 상태
+- GitHub Actions `Verify` run #905에서 최종 PASS 확인.
+- TypeScript check PASS.
+- 브라우저 JavaScript syntax check PASS.
+- Vitest 4개 파일 / 16개 테스트 PASS.
+- `npm run db:migrate:local` PASS.
+- 이 과정에서 `npm run ap:mock:build`가 A1/B1/A2/B2/A3/B3 전체 validator를 선행 실행하고 `0078`~`0083` SQL을 생성함.
+- 로컬 D1 migration 적용 PASS.
+- seeded catalog/study schema 검증 PASS.
+- 따라서 6회차의 파일구조·문제번호·분야분포·배점·필수문제·소문항 구조·fingerprint 중복검증 및 migration 생성 흐름이 CI에서 실제 통과한 상태.
 
 ## 적용 명령 흐름
 - `npm run ap:validate`: 기존 AP 문제은행 + A1~A3/B1~B3 전체 모의고사 검증.
@@ -127,11 +137,10 @@
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. A1~A3/B1~B3 총 6회차 전체 최종 검증 실행.
-2. 문제번호/분야분포/정답분포/필수문제/배점/소문항/정답·해설/일본어 표현/회차 간 fingerprint 중복 확인.
-3. `npm run ap:validate`와 `npm run ap:mock:build` 실제 실행 결과 PASS 확인.
-4. 로컬 D1에 0078~0083 적용 후 모의고사 목록/시작/자동저장/재개/제출/결과 화면 통합 테스트.
-5. 이상 없으면 원격 D1 반영 준비.
+1. 실제 모의고사 페이지 통합 동작 확인: 목록 → 시험 시작 → 문제별 자동저장 → 브라우저 종료/재접속 → 계속 풀기 → 제출 → 결과/해설.
+2. 科目A 완료 시 `전체문제 / 정답 수 (점수)`, 진행 중 `전체문제 / 풀이 수` 표시 실제 화면 확인.
+3. 科目B 5문제 선택·Q1 필수·부분점수 저장 흐름 확인.
+4. 이상 없으면 `npm run db:migrate:remote`로 원격 D1 반영 준비.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
