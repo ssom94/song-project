@@ -1,0 +1,34 @@
+{
+  "subject": "B",
+  "examNo": 2,
+  "questions": [
+    {
+      "questionNo": 9,
+      "sectionCode": "PROJECT_MGMT",
+      "type": "written",
+      "promptJa": "プロジェクトの定量リスク評価と予備費の考え方について答えよ。",
+      "promptKo": "프로젝트의 정량적 위험평가와 예비비 개념에 대해 답하시오.",
+      "content": {
+        "passageJa": "プロジェクトでは三つの主要リスクを識別した。R1は発生確率20%，発生時損失200万円，R2は10%，500万円，R3は50%，60万円である。これらは独立と仮定し，期待金額価値（EMV）を用いて定量評価する。",
+        "passageKo": "프로젝트에서 주요 위험 3개를 식별했다. R1은 발생확률 20%, 발생 시 손실 200만 엔, R2는 10%, 500만 엔, R3는 50%, 60만 엔이다. 이들은 독립이라고 가정하고 기대금액가치(EMV)로 정량평가한다.",
+        "tables": [
+          {"titleJa":"リスク一覧","headers":["リスク","発生確率","損失"],"rows":[["R1","20%","200万円"],["R2","10%","500万円"],["R3","50%","60万円"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"R1のEMVを求めよ。","promptKo":"R1의 EMV를 구하시오."},
+          {"key":"q2","promptJa":"R2のEMVを求めよ。","promptKo":"R2의 EMV를 구하시오."},
+          {"key":"q3","promptJa":"R1～R3のEMV合計を求めよ。","promptKo":"R1~R3의 EMV 합계를 구하시오."},
+          {"key":"q4","promptJa":"既知の特定リスクへの対応資金としてプロジェクト予算に確保するものを何というか。","promptKo":"식별된 특정 위험에 대응하기 위해 프로젝트 예산에 확보하는 자금을 무엇이라 하는가?"}
+        ]
+      },
+      "modelAnswerJa": "q1: 40万円。\nq2: 50万円。\nq3: 120万円。\nq4: コンティンジェンシー予備（予備費）。",
+      "modelAnswerKo": "q1: 40만 엔.\nq2: 50만 엔.\nq3: 120만 엔.\nq4: 컨틴전시 예비비(Contingency Reserve).",
+      "explanationJa": "EMVは発生確率×影響額で求める。R1=40万円，R2=50万円，R3=30万円なので合計120万円となる。識別済みリスクへの対応資金はコンティンジェンシー予備として計画する。",
+      "explanationKo": "EMV는 발생확률×영향액으로 계산한다. R1=40만 엔, R2=50만 엔, R3=30만 엔이므로 합계 120만 엔이다. 식별된 위험의 대응자금은 컨틴전시 예비비로 계획한다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": "A-55",
+      "gradingSchema": {"criteria":[{"key":"q1","score":5,"modelJa":"40万円","modelKo":"40만 엔"},{"key":"q2","score":5,"modelJa":"50万円","modelKo":"50만 엔"},{"key":"q3","score":5,"modelJa":"120万円","modelKo":"120만 엔"},{"key":"q4","score":5,"modelJa":"コンティンジェンシー予備","modelKo":"컨틴전시 예비비"}]}
+    }
+  ]
+}
