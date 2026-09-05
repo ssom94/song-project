@@ -26,6 +26,48 @@
 			?? `#${category?.id ?? ''}`;
 	}
 
+	function orderedCategoryPaths() {
+		const childrenByParent = new Map();
+		const visited = new Set();
+
+		for (const category of categories) {
+			const rawParentId = category?.parentId;
+			const parentId = rawParentId == null ? null : Number(rawParentId);
+			const key = Number.isSafeInteger(parentId) && parentId > 0 ? parentId : null;
+			if (!childrenByParent.has(key)) childrenByParent.set(key, []);
+			childrenByParent.get(key).push(category);
+		}
+
+		const compare = (left, right) => {
+			const orderDiff = Number(left?.displayOrder ?? 0) - Number(right?.displayOrder ?? 0);
+			if (orderDiff !== 0) return orderDiff;
+			return Number(left?.id ?? 0) - Number(right?.id ?? 0);
+		};
+		for (const children of childrenByParent.values()) children.sort(compare);
+
+		const rows = [];
+		const walk = (parentId, parentPath, depth) => {
+			for (const category of childrenByParent.get(parentId) ?? []) {
+				const id = Number(category?.id);
+				if (!Number.isSafeInteger(id) || id <= 0 || visited.has(id)) continue;
+				visited.add(id);
+				const label = categoryLabel(category);
+				const path = parentPath ? `${parentPath} > ${label}` : label;
+				rows.push({ category, path, depth });
+				walk(id, path, depth + 1);
+			}
+		};
+
+		walk(null, '', 0);
+		for (const category of [...categories].sort(compare)) {
+			const id = Number(category?.id);
+			if (!Number.isSafeInteger(id) || id <= 0 || visited.has(id)) continue;
+			visited.add(id);
+			rows.push({ category, path: categoryLabel(category), depth: 0 });
+		}
+		return rows;
+	}
+
 	function tagLabel(tag) {
 		const language = currentLanguage();
 		return tag?.names?.[language]
@@ -47,10 +89,10 @@
 		unclassified.textContent = t('categoryNone', currentLanguage() === 'ko' ? '미분류' : '未分類');
 		select.appendChild(unclassified);
 
-		for (const category of categories) {
+		for (const { category, path } of orderedCategoryPaths()) {
 			const option = document.createElement('option');
 			option.value = String(category.id);
-			option.textContent = categoryLabel(category);
+			option.textContent = path;
 			select.appendChild(option);
 		}
 
