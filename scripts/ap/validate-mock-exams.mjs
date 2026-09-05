@@ -1,6 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
+import {
+  clean,
+  computeQuestionFingerprint,
+  normalizedQuestionSignature,
+  roundFiles,
+  roundKey,
+} from './mock-exam-utils.mjs';
 
 const ROOT = process.cwd();
 const DIR = path.join(ROOT, 'data', 'ap', 'mock-exams');
@@ -12,36 +18,10 @@ const fingerprints = new Map();
 
 const fail = (where, message) => errors.push(`${where}: ${message}`);
 const warn = (where, message) => warnings.push(`${where}: ${message}`);
-const clean = (v) => String(v ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
-const keyOf = (subject, examNo) => `${subject}-${String(examNo).padStart(2, '0')}`;
 
 function readJson(file) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); }
   catch (e) { fail(path.relative(ROOT, file), `JSON parse failed: ${e.message}`); return null; }
-}
-
-function digest(value) {
-  return crypto.createHash('sha256').update(value, 'utf8').digest('hex');
-}
-
-function normalizedQuestionSignature(q) {
-  const options = Array.isArray(q.optionsJa) ? q.optionsJa.map(clean) : [];
-  const subquestions = Array.isArray(q.subquestions) ? q.subquestions.map((s) => ({
-    promptJa: clean(s?.promptJa),
-    optionsJa: Array.isArray(s?.optionsJa) ? s.optionsJa.map(clean) : [],
-  })) : [];
-  return JSON.stringify({
-    promptJa: clean(q.promptJa),
-    passageJa: clean(q.passageJa),
-    optionsJa: options,
-    subquestions,
-  });
-}
-
-function roundFiles(round) {
-  if (Array.isArray(round?.files)) return round.files.map(clean).filter(Boolean);
-  const single = clean(round?.file);
-  return single ? [single] : [];
 }
 
 function loadRoundQuestions(round) {
@@ -66,9 +46,8 @@ function loadRoundQuestions(round) {
 }
 
 function validateRound(round, spec) {
-  const key = keyOf(round.subject, round.examNo);
-  const loaded = loadRoundQuestions(round);
-  const questions = loaded.questions;
+  const key = roundKey(round.subject, round.examNo);
+  const { questions } = loadRoundQuestions(round);
   if (round.status === 'ready' && questions.length !== spec.questionCount) {
     fail(key, `ready round must contain exactly ${spec.questionCount} questions across all source files (got ${questions.length})`);
   }
@@ -84,14 +63,14 @@ function validateRound(round, spec) {
     if (!Number.isInteger(no) || no <= 0) fail(where, 'questionNo must be a positive integer');
     if (numbers.has(no)) fail(where, `duplicate questionNo ${no} across round source files`);
     numbers.add(no);
+
     const section = clean(q?.sectionCode);
     if (section) sectionCounts.set(section, (sectionCounts.get(section) ?? 0) + 1);
-    const promptJa = clean(q?.promptJa);
-    const promptKo = clean(q?.promptKo);
-    if (!promptJa) fail(where, 'promptJa is required');
-    if (!promptKo) fail(where, 'promptKo is required');
+    if (!clean(q?.promptJa)) fail(where, 'promptJa is required');
+    if (!clean(q?.promptKo)) fail(where, 'promptKo is required');
     if (!clean(q?.explanationJa)) fail(where, 'explanationJa is required');
     if (!clean(q?.explanationKo)) fail(where, 'explanationKo is required');
+
     const maxScore = Number(q?.maxScore);
     if (!Number.isFinite(maxScore) || maxScore <= 0) fail(where, 'maxScore must be > 0');
     else totalScore += maxScore;
@@ -110,14 +89,17 @@ function validateRound(round, spec) {
     } else {
       if (q?.type !== 'written') fail(where, 'Subject B question type must be written');
       if (!clean(q?.passageJa) && !q?.content) warn(where, 'passageJa or structured content is recommended for exam-style Subject B');
-      if (!clean(q?.modelAnswerJa) && !Array.isArray(q?.subquestions) && !q?.gradingSchema) fail(where, 'model answer/subquestions/grading schema are required');
+      if (!clean(q?.modelAnswerJa) && !Array.isArray(q?.subquestions) && !q?.gradingSchema) {
+        fail(where, 'model answer/subquestions/grading schema are required');
+      }
     }
 
     const signature = normalizedQuestionSignature(q);
-    const computed = digest(signature);
+    const computed = computeQuestionFingerprint(q);
     const supplied = clean(q?.fingerprint);
     if (!supplied) fail(where, `fingerprint is required; expected ${computed}`);
-    else if (supplied !== computed) fail(where, `fingerprint mismatch; expected ${computed}`);
+    else if (supplied !== computed) fail(where, `fingerprint mismatch; run npm run ap:mock:normalize (expected ${computed})`);
+
     const previousSig = signatures.get(signature);
     if (previousSig) fail(where, `duplicate question content; previous ${previousSig}`);
     else signatures.set(signature, where);
@@ -134,6 +116,7 @@ function validateRound(round, spec) {
     }
     if (Math.abs(totalScore - spec.totalScore) > 0.0001) fail(key, `question maxScore total must be ${spec.totalScore} (got ${totalScore})`);
     if (round.subject === 'B' && mandatoryCount < 1) fail(key, 'Subject B must contain at least one mandatory information-security question');
+
     if (round.subject === 'A' && spec.sectionDistribution) {
       for (const [section, expected] of Object.entries(spec.sectionDistribution)) {
         const actual = sectionCounts.get(section) ?? 0;
@@ -157,7 +140,7 @@ if (manifest) {
     const where = `manifest.rounds[${index}]`;
     if (round?.subject !== 'A' && round?.subject !== 'B') fail(where, 'subject must be A or B');
     if (!Number.isInteger(Number(round?.examNo)) || Number(round.examNo) <= 0) fail(where, 'examNo must be positive');
-    const key = keyOf(round?.subject, Number(round?.examNo));
+    const key = roundKey(round?.subject, Number(round?.examNo));
     if (roundKeys.has(key)) fail(where, `duplicate round ${key}`); else roundKeys.add(key);
     const names = roundFiles(round);
     if (!names.length) fail(where, 'file or files is required');
