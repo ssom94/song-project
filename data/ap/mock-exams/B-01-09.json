@@ -1,0 +1,42 @@
+{
+  "subject": "B",
+  "examNo": 1,
+  "questions": [
+    {
+      "questionNo": 9,
+      "sectionCode": "PROJECT_MGMT",
+      "type": "written",
+      "promptJa": "業務システム刷新プロジェクトの工程表とEVM実績から，進捗状況を分析せよ。",
+      "promptKo": "업무시스템 쇄신 프로젝트의 공정표와 EVM 실적으로부터 진행상황을 분석하시오.",
+      "content": {
+        "passageJa": "P社は業務システム刷新プロジェクトを実施している。各作業は先行作業完了後に開始でき，作業間の待ち時間はないものとする。また，開始から6日経過時点でEVMによる進捗測定を行った。金額の単位は百万円である。",
+        "passageKo": "P사는 업무시스템 쇄신 프로젝트를 진행 중이다. 각 작업은 선행작업 완료 후 시작할 수 있고 작업 간 대기시간은 없다고 가정한다. 또한 시작 후 6일 시점에 EVM으로 진행상황을 측정했다. 금액 단위는 백만 엔이다.",
+        "tables": [
+          {"titleJa":"作業一覧","headers":["作業","所要日数","先行作業"],"rows":[["A","2","なし"],["B","4","A"],["C","3","A"],["D","5","B"],["E","2","B,C"],["F","2","D,E"]]},
+          {"titleJa":"6日経過時点のEVM","headers":["PV","EV","AC"],"rows":[["60","48","54"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"全作業を最短で完了するまでの日数を答えよ。","promptKo":"모든 작업을 최단으로 완료하는 데 필요한 일수를 쓰시오."},
+          {"key":"q2","promptJa":"クリティカルパスを作業記号で答えよ。","promptKo":"임계경로를 작업 기호로 쓰시오."},
+          {"key":"q3","promptJa":"6日経過時点のSPIを求めよ。","promptKo":"6일 경과 시점의 SPI를 구하시오."},
+          {"key":"q4","promptJa":"同時点のCPIを求め，進捗とコストの状態を簡潔に説明せよ。","promptKo":"같은 시점의 CPI를 구하고 일정과 비용 상태를 간단히 설명하시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 13日。\nq2: A→B→D→F。\nq3: 0.8。\nq4: CPI=48/54≈0.89。SPI<1なので予定より遅れており，CPI<1なのでコスト効率も悪い。",
+      "modelAnswerKo": "q1: 13일.\nq2: A→B→D→F.\nq3: 0.8.\nq4: CPI=48/54≈0.89. SPI<1이므로 일정이 지연되고 CPI<1이므로 비용효율도 좋지 않다.",
+      "explanationJa": "経路A-B-D-Fは2+4+5+2=13日で最長となり，これがプロジェクト最短完了日数を決める。SPI=EV/PV=48/60=0.8，CPI=EV/AC=48/54≈0.89で，いずれも1未満なので遅延かつコスト超過傾向である。",
+      "explanationKo": "경로 A-B-D-F는 2+4+5+2=13일로 가장 길어 프로젝트 최소 완료기간을 결정한다. SPI=EV/PV=48/60=0.8, CPI=EV/AC=48/54≈0.89로 둘 다 1 미만이므로 일정 지연 및 비용 초과 경향이다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": "A-53",
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"13日","modelKo":"13일"},
+          {"key":"q2","score":5,"modelJa":"A→B→D→F","modelKo":"A→B→D→F"},
+          {"key":"q3","score":5,"modelJa":"0.8","modelKo":"0.8"},
+          {"key":"q4","score":5,"modelJa":"CPI約0.89，遅延かつコスト効率悪化","modelKo":"CPI 약 0.89, 일정 지연 및 비용효율 악화"}
+        ]
+      }
+    }
+  ]
+}
