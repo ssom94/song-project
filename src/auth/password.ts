@@ -6,12 +6,13 @@ const PBKDF2_DIGEST = 'sha256';
 const PBKDF2_ITERATIONS = 210_000;
 const PBKDF2_KEY_LENGTH = 32;
 const SCRYPT_MAX_MEMORY = 64 * 1024 * 1024;
+const AUTH_VERIFIER_BUILD = 'dual-pbkdf2-v2';
 
 export interface PasswordVerificationResult {
 	matches: boolean;
 	algorithm: string;
 	nodeCrypto?: 'match' | 'mismatch' | 'error';
-	webCrypto?: 'match' | 'mismatch' | 'error';
+	webCrypto?: 'match' | 'mismatch' | 'error' | 'not-run';
 	formatValid: boolean;
 }
 
@@ -34,6 +35,11 @@ function constantTimeEqual(left: Uint8Array, right: Uint8Array): boolean {
 	let difference = 0;
 	for (let i = 0; i < left.length; i += 1) difference |= left[i] ^ right[i];
 	return difference === 0;
+}
+
+async function encodedHashFingerprint(encodedHash: string): Promise<string> {
+	const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(encodedHash));
+	return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('').slice(0, 12);
 }
 
 function isPowerOfTwo(value: number): boolean {
@@ -110,7 +116,7 @@ async function verifyPbkdf2(password: string, encodedHash: string): Promise<Pass
 		const derived = pbkdf2Sync(password, salt, iterations, expectedHash.length, PBKDF2_DIGEST);
 		nodeCrypto = constantTimeEqual(new Uint8Array(derived), expectedHash) ? 'match' : 'mismatch';
 		if (nodeCrypto === 'match') {
-			return { matches: true, algorithm, nodeCrypto, webCrypto: 'mismatch', formatValid: true };
+			return { matches: true, algorithm, nodeCrypto, webCrypto: 'not-run', formatValid: true };
 		}
 	} catch {
 		nodeCrypto = 'error';
@@ -133,6 +139,19 @@ async function verifyPbkdf2(password: string, encodedHash: string): Promise<Pass
 		webCrypto = constantTimeEqual(new Uint8Array(derivedBits), expectedHash) ? 'match' : 'mismatch';
 	} catch {
 		webCrypto = 'error';
+	}
+
+	if (webCrypto !== 'match') {
+		console.warn('[auth-password] pbkdf2_mismatch', {
+			build: AUTH_VERIFIER_BUILD,
+			nodeCrypto,
+			webCrypto,
+			iterations,
+			saltBytes: salt.length,
+			expectedHashBytes: expectedHash.length,
+			encodedHashLength: encodedHash.length,
+			hashFingerprint: await encodedHashFingerprint(encodedHash),
+		});
 	}
 
 	return {
