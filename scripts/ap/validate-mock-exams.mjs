@@ -94,17 +94,15 @@ function validateRound(round, spec) {
       }
     }
 
+    // fingerprint is derived data. Never trust a hand-written fingerprint in JSON.
+    // Duplicate checks always use the normalized Japanese question content itself.
     const signature = normalizedQuestionSignature(q);
     const computed = computeQuestionFingerprint(q);
-    const supplied = clean(q?.fingerprint);
-    if (!supplied) fail(where, `fingerprint is required; expected ${computed}`);
-    else if (supplied !== computed) fail(where, `fingerprint mismatch; run npm run ap:mock:normalize (expected ${computed})`);
-
     const previousSig = signatures.get(signature);
     if (previousSig) fail(where, `duplicate question content; previous ${previousSig}`);
     else signatures.set(signature, where);
     const previousFp = fingerprints.get(computed);
-    if (previousFp) fail(where, `duplicate fingerprint; previous ${previousFp}`);
+    if (previousFp) fail(where, `duplicate computed fingerprint; previous ${previousFp}`);
     else fingerprints.set(computed, where);
   }
 
