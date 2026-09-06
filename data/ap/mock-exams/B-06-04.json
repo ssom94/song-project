@@ -1,0 +1,34 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":4,
+    "sectionCode":"ARCHITECTURE",
+    "type":"written",
+    "promptJa":"注文DB更新とイベント配信の二重書込み問題をTransactional Outboxで解決する設計について，設問に答えよ。",
+    "promptKo":"주문 DB 갱신과 이벤트 발행의 이중쓰기 문제를 Transactional Outbox로 해결하는 설계에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"C社の注文サービスは，注文確定時にRDBのorders表を更新した後，メッセージブローカへOrderConfirmedイベントをpublishする。DB更新とpublishは別トランザクションである。ネットワーク障害時にDBのCOMMITは成功したがpublishが失敗し，下流の在庫サービスへイベントが届かない事象が発生した。一方，ブローカはat-least-once配信なので，同じイベントが再配信される可能性もある。改善案としてTransactional Outboxを検討している。",
+      "passageKo":"C사의 주문 서비스는 주문 확정 시 RDB의 orders 테이블을 갱신한 뒤 메시지 브로커에 OrderConfirmed 이벤트를 publish한다. DB 갱신과 publish는 별도 트랜잭션이다. 네트워크 장애 때 DB COMMIT은 성공했지만 publish가 실패하여 하위 재고 서비스에 이벤트가 도착하지 않는 문제가 발생했다. 한편 브로커는 at-least-once 전달이므로 같은 이벤트가 재전달될 가능성도 있다. 개선안으로 Transactional Outbox를 검토 중이다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"現行方式で起きている整合性問題を何と呼べるか，内容とともに答えよ。","promptKo":"현행 방식에서 발생한 일관성 문제를 무엇이라 부를 수 있는지 내용과 함께 쓰시오."},
+        {"key":"q2","promptJa":"Transactional Outboxでは注文更新と何を同一DBトランザクションで保存するか。","promptKo":"Transactional Outbox에서는 주문 갱신과 무엇을 동일 DB 트랜잭션에서 저장하는가?"},
+        {"key":"q3","promptJa":"Outboxに保存されたイベントをブローカへ配信する役割を持つコンポーネントの処理を説明せよ。","promptKo":"Outbox에 저장된 이벤트를 브로커로 발행하는 역할의 컴포넌트 처리를 설명하시오."},
+        {"key":"q4","promptJa":"at-least-once配信による重複イベントに対して，下流サービスが備えるべき性質を答えよ。","promptKo":"at-least-once 전달의 중복 이벤트에 대해 하위 서비스가 갖춰야 할 성질을 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: Dual Writeの不整合。DBだけ更新され，対応イベントが配信されない状態。\nq2: 送信予定イベントをoutbox表へ同一トランザクションで保存する。\nq3: Relay/Publisherが未送信outbox行を読み，ブローカへpublishし，成功後に送信済みとして記録する。\nq4: Idempotency（冪等性）。イベントIDなどで重複処理を防ぐ。",
+    "modelAnswerKo":"q1: Dual Write 불일치. DB만 갱신되고 대응 이벤트가 발행되지 않은 상태.\nq2: 발행 예정 이벤트를 outbox 테이블에 동일 트랜잭션으로 저장한다.\nq3: Relay/Publisher가 미발행 outbox 행을 읽어 브로커에 publish하고 성공 후 발행 완료로 기록한다.\nq4: Idempotency(멱등성). 이벤트 ID 등으로 중복 처리를 막는다.",
+    "explanationJa":"DB更新と外部publishを別々に行うと片方だけ成功する窓ができる。Outboxでは業務データとイベント記録を同じローカルトランザクションに含め，別プロセスが確実に配信する。ただし配信側の再試行で重複は起こり得るため，受信側はイベントIDによる重複排除などで冪等にする。",
+    "explanationKo":"DB 갱신과 외부 publish를 따로 수행하면 한쪽만 성공하는 구간이 생긴다. Outbox는 업무 데이터와 이벤트 기록을 같은 로컬 트랜잭션에 포함하고 별도 프로세스가 확실히 발행한다. 다만 발행 재시도로 중복은 생길 수 있으므로 수신측은 이벤트 ID 기반 중복제거 등으로 멱등성을 확보한다.",
+    "maxScore":20,
+    "mandatory":false,
+    "sourceConceptCode":null,
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"Dual Write不整合。DB成功・イベント失敗","modelKo":"Dual Write 불일치. DB 성공·이벤트 실패"},
+      {"key":"q2","score":5,"modelJa":"outbox表へイベントを同一トランザクション保存","modelKo":"outbox 테이블에 이벤트를 동일 트랜잭션 저장"},
+      {"key":"q3","score":5,"modelJa":"Relayが未送信行をpublishし送信済み化","modelKo":"Relay가 미발행 행을 publish하고 발행완료 처리"},
+      {"key":"q4","score":5,"modelJa":"冪等性・イベントIDによる重複排除","modelKo":"멱등성·이벤트 ID 중복제거"}
+    ]}
+  }]
+}
