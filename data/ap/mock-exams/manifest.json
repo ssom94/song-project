@@ -1,5 +1,5 @@
 {
-  "version": 14,
+  "version": 15,
   "subjects": {
     "A": {
       "durationMinutes": 150,
@@ -42,6 +42,7 @@
     { "subject": "B", "examNo": 2, "files": ["B-02-01.json", "B-02-02.json", "B-02-03.json", "B-02-04.json", "B-02-05.json", "B-02-06.json", "B-02-07.json", "B-02-08.json", "B-02-09.json", "B-02-10.json", "B-02-11.json"], "status": "ready" },
     { "subject": "B", "examNo": 3, "files": ["B-03-01.json", "B-03-02.json", "B-03-03.json", "B-03-04.json", "B-03-05.json", "B-03-06.json", "B-03-07.json", "B-03-08.json", "B-03-09.json", "B-03-10.json", "B-03-11.json"], "status": "ready" },
     { "subject": "B", "examNo": 4, "files": ["B-04-01.json", "B-04-02.json", "B-04-03.json", "B-04-04.json", "B-04-05.json", "B-04-06.json", "B-04-07.json", "B-04-08.json", "B-04-09.json", "B-04-10.json", "B-04-11.json"], "status": "ready" },
-    { "subject": "B", "examNo": 5, "files": ["B-05-01.json", "B-05-02.json", "B-05-03.json", "B-05-04.json", "B-05-05.json", "B-05-06.json", "B-05-07.json", "B-05-08.json", "B-05-09.json", "B-05-10.json", "B-05-11.json"], "status": "ready" }
+    { "subject": "B", "examNo": 5, "files": ["B-05-01.json", "B-05-02.json", "B-05-03.json", "B-05-04.json", "B-05-05.json", "B-05-06.json", "B-05-07.json", "B-05-08.json", "B-05-09.json", "B-05-10.json", "B-05-11.json"], "status": "ready" },
+    { "subject": "B", "examNo": 6, "files": ["B-06-01.json", "B-06-02.json", "B-06-03.json", "B-06-04.json", "B-06-05.json", "B-06-06.json", "B-06-07.json", "B-06-08.json", "B-06-09.json", "B-06-10.json", "B-06-11.json"], "status": "ready" }
   ]
 }
