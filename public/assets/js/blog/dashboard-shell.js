@@ -189,7 +189,7 @@
 		if (document.querySelector('link[data-unified-sidebar-style]')) return;
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = '/assets/css/blog/unified-sidebar.css?v=20260906-1';
+		link.href = '/assets/css/blog/unified-sidebar.css?v=20260906-2';
 		link.dataset.unifiedSidebarStyle = 'true';
 		document.head.appendChild(link);
 	}
@@ -211,7 +211,7 @@
 			}
 
 			const script = document.createElement('script');
-			script.src = '/assets/js/shared/category-icons.js?v=20260906-1';
+			script.src = '/assets/js/shared/category-icons.js?v=20260906-2';
 			script.async = true;
 			script.dataset.categoryIconsLoader = 'true';
 			script.addEventListener('load', finish, { once: true });
@@ -325,6 +325,22 @@
 		sidebar.append(section, footer);
 	}
 
+	function createCategoryIcon(appearance) {
+		if (!appearance || typeof appearance !== 'object' || appearance.kind === 'none') return null;
+		if (window.SongCategoryIcons?.createIcon) {
+			return window.SongCategoryIcons.createIcon(appearance, { className: 'blog-sidebar-category-icon' });
+		}
+
+		const placeholder = document.createElement('span');
+		placeholder.className = 'blog-sidebar-category-icon';
+		placeholder.dataset.categoryIconKind = String(appearance.kind || 'preset');
+		placeholder.dataset.categoryIconValue = String(appearance.value || 'folder');
+		placeholder.dataset.categoryIconColor = String(appearance.color || '#5b6ee1');
+		placeholder.dataset.categoryIconImageUrl = String(appearance.imageUrl || '');
+		placeholder.dataset.categoryIconClass = 'blog-sidebar-category-icon';
+		return placeholder;
+	}
+
 	function renderCategories(categories, language = currentLanguage(), selectedCategory = '') {
 		const container = byId('blog-sidebar-categories');
 		const empty = byId('blog-sidebar-categories-empty');
@@ -352,15 +368,14 @@
 
 			const main = document.createElement('span');
 			main.className = 'blog-sidebar-category-main';
-			if (category.appearance && window.SongCategoryIcons?.createIcon) {
-				main.appendChild(window.SongCategoryIcons.createIcon(category.appearance, { className: 'blog-sidebar-category-icon' }));
-			}
 			if (category.depth > 0) {
 				const branch = document.createElement('span');
 				branch.className = 'blog-sidebar-category-branch';
 				branch.textContent = '↳';
 				main.appendChild(branch);
 			}
+			const icon = createCategoryIcon(category.appearance);
+			if (icon) main.appendChild(icon);
 			const name = document.createElement('span');
 			name.className = 'blog-sidebar-category-name';
 			name.textContent = category.name.split(' > ').pop() || category.name;
@@ -399,8 +414,8 @@
 	function installPublicAdminUserStyle() {
 		if (document.querySelector('link[data-public-admin-user-style]')) return;
 		const link = document.createElement('link');
-		link.rel = 'stylesheet';
 		link.href = '/assets/css/blog/public-admin-user.css';
+		link.rel = 'stylesheet';
 		link.dataset.publicAdminUserStyle = 'true';
 		document.head.appendChild(link);
 	}
