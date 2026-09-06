@@ -1,0 +1,34 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":10,
+    "sectionCode":"SERVICE_MGMT",
+    "type":"written",
+    "promptJa":"ITサービスの変更管理における変更失敗率，Standard Change，Emergency Changeについて，設問に答えよ。",
+    "promptKo":"IT 서비스 변경관리의 변경실패율, Standard Change, Emergency Change에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"I社では1か月に200件の本番変更を実施し，そのうち8件が変更を原因とするインシデントを発生させた。定型的な証明書更新作業は手順・リスク・承認条件が事前定義され，条件を満たせば都度CAB審議をせず実施できる。一方，インターネット公開サービスに悪用中の重大脆弱性が見つかり，通常の変更審査日程を待てない緊急パッチ適用が必要となった。",
+      "passageKo":"I사는 한 달에 운영 변경 200건을 실시했고 그중 8건이 변경으로 인한 인시던트를 발생시켰다. 정형적인 인증서 갱신작업은 절차·위험·승인조건이 사전 정의되어 조건을 만족하면 매번 CAB 심의를 거치지 않고 수행할 수 있다. 한편 인터넷 공개 서비스에 실제 악용 중인 중대 취약점이 발견되어 일반 변경심사 일정을 기다릴 수 없는 긴급 패치 적용이 필요해졌다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"この月のChange Failure Rateを求めよ。","promptKo":"이 달의 Change Failure Rate를 구하시오."},
+        {"key":"q2","promptJa":"事前承認され反復可能な証明書更新は，変更の分類として何に該当するか。","promptKo":"사전승인되어 반복 가능한 인증서 갱신은 변경 분류상 무엇에 해당하는가?"},
+        {"key":"q3","promptJa":"悪用中の重大脆弱性へ迅速に対処するパッチ変更は，どの変更分類で扱うのが適切か。","promptKo":"실제 악용 중인 중대 취약점에 신속 대응하는 패치 변경은 어떤 변경 분류로 다루는 것이 적절한가?"},
+        {"key":"q4","promptJa":"変更失敗時の復旧を速めるため，実施前に準備しておくべき計画を一つ答えよ。","promptKo":"변경 실패 시 복구를 빠르게 하기 위해 실시 전에 준비해야 할 계획 하나를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: 4%。8/200×100=4%。\nq2: Standard Change（標準変更）。\nq3: Emergency Change（緊急変更）。\nq4: Backout/Rollback Plan。元の版・設定へ戻す手順と判断条件を準備する。",
+    "modelAnswerKo":"q1: 4%. 8/200×100=4%.\nq2: Standard Change(표준 변경).\nq3: Emergency Change(긴급 변경).\nq4: Backout/Rollback Plan. 기존 버전·설정으로 되돌리는 절차와 판단조건을 준비한다.",
+    "explanationJa":"Change Failure Rateは変更総数に対する障害を生んだ変更の割合なので4%である。低リスクで反復的かつ事前承認された変更はStandard Change，通常プロセスを待てない重大事象への対応はEmergency Changeとして統制する。どちらも失敗時の戻し手順や検証条件を事前に明確にすることが重要である。",
+    "explanationKo":"Change Failure Rate는 전체 변경 중 장애를 만든 변경 비율이므로 4%다. 저위험·반복적이며 사전승인된 변경은 Standard Change, 일반 절차를 기다릴 수 없는 중대 상황 대응은 Emergency Change로 통제한다. 어느 경우든 실패 시 복구 절차와 검증조건을 미리 명확히 해야 한다.",
+    "maxScore":20,
+    "mandatory":false,
+    "sourceConceptCode":null,
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"4%","modelKo":"4%"},
+      {"key":"q2","score":5,"modelJa":"Standard Change","modelKo":"Standard Change"},
+      {"key":"q3","score":5,"modelJa":"Emergency Change","modelKo":"Emergency Change"},
+      {"key":"q4","score":5,"modelJa":"Backout/Rollback Plan","modelKo":"Backout/Rollback Plan"}
+    ]}
+  }]
+}
