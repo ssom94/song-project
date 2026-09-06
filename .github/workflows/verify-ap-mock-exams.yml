@@ -5,9 +5,12 @@ on:
     branches: [main]
     paths:
       - 'data/ap/mock-exams/**'
+      - 'data/ap/past-exams/**'
       - 'scripts/ap/**'
       - 'src/ap-mock-exams.ts'
       - 'public/assets/js/study/ap-mock-exams*.js'
+      - 'public/assets/css/study/ap-mock-exams.css'
+      - 'public/assets/data/ap-past-exams.json'
       - 'public/ko/study/ap/mock-exams/**'
       - 'public/ja/study/ap/mock-exams/**'
       - 'migrations/0076_ap_mock_exam_foundation.sql'
@@ -30,9 +33,12 @@ on:
     branches: [main]
     paths:
       - 'data/ap/mock-exams/**'
+      - 'data/ap/past-exams/**'
       - 'scripts/ap/**'
       - 'src/ap-mock-exams.ts'
       - 'public/assets/js/study/ap-mock-exams*.js'
+      - 'public/assets/css/study/ap-mock-exams.css'
+      - 'public/assets/data/ap-past-exams.json'
       - 'public/ko/study/ap/mock-exams/**'
       - 'public/ja/study/ap/mock-exams/**'
       - 'migrations/0076_ap_mock_exam_foundation.sql'
@@ -76,7 +82,13 @@ jobs:
           node --check public/assets/js/study/ap-mock-exams-submit-guard.js
           node --check public/assets/js/study/ap-mock-exams.js
 
-      - name: Validate all fourteen mock exam rounds
+      - name: Validate official past exam catalog
+        run: npm run ap:past:validate
+
+      - name: Check past versus mock comparison pipeline
+        run: npm run ap:past:compare
+
+      - name: Validate all fourteen original mock exam rounds
         run: npm run ap:validate-mock-exams
 
       - name: Build all mock exam migrations
