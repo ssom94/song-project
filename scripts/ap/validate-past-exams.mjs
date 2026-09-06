@@ -16,8 +16,36 @@ function fail(message) {
   console.error(`AP past exam validation failed: ${message}`);
   process.exitCode = 1;
 }
+function clean(value) {
+  return String(value ?? '').normalize('NFKC').trim();
+}
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+function validateReadyQuestions(data, subjectCode, file) {
+  if (!Array.isArray(data.questions)) return;
+  const numbers = new Set();
+  data.questions.forEach((question, index) => {
+    const where = `${file}.questions[${index}]`;
+    const questionNo = Number(question?.questionNo);
+    if (!Number.isInteger(questionNo) || questionNo <= 0) fail(`${where}: positive questionNo is required`);
+    else if (numbers.has(questionNo)) fail(`${where}: duplicate questionNo ${questionNo}`);
+    else numbers.add(questionNo);
+    if (!clean(question?.promptJa)) fail(`${where}: promptJa is required`);
+    if (!clean(question?.promptKo)) fail(`${where}: promptKo is required`);
+    if (!clean(question?.explanationJa)) fail(`${where}: explanationJa is required`);
+    if (!clean(question?.explanationKo)) fail(`${where}: explanationKo is required`);
+    if (subjectCode === 'A') {
+      const choicesJa = Array.isArray(question?.optionsJa) ? question.optionsJa : [];
+      const choicesKo = Array.isArray(question?.optionsKo) ? question.optionsKo : [];
+      if (choicesJa.length !== 4 || choicesKo.length !== 4) fail(`${where}: Subject A requires four JA/KO choices`);
+      const correctChoice = Number(question?.correctChoice);
+      if (!Number.isInteger(correctChoice) || correctChoice < 0 || correctChoice > 3) fail(`${where}: Subject A correctChoice must be 0..3`);
+    } else {
+      if (!clean(question?.modelAnswerJa)) fail(`${where}: Subject B modelAnswerJa is required`);
+      if (!clean(question?.modelAnswerKo)) fail(`${where}: Subject B modelAnswerKo is required`);
+    }
+  });
 }
 function validateReadyFile(session, subjectCode, subject) {
   if (subject.status !== 'ready') return;
@@ -36,6 +64,7 @@ function validateReadyFile(session, subjectCode, subject) {
   if (data.subject !== subjectCode) fail(`${subject.file}: subject mismatch`);
   if (!Array.isArray(data.questions)) fail(`${subject.file}: questions must be an array`);
   else if (data.questions.length !== subject.questionCount) fail(`${subject.file}: expected ${subject.questionCount} questions, got ${data.questions.length}`);
+  validateReadyQuestions(data, subjectCode, subject.file);
   if (data.source?.publisher !== '独立行政法人情報処理推進機構（IPA）') fail(`${subject.file}: IPA publisher attribution is required`);
 }
 
