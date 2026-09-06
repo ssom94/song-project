@@ -4,6 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const manifestPath = path.join(root, 'data/ap/past-exams/manifest.json');
 const publicPath = path.join(root, 'public/assets/data/ap-past-exams.json');
+const studyRoot = path.join(root, 'public/assets/data/ap-past-study');
 const expected = [
   ['2025-autumn', '2025-10-12', 'https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html'],
   ['2025-spring', '2025-04-20', 'https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html'],
@@ -83,6 +84,69 @@ function validateReadyFile(session, subjectCode, subject) {
   validateReadyQuestions(data, subjectCode, subject.file);
   if (data.source?.publisher !== '独立行政法人情報処理推進機構（IPA）') fail(`${subject.file}: IPA publisher attribution is required`);
 }
+function expectedSection(subjectCode, questionNo) {
+  if (subjectCode !== 'A') return null;
+  if (questionNo <= 50) return 'T';
+  if (questionNo <= 60) return 'M';
+  return 'S';
+}
+function validateStudyCompanions(manifest) {
+  if (!fs.existsSync(studyRoot)) return 0;
+  const files = fs.readdirSync(studyRoot).filter((name) => name.endsWith('.json')).sort();
+  for (const file of files) {
+    const filePath = path.join(studyRoot, file);
+    const data = readJson(filePath);
+    const session = manifest.sessions.find((item) => item.key === data.sessionKey);
+    const subjectCode = clean(data.subject);
+    const subject = session?.subjects?.[subjectCode];
+    if (data.kind !== 'official-past-exam-study-companion') fail(`${file}: invalid kind`);
+    if (!session) {
+      fail(`${file}: unknown sessionKey ${data.sessionKey}`);
+      continue;
+    }
+    if (!subject) {
+      fail(`${file}: unknown subject ${subjectCode}`);
+      continue;
+    }
+    if (data.source?.publisher !== '独立行政法人情報処理推進機構（IPA）') fail(`${file}: IPA publisher attribution is required`);
+    if (data.source?.questionPdfUrl !== subject.questionPdfUrl) fail(`${file}: questionPdfUrl must match the canonical session manifest`);
+    if (!clean(data.source?.noticeKo)) fail(`${file}: Korean unofficial-translation notice is required`);
+    if (!clean(data.source?.noticeJa)) fail(`${file}: Japanese unofficial-translation notice is required`);
+    if (!Array.isArray(data.questions)) {
+      fail(`${file}: questions must be an array`);
+      continue;
+    }
+    if (data.questions.length !== subject.questionCount) fail(`${file}: expected ${subject.questionCount} study questions, got ${data.questions.length}`);
+    const seen = new Set();
+    data.questions.forEach((question, index) => {
+      const where = `${file}.questions[${index}]`;
+      const no = Number(question?.questionNo);
+      if (!Number.isInteger(no) || no < 1 || no > subject.questionCount) fail(`${where}: invalid questionNo`);
+      else if (seen.has(no)) fail(`${where}: duplicate questionNo ${no}`);
+      else seen.add(no);
+      if (!clean(question?.topicKo)) fail(`${where}: topicKo is required`);
+      if (!clean(question?.interpretationKo)) fail(`${where}: interpretationKo is required`);
+      if (!clean(question?.explanationKo)) fail(`${where}: explanationKo is required`);
+      if (!clean(question?.examPointKo)) fail(`${where}: examPointKo is required`);
+      const difficulty = Number(question?.difficulty);
+      if (!Number.isInteger(difficulty) || difficulty < 1 || difficulty > 3) fail(`${where}: difficulty must be 1..3`);
+      if (!Array.isArray(question?.patterns) || !question.patterns.length || question.patterns.some((value) => !clean(value))) {
+        fail(`${where}: at least one non-empty pattern is required`);
+      }
+      if (subjectCode === 'A') {
+        const section = expectedSection(subjectCode, no);
+        if (question.sectionCode !== section) fail(`${where}: expected sectionCode ${section}`);
+        if (!/^[アイウエ]$/.test(clean(question.correctChoice))) fail(`${where}: correctChoice must be ア/イ/ウ/エ`);
+        const canonical = Array.from(clean(subject.answerKey || ''))[no - 1];
+        if (canonical && clean(question.correctChoice) !== canonical) fail(`${where}: correctChoice does not match official answer key`);
+      }
+    });
+    for (let no = 1; no <= subject.questionCount; no += 1) {
+      if (!seen.has(no)) fail(`${file}: missing study question Q${no}`);
+    }
+  }
+  return files.length;
+}
 
 const manifest = readJson(manifestPath);
 const published = readJson(publicPath);
@@ -131,8 +195,9 @@ if (!Array.isArray(published.sessions) || published.sessions.length !== expected
   });
 }
 
+const studyCompanionCount = validateStudyCompanions(manifest);
 if (!process.exitCode) {
   const viewerSubjects = manifest.sessions.flatMap((s) => ['A', 'B'].map((code) => s.subjects[code].status === 'viewer-ready')).filter(Boolean).length;
   const importedSubjects = manifest.sessions.flatMap((s) => ['A', 'B'].map((code) => s.subjects[code].status === 'ready')).filter(Boolean).length;
-  console.log(`AP past exam catalog OK: ${manifest.sessions.length} sessions, ${viewerSubjects}/10 official PDF viewers, ${importedSubjects}/10 locally imported papers.`);
+  console.log(`AP past exam catalog OK: ${manifest.sessions.length} sessions, ${viewerSubjects}/10 official PDF viewers, ${importedSubjects}/10 locally imported papers, ${studyCompanionCount} Korean study companion(s).`);
 }
