@@ -20,7 +20,7 @@
       if(cells[0]) cells[0].innerHTML=`<span class="ap-ja-primary">${unitJa[unitKo]||unitKo}</span><span class="ap-ko-secondary" hidden>${unitKo}</span>`;
       if(cells[2]) cells[2].innerHTML=`<strong class="ap-ja-primary">${nameJa}</strong><span class="ap-ko-secondary" hidden>${nameKo}</span>`;
       if(cells[3]) cells[3].innerHTML=`<span class="ap-ja-primary">${nameJa}の定義・原理・計算/判断方法・試験の罠・暗記ポイントを確認する。</span><span class="ap-ko-secondary" hidden>${coreKo}</span>`;
-      if(cells[4]) cells[4].innerHTML=`<div class="ap-concept-actions"><a class="ap-concept-detail-button" href="${prefix}/detail/?code=${encodeURIComponent(no)}">概念詳細</a><a class="ap-concept-problem-button" href="${prefix}/problem/?code=${encodeURIComponent(no)}">予想問題</a></div>`;
+      if(cells[4]) cells[4].innerHTML=`<div class="ap-concept-actions"><a class="ap-concept-detail-button" href="${prefix}/detail/?code=${encodeURIComponent(no)}">概念詳細</a><a class="ap-concept-problem-button" href="${prefix}/problem/?code=${encodeURIComponent(no)}">予想問題</a><button class="ap-note-trigger ap-note-trigger-list" type="button" data-ap-note-target="concept" data-concept-code="${no}" data-ap-note-label="${no}" aria-label="${no} メモ追加"><span class="ap-note-bubble-icon" aria-hidden="true"></span><span class="ap-note-trigger-copy">メモ追加</span></button></div>`;
     });
     const head=document.querySelector('.ap-concept-card-head');
     if(head&&!document.getElementById('ap-concept-ko-toggle')){
@@ -28,6 +28,7 @@
       btn.addEventListener('click',()=>{const show=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',String(show));btn.textContent=show?'한국어 숨기기':'한국어 같이 보기';document.querySelectorAll('.ap-ko-secondary').forEach((el)=>{el.hidden=!show;});});
       head.appendChild(btn);
     }
+    window.dispatchEvent(new CustomEvent('ap:concept-rendered'));
     return true;
   }
   if(!enhance()){const target=document.getElementById('ap-concept-body');if(target)new MutationObserver(enhance).observe(target,{childList:true});}
