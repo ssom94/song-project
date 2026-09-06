@@ -70,10 +70,11 @@
 - A4: `A-04-01.json`~`A-04-04.json`, 80문제, T50/M10/S20, 정답 위치 20/20/20/20 → generated `0086`.
 - A5: `A-05-01.json`~`A-05-04.json`, 80문제, T50/M10/S20, 정답 위치 20/20/20/20 → generated `0089`.
 - A6: `A-06-01.json`~`A-06-04.json`, 80문제, T50/M10/S20, 정답 위치 20/20/20/20 → generated `0092`.
+- A7: `A-07-01.json`~`A-07-04.json`, 80문제, T50/M10/S20, 정답 위치 20/20/20/20 → generated `0095`.
 
 ## 科目B ready 회차
 - B1~B5: 각 11개 공식 분야 1문제씩, Q1 SECURITY 필수, 각 문제 20점/4소문항×5점. Generated migrations는 B1 `0079`, B2 `0081`, B3 `0083`, B4 `0087`, B5 `0090`.
-- B6: `B-06-01.json`~`B-06-11.json`, 동일 규칙으로 ready.
+- B6: `B-06-01.json`~`B-06-11.json`, 동일 규칙으로 ready → generated `0093`.
   - Q1 SECURITY: OAuth Authorization Code Interception, PKCE(S256), 안전한 redirect, 토큰 폐기.
   - Q2 STRATEGY: 병목설비 제품믹스/분당 공헌이익.
   - Q3 PROGRAMMING: Union-Find, cycle detection, amortized `O(α(n))`.
@@ -85,30 +86,39 @@
   - Q9 PROJECT_MGMT: Resource Conflict/Leveling, 9일→13일 일정.
   - Q10 SERVICE_MGMT: Change Failure Rate 4%, Standard/Emergency Change, rollback plan.
   - Q11 AUDIT: CI/CD 자기승인 SoD 문제, branch protection, 변조 곤란 로그, 예외율 20%.
-- B6 generated migration: `0093_ap_mock_exam_b06_questions.sql`.
+- B7: `B-07-01.json`~`B-07-11.json`, 동일 규칙으로 ready → generated `0096`.
+  - Q1 SECURITY: AiTM 피싱, WebAuthn/FIDO2, 세션 폐기, Conditional Access.
+  - Q2 STRATEGY: EOQ 240개, 연 15회 발주, 재주문점 60개, 안전재고.
+  - Q3 PROGRAMMING: min-heap 기반 k-way merge, `O(N log k)`.
+  - Q4 ARCHITECTURE: Saga, 보상 트랜잭션, idempotency, orchestration.
+  - Q5 NETWORK: Anycast/BGP, route withdraw, health-linked advertisement, 세션 상태 문제.
+  - Q6 DATABASE: optimistic locking/version, Lost Update, 충돌 재시도, pessimistic lock.
+  - Q7 EMBEDDED: CAN arbitration, 0x080 우선, 0.2ms, Bus-Off.
+  - Q8 SYSTEM_DEV: Pairwise test, 전체조합 48건, 29/30/31초 경계값, 고차 상호작용 한계.
+  - Q9 PROJECT_MGMT: Power/Interest Grid와 stakeholder engagement.
+  - Q10 SERVICE_MGMT: Service Request, self-service, knowledge base, 월 수동처리 90건.
+  - Q11 AUDIT: 개인정보 삭제/Legal Hold, 사유불명 미삭제 4건, 삭제 증거와 직무분리.
 
-## 4~6회차 DB 연결
-- `0085_ap_mock_exam_round04_shells.sql` → A4/B4 master.
-- `0086`, `0087` → A4/B4 generated questions.
-- `0088_ap_mock_exam_round05_shells.sql` → A5/B5 master.
-- `0089`, `0090` → A5/B5 generated questions.
-- `0091_ap_mock_exam_round06_shells.sql` → A6/B6 master.
-- `0092`, `0093` → A6/B6 generated questions.
-- `package.json`의 `ap:mock:build`는 현재 A1~A6/B1~B6 총 12회차를 검증하고 모든 question migration을 생성한다.
+## 4~7회차 DB 연결
+- `0085_ap_mock_exam_round04_shells.sql` → A4/B4 master, `0086`/`0087` → generated questions.
+- `0088_ap_mock_exam_round05_shells.sql` → A5/B5 master, `0089`/`0090` → generated questions.
+- `0091_ap_mock_exam_round06_shells.sql` → A6/B6 master, `0092`/`0093` → generated questions.
+- `0094_ap_mock_exam_round07_shells.sql` → A7/B7 master, `0095`/`0096` → generated questions.
+- `package.json`의 `ap:mock:build`는 현재 A1~A7/B1~B7 총 14회차를 검증하고 모든 question migration을 생성한다.
 
 ## 최신 검증 상태
-- `Verify AP Mock Exams` #62 PASS.
-  - A1~A6/B1~B6 총 12회차 validator PASS.
+- `Verify AP Mock Exams` #80 PASS.
+  - A1~A7/B1~B7 총 14회차 validator PASS.
   - browser mock scripts syntax PASS.
   - 전체 mock migration build PASS.
-  - `0091` 및 generated `0092`/`0093` 존재 검증 PASS.
-- 전체 `Verify` #1019 PASS.
+  - `0094` 및 generated `0095`/`0096` 존재 검증 PASS.
+- 전체 `Verify` #1040 PASS.
   - TypeScript PASS.
   - Browser JavaScript syntax PASS.
   - Vitest PASS.
-  - `0091`→`0092`→`0093`을 포함한 local D1 migration PASS.
+  - `0094`→`0095`→`0096`을 포함한 local D1 migration PASS.
   - seeded catalog/study schema 검증 PASS.
-- 따라서 현재 Git 기준으로 AP 모의고사 A1~A6/B1~B6 총 12회차가 source·중복/구조 validator·migration 생성·local D1 적용까지 통과한 상태다.
+- 따라서 현재 Git 기준으로 AP 모의고사 A1~A7/B1~B7 총 14회차가 source·중복/구조 validator·migration 생성·local D1 적용까지 통과한 상태다.
 
 ## 적용 명령
 원격에 아직 반영하지 않은 회차가 있으면 사용자 Cloudflare 인증 환경에서:
@@ -121,7 +131,7 @@ npm run deploy
 `db:migrate:remote`는 먼저 `ap:mock:build`를 수행하므로 source 검증 실패 시 DB 적용까지 진행되지 않는다.
 
 ## 다음 작업
-1. 운영 D1에 미적용된 4~6회차를 `git pull` → `npm run db:migrate:remote` → `npm run deploy`로 반영.
-2. 운영 목록에서 科目A/科目B 第6回까지 노출되는지 간단 스모크 테스트.
-3. 다음 콘텐츠 작업은 科目A/科目B 7회차 제작.
+1. 운영 D1에 미적용된 회차를 `git pull` → `npm run db:migrate:remote` → `npm run deploy`로 반영.
+2. 운영 목록에서 科目A/科目B 第7回까지 노출되는지 간단 스모크 테스트.
+3. 다음 콘텐츠 작업은 科目A/科目B 8회차 제작.
 4. 게시글 이미지 첨부 운영 스모크 테스트는 사용자가 원할 때 별도 확인.
