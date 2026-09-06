@@ -144,7 +144,8 @@ function validateStudyCompanions(manifest) {
       if (!clean(question?.explanationKo)) fail(`${where}: explanationKo is required`);
       if (!clean(question?.examPointKo)) fail(`${where}: examPointKo is required`);
       const difficulty = Number(question?.difficulty);
-      if (!Number.isInteger(difficulty) || difficulty < 1 || difficulty > 3) fail(`${where}: difficulty must be 1..3`);
+      const maxDifficulty = subjectCode === 'B' ? 4 : 3;
+      if (!Number.isInteger(difficulty) || difficulty < 1 || difficulty > maxDifficulty) fail(`${where}: difficulty must be 1..${maxDifficulty}`);
       if (!Array.isArray(question?.patterns) || !question.patterns.length || question.patterns.some((value) => !clean(value))) {
         fail(`${where}: at least one non-empty pattern is required`);
       }
