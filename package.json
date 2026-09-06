@@ -20,6 +20,7 @@
     "ap:validate-mock-exams": "node scripts/ap/validate-mock-exams.mjs",
     "ap:past:validate": "node scripts/ap/validate-past-exams.mjs",
     "ap:past:compare": "node scripts/ap/compare-past-exams.mjs",
+    "ap:past:gap-report": "node scripts/ap/compare-past-exams.mjs --write",
     "ap:mock:a1:build": "node scripts/ap/build-mock-exam-migration.mjs --subject=A --exam=1 --output=migrations/0078_ap_mock_exam_a01_questions.sql",
     "ap:mock:b1:build": "node scripts/ap/build-mock-exam-migration.mjs --subject=B --exam=1 --output=migrations/0079_ap_mock_exam_b01_questions.sql",
     "ap:mock:a2:build": "node scripts/ap/build-mock-exam-migration.mjs --subject=A --exam=2 --output=migrations/0080_ap_mock_exam_a02_questions.sql",
