@@ -102,7 +102,9 @@
 		}
 	}
 	function pastStatusLabel(status) {
-		return status === 'ready' ? t('문제 준비 완료', '問題準備完了') : t('공식 PDF 반영 대기', '公式PDF取込待ち');
+		if (status === 'viewer-ready') return t('IPA 원문 풀이 가능', 'IPA原文で解答可能');
+		if (status === 'ready') return t('문제 준비 완료', '問題準備完了');
+		return t('공식 PDF 반영 대기', '公式PDF取込待ち');
 	}
 	function pastQuestionText(meta) {
 		if (!meta) return '-';
@@ -128,13 +130,15 @@
 				const meta = session.subjects?.[subject];
 				const title = t(session.titleKo, session.titleJa);
 				const subjectLabel = meta ? t(meta.displayLabelKo, meta.displayLabelJa) : '-';
-				const ready = meta?.status === 'ready';
+				const canOpen = ['viewer-ready', 'ready'].includes(meta?.status) && Boolean(meta?.questionPdfUrl);
+				const statusClass = canOpen ? ' is-completed' : ' is-pending-source';
+				const viewerUrl = `/${lang}/study/ap/past-exams/exam/?session=${encodeURIComponent(session.key)}&subject=${subject}`;
 				return `<tr>
 					<td><strong>${esc(title)}</strong><span class="ap-past-date">${esc(session.administeredAt)}</span></td>
 					<td>${esc(subjectLabel)}</td>
 					<td>${esc(pastQuestionText(meta))}</td>
-					<td><span class="ap-mock-status${ready ? ' is-completed' : ' is-pending-source'}">${esc(pastStatusLabel(meta?.status))}</span></td>
-					<td><a class="ap-past-source" href="${esc(session.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('IPA 공식 원문', 'IPA公式原文'))}</a></td>
+					<td><span class="ap-mock-status${statusClass}">${esc(pastStatusLabel(meta?.status))}</span></td>
+					<td><div class="ap-past-actions">${canOpen ? `<a class="ap-mock-button" href="${viewerUrl}">${esc(t('실제 문제 풀기', '過去問を解く'))}</a>` : ''}<a class="ap-past-source" href="${esc(session.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('IPA 출처', 'IPA出典'))}</a></div></td>
 				</tr>`;
 			}).join('');
 		} catch (e) {
