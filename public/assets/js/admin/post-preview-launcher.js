@@ -182,3 +182,10 @@ if (!document.querySelector('script[data-post-text-color]')) {
 	script.dataset.postTextColor = 'true';
 	document.body.appendChild(script);
 }
+
+if (!document.querySelector('script[data-post-image-upload]')) {
+	const script = document.createElement('script');
+	script.src = '/assets/js/admin/post-image-upload.js?v=20260906-1';
+	script.dataset.postImageUpload = 'true';
+	document.body.appendChild(script);
+}
