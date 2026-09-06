@@ -1,0 +1,34 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":6,
+    "sectionCode":"DATABASE",
+    "type":"written",
+    "promptJa":"大規模アクセスログ表の検索性能改善について，実行計画と索引・パーティション設計を基に設問に答えよ。",
+    "promptKo":"대규모 접근로그 테이블의 검색성능 개선에 대해 실행계획과 인덱스·파티션 설계를 바탕으로 물음에 답하시오.",
+    "content":{
+      "passageJa":"E社のaccess_log表には約2億行あり，列はtenant_id, occurred_at, status, payloadである。現在はoccurred_at単独のB+木インデックスだけがある。管理画面では特定tenantの7日間についてstatus別件数を集計する次のSQLを頻繁に実行する。\nSELECT status, COUNT(*) FROM access_log WHERE tenant_id=? AND occurred_at>=? AND occurred_at<? GROUP BY status;\n実行計画ではoccurred_at索引で約1,200万行を読み，その後tenant_idで大部分を除外している。データは時系列で増え続け，月単位の保守も多い。",
+      "passageKo":"E사의 access_log 테이블에는 약 2억 행이 있고 열은 tenant_id, occurred_at, status, payload이다. 현재 occurred_at 단일 B+트리 인덱스만 있다. 관리화면에서는 특정 tenant의 7일간 status별 건수를 집계하는 다음 SQL을 자주 실행한다.\nSELECT status, COUNT(*) FROM access_log WHERE tenant_id=? AND occurred_at>=? AND occurred_at<? GROUP BY status;\n실행계획에서는 occurred_at 인덱스로 약 1,200만 행을 읽은 뒤 tenant_id로 대부분을 제외한다. 데이터는 시계열로 계속 증가하고 월 단위 유지보수도 많다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"現在の実行計画で不要な行読込みが多い主な理由を答えよ。","promptKo":"현재 실행계획에서 불필요한 행 읽기가 많은 주된 이유를 쓰시오."},
+        {"key":"q2","promptJa":"この検索条件に対して優先的に検討する複合インデックスの列順を答えよ。","promptKo":"이 검색조건에 우선 검토할 복합 인덱스의 열 순서를 쓰시오."},
+        {"key":"q3","promptJa":"月単位のデータ保守と期間検索を考慮して採用できる表分割方式を答えよ。","promptKo":"월 단위 데이터 유지보수와 기간검색을 고려해 적용할 수 있는 테이블 분할방식을 쓰시오."},
+        {"key":"q4","promptJa":"インデックスを増やし過ぎる場合の代表的なデメリットを一つ答えよ。","promptKo":"인덱스를 지나치게 늘릴 경우 대표적인 단점 하나를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: occurred_at単独索引ではtenant_idで絞り込めず，期間内の全tenant行を広く読んでから除外している。\nq2: (tenant_id, occurred_at)を先頭とする複合インデックス。必要に応じstatusまで含めてcoveringを検討する。\nq3: occurred_atをキーにした月単位のレンジパーティション。\nq4: INSERT/UPDATE時の索引更新コストやストレージ消費が増える。",
+    "modelAnswerKo":"q1: occurred_at 단일 인덱스로는 tenant_id를 먼저 좁히지 못해 기간 내 모든 tenant 행을 넓게 읽은 뒤 제외한다.\nq2: (tenant_id, occurred_at)를 선두로 하는 복합 인덱스. 필요하면 status까지 포함해 covering을 검토한다.\nq3: occurred_at 기준 월 단위 범위 파티셔닝.\nq4: INSERT/UPDATE 시 인덱스 갱신비용과 저장공간이 증가한다.",
+    "explanationJa":"等価条件tenant_idを先頭，その後に範囲条件occurred_atを置く複合インデックスにすると対象tenantの期間だけへ絞りやすい。時系列データを月単位でrange partitionすればpartition pruningと古い月の切離しが容易になる。一方，インデックスは読み取りを速くする代わりに書込みと容量のコストを増やす。",
+    "explanationKo":"동등조건 tenant_id를 앞에 두고 그 뒤 범위조건 occurred_at을 둔 복합 인덱스는 대상 tenant의 기간만 좁히기 쉽다. 시계열 데이터를 월 단위 range partition하면 partition pruning과 오래된 월 분리가 쉬워진다. 반면 인덱스는 읽기를 빠르게 하는 대신 쓰기와 저장공간 비용을 늘린다.",
+    "maxScore":20,
+    "mandatory":false,
+    "sourceConceptCode":null,
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"occurred_atだけではtenant_idを先に絞れず大量読込み","modelKo":"occurred_at만으로 tenant_id를 먼저 좁히지 못해 대량 읽기"},
+      {"key":"q2","score":5,"modelJa":"(tenant_id, occurred_at)","modelKo":"(tenant_id, occurred_at)"},
+      {"key":"q3","score":5,"modelJa":"occurred_atによる月次レンジパーティション","modelKo":"occurred_at 기준 월별 범위 파티션"},
+      {"key":"q4","score":5,"modelJa":"書込みコスト又は容量増加","modelKo":"쓰기 비용 또는 저장공간 증가"}
+    ]}
+  }]
+}
