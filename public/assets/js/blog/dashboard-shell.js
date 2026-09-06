@@ -2,6 +2,7 @@
 	const SIDEBAR_COLLAPSE_KEY = 'song_public_sidebar_collapsed';
 	const SIDEBAR_OPEN_GROUP_KEY = 'song_public_sidebar_open_group_v2';
 	let adminSessionSnapshot = null;
+	let categoryIconsLoaderPromise = null;
 
 	function byId(id) {
 		return document.getElementById(id);
@@ -188,9 +189,37 @@
 		if (document.querySelector('link[data-unified-sidebar-style]')) return;
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = '/assets/css/blog/unified-sidebar.css?v=20260831-1';
+		link.href = '/assets/css/blog/unified-sidebar.css?v=20260906-1';
 		link.dataset.unifiedSidebarStyle = 'true';
 		document.head.appendChild(link);
+	}
+
+	function ensureCategoryIcons() {
+		if (window.SongCategoryIcons?.createIcon) return Promise.resolve(window.SongCategoryIcons);
+		if (categoryIconsLoaderPromise) return categoryIconsLoaderPromise;
+
+		categoryIconsLoaderPromise = new Promise((resolve) => {
+			const existing = document.querySelector('script[data-category-icons-loader]');
+			const finish = () => resolve(window.SongCategoryIcons ?? null);
+			if (existing) {
+				if (window.SongCategoryIcons?.createIcon) finish();
+				else {
+					existing.addEventListener('load', finish, { once: true });
+					existing.addEventListener('error', () => resolve(null), { once: true });
+				}
+				return;
+			}
+
+			const script = document.createElement('script');
+			script.src = '/assets/js/shared/category-icons.js?v=20260906-1';
+			script.async = true;
+			script.dataset.categoryIconsLoader = 'true';
+			script.addEventListener('load', finish, { once: true });
+			script.addEventListener('error', () => resolve(null), { once: true });
+			document.head.appendChild(script);
+		});
+
+		return categoryIconsLoaderPromise;
 	}
 
 	function setGroupOpen(group, open) {
@@ -306,23 +335,41 @@
 				name: category.name.trim(),
 				count: Number(category.count || 0),
 				depth: Math.max(0, Number(category.depth || 0)),
+				hasChildren: category.hasChildren === true,
+				appearance: category.appearance && typeof category.appearance === 'object' ? category.appearance : null,
 			}));
 		container.replaceChildren();
 		if (empty) empty.hidden = entries.length > 0;
 		const selected = selectedCategory || activeCategory();
 		for (const category of entries) {
 			const link = document.createElement('a');
-			link.className = `blog-sidebar-category-link${selected === category.name ? ' is-active' : ''}`;
+			const kindClass = category.hasChildren ? ' is-parent-category' : category.depth > 0 ? ' is-child-category' : '';
+			link.className = `blog-sidebar-category-link${kindClass}${selected === category.name ? ' is-active' : ''}`;
 			link.dataset.categoryDepth = String(category.depth);
+			link.style.setProperty('--category-depth', String(category.depth));
 			if (selected === category.name) link.setAttribute('aria-current', 'page');
 			link.href = `/${language}/posts/?category=${encodeURIComponent(category.name)}`;
+
+			const main = document.createElement('span');
+			main.className = 'blog-sidebar-category-main';
+			if (category.appearance && window.SongCategoryIcons?.createIcon) {
+				main.appendChild(window.SongCategoryIcons.createIcon(category.appearance, { className: 'blog-sidebar-category-icon' }));
+			}
+			if (category.depth > 0) {
+				const branch = document.createElement('span');
+				branch.className = 'blog-sidebar-category-branch';
+				branch.textContent = '↳';
+				main.appendChild(branch);
+			}
 			const name = document.createElement('span');
-			const leafName = category.name.split(' > ').pop() || category.name;
-			name.textContent = category.depth > 0 ? `${'　'.repeat(Math.max(0, category.depth - 1))}↳ ${leafName}` : leafName;
+			name.className = 'blog-sidebar-category-name';
+			name.textContent = category.name.split(' > ').pop() || category.name;
+			main.appendChild(name);
+
 			const badge = document.createElement('span');
 			badge.className = 'blog-sidebar-count';
 			badge.textContent = String(category.count);
-			link.append(name, badge);
+			link.append(main, badge);
 			container.appendChild(link);
 		}
 	}
@@ -330,8 +377,10 @@
 	async function loadSidebarCategories() {
 		try {
 			const language = currentLanguage();
+			const iconReady = ensureCategoryIcons();
 			const response = await fetch(`/api/public/posts?lang=${language}`, { cache: 'no-store', credentials: 'same-origin' });
 			const result = await response.json().catch(() => null);
+			await iconReady;
 			if (response.ok && Array.isArray(result?.categories)) renderCategories(result.categories, language);
 		} catch (error) {
 			console.warn('Failed to load sidebar categories', error);
@@ -520,7 +569,7 @@
 		byId('blog-dashboard-menu-toggle')?.addEventListener('click', toggleSidebar);
 		byId('blog-dashboard-backdrop')?.addEventListener('click', closeSidebar);
 		document.querySelector('.blog-dashboard-sidebar')?.addEventListener('click', (event) => {
-			if (event.target instanceof HTMLAnchorElement && window.matchMedia('(max-width: 840px)').matches) closeSidebar();
+			if (event.target instanceof Element && event.target.closest('a') && window.matchMedia('(max-width: 840px)').matches) closeSidebar();
 		});
 		document.querySelectorAll('[data-home-language]').forEach((button) => {
 			button.addEventListener('click', () => window.setTimeout(syncHomeModuleLinks, 0));
