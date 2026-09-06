@@ -17,6 +17,19 @@
 		return null;
 	}
 
+	function safeImageUrl(value) {
+		const raw = String(value ?? '').trim();
+		if (!raw) return null;
+		if (raw.startsWith('/') || raw.startsWith('./') || raw.startsWith('../')) return raw;
+		try {
+			const url = new URL(raw, window.location.origin);
+			if (url.protocol === 'http:' || url.protocol === 'https:') return raw;
+		} catch {
+			return null;
+		}
+		return null;
+	}
+
 	function appendPlainText(parent, value) {
 		const pieces = String(value).split('\n');
 		pieces.forEach((piece, index) => {
@@ -27,7 +40,7 @@
 
 	function appendInline(parent, source) {
 		const text = String(source ?? '');
-		const tokenPattern = /\{\{color:#[0-9a-fA-F]{6}\|[^{}\n]+\}\}|`[^`\n]+`|\[[^\]\n]+\]\([^\)\n]+\)|\*\*[^*\n]+\*\*|__[^_\n]+__|~~[^~\n]+~~|\+\+[^+\n]+\+\+|\*[^*\n]+\*|_[^_\n]+_/g;
+		const tokenPattern = /\{\{color:#[0-9a-fA-F]{6}\|[^{}\n]+\}\}|`[^`\n]+`|!\[[^\]\n]*\]\([^\)\n]+\)|\[[^\]\n]+\]\([^\)\n]+\)|\*\*[^*\n]+\*\*|__[^_\n]+__|~~[^~\n]+~~|\+\+[^+\n]+\+\+|\*[^*\n]+\*|_[^_\n]+_/g;
 		let cursor = 0;
 
 		for (const match of text.matchAll(tokenPattern)) {
@@ -50,6 +63,26 @@
 				const code = document.createElement('code');
 				code.textContent = token.slice(1, -1);
 				parent.appendChild(code);
+			} else if (token.startsWith('![')) {
+				const imageMatch = token.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+				if (!imageMatch) {
+					appendPlainText(parent, token);
+				} else {
+					const rawTarget = imageMatch[2].trim().replace(/^<|>$/g, '');
+					const target = safeImageUrl(rawTarget);
+					if (!target) {
+						appendPlainText(parent, imageMatch[1]);
+					} else {
+						const image = document.createElement('img');
+						image.className = 'song-markdown-image';
+						image.src = target;
+						image.alt = imageMatch[1];
+						image.loading = 'lazy';
+						image.decoding = 'async';
+						if (/^https?:/i.test(target)) image.referrerPolicy = 'no-referrer';
+						parent.appendChild(image);
+					}
+				}
 			} else if (token.startsWith('[')) {
 				const linkMatch = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
 				if (!linkMatch) {
