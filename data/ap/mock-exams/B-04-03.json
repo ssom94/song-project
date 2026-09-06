@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 3,
+      "sectionCode": "PROGRAMMING",
+      "type": "written",
+      "promptJa": "有向非巡回グラフの依存関係をトポロジカルソートする処理について設問に答えよ。",
+      "promptKo": "유향 비순환 그래프의 의존관계를 위상정렬하는 처리에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "タスクA～Eには依存関係があり，A→C，B→C，B→D，C→E，D→E とする。アルゴリズムは各頂点の入次数を求め，入次数0の頂点を文字順に優先度付きキューへ入れる。キューから最小の頂点を取り出して出力し，その頂点から出る辺を削除して新たに入次数0になった頂点をキューへ入れる。",
+        "passageKo": "태스크 A~E에는 의존관계가 있으며 A→C, B→C, B→D, C→E, D→E이다. 알고리즘은 각 정점의 진입차수를 구하고 진입차수 0인 정점을 문자순 우선순위 큐에 넣는다. 큐에서 가장 작은 정점을 꺼내 출력하고 그 정점에서 나가는 간선을 제거하여 새로 진입차수 0이 된 정점을 큐에 넣는다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"頂点Cの初期入次数を答えよ。","promptKo":"정점 C의 초기 진입차수를 쓰시오."},
+          {"key":"q2","promptJa":"処理開始時にキューへ入る頂点を全て答えよ。","promptKo":"처리 시작 시 큐에 들어가는 모든 정점을 쓰시오."},
+          {"key":"q3","promptJa":"この規則で得られる出力順を答えよ。","promptKo":"이 규칙으로 얻는 출력 순서를 쓰시오."},
+          {"key":"q4","promptJa":"全処理後の出力頂点数が頂点総数より少ない場合，グラフに何が存在すると判断できるか答えよ。","promptKo":"전체 처리 후 출력 정점 수가 전체 정점 수보다 적다면 그래프에 무엇이 존재한다고 판단할 수 있는지 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 2。\nq2: AとB。\nq3: A→B→C→D→E。\nq4: 有向閉路（cycle）が存在する。",
+      "modelAnswerKo": "q1: 2.\nq2: A와 B.\nq3: A→B→C→D→E.\nq4: 유향 사이클(cycle)이 존재한다.",
+      "explanationJa": "CにはAとBから2本の辺が入る。初期入次数0はAとBであり，文字順でA，Bの順に処理する。B処理後にCとDが0となり，文字順でC，D，最後にEとなる。Kahn法では全頂点を出力できない場合，残った部分に閉路がある。",
+      "explanationKo": "C에는 A와 B에서 2개의 간선이 들어온다. 초기 진입차수 0은 A와 B이며 문자순으로 A, B를 처리한다. B 처리 후 C와 D가 0이 되고 문자순으로 C, D, 마지막에 E가 된다. Kahn 알고리즘에서 모든 정점을 출력하지 못하면 남은 부분에 사이클이 있다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"2","modelKo":"2"},
+          {"key":"q2","score":5,"modelJa":"AとB","modelKo":"A와 B"},
+          {"key":"q3","score":5,"modelJa":"A→B→C→D→E","modelKo":"A→B→C→D→E"},
+          {"key":"q4","score":5,"modelJa":"有向閉路が存在する","modelKo":"유향 사이클이 존재함"}
+        ]
+      }
+    }
+  ]
+}
