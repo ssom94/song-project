@@ -1,0 +1,28 @@
+{
+  "subject":"B","examNo":7,"questions":[{
+    "questionNo":4,"sectionCode":"ARCHITECTURE","type":"written",
+    "promptJa":"複数マイクロサービスにまたがる注文処理の整合性設計について，設問に答えよ。",
+    "promptKo":"여러 마이크로서비스에 걸친 주문 처리의 일관성 설계에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"ECシステムでは注文サービス，決済サービス，在庫サービスがそれぞれ独立したDBを持つ。注文確定時には「注文作成→決済確保→在庫引当」を行う。2PCは採用せず，各サービスのローカルトランザクションを連鎖させる。決済確保後に在庫引当に失敗した場合は，既に成功した処理を業務的に打ち消す必要がある。またネットワーク障害により同じ補償要求が再送される場合がある。",
+      "passageKo":"EC 시스템은 주문 서비스, 결제 서비스, 재고 서비스가 각각 독립 DB를 가진다. 주문 확정 시 '주문 생성→결제 확보→재고 할당'을 수행한다. 2PC는 사용하지 않고 각 서비스의 로컬 트랜잭션을 연쇄시킨다. 결제 확보 후 재고 할당이 실패하면 이미 성공한 처리를 업무적으로 되돌려야 한다. 또한 네트워크 장애로 같은 보상 요청이 재전송될 수 있다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"このような分散トランザクションを補償処理で実現する代表的なパターンを答えよ。","promptKo":"이러한 분산 트랜잭션을 보상처리로 구현하는 대표 패턴을 쓰시오."},
+        {"key":"q2","promptJa":"決済確保後に在庫引当に失敗した場合の補償処理の例を一つ答えよ。","promptKo":"결제 확보 후 재고 할당이 실패했을 때의 보상처리 예 하나를 쓰시오."},
+        {"key":"q3","promptJa":"補償要求が重複配送されても二重返金などを防ぐため，各補償処理に必要な性質を答えよ。","promptKo":"보상 요청이 중복 전달돼도 이중 환불 등을 막기 위해 각 보상처리에 필요한 성질을 쓰시오."},
+        {"key":"q4","promptJa":"各ステップの実行順序を中央コンポーネントが明示的に指示するSagaの方式を何と呼ぶか。","promptKo":"각 단계의 실행순서를 중앙 컴포넌트가 명시적으로 지시하는 Saga 방식을 무엇이라 하는가?"}
+      ]
+    },
+    "modelAnswerJa":"q1: Sagaパターン。\nq2: 決済の取消し・返金（authorization releaseを含む）を行う。\nq3: 冪等性(idempotency)。\nq4: Orchestration方式。",
+    "modelAnswerKo":"q1: Saga 패턴.\nq2: 결제 취소·환불(authorization release 포함)을 수행한다.\nq3: 멱등성(idempotency).\nq4: Orchestration 방식.",
+    "explanationJa":"Sagaはサービスごとのローカルトランザクションを連鎖し，途中失敗時に逆向きの補償処理で業務整合性を回復する。分散通信では再送が避けられないため補償処理も冪等に設計する。中央のSaga coordinatorが順序を制御する方式がOrchestrationである。",
+    "explanationKo":"Saga는 서비스별 로컬 트랜잭션을 연쇄하고 중간 실패 시 역방향 보상처리로 업무 일관성을 회복한다. 분산통신에서는 재전송이 발생할 수 있으므로 보상처리도 멱등하게 설계한다. 중앙 Saga coordinator가 순서를 제어하는 방식이 Orchestration이다.",
+    "maxScore":20,"mandatory":false,"sourceConceptCode":"B-04",
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"Sagaパターン","modelKo":"Saga 패턴"},
+      {"key":"q2","score":5,"modelJa":"決済取消し・返金","modelKo":"결제 취소·환불"},
+      {"key":"q3","score":5,"modelJa":"冪等性","modelKo":"멱등성"},
+      {"key":"q4","score":5,"modelJa":"Orchestration方式","modelKo":"Orchestration 방식"}
+    ]}
+  }]
+}
