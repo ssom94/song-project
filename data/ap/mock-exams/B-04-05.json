@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 5,
+      "sectionCode": "NETWORK",
+      "type": "written",
+      "promptJa": "IP電話の帯域設計とQoSについて設問に答えよ。",
+      "promptKo": "IP 전화의 대역폭 설계와 QoS에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "D社は拠点間VPN上でIP電話を利用する。最大同時通話数は50，音声codecのビットレートは1通話当たり片方向64kbit/sである。IP/UDP/RTPなどのoverheadを考慮し，必要帯域は音声payloadの20%増しで見積もる。音声品質低下時には遅延のばらつきが大きくなる傾向がある。",
+        "passageKo": "D사는 거점 간 VPN에서 IP 전화를 사용한다. 최대 동시통화 수는 50, 음성 codec 비트레이트는 통화 1개당 단방향 64kbit/s이다. IP/UDP/RTP 등의 overhead를 고려해 필요한 대역폭은 음성 payload의 20% 증가로 산정한다. 음성 품질 저하 시 지연의 변동폭이 커지는 경향이 있다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"50通話分の音声payloadについて，片方向の合計ビットレートをMbit/sで求めよ。","promptKo":"50통화분 음성 payload의 단방향 합계 비트레이트를 Mbit/s로 구하시오."},
+          {"key":"q2","promptJa":"20%のoverheadを含めた片方向の必要帯域をMbit/sで求めよ。","promptKo":"20% overhead를 포함한 단방향 필요 대역폭을 Mbit/s로 구하시오."},
+          {"key":"q3","promptJa":"音声packetを他の大量データ通信より優先するために用いる制御を答えよ。","promptKo":"음성 패킷을 대용량 데이터 통신보다 우선 처리하기 위해 사용하는 제어를 쓰시오."},
+          {"key":"q4","promptJa":"packet到着間隔のばらつきを表す品質指標を答えよ。","promptKo":"패킷 도착 간격의 변동을 나타내는 품질지표를 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 3.2Mbit/s。\nq2: 3.84Mbit/s。\nq3: QoSによる優先制御（優先queueingやDSCP markingなど）。\nq4: jitter。",
+      "modelAnswerKo": "q1: 3.2Mbit/s.\nq2: 3.84Mbit/s.\nq3: QoS 우선제어(우선 queueing, DSCP marking 등).\nq4: jitter.",
+      "explanationJa": "片方向payloadは64kbit/s×50=3,200kbit/s=3.2Mbit/s。overhead込みは3.2×1.2=3.84Mbit/sである。リアルタイム音声は遅延・jitterに弱いためQoSで優先し，packet到着間隔の変動はjitterで監視する。",
+      "explanationKo": "단방향 payload는 64kbit/s×50=3,200kbit/s=3.2Mbit/s이다. overhead 포함 시 3.2×1.2=3.84Mbit/s이다. 실시간 음성은 지연과 jitter에 민감하므로 QoS로 우선 처리하고 패킷 도착 간격 변동은 jitter로 감시한다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"3.2Mbit/s","modelKo":"3.2Mbit/s"},
+          {"key":"q2","score":5,"modelJa":"3.84Mbit/s","modelKo":"3.84Mbit/s"},
+          {"key":"q3","score":5,"modelJa":"QoSによる優先制御","modelKo":"QoS 우선제어"},
+          {"key":"q4","score":5,"modelJa":"jitter","modelKo":"jitter"}
+        ]
+      }
+    }
+  ]
+}
