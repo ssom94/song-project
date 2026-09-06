@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 9,
+      "sectionCode": "PROJECT_MGMT",
+      "type": "written",
+      "promptJa": "EVMによるプロジェクト進捗評価について設問に答えよ。",
+      "promptKo": "EVM을 이용한 프로젝트 진척 평가에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "H社の開発プロジェクトのBACは1,000万円である。第5週終了時点でPV=500万円，EV=400万円，AC=500万円となった。今後も現在と同じcost efficiencyが続くものと仮定する。",
+        "passageKo": "H사의 개발 프로젝트 BAC는 1,000만 엔이다. 5주차 종료 시점에 PV=500만 엔, EV=400만 엔, AC=500만 엔이다. 이후에도 현재와 같은 cost efficiency가 계속된다고 가정한다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"Schedule Variance（SV）を求めよ。","promptKo":"Schedule Variance(SV)를 구하시오."},
+          {"key":"q2","promptJa":"Cost Variance（CV）を求めよ。","promptKo":"Cost Variance(CV)를 구하시오."},
+          {"key":"q3","promptJa":"Cost Performance Index（CPI）を求めよ。","promptKo":"Cost Performance Index(CPI)를 구하시오."},
+          {"key":"q4","promptJa":"現在のCPIが今後も続くとき，EAC=BAC/CPIで完成時総コストを予測せよ。","promptKo":"현재 CPI가 이후에도 계속될 때 EAC=BAC/CPI로 완료 시 총비용을 예측하시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: -100万円。\nq2: -100万円。\nq3: 0.8。\nq4: 1,250万円。",
+      "modelAnswerKo": "q1: -100만 엔.\nq2: -100만 엔.\nq3: 0.8.\nq4: 1,250만 엔.",
+      "explanationJa": "SV=EV-PV=400-500=-100万円なのでschedule遅延傾向である。CV=EV-AC=400-500=-100万円なのでcost超過傾向である。CPI=EV/AC=400/500=0.8。EAC=1,000/0.8=1,250万円となる。",
+      "explanationKo": "SV=EV-PV=400-500=-100만 엔이므로 일정 지연 경향이다. CV=EV-AC=400-500=-100만 엔이므로 비용 초과 경향이다. CPI=EV/AC=400/500=0.8이며 EAC=1,000/0.8=1,250만 엔이다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"-100万円","modelKo":"-100만 엔"},
+          {"key":"q2","score":5,"modelJa":"-100万円","modelKo":"-100만 엔"},
+          {"key":"q3","score":5,"modelJa":"0.8","modelKo":"0.8"},
+          {"key":"q4","score":5,"modelJa":"1,250万円","modelKo":"1,250만 엔"}
+        ]
+      }
+    }
+  ]
+}
