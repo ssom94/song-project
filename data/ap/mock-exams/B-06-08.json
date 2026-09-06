@@ -1,0 +1,35 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":8,
+    "sectionCode":"SYSTEM_DEV",
+    "type":"written",
+    "promptJa":"注文状態遷移の不具合とテスト設計について，仕様を基に設問に答えよ。",
+    "promptKo":"주문 상태전이의 결함과 테스트 설계에 대해 사양을 바탕으로 물음에 답하시오.",
+    "content":{
+      "passageJa":"G社の注文システムでは状態をNEW, PAID, SHIPPED, CANCELLED, RETURN_REQUESTEDで管理する。仕様上の許可遷移は，NEW→PAID，NEW→CANCELLED，PAID→SHIPPED，PAID→CANCELLED，SHIPPED→RETURN_REQUESTEDであり，CANCELLEDは終端状態である。しかし実装ではキャンセルAPIが『現在状態がCANCELLEDでなければCANCELLEDへ変更する』という条件だけを確認していたため，SHIPPED→CANCELLEDも可能になっていた。",
+      "passageKo":"G사의 주문 시스템은 상태를 NEW, PAID, SHIPPED, CANCELLED, RETURN_REQUESTED로 관리한다. 사양상 허용 전이는 NEW→PAID, NEW→CANCELLED, PAID→SHIPPED, PAID→CANCELLED, SHIPPED→RETURN_REQUESTED이며 CANCELLED는 종료상태다. 그러나 구현에서는 취소 API가 '현재 상태가 CANCELLED가 아니면 CANCELLED로 변경'이라는 조건만 확인하여 SHIPPED→CANCELLED도 가능해졌다.",
+      "tables":[{"titleJa":"許可状態遷移","headers":["現在","操作","次状態"],"rows":[["NEW","pay","PAID"],["NEW","cancel","CANCELLED"],["PAID","ship","SHIPPED"],["PAID","cancel","CANCELLED"],["SHIPPED","return","RETURN_REQUESTED"]]}],
+      "subquestions":[
+        {"key":"q1","promptJa":"このような状態と遷移を網羅的に確認するのに適したテスト技法を答えよ。","promptKo":"이와 같은 상태와 전이를 체계적으로 확인하기에 적절한 테스트기법을 쓰시오."},
+        {"key":"q2","promptJa":"仕様上無効なのに実装で許可されている遷移を答えよ。","promptKo":"사양상 무효인데 구현에서 허용되는 전이를 쓰시오."},
+        {"key":"q3","promptJa":"キャンセルAPIの判定をどのように修正すべきか，考え方を答えよ。","promptKo":"취소 API의 판정을 어떻게 수정해야 하는지 그 원칙을 쓰시오."},
+        {"key":"q4","promptJa":"要件変更後の影響範囲とテスト漏れを確認するため，要件とテストケースの対応を管理する仕組みを答えよ。","promptKo":"요구사항 변경 후 영향범위와 테스트 누락을 확인하기 위해 요구사항과 테스트케이스 대응을 관리하는 수단을 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: 状態遷移テスト（状態遷移図・状態遷移表を用いる）。\nq2: SHIPPED→CANCELLED。\nq3: 現在状態ごとに許可された遷移を明示し，cancelはNEW又はPAIDからだけ許可する。\nq4: 要件トレーサビリティマトリクス(RTM)など。",
+    "modelAnswerKo":"q1: 상태전이 테스트(상태전이도·상태전이표 활용).\nq2: SHIPPED→CANCELLED.\nq3: 현재 상태별 허용 전이를 명시하고 cancel은 NEW 또는 PAID에서만 허용한다.\nq4: 요구사항 추적성 매트릭스(RTM) 등.",
+    "explanationJa":"状態依存の振舞いは状態遷移表で有効・無効遷移を両方テストするのが有効である。『禁止状態だけ除外』する実装は将来状態が増えたときにも誤許可を生みやすいので，許可リスト方式で遷移を定義する方が安全である。RTMは変更要件に紐づく設計・テストを追跡するのに使える。",
+    "explanationKo":"상태 의존 동작은 상태전이표로 유효·무효 전이를 모두 테스트하는 것이 효과적이다. '금지 상태만 제외'하는 구현은 향후 상태가 늘어날 때도 잘못 허용하기 쉬우므로 허용목록 방식으로 전이를 정의하는 편이 안전하다. RTM은 변경 요구사항과 연결된 설계·테스트를 추적하는 데 쓸 수 있다.",
+    "maxScore":20,
+    "mandatory":false,
+    "sourceConceptCode":null,
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"状態遷移テスト","modelKo":"상태전이 테스트"},
+      {"key":"q2","score":5,"modelJa":"SHIPPED→CANCELLED","modelKo":"SHIPPED→CANCELLED"},
+      {"key":"q3","score":5,"modelJa":"許可遷移を明示しcancelはNEW/PAIDのみ","modelKo":"허용 전이를 명시하고 cancel은 NEW/PAID만"},
+      {"key":"q4","score":5,"modelJa":"要件トレーサビリティマトリクス","modelKo":"요구사항 추적성 매트릭스"}
+    ]}
+  }]
+}
