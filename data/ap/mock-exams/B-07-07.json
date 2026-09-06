@@ -1,0 +1,28 @@
+{
+  "subject":"B","examNo":7,"questions":[{
+    "questionNo":7,"sectionCode":"EMBEDDED","type":"written",
+    "promptJa":"車載CANバスのアービトレーションと通信時間について，設問に答えよ。",
+    "promptKo":"차량용 CAN 버스의 중재와 통신시간에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"ある制御ネットワークは標準CANを500kbit/sで使用している。ノードA,B,Cが同時に送信を開始し，11ビット識別子はそれぞれ0x120, 0x080, 0x200である。CANでは識別子の各ビットを送信しながらバスを監視し，dominantの0とrecessiveの1が衝突した場合は0がバス上に現れる。ここでは1フレームを簡略化して100ビットとみなす。",
+      "passageKo":"한 제어 네트워크는 표준 CAN을 500kbit/s로 사용한다. 노드 A,B,C가 동시에 송신을 시작하고 11비트 식별자는 각각 0x120, 0x080, 0x200이다. CAN은 식별자의 각 비트를 송신하면서 버스를 감시하며 dominant 0과 recessive 1이 충돌하면 0이 버스에 나타난다. 여기서는 1프레임을 단순화해 100비트로 본다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"この3ノードのうち最初に送信権を得る識別子を答えよ。","promptKo":"세 노드 중 가장 먼저 송신권을 얻는 식별자를 쓰시오."},
+        {"key":"q2","promptJa":"100ビットのフレーム1個を500kbit/sで送る理論上の時間をmsで求めよ。","promptKo":"100비트 프레임 1개를 500kbit/s로 보내는 이론상 시간을 ms로 구하시오."},
+        {"key":"q3","promptJa":"CANで数値の小さい識別子が高優先度になりやすい理由をdominant/recessiveを用いて説明せよ。","promptKo":"CAN에서 숫자가 작은 식별자가 높은 우선순위를 갖기 쉬운 이유를 dominant/recessive를 사용해 설명하시오."},
+        {"key":"q4","promptJa":"故障ノードがエラーフレームを出し続けてバス全体を妨害しないよう，送信エラーカウンタが閾値を超えたノードを通信から切り離すCANの状態を答えよ。","promptKo":"고장 노드가 오류 프레임을 계속 보내 버스 전체를 방해하지 않도록 송신 오류 카운터가 임계값을 넘은 노드를 통신에서 격리하는 CAN 상태를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: 0x080。\nq2: 0.2ms。\nq3: 上位ビットから比較し，自分が1(recessive)を送ったのにバスで0(dominant)を検出したノードは負けるため，より早く0を持つ小さいIDが残りやすい。\nq4: Bus-Off状態。",
+    "modelAnswerKo":"q1: 0x080.\nq2: 0.2ms.\nq3: 상위 비트부터 비교하며 자신이 1(recessive)을 보냈는데 버스에서 0(dominant)을 감지한 노드는 중재에서 탈락하므로 더 이른 위치에 0이 있는 작은 ID가 남기 쉽다.\nq4: Bus-Off 상태.",
+    "explanationJa":"CANの非破壊アービトレーションではdominant 0がrecessive 1に勝つため，同じ形式なら数値の小さいIDほど優先される。100/500,000秒=0.0002秒=0.2msである。CANはエラーカウンタによるerror confinementを持ち，重大な送信エラー状態ではBus-Offとしてバスから離脱する。",
+    "explanationKo":"CAN의 비파괴 중재에서는 dominant 0이 recessive 1보다 우선하므로 같은 형식이면 숫자가 작은 ID가 우선된다. 100/500,000초=0.0002초=0.2ms이다. CAN은 오류 카운터 기반 error confinement를 사용하며 심각한 송신 오류 상태에서는 Bus-Off로 버스에서 이탈한다.",
+    "maxScore":20,"mandatory":false,"sourceConceptCode":"B-07",
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"0x080","modelKo":"0x080"},
+      {"key":"q2","score":5,"modelJa":"0.2ms","modelKo":"0.2ms"},
+      {"key":"q3","score":5,"modelJa":"dominant 0がrecessive 1に勝つので小さいIDが残る","modelKo":"dominant 0이 recessive 1보다 우선해 작은 ID가 남음"},
+      {"key":"q4","score":5,"modelJa":"Bus-Off","modelKo":"Bus-Off"}
+    ]}
+  }]
+}
