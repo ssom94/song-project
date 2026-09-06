@@ -4,9 +4,8 @@
   const params = new URLSearchParams(location.search);
   const pageConceptCode = (params.get('code') || params.get('no') || '').trim().toUpperCase();
   const rawPart = (params.get('part') || '').trim().toUpperCase();
-  const part = rawPart === 'B' ? 'B' : rawPart === 'A' ? 'A' : null;
+  const part = rawPart === 'B' ? 'B' : 'A';
   const hasPageConcept = /^[AB]-\d{2}$/.test(pageConceptCode);
-  if (!hasPageConcept && !part) return;
 
   const notes = new Map();
   let authenticated = false;
