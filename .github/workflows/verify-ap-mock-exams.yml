@@ -15,6 +15,9 @@ on:
       - 'migrations/0085_ap_mock_exam_round04_shells.sql'
       - 'migrations/0086_ap_mock_exam_a04_questions.sql'
       - 'migrations/0087_ap_mock_exam_b04_questions.sql'
+      - 'migrations/0088_ap_mock_exam_round05_shells.sql'
+      - 'migrations/0089_ap_mock_exam_a05_questions.sql'
+      - 'migrations/0090_ap_mock_exam_b05_questions.sql'
       - 'package.json'
       - '.github/workflows/verify-ap-mock-exams.yml'
   pull_request:
@@ -31,6 +34,9 @@ on:
       - 'migrations/0085_ap_mock_exam_round04_shells.sql'
       - 'migrations/0086_ap_mock_exam_a04_questions.sql'
       - 'migrations/0087_ap_mock_exam_b04_questions.sql'
+      - 'migrations/0088_ap_mock_exam_round05_shells.sql'
+      - 'migrations/0089_ap_mock_exam_a05_questions.sql'
+      - 'migrations/0090_ap_mock_exam_b05_questions.sql'
       - 'package.json'
       - '.github/workflows/verify-ap-mock-exams.yml'
   workflow_dispatch:
@@ -58,7 +64,7 @@ jobs:
           node --check public/assets/js/study/ap-mock-exams-submit-guard.js
           node --check public/assets/js/study/ap-mock-exams.js
 
-      - name: Validate all eight mock exam rounds
+      - name: Validate all ten mock exam rounds
         run: npm run ap:validate-mock-exams
 
       - name: Build all mock exam migrations
@@ -75,3 +81,6 @@ jobs:
           test -s migrations/0085_ap_mock_exam_round04_shells.sql
           test -s migrations/0086_ap_mock_exam_a04_questions.sql
           test -s migrations/0087_ap_mock_exam_b04_questions.sql
+          test -s migrations/0088_ap_mock_exam_round05_shells.sql
+          test -s migrations/0089_ap_mock_exam_a05_questions.sql
+          test -s migrations/0090_ap_mock_exam_b05_questions.sql
