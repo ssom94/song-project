@@ -37,3 +37,5 @@ jobs:
           node --check public/assets/js/study/ap-concepts-bilingual.js
           node --check public/assets/js/study/ap-concept-subpage.js
           node --check public/assets/js/study/ap-concept-notes.js
+          node --check public/assets/js/study/ap-mock-exams-list.js
+          node --check public/assets/js/study/ap-past-exam-viewer.js
