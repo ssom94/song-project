@@ -52,15 +52,28 @@
     state.graded = false;
     try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
   }
+  function waitForViewer(maxWaitMs = 8000) {
+    return new Promise((resolve) => {
+      const started = Date.now();
+      const check = () => {
+        const root = document.getElementById('ap-past-viewer-root');
+        if (root?.querySelector('.ap-past-viewer-layout')) return resolve(root);
+        if (Date.now() - started >= maxWaitMs) return resolve(null);
+        setTimeout(check, 50);
+      };
+      check();
+    });
+  }
   async function boot() {
     if (!sessionKey || subject !== 'A') return;
     try {
-      const response = await fetch(`/assets/data/ap-past-study/${encodeURIComponent(sessionKey)}-${subject}.json`, {cache:'no-cache'});
-      if (!response.ok) return;
+      const [response, root] = await Promise.all([
+        fetch(`/assets/data/ap-past-study/${encodeURIComponent(sessionKey)}-${subject}.json`, {cache:'no-cache'}),
+        waitForViewer(),
+      ]);
+      if (!response.ok || !root || document.getElementById('ap-past-site-questions')) return;
       const data = await response.json();
       if (data?.sessionKey !== sessionKey || data?.subject !== subject || !data.questions?.length) return;
-      const root = document.getElementById('ap-past-viewer-root');
-      if (!root) return;
       const state = loadState();
       const section = document.createElement('section');
       section.id = 'ap-past-site-questions';
