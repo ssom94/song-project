@@ -107,6 +107,86 @@
       <div class="ap-past-official-links">${externalLink(meta.answerPdfUrl, t('IPA 공식 해답·출제취지', 'IPA公式解答・出題趣旨'))}${externalLink(meta.commentaryPdfUrl, t('IPA 공식 채점강평', 'IPA公式採点講評'))}${externalLink(session.sourceUrl, t('IPA 공식 출처 페이지', 'IPA公式出典ページ'))}</div>
     </section>`;
   }
+  function renderStudyCompanion(companion) {
+    if (!companion?.questions?.length) return '';
+    const first = companion.questions[0];
+    const notice = lang === 'ko' ? companion.source?.noticeKo : companion.source?.noticeJa;
+    const nav = companion.questions.map((question) => `<button type="button" class="ap-past-study-nav-button${question.questionNo === first.questionNo ? ' is-active' : ''}" data-study-question="${question.questionNo}">Q${question.questionNo}</button>`).join('');
+    return `<section id="ap-past-study-card" class="ap-past-study-card">
+      <div class="ap-past-study-head">
+        <div><p class="ap-section-eyebrow">KOREAN STUDY COMPANION</p><h2>${esc(t('한국어 학습 해석 · 상세해설', '韓国語学習補助訳・詳細解説'))}</h2>
+        <p>${esc(t('공식 PDF를 그대로 유지하면서 문제별 핵심 해석과 자체 해설을 함께 봅니다.', 'IPA公式PDFをそのまま表示し、問題ごとの韓国語学習補助訳と独自解説を確認できます。'))}</p></div>
+        <span class="ap-past-study-badge">${esc(t('비공식 학습 보조', '非公式学習補助'))}</span>
+      </div>
+      <div class="ap-past-study-notice">${esc(notice || '')}</div>
+      <div class="ap-past-study-nav" aria-label="${esc(t('해설 문제 선택', '解説問題選択'))}">${nav}</div>
+      <div id="ap-past-study-detail" class="ap-past-study-detail"></div>
+    </section>`;
+  }
+  function studyDetailHtml(question, revealed) {
+    if (!question) return '';
+    const sectionLabel = question.sectionCode === 'T' ? t('테크놀로지', 'テクノロジ') : question.sectionCode === 'M' ? t('매니지먼트', 'マネジメント') : t('스트래티지', 'ストラテジ');
+    return `<article class="ap-past-study-question">
+      <div class="ap-past-study-question-head">
+        <div><span class="ap-past-study-section">${esc(question.sectionCode)} · ${esc(sectionLabel)}</span><h3>Q${question.questionNo} · ${esc(question.topicKo)}</h3></div>
+        <button type="button" class="ap-past-study-reveal" data-study-reveal>${esc(revealed ? t('정답·해설 숨기기', '正解・解説を隠す') : t('정답·해설 보기', '正解・解説を見る'))}</button>
+      </div>
+      <div class="ap-past-study-block"><strong>${esc(t('한국어 학습 해석', '韓国語学習補助訳'))}</strong><p>${esc(question.interpretationKo)}</p></div>
+      <div class="ap-past-study-answer" ${revealed ? '' : 'hidden'}>
+        <div class="ap-past-study-correct"><span>${esc(t('정답', '正解'))}</span><strong>${esc(question.correctChoice)}</strong></div>
+        <div class="ap-past-study-block"><strong>${esc(t('상세해설', '詳細解説'))}</strong><p>${esc(question.explanationKo)}</p></div>
+        <div class="ap-past-study-point"><strong>${esc(t('시험 포인트', '試験ポイント'))}</strong><span>${esc(question.examPointKo)}</span></div>
+      </div>
+    </article>`;
+  }
+  function bindStudyCompanion(companion) {
+    if (!companion?.questions?.length) return;
+    const detail = document.getElementById('ap-past-study-detail');
+    const card = document.getElementById('ap-past-study-card');
+    let currentNo = Number(loadState().studyQuestionNo) || companion.questions[0].questionNo;
+    let revealed = false;
+
+    function renderCurrent(question) {
+      if (!detail) return;
+      detail.innerHTML = studyDetailHtml(question, revealed);
+      detail.querySelector('[data-study-reveal]')?.addEventListener('click', () => {
+        revealed = !revealed;
+        renderCurrent(question);
+      });
+    }
+    function showQuestion(no, options = {}) {
+      const question = companion.questions.find((item) => item.questionNo === Number(no)) || companion.questions[0];
+      currentNo = question.questionNo;
+      revealed = false;
+      const state = loadState();
+      state.studyQuestionNo = currentNo;
+      saveState(state);
+      document.querySelectorAll('[data-study-question]').forEach((button) => {
+        button.classList.toggle('is-active', Number(button.dataset.studyQuestion) === currentNo);
+      });
+      renderCurrent(question);
+      if (options.scroll) card?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('[data-study-question]').forEach((button) => {
+      button.addEventListener('click', () => showQuestion(Number(button.dataset.studyQuestion), { scroll: false }));
+    });
+    document.querySelectorAll('.ap-past-a-item[data-question-no]').forEach((item) => {
+      item.addEventListener('click', () => showQuestion(Number(item.dataset.questionNo), { scroll: false }));
+    });
+    showQuestion(currentNo);
+  }
+  async function loadStudyCompanion() {
+    try {
+      const response = await fetch(`/assets/data/ap-past-study/${encodeURIComponent(sessionKey)}-${encodeURIComponent(subject)}.json`, { cache: 'no-cache' });
+      if (!response.ok) return null;
+      const data = await response.json();
+      if (data?.sessionKey !== sessionKey || data?.subject !== subject || !Array.isArray(data.questions)) return null;
+      return data;
+    } catch {
+      return null;
+    }
+  }
   function bindA(meta) {
     const state = loadState();
     state.answers = state.answers && typeof state.answers === 'object' ? state.answers : {};
@@ -117,6 +197,8 @@
         if (!Number.isInteger(no)) return;
         state.answers[no] = button.dataset.answerChoice;
         state.graded = false;
+        const latestState = loadState();
+        state.studyQuestionNo = latestState.studyQuestionNo;
         saveState(state);
         item.querySelectorAll('[data-answer-choice]').forEach((el) => {
           const selected = el === button;
@@ -136,7 +218,7 @@
       const key = Array.from(meta.answerKey || '');
       let correct = 0;
       for (let no = 1; no <= 80; no += 1) {
-        const item = document.querySelector(`[data-question-no="${no}"]`);
+        const item = document.querySelector(`.ap-past-a-item[data-question-no="${no}"]`);
         const answer = key[no - 1] || '';
         const selected = state.answers[no] || '';
         if (selected === answer) correct += 1;
@@ -151,6 +233,8 @@
         if (label) label.textContent = `${t('정답', '正解')} ${answer}`;
       }
       state.graded = true;
+      const latestState = loadState();
+      state.studyQuestionNo = latestState.studyQuestionNo;
       saveState(state);
       const scored = scoreText(correct, 80);
       const result = document.getElementById('ap-past-grade-result');
@@ -212,7 +296,10 @@
   async function load() {
     if (!root || !sessionKey) return;
     try {
-      const response = await fetch('/assets/data/ap-past-exams.json', { cache: 'no-cache' });
+      const [response, companion] = await Promise.all([
+        fetch('/assets/data/ap-past-exams.json', { cache: 'no-cache' }),
+        loadStudyCompanion(),
+      ]);
       const data = await response.json();
       const session = data.sessions?.find((item) => item.key === sessionKey);
       const meta = session?.subjects?.[subject];
@@ -222,8 +309,9 @@
       const subheading = document.getElementById('ap-past-viewer-subtitle');
       if (heading) heading.textContent = t(session.titleKo, session.titleJa);
       if (subheading) subheading.textContent = `${t(meta.displayLabelKo, meta.displayLabelJa)} · ${session.administeredAt}`;
-      root.innerHTML = `<div class="ap-past-viewer-layout">${renderPdf(meta)}${subject === 'A' ? renderSubjectA(meta, session) : renderSubjectB(meta, session)}</div>`;
+      root.innerHTML = `<div class="ap-past-viewer-layout">${renderPdf(meta)}${subject === 'A' ? renderSubjectA(meta, session) : renderSubjectB(meta, session)}</div>${renderStudyCompanion(companion)}`;
       if (subject === 'A') bindA(meta); else bindB();
+      bindStudyCompanion(companion);
     } catch (error) {
       console.error(error);
       root.innerHTML = `<p class="ap-mock-error">${esc(t('이 기출문제를 불러오지 못했습니다.', 'この過去問を読み込めませんでした。'))}</p>`;
