@@ -1,0 +1,53 @@
+.admin-markdown-image-tool {
+	font-size: 14px;
+	line-height: 1;
+}
+
+.admin-post-image-input {
+	display: none !important;
+}
+
+.admin-post-image-status {
+	display: inline-flex;
+	align-items: center;
+	min-height: 22px;
+	margin-left: auto;
+	padding: 0 8px;
+	border-radius: 999px;
+	background: #eef4ff;
+	color: #315cae;
+	font-size: 9px;
+	font-weight: 800;
+}
+
+.admin-post-image-status[data-type="error"] {
+	background: #fff0f0;
+	color: #b33f3f;
+}
+
+.admin-markdown-workspace.is-image-dragover .admin-markdown-editor-pane {
+	position: relative;
+}
+
+.admin-markdown-workspace.is-image-dragover .admin-markdown-editor-pane::after {
+	position: absolute;
+	inset: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px dashed #6f94e4;
+	border-radius: 10px;
+	background: rgba(238, 244, 255, .94);
+	color: #315cae;
+	font-size: 12px;
+	font-weight: 850;
+	content: attr(data-image-drop-label);
+	pointer-events: none;
+}
+
+@media (max-width: 720px) {
+	.admin-post-image-status {
+		width: 100%;
+		margin-left: 0;
+	}
+}
