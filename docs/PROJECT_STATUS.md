@@ -152,7 +152,7 @@
 - Q2 STRATEGY: EC 구매 퍼널 전환율 및 개선시책 비교.
 - Q3 PROGRAMMING: 동적계획법(DP) 최소비용 계산.
 - Q4 ARCHITECTURE: 마이크로서비스 재시도, Idempotency Key, 지수 백오프, Circuit Breaker.
-- Q5 NETWORK: DNS TTL·캐시·장애전환. DNS 비의존 자동전환 답안을 글로벌 로드밸런서로 명확화.
+- Q5 NETWORK: DNS TTL·캐시·障害切替. DNS 비의존 자동전환 답안을 글로벌 로드밸런서로 명확화.
 - Q6 DATABASE: 비동기 복제지연과 read-after-write 일관성.
 - Q7 EMBEDDED: Duty Cycle, 평균소비전류, 배터리 동작시간, Sleep/Timer Interrupt.
 - Q8 SYSTEM_DEV: Canary Release, Feature Flag, 오류율 기반 전개판단.
@@ -163,26 +163,38 @@
 - 각 문제 20점, 4개 소문항×5점, Q1 SECURITY만 mandatory.
 - `npm run ap:mock:b3:build` → `migrations/0083_ap_mock_exam_b03_questions.sql`.
 
+## 科目A 모의고사 4회 — ready (콘텐츠)
+- `A-04-01.json`~`A-04-04.json`, Q1~Q80 작성 완료.
+- 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
+- 정답 위치 0/1/2/3 각각 20문제로 정확히 균등 배치.
+- 1~3회와 동일 문항/시나리오 재사용 없이 이진수·확률·알고리즘·CPU/메모리·네트워크·DB·보안·테스트·클라우드·프로젝트/서비스관리·경영전략/회계까지 새 상황과 수치로 구성.
+- `manifest.json` version 10에서 A4를 ready로 등록.
+- `Verify AP Mock Exams` #10 PASS: 전체 source fingerprint/중복, 80문제 수, T50/M10/S20, 총점100, 정답 위치20/20/20/20 검증 통과.
+- 전체 `Verify` #961도 TypeScript, Browser JS, Unit tests, 로컬 D1 migration, seeded schema 검증까지 PASS.
+- 아직 A4용 DB round shell/migration/package build wiring은 만들지 않았다. B4 콘텐츠까지 완성한 뒤 4회차 A/B를 함께 신규 migration으로 연결하는 것을 다음 단계로 한다.
+
 ## 최종 검증 상태
-- AP 모의고사 전용 `Verify AP Mock Exams` PASS 및 기존 전체 `Verify`에서 A1~A3/B1~B3 validator/build, TypeScript, Browser JS syntax, Vitest, 로컬 D1 migration, seeded schema 검증 PASS.
+- AP 모의고사 전용 `Verify AP Mock Exams` #10 PASS 및 전체 `Verify` #961 PASS.
+- A1~A4/B1~B3 source validator에서 구조·중복·정답 위치/분야분포 검증 통과.
 - 게시글 카테고리/아이콘 계층 UI 변경도 `Verify UI Enhancements` PASS.
-- 게시글 이미지 첨부 추가 후 최신 `Verify` #954 PASS, `Verify UI Enhancements` #655 PASS.
-- 따라서 현재 Git 기준으로 AP 모의고사, 카테고리 계층/아이콘, 게시글 이미지 업로드/Markdown 렌더링까지 CI에서 통과한 상태.
+- 게시글 이미지 첨부 추가 후 `Verify` #954 PASS, `Verify UI Enhancements` #655 PASS.
+- 따라서 현재 Git 기준으로 기존 운영 기능과 A4 콘텐츠 추가까지 CI에서 통과한 상태.
 
 ## 적용 명령 흐름
-- `npm run ap:validate`: 기존 AP 문제은행 + A1~A3/B1~B3 전체 모의고사 검증.
-- `npm run ap:mock:build`: 6회차 전체 중복/구조 검증 후 `0078`~`0083` SQL 생성.
+- 현재 `npm run ap:validate`는 manifest에 등록된 A1~A4/B1~B3 source 전체를 검증한다.
+- 현재 `npm run ap:mock:build`의 DB migration 생성 대상은 아직 A1~A3/B1~B3(`0078`~`0083`)이다.
+- A4/B4 완성 뒤 새 round shell 및 A4/B4 migration build script를 추가한다.
 - `npm run db:migrate:local`: 검증/SQL 생성 성공 후 로컬 D1 migration 적용.
 - `npm run db:migrate:remote`: 검증/SQL 생성 성공 후 원격 D1 migration 적용.
 - `npm run dev`: `db:migrate:local` 선행.
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 사용자 환경에서 최신 Git을 `git pull`하고 `npm run deploy`하여 게시글 이미지 업로드/렌더러 변경을 운영 Worker/static assets에 반영.
-2. 운영 게시글 작성 화면에서 `Win+Shift+S` → 본문 `Ctrl+V` → 업로드 → Markdown 자동삽입 → 실시간 미리보기를 스모크 테스트.
-3. 저장 후 공개 게시글에서 R2 이미지가 PC/모바일 폭에 맞게 표시되는지 확인.
-4. 필요 시 이후 단계에서 미사용/orphan `post-images/` R2 객체 정리 정책을 추가한다.
-5. AP 모의고사 전체 제출/결과 스모크 테스트는 게시글 기능 작업 후 재개할 수 있다.
+1. 科目B 모의고사 4회 11문제를 신규 시나리오로 작성한다.
+2. B4까지 검증되면 A4/B4용 `ap_mock_exams` round shell migration을 추가한다.
+3. A4/B4 질문 migration build script와 `ap:mock:build`, 전용 CI의 생성 migration 검증 범위를 4회차까지 확장한다.
+4. 사용자 Cloudflare 환경에서는 4회차 A/B DB wiring까지 끝난 뒤 `git pull` → `npm run db:migrate:remote` → `npm run deploy`로 한 번에 반영한다.
+5. 게시글 이미지 첨부는 추후 운영 화면에서 별도로 스모크 테스트한다.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
