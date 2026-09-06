@@ -1,0 +1,35 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":1,
+    "sectionCode":"SECURITY",
+    "type":"written",
+    "promptJa":"モバイルアプリのOAuth認可コード横取りとPKCE未使用に関するログを基に，設問に答えよ。",
+    "promptKo":"모바일 앱의 OAuth 인가코드 탈취와 PKCE 미사용에 관한 로그를 바탕으로 물음에 답하시오.",
+    "content":{
+      "passageJa":"A社のモバイルアプリはOAuth 2.0 Authorization Code Flowを利用している。公開クライアントであるためclient secretは保持していない。互換性上の理由からPKCEは無効化され，リダイレクトURIには独自URIスキーム myapp://callback を利用していた。ある日，同じURIスキームを登録した不正アプリが端末にインストールされ，認可後のリダイレクトを受け取った可能性がある。認可サーバのログを確認すると，認可コード発行直後に通常と異なるIPからトークン交換が行われていた。",
+      "passageKo":"A사의 모바일 앱은 OAuth 2.0 Authorization Code Flow를 사용한다. 공개 클라이언트이므로 client secret은 보관하지 않는다. 호환성 이유로 PKCE는 비활성화되어 있고 리디렉션 URI에는 커스텀 URI 스킴 myapp://callback을 사용했다. 어느 날 같은 URI 스킴을 등록한 악성 앱이 단말에 설치되어 인가 후 리디렉션을 가로챘을 가능성이 제기됐다. 인가 서버 로그를 확인하니 인가코드 발급 직후 평소와 다른 IP에서 토큰 교환이 이루어졌다.",
+      "logs":["10:03:11 AUTH user=u77 client=mobile redirect=myapp://callback code=c_8f21 issued\n10:03:14 TOKEN client=mobile src=203.0.113.77 code=c_8f21 code_verifier=- status=200\n10:04:02 API token=t_91ac src=203.0.113.77 action=read_profile status=200"],
+      "subquestions":[
+        {"key":"q1","promptJa":"発生したと考えられる攻撃又は問題を答えよ。","promptKo":"발생한 것으로 보이는 공격 또는 문제를 쓰시오."},
+        {"key":"q2","promptJa":"横取りされた認可コードだけではトークン交換できないようにするOAuthの仕組みを答えよ。","promptKo":"탈취된 인가코드만으로는 토큰 교환을 할 수 없게 하는 OAuth 수단을 쓰시오."},
+        {"key":"q3","promptJa":"独自URIスキームの横取りリスクを下げるため，リダイレクトURI側で採用できる対策を一つ答えよ。","promptKo":"커스텀 URI 스킴 탈취 위험을 낮추기 위해 리디렉션 URI 측에서 적용할 수 있는 대책 하나를 쓰시오."},
+        {"key":"q4","promptJa":"既に不正トークンが発行された可能性がある場合の初動対応を一つ答えよ。","promptKo":"이미 부정 토큰이 발급됐을 가능성이 있을 때의 초동대응 하나를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: OAuth認可コードの横取り（Authorization Code Interception）。\nq2: PKCEを有効化し，S256でcode_challenge/code_verifierを検証する。\nq3: アプリとドメインの関連付けを検証できるHTTPSベースのApp Link/Universal Linkなどを利用する。\nq4: 該当アクセストークン・リフレッシュトークンを失効させ，関連セッションとAPIアクセスログを調査する。",
+    "modelAnswerKo":"q1: OAuth 인가코드 탈취(Authorization Code Interception).\nq2: PKCE를 활성화하고 S256 방식으로 code_challenge/code_verifier를 검증한다.\nq3: 앱과 도메인 연계를 검증할 수 있는 HTTPS 기반 App Link/Universal Link 등을 사용한다.\nq4: 해당 액세스 토큰·리프레시 토큰을 폐기하고 관련 세션과 API 접근로그를 조사한다.",
+    "explanationJa":"公開クライアントではclient secretだけに依存できない。PKCEでは認可要求時のcode_challengeとトークン交換時のcode_verifierを対応付けるため，認可コードだけを横取りした攻撃者は交換しにくくなる。独自URIスキームは他アプリに奪われる可能性があるので，検証可能なHTTPSリンクの採用も有効である。",
+    "explanationKo":"공개 클라이언트는 client secret에 의존할 수 없다. PKCE는 인가요청 시 code_challenge와 토큰 교환 시 code_verifier를 연결하므로 인가코드만 탈취한 공격자는 토큰으로 교환하기 어렵다. 커스텀 URI 스킴은 다른 앱이 가로챌 수 있어 검증 가능한 HTTPS 링크 사용도 효과적이다.",
+    "maxScore":20,
+    "mandatory":true,
+    "sourceConceptCode":"B-01",
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"OAuth認可コードの横取り","modelKo":"OAuth 인가코드 탈취"},
+      {"key":"q2","score":5,"modelJa":"PKCE(S256)でcode_verifierを検証","modelKo":"PKCE(S256)로 code_verifier 검증"},
+      {"key":"q3","score":5,"modelJa":"検証可能なHTTPS App Link/Universal Linkを利用","modelKo":"검증 가능한 HTTPS App Link/Universal Link 사용"},
+      {"key":"q4","score":5,"modelJa":"不正トークン失効と関連ログ調査","modelKo":"부정 토큰 폐기 및 관련 로그 조사"}
+    ]}
+  }]
+}
