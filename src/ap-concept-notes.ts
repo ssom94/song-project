@@ -3,6 +3,7 @@ import { getAuthenticatedAdminSession } from './auth/session';
 type NoteTargetType = 'concept' | 'question';
 
 interface NoteRow {
+	concept_code: string;
 	target_type: NoteTargetType;
 	question_id: number | null;
 	body: string;
@@ -74,21 +75,36 @@ export async function handleGetPublicApConceptNotes(request: Request, env: Env):
 	try {
 		const url = new URL(request.url);
 		const conceptCode = cleanCode(url.searchParams.get('code'));
-		if (!/^[AB]-\d{2}$/.test(conceptCode)) return json({ ok: false, error: 'INVALID_CONCEPT_CODE' }, 400);
+		const rawPart = cleanCode(url.searchParams.get('part'));
+		const part = rawPart === 'A' || rawPart === 'B' ? rawPart : null;
+		const hasCode = /^[AB]-\d{2}$/.test(conceptCode);
+		if (!hasCode && !part) return json({ ok: false, error: 'INVALID_NOTE_SCOPE' }, 400);
 		const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 		if (!session) return json({ ok: true, viewer: { authenticated: false }, notes: [] });
 		try {
-			const result = await env.song_project_db.prepare(`
-				SELECT n.target_type, n.question_id, n.body, n.updated_at
-				FROM ap_concept_notes n
-				JOIN ap_concepts c ON c.id = n.concept_id
-				WHERE n.admin_id = ?1 AND c.concept_code = ?2
-				ORDER BY CASE n.target_type WHEN 'concept' THEN 0 ELSE 1 END, n.question_id ASC
-			`).bind(session.adminId, conceptCode).all<NoteRow>();
+			const result = hasCode
+				? await env.song_project_db.prepare(`
+					SELECT c.concept_code, n.target_type, n.question_id, n.body, n.updated_at
+					FROM ap_concept_notes n
+					JOIN ap_concepts c ON c.id = n.concept_id
+					WHERE n.admin_id = ?1 AND c.concept_code = ?2
+					ORDER BY CASE n.target_type WHEN 'concept' THEN 0 ELSE 1 END, n.question_id ASC
+				`).bind(session.adminId, conceptCode).all<NoteRow>()
+				: await env.song_project_db.prepare(`
+					SELECT c.concept_code, n.target_type, n.question_id, n.body, n.updated_at
+					FROM ap_concept_notes n
+					JOIN ap_concepts c ON c.id = n.concept_id
+					WHERE n.admin_id = ?1
+					  AND c.exam_part = ?2
+					  AND c.is_published = 1
+					  AND n.target_type = 'concept'
+					ORDER BY c.sort_order ASC
+				`).bind(session.adminId, part).all<NoteRow>();
 			return json({
 				ok: true,
 				viewer: { authenticated: true },
 				notes: result.results.map((row) => ({
+					conceptCode: row.concept_code,
 					targetType: row.target_type,
 					questionId: row.question_id,
 					body: row.body,
@@ -160,6 +176,7 @@ export async function handlePatchAdminApConceptNote(request: Request, env: Env):
 		return json({
 			ok: true,
 			note: {
+				conceptCode: parsed.conceptCode,
 				targetType: parsed.targetType,
 				questionId: target.questionId,
 				body: parsed.body,
