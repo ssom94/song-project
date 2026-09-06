@@ -1,8 +1,20 @@
 # song-project 진행상황
 
-최종 갱신: 2026-09-05
+최종 갱신: 2026-09-06
 
 이 파일은 여러 ChatGPT 대화/쓰레드에서 song-project 작업을 이어갈 때 사용하는 기준 진행상황이다. 새 작업을 시작할 때 이 파일과 최신 Git 상태를 먼저 확인한다.
+
+## 게시글 카테고리 계층 / 좌측 메뉴
+- 공개 좌측 게시판 메뉴는 카테고리의 실제 부모/자식 트리를 사용한다.
+- 상위 카테고리를 클릭하면 그 카테고리와 모든 하위 카테고리의 글을 함께 조회한다.
+- 좌측 메뉴의 하위 카테고리는 데스크톱/모바일에서 더 큰 들여쓰기, `↳`, 연결선으로 구분한다.
+- 카테고리 관리에서 지정한 preset/emoji/image 아이콘과 색상을 공개 좌측 메뉴에도 표시한다.
+- 게시글 작성/수정 카테고리 선택에서는 자식이 있는 상위 카테고리를 분류용 비활성 옵션으로 표시하며 실제 글은 leaf 카테고리에만 저장한다.
+- 신규 게시글 API도 상위 카테고리를 거부하며 `CATEGORY_HAS_CHILDREN`을 반환한다.
+- `0084_post_category_leaf_invariant.sql`: 기존 상위 카테고리 직속 게시글을 표시순서 기준 첫 번째 leaf 하위 카테고리로 일괄 이동하고, DB trigger로 이후 게시글 INSERT/카테고리 UPDATE에서 상위 카테고리 직접 할당을 차단한다.
+- 부모 클릭 descendant 필터는 recursive CTE 1회 기반이며 카테고리별 반복 SELECT를 사용하지 않는다.
+- 최신 기능 코드 기준 GitHub Actions `Verify` #943 PASS, `Verify UI Enhancements` #644 PASS. TypeScript, Browser JS syntax, Unit tests, 로컬 D1 migration, seeded schema 검증 모두 통과.
+- 원격 반영은 사용자 환경에서 `git pull` → `npm run db:migrate:remote` → `npm run deploy` 순서로 수행. 원격 D1에는 아직 자동 적용하지 않았다.
 
 ## JLPT
 - JLPT N1 오늘의 학습 데이터는 기간별 생성 완료.
@@ -149,11 +161,10 @@
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 사용자 Cloudflare 인증 환경에서 `git pull` 후 `npm run db:migrate:remote`로 `0076`~`0083` 미적용 migration을 원격 D1에 반영.
-2. 필요 시 `npm run deploy`로 최신 Worker/static assets 배포.
-3. 실제 서버에서 목록 → 시험 시작 → 1문제 저장 → 새로고침/재접속 → 계속 풀기 → 제출 → 결과/해설까지 스모크 테스트.
-4. 科目A 목록의 `전체문제 / 정답 수 (점수)`와 科目B의 5문제 선택/Q1 필수/부분점수 표시를 실제 서버에서 최종 확인.
-5. 이상 없으면 AP 모의고사 기능을 완료 처리.
+1. 사용자 Cloudflare 인증 환경에서 `git pull` 후 `npm run db:migrate:remote`로 미적용 migration(`0076`~`0084` 포함)을 원격 D1에 반영.
+2. `npm run deploy`로 최신 Worker/static assets 배포.
+3. 실제 서버에서 카테고리 아이콘, 모바일 들여쓰기, 부모 클릭 descendant 조회, 게시글 leaf-only 선택을 스모크 테스트.
+4. 실제 서버에서 AP 모의고사 목록 → 시험 시작 → 저장/재접속 → 제출 → 결과/해설까지 스모크 테스트.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
