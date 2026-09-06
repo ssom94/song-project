@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 4,
+      "sectionCode": "ARCHITECTURE",
+      "type": "written",
+      "promptJa": "負荷分散されたWebシステムのセッション管理について設問に答えよ。",
+      "promptKo": "부하분산된 Web 시스템의 세션 관리에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "C社のWebシステムはロードバランサ配下にApp1とApp2の2台を配置している。ログイン後のセッション情報は各Appサーバのメモリだけに保存している。最近，オートスケールを有効化したところ，ログイン直後の利用者が別サーバへ振り分けられた際に未ログイン状態になる事象が発生した。また，デプロイ時にAppサーバを停止すると処理中リクエストが失敗する場合がある。",
+        "passageKo": "C사의 Web 시스템은 로드밸런서 아래 App1과 App2 두 대를 배치한다. 로그인 후 세션정보는 각 App 서버의 메모리에만 저장한다. 최근 오토스케일을 활성화한 뒤 로그인 직후 사용자가 다른 서버로 분배될 때 미로그인 상태가 되는 현상이 발생했다. 또한 배포 시 App 서버를 정지하면 처리 중 요청이 실패하는 경우가 있다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"利用者が別Appサーバへ振り分けられたとき未ログインになる原因を答えよ。","promptKo":"사용자가 다른 App 서버로 분배될 때 미로그인 상태가 되는 원인을 쓰시오."},
+          {"key":"q2","promptJa":"オートスケールと冗長化に適したセッション管理方式を一つ答えよ。","promptKo":"오토스케일과 이중화에 적합한 세션 관리 방식을 하나 쓰시오."},
+          {"key":"q3","promptJa":"Appサーバ停止時に処理中リクエストを失敗させにくくするロードバランサ側の手順を答えよ。","promptKo":"App 서버 정지 시 처리 중 요청의 실패를 줄이기 위한 로드밸런서 측 절차를 쓰시오."},
+          {"key":"q4","promptJa":"セッションを外部共有ストアへ移した場合，Appサーバをどのような性質に近づけられるか答えよ。","promptKo":"세션을 외부 공유 저장소로 옮긴 경우 App 서버를 어떤 성질에 가깝게 만들 수 있는지 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: セッションが各Appサーバのローカルメモリにしかなく，別サーバから参照できないため。\nq2: Redisなどの共有セッションストアへ保存する方式，又は適切な署名付きstateless token方式。\nq3: 新規振分けを停止してdrainし，処理中接続の完了を待ってから停止する。\nq4: statelessなAppサーバ。",
+      "modelAnswerKo": "q1: 세션이 각 App 서버의 로컬 메모리에만 있어 다른 서버에서 참조할 수 없기 때문이다.\nq2: Redis 같은 공유 세션 저장소 또는 적절한 서명 기반 stateless token 방식.\nq3: 신규 분배를 중지하고 drain하여 처리 중 연결이 끝난 뒤 정지한다.\nq4: stateless한 App 서버.",
+      "explanationJa": "ローカルセッションは水平スケール時にサーバ間で共有されない。共有ストア又はstateless tokenで状態を外部化すれば，どのAppサーバでも継続処理できる。停止時はロードバランサから先に切り離し，既存処理をdrainしてから終了するのが基本である。",
+      "explanationKo": "로컬 세션은 수평확장 시 서버 간 공유되지 않는다. 공유 저장소나 stateless token으로 상태를 외부화하면 어느 App 서버에서도 이어서 처리할 수 있다. 서버 정지 시에는 로드밸런서에서 먼저 신규 분배를 중지하고 기존 처리를 drain한 뒤 종료하는 것이 기본이다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"ローカルセッションが他サーバから参照できない","modelKo":"로컬 세션을 다른 서버가 참조할 수 없음"},
+          {"key":"q2","score":5,"modelJa":"共有セッションストア又はstateless token","modelKo":"공유 세션 저장소 또는 stateless token"},
+          {"key":"q3","score":5,"modelJa":"新規振分け停止・drain後に停止","modelKo":"신규 분배 중지·drain 후 정지"},
+          {"key":"q4","score":5,"modelJa":"statelessなAppサーバ","modelKo":"stateless한 App 서버"}
+        ]
+      }
+    }
+  ]
+}
