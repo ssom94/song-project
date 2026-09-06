@@ -128,5 +128,14 @@
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => hydrate(), { once: true });
 	else hydrate();
 	observer.observe(document.documentElement, { childList: true, subtree: true });
+
+	if (!document.querySelector('script[data-ap-sidebar-extra-link]')) {
+		const menuScript = document.createElement('script');
+		menuScript.src = '/assets/js/blog/ap-sidebar-extra-link.js?v=20260906-1';
+		menuScript.async = true;
+		menuScript.dataset.apSidebarExtraLink = 'true';
+		document.body.appendChild(menuScript);
+	}
+
 	document.dispatchEvent(new CustomEvent('song:category-icons-ready'));
 })();
