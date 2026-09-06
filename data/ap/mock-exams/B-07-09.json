@@ -1,0 +1,28 @@
+{
+  "subject":"B","examNo":7,"questions":[{
+    "questionNo":9,"sectionCode":"PROJECT_MGMT","type":"written",
+    "promptJa":"ステークホルダのPower/Interest分析に基づく関与方針について，設問に答えよ。",
+    "promptKo":"이해관계자의 Power/Interest 분석에 따른 참여전략에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"E社の基幹システム刷新では，スポンサーは影響力も関心も高い。監督官庁は影響力が高いが日常的な関心は低い。現場利用者は影響力は低いが関心が高い。外部の小規模備品業者は影響力・関心とも低い。プロジェクトマネージャはPower/Interest Gridを用いてコミュニケーション方針を決める。",
+      "passageKo":"E사의 핵심시스템 개편에서 스폰서는 영향력과 관심이 모두 높다. 감독기관은 영향력이 높지만 일상적 관심은 낮다. 현장 사용자는 영향력은 낮지만 관심이 높다. 외부의 소규모 비품업체는 영향력과 관심이 모두 낮다. 프로젝트 매니저는 Power/Interest Grid를 이용해 커뮤니케이션 방침을 정한다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"スポンサーに対する代表的な関与方針を答えよ。","promptKo":"스폰서에 대한 대표적 참여전략을 쓰시오."},
+        {"key":"q2","promptJa":"監督官庁に対する代表的な関与方針を答えよ。","promptKo":"감독기관에 대한 대표적 참여전략을 쓰시오."},
+        {"key":"q3","promptJa":"現場利用者に対する代表的な関与方針を答えよ。","promptKo":"현장 사용자에 대한 대표적 참여전략을 쓰시오."},
+        {"key":"q4","promptJa":"プロジェクト途中でステークホルダの影響力や関心が変化した場合に更新すべき管理情報を一つ答えよ。","promptKo":"프로젝트 도중 이해관계자의 영향력이나 관심이 변한 경우 갱신해야 할 관리정보 하나를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: Manage Closely（密接に管理）。\nq2: Keep Satisfied（満足を維持）。\nq3: Keep Informed（十分に情報提供）。\nq4: ステークホルダ登録簿／エンゲージメント計画を更新する。",
+    "modelAnswerKo":"q1: Manage Closely(밀접 관리).\nq2: Keep Satisfied(만족 유지).\nq3: Keep Informed(충분히 정보 제공).\nq4: 이해관계자 등록부/참여계획을 갱신한다.",
+    "explanationJa":"Power/Interest Gridでは高Power・高Interestを密接に管理し，高Power・低Interestは満足を維持，低Power・高Interestは情報提供を重視する。ステークホルダ属性は固定ではないため，変化に応じて登録簿や関与戦略を更新する。",
+    "explanationKo":"Power/Interest Grid에서는 고권력·고관심은 밀접 관리, 고권력·저관심은 만족 유지, 저권력·고관심은 정보 제공을 중시한다. 이해관계자 특성은 고정되지 않으므로 변화에 맞춰 등록부와 참여전략을 갱신한다.",
+    "maxScore":20,"mandatory":false,"sourceConceptCode":"B-09",
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"Manage Closely","modelKo":"Manage Closely"},
+      {"key":"q2","score":5,"modelJa":"Keep Satisfied","modelKo":"Keep Satisfied"},
+      {"key":"q3","score":5,"modelJa":"Keep Informed","modelKo":"Keep Informed"},
+      {"key":"q4","score":5,"modelJa":"ステークホルダ登録簿等を更新","modelKo":"이해관계자 등록부 등 갱신"}
+    ]}
+  }]
+}
