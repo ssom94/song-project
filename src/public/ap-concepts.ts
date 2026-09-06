@@ -78,7 +78,7 @@ export async function handleGetPublicApConcepts(request: Request, env: Env): Pro
     const grouped = typesResult.results.map((type) => ({
       no: type.type_no, nameKo:type.type_name_ko, nameJa:type.type_name_ja,
       questions: questionsResult.results.filter((q)=>q.problem_type_id===type.id).map((q)=>({
-        no:q.question_no, questionKo:q.question_ko, questionJa:q.question_ja,
+        id:q.id, no:q.question_no, questionKo:q.question_ko, questionJa:q.question_ja,
         choicesKo:parseChoices(q.choices_ko_json), choicesJa:parseChoices(q.choices_ja_json),
         correctChoice:q.correct_choice, answerKo:q.answer_ko, answerJa:q.answer_ja,
         explanationKo:q.explanation_ko, explanationJa:q.explanation_ja, difficulty:q.difficulty,
