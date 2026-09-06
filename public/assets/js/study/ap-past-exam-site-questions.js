@@ -29,6 +29,21 @@
     const choices = Array.isArray(primary) && primary.length ? primary : (Array.isArray(fallback) ? fallback : []);
     return choices[index] || choiceOrder[index];
   }
+  function generatedInterpretation(topicKo) {
+    const topic = String(topicKo || '').trim();
+    return topic ? `${topic}에 관한 실제 AP 기출 문항이다. IPA 공식 PDF의 조건·도표·선택지를 확인하고 해당 개념을 적용해 정답을 판단한다.` : '';
+  }
+  function applyOverrides(data, overrides) {
+    const sessionOverride = overrides?.sessions?.[`${sessionKey}-${subject}`] || {};
+    if (!Array.isArray(data?.questions)) return data;
+    data.questions = data.questions.map((question) => {
+      const qOverride = sessionOverride.questions?.[String(question.questionNo)] || {};
+      const next = {...question, ...qOverride};
+      if (!next.interpretationKo && sessionOverride.interpretationFromTopic) next.interpretationKo = generatedInterpretation(next.topicKo);
+      return next;
+    });
+    return data;
+  }
   function questionHtml(q, state) {
     const selected = state.answers?.[q.questionNo] || '';
     const hasChoiceText = Boolean(q.choicesKo?.length || q.choicesJa?.length);
@@ -67,12 +82,15 @@
   async function boot() {
     if (!sessionKey || subject !== 'A') return;
     try {
-      const [response, root] = await Promise.all([
+      const [response, overrideResponse, root] = await Promise.all([
         fetch(`/assets/data/ap-past-study/${encodeURIComponent(sessionKey)}-${subject}.json`, {cache:'no-cache'}),
+        fetch('/assets/data/ap-past-study-overrides.json', {cache:'no-cache'}).catch(() => null),
         waitForViewer(),
       ]);
       if (!response.ok || !root || document.getElementById('ap-past-site-questions')) return;
-      const data = await response.json();
+      let data = await response.json();
+      const overrides = overrideResponse?.ok ? await overrideResponse.json().catch(() => ({})) : {};
+      data = applyOverrides(data, overrides);
       if (data?.sessionKey !== sessionKey || data?.subject !== subject || !data.questions?.length) return;
       const state = loadState();
       const section = document.createElement('section');
