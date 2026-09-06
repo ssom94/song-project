@@ -1,0 +1,41 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 10,
+      "sectionCode": "SERVICE_MGMT",
+      "type": "written",
+      "promptJa": "サービス可用性とProblem Managementについて設問に答えよ。",
+      "promptKo": "서비스 가용성과 Problem Management에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "I社のオンラインサービスは31日間連続提供している。ある月に4件の障害が発生し，停止時間はそれぞれ12分，18分，20分，30分であった。復旧後も同じ原因による障害が繰り返されており，運用teamは恒久対策を検討している。",
+        "passageKo": "I사의 온라인 서비스는 31일간 연속 제공된다. 어느 달에 4건의 장애가 발생했고 중단시간은 각각 12분, 18분, 20분, 30분이었다. 복구 후에도 같은 원인의 장애가 반복되어 운영 team은 근본대책을 검토하고 있다.",
+        "tables": [
+          {"titleJa":"月間障害","headers":["障害","停止時間"],"rows":[["1","12分"],["2","18分"],["3","20分"],["4","30分"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"この月の総停止時間を求めよ。","promptKo":"이 달의 총 중단시간을 구하시오."},
+          {"key":"q2","promptJa":"31日を44,640分として，月間availabilityを百分率で小数第2位まで求めよ。","promptKo":"31일을 44,640분으로 보고 월간 availability를 백분율 소수 둘째 자리까지 구하시오."},
+          {"key":"q3","promptJa":"4件の障害の平均復旧時間（MTTR）を求めよ。","promptKo":"4건 장애의 평균복구시간(MTTR)을 구하시오."},
+          {"key":"q4","promptJa":"同じ原因の障害を繰り返さないため，根本原因分析と恒久対策を管理するITIL practiceを答えよ。","promptKo":"같은 원인의 장애 반복을 막기 위해 근본원인 분석과 영구대책을 관리하는 ITIL practice를 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 80分。\nq2: 約99.82%。\nq3: 20分。\nq4: Problem Management。",
+      "modelAnswerKo": "q1: 80분.\nq2: 약 99.82%.\nq3: 20분.\nq4: Problem Management.",
+      "explanationJa": "総停止時間は12+18+20+30=80分。availability=(44,640-80)/44,640×100≈99.8208%なので99.82%。MTTR=80/4=20分。繰返しincidentの根本原因を特定し恒久対策を管理するのはProblem Managementである。",
+      "explanationKo": "총 중단시간은 12+18+20+30=80분이다. availability=(44,640-80)/44,640×100≈99.8208%이므로 99.82%다. MTTR=80/4=20분이다. 반복 incident의 근본원인을 찾고 영구대책을 관리하는 것은 Problem Management다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"80分","modelKo":"80분"},
+          {"key":"q2","score":5,"modelJa":"99.82%","modelKo":"99.82%"},
+          {"key":"q3","score":5,"modelJa":"20分","modelKo":"20분"},
+          {"key":"q4","score":5,"modelJa":"Problem Management","modelKo":"Problem Management"}
+        ]
+      }
+    }
+  ]
+}
