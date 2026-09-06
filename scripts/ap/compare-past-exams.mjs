@@ -126,9 +126,6 @@ function loadMockRounds(subject) {
       return { examNo: round.examNo, questions, profile: profile(questions) };
     });
 }
-function loadMockQuestions(subject) {
-  return loadMockRounds(subject).flatMap((round) => round.questions);
-}
 function loadPastQuestions(session, subject) {
   const meta = session.subjects[subject];
   if (meta.status !== 'ready' || !meta.file) return null;
@@ -160,12 +157,8 @@ function gapValue(actual, synthetic) {
 }
 function buildGap(actual, synthetic) {
   const metrics = {};
-  for (const key of ['calculationRatio', 'diagramRatio', 'codeRatio', 'securityRatio', 'scenarioRatio']) {
-    metrics[key] = gapValue(actual?.[key], synthetic?.[key]);
-  }
-  metrics.difficultyMean = Number.isFinite(actual?.difficultyMean) && Number.isFinite(synthetic?.difficultyMean)
-    ? rounded(actual.difficultyMean - synthetic.difficultyMean, 2)
-    : null;
+  for (const key of ['calculationRatio', 'diagramRatio', 'codeRatio', 'securityRatio', 'scenarioRatio']) metrics[key] = gapValue(actual?.[key], synthetic?.[key]);
+  metrics.difficultyMean = Number.isFinite(actual?.difficultyMean) && Number.isFinite(synthetic?.difficultyMean) ? rounded(actual.difficultyMean - synthetic.difficultyMean, 2) : null;
   metrics.sectionRatio = {};
   for (const section of ['T', 'M', 'S']) metrics.sectionRatio[section] = gapValue(actual?.sectionRatio?.[section], synthetic?.sectionRatio?.[section]);
   return metrics;
@@ -192,7 +185,8 @@ function buildRecommendations(gap) {
     const value = gap.sectionRatio?.[section];
     if (Number.isFinite(value) && value >= 0.03) recommendations.push({ priority: value >= 0.08 ? 'high' : 'medium', type: 'increase-section', target: section, delta: value });
   }
-  return recommendations.sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.priority] - ({ high: 0, medium: 1, low: 2 }[b.priority]));
+  const order = { high: 0, medium: 1, low: 2 };
+  return recommendations.sort((a, b) => order[a.priority] - order[b.priority]);
 }
 function formatPct(value) {
   return Number.isFinite(value) ? `${(value * 100).toFixed(1)}%` : '-';
@@ -206,12 +200,8 @@ function buildMarkdown(report) {
     lines.push(`- Actual difficulty: ${result.actual.difficultyMean ?? '-'} / Mock difficulty: ${result.syntheticRounds1To7.difficultyMean ?? '-'}`);
     lines.push('');
     lines.push('| Metric | Actual | Mock 1-7 | Gap |', '|---|---:|---:|---:|');
-    for (const key of ['calculationRatio', 'diagramRatio', 'codeRatio', 'securityRatio', 'scenarioRatio']) {
-      lines.push(`| ${recommendationLabel(key)} | ${formatPct(result.actual[key])} | ${formatPct(result.syntheticRounds1To7[key])} | ${formatPct(result.gap[key])} |`);
-    }
-    for (const section of ['T', 'M', 'S']) {
-      lines.push(`| section ${section} | ${formatPct(result.actual.sectionRatio?.[section])} | ${formatPct(result.syntheticRounds1To7.sectionRatio?.[section])} | ${formatPct(result.gap.sectionRatio?.[section])} |`);
-    }
+    for (const key of ['calculationRatio', 'diagramRatio', 'codeRatio', 'securityRatio', 'scenarioRatio']) lines.push(`| ${recommendationLabel(key)} | ${formatPct(result.actual[key])} | ${formatPct(result.syntheticRounds1To7[key])} | ${formatPct(result.gap[key])} |`);
+    for (const section of ['T', 'M', 'S']) lines.push(`| section ${section} | ${formatPct(result.actual.sectionRatio?.[section])} | ${formatPct(result.syntheticRounds1To7.sectionRatio?.[section])} | ${formatPct(result.gap.sectionRatio?.[section])} |`);
     lines.push('');
     if (result.recommendations.length) {
       lines.push('### Reinforcement recommendations', '');
@@ -223,12 +213,8 @@ function buildMarkdown(report) {
       for (const round of result.mockRoundProfiles) lines.push(`| ${round.examNo} | ${round.profile.difficultyMean ?? '-'} | ${formatPct(round.profile.calculationRatio)} | ${formatPct(round.profile.diagramRatio)} | ${formatPct(round.profile.codeRatio)} | ${formatPct(round.profile.securityRatio)} | ${formatPct(round.profile.scenarioRatio)} |`);
       lines.push('');
     }
-    if (result.actualTopPatterns?.length) {
-      lines.push('### Actual top pattern tags', '', ...result.actualTopPatterns.map((item) => `- ${item.key}: ${item.count}`), '');
-    }
-    if (result.mockTopConceptCodes?.length) {
-      lines.push('### Mock top concept codes', '', ...result.mockTopConceptCodes.map((item) => `- ${item.key}: ${item.count}`), '');
-    }
+    if (result.actualTopPatterns?.length) lines.push('### Actual top pattern tags', '', ...result.actualTopPatterns.map((item) => `- ${item.key}: ${item.count}`), '');
+    if (result.mockTopConceptCodes?.length) lines.push('### Mock top concept codes', '', ...result.mockTopConceptCodes.map((item) => `- ${item.key}: ${item.count}`), '');
   }
   lines.push('## Policy', '', '- Do not rewrite already-attempted mock rounds only to chase one past paper.', '- Fix factual errors or broken questions in place.', '- Add missing recent patterns as a separate reinforcement set so historical attempt results remain stable.', '');
   return `${lines.join('\n')}\n`;
