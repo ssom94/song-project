@@ -182,8 +182,25 @@
 
 .blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category {
 	position: relative;
+	justify-content: flex-end;
+	gap: 15px;
 	color: #68788f;
 	font-weight: 710;
+}
+
+.blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category .blog-sidebar-category-main {
+	justify-content: flex-end;
+	min-width: 0;
+	margin-left: auto;
+	text-align: right;
+}
+
+.blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category .blog-sidebar-category-name {
+	text-align: right;
+}
+
+.blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category .blog-sidebar-count {
+	flex: 0 0 auto;
 }
 
 .blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category::before {
@@ -258,6 +275,10 @@
 	.blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-parent-category {
 		min-height: 42px;
 		margin-top: 7px;
+	}
+
+	.blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category {
+		gap: 16px;
 	}
 
 	.blog-sidebar-dynamic-categories .blog-sidebar-category-link.is-child-category::before {
