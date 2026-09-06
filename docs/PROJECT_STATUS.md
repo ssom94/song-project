@@ -190,39 +190,68 @@
 - `manifest.json`에 B4 ready 등록.
 - `npm run ap:mock:b4:build` → `migrations/0087_ap_mock_exam_b04_questions.sql` 자동 생성.
 
-## 4회차 DB 연결
-- `0085_ap_mock_exam_round04_shells.sql`: A4/B4 시험 master row를 먼저 생성한다.
-- `0086_ap_mock_exam_a04_questions.sql`, `0087_ap_mock_exam_b04_questions.sql`은 `npm run ap:mock:build`에서 source JSON 검증 후 자동 생성한다.
-- `package.json`의 `ap:mock:build`는 A1~A4/B1~B4 총 8회차를 검증·생성한다.
-- 전용 CI도 8회차와 0085/0086/0087 존재를 검증하도록 확장했다.
+## 科目A 모의고사 5회 — ready
+- `A-05-01.json`~`A-05-04.json`, Q1~Q80 작성 완료.
+- 80문제 / 150분 / T50·M10·S20 / 각 1.25점 / 총100점.
+- 정답 위치 0/1/2/3 각각 20문제로 정확히 균등 배치.
+- 1~4회와 동일 문항을 그대로 재사용하지 않고 수치·상황·보기·해설을 신규 작성.
+- `manifest.json` version 13에서 A5 ready 등록.
+- `npm run ap:mock:a5:build` → `migrations/0089_ap_mock_exam_a05_questions.sql` 자동 생성.
+
+## 科目B 모의고사 5회 — ready
+- `B-05-01.json`~`B-05-11.json` 작성 완료.
+- 11개 공식 분야를 한 번씩 구성, Q1 SECURITY 필수, 5문제 선택.
+- 각 문제 20점, 4개 소문항×5점.
+- Q1 SECURITY: 피싱 후 세션 쿠키 탈취와 session hijacking.
+- Q2 STRATEGY: 월 해지율과 LTV를 이용한 유지 시책 경제성 평가.
+- Q3 PROGRAMMING: 종료시각 기준 greedy interval scheduling.
+- Q4 ARCHITECTURE: cache stampede, single-flight, TTL jitter, stale 응답.
+- Q5 NETWORK: asymmetric routing과 stateful firewall 세션 문제.
+- Q6 DATABASE: 서로 다른 lock 획득 순서에 따른 deadlock과 retry.
+- Q7 EMBEDDED: ring buffer 기반 이동평균과 O(1) 합계 갱신.
+- Q8 SYSTEM_DEV: expand-contract 방식의 무중단 schema migration.
+- Q9 PROJECT_MGMT: critical path crashing과 비용기울기 비교.
+- Q10 SERVICE_MGMT: 영향도·긴급도 기반 P1 major incident 처리.
+- Q11 AUDIT: backup 완료 기록과 실제 restore 가능성 감사.
+- B1~B4 시나리오를 그대로 재사용하지 않도록 신규 작성.
+- `manifest.json` version 13에서 B5 ready 등록.
+- `npm run ap:mock:b5:build` → `migrations/0090_ap_mock_exam_b05_questions.sql` 자동 생성.
+
+## 4~5회차 DB 연결
+- `0085_ap_mock_exam_round04_shells.sql`: A4/B4 시험 master row 생성.
+- `0086_ap_mock_exam_a04_questions.sql`, `0087_ap_mock_exam_b04_questions.sql`: 4회차 generated question migration.
+- `0088_ap_mock_exam_round05_shells.sql`: A5/B5 시험 master row 생성.
+- `0089_ap_mock_exam_a05_questions.sql`, `0090_ap_mock_exam_b05_questions.sql`: 5회차 generated question migration.
+- `package.json`의 `ap:mock:build`는 A1~A5/B1~B5 총 10회차를 검증하고 모든 question migration을 생성한다.
+- 전용 CI도 10회차와 0088/0089/0090 존재·생성을 검증하도록 확장했다.
 
 ## 최종 검증 상태
-- `Verify AP Mock Exams` #24 PASS.
-  - A1~A4/B1~B4 총 8회차 validator PASS.
+- `Verify AP Mock Exams` #43 PASS.
+  - A1~A5/B1~B5 총 10회차 validator PASS.
   - mock exam browser scripts syntax PASS.
-  - A4/B4 포함 전체 migration build PASS.
-  - 0085/0086/0087 생성·존재 검증 PASS.
-- 같은 최신 기능 기준 전체 `Verify` #977 PASS.
+  - A5/B5 포함 전체 migration build PASS.
+  - `0088` 및 generated `0089`/`0090` 존재·생성 검증 PASS.
+- 같은 최신 기능 기준 전체 `Verify` #998 PASS.
   - TypeScript check PASS.
   - Browser JavaScript syntax check PASS.
   - Vitest PASS.
-  - A4/B4 생성 migration을 포함한 로컬 D1 migration PASS.
+  - A5/B5 generated migration을 포함한 로컬 D1 migration PASS.
   - seeded catalog/study schema 검증 PASS.
-- 따라서 현재 Git 기준으로 AP 모의고사 A1~A4/B1~B4 총 8회차가 source·validator·migration 생성·로컬 D1 적용까지 통과한 상태다.
+- 따라서 현재 Git 기준 AP 모의고사 A1~A5/B1~B5 총 10회차가 source·validator·migration 생성·로컬 D1 적용까지 통과한 상태다.
 
 ## 적용 명령 흐름
-- `npm run ap:validate`: 기존 AP 문제은행 + A1~A4/B1~B4 전체 모의고사 검증.
-- `npm run ap:mock:build`: 8회차 전체 중복/구조 검증 후 기존 `0078`~`0083`과 신규 `0086`~`0087` SQL 생성.
+- `npm run ap:validate`: 기존 AP 문제은행 + A1~A5/B1~B5 전체 모의고사 검증.
+- `npm run ap:mock:build`: 10회차 전체 중복/구조 검증 후 question SQL을 생성.
 - `npm run db:migrate:local`: 검증/SQL 생성 성공 후 로컬 D1 migration 적용.
 - `npm run db:migrate:remote`: 검증/SQL 생성 성공 후 원격 D1 migration 적용.
 - `npm run dev`: `db:migrate:local` 선행.
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 사용자 Cloudflare 인증 환경에서 `git pull` 후 `npm run db:migrate:remote`로 A4/B4의 `0085`~`0087`을 원격 D1에 반영.
-2. `npm run deploy` 후 운영 모의고사 목록에서 科目A/科目B 모두 第4回이 `ready`로 노출되는지 확인.
-3. 4회차 간단 스모크 테스트 후 科目A/科目B 5회차 제작으로 진행.
-4. 게시글 이미지 첨부 기능의 운영 스모크 테스트는 사용자가 원할 때 별도 확인.
+1. 사용자 Cloudflare 인증 환경에서 최신 Git을 `git pull`하고 `npm run db:migrate:remote`로 미적용된 4~5회차 migration을 원격 D1에 반영한다.
+2. `npm run deploy` 후 운영 모의고사 목록에서 科目A/科目B 모두 第5回까지 노출되는지 확인한다.
+3. 필요 시 5회차 간단 스모크 테스트 후 科目A/科目B 6회차 제작으로 진행한다.
+4. 게시글 이미지 첨부 기능의 운영 스모크 테스트는 사용자가 원할 때 별도 확인한다.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
