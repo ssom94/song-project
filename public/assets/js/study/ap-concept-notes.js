@@ -2,15 +2,20 @@
   const lang = document.body?.dataset?.blogLanguage === 'ja' ? 'ja' : 'ko';
   const t = (ko, ja) => lang === 'ko' ? ko : ja;
   const params = new URLSearchParams(location.search);
-  const conceptCode = (params.get('code') || params.get('no') || '').trim().toUpperCase();
-  if (!/^[AB]-\d{2}$/.test(conceptCode)) return;
+  const pageConceptCode = (params.get('code') || params.get('no') || '').trim().toUpperCase();
+  const rawPart = (params.get('part') || '').trim().toUpperCase();
+  const part = rawPart === 'B' ? 'B' : rawPart === 'A' ? 'A' : null;
+  const hasPageConcept = /^[AB]-\d{2}$/.test(pageConceptCode);
+  if (!hasPageConcept && !part) return;
 
   const notes = new Map();
   let authenticated = false;
   let currentTarget = null;
   let migrationRequired = false;
 
-  const noteKey = (targetType, questionId) => targetType === 'concept' ? 'concept' : `question:${questionId}`;
+  const noteKey = (conceptCode, targetType, questionId) => targetType === 'concept'
+    ? `${conceptCode}:concept`
+    : `${conceptCode}:question:${questionId}`;
 
   function makeModal() {
     const root = document.createElement('div');
@@ -46,9 +51,12 @@
 
   function buttonTarget(button) {
     const targetType = button.dataset.apNoteTarget === 'question' ? 'question' : 'concept';
+    const conceptCode = String(button.dataset.conceptCode || pageConceptCode).trim().toUpperCase();
+    if (!/^[AB]-\d{2}$/.test(conceptCode)) return null;
     const questionId = targetType === 'question' ? Number(button.dataset.questionId) : null;
     if (targetType === 'question' && (!Number.isSafeInteger(questionId) || questionId <= 0)) return null;
     return {
+      conceptCode,
       targetType,
       questionId,
       label: button.dataset.apNoteLabel || (targetType === 'concept' ? conceptCode : t('문제', '問題')),
@@ -59,7 +67,7 @@
     document.querySelectorAll('[data-ap-note-target]').forEach((button) => {
       const target = buttonTarget(button);
       if (!target) return;
-      const hasNote = notes.has(noteKey(target.targetType, target.questionId));
+      const hasNote = notes.has(noteKey(target.conceptCode, target.targetType, target.questionId));
       button.classList.toggle('has-note', hasNote);
       button.setAttribute('aria-label', hasNote
         ? t(`${target.label} 메모 보기`, `${target.label}のメモを見る`)
@@ -85,10 +93,10 @@
 
   function openModal(target) {
     currentTarget = target;
-    const existing = notes.get(noteKey(target.targetType, target.questionId));
+    const existing = notes.get(noteKey(target.conceptCode, target.targetType, target.questionId));
     title.textContent = target.targetType === 'concept'
-      ? t(`${conceptCode} 개념 메모`, `${conceptCode} 概念メモ`)
-      : t(`${target.label} 문제 메모`, `${target.label} 問題メモ`);
+      ? t(`${target.conceptCode} 개념 메모`, `${target.conceptCode} 概念メモ`)
+      : t(`${target.conceptCode} · ${target.label} 문제 메모`, `${target.conceptCode} · ${target.label} 問題メモ`);
     textarea.value = existing?.body || '';
     status.textContent = existing ? t('저장된 메모', '保存済みメモ') : '';
     deleteButton.hidden = !existing || !authenticated;
@@ -114,12 +122,17 @@
 
   async function loadNotes() {
     try {
-      const data = await requestJson(`/api/public/ap/concept-notes?code=${encodeURIComponent(conceptCode)}`);
+      const scope = hasPageConcept
+        ? `code=${encodeURIComponent(pageConceptCode)}`
+        : `part=${encodeURIComponent(part)}`;
+      const data = await requestJson(`/api/public/ap/concept-notes?${scope}`);
       authenticated = Boolean(data.viewer?.authenticated);
       migrationRequired = Boolean(data.migrationRequired);
       notes.clear();
       (data.notes || []).forEach((note) => {
-        notes.set(noteKey(note.targetType, note.questionId), note);
+        const noteConceptCode = String(note.conceptCode || pageConceptCode).trim().toUpperCase();
+        if (!/^[AB]-\d{2}$/.test(noteConceptCode)) return;
+        notes.set(noteKey(noteConceptCode, note.targetType, note.questionId), note);
       });
       syncButtons();
       updateCounter();
@@ -140,14 +153,19 @@
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          conceptCode,
+          conceptCode: currentTarget.conceptCode,
           targetType: currentTarget.targetType,
           questionId: currentTarget.questionId,
           body,
         }),
       });
-      const note = data.note || { targetType: currentTarget.targetType, questionId: currentTarget.questionId, body };
-      notes.set(noteKey(currentTarget.targetType, currentTarget.questionId), note);
+      const note = data.note || {
+        conceptCode: currentTarget.conceptCode,
+        targetType: currentTarget.targetType,
+        questionId: currentTarget.questionId,
+        body,
+      };
+      notes.set(noteKey(currentTarget.conceptCode, currentTarget.targetType, currentTarget.questionId), note);
       status.textContent = t('저장됨', '保存しました');
       deleteButton.hidden = false;
       syncButtons();
@@ -169,12 +187,12 @@
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          conceptCode,
+          conceptCode: currentTarget.conceptCode,
           targetType: currentTarget.targetType,
           questionId: currentTarget.questionId,
         }),
       });
-      notes.delete(noteKey(currentTarget.targetType, currentTarget.questionId));
+      notes.delete(noteKey(currentTarget.conceptCode, currentTarget.targetType, currentTarget.questionId));
       syncButtons();
       closeModal();
     } catch (error) {
@@ -186,13 +204,14 @@
   }
 
   document.addEventListener('click', (event) => {
-    const trigger = event.target.closest?.('[data-ap-note-target]');
+    const targetElement = event.target instanceof Element ? event.target : null;
+    const trigger = targetElement?.closest('[data-ap-note-target]');
     if (trigger) {
       const target = buttonTarget(trigger);
       if (target) openModal(target);
       return;
     }
-    if (event.target.closest?.('[data-ap-note-close]')) closeModal();
+    if (targetElement?.closest('[data-ap-note-close]')) closeModal();
   });
   textarea?.addEventListener('input', updateCounter);
   saveButton?.addEventListener('click', saveCurrent);
