@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 6,
+      "sectionCode": "DATABASE",
+      "type": "written",
+      "promptJa": "座席予約システムの同時実行制御について設問に答えよ。",
+      "promptKo": "좌석 예약 시스템의 동시 실행 제어에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "E社の予約システムでは，利用者が座席を選ぶとアプリケーションが空席を確認し，空席ならreservations表へINSERTする。現在は(event_id, seat_no)にUNIQUE制約がない。二人の利用者がほぼ同時に同じ座席A12を選んだところ，両方の処理が空席と判定して二重予約が発生した。複数座席を一括予約する機能では，トランザクションごとに異なる順序で座席をlockしている。",
+        "passageKo": "E사의 예약 시스템에서는 사용자가 좌석을 선택하면 애플리케이션이 빈 좌석 여부를 확인하고 비어 있으면 reservations 테이블에 INSERT한다. 현재 (event_id, seat_no)에 UNIQUE 제약이 없다. 두 사용자가 거의 동시에 같은 좌석 A12를 선택했을 때 두 처리 모두 빈 좌석으로 판단해 이중예약이 발생했다. 여러 좌석을 일괄예약하는 기능에서는 트랜잭션마다 서로 다른 순서로 좌석을 lock한다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"同じ座席が二重予約された直接の原因となる競合を答えよ。","promptKo":"같은 좌석이 이중예약된 직접 원인이 되는 경쟁상태를 쓰시오."},
+          {"key":"q2","promptJa":"同一eventの同一seatをDBレベルで二重登録できなくする制約を答えよ。","promptKo":"같은 event의 같은 seat를 DB 수준에서 중복등록하지 못하게 하는 제약을 쓰시오."},
+          {"key":"q3","promptJa":"複数座席予約でdeadlockの発生確率を下げるため，lock取得順序をどのようにすべきか答えよ。","promptKo":"여러 좌석 예약에서 deadlock 발생 가능성을 줄이기 위해 lock 취득 순서를 어떻게 해야 하는지 쓰시오."},
+          {"key":"q4","promptJa":"INSERTがUNIQUE制約違反になった場合，アプリケーションが行うべき処理を答えよ。","promptKo":"INSERT가 UNIQUE 제약 위반이 된 경우 애플리케이션이 해야 할 처리를 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 空席確認とINSERTが原子的でないcheck-then-actのrace condition。\nq2: (event_id, seat_no)のUNIQUE制約。\nq3: 全トランザクションでseat_noなど同じ規則の順序に統一してlockする。\nq4: そのトランザクションをrollbackし，利用者へ予約失敗（既に予約済み）を通知する。",
+      "modelAnswerKo": "q1: 빈 좌석 확인과 INSERT가 원자적이지 않은 check-then-act race condition.\nq2: (event_id, seat_no)의 UNIQUE 제약.\nq3: 모든 트랜잭션이 seat_no 등 동일 규칙의 순서로 lock을 취득한다.\nq4: 해당 트랜잭션을 rollback하고 사용자에게 예약 실패(이미 예약됨)를 알린다.",
+      "explanationJa": "確認と登録を別処理にすると同時実行で双方が空席を観測できる。最終防衛線としてDBのUNIQUE制約で重複を禁止し，競合時は制約違反を正常な業務競合として扱う。複数resourceのlockは取得順を統一すると循環待ちを作りにくくなる。",
+      "explanationKo": "확인과 등록을 분리하면 동시실행에서 양쪽 모두 빈 좌석을 관측할 수 있다. 최종 방어선으로 DB UNIQUE 제약을 두어 중복을 막고 경쟁 시 제약 위반을 정상적인 업무 경쟁으로 처리해야 한다. 여러 자원의 lock 취득 순서를 통일하면 순환대기를 만들 가능성이 줄어든다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"check-then-actのrace condition","modelKo":"check-then-act race condition"},
+          {"key":"q2","score":5,"modelJa":"(event_id, seat_no)のUNIQUE制約","modelKo":"(event_id, seat_no) UNIQUE 제약"},
+          {"key":"q3","score":5,"modelJa":"全transactionでlock順を統一","modelKo":"모든 트랜잭션의 lock 순서 통일"},
+          {"key":"q4","score":5,"modelJa":"rollbackし予約失敗を通知","modelKo":"rollback 후 예약 실패 통지"}
+        ]
+      }
+    }
+  ]
+}
