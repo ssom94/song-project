@@ -5,7 +5,7 @@
   const lang = document.body?.dataset?.blogLanguage === 'ja' ? 'ja' : 'ko';
   const prefix = `/${lang}/study/ap/concepts`;
   const root = document.querySelector('.ap-problem-placeholder');
-  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
   const paragraph = (text) => esc(text).replace(/\n/g, '<br>');
   const t = (ko, ja) => lang === 'ko' ? ko : ja;
   const sectionLabels = {
@@ -25,7 +25,7 @@
   }
   function memoButton(targetType, questionId, label, extraClass = '') {
     const questionAttr = targetType === 'question' ? ` data-question-id="${Number(questionId)}"` : '';
-    return `<button class="ap-note-trigger ${extraClass}" type="button" data-ap-note-target="${targetType}"${questionAttr} data-ap-note-label="${esc(label)}" aria-label="${esc(t('메모 추가','メモ追加'))}">
+    return `<button class="ap-note-trigger ${extraClass}" type="button" data-ap-note-target="${targetType}" data-concept-code="${esc(code)}"${questionAttr} data-ap-note-label="${esc(label)}" aria-label="${esc(t('메모 추가','メモ追加'))}">
       <span class="ap-note-bubble-icon" aria-hidden="true"></span><span class="ap-note-trigger-copy">${esc(t('메모 추가','メモ追加'))}</span>
     </button>`;
   }
