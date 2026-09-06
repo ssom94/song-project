@@ -1,0 +1,34 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":7,
+    "sectionCode":"EMBEDDED",
+    "type":"written",
+    "promptJa":"RTOS上の周期タスクで発生した優先度逆転とWatchdogについて，設問に答えよ。",
+    "promptKo":"RTOS의 주기 태스크에서 발생한 우선순위 역전과 Watchdog에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"F社の組込み制御装置では，Sensorタスク(C=2ms,T=10ms)，Controlタスク(C=3ms,T=20ms)，Commタスク(C=5ms,T=50ms)を実行している。ここでCは1周期当たりの最悪実行時間，Tは周期である。Controlは高優先度，Commは中優先度，Logは低優先度である。低優先度Logがmutexを取得した直後にControlが同じmutexを待ち，その間にmutexを不要とするCommがLogを何度もプリエンプトしたためControlの待ち時間が長くなった。またControlが100ms以上ハートビートを更新しない場合はWatchdogが装置を再起動する設計である。",
+      "passageKo":"F사의 임베디드 제어장치는 Sensor 태스크(C=2ms,T=10ms), Control 태스크(C=3ms,T=20ms), Comm 태스크(C=5ms,T=50ms)를 실행한다. C는 한 주기당 최악 실행시간, T는 주기이다. Control은 높은 우선순위, Comm은 중간, Log는 낮은 우선순위다. 낮은 우선순위 Log가 mutex를 획득한 직후 Control이 같은 mutex를 기다렸고 그 사이 mutex가 필요 없는 Comm이 Log를 여러 번 선점해 Control 대기시간이 길어졌다. 또한 Control이 100ms 이상 하트비트를 갱신하지 않으면 Watchdog이 장치를 재기동하도록 설계됐다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"Sensor,Control,CommのCPU利用率合計を求めよ。","promptKo":"Sensor, Control, Comm의 CPU 이용률 합계를 구하시오."},
+        {"key":"q2","promptJa":"Controlの待ち時間が長くなった現象の名称を答えよ。","promptKo":"Control의 대기시간이 길어진 현상의 명칭을 쓰시오."},
+        {"key":"q3","promptJa":"mutex実装でこの現象を緩和する代表的な方式を答えよ。","promptKo":"mutex 구현에서 이 현상을 완화하는 대표적 방식을 쓰시오."},
+        {"key":"q4","promptJa":"Watchdogの主な役割を答えよ。","promptKo":"Watchdog의 주된 역할을 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: 45%。2/10+3/20+5/50=0.20+0.15+0.10=0.45。\nq2: 優先度逆転。\nq3: 優先度継承(Priority Inheritance)など。\nq4: 重要タスクが停止・ハングして一定時間応答しないことを検出し，再起動などで復旧させる。",
+    "modelAnswerKo":"q1: 45%. 2/10+3/20+5/50=0.20+0.15+0.10=0.45.\nq2: 우선순위 역전.\nq3: 우선순위 상속(Priority Inheritance) 등.\nq4: 중요 태스크가 정지·행 상태로 일정시간 응답하지 않는 것을 탐지해 재기동 등으로 복구한다.",
+    "explanationJa":"周期タスクの利用率はC/Tの合計で45%である。高優先度タスクが低優先度タスクのmutex解放を待つ間，中優先度タスクが低優先度タスクを妨げる典型例が優先度逆転である。優先度継承ではmutex保持中の低優先度タスクを一時的に高い優先度へ引き上げ，早く解放させる。Watchdogはソフトウェア停止時の自律復旧に使う。",
+    "explanationKo":"주기 태스크 이용률은 C/T 합계로 45%다. 높은 우선순위 태스크가 낮은 우선순위 태스크의 mutex 해제를 기다리는 동안 중간 우선순위 태스크가 낮은 태스크를 방해하는 전형적 현상이 우선순위 역전이다. 우선순위 상속은 mutex 보유 중인 낮은 태스크를 일시적으로 높은 우선순위로 올려 빠르게 해제하게 한다. Watchdog은 소프트웨어 정지 시 자율복구에 사용된다.",
+    "maxScore":20,
+    "mandatory":false,
+    "sourceConceptCode":null,
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"45%","modelKo":"45%"},
+      {"key":"q2","score":5,"modelJa":"優先度逆転","modelKo":"우선순위 역전"},
+      {"key":"q3","score":5,"modelJa":"優先度継承","modelKo":"우선순위 상속"},
+      {"key":"q4","score":5,"modelJa":"ハング検出と再起動等による自律復旧","modelKo":"행 탐지와 재기동 등의 자율복구"}
+    ]}
+  }]
+}
