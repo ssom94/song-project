@@ -2,6 +2,7 @@
 	const body = document.body;
 	const lang = body.dataset.blogLanguage === 'ko' ? 'ko' : 'ja';
 	const t = (ko, ja) => lang === 'ko' ? ko : ja;
+	const MOCK_DATA_BASE = 'https://raw.githubusercontent.com/ssom94/song-project/main/data/ap/mock-exams/';
 	let analysisLoaded = false;
 
 	function qs(id) { return document.getElementById(id); }
@@ -15,7 +16,8 @@
 		return `${values.year}-${values.month}-${values.day}`;
 	}
 	async function fetchJson(url) {
-		const response = await fetch(url, { credentials: 'same-origin' });
+		const options = String(url).startsWith('http') ? {} : { credentials: 'same-origin' };
+		const response = await fetch(url, options);
 		const data = await response.json().catch(() => ({}));
 		if (!response.ok || data.ok === false) throw new Error(data.error || `HTTP_${response.status}`);
 		return data;
@@ -141,12 +143,7 @@
 	}
 	function comparisonTable(actualSections, mockAverage) {
 		const labels = { T: t('테크놀로지', 'テクノロジ'), M: t('매니지먼트', 'マネジメント'), S: t('스트래티지', 'ストラテジ') };
-		return `<div class="ap-mock-table-wrap"><table class="ap-mock-table"><thead><tr><th>${esc(t('영역', '分野'))}</th><th>${esc(t('2025 가을', '2025年秋期'))}</th><th>${esc(t('모의고사 평균', '模擬試験平均'))}</th><th>${esc(t('차이', '差'))}</th></tr></thead><tbody>${['T','M','S'].map((code) => {
-			const actual = actualSections[code] || 0;
-			const mock = mockAverage[code] || 0;
-			const delta = Math.round((mock - actual) * 10) / 10;
-			return `<tr><td><strong>${esc(`${code} · ${labels[code]}`)}</strong></td><td>${actual}</td><td>${mock.toFixed(1)}</td><td>${delta > 0 ? '+' : ''}${delta.toFixed(1)}</td></tr>`;
-		}).join('')}</tbody></table></div>`;
+		return `<div class="ap-mock-table-wrap"><table class="ap-mock-table"><thead><tr><th>${esc(t('영역', '分野'))}</th><th>${esc(t('2025 가을', '2025年秋期'))}</th><th>${esc(t('모의고사 평균', '模擬試験平均'))}</th><th>${esc(t('차이', '差'))}</th></tr></thead><tbody>${['T','M','S'].map((code) => { const actual = actualSections[code] || 0; const mock = mockAverage[code] || 0; const delta = Math.round((mock - actual) * 10) / 10; return `<tr><td><strong>${esc(`${code} · ${labels[code]}`)}</strong></td><td>${actual}</td><td>${mock.toFixed(1)}</td><td>${delta > 0 ? '+' : ''}${delta.toFixed(1)}</td></tr>`; }).join('')}</tbody></table></div>`;
 	}
 	async function renderAnalysis(subject) {
 		const section = analysisSection();
@@ -156,17 +153,13 @@
 		if (analysisLoaded) return;
 		analysisLoading();
 		try {
-			const manifest = await fetchJson('/assets/data/ap-mock-exams-manifest.json').catch(() => fetchJson('/data/ap/mock-exams/manifest.json'));
+			const manifest = await fetchJson(`${MOCK_DATA_BASE}manifest.json`);
 			const rounds = (manifest.rounds || []).filter((round) => round.subject === 'A' && round.examNo >= 1 && round.examNo <= 7);
-			const mockFiles = rounds.flatMap((round) => (round.files || []).map((file) => `/data/ap/mock-exams/${file}`));
-			const [actualData, ...mockParts] = await Promise.all([
-				fetchJson('/assets/data/ap-past-study/2025-autumn-A.json'),
-				...mockFiles.map((file) => fetchJson(file)),
-			]);
+			const mockFiles = rounds.flatMap((round) => (round.files || []).map((file) => `${MOCK_DATA_BASE}${file}`));
+			const [actualData, ...mockParts] = await Promise.all([fetchJson('/assets/data/ap-past-study/2025-autumn-A.json'), ...mockFiles.map((file) => fetchJson(file))]);
 			const actual = Array.isArray(actualData.questions) ? actualData.questions : [];
 			const mockQuestions = mockParts.flatMap((part) => Array.isArray(part.questions) ? part.questions : []);
 			if (actual.length !== 80 || mockQuestions.length !== 560) throw new Error(`QUESTION_COUNT_${actual.length}_${mockQuestions.length}`);
-
 			const actualSections = countBy(actual, (q) => q.sectionCode);
 			const mockSections = countBy(mockQuestions, (q) => q.sectionCode);
 			const mockAverage = Object.fromEntries(['T','M','S'].map((code) => [code, (mockSections[code] || 0) / 7]));
@@ -180,15 +173,15 @@
 				const questions = mockParts.filter((part) => Number(part.examNo) === Number(round.examNo)).flatMap((part) => part.questions || []);
 				return [round.examNo, avg(questions.map((q) => Number(q.difficulty)).filter(Number.isFinite))];
 			});
-			const underCovered = ['T','M','S'].filter((code) => mockAverage[code] + 0.5 < (actualSections[code] || 0));
 			const labels = { T: t('테크놀로지', 'テクノロジ'), M: t('매니지먼트', 'マネジメント'), S: t('스트래티지', 'ストラテジ') };
-			const note = underCovered.length
-				? t(`실제 기출 대비 평균 문항 수가 적은 영역: ${underCovered.map((code) => `${code} ${labels[code]}`).join(', ')}.`, `実際の過去問より平均問題数が少ない分野: ${underCovered.map((code) => `${code} ${labels[code]}`).join(', ')}。`)
-				: t('영역별 문항 수는 2025 가을 실제기출과 큰 차이가 없습니다.', '分野別の問題数は2025年秋期の過去問と大きな差はありません。');
+			const underCovered = ['T','M','S'].filter((code) => mockAverage[code] + 0.5 < (actualSections[code] || 0));
+			const note = underCovered.length ? t(`실제 기출 대비 평균 문항 수가 적은 영역: ${underCovered.map((code) => `${code} ${labels[code]}`).join(', ')}.`, `実際の過去問より平均問題数が少ない分野: ${underCovered.map((code) => `${code} ${labels[code]}`).join(', ')}。`) : t('영역별 문항 수는 2025 가을 실제기출과 큰 차이가 없습니다.', '分野別の問題数は2025年秋期の過去問と大きな差はありません。');
+			const patterns = topEntries(patternCounts, 8);
+			const concepts = topEntries(conceptCounts, 8);
 			section.innerHTML = `<div class="ap-mock-section-head"><div><p class="ap-mock-section-kicker">MOCK vs 2025 AUTUMN</p><h2>${esc(t('2025 가을 실제기출 비교', '2025年秋期 過去問比較'))}</h2></div><p>${esc(t('科目A 모의고사 1~7회 · 총 560문항', '科目A 模擬試験1〜7回・全560問'))}</p></div>
-			<section class="ap-mock-card"><p class="ap-past-guide">${esc(t('정적 Git 데이터만 사용해 비교합니다. D1 행 조회는 발생하지 않습니다.', 'Git上の静的データだけで比較するため、D1の行読取は発生しません。'))}</p>${comparisonTable(actualSections, mockAverage)}</section>
+			<section class="ap-mock-card"><p class="ap-past-guide">${esc(t('GitHub의 정적 문제 데이터만 사용해 비교합니다. D1 행 조회는 발생하지 않습니다.', 'GitHub上の静的問題データだけで比較するため、D1の行読取は発生しません。'))}</p>${comparisonTable(actualSections, mockAverage)}</section>
 			<section class="ap-mock-card"><div class="ap-mock-section-head"><div><p class="ap-mock-section-kicker">DIFFICULTY</p><h3>${esc(t('난이도 비교', '難易度比較'))}</h3></div></div><p class="ap-past-guide"><strong>${esc(t('2025 가을 평균', '2025年秋期平均'))}: ${actualDifficulty.toFixed(2)} / 5</strong> · <strong>${esc(t('모의고사 1~7 평균', '模擬試験1〜7平均'))}: ${mockDifficulty.toFixed(2)} / 5</strong></p><div class="ap-mock-table-wrap"><table class="ap-mock-table"><thead><tr><th>${esc(t('회차', '回'))}</th><th>${esc(t('평균 난이도', '平均難易度'))}</th><th>${esc(t('실제기출 대비', '過去問との差'))}</th></tr></thead><tbody>${roundDifficulties.map(([no, value]) => `<tr><td>${no}</td><td>${value.toFixed(2)}</td><td>${value - actualDifficulty >= 0 ? '+' : ''}${(value - actualDifficulty).toFixed(2)}</td></tr>`).join('')}</tbody></table></div><p class="ap-mock-note">${esc(t(`난이도 분포(1~5) · 실제기출: ${[1,2,3,4,5].map((n) => `${n}:${actualDifficultyCounts[n] || 0}`).join(' / ')} · 모의고사 전체: ${[1,2,3,4,5].map((n) => `${n}:${mockDifficultyCounts[n] || 0}`).join(' / ')}`, `難易度分布(1〜5)・過去問: ${[1,2,3,4,5].map((n) => `${n}:${actualDifficultyCounts[n] || 0}`).join(' / ')}・模擬試験全体: ${[1,2,3,4,5].map((n) => `${n}:${mockDifficultyCounts[n] || 0}`).join(' / ')}`)}</p></section>
-			<section class="ap-mock-card"><div class="ap-mock-section-head"><div><p class="ap-mock-section-kicker">QUESTION PROFILE</p><h3>${esc(t('출제 유형·개념 분포', '出題タイプ・概念分布'))}</h3></div></div><p class="ap-past-guide">${esc(t('실제기출은 보유한 pattern 태그, 모의고사는 sourceConceptCode를 집계합니다. 서로 다른 분류체계이므로 직접 비율 비교가 아니라 보강 판단용입니다.', '過去問はpatternタグ、模擬試験はsourceConceptCodeを集計します。分類体系が異なるため、直接の比率比較ではなく補強判断用です。'))}</p><div class="ap-mock-table-wrap"><table class="ap-mock-table"><thead><tr><th>${esc(t('2025 가을 주요 유형', '2025年秋期 主なタイプ'))}</th><th>${esc(t('문항 태그 수', 'タグ数'))}</th><th>${esc(t('모의고사 주요 개념코드', '模擬試験 主な概念コード'))}</th><th>${esc(t('문항 수', '問題数'))}</th></tr></thead><tbody>${Array.from({length: 8}, (_, index) => { const p = topEntries(patternCounts, 8)[index] || ['-',0]; const c = topEntries(conceptCounts, 8)[index] || ['-',0]; return `<tr><td>${esc(p[0])}</td><td>${p[1]}</td><td>${esc(c[0])}</td><td>${c[1]}</td></tr>`; }).join('')}</tbody></table></div><p class="ap-mock-note"><strong>${esc(t('판정', '判定'))}:</strong> ${esc(note)}</p></section>`;
+			<section class="ap-mock-card"><div class="ap-mock-section-head"><div><p class="ap-mock-section-kicker">QUESTION PROFILE</p><h3>${esc(t('출제 유형·개념 분포', '出題タイプ・概念分布'))}</h3></div></div><p class="ap-past-guide">${esc(t('실제기출은 보유한 pattern 태그, 모의고사는 sourceConceptCode를 집계합니다. 서로 다른 분류체계이므로 직접 비율 비교가 아니라 보강 판단용입니다.', '過去問はpatternタグ、模擬試験はsourceConceptCodeを集計します。分類体系が異なるため、直接の比率比較ではなく補強判断用です。'))}</p><div class="ap-mock-table-wrap"><table class="ap-mock-table"><thead><tr><th>${esc(t('2025 가을 주요 유형', '2025年秋期 主なタイプ'))}</th><th>${esc(t('태그 수', 'タグ数'))}</th><th>${esc(t('모의고사 주요 개념코드', '模擬試験 主な概念コード'))}</th><th>${esc(t('문항 수', '問題数'))}</th></tr></thead><tbody>${Array.from({length: 8}, (_, index) => { const p = patterns[index] || ['-',0]; const c = concepts[index] || ['-',0]; return `<tr><td>${esc(p[0])}</td><td>${p[1]}</td><td>${esc(c[0])}</td><td>${c[1]}</td></tr>`; }).join('')}</tbody></table></div><p class="ap-mock-note"><strong>${esc(t('판정', '判定'))}:</strong> ${esc(note)}</p></section>`;
 			analysisLoaded = true;
 		} catch (error) {
 			console.error('AP_MOCK_PAST_ANALYSIS_FAILED', error);
