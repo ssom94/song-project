@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 7,
+      "sectionCode": "EMBEDDED",
+      "type": "written",
+      "promptJa": "組込みセンサ装置のsamplingとbuffer設計について設問に答えよ。",
+      "promptKo": "임베디드 센서 장치의 sampling과 buffer 설계에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "F社の装置は4channelのアナログセンサを2kHzでsamplingする。各sampleはADCでは12bitだが，memory上では16bit整数として格納する。最大2秒分をring bufferに保持する。対象信号の最高周波数は700Hzである。CPU負荷を下げるためADCからmemoryへの転送方式も見直す。",
+        "passageKo": "F사의 장치는 4채널 아날로그 센서를 2kHz로 sampling한다. 각 sample은 ADC에서는 12bit지만 memory에서는 16bit 정수로 저장한다. 최대 2초분을 ring buffer에 유지한다. 대상 신호의 최고 주파수는 700Hz이다. CPU 부하를 낮추기 위해 ADC에서 memory로의 전송 방식도 재검토한다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"700Hzの信号をNyquistの条件でsamplingするための理論上の最小sampling周波数を答えよ。","promptKo":"700Hz 신호를 Nyquist 조건으로 sampling하기 위한 이론상 최소 sampling 주파수를 쓰시오."},
+          {"key":"q2","promptJa":"4channel・2kHz・16bit格納で2秒分のbufferに必要な容量をbyteで求めよ。","promptKo":"4채널·2kHz·16bit 저장으로 2초분 buffer에 필요한 용량을 byte로 구하시오."},
+          {"key":"q3","promptJa":"ADCデータをCPUが1sampleずつcopyせずmemoryへ連続転送するために利用する仕組みを答えよ。","promptKo":"ADC 데이터를 CPU가 sample마다 복사하지 않고 memory로 연속 전송하기 위해 사용하는 방식을 쓰시오."},
+          {"key":"q4","promptJa":"連続取得中に処理側が一時的に遅れてもdata lossを起こしにくくするbuffer運用方式を一つ答えよ。","promptKo":"연속 취득 중 처리 측이 일시적으로 늦어져도 data loss를 줄이기 위한 buffer 운용방식을 하나 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 1.4kHzより大きい周波数（理論境界は1.4kHz）。\nq2: 32,000byte。\nq3: DMA。\nq4: double buffering（ping-pong buffer）など。",
+      "modelAnswerKo": "q1: 1.4kHz보다 큰 주파수(이론 경계는 1.4kHz).\nq2: 32,000byte.\nq3: DMA.\nq4: double buffering(ping-pong buffer) 등.",
+      "explanationJa": "Nyquist条件は最高周波数の2倍より高いsamplingが必要なので700×2=1.4kHzが境界であり，2kHzは条件を満たす。bufferは2,000sample/s×4channel×2byte×2s=32,000byte。DMAは周辺機器とmemory間をCPU介在を減らして転送でき，double bufferingは取得と処理を並行しやすい。",
+      "explanationKo": "Nyquist 조건은 최고 주파수의 2배보다 높은 sampling이 필요하므로 700×2=1.4kHz가 경계이며 2kHz는 조건을 만족한다. buffer는 2,000sample/s×4채널×2byte×2s=32,000byte다. DMA는 주변장치와 memory 사이 전송에서 CPU 개입을 줄이고, double buffering은 취득과 처리를 병행하기 쉽다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"1.4kHzより大きい","modelKo":"1.4kHz보다 큼"},
+          {"key":"q2","score":5,"modelJa":"32,000byte","modelKo":"32,000byte"},
+          {"key":"q3","score":5,"modelJa":"DMA","modelKo":"DMA"},
+          {"key":"q4","score":5,"modelJa":"double buffering","modelKo":"double buffering"}
+        ]
+      }
+    }
+  ]
+}
