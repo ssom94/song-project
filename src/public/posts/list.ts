@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { publicCategoryAppearance } from '../../category-appearance';
 
 type PublicLanguage = 'ja' | 'ko';
 type PublicPostStatus = 'published' | 'private';
@@ -32,6 +33,10 @@ interface CategoryCountRow {
 	depth: number;
 	category_name: string;
 	post_count: number;
+	has_children: number;
+	icon_kind: string | null;
+	icon_value: string | null;
+	icon_color: string | null;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -69,6 +74,9 @@ function basePostCte(): string {
 				c.id,
 				c.parent_id,
 				c.display_order,
+				c.icon_kind,
+				c.icon_value,
+				c.icon_color,
 				COALESCE(requested.name, ja.name, ko.name, '#' || c.id) AS name
 			FROM categories AS c
 			LEFT JOIN category_translations AS requested
@@ -84,6 +92,9 @@ function basePostCte(): string {
 				id,
 				parent_id,
 				display_order,
+				icon_kind,
+				icon_value,
+				icon_color,
 				name,
 				name AS path,
 				0 AS depth,
@@ -97,6 +108,9 @@ function basePostCte(): string {
 				child.id,
 				child.parent_id,
 				child.display_order,
+				child.icon_kind,
+				child.icon_value,
+				child.icon_color,
 				child.name,
 				parent.path || ' > ' || child.name AS path,
 				parent.depth + 1 AS depth,
@@ -218,6 +232,14 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 					category_tree.parent_id,
 					category_tree.depth,
 					category_tree.path AS category_name,
+					category_tree.icon_kind,
+					category_tree.icon_value,
+					category_tree.icon_color,
+					EXISTS(
+						SELECT 1
+						FROM category_tree AS child
+						WHERE child.parent_id = category_tree.id
+					) AS has_children,
 					COUNT(DISTINCT visible_posts.id) AS post_count,
 					category_tree.sort_path
 				FROM category_tree
@@ -230,6 +252,9 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 					category_tree.parent_id,
 					category_tree.depth,
 					category_tree.path,
+					category_tree.icon_kind,
+					category_tree.icon_value,
+					category_tree.icon_color,
 					category_tree.sort_path
 				HAVING COUNT(visible_posts.id) > 0
 				ORDER BY category_tree.sort_path ASC
@@ -254,6 +279,8 @@ export async function handleListPublicPosts(request: Request, env: Env): Promise
 				depth: Number(row.depth ?? 0),
 				name: row.category_name,
 				count: Number(row.post_count ?? 0),
+				hasChildren: Boolean(row.has_children),
+				appearance: publicCategoryAppearance(row),
 			})),
 			posts: result.results.map((row) => ({
 				id: row.id,
