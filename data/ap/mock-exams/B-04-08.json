@@ -1,0 +1,38 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 8,
+      "sectionCode": "SYSTEM_DEV",
+      "type": "written",
+      "promptJa": "REST APIの変更で既存clientを壊さないための設計とtestについて設問に答えよ。",
+      "promptKo": "REST API 변경 시 기존 client를 깨뜨리지 않기 위한 설계와 test에 대해 물음에 답하시오.",
+      "content": {
+        "passageJa": "G社は注文API v1をWebとmobile appから利用している。レスポンス項目 customerName を buyerName に変更する案が出たが，旧mobile appはcustomerNameを必須としている。mobile appは全利用者が同時にupdateするとは限らないため，新旧clientが一定期間共存する。API teamは段階的な移行と自動testの強化を検討している。",
+        "passageKo": "G사는 주문 API v1을 Web과 mobile app에서 사용한다. 응답 항목 customerName을 buyerName으로 변경하는 안이 나왔지만 구형 mobile app은 customerName을 필수로 사용한다. mobile app은 모든 사용자가 동시에 update하지 않으므로 신구 client가 일정 기간 공존한다. API team은 단계적 이행과 자동 test 강화를 검토한다.",
+        "subquestions": [
+          {"key":"q1","promptJa":"v1でcustomerNameを直ちに削除した場合に起こる互換性上の問題を答えよ。","promptKo":"v1에서 customerName을 즉시 삭제하면 발생하는 호환성 문제를 쓰시오."},
+          {"key":"q2","promptJa":"新項目へ移行しながら旧clientも動かすためのAPI versioning方法を答えよ。","promptKo":"새 항목으로 이행하면서 구형 client도 동작시키기 위한 API versioning 방법을 쓰시오."},
+          {"key":"q3","promptJa":"provider側の変更がconsumerの期待するrequest/response契約を壊していないか自動確認するtestを答えよ。","promptKo":"provider 변경이 consumer가 기대하는 request/response 계약을 깨지 않았는지 자동확인하는 test를 쓰시오."},
+          {"key":"q4","promptJa":"v1廃止時期を決める前に確認すべき利用状況の情報を一つ答えよ。","promptKo":"v1 폐지 시점을 정하기 전에 확인해야 할 이용상황 정보 하나를 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 旧clientが必須項目を取得できず動作不良になるbreaking change。\nq2: v1を維持しつつbuyerNameを持つv2を公開し，clientを段階移行する。\nq3: contract test（consumer-driven contract testなど）。\nq4: v1 endpointの利用client/version別access数や残存率。",
+      "modelAnswerKo": "q1: 구형 client가 필수 항목을 얻지 못해 오동작하는 breaking change.\nq2: v1을 유지하면서 buyerName을 제공하는 v2를 공개하고 client를 단계적으로 이행한다.\nq3: contract test(consumer-driven contract test 등).\nq4: v1 endpoint의 client/version별 접근량이나 잔존율.",
+      "explanationJa": "既存clientが依存するfield削除は後方互換性を壊す。新versionを並行提供して段階移行し，consumerの期待をcontract testで継続検証する。廃止は実利用telemetryを確認し，旧version利用が十分減った後に告知期間を設けて行う。",
+      "explanationKo": "기존 client가 의존하는 field 삭제는 후방호환성을 깨뜨린다. 새 version을 병행 제공해 단계 이행하고 consumer 기대조건을 contract test로 지속 검증한다. 폐지는 실제 이용 telemetry를 확인해 구 version 이용이 충분히 줄어든 뒤 공지기간을 두고 진행해야 한다.",
+      "maxScore": 20,
+      "mandatory": false,
+      "sourceConceptCode": null,
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"旧clientを壊すbreaking change","modelKo":"구형 client를 깨는 breaking change"},
+          {"key":"q2","score":5,"modelJa":"v1維持とv2並行提供による段階移行","modelKo":"v1 유지와 v2 병행 제공을 통한 단계 이행"},
+          {"key":"q3","score":5,"modelJa":"contract test","modelKo":"contract test"},
+          {"key":"q4","score":5,"modelJa":"v1のclient/version別利用量","modelKo":"v1의 client/version별 이용량"}
+        ]
+      }
+    }
+  ]
+}
