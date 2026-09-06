@@ -21,7 +21,7 @@
 	async function fetchJson(url) {
 		const response = await fetch(url, { credentials: 'same-origin' });
 		const data = await response.json().catch(() => ({}));
-		if (!response.ok || !data.ok) throw new Error(data.error || `HTTP_${response.status}`);
+		if (!response.ok || data.ok === false) throw new Error(data.error || `HTTP_${response.status}`);
 		return data;
 	}
 	function subjectFromUrl() {
@@ -101,16 +101,60 @@
 			if (error) { error.hidden = false; error.textContent = `${t('모의고사 목록을 불러오지 못했습니다.', '模擬試験一覧を読み込めませんでした。')} (${e.message})`; }
 		}
 	}
+	function pastStatusLabel(status) {
+		return status === 'ready' ? t('문제 준비 완료', '問題準備完了') : t('공식 PDF 반영 대기', '公式PDF取込待ち');
+	}
+	function pastQuestionText(meta) {
+		if (!meta) return '-';
+		if (Number(meta.answerCount) !== Number(meta.questionCount)) {
+			return t(`${meta.questionCount}문제 / ${meta.answerCount}문제 선택`, `${meta.questionCount}問 / ${meta.answerCount}問選択`);
+		}
+		return t(`${meta.questionCount}문제`, `${meta.questionCount}問`);
+	}
+	async function renderPastExams(subject) {
+		const tbody = qs('ap-past-exam-list');
+		const error = qs('ap-past-error');
+		if (!tbody) return;
+		tbody.innerHTML = `<tr><td colspan="5">${esc(t('불러오는 중...', '読み込み中...'))}</td></tr>`;
+		if (error) error.hidden = true;
+		try {
+			const data = await fetchJson('/assets/data/ap-past-exams.json');
+			const sessions = Array.isArray(data.sessions) ? data.sessions : [];
+			if (!sessions.length) {
+				tbody.innerHTML = `<tr><td colspan="5">${esc(t('등록된 실제 기출이 없습니다.', '登録された過去問はありません。'))}</td></tr>`;
+				return;
+			}
+			tbody.innerHTML = sessions.map((session) => {
+				const meta = session.subjects?.[subject];
+				const title = t(session.titleKo, session.titleJa);
+				const subjectLabel = meta ? t(meta.displayLabelKo, meta.displayLabelJa) : '-';
+				const ready = meta?.status === 'ready';
+				return `<tr>
+					<td><strong>${esc(title)}</strong><span class="ap-past-date">${esc(session.administeredAt)}</span></td>
+					<td>${esc(subjectLabel)}</td>
+					<td>${esc(pastQuestionText(meta))}</td>
+					<td><span class="ap-mock-status${ready ? ' is-completed' : ' is-pending-source'}">${esc(pastStatusLabel(meta?.status))}</span></td>
+					<td><a class="ap-past-source" href="${esc(session.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('IPA 공식 원문', 'IPA公式原文'))}</a></td>
+				</tr>`;
+			}).join('');
+		} catch (e) {
+			tbody.innerHTML = '';
+			if (error) { error.hidden = false; error.textContent = `${t('실제 기출 목록을 불러오지 못했습니다.', '過去問一覧を読み込めませんでした。')} (${e.message})`; }
+		}
+	}
+	function renderSubject(subject) {
+		activateTab(subject);
+		renderList(subject);
+		renderPastExams(subject);
+	}
 
 	let subject = subjectFromUrl();
-	activateTab(subject);
+	renderSubject(subject);
 	document.querySelectorAll('[data-ap-mock-subject]').forEach((tab) => tab.addEventListener('click', () => {
 		subject = tab.dataset.apMockSubject === 'B' ? 'B' : 'A';
 		const url = new URL(location.href);
 		url.searchParams.set('subject', subject);
 		history.replaceState({}, '', url);
-		activateTab(subject);
-		renderList(subject);
+		renderSubject(subject);
 	}));
-	renderList(subject);
 })();
