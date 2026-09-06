@@ -10,13 +10,17 @@ on:
       - 'src/ap-mock-exams.ts'
       - 'public/assets/js/study/ap-mock-exams*.js'
       - 'public/assets/js/study/ap-past-exam-viewer.js'
+      - 'public/assets/js/study/ap-reinforcement.js'
       - 'public/assets/css/study/ap-mock-exams.css'
       - 'public/assets/css/study/ap-past-exam-*.css'
       - 'public/assets/data/ap-past-exams.json'
+      - 'public/assets/data/ap-reinforcement/**'
       - 'public/ko/study/ap/mock-exams/**'
       - 'public/ja/study/ap/mock-exams/**'
       - 'public/ko/study/ap/past-exams/**'
       - 'public/ja/study/ap/past-exams/**'
+      - 'public/ko/study/ap/reinforcement/**'
+      - 'public/ja/study/ap/reinforcement/**'
       - 'migrations/0076_ap_mock_exam_foundation.sql'
       - 'migrations/0077_ap_mock_exam_structured_written_answers.sql'
       - 'migrations/0085_ap_mock_exam_round04_shells.sql'
@@ -42,13 +46,17 @@ on:
       - 'src/ap-mock-exams.ts'
       - 'public/assets/js/study/ap-mock-exams*.js'
       - 'public/assets/js/study/ap-past-exam-viewer.js'
+      - 'public/assets/js/study/ap-reinforcement.js'
       - 'public/assets/css/study/ap-mock-exams.css'
       - 'public/assets/css/study/ap-past-exam-*.css'
       - 'public/assets/data/ap-past-exams.json'
+      - 'public/assets/data/ap-reinforcement/**'
       - 'public/ko/study/ap/mock-exams/**'
       - 'public/ja/study/ap/mock-exams/**'
       - 'public/ko/study/ap/past-exams/**'
       - 'public/ja/study/ap/past-exams/**'
+      - 'public/ko/study/ap/reinforcement/**'
+      - 'public/ja/study/ap/reinforcement/**'
       - 'migrations/0076_ap_mock_exam_foundation.sql'
       - 'migrations/0077_ap_mock_exam_structured_written_answers.sql'
       - 'migrations/0085_ap_mock_exam_round04_shells.sql'
@@ -90,12 +98,16 @@ jobs:
           node --check public/assets/js/study/ap-mock-exams-submit-guard.js
           node --check public/assets/js/study/ap-mock-exams.js
           node --check public/assets/js/study/ap-past-exam-viewer.js
+          node --check public/assets/js/study/ap-reinforcement.js
 
       - name: Validate official past exam catalog
         run: npm run ap:past:validate
 
       - name: Check past versus mock comparison pipeline
         run: npm run ap:past:compare
+
+      - name: Validate calibration and reinforcement sets
+        run: node scripts/ap/validate-reinforcement.mjs
 
       - name: Validate all fourteen original mock exam rounds
         run: npm run ap:validate-mock-exams
