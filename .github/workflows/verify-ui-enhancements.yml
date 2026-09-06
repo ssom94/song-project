@@ -34,5 +34,6 @@ jobs:
           node --check public/assets/js/blog/home-countdown.js
           node --check public/assets/js/schedule-calendar-swipe.js
           node --check public/assets/js/schedule-calendar-local-info.js
+          node --check public/assets/js/study/ap-concepts-bilingual.js
           node --check public/assets/js/study/ap-concept-subpage.js
           node --check public/assets/js/study/ap-concept-notes.js
