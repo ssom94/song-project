@@ -5,7 +5,7 @@
   const lang = document.body?.dataset?.blogLanguage === 'ja' ? 'ja' : 'ko';
   const prefix = `/${lang}/study/ap/concepts`;
   const root = document.querySelector('.ap-problem-placeholder');
-  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const paragraph = (text) => esc(text).replace(/\n/g, '<br>');
   const t = (ko, ja) => lang === 'ko' ? ko : ja;
   const sectionLabels = {
