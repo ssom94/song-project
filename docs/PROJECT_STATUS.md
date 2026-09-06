@@ -8,13 +8,37 @@
 - 공개 좌측 게시판 메뉴는 카테고리의 실제 부모/자식 트리를 사용한다.
 - 상위 카테고리를 클릭하면 그 카테고리와 모든 하위 카테고리의 글을 함께 조회한다.
 - 좌측 메뉴의 하위 카테고리는 데스크톱/모바일에서 더 큰 들여쓰기, `↳`, 연결선으로 구분한다.
+- 하위 카테고리명은 우측 정렬하고 게시글 수 뱃지와 간격을 둔다.
 - 카테고리 관리에서 지정한 preset/emoji/image 아이콘과 색상을 공개 좌측 메뉴에도 표시한다.
+- 아이콘 JS 로딩 타이밍과 무관하게 placeholder를 먼저 만들고 hydrate하여 모바일에서 아이콘이 간헐적으로 누락되는 문제를 보강했다.
 - 게시글 작성/수정 카테고리 선택에서는 자식이 있는 상위 카테고리를 분류용 비활성 옵션으로 표시하며 실제 글은 leaf 카테고리에만 저장한다.
 - 신규 게시글 API도 상위 카테고리를 거부하며 `CATEGORY_HAS_CHILDREN`을 반환한다.
 - `0084_post_category_leaf_invariant.sql`: 기존 상위 카테고리 직속 게시글을 표시순서 기준 첫 번째 leaf 하위 카테고리로 일괄 이동하고, DB trigger로 이후 게시글 INSERT/카테고리 UPDATE에서 상위 카테고리 직접 할당을 차단한다.
 - 부모 클릭 descendant 필터는 recursive CTE 1회 기반이며 카테고리별 반복 SELECT를 사용하지 않는다.
-- 최신 기능 코드 기준 GitHub Actions `Verify` #943 PASS, `Verify UI Enhancements` #644 PASS. TypeScript, Browser JS syntax, Unit tests, 로컬 D1 migration, seeded schema 검증 모두 통과.
-- 원격 반영은 사용자 환경에서 `git pull` → `npm run db:migrate:remote` → `npm run deploy` 순서로 수행. 원격 D1에는 아직 자동 적용하지 않았다.
+
+## 게시글 이미지 첨부 / 스크린샷 붙여넣기
+- 게시글 작성/수정 본문에서 이미지 파일 선택, 드래그&드롭, 클립보드 이미지 `Ctrl+V` 붙여넣기를 지원한다.
+- 지원 형식: PNG/JPEG/WebP, 파일당 최대 8MB.
+- 클라이언트 MIME 검사와 서버 파일 시그니처(PNG/JPEG/WebP magic bytes) 검사를 함께 수행한다.
+- 관리자 업로드 API: `POST /api/admin/posts/image`; same-origin + 관리자 세션 확인 후 R2 `post-images/<uuid>.<ext>`에 저장한다.
+- 공개 이미지 API: `GET /api/public/post-image?key=...`; R2에서 읽어 immutable cache, `nosniff`, inline 응답으로 제공한다.
+- D1에는 이미지 바이너리를 저장하지 않으며 본문에는 공개 이미지 URL만 Markdown으로 저장하므로 D1 row-read 부담을 늘리지 않는다.
+- 업로드가 완료되면 현재 본문 커서 위치에 `![설명](URL)` Markdown이 자동 삽입된다.
+- 공용 `markdown.js`가 이미지 문법을 안전한 URL만 `<img>`로 렌더링하며 lazy loading/async decoding을 사용한다.
+- `markdown.css`에서 게시글/미리보기 이미지가 모바일 폭을 넘지 않도록 `max-width:100%`, 자동 높이, 테두리/라운드 처리를 적용한다.
+- 이미지 업로드 플러그인: `public/assets/js/admin/post-image-upload.js`.
+- 이미지 업로드 UI CSS: `public/assets/css/admin/post-image-upload.css`.
+- 이 기능은 D1 migration이 필요 없다. R2 기존 binding `song_project_assets`를 사용한다.
+- 최신 이미지 기능 기준 GitHub Actions `Verify` #954 PASS, `Verify UI Enhancements` #655 PASS. TypeScript, Browser JS syntax, Unit tests, 로컬 D1 migration, seeded schema 검증 모두 통과.
+
+## 관리자 로그인 / 인증
+- 운영 로그인 실패 원인은 비밀번호 오입력이 아니라 Cloudflare workerd에서 PBKDF2 210,000회 검증 경로가 실패한 것이었다.
+- 원격 D1 저장 해시와 진단 스크립트 입력 비밀번호는 MATCH였고, 운영 Worker의 Node/WebCrypto PBKDF2 경로는 모두 error로 확인했다.
+- 신규/재설정 관리자 비밀번호 해시는 scrypt(`N=16384,r=8,p=1`)로 전환했다.
+- `scripts/admin/reset-password.mjs`는 scrypt 해시 생성, 잠금 해제, 세션 제거, 원격 저장 후 재검증까지 수행한다.
+- `src/auth/password.ts`는 신규 hash는 scrypt를 사용하고 기존 PBKDF2는 legacy 검증 호환용으로 유지한다.
+- `npm run admin:diagnose-login`, `npm run admin:unlock`, `npm run admin:reset-password` 도구가 있다.
+- 사용자가 실제 운영 관리자 로그인 성공 및 AP 모의고사 1~3회 노출을 확인했으므로 인증 문제는 해결 상태로 본다.
 
 ## JLPT
 - JLPT N1 오늘의 학습 데이터는 기간별 생성 완료.
@@ -46,6 +70,8 @@
 - 科目B는 11문제 중 정확히 5문제 선택, Q1 정보보안 필수, 문제당 20점, 선택한 5문제 합산 100점.
 - 科目B 부분점수 및 구조화 답안(`answer_json`) 지원.
 - 결과에서 답안/정답·모범답안/상세해설/관련 개념 확인.
+- 모의고사 목록 실시일은 UTC 문자열 단순 절단이 아니라 `Asia/Tokyo` 기준 시작일(`startedAt`)로 표시하도록 수정했다.
+- 사용자 운영 스모크 테스트에서 A 1회 1문제 풀이 → 뒤로가기 → `80 / 1문제 풀이 중` 상태 복원이 정상임을 확인했다.
 
 ### 모의고사 목록 진행률/결과 표시
 - 목록은 추가 전체스캔 없이 기존 `attempt.answeredCount`, `score` 사용.
@@ -138,19 +164,10 @@
 - `npm run ap:mock:b3:build` → `migrations/0083_ap_mock_exam_b03_questions.sql`.
 
 ## 최종 검증 상태
-- 기존 전체 GitHub Actions `Verify` run #905에서 6회차 구축 기준 PASS 확인.
-- 통합 저장 보강 및 전용 CI 추가 후 `Verify AP Mock Exams` run #1 PASS.
-  - `ap-mock-exams-list.js`, `ap-mock-exams-submit-guard.js`, `ap-mock-exams.js` browser syntax PASS.
-  - A1~A3/B1~B3 6회차 validator PASS.
-  - `npm run ap:mock:build` PASS.
-  - `0078`~`0083` 생성 파일 존재 검증 PASS.
-- 같은 최신 커밋 기준 기존 전체 `Verify` run #910도 PASS.
-  - TypeScript check PASS.
-  - Browser JavaScript syntax check PASS.
-  - Vitest PASS.
-  - 로컬 D1 migration PASS.
-  - seeded catalog/study schema 검증 PASS.
-- 따라서 현재 Git 기준으로 모의고사 콘텐츠 6회차, migration 생성, 로컬 D1 적용, 주요 브라우저 스크립트 문법 및 제출 전 답안 동기화 보강까지 CI에서 통과한 상태.
+- AP 모의고사 전용 `Verify AP Mock Exams` PASS 및 기존 전체 `Verify`에서 A1~A3/B1~B3 validator/build, TypeScript, Browser JS syntax, Vitest, 로컬 D1 migration, seeded schema 검증 PASS.
+- 게시글 카테고리/아이콘 계층 UI 변경도 `Verify UI Enhancements` PASS.
+- 게시글 이미지 첨부 추가 후 최신 `Verify` #954 PASS, `Verify UI Enhancements` #655 PASS.
+- 따라서 현재 Git 기준으로 AP 모의고사, 카테고리 계층/아이콘, 게시글 이미지 업로드/Markdown 렌더링까지 CI에서 통과한 상태.
 
 ## 적용 명령 흐름
 - `npm run ap:validate`: 기존 AP 문제은행 + A1~A3/B1~B3 전체 모의고사 검증.
@@ -161,10 +178,11 @@
 - 검증 실패 시 migration 생성/DB 적용 흐름 중단.
 
 ## 다음 작업
-1. 사용자 Cloudflare 인증 환경에서 `git pull` 후 `npm run db:migrate:remote`로 미적용 migration(`0076`~`0084` 포함)을 원격 D1에 반영.
-2. `npm run deploy`로 최신 Worker/static assets 배포.
-3. 실제 서버에서 카테고리 아이콘, 모바일 들여쓰기, 부모 클릭 descendant 조회, 게시글 leaf-only 선택을 스모크 테스트.
-4. 실제 서버에서 AP 모의고사 목록 → 시험 시작 → 저장/재접속 → 제출 → 결과/해설까지 스모크 테스트.
+1. 사용자 환경에서 최신 Git을 `git pull`하고 `npm run deploy`하여 게시글 이미지 업로드/렌더러 변경을 운영 Worker/static assets에 반영.
+2. 운영 게시글 작성 화면에서 `Win+Shift+S` → 본문 `Ctrl+V` → 업로드 → Markdown 자동삽입 → 실시간 미리보기를 스모크 테스트.
+3. 저장 후 공개 게시글에서 R2 이미지가 PC/모바일 폭에 맞게 표시되는지 확인.
+4. 필요 시 이후 단계에서 미사용/orphan `post-images/` R2 객체 정리 정책을 추가한다.
+5. AP 모의고사 전체 제출/결과 스모크 테스트는 게시글 기능 작업 후 재개할 수 있다.
 
 ## 운영 원칙
 - 기존 migration은 가능하면 수정하지 않고 후속 migration 추가.
