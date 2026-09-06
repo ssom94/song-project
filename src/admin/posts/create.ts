@@ -1,4 +1,5 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
+import { resolvePostCategoryId } from './category-selection';
 import { parseTagIds, prepareInsertPostTagStatements, validateTagIds } from './tag-selection';
 
 type SupportedLanguage = 'ja' | 'ko';
@@ -149,21 +150,11 @@ export async function handleCreateAdminPost(request: Request, env: Env): Promise
 		}
 	}
 
-	let categoryId: number | null = null;
-	if (payload.categoryId !== null && payload.categoryId !== undefined && payload.categoryId !== '') {
-		const parsedCategoryId = Number(payload.categoryId);
-		if (!Number.isSafeInteger(parsedCategoryId) || parsedCategoryId <= 0) {
-			return json({ ok: false, error: 'INVALID_CATEGORY' }, 400);
-		}
-		const category = await env.song_project_db
-			.prepare('SELECT id FROM categories WHERE id = ?1 AND deleted_at IS NULL LIMIT 1')
-			.bind(parsedCategoryId)
-			.first<{ id: number }>();
-		if (!category) {
-			return json({ ok: false, error: 'INVALID_CATEGORY' }, 400);
-		}
-		categoryId = parsedCategoryId;
+	const categorySelection = await resolvePostCategoryId(env.song_project_db, payload.categoryId);
+	if (!categorySelection.ok) {
+		return json({ ok: false, error: categorySelection.error }, 400);
 	}
+	const categoryId = categorySelection.categoryId;
 
 	if (!(await validateTagIds(env.song_project_db, tagIds))) {
 		return json({ ok: false, error: 'INVALID_TAGS' }, 400);
