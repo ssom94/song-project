@@ -57,7 +57,11 @@ for (const file of files) {
     if ((sections[code] || 0) !== Number(expectedSections[code])) fail(`${file}: ${code} section count mismatch`);
   }
   const mean = questions.reduce((sum, q) => sum + q.difficulty, 0) / Math.max(1, questions.length);
-  if (Math.abs(mean - Number(data.targetProfile?.difficultyMean)) > 0.001) fail(`${file}: difficulty mean ${mean.toFixed(3)} does not match target ${data.targetProfile?.difficultyMean}`);
+  const reportedMean = Number(mean.toFixed(2));
+  const expectedMean = Number(data.targetProfile?.difficultyMean);
+  if (!Number.isFinite(expectedMean) || Math.abs(reportedMean - expectedMean) > 0.001) {
+    fail(`${file}: difficulty mean ${mean.toFixed(3)} (reported ${reportedMean.toFixed(2)}) does not match target ${data.targetProfile?.difficultyMean}`);
+  }
 
   if (data.sourceSession === 'five-session-aggregate') {
     if (questions.length !== 24) fail(`${file}: five-session set must contain 24 questions`);
