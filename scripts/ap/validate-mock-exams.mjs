@@ -87,6 +87,8 @@ function validateRound(round, spec) {
       else answerPositions[answer] += 1;
     } else {
       if (q?.type !== 'written') fail(where, 'Subject B question type must be written');
+      if (!clean(q?.modelAnswerJa)) fail(where, 'Subject B modelAnswerJa is required');
+      if (!clean(q?.modelAnswerKo)) fail(where, 'Subject B modelAnswerKo is required');
       if (!clean(q?.content?.passageJa) && !clean(q?.passageJa)) warn(where, 'exam-style Subject B should include a Japanese passage');
       const subquestions = Array.isArray(q?.content?.subquestions) ? q.content.subquestions : [];
       if (!subquestions.length) fail(where, 'Subject B must contain structured subquestions');
