@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "subjects": {
     "A": {
       "durationMinutes": 150,
@@ -57,6 +57,13 @@
       "subject": "A",
       "examNo": 4,
       "files": ["A-04-01.json", "A-04-02.json", "A-04-03.json", "A-04-04.json"],
+      "status": "ready",
+      "answerPositionDistribution": [20, 20, 20, 20]
+    },
+    {
+      "subject": "A",
+      "examNo": 5,
+      "files": ["A-05-01.json", "A-05-02.json", "A-05-03.json", "A-05-04.json"],
       "status": "ready",
       "answerPositionDistribution": [20, 20, 20, 20]
     },
