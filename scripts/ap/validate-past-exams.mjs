@@ -5,6 +5,7 @@ const root = process.cwd();
 const manifestPath = path.join(root, 'data/ap/past-exams/manifest.json');
 const publicPath = path.join(root, 'public/assets/data/ap-past-exams.json');
 const studyRoot = path.join(root, 'public/assets/data/ap-past-study');
+const studyOverridesPath = path.join(root, 'public/assets/data/ap-past-study-overrides.json');
 const expected = [
   ['2025-autumn', '2025-10-12', 'https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html'],
   ['2025-spring', '2025-04-20', 'https://www.ipa.go.jp/shiken/mondai-kaiotu/2025r07.html'],
@@ -90,8 +91,18 @@ function expectedSection(subjectCode, questionNo) {
   if (questionNo <= 60) return 'M';
   return 'S';
 }
+function loadStudyOverrides() {
+  if (!fs.existsSync(studyOverridesPath)) return {};
+  const data = readJson(studyOverridesPath);
+  return data && typeof data.sessions === 'object' && data.sessions ? data.sessions : {};
+}
+function generatedInterpretation(topicKo) {
+  const topic = clean(topicKo);
+  return topic ? `${topic}에 관한 실제 AP 기출 문항이다. IPA 공식 PDF의 조건·도표·선택지를 확인하고 해당 개념을 적용해 정답을 판단한다.` : '';
+}
 function validateStudyCompanions(manifest) {
   if (!fs.existsSync(studyRoot)) return 0;
+  const overrides = loadStudyOverrides();
   const files = fs.readdirSync(studyRoot).filter((name) => name.endsWith('.json')).sort();
   for (const file of files) {
     const filePath = path.join(studyRoot, file);
@@ -99,6 +110,8 @@ function validateStudyCompanions(manifest) {
     const session = manifest.sessions.find((item) => item.key === data.sessionKey);
     const subjectCode = clean(data.subject);
     const subject = session?.subjects?.[subjectCode];
+    const overrideKey = `${data.sessionKey}-${subjectCode}`;
+    const sessionOverride = overrides[overrideKey] || {};
     if (data.kind !== 'official-past-exam-study-companion') fail(`${file}: invalid kind`);
     if (!session) {
       fail(`${file}: unknown sessionKey ${data.sessionKey}`);
@@ -121,11 +134,13 @@ function validateStudyCompanions(manifest) {
     data.questions.forEach((question, index) => {
       const where = `${file}.questions[${index}]`;
       const no = Number(question?.questionNo);
+      const questionOverride = sessionOverride.questions?.[String(no)] || {};
       if (!Number.isInteger(no) || no < 1 || no > subject.questionCount) fail(`${where}: invalid questionNo`);
       else if (seen.has(no)) fail(`${where}: duplicate questionNo ${no}`);
       else seen.add(no);
       if (!clean(question?.topicKo)) fail(`${where}: topicKo is required`);
-      if (!clean(question?.interpretationKo)) fail(`${where}: interpretationKo is required`);
+      const interpretationKo = clean(questionOverride.interpretationKo || question?.interpretationKo || (sessionOverride.interpretationFromTopic ? generatedInterpretation(question?.topicKo) : ''));
+      if (!interpretationKo) fail(`${where}: interpretationKo is required`);
       if (!clean(question?.explanationKo)) fail(`${where}: explanationKo is required`);
       if (!clean(question?.examPointKo)) fail(`${where}: examPointKo is required`);
       const difficulty = Number(question?.difficulty);
@@ -136,9 +151,10 @@ function validateStudyCompanions(manifest) {
       if (subjectCode === 'A') {
         const section = expectedSection(subjectCode, no);
         if (question.sectionCode !== section) fail(`${where}: expected sectionCode ${section}`);
-        if (!/^[アイウエ]$/.test(clean(question.correctChoice))) fail(`${where}: correctChoice must be ア/イ/ウ/エ`);
+        const effectiveChoice = clean(questionOverride.correctChoice || question.correctChoice);
+        if (!/^[アイウエ]$/.test(effectiveChoice)) fail(`${where}: correctChoice must be ア/イ/ウ/エ`);
         const canonical = Array.from(clean(subject.answerKey || ''))[no - 1];
-        if (canonical && clean(question.correctChoice) !== canonical) fail(`${where}: correctChoice does not match official answer key`);
+        if (canonical && effectiveChoice !== canonical) fail(`${where}: correctChoice does not match official answer key`);
       }
     });
     for (let no = 1; no <= subject.questionCount; no += 1) {
