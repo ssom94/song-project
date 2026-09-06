@@ -22,6 +22,22 @@ function clean(value) {
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
+function isOfficialPdf(value) {
+  const url = clean(value);
+  return /^https:\/\/www\.ipa\.go\.jp\/shiken\/mondai-kaiotu\/.+\.pdf$/i.test(url);
+}
+function validateViewerReady(session, subjectCode, subject) {
+  if (subject.status !== 'viewer-ready') return;
+  if (!isOfficialPdf(subject.questionPdfUrl)) fail(`${session.key} ${subjectCode}: viewer-ready requires official IPA questionPdfUrl`);
+  if (!isOfficialPdf(subject.answerPdfUrl)) fail(`${session.key} ${subjectCode}: viewer-ready requires official IPA answerPdfUrl`);
+  if (subjectCode === 'A') {
+    const key = clean(subject.answerKey);
+    if (Array.from(key).length !== 80) fail(`${session.key} A: answerKey must contain exactly 80 choices`);
+    if (!/^[アイウエ]+$/.test(key)) fail(`${session.key} A: answerKey may contain only ア/イ/ウ/エ`);
+  } else if (!isOfficialPdf(subject.commentaryPdfUrl)) {
+    fail(`${session.key} B: viewer-ready requires official IPA commentaryPdfUrl`);
+  }
+}
 function validateReadyQuestions(data, subjectCode, file) {
   if (!Array.isArray(data.questions)) return;
   const numbers = new Set();
@@ -90,7 +106,8 @@ for (let i = 0; i < expected.length; i += 1) {
   if (a.questionCount !== 80 || a.answerCount !== 80) fail(`${key} A: expected 80/80`);
   if (b.questionCount !== 11 || b.answerCount !== 5) fail(`${key} B: expected 11 presented / 5 answered`);
   for (const [subjectCode, subject] of [['A', a], ['B', b]]) {
-    if (!['awaiting-source', 'ready'].includes(subject.status)) fail(`${key} ${subjectCode}: unsupported status ${subject.status}`);
+    if (!['awaiting-source', 'viewer-ready', 'ready'].includes(subject.status)) fail(`${key} ${subjectCode}: unsupported status ${subject.status}`);
+    validateViewerReady(session, subjectCode, subject);
     validateReadyFile(session, subjectCode, subject);
   }
 }
@@ -100,12 +117,22 @@ if (!Array.isArray(published.sessions) || published.sessions.length !== expected
 } else {
   expected.forEach(([key, date, url], index) => {
     const item = published.sessions[index];
+    const source = manifest.sessions[index];
     if (item.key !== key || item.administeredAt !== date || item.sourceUrl !== url) fail(`public catalog mismatch at ${key}`);
     if (item.subjects?.A?.questionCount !== 80 || item.subjects?.B?.questionCount !== 11) fail(`public catalog question targets mismatch at ${key}`);
+    for (const subjectCode of ['A', 'B']) {
+      const pub = item.subjects?.[subjectCode];
+      const src = source.subjects?.[subjectCode];
+      if (pub?.status !== src?.status) fail(`public catalog status mismatch at ${key} ${subjectCode}`);
+      if (pub?.questionPdfUrl !== src?.questionPdfUrl || pub?.answerPdfUrl !== src?.answerPdfUrl) fail(`public catalog PDF mismatch at ${key} ${subjectCode}`);
+      if (subjectCode === 'A' && pub?.answerKey !== src?.answerKey) fail(`public catalog answerKey mismatch at ${key} A`);
+      if (subjectCode === 'B' && pub?.commentaryPdfUrl !== src?.commentaryPdfUrl) fail(`public catalog commentary mismatch at ${key} B`);
+    }
   });
 }
 
 if (!process.exitCode) {
-  const readySubjects = manifest.sessions.flatMap((s) => ['A', 'B'].map((code) => s.subjects[code].status === 'ready')).filter(Boolean).length;
-  console.log(`AP past exam catalog OK: ${manifest.sessions.length} sessions, ${readySubjects}/10 subject papers imported.`);
+  const viewerSubjects = manifest.sessions.flatMap((s) => ['A', 'B'].map((code) => s.subjects[code].status === 'viewer-ready')).filter(Boolean).length;
+  const importedSubjects = manifest.sessions.flatMap((s) => ['A', 'B'].map((code) => s.subjects[code].status === 'ready')).filter(Boolean).length;
+  console.log(`AP past exam catalog OK: ${manifest.sessions.length} sessions, ${viewerSubjects}/10 official PDF viewers, ${importedSubjects}/10 locally imported papers.`);
 }
