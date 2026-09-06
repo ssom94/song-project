@@ -9,10 +9,14 @@ on:
       - 'scripts/ap/**'
       - 'src/ap-mock-exams.ts'
       - 'public/assets/js/study/ap-mock-exams*.js'
+      - 'public/assets/js/study/ap-past-exam-viewer.js'
       - 'public/assets/css/study/ap-mock-exams.css'
+      - 'public/assets/css/study/ap-past-exam-*.css'
       - 'public/assets/data/ap-past-exams.json'
       - 'public/ko/study/ap/mock-exams/**'
       - 'public/ja/study/ap/mock-exams/**'
+      - 'public/ko/study/ap/past-exams/**'
+      - 'public/ja/study/ap/past-exams/**'
       - 'migrations/0076_ap_mock_exam_foundation.sql'
       - 'migrations/0077_ap_mock_exam_structured_written_answers.sql'
       - 'migrations/0085_ap_mock_exam_round04_shells.sql'
@@ -37,10 +41,14 @@ on:
       - 'scripts/ap/**'
       - 'src/ap-mock-exams.ts'
       - 'public/assets/js/study/ap-mock-exams*.js'
+      - 'public/assets/js/study/ap-past-exam-viewer.js'
       - 'public/assets/css/study/ap-mock-exams.css'
+      - 'public/assets/css/study/ap-past-exam-*.css'
       - 'public/assets/data/ap-past-exams.json'
       - 'public/ko/study/ap/mock-exams/**'
       - 'public/ja/study/ap/mock-exams/**'
+      - 'public/ko/study/ap/past-exams/**'
+      - 'public/ja/study/ap/past-exams/**'
       - 'migrations/0076_ap_mock_exam_foundation.sql'
       - 'migrations/0077_ap_mock_exam_structured_written_answers.sql'
       - 'migrations/0085_ap_mock_exam_round04_shells.sql'
@@ -76,11 +84,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check mock exam browser scripts
+      - name: Check mock and past exam browser scripts
         run: |
           node --check public/assets/js/study/ap-mock-exams-list.js
           node --check public/assets/js/study/ap-mock-exams-submit-guard.js
           node --check public/assets/js/study/ap-mock-exams.js
+          node --check public/assets/js/study/ap-past-exam-viewer.js
 
       - name: Validate official past exam catalog
         run: npm run ap:past:validate
