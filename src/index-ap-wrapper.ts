@@ -9,6 +9,11 @@ import {
 } from './admin/ap-vocabulary';
 import { handleListAdminApVocabularyWrongNotes } from './admin/ap-vocabulary-wrong';
 import {
+	handleDeleteAdminApConceptNote,
+	handleGetPublicApConceptNotes,
+	handlePatchAdminApConceptNote,
+} from './ap-concept-notes';
+import {
 	handleGetPublicApPractice,
 	handleGradePublicApPractice,
 	handleListAdminApWrongNotes,
@@ -72,6 +77,7 @@ export default {
 			case '/api/public/site-visuals': return request.method === 'GET' ? handleGetPublicSiteVisuals(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/dashboard': return request.method === 'GET' ? handleGetPublicApDashboardReadOnly(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/concepts': return request.method === 'GET' ? handleGetPublicApConcepts(request, env) : methodNotAllowed('GET');
+			case '/api/public/ap/concept-notes': return request.method === 'GET' ? handleGetPublicApConceptNotes(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/concept-progress': return request.method === 'GET' ? handleGetPublicApConceptProgress(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice': return request.method === 'GET' ? handleGetPublicApPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/practice/grade': return request.method === 'POST' ? handleGradePublicApPractice(request, env) : methodNotAllowed('POST');
@@ -92,6 +98,10 @@ export default {
 			case '/api/admin/japanese/jlpt/practice/grade': return request.method === 'POST' ? handleGradeAdminJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/wrong-notes': return request.method === 'GET' ? handleListAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/ap/wrong-notes': return request.method === 'GET' ? handleListAdminApWrongNotes(request, env) : methodNotAllowed('GET');
+			case '/api/admin/ap/concept-notes':
+				if (request.method === 'PATCH') return handlePatchAdminApConceptNote(request, env);
+				if (request.method === 'DELETE') return handleDeleteAdminApConceptNote(request, env);
+				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/ap/concept-progress': return request.method === 'PATCH' ? handlePatchAdminApConceptProgress(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/ap/mock-exams/start': return request.method === 'POST' ? handleStartAdminApMockExam(request, env) : methodNotAllowed('POST');
 			case '/api/admin/ap/mock-exams/answer': return request.method === 'POST' ? handleSaveAdminApMockExamAnswer(request, env) : methodNotAllowed('POST');
