@@ -1,0 +1,44 @@
+{
+  "subject": "B",
+  "examNo": 4,
+  "questions": [
+    {
+      "questionNo": 1,
+      "sectionCode": "SECURITY",
+      "type": "written",
+      "promptJa": "CI環境で発生した依存関係混乱攻撃について，ログと設定を基に設問に答えよ。",
+      "promptKo": "CI 환경에서 발생한 의존성 혼동 공격에 대해 로그와 설정을 바탕으로 물음에 답하시오.",
+      "content": {
+        "passageJa": "A社は社内WebシステムでJavaScriptパッケージ internal-auth を利用している。社内レジストリには version 2.4.1 が登録されている。ビルド端末は社内レジストリと公開レジストリの両方を参照でき，名前が同じ場合により新しいversionを優先する設定であった。ある日，CIビルド直後に外部宛てHTTPS通信が検知された。",
+        "passageKo": "A사는 사내 Web 시스템에서 JavaScript 패키지 internal-auth를 사용한다. 사내 레지스트리에는 version 2.4.1이 등록되어 있다. 빌드 단말은 사내 레지스트리와 공개 레지스트리를 모두 참조할 수 있고 같은 이름이면 더 높은 version을 우선하는 설정이었다. 어느 날 CI 빌드 직후 외부 HTTPS 통신이 탐지되었다.",
+        "logs": [
+          "10:02:11 resolver package=internal-auth selected=9.9.9 registry=public\n10:02:12 npm install internal-auth@9.9.9\n10:02:13 postinstall node collect-env.js\n10:02:14 outbound dst=203.0.113.77:443 bytes=4281"
+        ],
+        "tables": [
+          {"titleJa":"レジストリ上の状態","headers":["レジストリ","package","version"],"rows":[["社内","internal-auth","2.4.1"],["公開","internal-auth","9.9.9"]]}
+        ],
+        "subquestions": [
+          {"key":"q1","promptJa":"この攻撃手法の名称を答えよ。","promptKo":"이 공격기법의 명칭을 쓰시오."},
+          {"key":"q2","promptJa":"公開側の不正packageが選択された直接の理由を答えよ。","promptKo":"공개 측 악성 패키지가 선택된 직접적인 이유를 쓰시오."},
+          {"key":"q3","promptJa":"被害拡大を抑えるために直ちに行うべき措置を一つ答えよ。","promptKo":"피해 확산을 막기 위해 즉시 해야 할 조치 하나를 쓰시오."},
+          {"key":"q4","promptJa":"再発防止のため依存packageの取得方法をどのように変更すべきか答えよ。","promptKo":"재발 방지를 위해 의존 패키지 취득 방식을 어떻게 변경해야 하는지 쓰시오."}
+        ]
+      },
+      "modelAnswerJa": "q1: 依存関係混乱攻撃（Dependency Confusion）。\nq2: 同名packageではversionが高いものを優先し，公開レジストリの9.9.9を選択する設定だったため。\nq3: 該当ビルドを停止・隔離し，流出した可能性のあるCI秘密情報を失効・再発行する。\nq4: internal-authを社内レジストリに固定し，lockfileやscope設定で許可した供給元とversionだけを取得する。",
+      "modelAnswerKo": "q1: 의존성 혼동 공격(Dependency Confusion).\nq2: 같은 이름이면 더 높은 version을 우선해 공개 레지스트리의 9.9.9가 선택되는 설정이었기 때문이다.\nq3: 해당 빌드를 중지·격리하고 유출 가능성이 있는 CI 비밀정보를 무효화·재발급한다.\nq4: internal-auth의 공급원을 사내 레지스트리로 고정하고 lockfile이나 scope 설정으로 허용된 공급원과 version만 취득한다.",
+      "explanationJa": "社内専用と同名のpackageを公開レジストリにより高いversionで公開し，resolverの優先規則を悪用する典型的なDependency Confusionである。postinstall直後の外部通信は秘密情報流出の疑いがあるため，初動ではビルド停止と資格情報失効を行う。恒久対策は供給元の固定，scope，lockfile，許可リストなどで外部packageへ解決されないようにすることである。",
+      "explanationKo": "사내용과 같은 이름의 패키지를 공개 레지스트리에 더 높은 version으로 등록해 resolver의 우선순위를 악용한 전형적인 Dependency Confusion이다. postinstall 직후 외부 통신이 있으므로 비밀정보 유출 가능성을 고려해 빌드를 중단하고 자격정보를 무효화해야 한다. 재발방지는 공급원 고정, scope, lockfile, 허용목록 등으로 외부 패키지로 해석되지 않게 하는 것이다.",
+      "maxScore": 20,
+      "mandatory": true,
+      "sourceConceptCode": "B-01",
+      "gradingSchema": {
+        "criteria": [
+          {"key":"q1","score":5,"modelJa":"依存関係混乱攻撃（Dependency Confusion）","modelKo":"의존성 혼동 공격(Dependency Confusion)"},
+          {"key":"q2","score":5,"modelJa":"同名packageで高いversionを優先したため","modelKo":"동일 이름에서 높은 version을 우선했기 때문"},
+          {"key":"q3","score":5,"modelJa":"ビルド停止・隔離とCI秘密情報の失効","modelKo":"빌드 중지·격리 및 CI 비밀정보 무효화"},
+          {"key":"q4","score":5,"modelJa":"社内レジストリ固定・lockfile等で供給元を制限","modelKo":"사내 레지스트리 고정·lockfile 등으로 공급원 제한"}
+        ]
+      }
+    }
+  ]
+}
