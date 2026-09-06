@@ -1,0 +1,35 @@
+{
+  "subject":"B",
+  "examNo":7,
+  "questions":[{
+    "questionNo":1,
+    "sectionCode":"SECURITY",
+    "type":"written",
+    "promptJa":"多要素認証を導入したWebサービスで発生したAiTMフィッシングの事例を基に，設問に答えよ。",
+    "promptKo":"다중요소인증을 도입한 웹서비스에서 발생한 AiTM 피싱 사례를 바탕으로 물음에 답하시오.",
+    "content":{
+      "passageJa":"A社はID・パスワードに加えてTOTPを要求する管理ポータルを運用している。攻撃者は正規サイトに似たドメインを用意し，利用者と正規サイトの間を中継するフィッシングサイトを構築した。被害者がID・パスワードとTOTPを入力すると，攻撃者はそれらを即時に正規サイトへ転送し，認証後に発行されたセッションCookieも取得した。ログでは，認証直後から通常とは異なる端末で管理操作が行われていた。",
+      "passageKo":"A사는 ID·비밀번호에 더해 TOTP를 요구하는 관리자 포털을 운영한다. 공격자는 정상 사이트와 비슷한 도메인을 준비하고 사용자와 정상 사이트 사이를 중계하는 피싱 사이트를 구축했다. 피해자가 ID·비밀번호와 TOTP를 입력하자 공격자는 이를 즉시 정상 사이트로 전달했고 인증 후 발급된 세션 쿠키도 취득했다. 로그에는 인증 직후 평소와 다른 단말에서 관리자 작업이 수행된 기록이 남아 있었다.",
+      "logs":["09:21:04 LOGIN user=admin17 mfa=totp result=success ip=198.51.100.77\n09:21:06 SESSION issued=s_72aa device=new-browser\n09:22:10 ADMIN action=create_api_key session=s_72aa result=success"],
+      "subquestions":[
+        {"key":"q1","promptJa":"この攻撃を何と呼ぶか答えよ。","promptKo":"이 공격을 무엇이라 부르는지 쓰시오."},
+        {"key":"q2","promptJa":"この種の中継型フィッシングに対して，オリジンへの結び付きによって耐性を高める認証方式を答えよ。","promptKo":"이러한 중계형 피싱에 대해 오리진 바인딩으로 내성을 높이는 인증방식을 쓰시오."},
+        {"key":"q3","promptJa":"既にセッションCookieが盗まれた可能性がある利用者に対する初動対応を一つ答えよ。","promptKo":"이미 세션 쿠키가 탈취됐을 가능성이 있는 사용자에 대한 초동대응 하나를 쓰시오."},
+        {"key":"q4","promptJa":"異常端末からの管理操作を追加で抑止するために有効なアクセス制御を一つ答えよ。","promptKo":"이상 단말에서의 관리자 작업을 추가로 억제하기 위한 유효한 접근통제 하나를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: Adversary-in-the-Middle(AiTM)型フィッシング。\nq2: WebAuthn/FIDO2によるフィッシング耐性MFA（パスキーを含む）。\nq3: 該当セッションを強制失効させ，資格情報・関連トークンを再発行しログを調査する。\nq4: 管理操作を管理端末・準拠端末に限定するConditional Accessなどを適用する。",
+    "modelAnswerKo":"q1: Adversary-in-the-Middle(AiTM)형 피싱.\nq2: WebAuthn/FIDO2 기반 피싱 내성 MFA(패스키 포함).\nq3: 해당 세션을 강제 폐기하고 자격정보·관련 토큰을 재발급하며 로그를 조사한다.\nq4: 관리자 작업을 관리 단말·준수 단말로 제한하는 Conditional Access 등을 적용한다.",
+    "explanationJa":"TOTPは短時間有効なコードであってもリアルタイム中継されると利用され得る。WebAuthnは認証器が正しいオリジンに対して署名するため，中継型フィッシングへの耐性が高い。セッションCookieが奪われた場合はMFAを通過済みのセッションとして悪用されるため，認証情報だけでなくセッション失効が重要である。",
+    "explanationKo":"TOTP는 짧은 시간만 유효해도 실시간 중계되면 악용될 수 있다. WebAuthn은 인증기가 올바른 오리진에 대해 서명하므로 중계형 피싱에 대한 내성이 높다. 세션 쿠키가 탈취되면 MFA를 통과한 세션으로 악용될 수 있으므로 인증정보 변경뿐 아니라 세션 폐기가 중요하다.",
+    "maxScore":20,
+    "mandatory":true,
+    "sourceConceptCode":"B-01",
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"AiTM型フィッシング","modelKo":"AiTM형 피싱"},
+      {"key":"q2","score":5,"modelJa":"WebAuthn/FIDO2のフィッシング耐性MFA","modelKo":"WebAuthn/FIDO2 피싱 내성 MFA"},
+      {"key":"q3","score":5,"modelJa":"セッション強制失効と関連資格情報・ログ確認","modelKo":"세션 강제 폐기 및 관련 자격·로그 확인"},
+      {"key":"q4","score":5,"modelJa":"管理端末等に限定する条件付きアクセス","modelKo":"관리 단말 등으로 제한하는 조건부 접근"}
+    ]}
+  }]
+}
