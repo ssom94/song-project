@@ -53,7 +53,8 @@
 				visited.add(id);
 				const label = categoryLabel(category);
 				const path = parentPath ? `${parentPath} > ${label}` : label;
-				rows.push({ category, path, depth });
+				const hasChildren = (childrenByParent.get(id)?.length ?? 0) > 0;
+				rows.push({ category, path, depth, hasChildren });
 				walk(id, path, depth + 1);
 			}
 		};
@@ -63,9 +64,20 @@
 			const id = Number(category?.id);
 			if (!Number.isSafeInteger(id) || id <= 0 || visited.has(id)) continue;
 			visited.add(id);
-			rows.push({ category, path: categoryLabel(category), depth: 0 });
+			rows.push({ category, path: categoryLabel(category), depth: 0, hasChildren: false });
 		}
 		return rows;
+	}
+
+	function firstLeafDescendant(rows, parentRow) {
+		const index = rows.indexOf(parentRow);
+		if (index < 0) return null;
+		for (let i = index + 1; i < rows.length; i += 1) {
+			const row = rows[i];
+			if (row.depth <= parentRow.depth) break;
+			if (!row.hasChildren) return row;
+		}
+		return null;
 	}
 
 	function tagLabel(tag) {
@@ -81,6 +93,7 @@
 		if (!select) return;
 
 		const selectedValue = select.value;
+		const rows = orderedCategoryPaths();
 		select.replaceChildren();
 
 		const unclassified = document.createElement('option');
@@ -89,14 +102,34 @@
 		unclassified.textContent = t('categoryNone', currentLanguage() === 'ko' ? '미분류' : '未分類');
 		select.appendChild(unclassified);
 
-		for (const { category, path } of orderedCategoryPaths()) {
+		for (const row of rows) {
+			const { category, path, depth, hasChildren } = row;
 			const option = document.createElement('option');
+			const indent = '\u00a0\u00a0'.repeat(depth);
 			option.value = String(category.id);
-			option.textContent = path;
+			option.disabled = hasChildren;
+			option.dataset.categoryParent = hasChildren ? 'true' : 'false';
+			if (hasChildren) {
+				const groupLabel = currentLanguage() === 'ko' ? '분류용 · 하위 카테고리 선택' : '分類用・下位カテゴリーを選択';
+				option.textContent = `${indent}▾ ${path} (${groupLabel})`;
+			} else if (depth > 0) {
+				option.textContent = `${indent}↳ ${path}`;
+			} else {
+				option.textContent = path;
+			}
 			select.appendChild(option);
 		}
 
-		if ([...select.options].some((option) => option.value === selectedValue)) {
+		const selectedRow = rows.find((row) => String(row.category.id) === selectedValue);
+		if (selectedRow?.hasChildren) {
+			const fallback = firstLeafDescendant(rows, selectedRow);
+			if (fallback) {
+				select.value = String(fallback.category.id);
+				return;
+			}
+		}
+
+		if ([...select.options].some((option) => option.value === selectedValue && !option.disabled)) {
 			select.value = selectedValue;
 		}
 	}
