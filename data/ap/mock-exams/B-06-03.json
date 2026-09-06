@@ -1,0 +1,34 @@
+{
+  "subject":"B",
+  "examNo":6,
+  "questions":[{
+    "questionNo":3,
+    "sectionCode":"PROGRAMMING",
+    "type":"written",
+    "promptJa":"Union-Findを用いた無向グラフの連結成分管理と閉路検出について，設問に答えよ。",
+    "promptKo":"Union-Find를 이용한 무방향 그래프의 연결요소 관리와 사이클 검출에 대해 물음에 답하시오.",
+    "content":{
+      "passageJa":"頂点A～Fをもつ無向グラフについて，辺を1本ずつ追加しながらUnion-Findで連結成分を管理する。最初は各頂点が別集合である。辺をA-B, B-C, D-E, C-Dの順に追加した後，さらにA-Eを追加しようとしている。Union-Findではfind(x)でxの代表元を取得し，異なる集合ならunionで併合する。path compressionとunion by rankを利用するものとする。",
+      "passageKo":"정점 A~F를 가진 무방향 그래프에서 간선을 하나씩 추가하며 Union-Find로 연결요소를 관리한다. 처음에는 각 정점이 별도 집합이다. 간선을 A-B, B-C, D-E, C-D 순으로 추가한 뒤 A-E를 추가하려 한다. Union-Find에서는 find(x)로 x의 대표를 구하고 서로 다른 집합이면 union으로 합친다. path compression과 union by rank를 사용한다고 한다.",
+      "subquestions":[
+        {"key":"q1","promptJa":"Union-Findのfind操作が返すものを答えよ。","promptKo":"Union-Find의 find 연산이 반환하는 것을 쓰시오."},
+        {"key":"q2","promptJa":"A-B, B-C, D-E, C-Dまで追加した時点で，A～Fの連結成分数は幾つか。","promptKo":"A-B, B-C, D-E, C-D까지 추가한 시점에서 A~F의 연결요소 수는 몇 개인가?"},
+        {"key":"q3","promptJa":"その状態で辺A-Eを追加すると閉路が生じるか。理由とともに答えよ。","promptKo":"그 상태에서 간선 A-E를 추가하면 사이클이 생기는가? 이유와 함께 쓰시오."},
+        {"key":"q4","promptJa":"path compressionとunion by rankを併用したとき，多数回の操作に対する1操作当たりの償却計算量を答えよ。","promptKo":"path compression과 union by rank를 함께 사용할 때 많은 연산에 대한 1회 연산의 상각 시간복잡도를 쓰시오."}
+      ]
+    },
+    "modelAnswerJa":"q1: 頂点が属する集合の代表元（root）。\nq2: 2成分。A,B,C,D,Eが1成分で，Fが単独。\nq3: 生じる。AとEは既に同じ集合なので，その二頂点を結ぶ辺を追加すると既存経路と合わせて閉路になる。\nq4: ほぼO(1)，厳密には償却O(α(n))。",
+    "modelAnswerKo":"q1: 정점이 속한 집합의 대표(root).\nq2: 2개 연결요소. A,B,C,D,E가 하나이고 F가 단독이다.\nq3: 생긴다. A와 E는 이미 같은 집합이므로 두 정점을 잇는 간선을 추가하면 기존 경로와 합쳐 사이클이 된다.\nq4: 거의 O(1), 엄밀히는 상각 O(α(n)).",
+    "explanationJa":"A-BとB-CでA,B,Cが一つになり，D-EでD,Eが一つになる。C-Dで両集合が統合され，A～Eが同一集合となる。したがってA-Eは同一集合内の辺となり閉路を作る。path compressionとunion by rankを併用するとfind/unionの償却計算量は逆アッカーマン関数α(n)に比例する。",
+    "explanationKo":"A-B와 B-C로 A,B,C가 하나가 되고 D-E로 D,E가 하나가 된다. C-D로 두 집합이 합쳐져 A~E가 동일 집합이 된다. 따라서 A-E는 같은 집합 내부 간선이 되어 사이클을 만든다. path compression과 union by rank를 함께 쓰면 find/union의 상각 시간복잡도는 역 아커만 함수 α(n)에 비례한다.",
+    "maxScore":20,
+    "mandatory":false,
+    "sourceConceptCode":null,
+    "gradingSchema":{"criteria":[
+      {"key":"q1","score":5,"modelJa":"集合の代表元(root)","modelKo":"집합의 대표(root)"},
+      {"key":"q2","score":5,"modelJa":"2成分","modelKo":"2개 연결요소"},
+      {"key":"q3","score":5,"modelJa":"閉路が生じる。AとEが既に同一集合","modelKo":"사이클이 생김. A와 E가 이미 동일 집합"},
+      {"key":"q4","score":5,"modelJa":"償却O(α(n))","modelKo":"상각 O(α(n))"}
+    ]}
+  }]
+}
