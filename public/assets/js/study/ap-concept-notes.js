@@ -66,7 +66,8 @@
         : t(`${target.label} 메모 추가`, `${target.label}にメモを追加`));
       button.setAttribute('title', hasNote ? t('저장된 메모 보기', '保存済みメモを見る') : t('메모 추가', 'メモを追加'));
       const copy = button.querySelector('.ap-note-trigger-copy');
-      if (copy) copy.textContent = hasNote ? t('메모 보기', 'メモを見る') : t('메모 추가', 'メモ追加');
+      const wanted = hasNote ? t('메모 보기', 'メモを見る') : t('메모 추가', 'メモ追加');
+      if (copy && copy.textContent !== wanted) copy.textContent = wanted;
     });
   }
 
@@ -200,8 +201,6 @@
     if (event.key === 'Escape' && !modal.hidden) closeModal();
     if ((event.ctrlKey || event.metaKey) && event.key === 'Enter' && !modal.hidden) saveCurrent();
   });
-
-  const observer = new MutationObserver(() => syncButtons());
-  observer.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('ap:concept-rendered', syncButtons);
   loadNotes();
 })();
