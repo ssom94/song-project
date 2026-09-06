@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "sessions": {
+    "2025-spring-A": {
+      "questions": {
+        "39": {
+          "correctChoice": "ウ",
+          "reason": "IPA official 2025 spring morning answer key: Q39 = ウ"
+        }
+      }
+    },
+    "2024-spring-A": {
+      "interpretationFromTopic": true
+    },
+    "2023-autumn-A": {
+      "interpretationFromTopic": true
+    }
+  }
+}
