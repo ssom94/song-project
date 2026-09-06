@@ -170,6 +170,10 @@
 	}
 
 	function renderSidebarCategories(categories) {
+		if (typeof window.BlogDashboard?.renderCategories === 'function') {
+			window.BlogDashboard.renderCategories(categories, currentLanguage(), selectedCategory());
+			return;
+		}
 		const container = document.getElementById('blog-sidebar-categories');
 		const empty = document.getElementById('blog-sidebar-categories-empty');
 		if (!container) return;
