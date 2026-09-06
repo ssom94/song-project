@@ -66,3 +66,31 @@ SET category_id = (
 )
 WHERE posts.deleted_at IS NULL
 	AND posts.category_id IN (SELECT root_id FROM first_leaf);
+
+-- Defense in depth: even a direct API/SQL write cannot assign a post to an
+-- active category that currently owns child categories.
+CREATE TRIGGER IF NOT EXISTS trg_posts_leaf_category_insert
+BEFORE INSERT ON posts
+WHEN NEW.category_id IS NOT NULL
+	AND EXISTS (
+		SELECT 1
+		FROM categories AS child
+		WHERE child.parent_id = NEW.category_id
+			AND child.deleted_at IS NULL
+	)
+BEGIN
+	SELECT RAISE(ABORT, 'CATEGORY_HAS_CHILDREN');
+END;
+
+CREATE TRIGGER IF NOT EXISTS trg_posts_leaf_category_update
+BEFORE UPDATE OF category_id ON posts
+WHEN NEW.category_id IS NOT NULL
+	AND EXISTS (
+		SELECT 1
+		FROM categories AS child
+		WHERE child.parent_id = NEW.category_id
+			AND child.deleted_at IS NULL
+	)
+BEGIN
+	SELECT RAISE(ABORT, 'CATEGORY_HAS_CHILDREN');
+END;
