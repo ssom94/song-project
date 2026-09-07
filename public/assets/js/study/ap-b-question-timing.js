@@ -167,9 +167,7 @@
     const data = readJson(PERFORMANCE_KEY, { version:1, attempts:[] });
     if (!Array.isArray(data?.attempts) || !data.attempts.length) return;
     const latest = data.attempts[data.attempts.length - 1];
-    if (latest?.source !== 'simulation') return;
-    const at = Date.parse(latest?.at || '');
-    if (!Number.isFinite(at) || Math.abs(Date.now() - at) > 30000) return;
+    if (latest?.source !== 'simulation' || latest?.mode !== 'timed-150') return;
     const selected = new Set((latest.selected || []).map(Number));
     latest.questionSeconds = normalizeTimes(questionSeconds, selected);
     localStorage.setItem(PERFORMANCE_KEY, JSON.stringify({ version:1, attempts:data.attempts.slice(-20) }));
