@@ -13,6 +13,8 @@
     '2025-autumn': { url: '/assets/data/ap-reinforcement/2025-autumn-A-calibration.json', labelKo: '2025 가을 단일 기준', labelJa: '2025年秋期単独基準' },
     'five-session-b': { url: '/assets/data/ap-reinforcement/5-session-B-calibration.json', labelKo: '科目B 5회 통합', labelJa: '科目B 5回統合' },
   };
+  const B_PERFORMANCE_KEY = 'song:ap:b-reinforcement-performance:v1';
+  const B_PERFORMANCE_LIMIT = 20;
   const letters = ['ア', 'イ', 'ウ', 'エ'];
   const state = new Map();
   const selectedB = new Set([1]);
@@ -84,16 +86,39 @@
     bindA(questions);
   }
 
+  function loadBPerformance() {
+    try {
+      const data = JSON.parse(localStorage.getItem(B_PERFORMANCE_KEY) || '{}');
+      return { version: 1, attempts: Array.isArray(data.attempts) ? data.attempts : [] };
+    } catch {
+      return { version: 1, attempts: [] };
+    }
+  }
+  function saveBPerformanceAttempt(attempt) {
+    const data = loadBPerformance();
+    data.attempts.push(attempt);
+    data.attempts = data.attempts.slice(-B_PERFORMANCE_LIMIT);
+    localStorage.setItem(B_PERFORMANCE_KEY, JSON.stringify(data));
+    return data.attempts.length;
+  }
   function questionHtmlB(q) {
     const content = q.content || {};
     const passage = lang === 'ko' ? content.passageKo : content.passageJa;
     const mandatory = Boolean(q.mandatory);
     const subquestions = Array.isArray(content.subquestions) ? content.subquestions : [];
-    return `<article class="ap-mock-question ap-reinforcement-b-question${mandatory ? ' is-selected' : ''}" data-question-no="${q.questionNo}"><div class="ap-mock-question-head"><div><span class="ap-mock-question-number">Q${q.questionNo}</span> <span class="ap-mock-status">${esc(lang === 'ko' ? q.fieldKo : q.fieldJa)}</span> ${mandatory ? `<span class="ap-mock-status is-completed">${esc(t('필수','必須'))}</span>` : ''}</div><span>${esc(t(`난이도 ${q.difficulty}/4`,`難易度 ${q.difficulty}/4`))}</span></div><div class="ap-mock-question-body">${mandatory ? '' : `<button type="button" class="ap-mock-button ap-b-select" data-select-b="${q.questionNo}">${esc(t('선택하기','選択する'))}</button>`}<p class="ap-mock-question-prompt">${esc(passage)}</p>${subquestions.map((sq) => `<div class="ap-reinforcement-b-sub"><p><strong>${esc(sq.key.toUpperCase())}.</strong> ${esc(lang === 'ko' ? sq.promptKo : sq.promptJa)} <span class="ap-mock-note">(${sq.score}${esc(t('점','点'))})</span></p><textarea class="ap-mock-answer-input" rows="3" data-b-answer="${q.questionNo}:${esc(sq.key)}" placeholder="${esc(t('답안을 직접 작성하세요.','解答を入力してください。'))}"></textarea><div class="ap-mock-explanation" data-b-model hidden><p><strong>${esc(t('모범답안','模範解答'))}:</strong> ${esc(lang === 'ko' ? sq.modelKo : sq.modelJa)}</p></div></div>`).join('')}<div class="ap-mock-explanation" data-b-overall hidden><p>${esc(lang === 'ko' ? q.explanationKo : q.explanationJa)}</p><p class="ap-mock-note"><strong>${esc(t('시험 포인트','試験ポイント'))}:</strong> ${esc(lang === 'ko' ? q.examPointKo : q.examPointJa)}</p></div></div></article>`;
+    return `<article class="ap-mock-question ap-reinforcement-b-question${mandatory ? ' is-selected' : ''}" data-question-no="${q.questionNo}"><div class="ap-mock-question-head"><div><span class="ap-mock-question-number">Q${q.questionNo}</span> <span class="ap-mock-status">${esc(lang === 'ko' ? q.fieldKo : q.fieldJa)}</span> ${mandatory ? `<span class="ap-mock-status is-completed">${esc(t('필수','必須'))}</span>` : ''}</div><span>${esc(t(`난이도 ${q.difficulty}/4`,`難易度 ${q.difficulty}/4`))}</span></div><div class="ap-mock-question-body">${mandatory ? '' : `<button type="button" class="ap-mock-button ap-b-select" data-select-b="${q.questionNo}">${esc(t('선택하기','選択する'))}</button>`}<p class="ap-mock-question-prompt">${esc(passage)}</p>${subquestions.map((sq) => `<div class="ap-reinforcement-b-sub"><p><strong>${esc(sq.key.toUpperCase())}.</strong> ${esc(lang === 'ko' ? sq.promptKo : sq.promptJa)} <span class="ap-mock-note">(${sq.score}${esc(t('점','点'))})</span></p><textarea class="ap-mock-answer-input" rows="3" data-b-answer="${q.questionNo}:${esc(sq.key)}" placeholder="${esc(t('답안을 직접 작성하세요.','解答を入力してください。'))}"></textarea><div class="ap-mock-explanation" data-b-model hidden><p><strong>${esc(t('모범답안','模範解答'))}:</strong> ${esc(lang === 'ko' ? sq.modelKo : sq.modelJa)}</p><label class="ap-mock-note"><input type="checkbox" data-b-self-score data-question-no="${q.questionNo}" data-points="${sq.score}"/> ${esc(t(`이 소문항 배점 획득 (+${sq.score}점)`,`この小問の得点を獲得（+${sq.score}点）`))}</label></div></div>`).join('')}<div class="ap-mock-explanation" data-b-overall hidden><p>${esc(lang === 'ko' ? q.explanationKo : q.explanationJa)}</p><p class="ap-mock-note"><strong>${esc(t('시험 포인트','試験ポイント'))}:</strong> ${esc(lang === 'ko' ? q.examPointKo : q.examPointJa)}</p></div></div></article>`;
   }
   function updateBStatus() {
     const status = document.getElementById('ap-reinforcement-status');
     if (status) status.textContent = t(`필수 Q1 + 선택 ${Math.max(0, selectedB.size - 1)}/4`, `必須Q1 + 選択${Math.max(0, selectedB.size - 1)}/4`);
+  }
+  function resetBReview() {
+    root.querySelectorAll('[data-b-model], [data-b-overall]').forEach((el) => { el.hidden = true; });
+    root.querySelectorAll('[data-b-self-score]').forEach((input) => { input.checked = false; });
+    const panel = document.getElementById('ap-b-self-score-panel');
+    if (panel) panel.hidden = true;
+    const result = document.getElementById('ap-reinforcement-result');
+    if (result) result.hidden = true;
   }
   function refreshBSelection() {
     root.querySelectorAll('.ap-reinforcement-b-question').forEach((card) => {
@@ -105,14 +130,38 @@
     });
     updateBStatus();
   }
-  function bindB() {
+  function collectBScores(questions) {
+    const scores = {};
+    const selected = Array.from(selectedB).sort((a,b) => a-b);
+    for (const no of selected) {
+      const q = questions.find((item) => Number(item.questionNo) === no);
+      if (!q) continue;
+      const points = Array.from(root.querySelectorAll(`[data-b-self-score][data-question-no="${no}"]`)).reduce((sum, input) => sum + (input.checked ? Number(input.dataset.points || 0) : 0), 0);
+      scores[String(no)] = Math.max(0, Math.min(20, points));
+    }
+    const total = Object.values(scores).reduce((sum, value) => sum + Number(value || 0), 0);
+    return { selected, scores, total };
+  }
+  function renderBSelfScoreSummary(questions) {
+    const summary = document.querySelector('[data-b-score-summary]');
+    if (!summary) return;
+    const result = collectBScores(questions);
+    const rows = result.selected.map((no) => {
+      const q = questions.find((item) => Number(item.questionNo) === no);
+      return `<tr><td><strong>Q${no}</strong> · ${esc(lang === 'ko' ? q?.fieldKo : q?.fieldJa)}</td><td><strong>${result.scores[String(no)] || 0}/20</strong></td></tr>`;
+    }).join('');
+    summary.innerHTML = `<div class="ap-mock-table-wrap"><table class="ap-mock-table"><thead><tr><th>${esc(t('선택 문제','選択問題'))}</th><th>${esc(t('자기채점','自己採点'))}</th></tr></thead><tbody>${rows}<tr><td><strong>${esc(t('전체','合計'))}</strong></td><td><strong>${result.total}/100</strong></td></tr></tbody></table></div>`;
+  }
+  function bindB(questions) {
     root.querySelectorAll('[data-select-b]').forEach((button) => button.addEventListener('click', () => {
       const no = Number(button.dataset.selectB);
       if (selectedB.has(no)) selectedB.delete(no);
       else if (selectedB.size < 5) selectedB.add(no);
       else { alert(t('선택문제는 4개까지만 고를 수 있습니다.','選択問題は4問までです。')); return; }
+      resetBReview();
       refreshBSelection();
     }));
+    root.querySelectorAll('[data-b-self-score]').forEach((input) => input.addEventListener('change', () => renderBSelfScoreSummary(questions)));
     document.getElementById('ap-reinforcement-grade')?.addEventListener('click', () => {
       if (selectedB.size !== 5) { alert(t('Q1 필수 + 선택 4문제를 먼저 골라주세요.','Q1必須 + 選択4問を選んでください。')); return; }
       root.querySelectorAll('.ap-reinforcement-b-question').forEach((card) => {
@@ -120,14 +169,28 @@
         const show = selectedB.has(no);
         card.querySelectorAll('[data-b-model], [data-b-overall]').forEach((el) => { el.hidden = !show; });
       });
+      const panel = document.getElementById('ap-b-self-score-panel');
+      if (panel) panel.hidden = false;
+      renderBSelfScoreSummary(questions);
       const result = document.getElementById('ap-reinforcement-result');
-      if (result) { result.hidden = false; result.textContent = t('선택한 5문제의 모범답안과 배점기준을 열었습니다. 본문 근거가 포함됐는지 직접 비교해 자기채점하세요.', '選択した5問の模範解答と配点基準を表示しました。本文の根拠を含めているか比較し、自己採点してください。'); }
+      if (result) { result.hidden = false; result.textContent = t('선택한 5문제의 모범답안을 열었습니다. 맞힌 소문항의 체크박스를 선택하면 /100 점수가 자동 계산됩니다.', '選択した5問の模範解答を表示しました。正解できた小問にチェックすると、100点満点の自己採点を自動計算します。'); }
+    });
+    document.querySelector('[data-b-save-score]')?.addEventListener('click', () => {
+      if (selectedB.size !== 5) return;
+      const result = collectBScores(questions);
+      const count = saveBPerformanceAttempt({ at: new Date().toISOString(), selected: result.selected, scores: result.scores, total: result.total });
+      const status = document.querySelector('[data-b-save-status]');
+      if (status) {
+        status.hidden = false;
+        status.textContent = t(`자기채점 ${result.total}/100 저장 완료 · 브라우저에 최근 ${count}회 기록 보관`, `自己採点 ${result.total}/100 を保存しました・ブラウザに直近${count}回分を保存`);
+      }
     });
   }
   function renderB(data, questions) {
     selectedB.clear(); selectedB.add(1);
-    root.innerHTML = `<section class="ap-mock-card"><div class="ap-past-actions"><a class="ap-mock-button" href="${esc(location.pathname)}">${esc(t('科目A 보정 세트','科目A補正セット'))}</a><a class="ap-mock-button is-active" href="${esc(`${location.pathname}?subject=B`)}">${esc(t('科目B 5회 통합','科目B 5回統合'))}</a></div><p class="ap-mock-note">${esc(t('실전과 동일하게 Q1은 필수이며 Q2~Q11 중 4개를 선택합니다. 서술형은 자동 정오판정 대신 모범답안·배점기준으로 자기채점합니다.','実戦と同じくQ1は必須、Q2〜Q11から4問を選択します。記述式は自動正誤判定ではなく、模範解答・配点基準で自己採点します。'))}</p></section><section class="ap-mock-card"><div class="ap-mock-section-head"><div><p class="ap-mock-section-kicker">SUBJECT B CALIBRATION</p><h2>${esc(t('5회 실제기출 기준 서술형 보정','5回過去問基準 記述式キャリブレーション'))}</h2></div><p id="ap-reinforcement-status"></p></div><p class="ap-past-guide">${esc(lang === 'ko' ? data.targetProfile?.notesKo : data.targetProfile?.notesJa)}</p></section><div class="ap-mock-question-list">${questions.map(questionHtmlB).join('')}</div><section class="ap-mock-card"><div class="ap-mock-actions"><button id="ap-reinforcement-grade" class="ap-mock-button" type="button">${esc(t('선택한 5문제 모범답안 보기','選択した5問の模範解答を見る'))}</button></div><p id="ap-reinforcement-result" class="ap-past-guide" hidden></p></section>`;
-    refreshBSelection(); bindB();
+    root.innerHTML = `<section class="ap-mock-card"><div class="ap-past-actions"><a class="ap-mock-button" href="${esc(location.pathname)}">${esc(t('科目A 보정 세트','科目A補正セット'))}</a><a class="ap-mock-button is-active" href="${esc(`${location.pathname}?subject=B`)}">${esc(t('科目B 5회 통합','科目B 5回統合'))}</a></div><p class="ap-mock-note">${esc(t('실전과 동일하게 Q1은 필수이며 Q2~Q11 중 4개를 선택합니다. 서술형은 모범답안과 소문항 배점을 기준으로 자기채점하며, 저장한 성적은 선택분야 추천에 반영됩니다.','実戦と同じくQ1は必須、Q2〜Q11から4問を選択します。記述式は模範解答と小問配点で自己採点し、保存した成績は選択分野の推薦に反映されます。'))}</p></section><section class="ap-mock-card"><div class="ap-mock-section-head"><div><p class="ap-mock-section-kicker">SUBJECT B CALIBRATION</p><h2>${esc(t('5회 실제기출 기준 서술형 보정','5回過去問基準 記述式キャリブレーション'))}</h2></div><p id="ap-reinforcement-status"></p></div><p class="ap-past-guide">${esc(lang === 'ko' ? data.targetProfile?.notesKo : data.targetProfile?.notesJa)}</p></section><div class="ap-mock-question-list">${questions.map(questionHtmlB).join('')}</div><section class="ap-mock-card"><div class="ap-mock-actions"><button id="ap-reinforcement-grade" class="ap-mock-button" type="button">${esc(t('선택한 5문제 모범답안 보기','選択した5問の模範解答を見る'))}</button></div><p id="ap-reinforcement-result" class="ap-past-guide" hidden></p><div id="ap-b-self-score-panel" hidden><h3>${esc(t('科目B 자기채점','科目B 自己採点'))}</h3><p class="ap-mock-note">${esc(t('모범답안과 비교해 해당 소문항의 배점을 획득했다고 판단되면 체크하세요. 저장되는 것은 점수와 선택분야뿐이며 작성한 답안 원문은 저장하지 않습니다.','模範解答と比較し、その小問の配点を獲得できたと判断したらチェックしてください。保存するのは点数と選択分野だけで、入力した解答本文は保存しません。'))}</p><div data-b-score-summary></div><div class="ap-past-actions"><button class="ap-mock-button" type="button" data-b-save-score>${esc(t('자기채점 저장','自己採点を保存'))}</button><a class="ap-mock-button" href="/${lang}/study/ap/mock-exams/?subject=B">${esc(t('선택전략 보기','選択戦略を見る'))}</a></div><p class="ap-mock-note" data-b-save-status hidden></p></div></section>`;
+    refreshBSelection();
+    bindB(questions);
   }
 
   async function init() {
