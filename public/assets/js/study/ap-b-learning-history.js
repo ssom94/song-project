@@ -34,6 +34,7 @@
     const safe = Array.isArray(attempts) ? attempts.slice(-20) : [];
     localStorage.setItem(PERFORMANCE_KEY, JSON.stringify({ version: 1, attempts: safe }));
     window.dispatchEvent(new CustomEvent(CHANGE_EVENT, { detail: { count: safe.length } }));
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }
   function clampScore(value) {
     const n = Number(value);
@@ -134,6 +135,16 @@
   }
 
   document.addEventListener('click', (event) => {
+    const recommendationLink = event.target.closest?.('a[href*="focus="]');
+    if (recommendationLink) {
+      const source = recommendationLink.closest('#ap-b-weakness-dashboard') ? 'weakness' : recommendationLink.closest('#ap-b-progress-trends') ? 'progress' : null;
+      if (source) {
+        const url = new URL(recommendationLink.href, location.href);
+        url.searchParams.set('source', source);
+        recommendationLink.href = `${url.pathname}${url.search}${url.hash}`;
+      }
+    }
+
     const deleteButton = event.target.closest?.('[data-b-history-delete]');
     if (deleteButton) {
       const index = Number(deleteButton.dataset.bHistoryDelete);
