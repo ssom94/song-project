@@ -8,7 +8,7 @@
     {"sequence_no":1,"word":"概ね","reading":"おおむね","meaning":"대체로|대강","part":"副詞","example_ja":"計画は概ね予定どおりに進んでいる。","example_ko":"계획은 대체로 예정대로 진행되고 있다."},
     {"sequence_no":2,"word":"補う","reading":"おぎなう","meaning":"보충하다|메우다","part":"五段動詞","example_ja":"不足している知識は実務経験で補う必要がある。","example_ko":"부족한 지식은 실무 경험으로 보충할 필요가 있다."},
     {"sequence_no":3,"word":"把握","reading":"はあく","meaning":"파악|파악하다","part":"サ変名詞","example_ja":"障害の影響範囲を正確に把握する。","example_ko":"장애의 영향 범위를 정확하게 파악한다."},
-    {"sequence_no":4,"word":"衰える","reading":"おとろえる","meaning":"쇠하다|약해지다","part":"一段動詞","example_ja":"使わない能力は徐々に衰えていく。","example_ko":"사용하지 않는 능력은 서서히 쇠퇴해 간다."},
+    {"sequence_no":4,"word":"衰える","reading":"おとろえる","meaning":"쇠퇴하다|약해지다","part":"一段動詞","example_ja":"使わない能力は徐々に衰えていく。","example_ko":"사용하지 않는 능력은 서서히 쇠퇴해 간다."},
     {"sequence_no":5,"word":"見据える","reading":"みすえる","meaning":"내다보다|응시하다","part":"一段動詞","example_ja":"将来の運用を見据えてシステムを設計する。","example_ko":"향후 운영을 내다보고 시스템을 설계한다."},
     {"sequence_no":6,"word":"顕著","reading":"けんちょ","meaning":"현저함|두드러짐","part":"な形容詞","example_ja":"改善後は処理時間の短縮が顕著に表れた。","example_ko":"개선 후에는 처리 시간 단축이 두드러지게 나타났다."},
     {"sequence_no":7,"word":"柔軟","reading":"じゅうなん","meaning":"유연함|융통성 있음","part":"な形容詞","example_ja":"状況の変化に柔軟に対応することが求められる。","example_ko":"상황 변화에 유연하게 대응하는 것이 요구된다."},
