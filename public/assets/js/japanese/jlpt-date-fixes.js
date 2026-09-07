@@ -1,37 +1,34 @@
 (() => {
 	const DASHBOARD_API = '/api/public/japanese/jlpt/dashboard';
-	const FIX_SCRIPT = '/assets/js/japanese/jlpt-word-pagination-fix.js?v=20260903-2';
 	const PREPARED_RANGES = [{ from: '2026-09-07', to: '2027-02-28', questions: 21 }];
 	const isJa = document.body.dataset.blogLanguage === 'ja';
 	const t = (ko, ja) => isJa ? ja : ko;
 	const progressByDate = new Map();
 	let calendarMonth = '';
 	let dashboardPromise = null;
+	let mountPromise = null;
 	let repairTimer = 0;
+	let rootRepairTimer = 0;
 	let rendering = false;
 
 	function jstToday() {
 		return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 	}
+
 	function prepared(date) {
 		return PREPARED_RANGES.find((range) => date >= range.from && date <= range.to) || null;
 	}
+
 	function shiftMonth(month, delta) {
 		const [year, monthNo] = month.split('-').map(Number);
 		const value = new Date(Date.UTC(year, monthNo - 1 + delta, 1));
 		return `${value.getUTCFullYear()}-${String(value.getUTCMonth() + 1).padStart(2, '0')}`;
 	}
+
 	function selectedDate() {
 		return document.getElementById('jlpt-study-date')?.value || jstToday();
 	}
-	function loadFixScript() {
-		if (document.querySelector('script[data-jlpt-word-pagination-fix]')) return;
-		const script = document.createElement('script');
-		script.src = FIX_SCRIPT;
-		script.defer = true;
-		script.dataset.jlptWordPaginationFix = 'true';
-		document.head.appendChild(script);
-	}
+
 	function injectStyle() {
 		if (document.getElementById('jlpt-date-fixes-style')) return;
 		const style = document.createElement('style');
@@ -55,6 +52,7 @@
 		`;
 		document.head.appendChild(style);
 	}
+
 	function keepDateNavVisible() {
 		const nav = document.getElementById('jlpt-date-nav');
 		const todayCard = document.getElementById('jlpt-start-button')?.closest('.jlpt-card');
@@ -62,6 +60,7 @@
 		if (nav.parentElement === todayCard) todayCard.before(nav);
 		nav.classList.add('jlpt-persistent-date-nav');
 	}
+
 	async function loadDashboardProgress() {
 		if (dashboardPromise) return dashboardPromise;
 		dashboardPromise = fetch(DASHBOARD_API, { credentials: 'same-origin', cache: 'no-store' })
@@ -79,6 +78,7 @@
 			.catch(() => undefined);
 		return dashboardPromise;
 	}
+
 	function resolveState(date) {
 		const today = jstToday();
 		const progress = progressByDate.get(date) || {};
@@ -89,6 +89,7 @@
 		if (date < today) return { state: 'missed', text: t('미학습', '未学習') };
 		return { state: 'upcoming', text: t('학습일 전', '学習日前') };
 	}
+
 	function ensureMonthNav(cal) {
 		let nav = document.getElementById('jlpt-calendar-month-nav');
 		if (nav) return nav;
@@ -98,13 +99,14 @@
 		nav.innerHTML = `<button type="button" data-cal-shift="-1" aria-label="${t('이전 달', '前月')}">‹</button><strong id="jlpt-calendar-month-label"></strong><button type="button" data-cal-shift="1" aria-label="${t('다음 달', '翌月')}">›</button>`;
 		cal.before(nav);
 		nav.addEventListener('click', (event) => {
-			const button = event.target.closest('[data-cal-shift]');
-			if (!button) return;
-			calendarMonth = shiftMonth(calendarMonth, Number(button.dataset.calShift || 0));
+			const target = event.target instanceof Element ? event.target.closest('[data-cal-shift]') : null;
+			if (!(target instanceof HTMLButtonElement)) return;
+			calendarMonth = shiftMonth(calendarMonth, Number(target.dataset.calShift || 0));
 			renderMonth();
 		});
 		return nav;
 	}
+
 	function renderMonth() {
 		const cal = document.getElementById('jlpt-calendar');
 		if (!(cal instanceof HTMLElement) || !calendarMonth) return;
@@ -146,13 +148,17 @@
 		if (label) label.textContent = isJa ? `${year}年 ${month}月` : `${year}년 ${month}월`;
 		requestAnimationFrame(() => { rendering = false; });
 	}
+
 	function selectCalendarDate(date) {
 		const input = document.getElementById('jlpt-study-date');
 		if (!(input instanceof HTMLInputElement)) return;
 		input.value = date;
 		input.dispatchEvent(new Event('change', { bubbles: true }));
-		document.querySelectorAll('#jlpt-calendar .jlpt-calendar-day').forEach((cell) => cell.classList.toggle('is-selected', cell.dataset.fullDate === date));
+		document.querySelectorAll('#jlpt-calendar .jlpt-calendar-day').forEach((cell) => {
+			cell.classList.toggle('is-selected', cell instanceof HTMLElement && cell.dataset.fullDate === date);
+		});
 	}
+
 	function captureCalendarClick(event) {
 		const cell = event.target instanceof Element ? event.target.closest('.jlpt-calendar-day[data-full-date]') : null;
 		if (!(cell instanceof HTMLElement) || !cell.dataset.fullDate) return;
@@ -160,44 +166,64 @@
 		event.stopPropagation();
 		selectCalendarDate(cell.dataset.fullDate);
 	}
+
 	function repairCalendar() {
-		clearTimeout(repairTimer);
+		window.clearTimeout(repairTimer);
 		repairTimer = window.setTimeout(() => {
-			if (rendering) return;
+			if (rendering || !calendarMonth) return;
 			const cal = document.getElementById('jlpt-calendar');
 			if (!(cal instanceof HTMLElement)) return;
 			ensureMonthNav(cal);
 			const cells = [...cal.querySelectorAll('.jlpt-calendar-day')];
 			const [year, month] = calendarMonth.split('-').map(Number);
 			const expected = new Date(Date.UTC(year, month, 0)).getUTCDate();
-			if (cells.length !== expected || cells.some((cell) => !cell.dataset.fullDate?.startsWith(`${calendarMonth}-`))) renderMonth();
-		}, 60);
+			if (cells.length !== expected || cells.some((cell) => !(cell instanceof HTMLElement) || !cell.dataset.fullDate?.startsWith(`${calendarMonth}-`))) {
+				renderMonth();
+			}
+		}, 120);
 	}
-	async function mountCalendar() {
+
+	function mountCalendar() {
+		if (mountPromise) return mountPromise;
 		const cal = document.getElementById('jlpt-calendar');
-		if (!(cal instanceof HTMLElement)) return;
-		await loadDashboardProgress();
-		calendarMonth = calendarMonth || selectedDate().slice(0, 7);
-		ensureMonthNav(cal);
-		renderMonth();
-		if (cal.dataset.dateFixObserved !== 'true') {
-			cal.dataset.dateFixObserved = 'true';
-			new MutationObserver(repairCalendar).observe(cal, { childList: true });
-		}
+		if (!(cal instanceof HTMLElement)) return Promise.resolve();
+		mountPromise = (async () => {
+			calendarMonth = calendarMonth || selectedDate().slice(0, 7);
+			ensureMonthNav(cal);
+			if (!cal.querySelector('.jlpt-calendar-day[data-full-date]')) renderMonth();
+			if (cal.dataset.dateFixObserved !== 'true') {
+				cal.dataset.dateFixObserved = 'true';
+				new MutationObserver((mutations) => {
+					if (mutations.some((mutation) => mutation.type === 'childList')) repairCalendar();
+				}).observe(cal, { childList: true });
+			}
+			await loadDashboardProgress();
+			renderMonth();
+		})().finally(() => {
+			mountPromise = null;
+		});
+		return mountPromise;
 	}
+
+	function scheduleRootRepair() {
+		window.clearTimeout(rootRepairTimer);
+		rootRepairTimer = window.setTimeout(() => {
+			keepDateNavVisible();
+			if (!document.getElementById('jlpt-calendar-month-nav')) void mountCalendar();
+		}, 120);
+	}
+
 	function init() {
 		injectStyle();
-		loadFixScript();
 		keepDateNavVisible();
 		document.addEventListener('click', captureCalendarClick, true);
 		const root = document.querySelector('.jlpt-content') || document.body;
-		new MutationObserver(() => {
-			keepDateNavVisible();
-			if (!document.getElementById('jlpt-calendar-month-nav')) mountCalendar();
+		new MutationObserver((mutations) => {
+			if (mutations.some((mutation) => mutation.type === 'childList')) scheduleRootRepair();
 		}).observe(root, { childList: true, subtree: true });
-		window.setTimeout(mountCalendar, 80);
-		window.setTimeout(mountCalendar, 250);
+		window.setTimeout(() => void mountCalendar(), 120);
 	}
+
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
 	else init();
 })();

@@ -151,17 +151,16 @@
 
 	function scan() {
 		window.clearTimeout(timer);
-		timer = window.setTimeout(decorate, 60);
+		timer = window.setTimeout(decorate, 80);
 	}
 
 	function init() {
 		injectStyle();
 		decorate();
 		const root = document.querySelector('.jlpt-content') || document.body;
-		new MutationObserver(scan).observe(root, { childList: true, subtree: true });
-		document.addEventListener('change', scan, true);
-		document.addEventListener('click', scan, true);
-		window.setInterval(decorate, 750);
+		new MutationObserver((mutations) => {
+			if (mutations.some((mutation) => mutation.type === 'childList')) scan();
+		}).observe(root, { childList: true, subtree: true });
 	}
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
