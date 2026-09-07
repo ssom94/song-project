@@ -108,6 +108,8 @@ jobs:
           node --check public/assets/js/study/ap-b-selection-strategy.js
           node --check public/assets/js/study/ap-b-weakness-dashboard.js
           node --check public/assets/js/study/ap-b-progress-trends.js
+          node --check public/assets/js/study/ap-b-learning-history.js
+          node --check public/assets/js/study/ap-b-focus-preselect.js
 
       - name: Validate official past exam catalog
         run: npm run ap:past:validate
