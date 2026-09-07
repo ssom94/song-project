@@ -3,6 +3,7 @@
 	const SETUP_KEY = 'song_public_japanese_quiz_setup';
 	const MEMORY_KEY = 'song_jlpt_today_memory_mode_v1';
 	let decorateTimer = 0;
+	let enhanceTimer = 0;
 	let memoryEnabled = false;
 	let observer = null;
 
@@ -12,6 +13,10 @@
 
 	function t(ko, ja) {
 		return language() === 'ja' ? ja : ko;
+	}
+
+	function setText(node, value) {
+		if (node && node.textContent !== value) node.textContent = value;
 	}
 
 	function focusStudyDetail() {
@@ -114,8 +119,9 @@
 		const button = document.getElementById('jlpt-memory-mode-toggle');
 		if (!(button instanceof HTMLButtonElement)) return;
 		button.classList.toggle('is-active', memoryEnabled);
-		button.setAttribute('aria-pressed', String(memoryEnabled));
-		button.textContent = memoryEnabled ? t('암기 모드 종료', '暗記モード終了') : t('암기 모드', '暗記モード');
+		const pressed = String(memoryEnabled);
+		if (button.getAttribute('aria-pressed') !== pressed) button.setAttribute('aria-pressed', pressed);
+		setText(button, memoryEnabled ? t('암기 모드 종료', '暗記モード終了') : t('암기 모드', '暗記モード'));
 	}
 
 	function setMemoryMode(next) {
@@ -124,7 +130,7 @@
 		detail?.classList.toggle('is-memory-mode', memoryEnabled);
 		if (!memoryEnabled) {
 			detail?.querySelectorAll('.jlpt-word-card.is-memory-revealed').forEach((card) => card.classList.remove('is-memory-revealed'));
-			detail?.querySelectorAll('.jlpt-memory-reveal').forEach((button) => { button.textContent = t('정답 보기', '答えを見る'); });
+			detail?.querySelectorAll('.jlpt-memory-reveal').forEach((button) => setText(button, t('정답 보기', '答えを見る')));
 		}
 		saveMemoryState();
 		syncMemoryButton();
@@ -139,7 +145,7 @@
 		reveal.textContent = t('정답 보기', '答えを見る');
 		reveal.addEventListener('click', () => {
 			const opened = card.classList.toggle('is-memory-revealed');
-			reveal.textContent = opened ? t('다시 숨기기', 'もう一度隠す') : t('정답 보기', '答えを見る');
+			setText(reveal, opened ? t('다시 숨기기', 'もう一度隠す') : t('정답 보기', '答えを見る'));
 		});
 		card.appendChild(reveal);
 	}
@@ -156,9 +162,11 @@
 		const button = document.getElementById('jlpt-today-choice-quiz');
 		if (!(button instanceof HTMLButtonElement)) return;
 		const count = todayWords().length;
-		button.disabled = count < 4;
-		button.textContent = count >= 4 ? t(`오늘 단어 4지선다 (${count})`, `今日の単語4択 (${count})`) : t('오늘 단어 4지선다', '今日の単語4択');
-		button.title = count < 4 ? t('4지선다 출제를 위해 단어가 4개 이상 필요합니다.', '4択には4語以上必要です。') : t('현재 단어 학습·복습 목록만으로 4지선다 퀴즈를 시작합니다.', '現在の単語学習・復習一覧だけで4択クイズを開始します。');
+		const disabled = count < 4;
+		if (button.disabled !== disabled) button.disabled = disabled;
+		setText(button, count >= 4 ? t(`오늘 단어 4지선다 (${count})`, `今日の単語4択 (${count})`) : t('오늘 단어 4지선다', '今日の単語4択'));
+		const title = count < 4 ? t('4지선다 출제를 위해 단어가 4개 이상 필요합니다.', '4択には4語以上必要です。') : t('현재 단어 학습·복습 목록만으로 4지선다 퀴즈를 시작합니다.', '現在の単語学習・復習一覧だけで4択クイズを開始します。');
+		if (button.title !== title) button.title = title;
 	}
 
 	function startTodayChoiceQuiz() {
@@ -217,7 +225,11 @@
 	}
 
 	function scheduleEnhance() {
-		window.setTimeout(enhanceStudyArea, 40);
+		window.clearTimeout(enhanceTimer);
+		enhanceTimer = window.setTimeout(() => {
+			enhanceTimer = 0;
+			enhanceStudyArea();
+		}, 40);
 	}
 
 	function observeStudyCards() {

@@ -1,0 +1,25 @@
+/* Shared lightweight learning-page background. Loaded dynamically by Japanese common.js and directly by AP styles when needed. */
+.japanese-public-page,
+.japanese-page,
+.ap-study-page {
+	background-color: #f7f8fc;
+	background-image:
+		radial-gradient(circle at 12% 10%, rgba(91, 111, 180, .10), transparent 28rem),
+		radial-gradient(circle at 88% 18%, rgba(76, 145, 124, .08), transparent 30rem),
+		linear-gradient(180deg, rgba(255,255,255,.96) 0, rgba(247,248,252,.98) 420px, #f7f8fc 100%);
+	background-attachment: fixed;
+}
+
+.japanese-public-page .blog-dashboard-main,
+.japanese-page .blog-dashboard-main,
+.ap-study-page .blog-dashboard-main {
+	background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 720px) {
+	.japanese-public-page,
+	.japanese-page,
+	.ap-study-page {
+		background-attachment: scroll;
+	}
+}

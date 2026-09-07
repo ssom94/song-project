@@ -1,0 +1,31 @@
+.ap-study-page {
+	background-color:#f7f8fc;
+	background-image:
+		radial-gradient(circle at 12% 10%,rgba(91,111,180,.10),transparent 28rem),
+		radial-gradient(circle at 88% 18%,rgba(76,145,124,.08),transparent 30rem),
+		linear-gradient(180deg,rgba(255,255,255,.96) 0,rgba(247,248,252,.98) 420px,#f7f8fc 100%);
+	background-attachment:fixed;
+}
+.ap-study-page .blog-dashboard-main{background:transparent}
+.ap-study-page .blog-dashboard-topbar{overflow:visible}
+.ap-study-page .blog-dashboard-language{
+	display:inline-flex!important;
+	visibility:visible!important;
+	opacity:1!important;
+	position:relative;
+	z-index:1140;
+	flex:0 0 auto;
+	align-items:center;
+	gap:6px;
+	margin-left:auto;
+	white-space:nowrap;
+}
+.ap-study-page .blog-dashboard-language a,
+.ap-study-page .blog-dashboard-language span{display:inline!important}
+.ap-study-page .blog-dashboard-topbar:has(.blog-public-admin-user){padding-right:230px}
+.ap-study-page .blog-dashboard-topbar:has(.blog-public-admin-user)>.blog-dashboard-language{margin-right:0!important}
+@media(max-width:720px){
+	.ap-study-page{background-attachment:scroll}
+	.ap-study-page .blog-dashboard-topbar:has(.blog-public-admin-user){padding-right:62px}
+	.ap-study-page .blog-dashboard-brand span{display:none}
+}
