@@ -11,6 +11,8 @@ on:
       - 'public/assets/js/study/ap-mock-exams*.js'
       - 'public/assets/js/study/ap-past-exam-viewer.js'
       - 'public/assets/js/study/ap-reinforcement.js'
+      - 'public/assets/js/study/ap-b-*.js'
+      - 'public/assets/js/study/ap-mock-past-analysis-b-5sessions.js'
       - 'public/assets/css/study/ap-mock-exams.css'
       - 'public/assets/css/study/ap-past-exam-*.css'
       - 'public/assets/data/ap-past-exams.json'
@@ -47,6 +49,8 @@ on:
       - 'public/assets/js/study/ap-mock-exams*.js'
       - 'public/assets/js/study/ap-past-exam-viewer.js'
       - 'public/assets/js/study/ap-reinforcement.js'
+      - 'public/assets/js/study/ap-b-*.js'
+      - 'public/assets/js/study/ap-mock-past-analysis-b-5sessions.js'
       - 'public/assets/css/study/ap-mock-exams.css'
       - 'public/assets/css/study/ap-past-exam-*.css'
       - 'public/assets/data/ap-past-exams.json'
@@ -99,6 +103,9 @@ jobs:
           node --check public/assets/js/study/ap-mock-exams.js
           node --check public/assets/js/study/ap-past-exam-viewer.js
           node --check public/assets/js/study/ap-reinforcement.js
+          node --check public/assets/js/study/ap-mock-past-analysis-b-5sessions.js
+          node --check public/assets/js/study/ap-b-reinforcement-entry.js
+          node --check public/assets/js/study/ap-b-selection-strategy.js
 
       - name: Validate official past exam catalog
         run: npm run ap:past:validate
