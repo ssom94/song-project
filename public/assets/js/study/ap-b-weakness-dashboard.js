@@ -108,5 +108,11 @@
     observer.disconnect(); schedule();
   });
   observer.observe(document.documentElement,{childList:true,subtree:true});
+  if (!document.querySelector('script[data-ap-b-progress-trends]')) {
+    const script = document.createElement('script');
+    script.src = '/assets/js/study/ap-b-progress-trends.js?v=20260907-1';
+    script.dataset.apBProgressTrends = 'true';
+    document.body.appendChild(script);
+  }
   schedule();
 })();
