@@ -55,7 +55,7 @@
     const total = Number.isFinite(totalRaw) ? Math.max(0, Math.min(100, totalRaw)) : Object.values(scores).reduce((sum, value) => sum + value, 0);
     const focusRaw = Array.isArray(attempt?.focus) ? attempt.focus.map(Number) : [];
     const focus = focusRaw.filter((no,index,all)=>no>=2&&no<=11&&all.indexOf(no)===index).slice(0,4).sort((a,b)=>a-b);
-    const source = ['weakness','progress','manual'].includes(attempt?.source) ? attempt.source : 'legacy';
+    const source = ['weakness','progress','goal','manual'].includes(attempt?.source) ? attempt.source : 'legacy';
     const selectedOptional = selected.filter((no)=>no !== 1);
     const focusMatched = focus.length === 4 && selectedOptional.length === 4 && focus.every((no)=>selectedOptional.includes(no));
     return { storageIndex, at: attempt?.at, selected, scores, total, focus, source, focusMatched };
@@ -74,6 +74,7 @@
   function sourceLabel(attempt) {
     if (attempt.source === 'weakness') return t('약점 자동 보강', '弱点自動補強');
     if (attempt.source === 'progress') return t('추이 기반 보강', '推移ベース補強');
+    if (attempt.source === 'goal') return t('목표점수 보강', '目標得点補強');
     if (attempt.source === 'manual') return t('직접 선택', '手動選択');
     return t('기존 기록', '既存記録');
   }
@@ -137,7 +138,7 @@
   document.addEventListener('click', (event) => {
     const recommendationLink = event.target.closest?.('a[href*="focus="]');
     if (recommendationLink) {
-      const source = recommendationLink.closest('#ap-b-weakness-dashboard') ? 'weakness' : recommendationLink.closest('#ap-b-progress-trends') ? 'progress' : null;
+      const source = recommendationLink.closest('#ap-b-weakness-dashboard') ? 'weakness' : recommendationLink.closest('#ap-b-progress-trends') ? 'progress' : recommendationLink.closest('#ap-b-score-goal') ? 'goal' : null;
       if (source) {
         const url = new URL(recommendationLink.href, location.href);
         url.searchParams.set('source', source);
