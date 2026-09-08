@@ -5,8 +5,9 @@
 	const TTL_BY_PATH = new Map([
 		['/api/public/japanese/jlpt/dashboard', 1500],
 		['/api/public/ap/dashboard', 1500],
-		['/api/admin/auth/session', 1000],
+		['/api/admin/auth/session', 5000],
 	]);
+	const ADMIN_JLPT_PREFIX = '/api/admin/japanese/jlpt/';
 
 	function requestUrl(input) {
 		try {
@@ -21,11 +22,7 @@
 		return String(init?.method || input?.method || 'GET').toUpperCase();
 	}
 
-	window.fetch = async (input, init) => {
-		const url = requestUrl(input);
-		const ttl = url?.origin === window.location.origin ? TTL_BY_PATH.get(url.pathname) : 0;
-		if (!ttl || requestMethod(input, init) !== 'GET') return nativeFetch(input, init);
-
+	async function fetchCached(input, init, url, ttl) {
 		const key = `${url.pathname}${url.search}`;
 		const now = Date.now();
 		const cached = cache.get(key);
@@ -44,6 +41,36 @@
 			inflight.set(key, pending);
 		}
 		return (await pending).clone();
+	}
+
+	let authPromise = null;
+	function isAuthenticated() {
+		if (authPromise) return authPromise;
+		authPromise = nativeFetch('/api/admin/auth/session', { credentials: 'same-origin', cache: 'no-store' })
+			.then(async (response) => {
+				const data = await response.json().catch(() => null);
+				return response.ok && data?.authenticated === true;
+			})
+			.catch(() => false);
+		return authPromise;
+	}
+	window.SongJlptAuth = { isAuthenticated };
+
+	window.fetch = async (input, init) => {
+		const url = requestUrl(input);
+		const method = requestMethod(input, init);
+		if (url?.origin === window.location.origin && method === 'GET' && url.pathname.startsWith(ADMIN_JLPT_PREFIX)) {
+			if (!(await isAuthenticated())) {
+				return new Response(JSON.stringify({ ok: false, error: 'UNAUTHORIZED' }), {
+					status: 401,
+					headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' },
+				});
+			}
+		}
+
+		const ttl = url?.origin === window.location.origin ? TTL_BY_PATH.get(url.pathname) : 0;
+		if (!ttl || method !== 'GET') return nativeFetch(input, init);
+		return fetchCached(input, init, url, ttl);
 	};
 
 	window.addEventListener('pagehide', () => {
