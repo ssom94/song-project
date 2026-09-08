@@ -1,7 +1,12 @@
 (() => {
-	const TODAY_PATH = '/api/admin/japanese/jlpt/today';
 	const nativeFetch = window.fetch.bind(window);
-	let locked = true;
+	const inflight = new Map();
+	const cache = new Map();
+	const TTL_BY_PATH = new Map([
+		['/api/public/japanese/jlpt/dashboard', 1500],
+		['/api/public/ap/dashboard', 1500],
+		['/api/admin/auth/session', 1000],
+	]);
 
 	function requestUrl(input) {
 		try {
@@ -16,29 +21,34 @@
 		return String(init?.method || input?.method || 'GET').toUpperCase();
 	}
 
-	function unlock() {
-		if (!locked) return;
-		locked = false;
-		window.fetch = nativeFetch;
-	}
-
-	window.fetch = (input, init) => {
+	window.fetch = async (input, init) => {
 		const url = requestUrl(input);
-		if (locked && url?.origin === window.location.origin && url.pathname === TODAY_PATH && requestMethod(input, init) === 'GET') {
-			return Promise.resolve(new Response(JSON.stringify({ ok: false, error: 'JLPT_TODAY_LAZY_LOAD' }), {
-				status: 401,
-				headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' },
-			}));
+		const ttl = url?.origin === window.location.origin ? TTL_BY_PATH.get(url.pathname) : 0;
+		if (!ttl || requestMethod(input, init) !== 'GET') return nativeFetch(input, init);
+
+		const key = `${url.pathname}${url.search}`;
+		const now = Date.now();
+		const cached = cache.get(key);
+		if (cached && cached.expiresAt > now) return cached.response.clone();
+		if (cached) cache.delete(key);
+
+		let pending = inflight.get(key);
+		if (!pending) {
+			pending = nativeFetch(input, init)
+				.then((response) => {
+					const template = response.clone();
+					if (response.ok) cache.set(key, { expiresAt: Date.now() + ttl, response: template.clone() });
+					return template;
+				})
+				.finally(() => inflight.delete(key));
+			inflight.set(key, pending);
 		}
-		return nativeFetch(input, init);
+		return (await pending).clone();
 	};
 
-	// Unlock before the core dashboard's click handler runs. From this point onward all
-	// normal today/detail requests are allowed, including state/progress refreshes.
-	document.addEventListener('click', (event) => {
-		const target = event.target instanceof Element ? event.target.closest('#jlpt-start-button') : null;
-		if (target) unlock();
-	}, true);
-
-	window.addEventListener('pagehide', unlock, { once: true });
+	window.addEventListener('pagehide', () => {
+		cache.clear();
+		inflight.clear();
+		window.fetch = nativeFetch;
+	}, { once: true });
 })();
