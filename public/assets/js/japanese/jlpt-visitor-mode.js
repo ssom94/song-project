@@ -9,6 +9,7 @@
 
 	async function isAuthenticated() {
 		try {
+			if (window.SongJlptAuth?.isAuthenticated) return await window.SongJlptAuth.isAuthenticated();
 			const response = await fetch('/api/admin/auth/session', { credentials: 'same-origin', cache: 'no-store' });
 			const data = await response.json().catch(() => null);
 			return response.ok && data?.authenticated === true;
