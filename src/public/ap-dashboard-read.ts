@@ -9,6 +9,7 @@ interface SessionRow {
 }
 interface ItemRow {
 	id: number; topic_id: number | null; item_kind: ApItemKind; sequence_no: number;
+	study_date?: string;
 	title_ko: string; title_ja: string; description_ko: string; description_ja: string;
 	target_minutes: number; status: string; result: string | null; score: number | null;
 	confidence: number | null; topic_code: string | null; mastery_score: number | null;
@@ -65,13 +66,14 @@ export async function handleGetPublicApDashboardReadOnly(request: Request, env: 
 		if (!plan) return json({ ok: false, error: 'AP_PLAN_NOT_FOUND' }, 404);
 		const today = japanDateString();
 		const countdown = apPlanCountdown(plan, today);
-		const [topicsResult, dueRow, session, historyResult, attemptSummary, completedDaysRow] = await Promise.all([
+		const [topicsResult, dueRow, session, historyResult, attemptSummary, completedDaysRow, backlogResult] = await Promise.all([
 			env.song_project_db.prepare(`SELECT t.id,t.topic_code,t.title_ko,t.title_ja,t.domain_code,t.exam_part,t.is_focus_b,p.learning_state,p.mastery_score,p.correct_count,p.partial_count,p.wrong_count,p.next_review_on FROM ap_study_topics t JOIN ap_topic_progress p ON p.plan_id=t.plan_id AND p.topic_id=t.id WHERE t.plan_id=?1 ORDER BY t.sort_order ASC`).bind(plan.id).all<TopicProgressRow>(),
 			env.song_project_db.prepare(`SELECT COUNT(*) AS value FROM ap_topic_progress WHERE plan_id=?1 AND next_review_on IS NOT NULL AND next_review_on<=?2`).bind(plan.id, today).first<{ value:number }>(),
 			env.song_project_db.prepare(`SELECT id,study_date,target_minutes,actual_minutes,status,recommendation_reason_ko,recommendation_reason_ja,started_at,completed_at FROM ap_daily_sessions WHERE plan_id=?1 AND study_date=?2 LIMIT 1`).bind(plan.id, today).first<SessionRow>(),
 			env.song_project_db.prepare(`SELECT s.study_date,s.target_minutes,s.actual_minutes,s.status,SUM(CASE WHEN i.status='completed' THEN 1 ELSE 0 END) AS completed_items,COUNT(i.id) AS total_items FROM ap_daily_sessions s LEFT JOIN ap_daily_items i ON i.session_id=s.id WHERE s.plan_id=?1 GROUP BY s.id ORDER BY s.study_date DESC LIMIT 365`).bind(plan.id).all<HistoryRow>(),
 			env.song_project_db.prepare(`SELECT COUNT(*) AS attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS correct,SUM(CASE WHEN result='partial' THEN 1 ELSE 0 END) AS partial,SUM(CASE WHEN result='wrong' THEN 1 ELSE 0 END) AS wrong,AVG(score) AS average_score FROM ap_study_attempts WHERE plan_id=?1`).bind(plan.id).first<{ attempts:number; correct:number|null; partial:number|null; wrong:number|null; average_score:number|null }>(),
 			env.song_project_db.prepare(`SELECT COUNT(*) AS value FROM ap_daily_sessions WHERE plan_id=?1 AND status='completed'`).bind(plan.id).first<{ value:number }>(),
+			env.song_project_db.prepare(`SELECT i.id,i.topic_id,i.item_kind,i.sequence_no,s.study_date,i.title_ko,i.title_ja,i.description_ko,i.description_ja,i.target_minutes,i.status,i.result,i.score,i.confidence,t.topic_code,p.mastery_score FROM ap_daily_items i JOIN ap_daily_sessions s ON s.id=i.session_id LEFT JOIN ap_study_topics t ON t.id=i.topic_id LEFT JOIN ap_topic_progress p ON p.plan_id=?1 AND p.topic_id=i.topic_id WHERE s.plan_id=?1 AND s.study_date<?2 AND i.status='pending' ORDER BY s.study_date DESC,i.sequence_no ASC LIMIT 50`).bind(plan.id, today).all<ItemRow>(),
 		]);
 		const topics = topicsResult.results;
 		const mastered = topics.filter((x) => x.learning_state === 'mastered').length;
@@ -99,6 +101,7 @@ export async function handleGetPublicApDashboardReadOnly(request: Request, env: 
 			focusB:topics.filter((x)=>x.is_focus_b===1).map((x)=>({code:x.topic_code,titleKo:x.title_ko,titleJa:x.title_ja,state:x.learning_state,masteryScore:x.mastery_score,correct:x.correct_count,partial:x.partial_count,wrong:x.wrong_count})),
 			topics:topics.map((x)=>({code:x.topic_code,titleKo:x.title_ko,titleJa:x.title_ja,domain:x.domain_code,examPart:x.exam_part,focusB:x.is_focus_b===1,state:x.learning_state,masteryScore:x.mastery_score,nextReviewOn:x.next_review_on})),
 			today:{status:session?.status??'not_started',sessionId:session?.id??null,targetMinutes:session?.target_minutes??plan.daily_minutes,actualMinutes:session?.actual_minutes??0,reasonKo:session?.recommendation_reason_ko??previewBudget.reasonKo,reasonJa:session?.recommendation_reason_ja??previewBudget.reasonJa,mode:previewBudget.mode,items:itemResult.results},
+			backlog:backlogResult.results.map((item)=>({id:item.id,studyDate:item.study_date,itemKind:item.item_kind,sequenceNo:item.sequence_no,titleKo:item.title_ko,titleJa:item.title_ja,descriptionKo:item.description_ko,descriptionJa:item.description_ja,targetMinutes:item.target_minutes,status:item.status,result:item.result,score:item.score,confidence:item.confidence,topicCode:item.topic_code,masteryScore:item.mastery_score})),
 			historySummary:{recordedDays,completedDays:completedStudyDays,totalMinutes,currentStreak:streakInfo.current,longestStreak:streakInfo.longest,attempts:Number(attemptSummary?.attempts??0),correct:Number(attemptSummary?.correct??0),partial:Number(attemptSummary?.partial??0),wrong:Number(attemptSummary?.wrong??0),averageScore:attemptSummary?.average_score==null?null:Math.round(Number(attemptSummary.average_score)*10)/10},
 			history:history.slice(0,35).map((row)=>({date:row.study_date,status:row.status,targetMinutes:row.target_minutes,actualMinutes:row.actual_minutes,completedItems:Number(row.completed_items??0),totalItems:Number(row.total_items??0),progressPercent:percentage(Number(row.completed_items??0),Number(row.total_items??0))}))
 		});
