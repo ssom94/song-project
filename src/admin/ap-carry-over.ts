@@ -1,5 +1,5 @@
 import { getAuthenticatedAdminSession } from '../auth/session';
-import { nextApReview, type ApLearningState, type ApResult } from '../ap-study';
+import { ensureDefaultApStudyPlan, nextApReview, type ApLearningState, type ApResult } from '../ap-study';
 import { japanDateString } from '../jlpt-study';
 
 function json(data: unknown, status = 200): Response {
@@ -26,6 +26,7 @@ export async function handleCompleteAdminApCarryOver(request: Request, env: Env)
 	try {
 		const session = await getAuthenticatedAdminSession(request, env.song_project_db);
 		if (!session) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
+		const plan = await ensureDefaultApStudyPlan(env.song_project_db, session.adminId);
 		const payload = await request.json().catch(() => null) as Record<string, unknown> | null;
 		const itemId = Number(payload?.itemId);
 		const result = validResult(payload?.result);
@@ -38,7 +39,7 @@ export async function handleCompleteAdminApCarryOver(request: Request, env: Env)
 			JOIN ap_daily_sessions s ON s.id = i.session_id
 			WHERE i.id = ?1 AND s.plan_id = ?2 AND s.study_date < ?3
 			LIMIT 1
-		`).bind(itemId, session.adminId, today).first<{
+		`).bind(itemId, plan.id, today).first<{
 			id: number; session_id: number; topic_id: number | null; status: string; plan_id: number; study_date: string;
 		}>();
 		if (!item) return json({ ok: false, error: 'ITEM_NOT_FOUND' }, 404);
