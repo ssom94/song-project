@@ -48,14 +48,14 @@ SELECT
 FROM japanese_jlpt_daily_sessions AS ds
 JOIN japanese_jlpt_study_plans AS p
   ON p.id = ds.plan_id
-LEFT JOIN japanese_admin_word_learning_stats AS s
-  ON s.admin_id = p.admin_id
- AND s.word_id = c.word_id
 JOIN japanese_jlpt_curriculum_words AS c
   ON c.plan_id = ds.plan_id
  AND c.introduced_on IS NOT NULL
  AND c.introduced_on < ds.study_date
  AND c.introduced_on >= date(ds.study_date, '-30 day')
+LEFT JOIN japanese_admin_word_learning_stats AS s
+  ON s.admin_id = p.admin_id
+ AND s.word_id = c.word_id
 WHERE ds.study_date = date('now', '+9 hours')
   AND ds.status <> 'completed'
   AND COALESCE(s.learning_state, 'unlearned') <> 'mastered';
