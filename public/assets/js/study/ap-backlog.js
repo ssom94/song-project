@@ -38,9 +38,9 @@
 		const score = input?.value === '' ? null : Number(input?.value);
 		button.disabled = true;
 		try {
-			const response = await fetch('/api/admin/ap/item/complete', { method: 'PATCH', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ itemId, result, score }) });
+			const response = await fetch('/api/admin/ap/item/carry-over/complete', { method: 'PATCH', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ itemId, result, score }) });
 			const data = await response.json();
-			if (!response.ok || !data?.ok) throw new Error(data?.error || 'AP_ITEM_COMPLETE_FAILED');
+			if (!response.ok || !data?.ok) throw new Error(data?.error || 'AP_CARRY_OVER_COMPLETE_FAILED');
 			await load();
 		} catch (error) {
 			console.error('Failed to complete carried-over AP item', error);
