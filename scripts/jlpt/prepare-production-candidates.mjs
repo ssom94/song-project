@@ -263,6 +263,26 @@ const selectedPairs = new Set(selected.map((entry) => pairKey(entry.word, entry.
 if (selectedPairs.size !== 3000) throw new Error('Internal error: selected word+reading pairs are not unique.');
 
 await fs.mkdir(OUT_DIR, { recursive: true });
+await fs.writeFile(path.join(OUT_DIR, 'n1-candidate-pool.json'), JSON.stringify({
+  schemaVersion: 1,
+  generatedAt: new Date().toISOString(),
+  sourceCandidateCount: rawN1.length,
+  canonicalUniqueCandidateCount: ranked.length,
+  purpose: 'Uncut N1 candidate pool for editorial suitability review. Generic frequency is intentionally not a final priority rank.',
+  candidates: ranked.map((entry, index) => ({
+    source_rank_by_generic_frequency: index + 1,
+    review_status: 'needs_review',
+    priority_band: null,
+    review_reason: null,
+    ...entry,
+  })),
+}, null, 2) + '\n');
+
+if (process.env.N1_CANDIDATE_POOL_ONLY === '1') {
+  console.log(`Prepared ${ranked.length} canonical N1 candidates for editorial review.`);
+  process.exit(0);
+}
+
 await fs.writeFile(path.join(OUT_DIR, 'n1-source-3000.json'), JSON.stringify({
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
