@@ -35,7 +35,7 @@
       "from": "2026-10-01",
       "to": "2026-10-14"
     },
-    "stage": "complete_content_editorial_review_pending",
+    "stage": "refined_words_and_structural_validation_passed_editorial_review_pending",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
@@ -45,7 +45,7 @@
     "readingSetsComplete": 14,
     "migrationReady": false,
     "source": "data/jlpt/production/batches/2026-10-01--2026-10-14.content-draft.json",
-    "note": "All 210 linked vocabulary MCQs, 28 grammar lessons, 42 grammar MCQs, 14 original reading sets, and 42 reading MCQs pass structural answer/uniqueness checks. Word priority, Korean example translations, 90-day historical reuse, and final naturalness still require editorial acceptance, so no migration is generated."
+    "note": "The content is rebuilt against the refined 280-word proposal. All 210 linked vocabulary MCQs, 28 grammar lessons, 42 grammar MCQs, 14 original reading sets, and 42 reading MCQs pass structural, answer, date-link, sentence-blank, and scanned historical exact-reuse checks. Korean example translations, semantic distractor naturalness, N1 priority, and the complete 3,000+ corpus still require editorial acceptance, so no migration is generated."
   },
   "lastUpdated": "2026-09-10"
 }

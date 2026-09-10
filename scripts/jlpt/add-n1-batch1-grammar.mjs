@@ -37,7 +37,19 @@ const grammar = [
 
 const document = JSON.parse(await fs.readFile(FILE, 'utf8'));
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/g, ' ').trim();
-const strip = (sentence, pattern) => sentence.replace(pattern.replace('〜', ''), '（　）');
+function strip(sentence, pattern) {
+	const literal = pattern.replace('〜', '');
+	const direct = sentence.replace(literal, '（　）');
+	if (direct !== sentence) return direct;
+	const conjugated = new Map([
+		['〜たところで', /(?:た|だ)ところで/u],
+		['〜にたえる', /にも?たえる/u],
+		['〜までもない', /までもな(?:い|く)/u],
+		['〜を禁じ得ない', /を禁じ得な(?:い|かった)/u],
+	]);
+	const expression = conjugated.get(pattern);
+	return expression ? sentence.replace(expression, '（　）') : sentence;
+}
 
 for (let dayIndex = 0; dayIndex < document.days.length; dayIndex += 1) {
 	const lessons = grammar.slice(dayIndex * 2, dayIndex * 2 + 2);
@@ -59,6 +71,9 @@ for (let dayIndex = 0; dayIndex < document.days.length; dayIndex += 1) {
 			explanation_ko: `문맥상 ${meaning}를 나타내는 「${answer}」가 알맞다.`,
 		};
 	});
+	for (const item of document.days[dayIndex].grammarQuestions) {
+		if ((item.prompt.match(/（　）/gu) ?? []).length < 2) throw new Error(`${document.days[dayIndex].date}: grammar sentence blank was not generated for ${item.answer}`);
+	}
 }
 
 const signatures = new Set();
