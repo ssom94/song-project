@@ -1,0 +1,80 @@
+.jlpt-memory-practice-toolbar {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0 0 12px;
+}
+.jlpt-memory-practice-toolbar button {
+	min-height: 38px;
+	border: 1px solid #8f4055;
+	border-radius: 10px;
+	background: #9e4962;
+	color: #fff;
+	padding: 9px 14px;
+	font: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	box-shadow: 0 3px 10px rgba(122, 45, 66, 0.18);
+}
+.jlpt-memory-practice-toolbar button.is-active {
+	background: #6f2f43;
+	border-color: #6f2f43;
+}
+.jlpt-memory-filter-group {
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+.jlpt-memory-filter-group .jlpt-memory-filter-button {
+	border-color: #d6dee8;
+	background: #fff;
+	color: #526173;
+	box-shadow: none;
+}
+.jlpt-memory-filter-group .jlpt-memory-filter-button.is-active {
+	background: #26364e;
+	border-color: #26364e;
+	color: #fff;
+}
+.jlpt-memory-answer-fields {
+	display: none;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: 12px;
+}
+.jlpt-memory-practice-active .jlpt-memory-answer-fields,
+#jlpt-study-detail.is-memory-mode .jlpt-memory-answer-fields { display: grid; }
+.jlpt-memory-answer-field { display: grid; gap: 5px; min-width: 0; }
+.jlpt-memory-answer-field label { display: grid; gap: 5px; color: #59677b; font-size: 11px; font-weight: 700; }
+.jlpt-memory-answer-input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 11px;
+	border: 1px solid #cdd7e4;
+	border-radius: 9px;
+	background: #fff;
+	font: inherit;
+	font-size: 13px;
+	outline: none;
+}
+.jlpt-memory-answer-input:focus { border-color: #708bb7; box-shadow: 0 0 0 3px rgba(73, 103, 151, 0.12); }
+.jlpt-memory-answer-input.is-correct,
+.jlpt-memory-answer-input.is-correct:focus { border-color: #79b990; background: #f1faf4; }
+.jlpt-memory-answer-input.is-wrong,
+.jlpt-memory-answer-input.is-wrong:focus { border-color: #dfa7a7; background: #fff3f3; }
+.jlpt-memory-practice-check { min-height: 17px; font-size: 11px; font-weight: 700; color: #7a8798; }
+.jlpt-memory-practice-check.is-correct { color: #287a58; }
+.jlpt-memory-practice-check.is-wrong { color: #a75d5d; }
+.jlpt-memory-practice-active .jlpt-preview-word-grid > [data-memory-word] > span,
+.jlpt-memory-practice-active .jlpt-preview-word-grid > [data-memory-word] > small,
+.jlpt-memory-practice-active .jlpt-archive-word[data-memory-word] > small { visibility: hidden; }
+.jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > span,
+.jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > small { visibility: visible; }
+.jlpt-memory-filter-hidden { display: none !important; }
+@media (max-width: 640px) {
+	.jlpt-memory-answer-fields { grid-template-columns: 1fr; }
+	.jlpt-memory-practice-toolbar { align-items: stretch; }
+	.jlpt-memory-practice-toolbar > button { width: 100%; }
+	.jlpt-memory-filter-group { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+}
