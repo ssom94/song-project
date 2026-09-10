@@ -1,6 +1,11 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
 import { type JapaneseLearningState } from '../../japanese-learning';
-import { ensureDefaultJlptStudyPlan, japanDateString, nextReview, validDateText, type LearningProgressRow } from '../../jlpt-study';
+import { japanDateString, nextReview, validDateText, type LearningProgressRow } from '../../jlpt-study';
+
+interface PlanRow {
+	id: number;
+	study_start_date: string;
+}
 
 interface SessionRow {
 	id: number;
@@ -57,12 +62,23 @@ async function refreshSession(db: D1Database, session: SessionRow, now: string):
 	`).bind(session.id, reviewCompleted, newWordCompleted, finished ? 'completed' : 'in_progress', now).run();
 }
 
+async function getActivePlan(db: D1Database, adminId: number): Promise<PlanRow | null> {
+	return db.prepare(`
+		SELECT id, study_start_date
+		FROM japanese_jlpt_study_plans
+		WHERE admin_id = ?1 AND is_active = 1
+		ORDER BY id ASC
+		LIMIT 1
+	`).bind(adminId).first<PlanRow>();
+}
+
 export async function handleCompleteAdminJapaneseJlptHistoricalWord(request: Request, env: Env): Promise<Response> {
 	if (!isSameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
 	try {
 		const auth = await getAuthenticatedAdminSession(request, env.song_project_db);
 		if (!auth) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
-		const plan = await ensureDefaultJlptStudyPlan(env.song_project_db, auth.adminId);
+		const plan = await getActivePlan(env.song_project_db, auth.adminId);
+		if (!plan) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
 
 		let payload: { studyDate?: unknown; wordId?: unknown; state?: unknown };
 		try {
