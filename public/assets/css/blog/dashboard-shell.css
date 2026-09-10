@@ -323,9 +323,18 @@ body.blog-dashboard-page {
 		position: fixed;
 		top: 64px;
 		left: 0;
-		z-index: 45;
+		z-index: 1300;
 		width: min(280px, 84vw);
 		height: calc(100vh - 64px);
+		height: calc(100dvh - 64px);
+		max-height: calc(100dvh - 64px);
+		box-sizing: border-box;
+		overflow-x: hidden;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
+		touch-action: pan-y;
+		padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
 		transform: translateX(-105%);
 		transition: transform 0.2s ease;
 		box-shadow: 18px 0 40px rgba(28, 42, 66, 0.14);
@@ -338,7 +347,7 @@ body.blog-dashboard-page {
 	.blog-dashboard-backdrop {
 		position: fixed;
 		inset: 64px 0 0;
-		z-index: 44;
+		z-index: 1290;
 		display: block;
 		border: 0;
 		background: rgba(21, 31, 46, 0.32);
