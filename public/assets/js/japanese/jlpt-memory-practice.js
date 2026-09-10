@@ -235,6 +235,7 @@
 
 	function init() {
 		decorate();
+		window.addEventListener('song:jlpt-memory-state-changed', applyFilter);
 		const root = document.querySelector('.jlpt-content') || document.body;
 		new MutationObserver((mutations) => {
 			if (mutations.some((mutation) => mutation.type === 'childList')) scan();

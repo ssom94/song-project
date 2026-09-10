@@ -311,6 +311,41 @@
 	color: var(--jlpt-accent);
 }
 
+.jlpt-state-button.is-selected {
+	box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.jlpt-word-card.has-pending-state {
+	border-color: var(--jlpt-accent);
+	box-shadow: 0 0 0 2px var(--jlpt-accent-soft);
+}
+
+.jlpt-word-state-save-bar {
+	position: sticky;
+	top: 10px;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 0 0 16px;
+	padding: 12px 14px;
+	border: 1px solid var(--jlpt-border);
+	border-radius: 13px;
+	background: rgba(255, 255, 255, 0.96);
+	box-shadow: 0 7px 20px rgba(38, 54, 78, 0.1);
+}
+
+.jlpt-word-state-save-bar span {
+	color: var(--jlpt-muted);
+	font-size: 13px;
+}
+
+@media (max-width: 640px) {
+	.jlpt-word-state-save-bar { align-items: stretch; flex-direction: column; }
+	.jlpt-word-state-save-bar button { width: 100%; }
+}
+
 .jlpt-word-card.is-completed {
 	background: #f8faf9;
 }

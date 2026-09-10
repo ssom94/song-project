@@ -6,6 +6,7 @@
 	const POSITION_KEY = 'song_today_study_float_position_v4';
 	const COLLAPSED_KEY = 'song_today_study_float_collapsed_v4';
 	const MODE_KEY = 'song_today_study_float_mode_v4';
+	const ENABLED_KEY = 'song_widget_today_study_enabled';
 	const REFRESH_MS = 30000;
 	const EDGE = 12;
 
@@ -81,6 +82,7 @@
 		card.className = 'jp-today-study-float';
 		card.setAttribute('aria-label', t('오늘의 학습', '今日の学習'));
 		document.body.appendChild(card);
+		card.hidden = readStorage(ENABLED_KEY) === '0';
 		bindDrag();
 		applyPosition();
 		return card;
@@ -389,6 +391,9 @@
 		position = clampPosition(position);
 		applyPosition();
 		saveState();
+	});
+	window.addEventListener('song:widget-visibility', (event) => {
+		if (event.detail?.key === 'todayStudy' && card) card.hidden = !event.detail.enabled;
 	});
 
 	buildCard();

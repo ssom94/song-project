@@ -374,31 +374,43 @@ export async function handleUpdateAdminJapaneseJlptWordState(request: Request, e
 	try {
 		const context = await authenticatedPlan(request, env);
 		if (context instanceof Response) return context;
-		let payload: { wordId?: unknown; state?: unknown };
+		let payload: { wordId?: unknown; state?: unknown; updates?: unknown };
 		try {
-			payload = await request.json() as { wordId?: unknown; state?: unknown };
+			payload = await request.json() as { wordId?: unknown; state?: unknown; updates?: unknown };
 		} catch {
 			return json({ ok: false, error: 'INVALID_JSON' }, 400);
 		}
-		const wordId = Number(payload.wordId);
-		const state = learningState(payload.state);
-		if (!Number.isSafeInteger(wordId) || wordId <= 0 || !state) return json({ ok: false, error: 'INVALID_WORD_STATE' }, 400);
-
+		const rawUpdates = Array.isArray(payload.updates) ? payload.updates : [{ wordId: payload.wordId, state: payload.state }];
+		if (!rawUpdates.length || rawUpdates.length > 100) return json({ ok: false, error: 'INVALID_WORD_STATE_BATCH' }, 400);
+		const updates = rawUpdates.map((value) => {
+			const row = value && typeof value === 'object' ? value as { wordId?: unknown; state?: unknown } : {};
+			return { wordId: Number(row.wordId), state: learningState(row.state) };
+		});
+		if (updates.some((row) => !Number.isSafeInteger(row.wordId) || row.wordId <= 0 || !row.state)) {
+			return json({ ok: false, error: 'INVALID_WORD_STATE' }, 400);
+		}
+		const uniqueUpdates = [...new Map(updates.map((row) => [row.wordId, row as { wordId: number; state: JapaneseLearningState }])).values()];
+		const ids = uniqueUpdates.map((row) => row.wordId);
+		const placeholders = ids.map((_, index) => `?${index + 2}`).join(', ');
 		const enrolled = await env.song_project_db.prepare(`
-			SELECT 1 AS found FROM japanese_jlpt_curriculum_words
-			WHERE plan_id = ?1 AND word_id = ?2 LIMIT 1
-		`).bind(context.plan.id, wordId).first<{ found: number }>();
-		if (!enrolled) return json({ ok: false, error: 'WORD_NOT_IN_CURRICULUM' }, 404);
+			SELECT word_id FROM japanese_jlpt_curriculum_words
+			WHERE plan_id = ?1 AND word_id IN (${placeholders})
+		`).bind(context.plan.id, ...ids).all<{ word_id: number }>();
+		if (enrolled.results.length !== ids.length) return json({ ok: false, error: 'WORD_NOT_IN_CURRICULUM' }, 404);
 
-		const current = await env.song_project_db.prepare(`
-			SELECT learning_state, first_learned_at, last_studied_at, review_stage, next_review_on
-			FROM japanese_admin_word_learning_stats
-			WHERE admin_id = ?1 AND word_id = ?2 LIMIT 1
-		`).bind(context.adminId, wordId).first<LearningProgressRow>();
 		const today = japanDateString();
-		const review = nextReview(current, state, today);
 		const now = new Date().toISOString();
-		await env.song_project_db.prepare(`
+		const session = await getDailySession(env.song_project_db, context.plan.id, today);
+		const statements: D1PreparedStatement[] = [];
+		const results: Array<{ wordId: number; state: JapaneseLearningState; reviewStage: number; nextReviewOn: string | null }> = [];
+		for (const update of uniqueUpdates) {
+			const current = await env.song_project_db.prepare(`
+				SELECT learning_state, first_learned_at, last_studied_at, review_stage, next_review_on
+				FROM japanese_admin_word_learning_stats
+				WHERE admin_id = ?1 AND word_id = ?2 LIMIT 1
+			`).bind(context.adminId, update.wordId).first<LearningProgressRow>();
+			const review = nextReview(current, update.state, today);
+			statements.push(env.song_project_db.prepare(`
 			INSERT INTO japanese_admin_word_learning_stats
 				(admin_id, word_id, learning_state, first_learned_at, last_studied_at, review_stage, next_review_on, updated_at)
 			VALUES (?1, ?2, ?3, ?4, ?4, ?5, ?6, ?4)
@@ -409,24 +421,25 @@ export async function handleUpdateAdminJapaneseJlptWordState(request: Request, e
 				review_stage = excluded.review_stage,
 				next_review_on = excluded.next_review_on,
 				updated_at = excluded.updated_at
-		`).bind(context.adminId, wordId, state, now, review.reviewStage, review.nextReviewOn).run();
-
-		const session = await getDailySession(env.song_project_db, context.plan.id, today);
+			`).bind(context.adminId, update.wordId, update.state, now, review.reviewStage, review.nextReviewOn));
+			if (session) {
+				statements.push(env.song_project_db.prepare(`
+					UPDATE japanese_jlpt_daily_words
+					SET status = 'completed', state_after = ?3, completed_at = ?4
+					WHERE session_id = ?1 AND word_id = ?2
+				`).bind(session.id, update.wordId, update.state, now));
+			}
+			results.push({ wordId: update.wordId, state: update.state, reviewStage: review.reviewStage, nextReviewOn: review.nextReviewOn });
+		}
+		await env.song_project_db.batch(statements);
 		let refreshed = session;
 		if (session) {
-			await env.song_project_db.prepare(`
-				UPDATE japanese_jlpt_daily_words
-				SET status = 'completed', state_after = ?3, completed_at = ?4
-				WHERE session_id = ?1 AND word_id = ?2
-			`).bind(session.id, wordId, state, now).run();
 			refreshed = await refreshWordCountsAndSessionStatus(env.song_project_db, session);
 		}
 		return json({
 			ok: true,
-			wordId,
-			state,
-			reviewStage: review.reviewStage,
-			nextReviewOn: review.nextReviewOn,
+			updated: results.length,
+			updates: results,
 			session: refreshed,
 		});
 	} catch (error) {

@@ -7,6 +7,8 @@
 
 	let dashboard = null;
 	let todayData = null;
+	const pendingWordStates = new Map();
+	let wordStatesSaving = false;
 
 	function lang() {
 		return document.body.dataset.blogLanguage === 'ja' ? 'ja' : 'ko';
@@ -148,12 +150,60 @@
 		return t('미학습', '未学習');
 	}
 
+	function updateWordSaveBar() {
+		const detail = byId('jlpt-study-detail');
+		if (!detail) return;
+		let bar = byId('jlpt-word-state-save-bar');
+		if (!bar) {
+			bar = document.createElement('div');
+			bar.id = 'jlpt-word-state-save-bar';
+			bar.className = 'jlpt-word-state-save-bar';
+			const message = document.createElement('span');
+			message.id = 'jlpt-word-state-save-message';
+			const button = document.createElement('button');
+			button.id = 'jlpt-word-state-save-button';
+			button.type = 'button';
+			button.className = 'jlpt-primary-button';
+			button.addEventListener('click', saveWordStates);
+			bar.append(message, button);
+			detail.querySelector('.jlpt-study-grid')?.before(bar);
+		}
+		const count = pendingWordStates.size;
+		text('jlpt-word-state-save-message', count
+			? t(`${count}개 단어의 상태가 변경되었습니다.`, `${count}語の状態が変更されました。`)
+			: t('변경할 상태를 선택한 뒤 한 번에 저장하세요.', '状態を選択してからまとめて保存してください。'));
+		const button = byId('jlpt-word-state-save-button');
+		if (button) {
+			button.disabled = count === 0;
+			button.textContent = count ? t(`상태 저장 (${count})`, `状態を保存 (${count})`) : t('상태 저장', '状態を保存');
+		}
+	}
+
+	function stageWordState(word, state, card) {
+		const original = card.dataset.originalState || word.learning_state || 'unlearned';
+		if (state === original) pendingWordStates.delete(word.id);
+		else pendingWordStates.set(word.id, state);
+		card.dataset.memoryState = state;
+		card.classList.toggle('has-pending-state', state !== original);
+		const badge = card.querySelector('.jlpt-word-head > span');
+		if (badge) badge.textContent = stateLabel(state);
+		card.querySelectorAll('.jlpt-state-button').forEach((button) => {
+			button.classList.toggle('is-selected', button.dataset.state === state);
+		});
+		updateWordSaveBar();
+		window.dispatchEvent(new CustomEvent('song:jlpt-memory-state-changed'));
+	}
+
 	function wordCard(word) {
 		const card = document.createElement('article');
 		card.className = `jlpt-word-card${word.item_status === 'completed' ? ' is-completed' : ''}`;
 		card.dataset.memoryWord = 'true';
 		card.dataset.memoryReading = word.reading || '';
 		card.dataset.memoryMeaningKo = word.meaning_ko || '';
+		card.dataset.originalState = word.learning_state || 'unlearned';
+		const selectedState = pendingWordStates.get(word.id) || card.dataset.originalState;
+		card.dataset.memoryState = selectedState;
+		card.classList.toggle('has-pending-state', pendingWordStates.has(word.id));
 		const head = document.createElement('div');
 		head.className = 'jlpt-word-head';
 		const title = document.createElement('div');
@@ -164,7 +214,7 @@
 		reading.textContent = word.reading || '—';
 		title.append(strong, reading);
 		const badge = document.createElement('span');
-		badge.textContent = stateLabel(word.learning_state);
+		badge.textContent = stateLabel(selectedState);
 		head.append(title, badge);
 		const meaning = document.createElement('p');
 		meaning.textContent = word.meaning_ko || word.meaning_ja || '—';
@@ -176,7 +226,8 @@
 			button.className = 'jlpt-state-button';
 			button.dataset.state = state;
 			button.textContent = stateLabel(state);
-			button.addEventListener('click', () => updateWordState(word.id, state, button));
+			button.classList.toggle('is-selected', state === selectedState);
+			button.addEventListener('click', () => stageWordState(word, state, card));
 			actions.appendChild(button);
 		}
 		card.append(head, meaning, actions);
@@ -203,6 +254,7 @@
 		};
 		fill(review, reviewWords, t('오늘 복습 예정 단어가 없습니다.', '今日の復習予定単語はありません。'));
 		fill(fresh, newWords, t('오늘 신규 단어가 아직 등록되지 않았습니다.', '今日の新規単語はまだ登録されていません。'));
+		updateWordSaveBar();
 	}
 
 	function appendParagraph(parent, value) {
@@ -374,26 +426,44 @@
 		}
 	}
 
-	async function updateWordState(wordId, state, button) {
+	async function saveWordStates() {
+		if (!pendingWordStates.size || wordStatesSaving) return;
+		const button = byId('jlpt-word-state-save-button');
+		const updates = [...pendingWordStates].map(([wordId, state]) => ({ wordId, state }));
+		wordStatesSaving = true;
 		button.disabled = true;
+		button.textContent = t('저장 중…', '保存中…');
+		setError('');
 		try {
 			const { response, data } = await requestJson(WORD_STATE_API, {
 				method: 'PATCH',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ wordId, state }),
+				body: JSON.stringify({ updates }),
 			});
 			if (response.status === 401) {
 				window.location.href = '/admin/login/';
 				return;
 			}
 			if (!response.ok || !data?.ok) throw new Error(data?.error || `HTTP_${response.status}`);
+			pendingWordStates.clear();
 			await Promise.all([loadDashboard(), loadAdminToday()]);
 		} catch (error) {
 			console.error('Failed to update JLPT word state', error);
 			setError(t('단어 학습 상태를 저장하지 못했습니다.', '単語の学習状態を保存できませんでした。'));
 		} finally {
-			button.disabled = false;
+			wordStatesSaving = false;
+			updateWordSaveBar();
 		}
+	}
+
+	function saveWordStatesOnExit() {
+		if (!pendingWordStates.size || wordStatesSaving) return;
+		const updates = [...pendingWordStates].map(([wordId, state]) => ({ wordId, state }));
+		const queued = navigator.sendBeacon(
+			WORD_STATE_API,
+			new Blob([JSON.stringify({ updates })], { type: 'application/json' }),
+		);
+		if (queued) pendingWordStates.clear();
 	}
 
 	async function toggleContent(contentId, completed, button) {
@@ -422,6 +492,10 @@
 
 	async function initialize() {
 		byId('jlpt-start-button')?.addEventListener('click', startToday);
+		window.addEventListener('pagehide', saveWordStatesOnExit);
+		document.addEventListener('visibilitychange', () => {
+			if (document.visibilityState === 'hidden') saveWordStatesOnExit();
+		});
 		try {
 			await loadDashboard();
 			await loadAdminToday();

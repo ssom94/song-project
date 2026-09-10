@@ -297,3 +297,23 @@
 		height: 23px;
 	}
 }
+
+.blog-sidebar-widget-settings {
+	display: grid;
+	gap: 8px;
+}
+
+.blog-sidebar-widget-toggle {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	padding: 7px 9px;
+	border-radius: 9px;
+	font-size: 12px;
+	font-weight: 700;
+	color: #657287;
+	cursor: pointer;
+}
+
+.blog-sidebar-widget-toggle:hover { background: rgba(85, 105, 135, 0.07); }
+.blog-sidebar-widget-toggle input { width: 16px; height: 16px; margin: 0; accent-color: #426a5c; }

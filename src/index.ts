@@ -16,6 +16,7 @@ import {
 	handleUpdateAdminCommentStatus,
 } from './admin/comments/manage';
 import { handleGetAdminDashboard, handleUpdateAdminDashboard } from './admin/dashboard/manage';
+import { handleAdminDailyMemo } from './admin/daily-memo';
 import {
 	handleCreateAdminDashboardSchedule,
 	handleDeleteAdminDashboardSchedule,
@@ -241,7 +242,8 @@ export default {
 			case '/api/admin/japanese/quiz/history/detail': return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/jlpt/today': return request.method === 'GET' ? handleGetAdminJapaneseJlptToday(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/jlpt/today/start': return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/jlpt/word-state': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/word-state': return request.method === 'PATCH' || request.method === 'POST' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH, POST');
+			case '/api/admin/daily-memo': return ['GET', 'PUT', 'POST'].includes(request.method) ? handleAdminDailyMemo(request, env) : methodNotAllowed('GET, PUT, POST');
 			case '/api/admin/japanese/jlpt/history/word-state': return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptHistoricalWord(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/jlpt/wrong-notes': return request.method === 'GET' ? handleGetAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/jlpt/progress': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');

@@ -1,6 +1,10 @@
 (() => {
 	const SIDEBAR_COLLAPSE_KEY = 'song_public_sidebar_collapsed';
 	const SIDEBAR_OPEN_GROUP_KEY = 'song_public_sidebar_open_group_v2';
+	const WIDGET_KEYS = {
+		todayStudy: 'song_widget_today_study_enabled',
+		todayMemo: 'song_widget_today_memo_enabled',
+	};
 	let adminSessionSnapshot = null;
 	let categoryIconsLoaderPromise = null;
 
@@ -22,6 +26,38 @@
 
 	function writeStorage(key, value) {
 		try { localStorage.setItem(key, value); } catch { /* optional */ }
+	}
+
+	function widgetEnabled(key) {
+		return readStorage(WIDGET_KEYS[key]) !== '0';
+	}
+
+	function createWidgetSettings() {
+		const section = document.createElement('section');
+		section.className = 'blog-sidebar-section blog-sidebar-widget-settings';
+		const title = document.createElement('p');
+		title.className = 'blog-sidebar-label';
+		title.textContent = t('위젯 설정', 'ウィジェット設定');
+		section.appendChild(title);
+		for (const [key, ko, ja] of [
+			['todayStudy', '오늘의 학습', '今日の学習'],
+			['todayMemo', '오늘의 메모', '今日のメモ'],
+		]) {
+			const label = document.createElement('label');
+			label.className = 'blog-sidebar-widget-toggle';
+			const checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.checked = widgetEnabled(key);
+			checkbox.addEventListener('change', () => {
+				writeStorage(WIDGET_KEYS[key], checkbox.checked ? '1' : '0');
+				window.dispatchEvent(new CustomEvent('song:widget-visibility', { detail: { key, enabled: checkbox.checked } }));
+			});
+			const copy = document.createElement('span');
+			copy.textContent = t(ko, ja);
+			label.append(checkbox, copy);
+			section.appendChild(label);
+		}
+		return section;
 	}
 
 	function closeSidebar() {
@@ -322,7 +358,7 @@
 		const footer = document.createElement('div');
 		footer.className = 'blog-sidebar-footer';
 		footer.append(document.createTextNode('SONG'), document.createElement('br'), document.createTextNode('Portfolio · Blog · Learning'));
-		sidebar.append(section, footer);
+		sidebar.append(section, createWidgetSettings(), footer);
 	}
 
 	function createCategoryIcon(appearance) {
@@ -572,9 +608,18 @@
 		if (document.getElementById('jp-today-study-float')) return;
 		if (document.querySelector('script[data-today-study-floating-loader]')) return;
 		const script = document.createElement('script');
-		script.src = '/assets/js/japanese/today-study-float.js?v=20260831-4';
+		script.src = '/assets/js/japanese/today-study-float.js?v=20260910-1';
 		script.async = true;
 		script.dataset.todayStudyFloatingLoader = 'true';
+		document.body.appendChild(script);
+	}
+
+	function mountTodayMemoFloating() {
+		if (document.getElementById('song-today-memo') || document.querySelector('script[data-today-memo-loader]')) return;
+		const script = document.createElement('script');
+		script.src = '/assets/js/widgets/today-memo.js?v=20260910-1';
+		script.async = true;
+		script.dataset.todayMemoLoader = 'true';
 		document.body.appendChild(script);
 	}
 
@@ -598,6 +643,7 @@
 		mountAdminAccess();
 		loadSidebarCategories();
 		mountTodayStudyFloating();
+		mountTodayMemoFloating();
 	}
 
 	window.BlogDashboard = {

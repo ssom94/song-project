@@ -19,7 +19,7 @@
 		if (existing) existing.remove();
 
 		const script = document.createElement('script');
-		const version = force ? `20260908-3-${Date.now()}` : '20260908-3';
+		const version = force ? `20260910-1-${Date.now()}` : '20260910-1';
 		script.src = `${WIDGET_SRC}?v=${version}`;
 		script.async = true;
 		script.setAttribute(WIDGET_SCRIPT_ATTR, 'true');
