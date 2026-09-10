@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "planCode": "N1_2027_JUL",
+  "targetStartDate": "2026-10-01",
+  "batchDays": 14,
+  "dailyNewWords": 20,
+  "status": "candidate_selection",
+  "completedBatches": [],
+  "nextBatch": {
+    "from": "2026-10-01",
+    "to": "2026-10-14",
+    "expectedNewWords": 280
+  },
+  "selectionPolicy": {
+    "primary": "N1 vocabulary workbook coverage and official JLPT item-type relevance",
+    "secondary": "licensed dictionary identity, reading, Korean meaning, and natural project-authored examples",
+    "exclude": [
+      "basic or broadly elementary vocabulary unless needed for an N1 contrast/usage question",
+      "obsolete spelling or unverified reading",
+      "duplicate word+reading pairs",
+      "synthetic or filler entries"
+    ],
+    "priorityLabel": "출제 우선순위",
+    "priorityNote": "Official JLPT does not publish complete per-word frequency data. This is a transparent N1 study priority, not a claimed official probability."
+  },
+  "lastUpdated": "2026-09-10"
+}

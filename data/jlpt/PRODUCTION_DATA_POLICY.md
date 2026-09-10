@@ -4,13 +4,13 @@ This document defines the release standard for the `N1_2027_JUL` daily-study pla
 
 ## Scope
 
-The production rebuild starts on **2026-09-07**. Material previously generated for 2026-09-07 through 2027-02-28 by early bulk migrations is legacy material and must not be treated as release-quality merely because a date/session exists.
+The next production rebuild starts on **2026-10-01**. Material previously generated for 2026-09-07 through 2027-02-28 by early bulk migrations is legacy material and must not be treated as release-quality merely because a date/session exists.
 
 The production source of truth is `data/jlpt/production/` plus the generated D1 migration built from it. Future content must be added to that source and pass `npm run jlpt:validate` before a migration is committed.
 
 ## Vocabulary requirements
 
-- Target curriculum: exactly **3,000 unique vocabulary entries** for the active N1 plan.
+- Target curriculum: at least **3,000 unique vocabulary entries** for the active N1 plan. The corpus may exceed 3,000 when additional workbook-verified N1 words are needed; no filler is added merely to reach a number.
 - A word row must have a real Japanese surface form, reading, Korean meaning, and natural Japanese example.
 - Duplicate `word + reading` rows are forbidden.
 - Synthetic compounds, obvious generated variants, and filler entries are forbidden.
@@ -78,7 +78,7 @@ The validator is a release gate, not a best-effort warning. It fails on:
 - missing required word fields;
 - duplicate word/readings;
 - exact question reuse inside 90 days;
-- production corpus count differing from the manifest target.
+- production corpus count below the manifest minimum target.
 
 D1 validation inside migrations should remain bounded and aggregate-based. Do not reintroduce per-date correlated `COUNT`, `EXISTS`, or calendar-wide practice API checks that can consume the D1 free-tier row-read budget.
 

@@ -160,23 +160,13 @@
 			bar.className = 'jlpt-word-state-save-bar';
 			const message = document.createElement('span');
 			message.id = 'jlpt-word-state-save-message';
-			const button = document.createElement('button');
-			button.id = 'jlpt-word-state-save-button';
-			button.type = 'button';
-			button.className = 'jlpt-primary-button';
-			button.addEventListener('click', saveWordStates);
-			bar.append(message, button);
+			bar.append(message);
 			detail.querySelector('.jlpt-study-grid')?.before(bar);
 		}
 		const count = pendingWordStates.size;
 		text('jlpt-word-state-save-message', count
-			? t(`${count}개 단어의 상태가 변경되었습니다.`, `${count}語の状態が変更されました。`)
-			: t('변경할 상태를 선택한 뒤 한 번에 저장하세요.', '状態を選択してからまとめて保存してください。'));
-		const button = byId('jlpt-word-state-save-button');
-		if (button) {
-			button.disabled = count === 0;
-			button.textContent = count ? t(`상태 저장 (${count})`, `状態を保存 (${count})`) : t('상태 저장', '状態を保存');
-		}
+			? t(`${count}개 변경사항 · 화면 이동 시 자동 저장됩니다.`, `${count}件の変更 · 画面移動時に自動保存されます。`)
+			: t('상태를 선택하면 화면 이동 시 자동 저장됩니다.', '状態を選択すると画面移動時に自動保存されます。'));
 	}
 
 	function stageWordState(word, state, card) {
@@ -428,11 +418,8 @@
 
 	async function saveWordStates() {
 		if (!pendingWordStates.size || wordStatesSaving) return;
-		const button = byId('jlpt-word-state-save-button');
 		const updates = [...pendingWordStates].map(([wordId, state]) => ({ wordId, state }));
 		wordStatesSaving = true;
-		button.disabled = true;
-		button.textContent = t('저장 중…', '保存中…');
 		setError('');
 		try {
 			const { response, data } = await requestJson(WORD_STATE_API, {
@@ -455,6 +442,7 @@
 			updateWordSaveBar();
 		}
 	}
+	window.SongJlptSavePendingWordStates = saveWordStates;
 
 	function saveWordStatesOnExit() {
 		if (!pendingWordStates.size || wordStatesSaving) return;

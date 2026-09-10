@@ -3,7 +3,7 @@
 
 	const FEATURES = [
 		['/assets/js/japanese/jlpt-visitor-mode.js?v=20260908-5', 'data-jlpt-visitor-mode'],
-		['/assets/js/japanese/jlpt-history-controls.js?v=20260910-2', 'data-jlpt-history-controls'],
+		['/assets/js/japanese/jlpt-history-controls.js?v=20260910-3', 'data-jlpt-history-controls'],
 		['/assets/js/japanese/jlpt-pagination-stability.js?v=20260908-1', 'data-jlpt-pagination-stability'],
 		['/assets/js/japanese/jlpt-experience.js?v=20260908-4', 'data-jlpt-experience'],
 		['/assets/js/japanese/jlpt-page-enhancements.js?v=20260908-4', 'data-jlpt-page-enhancements'],

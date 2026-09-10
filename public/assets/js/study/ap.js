@@ -148,8 +148,8 @@
 	}
 
 	function renderResultSaveBar(container=byId('ap-today-items')) {
-		if(!container)return;let bar=byId('ap-result-save-bar');if(!bar){bar=document.createElement('div');bar.id='ap-result-save-bar';bar.className='ap-result-save-bar';bar.innerHTML='<span></span><button type="button" class="ap-primary-button"></button>';container.before(bar);bar.querySelector('button').addEventListener('click',savePendingResults);}
-		const count=pendingResults.size;bar.querySelector('span').textContent=count?(language==='ja'?`${count}件の結果が変更されました。`:`${count}개 학습 결과가 변경되었습니다.`):(language==='ja'?'結果を選択してからまとめて保存してください。':'결과를 선택한 뒤 한 번에 저장하세요.');const button=bar.querySelector('button');button.disabled=!count||resultsSaving;button.textContent=resultsSaving?(language==='ja'?'保存中…':'저장 중…'):(count?(language==='ja'?`状態を保存 (${count})`:`상태 저장 (${count})`):(language==='ja'?'状態を保存':'상태 저장'));
+		if(!container)return;let bar=byId('ap-result-save-bar');if(!bar){bar=document.createElement('div');bar.id='ap-result-save-bar';bar.className='ap-result-save-bar';bar.innerHTML='<span></span>';container.before(bar);}
+		const count=pendingResults.size;bar.querySelector('span').textContent=resultsSaving?(language==='ja'?'変更内容を自動保存しています…':'변경사항을 자동 저장하는 중입니다…'):(count?(language==='ja'?`${count}件の変更 · 画面移動時に自動保存されます。`:`${count}개 변경사항 · 화면 이동 시 자동 저장됩니다.`):(language==='ja'?'結果を選択すると画面移動時に自動保存されます。':'결과를 선택하면 화면 이동 시 자동 저장됩니다.'));
 	}
 
 	function renderHistory(data) {
