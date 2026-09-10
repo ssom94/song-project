@@ -1,7 +1,4 @@
 (() => {
-	const PREPARED_RANGES = [
-		{ from: '2026-09-07', to: '2027-02-28', questions: 21 },
-	];
 	const MAX_BOOT_RETRIES = 80;
 	const BOOT_RETRY_MS = 100;
 
@@ -25,10 +22,6 @@
 			month: '2-digit',
 			day: '2-digit',
 		}).format(new Date());
-	}
-
-	function preparedInfo(date) {
-		return PREPARED_RANGES.find((range) => date >= range.from && date <= range.to) || null;
 	}
 
 	function shiftMonth(monthText, delta) {
@@ -112,36 +105,31 @@
 		return nav;
 	}
 
-	function stateFor(date, today, saved, prepared) {
+	function stateFor(saved) {
 		if (saved?.status === 'completed') {
 			return { state: 'completed', text: saved.text || t('학습완료', '学習完了') };
 		}
 		if (saved?.status === 'in_progress') {
 			return { state: 'in_progress', text: saved.text || t('학습중', '学習中') };
 		}
-		if (!prepared) return { state: 'none', text: saved?.text && saved.text !== '—' ? saved.text : '—' };
-		if (date < today) return { state: 'missed', text: t('미학습', '未学習') };
-		if (date === today) return { state: 'missed', text: t('오늘 · 미학습', '今日 · 未学習') };
-		return { state: 'upcoming', text: t('학습일 전', '学習日前') };
+		return { state: 'none', text: saved?.text && saved.text !== '—' ? saved.text : '—' };
 	}
 
 	function renderCalendar(wrap) {
 		if (!calendarMonth) return;
-		const today = jstToday();
 		const [year, month] = calendarMonth.split('-').map(Number);
 		const days = new Date(Date.UTC(year, month, 0)).getUTCDate();
 		const fragment = document.createDocumentFragment();
 
 		for (let day = 1; day <= days; day += 1) {
 			const date = `${calendarMonth}-${String(day).padStart(2, '0')}`;
-			const prepared = preparedInfo(date);
 			const saved = statusByDate.get(date);
-			const resolved = stateFor(date, today, saved, prepared);
+			const resolved = stateFor(saved);
 			const cell = document.createElement('div');
 			cell.className = 'jlpt-calendar-day';
 			cell.dataset.status = saved?.status || 'not_started';
 			cell.dataset.fullDate = date;
-			cell.dataset.studyAvailable = prepared ? 'true' : 'false';
+			cell.dataset.studyAvailable = saved ? 'true' : 'false';
 			cell.dataset.studyState = resolved.state;
 
 			const strong = document.createElement('strong');
@@ -151,13 +139,6 @@
 			state.textContent = resolved.text;
 			cell.append(strong, state);
 
-			if (prepared) {
-				const badge = document.createElement('span');
-				badge.className = 'jlpt-calendar-study-badge';
-				badge.textContent = t(`문제 ${prepared.questions}`, `問題 ${prepared.questions}`);
-				badge.title = t(`${date} 학습 문제 준비됨`, `${date} 学習問題あり`);
-				cell.appendChild(badge);
-			}
 			fragment.appendChild(cell);
 		}
 
@@ -179,7 +160,8 @@
 
 		const today = jstToday();
 		captureBaseStatuses(wrap, today);
-		calendarMonth = today.slice(0, 7);
+		const selectedDate = window.__SONG_JLPT_SELECTED_DATE__;
+		calendarMonth = /^\d{4}-\d{2}-\d{2}$/.test(selectedDate || '') ? selectedDate.slice(0, 7) : today.slice(0, 7);
 		injectStyle();
 		ensureNav(wrap);
 		renderCalendar(wrap);
@@ -190,6 +172,14 @@
 	function init() {
 		window.setTimeout(tryMount, 0);
 	}
+
+	window.addEventListener('song:jlpt-date-selected', (event) => {
+		const date = event.detail?.date;
+		if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) return;
+		calendarMonth = date.slice(0, 7);
+		const wrap = document.getElementById('jlpt-calendar');
+		if (mounted && wrap instanceof HTMLElement) renderCalendar(wrap);
+	});
 
 	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
 	else init();
