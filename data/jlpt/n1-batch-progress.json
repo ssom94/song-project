@@ -30,5 +30,19 @@
     "firstBatchReviewQueue": 280,
     "note": "The 280 rows are a review queue only. Do not delete or replace existing daily data until each row has a verified reading, Korean meaning, usage/example, N1 suitability reason, and question-quality check."
   },
+  "activeBatchCheckpoint": {
+    "dateRange": {
+      "from": "2026-10-01",
+      "to": "2026-10-14"
+    },
+    "stage": "word_content_complete_priority_review_pending",
+    "wordRows": 280,
+    "uniqueWordReadingPairs": 280,
+    "requiredContentComplete": 280,
+    "questionsComplete": 0,
+    "migrationReady": false,
+    "source": "data/jlpt/production/batches/2026-10-01--2026-10-14.word-review.json",
+    "note": "A stricter first-batch queue replaces the earlier generic-frequency-heavy queue and excludes explicit low-value/variant entries. Priority and naturalness review remains before question generation."
+  },
   "lastUpdated": "2026-09-10"
 }
