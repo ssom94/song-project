@@ -217,6 +217,7 @@ async function startSession(db: D1Database, adminId: number, plan: JlptStudyPlan
 			ON s.word_id = dw.word_id AND s.admin_id = ?2
 		WHERE old_session.plan_id = ?1
 			AND old_session.study_date < ?3
+			AND dw.item_kind = 'review'
 			AND dw.status = 'pending'
 		ORDER BY old_session.study_date ASC,
 			CASE dw.item_kind WHEN 'review' THEN 0 ELSE 1 END,
@@ -225,10 +226,11 @@ async function startSession(db: D1Database, adminId: number, plan: JlptStudyPlan
 
 	const reviewIds = new Map<number, JapaneseLearningState>();
 	const newIds = new Map<number, JapaneseLearningState>();
+	// Past-date new words remain learnable on their original date. Carrying them into
+	// today's new-word quota would hide words explicitly scheduled for today.
 	for (const row of carryover.results) {
 		const state = row.learning_state ?? 'unlearned';
-		if (row.item_kind === 'review') reviewIds.set(row.word_id, state);
-		else if (newIds.size < plan.daily_new_word_target) newIds.set(row.word_id, state);
+		reviewIds.set(row.word_id, state);
 	}
 
 	const due = await db.prepare(`
