@@ -209,6 +209,21 @@ async function startSession(db: D1Database, adminId: number, plan: JlptStudyPlan
 		WHERE id = ?1
 	`).bind(session.id, now).run();
 
+	// Repair sessions created by the former carry-over behavior. Only pending rows
+	// assigned from another introduction date are removed; completed work is preserved.
+	await db.prepare(`
+		DELETE FROM japanese_jlpt_daily_words
+		WHERE session_id = ?1
+			AND item_kind = 'new'
+			AND status = 'pending'
+			AND NOT EXISTS (
+				SELECT 1 FROM japanese_jlpt_curriculum_words AS c
+				WHERE c.plan_id = ?2
+					AND c.word_id = japanese_jlpt_daily_words.word_id
+					AND c.introduced_on = ?3
+			)
+	`).bind(session.id, plan.id, studyDate).run();
+
 	const carryover = await db.prepare(`
 		SELECT dw.word_id, dw.item_kind, s.learning_state
 		FROM japanese_jlpt_daily_words AS dw
