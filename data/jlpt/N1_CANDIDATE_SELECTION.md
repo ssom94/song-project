@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Build a transparent N1 study corpus of **at least 3,000 word-reading pairs** before choosing the first 14-day study batch. The label `출제 우선순위` is a study-priority rank; it is not an assertion that the official JLPT publishes a per-word exam-frequency rate.
+Build a transparent N1 study corpus of **at least 3,000 word-reading pairs** before choosing the first 14-day study batch.  The label `출제 우선순위` is a study-priority rank; it is not an assertion that the official JLPT publishes a per-word exam-frequency rate.
 
 ## Source roles
 
@@ -35,4 +35,16 @@ A final candidate must have all of the following:
 
 ## Batch gate
 
-The 2026-10-01 to 2026-10-14 batch is not selected until the complete candidate corpus is ranked and has at least 3,000 accepted rows. Its 280 words are then taken in priority order, subject to duplicate and coverage checks.
+The 2026-10-01 to 2026-10-14 batch is not selected until the complete candidate corpus is ranked and has at least 3,000 accepted rows.  Its 280 words are then taken in priority order, subject to duplicate and coverage checks.
+
+## Reproducible editorial queue
+
+The candidate pool is generated locally from the documented open data sources and is deliberately not treated as a proprietary workbook transcription. Run these commands in order when rebuilding the queue:
+
+```bash
+N1_CANDIDATE_POOL_ONLY=1 node scripts/jlpt/prepare-production-candidates.mjs
+node scripts/jlpt/triage-n1-candidate-pool.mjs
+node scripts/jlpt/build-n1-editorial-selection.mjs
+```
+
+The current first pass yields 3,166 provisional candidates and holds 174 risk-flagged rows for editorial review. The generated `firstBatchReviewQueue` has 280 rows for 2026-10-01 through 2026-10-14, but it is not deployable learning data yet: every row still needs a verified Korean meaning, natural example, N1 suitability reason, and question review.
