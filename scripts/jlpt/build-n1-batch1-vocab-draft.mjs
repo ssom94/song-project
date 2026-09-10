@@ -14,12 +14,12 @@ const types = ['kanji_reading','kanji_reading','kanji_reading',...Array(7).fill(
 // single answer slot instead of showing an unblanked example plus another slot.
 const CONTEXT_SENTENCE_OVERRIDES = {
   '取り組む': '会社全体で業務のデジタル化に（　）必要がある。',
-  '犯す': '同じ過ちを二度と（　）ないよう、原因を記録して共有した。',
-  '営む': '祖父はこの町で長年、小さな商店を（　）てきた。',
+  '犯す': '同じ過ちを二度と（　）ことがないよう、原因を記録して共有した。',
+  '営む': '祖父はこの町で長年、小さな商店を（　）ことを続けてきた。',
   '制する': '終盤に得点を重ね、相手を（　）ことができた。',
   '慎む': '式典では私語を（　）よう求められた。',
   '緩む': '長く使っているうちに、ねじが少し（　）ことがある。',
-  '誤魔化す': '質問の核心を（　）ずに答えてください。',
+  '誤魔化す': '質問の核心を（　）ことなく、答えてください。',
 };
 function rotate(values, seed) { const at = seed % values.length; return values.slice(at).concat(values.slice(0, at)); }
 function distractors(all, word, field, seed) {
