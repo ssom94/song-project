@@ -1,0 +1,5 @@
+.ap-result-save-bar { position: sticky; top: 10px; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 12px; padding: 12px 14px; border: 1px solid var(--ap-border); border-radius: 13px; background: rgba(255, 255, 255, .96); box-shadow: 0 7px 20px rgba(38, 54, 78, .1); }
+.ap-result-save-bar span { font-size: 13px; color: var(--ap-muted); }
+.ap-item-result button.is-selected { border-color: var(--ap-accent); background: var(--ap-soft); color: var(--ap-accent); box-shadow: inset 0 0 0 1px var(--ap-accent); }
+.ap-today-item.has-pending-result { border-color: var(--ap-accent); box-shadow: 0 0 0 2px var(--ap-soft); }
+@media (max-width: 640px) { .ap-result-save-bar { align-items: stretch; flex-direction: column; } .ap-result-save-bar button { width: 100%; } }

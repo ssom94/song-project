@@ -244,7 +244,7 @@ export default {
 			case '/api/admin/japanese/jlpt/today/start': return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/word-state': return request.method === 'PATCH' || request.method === 'POST' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH, POST');
 			case '/api/admin/daily-memo': return ['GET', 'PUT', 'POST'].includes(request.method) ? handleAdminDailyMemo(request, env) : methodNotAllowed('GET, PUT, POST');
-			case '/api/admin/japanese/jlpt/history/word-state': return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptHistoricalWord(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/history/word-state': return request.method === 'PATCH' || request.method === 'POST' ? handleCompleteAdminJapaneseJlptHistoricalWord(request, env) : methodNotAllowed('PATCH, POST');
 			case '/api/admin/japanese/jlpt/wrong-notes': return request.method === 'GET' ? handleGetAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/jlpt/progress': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/jlpt/curriculum/words': return request.method === 'POST' ? handleEnrollAdminJapaneseJlptWords(request, env) : methodNotAllowed('POST');

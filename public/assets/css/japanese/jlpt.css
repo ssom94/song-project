@@ -320,6 +320,17 @@
 	box-shadow: 0 0 0 2px var(--jlpt-accent-soft);
 }
 
+.jlpt-archive-word.has-pending-state {
+	border-color: var(--jlpt-accent);
+	box-shadow: 0 0 0 2px var(--jlpt-accent-soft);
+}
+
+.jlpt-archive-state-actions button.is-selected {
+	border-color: #26364e;
+	background: #26364e;
+	color: #fff;
+}
+
 .jlpt-word-state-save-bar {
 	position: sticky;
 	top: 10px;

@@ -80,19 +80,21 @@ export async function handleCompleteAdminJapaneseJlptHistoricalWord(request: Req
 		const plan = await getActivePlan(env.song_project_db, auth.adminId);
 		if (!plan) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
 
-		let payload: { studyDate?: unknown; wordId?: unknown; state?: unknown };
+		let payload: { studyDate?: unknown; wordId?: unknown; state?: unknown; updates?: unknown };
 		try {
-			payload = await request.json() as { studyDate?: unknown; wordId?: unknown; state?: unknown };
+			payload = await request.json() as { studyDate?: unknown; wordId?: unknown; state?: unknown; updates?: unknown };
 		} catch {
 			return json({ ok: false, error: 'INVALID_JSON' }, 400);
 		}
 
 		const studyDate = validDateText(payload.studyDate);
-		const wordId = Number(payload.wordId);
-		const state = learningState(payload.state);
 		const today = japanDateString();
 		if (!studyDate || studyDate < plan.study_start_date || studyDate > today) return json({ ok: false, error: 'INVALID_STUDY_DATE' }, 400);
-		if (!Number.isSafeInteger(wordId) || wordId <= 0 || !state) return json({ ok: false, error: 'INVALID_WORD_STATE' }, 400);
+		const rawUpdates = Array.isArray(payload.updates) ? payload.updates : [{ wordId: payload.wordId, state: payload.state }];
+		if (!rawUpdates.length || rawUpdates.length > 100) return json({ ok: false, error: 'INVALID_WORD_STATE_BATCH' }, 400);
+		const parsed = rawUpdates.map((value) => { const row=value&&typeof value==='object'?value as {wordId?:unknown;state?:unknown}:{};return {wordId:Number(row.wordId),state:learningState(row.state)}; });
+		if(parsed.some((row)=>!Number.isSafeInteger(row.wordId)||row.wordId<=0||!row.state))return json({ok:false,error:'INVALID_WORD_STATE'},400);
+		const updates=[...new Map(parsed.map((row)=>[row.wordId,row as {wordId:number;state:JapaneseLearningState}])).values()];
 
 		const historicalSession = await env.song_project_db.prepare(`
 			SELECT id, plan_id, study_date, review_target, new_word_target,
@@ -103,23 +105,25 @@ export async function handleCompleteAdminJapaneseJlptHistoricalWord(request: Req
 		`).bind(plan.id, studyDate).first<SessionRow>();
 		if (!historicalSession) return json({ ok: false, error: 'SESSION_NOT_FOUND' }, 404);
 
+		const placeholders=updates.map((_,index)=>`?${index+2}`).join(', ');
 		const assigned = await env.song_project_db.prepare(`
-			SELECT 1 AS found
+			SELECT word_id
 			FROM japanese_jlpt_daily_words
-			WHERE session_id = ?1 AND word_id = ?2
-			LIMIT 1
-		`).bind(historicalSession.id, wordId).first<{ found: number }>();
-		if (!assigned) return json({ ok: false, error: 'WORD_NOT_IN_SESSION' }, 404);
+			WHERE session_id = ?1 AND word_id IN (${placeholders})
+		`).bind(historicalSession.id,...updates.map((row)=>row.wordId)).all<{word_id:number}>();
+		if (assigned.results.length!==updates.length) return json({ ok: false, error: 'WORD_NOT_IN_SESSION' }, 404);
 
-		const current = await env.song_project_db.prepare(`
-			SELECT learning_state, first_learned_at, last_studied_at, review_stage, next_review_on
-			FROM japanese_admin_word_learning_stats
-			WHERE admin_id = ?1 AND word_id = ?2 LIMIT 1
-		`).bind(auth.adminId, wordId).first<LearningProgressRow>();
-
-		const review = nextReview(current, state, today);
 		const now = new Date().toISOString();
-		await env.song_project_db.prepare(`
+		const statements:D1PreparedStatement[]=[];
+		const results:Array<{wordId:number;state:JapaneseLearningState;reviewStage:number;nextReviewOn:string|null}>=[];
+		const todaySession=studyDate!==today?await env.song_project_db.prepare(`
+			SELECT id, plan_id, study_date, review_target, new_word_target,vocab_question_target, grammar_target, reading_target,vocab_question_completed, grammar_completed, reading_completed
+			FROM japanese_jlpt_daily_sessions WHERE plan_id=?1 AND study_date=?2 LIMIT 1
+		`).bind(plan.id,today).first<SessionRow>():null;
+		for(const update of updates){
+			const current=await env.song_project_db.prepare(`SELECT learning_state,first_learned_at,last_studied_at,review_stage,next_review_on FROM japanese_admin_word_learning_stats WHERE admin_id=?1 AND word_id=?2 LIMIT 1`).bind(auth.adminId,update.wordId).first<LearningProgressRow>();
+			const review=nextReview(current,update.state,today);
+			statements.push(env.song_project_db.prepare(`
 			INSERT INTO japanese_admin_word_learning_stats
 				(admin_id, word_id, learning_state, first_learned_at, last_studied_at, review_stage, next_review_on, updated_at)
 			VALUES (?1, ?2, ?3, ?4, ?4, ?5, ?6, ?4)
@@ -130,44 +134,26 @@ export async function handleCompleteAdminJapaneseJlptHistoricalWord(request: Req
 				review_stage = excluded.review_stage,
 				next_review_on = excluded.next_review_on,
 				updated_at = excluded.updated_at
-		`).bind(auth.adminId, wordId, state, now, review.reviewStage, review.nextReviewOn).run();
-
-		await env.song_project_db.prepare(`
+		`).bind(auth.adminId,update.wordId,update.state,now,review.reviewStage,review.nextReviewOn));
+			statements.push(env.song_project_db.prepare(`
 			UPDATE japanese_jlpt_daily_words
 			SET status = 'completed', state_after = ?3, completed_at = COALESCE(completed_at, ?4)
 			WHERE session_id = ?1 AND word_id = ?2
-		`).bind(historicalSession.id, wordId, state, now).run();
-		await refreshSession(env.song_project_db, historicalSession, now);
-
-		let todaySessionUpdated = false;
-		if (studyDate !== today) {
-			const todaySession = await env.song_project_db.prepare(`
-				SELECT id, plan_id, study_date, review_target, new_word_target,
-					vocab_question_target, grammar_target, reading_target,
-					vocab_question_completed, grammar_completed, reading_completed
-				FROM japanese_jlpt_daily_sessions
-				WHERE plan_id = ?1 AND study_date = ?2 LIMIT 1
-			`).bind(plan.id, today).first<SessionRow>();
-			if (todaySession) {
-				const result = await env.song_project_db.prepare(`
-					UPDATE japanese_jlpt_daily_words
-					SET status = 'completed', state_after = ?3, completed_at = COALESCE(completed_at, ?4)
-					WHERE session_id = ?1 AND word_id = ?2 AND status = 'pending'
-				`).bind(todaySession.id, wordId, state, now).run();
-				todaySessionUpdated = Number(result.meta.changes ?? 0) > 0;
-				if (todaySessionUpdated) await refreshSession(env.song_project_db, todaySession, now);
-			}
+		`).bind(historicalSession.id,update.wordId,update.state,now));
+			if(todaySession)statements.push(env.song_project_db.prepare(`UPDATE japanese_jlpt_daily_words SET status='completed',state_after=?3,completed_at=COALESCE(completed_at,?4) WHERE session_id=?1 AND word_id=?2 AND status='pending'`).bind(todaySession.id,update.wordId,update.state,now));
+			results.push({wordId:update.wordId,state:update.state,reviewStage:review.reviewStage,nextReviewOn:review.nextReviewOn});
 		}
+		await env.song_project_db.batch(statements);
+		await refreshSession(env.song_project_db, historicalSession, now);
+		if(todaySession)await refreshSession(env.song_project_db,todaySession,now);
 
 		return json({
 			ok: true,
 			studyDate,
 			actualStudiedOn: today,
-			wordId,
-			state,
-			reviewStage: review.reviewStage,
-			nextReviewOn: review.nextReviewOn,
-			todaySessionUpdated,
+			updated:results.length,
+			updates:results,
+			todaySessionUpdated:Boolean(todaySession),
 		});
 	} catch (error) {
 		console.error('Failed to complete historical JLPT word', error);

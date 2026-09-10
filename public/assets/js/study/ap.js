@@ -23,6 +23,8 @@
 		.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 	const localTitle = (item) => language === 'ja' ? item.title_ja : item.title_ko;
 	const localDescription = (item) => language === 'ja' ? item.description_ja : item.description_ko;
+	const pendingResults = new Map();
+	let resultsSaving = false;
 
 	function setText(id, value) {
 		const element = byId(id);
@@ -103,14 +105,15 @@
 			return `<span class="ap-item-done">✓ ${escapeHtml(result)}${item.score !== null ? ` · ${item.score}` : ''}</span>`;
 		}
 		const test = item.item_kind === 'weekly_test' || item.item_kind === 'monthly_test';
+		const pending = pendingResults.get(item.id);
 		return `
 			<div class="ap-item-result" data-item-result="${item.id}">
 				<label>${escapeHtml(text.score)} <input type="number" min="0" max="100" inputmode="numeric" data-ap-score="${item.id}" /></label>
 				${test
-					? `<button type="button" data-ap-result="completed" data-ap-item="${item.id}">${escapeHtml(text.complete)}</button>`
-					: `<button type="button" data-ap-result="correct" data-ap-item="${item.id}">${escapeHtml(text.correct)}</button>
-					<button type="button" data-ap-result="partial" data-ap-item="${item.id}">${escapeHtml(text.partial)}</button>
-					<button type="button" data-ap-result="wrong" data-ap-item="${item.id}">${escapeHtml(text.wrong)}</button>`}
+					? `<button type="button" class="${pending==='completed'?'is-selected':''}" data-ap-result="completed" data-ap-item="${item.id}">${escapeHtml(text.complete)}</button>`
+					: `<button type="button" class="${pending==='correct'?'is-selected':''}" data-ap-result="correct" data-ap-item="${item.id}">${escapeHtml(text.correct)}</button>
+					<button type="button" class="${pending==='partial'?'is-selected':''}" data-ap-result="partial" data-ap-item="${item.id}">${escapeHtml(text.partial)}</button>
+					<button type="button" class="${pending==='wrong'?'is-selected':''}" data-ap-result="wrong" data-ap-item="${item.id}">${escapeHtml(text.wrong)}</button>`}
 			</div>`;
 	}
 
@@ -141,6 +144,12 @@
 				<div class="ap-item-meta"><b>${item.target_minutes}m</b>${itemButtons(item)}</div>
 			</article>`).join('');
 		container.querySelectorAll('[data-ap-result]').forEach((button) => button.addEventListener('click', completeItem));
+		renderResultSaveBar(container);
+	}
+
+	function renderResultSaveBar(container=byId('ap-today-items')) {
+		if(!container)return;let bar=byId('ap-result-save-bar');if(!bar){bar=document.createElement('div');bar.id='ap-result-save-bar';bar.className='ap-result-save-bar';bar.innerHTML='<span></span><button type="button" class="ap-primary-button"></button>';container.before(bar);bar.querySelector('button').addEventListener('click',savePendingResults);}
+		const count=pendingResults.size;bar.querySelector('span').textContent=count?(language==='ja'?`${count}件の結果が変更されました。`:`${count}개 학습 결과가 변경되었습니다.`):(language==='ja'?'結果を選択してからまとめて保存してください。':'결과를 선택한 뒤 한 번에 저장하세요.');const button=bar.querySelector('button');button.disabled=!count||resultsSaving;button.textContent=resultsSaving?(language==='ja'?'保存中…':'저장 중…'):(count?(language==='ja'?`状態を保存 (${count})`:`상태 저장 (${count})`):(language==='ja'?'状態を保存':'상태 저장'));
 	}
 
 	function renderHistory(data) {
@@ -169,21 +178,26 @@
 		const button = event.currentTarget;
 		const itemId = Number(button.dataset.apItem);
 		const result = button.dataset.apResult;
-		const scoreInput = document.querySelector(`[data-ap-score="${itemId}"]`);
-		const score = scoreInput?.value === '' ? null : Number(scoreInput?.value);
-		button.disabled = true;
+		pendingResults.set(itemId,result);
+		button.closest('.ap-item-result')?.querySelectorAll('[data-ap-result]').forEach((node)=>node.classList.toggle('is-selected',node===button));
+		button.closest('.ap-today-item')?.classList.add('has-pending-result');
+		renderResultSaveBar();
+	}
+
+	function pendingPayloads(){return [...pendingResults].map(([itemId,result])=>{const input=document.querySelector(`[data-ap-score="${itemId}"]`);return {itemId,result,score:input?.value===''?null:Number(input?.value)};});}
+
+	async function savePendingResults() {
+		if(!pendingResults.size||resultsSaving)return;resultsSaving=true;renderResultSaveBar();
 		try {
-			await requestJson('/api/admin/ap/item/complete', {
-				method: 'PATCH',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ itemId, result, score }),
-			});
+			for(const payload of pendingPayloads())await requestJson('/api/admin/ap/item/complete',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+			pendingResults.clear();resultsSaving=false;
 			await load();
 		} catch (error) {
-			console.error('Failed to complete AP item', error);
-			button.disabled = false;
+			console.error('Failed to save AP items', error);resultsSaving=false;renderResultSaveBar();
 		}
 	}
+
+	function savePendingResultsOnExit(){let queued=true;for(const payload of pendingPayloads())queued=navigator.sendBeacon('/api/admin/ap/item/complete',new Blob([JSON.stringify(payload)],{type:'application/json'}))&&queued;if(queued)pendingResults.clear();}
 
 	async function load() {
 		try {
@@ -205,5 +219,7 @@
 	}
 
 	byId('ap-start-today')?.addEventListener('click', startToday);
+	window.addEventListener('pagehide',savePendingResultsOnExit);
+	document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')savePendingResultsOnExit();});
 	load();
 })();
