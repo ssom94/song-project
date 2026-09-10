@@ -1,5 +1,5 @@
 import { resolveLearningAdmin } from '../../japanese-learning';
-import { japanDateString, validDateText } from '../../jlpt-study';
+import { validDateText } from '../../jlpt-study';
 
 interface PlanRow {
 	id: number;
@@ -92,8 +92,9 @@ export async function handleGetPublicJapaneseJlptPractice(request: Request, env:
 		`).bind(admin.adminId).first<PlanRow>();
 		if (!plan) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
 
-		const today = japanDateString();
-		if (date < plan.study_start_date || date > today) return json({ ok: false, error: 'INVALID_STUDY_DATE' }, 400);
+		// Prepared future curriculum is intentionally readable from the calendar preview.
+		// Answer submission and state persistence remain restricted by their own endpoints.
+		if (date < plan.study_start_date) return json({ ok: false, error: 'INVALID_STUDY_DATE' }, 400);
 
 		const session = await env.song_project_db.prepare(`
 			SELECT id, study_date, status, review_target, new_word_target,
