@@ -179,7 +179,7 @@ export default {
 			case '/api/admin/comments/detail':
 				if (request.method === 'PATCH') return handleUpdateAdminCommentStatus(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminComment(request, env);
-				return methodNotAllowed('GET, POST');
+				return methodNotAllowed('PATCH, DELETE');
 			case '/api/admin/categories':
 				if (request.method === 'GET') return handleListAdminCategories(request, env);
 				if (request.method === 'POST') return handleCreateAdminCategory(request, env);
