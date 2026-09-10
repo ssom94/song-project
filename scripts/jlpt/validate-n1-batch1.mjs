@@ -40,6 +40,13 @@ function validateGrammarMcq(question, where, date, signatures) {
 	}
 }
 
+function validateVocabMcq(question, where, date, signatures) {
+	validateMcq(question, where, date, signatures);
+	if (question?.type === 'context_fill' && (String(question.prompt ?? '').match(/（　）/gu) ?? []).length !== 2) {
+		fail(`${where}.prompt`, 'context-fill prompt must contain exactly one blank in its test sentence');
+	}
+}
+
 async function historicalSignatures() {
 	const found = new Map();
 	for (const name of (await fs.readdir(MIGRATIONS)).filter((entry) => entry.endsWith('.sql'))) {
@@ -89,7 +96,7 @@ for (const [dayIndex, day] of document.days.entries()) {
 	if (day.readingSets.length !== 1) fail(`${where}.readingSets`, `expected 1, got ${day.readingSets.length}`);
 	for (const [index, question] of day.vocabQuestions.entries()) {
 		if (!day.newWordKeys.includes(question.wordKey)) fail(`${where}.vocabQuestions[${index}].wordKey`, 'must target a new word on the same date');
-		validateMcq(question, `${where}.vocabQuestions[${index}]`, day.date, signatures);
+		validateVocabMcq(question, `${where}.vocabQuestions[${index}]`, day.date, signatures);
 	}
 	for (const [index, lesson] of day.grammarLessons.entries()) {
 		if (!normalize(lesson.pattern) || !HANGUL.test(normalize(lesson.meaning_ko)) || !HANGUL.test(normalize(lesson.explanation_ko))) fail(`${where}.grammarLessons[${index}]`, 'pattern and Korean support required');

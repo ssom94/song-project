@@ -9,6 +9,18 @@ const WORD_OUTPUT = path.join(OUTPUT_DIR, '2026-10-01--2026-10-14.word-review.js
 const OUTPUT = path.join(OUTPUT_DIR, '2026-10-01--2026-10-14.content-draft.json');
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/g, ' ').trim();
 const types = ['kanji_reading','kanji_reading','kanji_reading',...Array(7).fill('context_fill'),...Array(5).fill('meaning_usage_synonym')];
+// These examples use a conjugated form in the word card.  Vocabulary MCQs keep
+// the answer in dictionary form, so use a separate, natural sentence with a
+// single answer slot instead of showing an unblanked example plus another slot.
+const CONTEXT_SENTENCE_OVERRIDES = {
+  '取り組む': '会社全体で業務のデジタル化に（　）必要がある。',
+  '犯す': '同じ過ちを二度と（　）ないよう、原因を記録して共有した。',
+  '営む': '祖父はこの町で長年、小さな商店を（　）てきた。',
+  '制する': '終盤に得点を重ね、相手を（　）ことができた。',
+  '慎む': '式典では私語を（　）よう求められた。',
+  '緩む': '長く使っているうちに、ねじが少し（　）ことがある。',
+  '誤魔化す': '質問の核心を（　）ずに答えてください。',
+};
 function rotate(values, seed) { const at = seed % values.length; return values.slice(at).concat(values.slice(0, at)); }
 function distractors(all, word, field, seed) {
 	const ordered = [...all.filter((row) => row.key !== word.key && row.part_of_speech === word.part_of_speech), ...all.filter((row) => row.key !== word.key && row.part_of_speech !== word.part_of_speech)];
@@ -24,7 +36,8 @@ function makeQuestion(all, word, type, sequence, dayIndex) {
 	const seed = dayIndex * 19 + sequence;
 	if (type === 'kanji_reading') return { sequence, type, wordKey: word.key, prompt: `「${word.word}」の読み方として最も適切なものを選びなさい。`, options: rotate([word.reading,...distractors(all,word,'reading',seed)],seed), answer: word.reading, explanation_ko: `「${word.word}」는 「${word.reading}」라고 읽는다. 뜻은 ${word.meaning_ko}이다.` };
 	if (type === 'context_fill') {
-		const example = word.example_ja.includes(word.word) ? word.example_ja.replace(word.word,'（　）') : `${word.example_ja} （　）に入る語を選びなさい。`;
+		const example = CONTEXT_SENTENCE_OVERRIDES[word.word] ?? word.example_ja.replace(word.word,'（　）');
+		if (!example.includes('（　）')) throw new Error(`context sentence has no safe blank: ${word.word}`);
 		return { sequence, type, wordKey: word.key, prompt: `次の文の（　）に入る語として最も適切なものを選びなさい。\n${example}`, options: rotate([word.word,...distractors(all,word,'word',seed)],seed), answer: word.word, explanation_ko: `문맥상 「${word.word}」가 가장 자연스럽다. ${word.meaning_ko}라는 의미로 쓰였다.` };
 	}
 	return { sequence, type, wordKey: word.key, prompt: `「${word.meaning_ja}」という意味に最も近い語を選びなさい。`, options: rotate([word.word,...distractors(all,word,'word',seed)],seed), answer: word.word, explanation_ko: `「${word.word}」의 핵심 의미는 ${word.meaning_ko}이다.` };
