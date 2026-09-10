@@ -47,6 +47,7 @@ import {
 	handleUpdateAdminJapaneseJlptProgress,
 	handleUpdateAdminJapaneseJlptWordState,
 } from './admin/japanese/jlpt';
+import { handleCompleteAdminJapaneseJlptHistoricalWord } from './admin/japanese/jlpt-history';
 import { handleListAdminJapaneseWords } from './admin/japanese/words';
 import {
 	handleCreateAdminJapaneseWordWithHistory,
@@ -238,6 +239,7 @@ export default {
 			case '/api/admin/japanese/jlpt/today': return request.method === 'GET' ? handleGetAdminJapaneseJlptToday(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/jlpt/today/start': return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/word-state': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/history/word-state': return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptHistoricalWord(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/jlpt/progress': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/jlpt/curriculum/words': return request.method === 'POST' ? handleEnrollAdminJapaneseJlptWords(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/content/import': return request.method === 'POST' ? handleImportAdminJapaneseJlptContent(request, env) : methodNotAllowed('POST');
