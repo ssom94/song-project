@@ -3,37 +3,9 @@
 	const t = (ko, ja) => isJa ? ja : ko;
 	let enabled = false;
 	let timer = 0;
-
-	function injectStyle() {
-		if (document.getElementById('jlpt-memory-practice-style')) return;
-		const style = document.createElement('style');
-		style.id = 'jlpt-memory-practice-style';
-		style.textContent = `
-			.jlpt-memory-practice-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
-			.jlpt-memory-practice-toolbar button{border:1px solid #8f4055;border-radius:10px;background:#9e4962;color:#fff;padding:9px 14px;font:inherit;font-weight:800;cursor:pointer;box-shadow:0 3px 10px rgba(122,45,66,.18);transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease,transform .15s ease}
-			.jlpt-memory-practice-toolbar button:active{transform:translateY(1px)}
-			.jlpt-memory-practice-toolbar button.is-active{background:#6f2f43;color:#fff;border-color:#6f2f43;box-shadow:0 4px 12px rgba(95,35,54,.24)}
-			.jlpt-memory-answer-fields{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
-			.jlpt-memory-practice-active .jlpt-memory-answer-fields,
-			#jlpt-study-detail.is-memory-mode .jlpt-memory-answer-fields{display:grid}
-			.jlpt-memory-answer-field{display:grid;gap:5px;min-width:0}
-			.jlpt-memory-answer-field label{display:grid;gap:5px;color:#59677b;font-size:11px;font-weight:700}
-			.jlpt-memory-answer-input{width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid #cdd7e4;border-radius:9px;background:#fff;font:inherit;font-size:13px;outline:none;transition:border-color .15s ease,background-color .15s ease,box-shadow .15s ease}
-			.jlpt-memory-answer-input:focus{border-color:#708bb7;box-shadow:0 0 0 3px rgba(73,103,151,.12)}
-			.jlpt-memory-answer-input.is-correct,.jlpt-memory-answer-input.is-correct:focus{border-color:#79b990;background:#f1faf4;box-shadow:0 0 0 3px rgba(70,145,98,.08)}
-			.jlpt-memory-answer-input.is-wrong,.jlpt-memory-answer-input.is-wrong:focus{border-color:#dfa7a7;background:#fff3f3;box-shadow:0 0 0 3px rgba(184,80,80,.06)}
-			.jlpt-memory-practice-check{min-height:17px;font-size:11px;font-weight:700;color:#7a8798}
-			.jlpt-memory-practice-check.is-correct{color:#287a58}
-			.jlpt-memory-practice-check.is-wrong{color:#a75d5d}
-			.jlpt-memory-practice-active .jlpt-preview-word-grid > [data-memory-word] > span,
-			.jlpt-memory-practice-active .jlpt-preview-word-grid > [data-memory-word] > small,
-			.jlpt-memory-practice-active .jlpt-archive-word[data-memory-word] > small{visibility:hidden}
-			.jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > span,
-			.jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > small{visibility:visible}
-			@media(max-width:640px){.jlpt-memory-answer-fields{grid-template-columns:1fr}.jlpt-memory-practice-toolbar button{min-height:42px;padding:10px 16px}}
-		`;
-		document.head.appendChild(style);
-	}
+	let filter = 'all';
+	const pages = new Map();
+	const PAGE_SIZE = 10;
 
 	function normalizeBase(value) {
 		return String(value || '').normalize('NFKC').trim().replace(/[\s　]+/g, '').toLowerCase();
@@ -111,6 +83,112 @@
 		host.appendChild(fields);
 	}
 
+
+	function wordState(host) {
+		if (host.dataset.memoryState) return host.dataset.memoryState;
+		const copy = host.querySelector('.jlpt-archive-status')?.textContent
+			|| host.querySelector('.jlpt-word-head > span')?.textContent
+			|| '';
+		if (/애매|曖昧|あいまい/.test(copy)) return 'uncertain';
+		if (/외움|暗記済|覚えた/.test(copy)) return 'mastered';
+		return 'unlearned';
+	}
+
+	function matches(host) {
+		const state = wordState(host);
+		if (filter === 'review') return state !== 'mastered';
+		if (filter === 'uncertain') return state === 'uncertain';
+		if (filter === 'mastered') return state === 'mastered';
+		return true;
+	}
+
+	function pagerButton(label, page, active, disabled, onClick) {
+		const button = document.createElement('button');
+		button.type = 'button';
+		button.textContent = label;
+		button.disabled = disabled;
+		button.classList.toggle('is-active', active);
+		button.addEventListener('click', onClick);
+		return button;
+	}
+
+	function applyTodayFilter(list) {
+		const cards = [...list.children].filter((node) => node.matches?.('.jlpt-word-card[data-memory-word="true"]'));
+		if (!cards.length) return;
+		const matched = cards.filter(matches);
+		const totalPages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+		const page = Math.min(pages.get(list) || 1, totalPages);
+		pages.set(list, page);
+		cards.forEach((card) => {
+			const index = matched.indexOf(card);
+			const shown = index >= (page - 1) * PAGE_SIZE && index < page * PAGE_SIZE;
+			card.classList.toggle('jlpt-memory-filter-hidden', !shown);
+			card.classList.toggle('jlpt-history-hidden', !shown);
+		});
+		const oldPager = list.nextElementSibling;
+		if (oldPager?.classList.contains('jlpt-pager')) oldPager.remove();
+		let empty = list.parentElement?.querySelector(':scope > .jlpt-memory-filter-empty');
+		if (!matched.length) {
+			if (!empty) {
+				empty = document.createElement('p');
+				empty.className = 'jlpt-empty jlpt-memory-filter-empty';
+				list.after(empty);
+			}
+			empty.textContent = t('이 조건에 해당하는 단어가 없습니다.', 'この条件に該当する単語はありません。');
+			return;
+		}
+		empty?.remove();
+		if (totalPages <= 1) return;
+		const pager = document.createElement('div');
+		pager.className = 'jlpt-pager jlpt-memory-filter-pager';
+		const go = (next) => { pages.set(list, next); applyTodayFilter(list); };
+		pager.append(
+			pagerButton('‹', Math.max(1, page - 1), false, page === 1, () => go(Math.max(1, page - 1))),
+			...[...Array(totalPages)].map((_, index) => pagerButton(String(index + 1), index + 1, index + 1 === page, false, () => go(index + 1))),
+			pagerButton('›', Math.min(totalPages, page + 1), false, page === totalPages, () => go(Math.min(totalPages, page + 1))),
+		);
+		list.after(pager);
+	}
+
+	function applyFilter() {
+		window.__SONG_JLPT_MEMORY_FILTER__ = filter;
+		document.querySelectorAll('#jlpt-review-words, #jlpt-new-words').forEach(applyTodayFilter);
+		document.querySelectorAll('.jlpt-memory-filter-button').forEach((button) => {
+			const active = button.dataset.filter === filter;
+			button.classList.toggle('is-active', active);
+			button.setAttribute('aria-pressed', String(active));
+		});
+	}
+
+	function setFilter(next) {
+		filter = next;
+		pages.clear();
+		applyFilter();
+		window.dispatchEvent(new CustomEvent('song:jlpt-memory-filter', { detail: { filter } }));
+	}
+
+	function mountFilters(bar) {
+		let group = bar.querySelector('.jlpt-memory-filter-group');
+		if (group) return;
+		group = document.createElement('div');
+		group.className = 'jlpt-memory-filter-group';
+		[
+			['all', t('전체', 'すべて')],
+			['review', t('복습 필요', '復習が必要')],
+			['uncertain', t('애매함', 'あいまい')],
+			['mastered', t('학습완료', '学習完了')],
+		].forEach(([value, label]) => {
+			const button = document.createElement('button');
+			button.type = 'button';
+			button.className = 'jlpt-memory-filter-button';
+			button.dataset.filter = value;
+			button.textContent = label;
+			button.addEventListener('click', () => setFilter(value));
+			group.appendChild(button);
+		});
+		bar.appendChild(group);
+	}
+
 	function toolbar(container) {
 		let bar = [...container.children].find((node) => node.classList?.contains('jlpt-memory-practice-toolbar'));
 		if (!(bar instanceof HTMLElement)) {
@@ -126,7 +204,8 @@
 			bar.appendChild(button);
 			container.prepend(bar);
 		}
-		const button = bar.querySelector('button');
+		mountFilters(bar);
+		const button = bar.querySelector(':scope > button');
 		if (button) {
 			const copy = enabled ? t('암기 모드 종료', '暗記モード終了') : t('암기 모드', '暗記モード');
 			if (button.textContent !== copy) button.textContent = copy;
@@ -136,7 +215,6 @@
 	}
 
 	function decorate() {
-		injectStyle();
 		document.body.classList.toggle('jlpt-memory-practice-active', enabled);
 		document.querySelectorAll('[data-memory-word="true"]').forEach(decorateWord);
 
@@ -147,6 +225,7 @@
 		if (archive instanceof HTMLElement && !archive.classList.contains('jlpt-history-hidden') && archive.querySelector('[data-memory-word="true"]')) {
 			toolbar(archive);
 		}
+		applyFilter();
 	}
 
 	function scan() {
@@ -155,7 +234,6 @@
 	}
 
 	function init() {
-		injectStyle();
 		decorate();
 		const root = document.querySelector('.jlpt-content') || document.body;
 		new MutationObserver((mutations) => {
