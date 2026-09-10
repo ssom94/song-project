@@ -48,6 +48,7 @@ import {
 	handleUpdateAdminJapaneseJlptWordState,
 } from './admin/japanese/jlpt';
 import { handleCompleteAdminJapaneseJlptHistoricalWord } from './admin/japanese/jlpt-history';
+import { handleGetAdminJapaneseJlptWrongNotes } from './admin/japanese/jlpt-wrong-notes';
 import { handleListAdminJapaneseWords } from './admin/japanese/words';
 import {
 	handleCreateAdminJapaneseWordWithHistory,
@@ -94,6 +95,7 @@ import { handleCreatePublicComment, handleListPublicComments } from './public/co
 import { handleGetPublicDashboard } from './public/dashboard';
 import { handleGetPublicJapaneseJlptDashboard } from './public/japanese/jlpt';
 import { handleGetPublicJapaneseJlptPractice } from './public/japanese/jlpt-practice';
+import { handleGradePublicJapaneseJlptPractice } from './public/japanese/jlpt-practice-grade';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
@@ -146,6 +148,7 @@ export default {
 			case '/api/public/japanese/stats': return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/dashboard': return request.method === 'GET' ? handleGetPublicJapaneseJlptDashboard(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice': return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/practice/grade': return request.method === 'POST' ? handleGradePublicJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
 			case '/api/public/japanese/taxonomy': return request.method === 'GET' ? handleGetPublicJapaneseTaxonomy(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/words': return request.method === 'GET' ? handleListPublicJapaneseWords(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/quiz-pool': return request.method === 'GET' ? handleGetPublicJapaneseQuizPool(request, env) : methodNotAllowed('GET');
@@ -176,7 +179,7 @@ export default {
 			case '/api/admin/comments/detail':
 				if (request.method === 'PATCH') return handleUpdateAdminCommentStatus(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminComment(request, env);
-				return methodNotAllowed('PATCH, DELETE');
+				return methodNotAllowed('GET, POST');
 			case '/api/admin/categories':
 				if (request.method === 'GET') return handleListAdminCategories(request, env);
 				if (request.method === 'POST') return handleCreateAdminCategory(request, env);
@@ -240,6 +243,7 @@ export default {
 			case '/api/admin/japanese/jlpt/today/start': return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/word-state': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/jlpt/history/word-state': return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptHistoricalWord(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/wrong-notes': return request.method === 'GET' ? handleGetAdminJapaneseJlptWrongNotes(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/jlpt/progress': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/jlpt/curriculum/words': return request.method === 'POST' ? handleEnrollAdminJapaneseJlptWords(request, env) : methodNotAllowed('POST');
 			case '/api/admin/japanese/jlpt/content/import': return request.method === 'POST' ? handleImportAdminJapaneseJlptContent(request, env) : methodNotAllowed('POST');
