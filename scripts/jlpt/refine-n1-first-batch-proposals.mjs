@@ -4,6 +4,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const PROD = path.join(ROOT, 'data', 'jlpt', 'production');
 const SELECTION = path.join(PROD, 'candidates', 'n1-editorial-selection.json');
+const CANDIDATE_POOL = path.join(PROD, 'candidates', 'n1-candidate-pool.json');
 const CURATION = path.join(PROD, 'curation', 'words');
 const OUTPUT = path.join(PROD, 'candidates', 'n1-first-batch-proposals.json');
 const normalize = (value = '') => String(value).normalize('NFKC').trim();
@@ -14,7 +15,10 @@ const keyOf = (row) => `${normalize(row.word)}\u0000${normalize(row.reading)}`;
 // whose choice changes a sentence's reading. They are not official JLPT labels.
 const READING_VALUE = /(?:政策|規模|理論|政権|権力|認識|成果|規定|概念|定義|象徴|規制|司法|強制|限定|正規|形態|権限|権威|証言|率いる|措置|悪化|領域|進化|要因|観点|極端|統制|機構|手法|特権|個性|制定|応募|妥協|実態|領土|理性|異論|構想|立法|客観|提携|主権|知性|規約|悲観|制約|規範|言論|論議|先天的|主観|制裁|方策|弁論|証拠|拒否|把握|世論|効率|秩序|損失|履歴|妨害|製法|法廷|脅迫|態勢|抑圧|適性|棄権|良識|譲歩|統率|用法|目論見|法案|欠乏|窮乏|妥結|事業|事前|発生|指摘|仕様|多様|対応|交渉|緊急|独自|個別|一切|確保|及ぶ|指揮|弁護|捜査|従来|危機|改革|有力|支持|正当|実質|監視|忠実|行政|上昇|廃止|取り組む|少数|説得|配置|単独|勢力|運命|築く|設立|非難|報道|要請|進行|負う|孤独|株式|映像|仕える|処分|協会|資格|大幅|形成|復活|欠く|業者|活発|条約|民主|展示|唱える|不可欠|獲得|企画|無用|作戦|防衛|滅ぼす|運営|正常|対処|勤務|業務|犯す|誠実|革命|暴力|大胆|昇進|内閣|施す|無効|暗殺|世代|創造|途上|分離|確立|合併|掲げる|導入|連邦|営む|部門|不当|任命|優先|耐える|遂げる|携わる|著名|率直|募る|果たして|脅かす|準ずる|懲りる|促す|阻止|阻む|抑制|紛争|覆す|厳密|促進|顧みる|乏しい|慎む|緩和|脅す|緩やか|躊躇う|緩む|緩める|慕う|著しい|誤魔化す|紛れる|厳か|膨れる|一概に|楽観|隔たる|軽率|やり遂げる|紛らわしい|拒絶|紛失|覆面|譲歩|制する|堪える|免れる|荒廃|停滞|過疎|徴収|踏まえる|敢えて|勇敢|疎か|甚だ|滞納|脆い|逸らす|堪らない)/u;
 const EARLY_REJECT = new Set([
-	'件','制服','好評','半端','酸化','気象','基金','著書','比率','法学','化石','静的','募金','化合','観覧','書評','隔週','構え','携帯','余っ程','貧乏','果ない','観衆','文化財','領地','象','領海','不評','倍率','的','化する','概説','退化','準急','化繊','中程','基','膨脹','局限','及び','保つ','施設','来る','通常','提供','殺人','記す','選挙','自己','落ちる','資金','投資','文書','止める','参照','設定','本気','落とす','採用','定める','所定','派遣','設ける','同意','公開','訪れる','昼間','設置','反応','古代','決まる','内部','登録','伝説','当たり前','軍事','私','楽しむ','他方','手配','固定','集まる','戦闘','指示','逃れる','黄色','何処','何方','何れ','あら','懸賞','抽選','印鑑','御免ください','態と','余程','堪らない','背負う'
+	'件','制服','好評','半端','酸化','気象','基金','著書','比率','法学','化石','静的','募金','化合','観覧','書評','隔週','構え','携帯','余っ程','貧乏','果ない','観衆','文化財','領地','象','領海','不評','倍率','的','化する','概説','退化','準急','化繊','中程','基','膨脹','局限','及び','保つ','施設','来る','通常','提供','殺人','記す','選挙','自己','落ちる','資金','投資','文書','止める','参照','設定','本気','落とす','採用','定める','所定','派遣','設ける','同意','公開','訪れる','昼間','設置','反応','古代','決まる','内部','登録','伝説','当たり前','軍事','私','楽しむ','他方','手配','固定','集まる','戦闘','指示','逃れる','黄色','何処','何方','何れ','あら','懸賞','抽選','印鑑','御免ください','態と','余程','堪らない','背負う',
+	// Useful words, but too elementary or too broad to occupy the first N1
+	// priority batch. They may remain in a later general/JLPT review batch.
+	'緊急','報道','株式','映像','協会','資格','復活','業者','成果','展示','企画','作戦','防衛','運営','勤務','業務','孤独','暴力','昇進','内閣','部門','優先','正常','任務','革命','大幅','創造','少数','真実','発言','行政','上昇','事業','行為','発生','対応','交渉','危機','支持','改革'
 ]);
 // Second-pass editorial approvals: each has a distinct formal, logical,
 // institutional, or contrastive use that supports sentence recall. They are
@@ -22,10 +26,21 @@ const EARLY_REJECT = new Set([
 // blind fallback. This remains a proposed list pending administrator review.
 const SECOND_PASS_REVIEWED = new Set([
 	'原則','論理','知的','証人','占領','討論','外観','概略','動的','破損','規格','用件','無論','大概','公募','準じる','行為','真実','発言','記述','所属','任務','関与','達成','統合','判決','対抗','回収','抗議','記載','再生','本能','追放','減少','雇用','協議','推測','推進','掲載','圧力','決断','警戒','確信','向上','経緯','介入','提示','進展',
+	// Deliberately selected replacement pool for the first batch.  Each item
+	// carries institutional, abstract, academic, legal, or logical reading
+	// value; this is an editorial priority, not an official frequency claim.
+	'名誉','民族','階級','事項','受け入れ','争い','同盟','武装','入手','総合','作用','反乱','農地','国境','大衆','人材','会見','接触','根本','運用','統治','流通','余地','品質','宣言','合意','審査','保管','一連','人格','福祉','決意','解除','職務','転換','資産','経過','施行','報酬','側面','独占','実践','依存','開拓','協定','本格','視点','演出','動機','再建','進出','様式','放棄','主催','移民','本質','確定','侵略','賃金','情勢'
 ]);
 const REQUIRED = ['word','reading','meaning_ko','meaning_ja','part_of_speech','example_ja','example_ko'];
 
-const selection = JSON.parse(await fs.readFile(SELECTION, 'utf8'));
+// A previous checkpoint accidentally omitted the derived editorial-selection
+// file.  Fall back to the committed canonical pool so this generator remains
+// reproducible after a clean clone; the same explicit exclusions and content
+// checks still apply.
+const selection = JSON.parse(await fs.readFile(SELECTION, 'utf8').catch(async (error) => {
+	if (error.code !== 'ENOENT') throw error;
+	return fs.readFile(CANDIDATE_POOL, 'utf8');
+}));
 const curated = new Map();
 for (const name of (await fs.readdir(CURATION)).filter((entry) => entry.endsWith('.json'))) {
 	const doc = JSON.parse(await fs.readFile(path.join(CURATION, name), 'utf8'));
