@@ -1,5 +1,4 @@
 import { getAuthenticatedAdminSession } from '../../auth/session';
-import { validDateText } from '../../jlpt-study';
 
 interface PlanRow {
 	id: number;
@@ -58,16 +57,15 @@ export async function handleGradePublicJapaneseJlptPractice(request: Request, en
 		const auth = await getAuthenticatedAdminSession(request, env.song_project_db);
 		if (!auth) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
 
-		let payload: { questionKey?: unknown; selectedAnswer?: unknown; studyDate?: unknown };
+		let payload: { questionKey?: unknown; selectedAnswer?: unknown };
 		try {
-			payload = await request.json() as { questionKey?: unknown; selectedAnswer?: unknown; studyDate?: unknown };
+			payload = await request.json() as { questionKey?: unknown; selectedAnswer?: unknown };
 		} catch {
 			return json({ ok: false, error: 'INVALID_JSON' }, 400);
 		}
 		const key = parseQuestionKey(payload.questionKey);
 		const selectedAnswer = typeof payload.selectedAnswer === 'string' ? payload.selectedAnswer : null;
-		const studyDate = validDateText(payload.studyDate);
-		if (!key || selectedAnswer == null || !studyDate) return json({ ok: false, error: 'INVALID_ANSWER' }, 400);
+		if (!key || selectedAnswer == null) return json({ ok: false, error: 'INVALID_ANSWER' }, 400);
 
 		const plan = await env.song_project_db.prepare(`
 			SELECT id, study_start_date
@@ -75,16 +73,16 @@ export async function handleGradePublicJapaneseJlptPractice(request: Request, en
 			WHERE admin_id = ?1 AND is_active = 1
 			ORDER BY id ASC LIMIT 1
 		`).bind(auth.adminId).first<PlanRow>();
-		if (!plan || studyDate < plan.study_start_date) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
+		if (!plan) return json({ ok: false, error: 'JLPT_STUDY_PLAN_NOT_FOUND' }, 404);
 
 		const expectedType = key.type === 'vocab' ? 'vocab_question' : key.type === 'grammar' ? 'grammar_question' : 'reading';
 		const row = await env.song_project_db.prepare(`
 			SELECT id, study_date, content_type, payload_json
 			FROM japanese_jlpt_daily_contents
-			WHERE id = ?1 AND plan_id = ?2 AND study_date = ?3 AND content_type = ?4
+			WHERE id = ?1 AND plan_id = ?2 AND content_type = ?3
 			LIMIT 1
-		`).bind(key.contentId, plan.id, studyDate, expectedType).first<ContentRow>();
-		if (!row) return json({ ok: false, error: 'QUESTION_NOT_FOUND' }, 404);
+		`).bind(key.contentId, plan.id, expectedType).first<ContentRow>();
+		if (!row || row.study_date < plan.study_start_date) return json({ ok: false, error: 'QUESTION_NOT_FOUND' }, 404);
 
 		const question = pickQuestion(row, key.index);
 		if (!question || typeof question.prompt !== 'string' || typeof question.answer !== 'string') return json({ ok: false, error: 'QUESTION_INVALID' }, 422);
@@ -95,19 +93,21 @@ export async function handleGradePublicJapaneseJlptPractice(request: Request, en
 		const explanation = typeof question.explanation === 'string' ? question.explanation : '';
 		const correct = selectedAnswer === correctAnswer;
 		const now = new Date().toISOString();
+		const questionKey = String(payload.questionKey);
+		const studyDate = row.study_date;
 
 		await env.song_project_db.prepare(`
 			INSERT INTO japanese_jlpt_question_attempts
 				(admin_id, plan_id, study_date, question_key, question_type, prompt, selected_answer, correct_answer, is_correct, attempted_at)
 			VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)
-		`).bind(auth.adminId, plan.id, studyDate, payload.questionKey, key.type, question.prompt, selectedAnswer, correctAnswer, correct ? 1 : 0, now).run();
+		`).bind(auth.adminId, plan.id, studyDate, questionKey, key.type, question.prompt, selectedAnswer, correctAnswer, correct ? 1 : 0, now).run();
 
 		if (correct) {
 			await env.song_project_db.prepare(`
 				UPDATE japanese_jlpt_wrong_notes
 				SET resolved_at = COALESCE(resolved_at, ?4), updated_at = ?4
 				WHERE admin_id = ?1 AND plan_id = ?2 AND question_key = ?3 AND resolved_at IS NULL
-			`).bind(auth.adminId, plan.id, payload.questionKey, now).run();
+			`).bind(auth.adminId, plan.id, questionKey, now).run();
 		} else {
 			await env.song_project_db.prepare(`
 				INSERT INTO japanese_jlpt_wrong_notes
@@ -125,7 +125,7 @@ export async function handleGradePublicJapaneseJlptPractice(request: Request, en
 					last_wrong_at = excluded.last_wrong_at,
 					resolved_at = NULL,
 					updated_at = excluded.updated_at
-			`).bind(auth.adminId, plan.id, payload.questionKey, key.type, studyDate, question.prompt, JSON.stringify(options), selectedAnswer, correctAnswer, explanation, now).run();
+			`).bind(auth.adminId, plan.id, questionKey, key.type, studyDate, question.prompt, JSON.stringify(options), selectedAnswer, correctAnswer, explanation, now).run();
 		}
 
 		return json({ ok: true, correct, correctAnswer, explanation });
