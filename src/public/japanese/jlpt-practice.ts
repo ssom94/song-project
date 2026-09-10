@@ -46,12 +46,34 @@ interface ContentRow {
 	completed_at: string | null;
 }
 
+interface RawQuestion {
+	prompt?: unknown;
+	options?: unknown;
+	answer?: unknown;
+	explanation?: unknown;
+	title?: unknown;
+}
+
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
 function safePayload(value: string): unknown {
 	try { return JSON.parse(value); } catch { return null; }
+}
+
+function publicQuestion(key: string, type: 'vocab' | 'grammar' | 'reading', studyDate: string, title: string | null, value: unknown) {
+	if (!value || typeof value !== 'object') return null;
+	const raw = value as RawQuestion;
+	if (typeof raw.prompt !== 'string' || !Array.isArray(raw.options)) return null;
+	return {
+		key,
+		type,
+		studyDate,
+		title: typeof raw.title === 'string' ? raw.title : (title ?? ''),
+		prompt: raw.prompt,
+		options: raw.options.filter((option): option is string => typeof option === 'string'),
+	};
 }
 
 export async function handleGetPublicJapaneseJlptPractice(request: Request, env: Env): Promise<Response> {
@@ -112,15 +134,31 @@ export async function handleGetPublicJapaneseJlptPractice(request: Request, env:
 			payload: safePayload(row.payload_json),
 			completed: Boolean(row.completed_at),
 		}));
-		const questions = contents.filter((row) => row.type === 'vocab_question' || row.type === 'grammar_question').flatMap((row) => {
-			const payload = row.payload as { questions?: unknown[] } | null;
-			if (Array.isArray(payload?.questions)) return payload.questions;
-			return row.payload && typeof row.payload === 'object' ? [row.payload] : [];
-		});
+
+		const questions = contents
+			.filter((row) => row.type === 'vocab_question' || row.type === 'grammar_question')
+			.flatMap((row) => {
+				const type = row.type === 'vocab_question' ? 'vocab' as const : 'grammar' as const;
+				const payload = row.payload as { questions?: unknown[] } | null;
+				if (Array.isArray(payload?.questions)) {
+					return payload.questions.map((question, index) => publicQuestion(`${type}:${row.id}:${index}`, type, date, row.title, question)).filter(Boolean);
+				}
+				const question = publicQuestion(`${type}:${row.id}`, type, date, row.title, row.payload);
+				return question ? [question] : [];
+			});
+
 		const grammar = contents.filter((row) => row.type === 'grammar');
 		const readings = contents.filter((row) => row.type === 'reading').map((row) => {
 			const payload = row.payload as { title?: string; passage?: string; questions?: unknown[] } | null;
-			return { id: row.id, title: payload?.title ?? row.title ?? '', passage: payload?.passage ?? '', questions: payload?.questions ?? [] };
+			const readingQuestions = Array.isArray(payload?.questions)
+				? payload.questions.map((question, index) => publicQuestion(`reading:${row.id}:${index}`, 'reading', date, row.title, question)).filter(Boolean)
+				: [];
+			return {
+				id: row.id,
+				title: payload?.title ?? row.title ?? '',
+				passage: payload?.passage ?? '',
+				questions: readingQuestions,
+			};
 		});
 
 		return json({
