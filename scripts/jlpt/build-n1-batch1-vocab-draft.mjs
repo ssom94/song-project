@@ -22,8 +22,22 @@ const CONTEXT_SENTENCE_OVERRIDES = {
   '誤魔化す': '質問の核心を（　）ことなく、答えてください。',
 };
 function rotate(values, seed) { const at = seed % values.length; return values.slice(at).concat(values.slice(0, at)); }
+function wordClass(row) {
+	const pos = normalize(row.part_of_speech);
+	if (/動詞/u.test(pos)) return 'verb';
+	if (/形容詞|副詞|連体詞|接続詞/u.test(pos)) return 'modifier';
+	return 'noun';
+}
 function distractors(all, word, field, seed) {
-	const ordered = [...all.filter((row) => row.key !== word.key && row.part_of_speech === word.part_of_speech), ...all.filter((row) => row.key !== word.key && row.part_of_speech !== word.part_of_speech)];
+	const sameClass = all.filter((row) => row.key !== word.key && wordClass(row) === wordClass(word));
+	const sameExactPos = sameClass.filter((row) => normalize(row.part_of_speech) === normalize(word.part_of_speech));
+	// Keep all four vocabulary choices grammatically comparable whenever the
+	// batch provides enough candidates; only fall back across classes when a
+	// class genuinely has fewer than three alternatives.
+	const preferred = [...sameExactPos, ...sameClass.filter((row) => !sameExactPos.includes(row))];
+	const ordered = preferred.length >= 3
+		? preferred
+		: [...preferred, ...all.filter((row) => row.key !== word.key && wordClass(row) !== wordClass(word))];
 	const seen = new Set([normalize(word[field])]); const values = [];
 	for (let offset = 0; offset < ordered.length && values.length < 3; offset += 1) {
 		const value = normalize(ordered[(seed * 31 + offset * 17) % ordered.length][field]);
