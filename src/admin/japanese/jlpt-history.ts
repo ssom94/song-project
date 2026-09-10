@@ -96,7 +96,7 @@ export async function handleCompleteAdminJapaneseJlptHistoricalWord(request: Req
 		if (!assigned) return json({ ok: false, error: 'WORD_NOT_IN_SESSION' }, 404);
 
 		const current = await env.song_project_db.prepare(`
-			SELECT learning_state, first_learned_at, last_studied_at, review_stage, long_review_stage, next_review_on
+			SELECT learning_state, first_learned_at, last_studied_at, review_stage, next_review_on
 			FROM japanese_admin_word_learning_stats
 			WHERE admin_id = ?1 AND word_id = ?2 LIMIT 1
 		`).bind(auth.adminId, wordId).first<LearningProgressRow>();
@@ -105,17 +105,16 @@ export async function handleCompleteAdminJapaneseJlptHistoricalWord(request: Req
 		const now = new Date().toISOString();
 		await env.song_project_db.prepare(`
 			INSERT INTO japanese_admin_word_learning_stats
-				(admin_id, word_id, learning_state, first_learned_at, last_studied_at, review_stage, long_review_stage, next_review_on, updated_at)
-			VALUES (?1, ?2, ?3, ?4, ?4, ?5, ?6, ?7, ?4)
+				(admin_id, word_id, learning_state, first_learned_at, last_studied_at, review_stage, next_review_on, updated_at)
+			VALUES (?1, ?2, ?3, ?4, ?4, ?5, ?6, ?4)
 			ON CONFLICT(admin_id, word_id) DO UPDATE SET
 				learning_state = excluded.learning_state,
 				first_learned_at = COALESCE(japanese_admin_word_learning_stats.first_learned_at, excluded.first_learned_at),
 				last_studied_at = excluded.last_studied_at,
 				review_stage = excluded.review_stage,
-				long_review_stage = excluded.long_review_stage,
 				next_review_on = excluded.next_review_on,
 				updated_at = excluded.updated_at
-		`).bind(auth.adminId, wordId, state, now, review.reviewStage, review.longReviewStage, review.nextReviewOn).run();
+		`).bind(auth.adminId, wordId, state, now, review.reviewStage, review.nextReviewOn).run();
 
 		await env.song_project_db.prepare(`
 			UPDATE japanese_jlpt_daily_words
