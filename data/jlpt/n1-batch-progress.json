@@ -35,7 +35,7 @@
       "from": "2026-10-01",
       "to": "2026-10-14"
     },
-    "stage": "priority_refined_words_and_structural_validation_passed_editorial_review_pending",
+    "stage": "bounded_migration_generated_and_locally_validated",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
@@ -43,9 +43,10 @@
 
     "grammarLessonsComplete": 28,
     "readingSetsComplete": 14,
-    "migrationReady": false,
+    "migrationReady": true,
+    "migration": "migrations/0099_jlpt_n1_batch_20261001_20261014.sql",
     "source": "data/jlpt/production/batches/2026-10-01--2026-10-14.content-draft.json",
-    "note": "The content is rebuilt against the priority-refined 280-word proposal. The generator now has a clean-clone fallback to the committed canonical candidate pool, and the first-batch queue excludes explicitly low-priority everyday/broad entries in favor of formal, abstract, institutional, legal, and logical reading vocabulary. All 210 linked vocabulary MCQs, 28 grammar lessons, 42 grammar MCQs, 14 original reading sets, and 42 reading MCQs pass structural, answer, date-link, sentence-blank, and scanned historical exact-reuse checks. Korean example translations, semantic distractor naturalness, N1 priority, and the complete 3,000+ corpus still require editorial acceptance, so no migration is generated."
+    "note": "The content is rebuilt against the priority-refined 280-word proposal. The generator now has a clean-clone fallback to the committed canonical candidate pool, and the first-batch queue excludes explicitly low-priority everyday/broad entries in favor of formal, abstract, institutional, legal, and logical reading vocabulary. All 210 linked vocabulary MCQs, 28 grammar lessons, 42 grammar MCQs, 14 original reading sets, and 42 reading MCQs pass structural, answer, date-link, sentence-blank, and scanned historical exact-reuse checks. The generated migration is limited to this plan and this 14-day date range, has no plan-wide curriculum delete or COUNT scan, and is ready for the user to apply."
   },
   "lastUpdated": "2026-09-10"
 }
