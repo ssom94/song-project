@@ -99,6 +99,12 @@
 		setDateNavMinimized(localStorage.getItem(DATE_NAV_MINIMIZED_KEY)==='1',false);
 		updateDateLabel();
 	}
+	function setupDateNavMounting(){
+		mountDateNav();
+		if(document.getElementById('jlpt-date-nav'))return;
+		const observer=new MutationObserver(()=>{mountDateNav();if(document.getElementById('jlpt-date-nav'))observer.disconnect();});
+		observer.observe(document.body,{childList:true,subtree:true});
+	}
 	function dateNavReopenButton(){let button=document.getElementById('jlpt-date-nav-reopen');if(button)return button;button=document.createElement('button');button.id='jlpt-date-nav-reopen';button.type='button';button.className='jlpt-date-nav-reopen';button.textContent=t('날짜','日付');button.setAttribute('aria-label',t('날짜 이동 표시','日付移動を表示'));button.addEventListener('click',()=>setDateNavMinimized(false));document.body.appendChild(button);return button;}
 	function setDateNavMinimized(minimized,persist=true){const nav=document.getElementById('jlpt-date-nav');const reopen=dateNavReopenButton();if(nav)nav.hidden=minimized;reopen.hidden=!minimized;if(persist)localStorage.setItem(DATE_NAV_MINIMIZED_KEY,minimized?'1':'0');if(!minimized&&nav)nav.scrollIntoView({block:'start',behavior:'smooth'});}
 
@@ -215,6 +221,6 @@
 	async function loadWrongNotes(){ const list=document.getElementById('jlpt-wrong-list');if(!list)return;try{const data=await requestJson(`${WRONG_API}?resolved=${wrongResolved?'all':'open'}&limit=100`);wrongItems=data.items||[];renderWrongNotes();}catch(error){list.innerHTML=`<p class="jlpt-empty">${error.status===401?t('관리자 로그인 후 오답노트를 볼 수 있습니다.','管理者ログイン後に表示できます。'):t('오답노트를 불러오지 못했습니다.','誤答ノートを読み込めませんでした。')}</p>`;} }
 	function renderWrongNotes(){ const list=document.getElementById('jlpt-wrong-list');if(!list)return;list.replaceChildren();if(!wrongItems.length){list.innerHTML=`<p class="jlpt-empty">${t('해당 오답이 없습니다.','該当する誤答はありません。')}</p>`;return;}const start=(wrongPage-1)*PAGE_SIZE;wrongItems.slice(start,start+PAGE_SIZE).forEach((item,index)=>{const a=document.createElement('article');a.className='jlpt-wrong-item';a.innerHTML=`<strong>${start+index+1}. ${escapeHtml(item.prompt)}</strong><p>${t('날짜','日付')}: ${escapeHtml(item.studyDate)} · ${t('오답 횟수','誤答回数')}: ${item.wrongCount}</p><p>${t('내 답','自分の答え')}: ${escapeHtml(item.selectedAnswer||'—')}</p><p>${t('정답','正解')}: <b>${escapeHtml(item.correctAnswer)}</b></p>${item.explanation?`<p>${escapeHtml(item.explanation)}</p>`:''}`;list.appendChild(a);});const pager=makePager(wrongItems.length,wrongPage,(p)=>{wrongPage=p;renderWrongNotes();});if(pager)list.appendChild(pager); }
 
-	function init(){injectStyle();mountDateNav();setupWordPagination();setupCalendar();mountWrongNotes();updateDateLabel();window.addEventListener('pagehide',saveHistoricalStatesOnExit);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveHistoricalStatesOnExit();});}
+	function init(){injectStyle();setupDateNavMounting();setupWordPagination();setupCalendar();mountWrongNotes();updateDateLabel();window.addEventListener('pagehide',saveHistoricalStatesOnExit);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveHistoricalStatesOnExit();});}
 	if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
