@@ -10,6 +10,10 @@
 	let wrongResolved = false;
 	let wrongPage = 1;
 	let wrongItems = [];
+	let archiveWords = [];
+	let archiveWordList = null;
+	let archiveWordRender = null;
+	let archiveWordFilter = 'all';
 
 	function jstToday() {
 		return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
@@ -106,6 +110,23 @@
 		const calendar=document.getElementById('jlpt-calendar')?.closest('.jlpt-card'); (calendar?.parentElement||document.querySelector('.jlpt-content'))?.insertBefore(card,calendar||null); return card;
 	}
 	function renderArchivePager(container, values, render, page=1){ container.replaceChildren(); const start=(page-1)*PAGE_SIZE; values.slice(start,start+PAGE_SIZE).forEach((value,index)=>container.appendChild(render(value,start+index))); const pager=makePager(values.length,page,(p)=>renderArchivePager(container,values,render,p)); if(pager) container.appendChild(pager); }
+
+	function archiveWordMatches(word) {
+		const state = word.learningState || 'unlearned';
+		if (archiveWordFilter === 'review') return state !== 'mastered';
+		if (archiveWordFilter === 'uncertain') return state === 'uncertain';
+		if (archiveWordFilter === 'mastered') return state === 'mastered';
+		return true;
+	}
+	function renderFilteredArchiveWords(page=1) {
+		if (!archiveWordList || !archiveWordRender) return;
+		archiveWordFilter = window.__SONG_JLPT_MEMORY_FILTER__ || archiveWordFilter;
+		renderArchivePager(archiveWordList, archiveWords.filter(archiveWordMatches), archiveWordRender, page);
+	}
+	window.addEventListener('song:jlpt-memory-filter', (event) => {
+		archiveWordFilter = event.detail?.filter || 'all';
+		renderFilteredArchiveWords(1);
+	});
 	function questionNode(item,index){ const box=document.createElement('article'); box.className='jlpt-archive-item'; box.innerHTML=`<strong>${index+1}. ${escapeHtml(item.title||t('문제','問題'))}</strong><p>${escapeHtml(item.prompt)}</p>`; const options=document.createElement('div'); options.className='jlpt-archive-options'; const result=document.createElement('div'); result.className='jlpt-archive-result'; (item.options||[]).forEach((option)=>{const b=document.createElement('button');b.type='button';b.textContent=option;b.addEventListener('click',async()=>{options.querySelectorAll('button').forEach(x=>x.disabled=true);try{const data=await requestJson(GRADE_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({questionKey:item.key,selectedAnswer:option})});result.textContent=data.correct?t(`정답 ✓ ${data.explanation||''}`,`正解 ✓ ${data.explanation||''}`):t(`오답 · 정답: ${data.correctAnswer}${data.explanation?` · ${data.explanation}`:''}`,`不正解 · 正解: ${data.correctAnswer}${data.explanation?` · ${data.explanation}`:''}`);}catch{result.textContent=t('채점할 수 없습니다.','採点できません。');}finally{options.querySelectorAll('button').forEach(x=>x.disabled=false);}});options.appendChild(b);}); box.append(options,result); return box; }
 
 	async function completeHistoricalWord(studyDate, word, state, actions) {
@@ -125,7 +146,7 @@
 	}
 
 	function renderArchive(data){ const card=archiveCard(); card.classList.remove('jlpt-history-hidden'); card.innerHTML=`<div class="jlpt-card-heading"><div><h2>${escapeHtml(data.studyDate)} ${t('오늘의 학습 기록','学習記録')}</h2><p>${t('달력 또는 상단 날짜 선택에서 불러온 학습 내용입니다. 미학습 단어는 날짜가 지나도 여기에서 다시 학습할 수 있습니다.','カレンダーまたは日付選択から読み込んだ学習内容です。未学習の単語は日付が過ぎてもここから再学習できます。')}</p></div></div>`;
-		const words=document.createElement('section'); words.innerHTML=`<h3>${t('단어','単語')} (${data.words.length})</h3>`; const wordList=document.createElement('div');wordList.className='jlpt-archive-list';words.appendChild(wordList);renderArchivePager(wordList,data.words,(word,index)=>{const a=document.createElement('article');a.className='jlpt-archive-word';a.dataset.memoryWord='true';a.dataset.memoryReading=word.reading||'';a.dataset.memoryMeaningKo=word.meaningKo||'';a.innerHTML=`<strong><span class="jlpt-word-number">${index+1}</span>${escapeHtml(word.word)}</strong><small>${escapeHtml(word.reading||'—')} · ${escapeHtml(word.meaningKo||word.meaningJa||'—')}</small><p class="jlpt-archive-status">${word.status==='completed'?t(`학습완료 · ${stateLabel(word.learningState)}`,`学習完了 · ${stateLabel(word.learningState)}`):t('미학습 · 다시 학습 가능','未学習 · 再学習できます')}</p>`;if(word.status!=='completed'){const actions=document.createElement('div');actions.className='jlpt-archive-state-actions';[['unlearned',t('미학습','未学習')],['uncertain',t('애매함','あいまい')],['mastered',t('외움','覚えた')]].forEach(([state,label])=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>completeHistoricalWord(data.studyDate,word,state,actions));actions.appendChild(b);});a.appendChild(actions);}return a;});card.appendChild(words);
+		const words=document.createElement('section'); words.innerHTML=`<h3>${t('단어','単語')} (${data.words.length})</h3>`; const wordList=document.createElement('div');wordList.className='jlpt-archive-list';words.appendChild(wordList);archiveWords=data.words;archiveWordList=wordList;archiveWordRender=(word,index)=>{const a=document.createElement('article');a.className='jlpt-archive-word';a.dataset.memoryWord='true';a.dataset.memoryReading=word.reading||'';a.dataset.memoryMeaningKo=word.meaningKo||'';a.innerHTML=`<strong><span class="jlpt-word-number">${index+1}</span>${escapeHtml(word.word)}</strong><small>${escapeHtml(word.reading||'—')} · ${escapeHtml(word.meaningKo||word.meaningJa||'—')}</small><p class="jlpt-archive-status">${word.status==='completed'?t(`학습완료 · ${stateLabel(word.learningState)}`,`学習完了 · ${stateLabel(word.learningState)}`):t('미학습 · 다시 학습 가능','未学習 · 再学習できます')}</p>`;if(word.status!=='completed'){const actions=document.createElement('div');actions.className='jlpt-archive-state-actions';[['unlearned',t('미학습','未学習')],['uncertain',t('애매함','あいまい')],['mastered',t('외움','覚えた')]].forEach(([state,label])=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=>completeHistoricalWord(data.studyDate,word,state,actions));actions.appendChild(b);});a.appendChild(actions);}return a;};renderFilteredArchiveWords();card.appendChild(words);
 		const questions=(data.questions||[]); const qSection=document.createElement('section');qSection.innerHTML=`<h3>${t('어휘·문법 문제','語彙・文法問題')} (${questions.length})</h3>`;const qList=document.createElement('div');qList.className='jlpt-archive-list';qSection.appendChild(qList);renderArchivePager(qList,questions,questionNode);card.appendChild(qSection);
 		const grammar=document.createElement('section');grammar.innerHTML=`<h3>${t('문법 개념','文法')} (${(data.grammar||[]).length})</h3>`;const gList=document.createElement('div');gList.className='jlpt-archive-list';grammar.appendChild(gList);renderArchivePager(gList,data.grammar||[],(g,index)=>{const a=document.createElement('article');a.className='jlpt-archive-item';const p=g.payload||{};a.innerHTML=`<strong>${index+1}. ${escapeHtml(p.pattern||g.title||'—')}</strong><p>${escapeHtml(p.meaningKo||p.meaningJa||p.meaning||'')}</p><p>${escapeHtml(p.explanation||'')}</p>`;return a;});card.appendChild(grammar);
 		(data.readings||[]).forEach((r,index)=>{const s=document.createElement('section');s.innerHTML=`<h3>${t('독해','読解')} ${index+1}</h3><article class="jlpt-archive-item"><strong>${escapeHtml(r.title||'')}</strong><p>${escapeHtml(r.passage||'')}</p></article>`;const list=document.createElement('div');list.className='jlpt-archive-list';(r.questions||[]).forEach((q,qi)=>list.appendChild(questionNode(q,qi)));s.appendChild(list);card.appendChild(s);});
