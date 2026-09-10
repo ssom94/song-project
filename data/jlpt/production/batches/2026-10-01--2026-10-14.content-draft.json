@@ -2476,17 +2476,16 @@
     {
       "sequence": 111,
       "planned_study_date": "2026-10-06",
-      "key": "n1-2012",
-      "word": "背負う",
-      "reading": "しょう",
-      "meaning_ko": "짊어지다; 등에 메다; 부담을 떠안다",
-      "meaning_ja": "背中に物を載せて持つ。また、責任・負担などを引き受ける。",
+      "key": "n1-2151",
+      "word": "阻む",
+      "reading": "はばむ",
+      "meaning_ko": "가로막다; 방해하다; 저지하다",
+      "meaning_ja": "進行・実現などを妨げて止める。",
       "part_of_speech": "五段動詞",
-      "example_ja": "彼は家族の期待を背負って大会に出場した。",
-      "example_ko": "그는 가족의 기대를 짊어지고 대회에 출전했다.",
-      "note": "読み『しょう』は口語的。『せおう』も一般的。",
-      "source_file": "1998-2017.json",
-      "source_rank_by_generic_frequency": 2011,
+      "example_ja": "大雪が救助隊の進行を阻んだ。",
+      "example_ko": "폭설이 구조대의 진행을 가로막았다.",
+      "source_file": "2138-2157.json",
+      "source_rank_by_generic_frequency": 2150,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -2567,16 +2566,16 @@
     {
       "sequence": 115,
       "planned_study_date": "2026-10-06",
-      "key": "n1-2151",
-      "word": "阻む",
-      "reading": "はばむ",
-      "meaning_ko": "가로막다; 방해하다; 저지하다",
-      "meaning_ja": "進行・実現などを妨げて止める。",
+      "key": "n1-2179",
+      "word": "覆す",
+      "reading": "くつがえす",
+      "meaning_ko": "뒤집다; 번복하다; 전복하다",
+      "meaning_ja": "それまでの考え・決定・制度などを根本から変える。物をひっくり返す意味でも使う。",
       "part_of_speech": "五段動詞",
-      "example_ja": "大雪が救助隊の進行を阻んだ。",
-      "example_ko": "폭설이 구조대의 진행을 가로막았다.",
-      "source_file": "2138-2157.json",
-      "source_rank_by_generic_frequency": 2150,
+      "example_ja": "新しい証拠が従来の説を覆した。",
+      "example_ko": "새로운 증거가 기존 학설을 뒤집었다.",
+      "source_file": "2178-2197.json",
+      "source_rank_by_generic_frequency": 2178,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -2723,16 +2722,16 @@
     {
       "sequence": 122,
       "planned_study_date": "2026-10-07",
-      "key": "n1-2179",
-      "word": "覆す",
-      "reading": "くつがえす",
-      "meaning_ko": "뒤집다; 번복하다; 전복하다",
-      "meaning_ja": "それまでの考え・決定・制度などを根本から変える。物をひっくり返す意味でも使う。",
-      "part_of_speech": "五段動詞",
-      "example_ja": "新しい証拠が従来の説を覆した。",
-      "example_ko": "새로운 증거가 기존 학설을 뒤집었다.",
+      "key": "n1-2191",
+      "word": "顧みる",
+      "reading": "かえりみる",
+      "meaning_ko": "돌아보다; 돌이켜보다; 돌보다",
+      "meaning_ja": "過去を振り返って考える。また、周囲や人のことを気にかける。",
+      "part_of_speech": "一段動詞",
+      "example_ja": "これまでの行動を顧みて反省した。",
+      "example_ko": "지금까지의 행동을 돌아보며 반성했다.",
       "source_file": "2178-2197.json",
-      "source_rank_by_generic_frequency": 2178,
+      "source_rank_by_generic_frequency": 2190,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -2813,16 +2812,16 @@
     {
       "sequence": 126,
       "planned_study_date": "2026-10-07",
-      "key": "n1-2191",
-      "word": "顧みる",
-      "reading": "かえりみる",
-      "meaning_ko": "돌아보다; 돌이켜보다; 돌보다",
-      "meaning_ja": "過去を振り返って考える。また、周囲や人のことを気にかける。",
-      "part_of_speech": "一段動詞",
-      "example_ja": "これまでの行動を顧みて反省した。",
-      "example_ko": "지금까지의 행동을 돌아보며 반성했다.",
-      "source_file": "2178-2197.json",
-      "source_rank_by_generic_frequency": 2190,
+      "key": "n1-2206",
+      "word": "慎む",
+      "reading": "つつしむ",
+      "meaning_ko": "삼가다; 조심하다; 절제하다",
+      "meaning_ja": "言動を控えめにし、注意深く行動する。また、ある行為を控える。",
+      "part_of_speech": "五段動詞",
+      "example_ja": "式典では私語を慎んでください。",
+      "example_ko": "식전에서는 사적인 대화를 삼가 주세요.",
+      "source_file": "2198-2217.json",
+      "source_rank_by_generic_frequency": 2205,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -2925,16 +2924,16 @@
     {
       "sequence": 131,
       "planned_study_date": "2026-10-07",
-      "key": "n1-2206",
-      "word": "慎む",
-      "reading": "つつしむ",
-      "meaning_ko": "삼가다; 조심하다; 절제하다",
-      "meaning_ja": "言動を控えめにし、注意深く行動する。また、ある行為を控える。",
+      "key": "n1-2213",
+      "word": "脅す",
+      "reading": "おどす",
+      "meaning_ko": "위협하다; 협박하다; 겁주다",
+      "meaning_ja": "怖い言葉・態度などで相手に恐怖を与え、従わせようとする。",
       "part_of_speech": "五段動詞",
-      "example_ja": "式典では私語を慎んでください。",
-      "example_ko": "식전에서는 사적인 대화를 삼가 주세요.",
+      "example_ja": "金を出せと相手を脅した。",
+      "example_ko": "돈을 내놓으라고 상대를 위협했다.",
       "source_file": "2198-2217.json",
-      "source_rank_by_generic_frequency": 2205,
+      "source_rank_by_generic_frequency": 2212,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3015,16 +3014,16 @@
     {
       "sequence": 135,
       "planned_study_date": "2026-10-07",
-      "key": "n1-2213",
-      "word": "脅す",
-      "reading": "おどす",
-      "meaning_ko": "위협하다; 협박하다; 겁주다",
-      "meaning_ja": "怖い言葉・態度などで相手に恐怖を与え、従わせようとする。",
+      "key": "n1-2218",
+      "word": "逸らす",
+      "reading": "そらす",
+      "meaning_ko": "돌리다; 피하다; 비껴가게 하다",
+      "meaning_ja": "視線・注意・方向などを別のほうへ向ける。",
       "part_of_speech": "五段動詞",
-      "example_ja": "金を出せと相手を脅した。",
-      "example_ko": "돈을 내놓으라고 상대를 위협했다.",
-      "source_file": "2198-2217.json",
-      "source_rank_by_generic_frequency": 2212,
+      "example_ja": "質問されると彼は視線を逸らした。",
+      "example_ko": "질문을 받자 그는 시선을 돌렸다.",
+      "source_file": "2218-2237.json",
+      "source_rank_by_generic_frequency": 2217,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3171,16 +3170,17 @@
     {
       "sequence": 142,
       "planned_study_date": "2026-10-08",
-      "key": "n1-2218",
-      "word": "逸らす",
-      "reading": "そらす",
-      "meaning_ko": "돌리다; 피하다; 비껴가게 하다",
-      "meaning_ja": "視線・注意・方向などを別のほうへ向ける。",
+      "key": "n1-2228",
+      "word": "躊躇う",
+      "reading": "ためらう",
+      "meaning_ko": "망설이다; 주저하다",
+      "meaning_ja": "決心がつかず、行動するのを迷う。",
       "part_of_speech": "五段動詞",
-      "example_ja": "質問されると彼は視線を逸らした。",
-      "example_ko": "질문을 받자 그는 시선을 돌렸다.",
+      "example_ja": "彼は答えるのを少しためらった。",
+      "example_ko": "그는 대답하기를 조금 망설였다.",
+      "note": "現代では通常『ためらう』と仮名で書くことが多い。",
       "source_file": "2218-2237.json",
-      "source_rank_by_generic_frequency": 2217,
+      "source_rank_by_generic_frequency": 2227,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3261,17 +3261,17 @@
     {
       "sequence": 146,
       "planned_study_date": "2026-10-08",
-      "key": "n1-2228",
-      "word": "躊躇う",
-      "reading": "ためらう",
-      "meaning_ko": "망설이다; 주저하다",
-      "meaning_ja": "決心がつかず、行動するのを迷う。",
+      "key": "n1-2323",
+      "word": "緩む",
+      "reading": "ゆるむ",
+      "meaning_ko": "느슨해지다; 풀리다; 완화되다",
+      "meaning_ja": "締まっていたものがゆるくなる。また、緊張・規律などが弱くなる。",
       "part_of_speech": "五段動詞",
-      "example_ja": "彼は答えるのを少しためらった。",
-      "example_ko": "그는 대답하기를 조금 망설였다.",
-      "note": "現代では通常『ためらう』と仮名で書くことが多い。",
-      "source_file": "2218-2237.json",
-      "source_rank_by_generic_frequency": 2227,
+      "example_ja": "長く使っているうちに、ねじが少し緩んできた。",
+      "example_ko": "오랫동안 사용하다 보니 나사가 조금 느슨해졌다.",
+      "note": "候補KOにあった『놀다』等の直訳的表現を除き、中心義を自然な韓国語に整理。",
+      "source_file": "2318-2337.json",
+      "source_rank_by_generic_frequency": 2322,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3307,22 +3307,21 @@
     {
       "sequence": 148,
       "planned_study_date": "2026-10-08",
-      "key": "n1-1504",
-      "word": "余程",
-      "reading": "よほど",
-      "meaning_ko": "상당히; 어지간히; 훨씬",
-      "meaning_ja": "程度がかなり大きいさま。また、普通ならそうしないほど強い事情・気持ちがあることを表す。",
-      "part_of_speech": "副詞",
-      "example_ja": "彼が会議を欠席するとは、よほど重要な事情があったのだろう。",
-      "example_ko": "그가 회의에 결석하다니 상당히 중요한 사정이 있었던 모양이다.",
-      "note": "現代では通常『よほど』と仮名で書く。",
-      "source_file": "1501-1520.json",
-      "source_rank_by_generic_frequency": 1497,
-      "frequency_evidence_count": 3,
-      "priority_score": 132,
+      "key": "n1-1906",
+      "word": "著しい",
+      "reading": "いちじるしい",
+      "meaning_ko": "현저하다; 두드러지다; 눈에 띄게 크다",
+      "meaning_ja": "変化・差・進歩などが、誰の目にも分かるほどはっきりしている。",
+      "part_of_speech": "い形容詞",
+      "example_ja": "新しい設備を導入してから、生産効率に著しい改善が見られた。",
+      "example_ko": "새 설비를 도입한 뒤 생산 효율에서 현저한 개선이 나타났다.",
+      "source_file": "1898-1917.json",
+      "source_rank_by_generic_frequency": 1905,
+      "frequency_evidence_count": 2,
+      "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
-        "second-pass editorially reviewed contextual value",
+        "formal-or-nuanced reading value",
         "retrieval-friendly predicate/modifier",
         "not ultra-basic generic rank"
       ],
@@ -3375,17 +3374,16 @@
     {
       "sequence": 151,
       "planned_study_date": "2026-10-08",
-      "key": "n1-2323",
-      "word": "緩む",
-      "reading": "ゆるむ",
-      "meaning_ko": "느슨해지다; 풀리다; 완화되다",
-      "meaning_ja": "締まっていたものがゆるくなる。また、緊張・規律などが弱くなる。",
-      "part_of_speech": "五段動詞",
-      "example_ja": "長く使っているうちに、ねじが少し緩んできた。",
-      "example_ko": "오랫동안 사용하다 보니 나사가 조금 느슨해졌다.",
-      "note": "候補KOにあった『놀다』等の直訳的表現を除き、中心義を自然な韓国語に整理。",
+      "key": "n1-2324",
+      "word": "緩める",
+      "reading": "ゆるめる",
+      "meaning_ko": "느슨하게 하다; 늦추다; 완화하다; 풀다",
+      "meaning_ja": "締まっているものをゆるくする。また、速度・緊張・規制などを弱める。",
+      "part_of_speech": "一段動詞",
+      "example_ja": "苦しくなったので、ネクタイを少し緩めた。",
+      "example_ko": "답답해져서 넥타이를 조금 느슨하게 풀었다.",
       "source_file": "2318-2337.json",
-      "source_rank_by_generic_frequency": 2322,
+      "source_rank_by_generic_frequency": 2323,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3399,16 +3397,17 @@
     {
       "sequence": 152,
       "planned_study_date": "2026-10-08",
-      "key": "n1-1906",
-      "word": "著しい",
-      "reading": "いちじるしい",
-      "meaning_ko": "현저하다; 두드러지다; 눈에 띄게 크다",
-      "meaning_ja": "変化・差・進歩などが、誰の目にも分かるほどはっきりしている。",
-      "part_of_speech": "い形容詞",
-      "example_ja": "新しい設備を導入してから、生産効率に著しい改善が見られた。",
-      "example_ko": "새 설비를 도입한 뒤 생산 효율에서 현저한 개선이 나타났다.",
-      "source_file": "1898-1917.json",
-      "source_rank_by_generic_frequency": 1905,
+      "key": "n1-1953",
+      "word": "敢えて",
+      "reading": "あえて",
+      "meaning_ko": "굳이; 감히; 일부러",
+      "meaning_ja": "困難・反対・必要性の低さなどを承知のうえで、それでも意図的に行うさま。",
+      "part_of_speech": "副詞",
+      "example_ja": "問題点を明確にするため、会議ではあえて厳しい意見を述べた。",
+      "example_ko": "문제점을 분명히 하기 위해 회의에서 굳이 엄격한 의견을 말했다.",
+      "note": "現代では通常『あえて』と仮名で書く。",
+      "source_file": "1938-1957.json",
+      "source_rank_by_generic_frequency": 1952,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3466,18 +3465,18 @@
     {
       "sequence": 155,
       "planned_study_date": "2026-10-08",
-      "key": "n1-2324",
-      "word": "緩める",
-      "reading": "ゆるめる",
-      "meaning_ko": "느슨하게 하다; 늦추다; 완화하다; 풀다",
-      "meaning_ja": "締まっているものをゆるくする。また、速度・緊張・規制などを弱める。",
-      "part_of_speech": "一段動詞",
-      "example_ja": "苦しくなったので、ネクタイを少し緩めた。",
-      "example_ko": "답답해져서 넥타이를 조금 느슨하게 풀었다.",
-      "source_file": "2318-2337.json",
-      "source_rank_by_generic_frequency": 2323,
-      "frequency_evidence_count": 2,
-      "priority_score": 128,
+      "key": "n1-2494",
+      "word": "準ずる",
+      "reading": "じゅんずる",
+      "meaning_ko": "준하다; 기준에 따르다; 그에 상응하다",
+      "meaning_ja": "ある基準・例に従う。また、それに相当する扱いをする。",
+      "part_of_speech": "サ変動詞",
+      "example_ja": "契約社員にも正社員に準ずる制度を適用する。",
+      "example_ko": "계약직에게도 정규직에 준하는 제도를 적용한다.",
+      "source_file": "2478-2497.json",
+      "source_rank_by_generic_frequency": 2493,
+      "frequency_evidence_count": 1,
+      "priority_score": 124,
       "selection_reasons": [
         "verified reading/meaning/example",
         "formal-or-nuanced reading value",
@@ -3511,17 +3510,16 @@
     {
       "sequence": 157,
       "planned_study_date": "2026-10-08",
-      "key": "n1-1953",
-      "word": "敢えて",
-      "reading": "あえて",
-      "meaning_ko": "굳이; 감히; 일부러",
-      "meaning_ja": "困難・反対・必要性の低さなどを承知のうえで、それでも意図的に行うさま。",
-      "part_of_speech": "副詞",
-      "example_ja": "問題点を明確にするため、会議ではあえて厳しい意見を述べた。",
-      "example_ko": "문제점을 분명히 하기 위해 회의에서 굳이 엄격한 의견을 말했다.",
-      "note": "現代では通常『あえて』と仮名で書く。",
-      "source_file": "1938-1957.json",
-      "source_rank_by_generic_frequency": 1952,
+      "key": "n1-1997",
+      "word": "勇敢",
+      "reading": "ゆうかん",
+      "meaning_ko": "용감함; 용감하다",
+      "meaning_ja": "危険や困難を恐れず、勇気をもって行動するさま。",
+      "part_of_speech": "な形容詞",
+      "example_ja": "彼の勇敢な行動によって多くの人が助かった。",
+      "example_ko": "그의 용감한 행동으로 많은 사람이 도움을 받았다.",
+      "source_file": "1978-1997.json",
+      "source_rank_by_generic_frequency": 1996,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3623,16 +3621,16 @@
     {
       "sequence": 162,
       "planned_study_date": "2026-10-09",
-      "key": "n1-2494",
-      "word": "準ずる",
-      "reading": "じゅんずる",
-      "meaning_ko": "준하다; 기준에 따르다; 그에 상응하다",
-      "meaning_ja": "ある基準・例に従う。また、それに相当する扱いをする。",
-      "part_of_speech": "サ変動詞",
-      "example_ja": "契約社員にも正社員に準ずる制度を適用する。",
-      "example_ko": "계약직에게도 정규직에 준하는 제도를 적용한다.",
-      "source_file": "2478-2497.json",
-      "source_rank_by_generic_frequency": 2493,
+      "key": "n1-2534",
+      "word": "慕う",
+      "reading": "したう",
+      "meaning_ko": "사모하다; 흠모하다; 그리워하다; 따르다",
+      "meaning_ja": "恋しく思う。また、尊敬・好意を持ってその人について行こうとする。",
+      "part_of_speech": "五段動詞",
+      "example_ja": "多くの弟子がその先生を慕って集まった。",
+      "example_ko": "많은 제자가 그 선생님을 흠모해 모였다.",
+      "source_file": "2518-2537.json",
+      "source_rank_by_generic_frequency": 2533,
       "frequency_evidence_count": 1,
       "priority_score": 124,
       "selection_reasons": [
@@ -3646,16 +3644,16 @@
     {
       "sequence": 163,
       "planned_study_date": "2026-10-09",
-      "key": "n1-1997",
-      "word": "勇敢",
-      "reading": "ゆうかん",
-      "meaning_ko": "용감함; 용감하다",
-      "meaning_ja": "危険や困難を恐れず、勇気をもって行動するさま。",
+      "key": "n1-2105",
+      "word": "疎か",
+      "reading": "おろそか",
+      "meaning_ko": "소홀함; 등한함",
+      "meaning_ja": "大切に扱わず、注意・努力が十分でないさま。",
       "part_of_speech": "な形容詞",
-      "example_ja": "彼の勇敢な行動によって多くの人が助かった。",
-      "example_ko": "그의 용감한 행동으로 많은 사람이 도움을 받았다.",
-      "source_file": "1978-1997.json",
-      "source_rank_by_generic_frequency": 1996,
+      "example_ja": "忙しくても安全確認を疎かにしてはいけない。",
+      "example_ko": "바빠도 안전 확인을 소홀히 해서는 안 된다.",
+      "source_file": "2098-2117.json",
+      "source_rank_by_generic_frequency": 2104,
       "frequency_evidence_count": 2,
       "priority_score": 128,
       "selection_reasons": [
@@ -3691,140 +3689,28 @@
     {
       "sequence": 165,
       "planned_study_date": "2026-10-09",
-      "key": "n1-0356",
-      "word": "緩和",
-      "reading": "かんわ",
-      "meaning_ko": "완화; 누그러뜨림",
-      "meaning_ja": "厳しさ・緊張・痛み・規制・条件などの程度を弱め、穏やかにすること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "人手不足を緩和するため、業務の自動化と採用拡大を同時に進めている。",
-      "example_ko": "인력 부족을 완화하기 위해 업무 자동화와 채용 확대를 동시에 추진하고 있다.",
+      "key": "n1-0342",
+      "word": "経緯",
+      "reading": "いきさつ",
+      "meaning_ko": "경위; 자초지종; 일이 진행된 과정",
+      "meaning_ja": "ある出来事が現在の状態に至るまでの事情や過程。『けいい』とも読む。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "なぜ計画が中止になったのか、その経緯を関係者に詳しく説明してもらった。",
+      "example_ko": "왜 계획이 중지되었는지 그 경위를 관계자에게 자세히 설명받았다.",
+      "note": "『いきさつ』『けいい』の両読みがあり、候補語は『いきさつ』。",
       "source_file": "0341-0360.json",
-      "source_rank_by_generic_frequency": 355,
+      "source_rank_by_generic_frequency": 341,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
+        "second-pass editorially reviewed contextual value",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
       "sequence": 166,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-2534",
-      "word": "慕う",
-      "reading": "したう",
-      "meaning_ko": "사모하다; 흠모하다; 그리워하다; 따르다",
-      "meaning_ja": "恋しく思う。また、尊敬・好意を持ってその人について行こうとする。",
-      "part_of_speech": "五段動詞",
-      "example_ja": "多くの弟子がその先生を慕って集まった。",
-      "example_ko": "많은 제자가 그 선생님을 흠모해 모였다.",
-      "source_file": "2518-2537.json",
-      "source_rank_by_generic_frequency": 2533,
-      "frequency_evidence_count": 1,
-      "priority_score": 124,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 167,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0371",
-      "word": "個性",
-      "reading": "こせい",
-      "meaning_ko": "개성; 고유한 특성",
-      "meaning_ja": "他の人や物とは異なる、その人・その物に固有の性質や特徴。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "全員を同じ型にはめるより、それぞれの個性を生かせる環境を作るほうがよい。",
-      "example_ko": "모두를 같은 틀에 맞추기보다 각자의 개성을 살릴 수 있는 환경을 만드는 편이 좋다.",
-      "source_file": "0361-0380.json",
-      "source_rank_by_generic_frequency": 370,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 168,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-2005",
-      "word": "態と",
-      "reading": "わざと",
-      "meaning_ko": "일부러; 고의로",
-      "meaning_ja": "意図的に。故意に。",
-      "part_of_speech": "副詞",
-      "example_ja": "彼は冗談だと分かっていて、わざと真面目に答えた。",
-      "example_ko": "그는 농담인 줄 알면서도 일부러 진지하게 대답했다.",
-      "note": "現代では通常『わざと』と仮名で書く。",
-      "source_file": "1998-2017.json",
-      "source_rank_by_generic_frequency": 2004,
-      "frequency_evidence_count": 2,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "second-pass editorially reviewed contextual value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 169,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0385",
-      "word": "制定",
-      "reading": "せいてい",
-      "meaning_ko": "제정",
-      "meaning_ja": "法律・規則・制度などを正式に作り、定めること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "個人情報を適切に扱うため、社内で新しい管理規程を制定した。",
-      "example_ko": "개인정보를 적절히 다루기 위해 사내에 새로운 관리 규정을 제정했다.",
-      "source_file": "0381-0400.json",
-      "source_rank_by_generic_frequency": 384,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 170,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0389",
-      "word": "応募",
-      "reading": "おうぼ",
-      "meaning_ko": "응모; 지원",
-      "meaning_ja": "求人・作品募集・企画などの募集に応じて申し込むこと。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "海外勤務の社内公募に応募するには、一定の語学力が必要だ。",
-      "example_ko": "해외 근무 사내 공모에 지원하려면 일정한 어학 능력이 필요하다.",
-      "source_file": "0381-0400.json",
-      "source_rank_by_generic_frequency": 388,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 171,
       "planned_study_date": "2026-10-09",
       "key": "n1-2618",
       "word": "誤魔化す",
@@ -3848,120 +3734,29 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 172,
+      "sequence": 167,
       "planned_study_date": "2026-10-09",
-      "key": "n1-2105",
-      "word": "疎か",
-      "reading": "おろそか",
-      "meaning_ko": "소홀함; 등한함",
-      "meaning_ja": "大切に扱わず、注意・努力が十分でないさま。",
-      "part_of_speech": "な形容詞",
-      "example_ja": "忙しくても安全確認を疎かにしてはいけない。",
-      "example_ko": "바빠도 안전 확인을 소홀히 해서는 안 된다.",
-      "source_file": "2098-2117.json",
-      "source_rank_by_generic_frequency": 2104,
-      "frequency_evidence_count": 2,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 173,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0399",
-      "word": "妥協",
-      "reading": "だきょう",
-      "meaning_ko": "타협; 절충",
-      "meaning_ja": "対立する双方が、それぞれ一部を譲って一致できる点を見つけること。",
+      "key": "n1-0344",
+      "word": "介入",
+      "reading": "かいにゅう",
+      "meaning_ko": "개입; 관여",
+      "meaning_ja": "本来は直接の当事者でない人・組織・国家などが、他者の問題や関係に入り込み影響を与えること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "双方が少しずつ条件を譲り、ようやく妥協案に合意した。",
-      "example_ko": "양측이 조금씩 조건을 양보하여 마침내 타협안에 합의했다.",
-      "source_file": "0381-0400.json",
-      "source_rank_by_generic_frequency": 398,
+      "example_ja": "政府が市場に過度に介入すれば、自由な競争が損なわれるという意見もある。",
+      "example_ko": "정부가 시장에 지나치게 개입하면 자유로운 경쟁이 훼손된다는 의견도 있다.",
+      "source_file": "0341-0360.json",
+      "source_rank_by_generic_frequency": 343,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
+        "second-pass editorially reviewed contextual value",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 174,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0406",
-      "word": "実態",
-      "reading": "じったい",
-      "meaning_ko": "실태; 실제 상태",
-      "meaning_ja": "表面的な説明や建前ではなく、実際に存在している状態やありさま。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "長時間労働の実態を把握するため、会社は全社員の勤務記録を調査した。",
-      "example_ko": "장시간 노동의 실태를 파악하기 위해 회사는 전 직원의 근무 기록을 조사했다.",
-      "source_file": "0401-0420.json",
-      "source_rank_by_generic_frequency": 405,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 175,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-2675",
-      "word": "紛れる",
-      "reading": "まぎれる",
-      "meaning_ko": "뒤섞이다; 구별하기 어려워지다; 다른 데 정신이 팔리다",
-      "meaning_ja": "他のものに混じって見分けにくくなる。また、別のことに気を取られて気がまぎれる。",
-      "part_of_speech": "一段動詞",
-      "example_ja": "人混みに紛れて姿が見えなくなった。",
-      "example_ko": "인파에 섞여 모습이 보이지 않게 됐다.",
-      "note": "候補の『헷갈리다』だけでは狭いため、JMdictの slip into/diverted を反映。",
-      "source_file": "2658-2677.json",
-      "source_rank_by_generic_frequency": 2674,
-      "frequency_evidence_count": 1,
-      "priority_score": 124,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 176,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0427",
-      "word": "領土",
-      "reading": "りょうど",
-      "meaning_ko": "영토",
-      "meaning_ja": "国家が主権を行使し、領有している土地の範囲。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "領土をめぐる対立が長期化し、両国の外交関係にも影響が出ている。",
-      "example_ko": "영토를 둘러싼 대립이 장기화되어 양국의 외교 관계에도 영향이 나타나고 있다.",
-      "source_file": "0421-0440.json",
-      "source_rank_by_generic_frequency": 426,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 177,
+      "sequence": 168,
       "planned_study_date": "2026-10-09",
       "key": "n1-2154",
       "word": "甚だ",
@@ -3985,84 +3780,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 178,
+      "sequence": 169,
       "planned_study_date": "2026-10-09",
-      "key": "n1-0442",
-      "word": "途上",
-      "reading": "とじょう",
-      "meaning_ko": "도중; 과정 중; 발전 단계",
-      "meaning_ja": "目的地や完成・発展へ向かっている途中。『発展途上』『帰宅の途上』などの形で使う。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "この技術はまだ発展途上であり、実用化までには多くの課題が残っている。",
-      "example_ko": "이 기술은 아직 발전 도중에 있어 실용화까지 많은 과제가 남아 있다.",
-      "source_file": "0441-0460.json",
-      "source_rank_by_generic_frequency": 441,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 179,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0454",
-      "word": "個別",
-      "reading": "こべつ",
-      "meaning_ko": "개별; 각각 따로",
-      "meaning_ja": "全体を一括して扱わず、一つ一つを別々に扱うこと。",
-      "part_of_speech": "その他",
-      "example_ja": "全体説明の後、希望者には個別の相談時間を設ける予定だ。",
-      "example_ko": "전체 설명 후 희망자에게는 개별 상담 시간을 마련할 예정이다.",
-      "source_file": "0441-0460.json",
-      "source_rank_by_generic_frequency": 453,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 180,
-      "planned_study_date": "2026-10-09",
-      "key": "n1-0463",
-      "word": "理性",
-      "reading": "りせい",
-      "meaning_ko": "이성; 합리적으로 판단하는 능력",
-      "meaning_ja": "感情や欲望だけに左右されず、筋道を立てて考え判断する能力。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "強い怒りを感じても、理性を失わず事実を確認してから行動することが大切だ。",
-      "example_ko": "강한 분노를 느끼더라도 이성을 잃지 않고 사실을 확인한 뒤 행동하는 것이 중요하다.",
-      "source_file": "0461-0480.json",
-      "source_rank_by_generic_frequency": 462,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 181,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0487",
-      "word": "討論",
-      "reading": "とうろん",
-      "meaning_ko": "토론; 논쟁",
-      "meaning_ja": "ある問題について複数の人が意見を出し、賛否や論点を整理しながら議論すること。",
+      "key": "n1-0345",
+      "word": "提示",
+      "reading": "ていじ",
+      "meaning_ko": "제시; 보여 줌",
+      "meaning_ja": "条件・資料・証明書・考えなどを相手に示して見せること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "授業では賛成派と反対派に分かれ、エネルギー政策について討論した。",
-      "example_ko": "수업에서는 찬성파와 반대파로 나뉘어 에너지 정책에 대해 토론했다.",
-      "source_file": "0481-0500.json",
-      "source_rank_by_generic_frequency": 486,
+      "example_ja": "受付では本人確認のため、身分証明書の提示を求められる。",
+      "example_ko": "접수처에서는 본인 확인을 위해 신분증 제시를 요구받는다.",
+      "source_file": "0341-0360.json",
+      "source_rank_by_generic_frequency": 344,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4073,18 +3802,41 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 182,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-2722",
-      "word": "膨れる",
-      "reading": "ふくれる",
-      "meaning_ko": "부풀다; 붓다; 토라지다",
-      "meaning_ja": "体積が増えてふくらむ。また、不満でふくれっ面になる。",
+      "sequence": 170,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0348",
+      "word": "進展",
+      "reading": "しんてん",
+      "meaning_ko": "진전; 발전",
+      "meaning_ja": "物事や交渉・研究などが前の段階から進み、新しい展開を見せること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "交渉は長く停滞していたが、双方が譲歩したことで大きな進展があった。",
+      "example_ko": "협상은 오랫동안 정체되어 있었지만 양측이 양보하면서 큰 진전이 있었다.",
+      "source_file": "0341-0360.json",
+      "source_rank_by_generic_frequency": 347,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "second-pass editorially reviewed contextual value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 171,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-2675",
+      "word": "紛れる",
+      "reading": "まぎれる",
+      "meaning_ko": "뒤섞이다; 구별하기 어려워지다; 다른 데 정신이 팔리다",
+      "meaning_ja": "他のものに混じって見分けにくくなる。また、別のことに気を取られて気がまぎれる。",
       "part_of_speech": "一段動詞",
-      "example_ja": "風船が空気で大きく膨れた。",
-      "example_ko": "풍선이 공기로 크게 부풀었다.",
-      "source_file": "2718-2737.json",
-      "source_rank_by_generic_frequency": 2721,
+      "example_ja": "人混みに紛れて姿が見えなくなった。",
+      "example_ko": "인파에 섞여 모습이 보이지 않게 됐다.",
+      "note": "候補の『헷갈리다』だけでは狭いため、JMdictの slip into/diverted を反映。",
+      "source_file": "2658-2677.json",
+      "source_rank_by_generic_frequency": 2674,
       "frequency_evidence_count": 1,
       "priority_score": 124,
       "selection_reasons": [
@@ -4096,8 +3848,8 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 183,
-      "planned_study_date": "2026-10-10",
+      "sequence": 172,
+      "planned_study_date": "2026-10-09",
       "key": "n1-2192",
       "word": "脆い",
       "reading": "もろい",
@@ -4119,40 +3871,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 184,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0517",
-      "word": "異論",
-      "reading": "いろん",
-      "meaning_ko": "이론; 다른 의견; 이견",
-      "meaning_ja": "ある意見・判断に対して示される、異なる意見や反対の見解。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "方針そのものには異論はないが、実施時期については再検討が必要だと思う。",
-      "example_ko": "방침 자체에는 이견이 없지만 실시 시기에 대해서는 재검토가 필요하다고 생각한다.",
-      "source_file": "0501-0520.json",
-      "source_rank_by_generic_frequency": 516,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 185,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0518",
-      "word": "構想",
-      "reading": "こうそう",
-      "meaning_ko": "구상; 큰 틀의 계획",
-      "meaning_ja": "これから実現しようとする物事について、全体の内容・規模・方法などを組み立てて考えること。また、その考え。",
+      "sequence": 173,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0356",
+      "word": "緩和",
+      "reading": "かんわ",
+      "meaning_ko": "완화; 누그러뜨림",
+      "meaning_ja": "厳しさ・緊張・痛み・規制・条件などの程度を弱め、穏やかにすること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "新しい都市開発の構想には、住宅だけでなく教育施設や公園も含まれている。",
-      "example_ko": "새 도시 개발 구상에는 주택뿐 아니라 교육시설과 공원도 포함되어 있다.",
-      "source_file": "0501-0520.json",
-      "source_rank_by_generic_frequency": 517,
+      "example_ja": "人手不足を緩和するため、業務の自動化と採用拡大を同時に進めている。",
+      "example_ko": "인력 부족을 완화하기 위해 업무 자동화와 채용 확대를 동시에 추진하고 있다.",
+      "source_file": "0341-0360.json",
+      "source_rank_by_generic_frequency": 355,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4163,7 +3893,185 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 186,
+      "sequence": 174,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0371",
+      "word": "個性",
+      "reading": "こせい",
+      "meaning_ko": "개성; 고유한 특성",
+      "meaning_ja": "他の人や物とは異なる、その人・その物に固有の性質や特徴。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "全員を同じ型にはめるより、それぞれの個性を生かせる環境を作るほうがよい。",
+      "example_ko": "모두를 같은 틀에 맞추기보다 각자의 개성을 살릴 수 있는 환경을 만드는 편이 좋다.",
+      "source_file": "0361-0380.json",
+      "source_rank_by_generic_frequency": 370,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 175,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-2722",
+      "word": "膨れる",
+      "reading": "ふくれる",
+      "meaning_ko": "부풀다; 붓다; 토라지다",
+      "meaning_ja": "体積が増えてふくらむ。また、不満でふくれっ面になる。",
+      "part_of_speech": "一段動詞",
+      "example_ja": "風船が空気で大きく膨れた。",
+      "example_ko": "풍선이 공기로 크게 부풀었다.",
+      "source_file": "2718-2737.json",
+      "source_rank_by_generic_frequency": 2721,
+      "frequency_evidence_count": 1,
+      "priority_score": 124,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "retrieval-friendly predicate/modifier",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 176,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0385",
+      "word": "制定",
+      "reading": "せいてい",
+      "meaning_ko": "제정",
+      "meaning_ja": "法律・規則・制度などを正式に作り、定めること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "個人情報を適切に扱うため、社内で新しい管理規程を制定した。",
+      "example_ko": "개인정보를 적절히 다루기 위해 사내에 새로운 관리 규정을 제정했다.",
+      "source_file": "0381-0400.json",
+      "source_rank_by_generic_frequency": 384,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 177,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-2357",
+      "word": "厳か",
+      "reading": "おごそか",
+      "meaning_ko": "엄숙하다; 장엄하다; 위엄 있다",
+      "meaning_ja": "重々しく、威厳があり、身が引き締まるような雰囲気であるさま。",
+      "part_of_speech": "な形容詞",
+      "example_ja": "式典は厳かな雰囲気の中で行われた。",
+      "example_ko": "식전은 엄숙한 분위기 속에서 진행됐다.",
+      "source_file": "2338-2357.json",
+      "source_rank_by_generic_frequency": 2356,
+      "frequency_evidence_count": 2,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "retrieval-friendly predicate/modifier",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 178,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0389",
+      "word": "応募",
+      "reading": "おうぼ",
+      "meaning_ko": "응모; 지원",
+      "meaning_ja": "求人・作品募集・企画などの募集に応じて申し込むこと。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "海外勤務の社内公募に応募するには、一定の語学力が必要だ。",
+      "example_ko": "해외 근무 사내 공모에 지원하려면 일정한 어학 능력이 필요하다.",
+      "source_file": "0381-0400.json",
+      "source_rank_by_generic_frequency": 388,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 179,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0399",
+      "word": "妥協",
+      "reading": "だきょう",
+      "meaning_ko": "타협; 절충",
+      "meaning_ja": "対立する双方が、それぞれ一部を譲って一致できる点を見つけること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "双方が少しずつ条件を譲り、ようやく妥協案に合意した。",
+      "example_ko": "양측이 조금씩 조건을 양보하여 마침내 타협안에 합의했다.",
+      "source_file": "0381-0400.json",
+      "source_rank_by_generic_frequency": 398,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 180,
+      "planned_study_date": "2026-10-09",
+      "key": "n1-0406",
+      "word": "実態",
+      "reading": "じったい",
+      "meaning_ko": "실태; 실제 상태",
+      "meaning_ja": "表面的な説明や建前ではなく、実際に存在している状態やありさま。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "長時間労働の実態を把握するため、会社は全社員の勤務記録を調査した。",
+      "example_ko": "장시간 노동의 실태를 파악하기 위해 회사는 전 직원의 근무 기록을 조사했다.",
+      "source_file": "0401-0420.json",
+      "source_rank_by_generic_frequency": 405,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 181,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0427",
+      "word": "領土",
+      "reading": "りょうど",
+      "meaning_ko": "영토",
+      "meaning_ja": "国家が主権を行使し、領有している土地の範囲。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "領土をめぐる対立が長期化し、両国の外交関係にも影響が出ている。",
+      "example_ko": "영토를 둘러싼 대립이 장기화되어 양국의 외교 관계에도 영향이 나타나고 있다.",
+      "source_file": "0421-0440.json",
+      "source_rank_by_generic_frequency": 426,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 182,
       "planned_study_date": "2026-10-10",
       "key": "n1-2733",
       "word": "隔たる",
@@ -4186,119 +4094,7 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 187,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0529",
-      "word": "立法",
-      "reading": "りっぽう",
-      "meaning_ko": "입법; 법률 제정",
-      "meaning_ja": "国会などの立法機関が法律を制定すること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "技術の進歩が速いため、立法が社会の変化に追いついていないという指摘がある。",
-      "example_ko": "기술 발전이 빨라 입법이 사회 변화에 따라가지 못한다는 지적이 있다.",
-      "source_file": "0521-0540.json",
-      "source_rank_by_generic_frequency": 528,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 188,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-2357",
-      "word": "厳か",
-      "reading": "おごそか",
-      "meaning_ko": "엄숙하다; 장엄하다; 위엄 있다",
-      "meaning_ja": "重々しく、威厳があり、身が引き締まるような雰囲気であるさま。",
-      "part_of_speech": "な形容詞",
-      "example_ja": "式典は厳かな雰囲気の中で行われた。",
-      "example_ko": "식전은 엄숙한 분위기 속에서 진행됐다.",
-      "source_file": "2338-2357.json",
-      "source_rank_by_generic_frequency": 2356,
-      "frequency_evidence_count": 2,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 189,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0543",
-      "word": "客観",
-      "reading": "きゃっかん",
-      "meaning_ko": "객관; 객관적인 관점",
-      "meaning_ja": "個人的な感情や思い込みを離れ、事実をありのままに捉えようとする立場・見方。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "自分の案だけにこだわらず、客観的なデータをもとに判断する必要がある。",
-      "example_ko": "자기 안만 고집하지 말고 객관적인 데이터를 바탕으로 판단할 필요가 있다.",
-      "source_file": "0541-0560.json",
-      "source_rank_by_generic_frequency": 542,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 190,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0544",
-      "word": "提携",
-      "reading": "ていけい",
-      "meaning_ko": "제휴; 협력 관계를 맺음",
-      "meaning_ja": "共通の目的や利益のために、企業・団体などが協力関係を結ぶこと。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "両社は海外市場の開拓を目的に業務提携を結んだ。",
-      "example_ko": "양사는 해외 시장 개척을 목적으로 업무 제휴를 맺었다.",
-      "source_file": "0541-0560.json",
-      "source_rank_by_generic_frequency": 543,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 191,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-2895",
-      "word": "準じる",
-      "reading": "じゅんじる",
-      "meaning_ko": "준하다; 따르다; 적용하다",
-      "meaning_ja": "ある基準・例に従う。また、それと同様に扱う。",
-      "part_of_speech": "一段動詞",
-      "example_ja": "待遇は正社員に準じる。",
-      "example_ko": "대우는 정규직에 준한다.",
-      "source_file": "2878-2897.json",
-      "source_rank_by_generic_frequency": 2894,
-      "frequency_evidence_count": 0,
-      "priority_score": 120,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "second-pass editorially reviewed contextual value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 192,
+      "sequence": 183,
       "planned_study_date": "2026-10-10",
       "key": "n1-2366",
       "word": "一概に",
@@ -4321,18 +4117,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 193,
+      "sequence": 184,
       "planned_study_date": "2026-10-10",
-      "key": "n1-0646",
-      "word": "主権",
-      "reading": "しゅけん",
-      "meaning_ko": "주권",
-      "meaning_ja": "国家の政治や方針を最終的に決定する最高の権力。",
+      "key": "n1-0442",
+      "word": "途上",
+      "reading": "とじょう",
+      "meaning_ko": "도중; 과정 중; 발전 단계",
+      "meaning_ja": "目的地や完成・発展へ向かっている途中。『発展途上』『帰宅の途上』などの形で使う。",
       "part_of_speech": "普通名詞",
-      "example_ja": "主権を尊重しながら国際協力を進めることが外交の基本原則とされる。",
-      "example_ko": "주권을 존중하면서 국제 협력을 추진하는 것이 외교의 기본 원칙으로 여겨진다.",
-      "source_file": "0641-0660.json",
-      "source_rank_by_generic_frequency": 645,
+      "example_ja": "この技術はまだ発展途上であり、実用化までには多くの課題が残っている。",
+      "example_ko": "이 기술은 아직 발전 도중에 있어 실용화까지 많은 과제가 남아 있다.",
+      "source_file": "0441-0460.json",
+      "source_rank_by_generic_frequency": 441,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4343,63 +4139,63 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 194,
+      "sequence": 185,
       "planned_study_date": "2026-10-10",
-      "key": "n1-0652",
-      "word": "外観",
-      "reading": "がいかん",
-      "meaning_ko": "외관; 겉모습",
-      "meaning_ja": "建物・物体などを外から見たときの形や様子。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "歴史的な外観を残しながら、建物内部だけを現代的に改修した。",
-      "example_ko": "역사적인 외관은 남기면서 건물 내부만 현대적으로 개수했다.",
-      "source_file": "0641-0660.json",
-      "source_rank_by_generic_frequency": 651,
+      "key": "n1-0454",
+      "word": "個別",
+      "reading": "こべつ",
+      "meaning_ko": "개별; 각각 따로",
+      "meaning_ja": "全体を一括して扱わず、一つ一つを別々に扱うこと。",
+      "part_of_speech": "その他",
+      "example_ja": "全体説明の後、希望者には個別の相談時間を設ける予定だ。",
+      "example_ko": "전체 설명 후 희망자에게는 개별 상담 시간을 마련할 예정이다.",
+      "source_file": "0441-0460.json",
+      "source_rank_by_generic_frequency": 453,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
-        "second-pass editorially reviewed contextual value",
+        "formal-or-nuanced reading value",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 195,
+      "sequence": 186,
       "planned_study_date": "2026-10-10",
-      "key": "n1-2903",
-      "word": "堪える",
-      "reading": "たえる",
-      "meaning_ko": "견디다; 참다; 감당하다",
-      "meaning_ja": "苦痛・困難などを我慢して持ちこたえる。また、ある役目に耐え得る。",
+      "key": "n1-2895",
+      "word": "準じる",
+      "reading": "じゅんじる",
+      "meaning_ko": "준하다; 따르다; 적용하다",
+      "meaning_ja": "ある基準・例に従う。また、それと同様に扱う。",
       "part_of_speech": "一段動詞",
-      "example_ja": "厳しい寒さに堪えて作業を続けた。",
-      "example_ko": "혹독한 추위를 견디며 작업을 계속했다.",
-      "source_file": "2898-2917.json",
-      "source_rank_by_generic_frequency": 2902,
+      "example_ja": "待遇は正社員に準じる。",
+      "example_ko": "대우는 정규직에 준한다.",
+      "source_file": "2878-2897.json",
+      "source_rank_by_generic_frequency": 2894,
       "frequency_evidence_count": 0,
       "priority_score": 120,
       "selection_reasons": [
         "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
+        "second-pass editorially reviewed contextual value",
         "retrieval-friendly predicate/modifier",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 196,
+      "sequence": 187,
       "planned_study_date": "2026-10-10",
-      "key": "n1-0653",
-      "word": "知性",
-      "reading": "ちせい",
-      "meaning_ko": "지성; 이해·판단 능력",
-      "meaning_ja": "物事を理解し、考え、判断する知的な能力。",
+      "key": "n1-0463",
+      "word": "理性",
+      "reading": "りせい",
+      "meaning_ko": "이성; 합리적으로 판단하는 능력",
+      "meaning_ja": "感情や欲望だけに左右されず、筋道を立てて考え判断する能力。",
       "part_of_speech": "普通名詞",
-      "example_ja": "豊富な知識だけでなく、それを適切に使う知性も専門家には求められる。",
-      "example_ko": "풍부한 지식뿐 아니라 그것을 적절히 활용하는 지성도 전문가에게 요구된다.",
-      "source_file": "0641-0660.json",
-      "source_rank_by_generic_frequency": 652,
+      "example_ja": "強い怒りを感じても、理性を失わず事実を確認してから行動することが大切だ。",
+      "example_ko": "강한 분노를 느끼더라도 이성을 잃지 않고 사실을 확인한 뒤 행동하는 것이 중요하다.",
+      "source_file": "0461-0480.json",
+      "source_rank_by_generic_frequency": 462,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4410,7 +4206,7 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 197,
+      "sequence": 188,
       "planned_study_date": "2026-10-10",
       "key": "n1-2396",
       "word": "軽率",
@@ -4433,62 +4229,40 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 198,
+      "sequence": 189,
       "planned_study_date": "2026-10-10",
-      "key": "n1-0655",
-      "word": "正規",
-      "reading": "せいき",
-      "meaning_ko": "정규; 정식",
-      "meaning_ja": "正式な規則・手続き・基準に従っていること。",
-      "part_of_speech": "その他",
-      "example_ja": "正規の手続きを経ずに設定を変更すると、監査で問題になる可能性がある。",
-      "example_ko": "정규 절차를 거치지 않고 설정을 변경하면 감사에서 문제가 될 수 있다.",
-      "source_file": "0641-0660.json",
-      "source_rank_by_generic_frequency": 654,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 199,
-      "planned_study_date": "2026-10-10",
-      "key": "n1-0661",
-      "word": "楽観",
-      "reading": "らっかん",
-      "meaning_ko": "낙관; 긍정적으로 전망함",
-      "meaning_ja": "物事の成り行きを明るく、うまくいくものとして考えること。",
+      "key": "n1-0487",
+      "word": "討論",
+      "reading": "とうろん",
+      "meaning_ko": "토론; 논쟁",
+      "meaning_ja": "ある問題について複数の人が意見を出し、賛否や論点を整理しながら議論すること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "売上が一時的に伸びたからといって、今後の市場を楽観しすぎるのは危険だ。",
-      "example_ko": "매출이 일시적으로 늘었다고 해서 앞으로의 시장을 지나치게 낙관하는 것은 위험하다.",
-      "source_file": "0661-0680.json",
-      "source_rank_by_generic_frequency": 660,
+      "example_ja": "授業では賛成派と反対派に分かれ、エネルギー政策について討論した。",
+      "example_ko": "수업에서는 찬성파와 반대파로 나뉘어 에너지 정책에 대해 토론했다.",
+      "source_file": "0481-0500.json",
+      "source_rank_by_generic_frequency": 486,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
+        "second-pass editorially reviewed contextual value",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 200,
+      "sequence": 190,
       "planned_study_date": "2026-10-10",
-      "key": "n1-0665",
-      "word": "規約",
-      "reading": "きやく",
-      "meaning_ko": "규약; 운영 규칙",
-      "meaning_ja": "組織・サービスなどの構成員や利用者が守るべき規則をまとめたもの。",
+      "key": "n1-0517",
+      "word": "異論",
+      "reading": "いろん",
+      "meaning_ko": "이론; 다른 의견; 이견",
+      "meaning_ja": "ある意見・判断に対して示される、異なる意見や反対の見解。",
       "part_of_speech": "普通名詞",
-      "example_ja": "サービスを利用する前に、個人情報の扱いを定めた規約を確認してください。",
-      "example_ko": "서비스를 이용하기 전에 개인정보 취급을 정한 규약을 확인해 주세요.",
-      "source_file": "0661-0680.json",
-      "source_rank_by_generic_frequency": 664,
+      "example_ja": "方針そのものには異論はないが、実施時期については再検討が必要だと思う。",
+      "example_ko": "방침 자체에는 이견이 없지만 실시 시기에 대해서는 재검토가 필요하다고 생각한다.",
+      "source_file": "0501-0520.json",
+      "source_rank_by_generic_frequency": 516,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4499,52 +4273,31 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 201,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0675",
-      "word": "悲観",
-      "reading": "ひかん",
-      "meaning_ko": "비관; 부정적으로 전망함",
-      "meaning_ja": "物事の成り行きを悪い方向へ進むものとして考えること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "短期的な数字だけを見て将来を悲観する必要はない。",
-      "example_ko": "단기적인 수치만 보고 미래를 비관할 필요는 없다.",
-      "source_file": "0661-0680.json",
-      "source_rank_by_generic_frequency": 674,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
+      "sequence": 191,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-2903",
+      "word": "堪える",
+      "reading": "たえる",
+      "meaning_ko": "견디다; 참다; 감당하다",
+      "meaning_ja": "苦痛・困難などを我慢して持ちこたえる。また、ある役目に耐え得る。",
+      "part_of_speech": "一段動詞",
+      "example_ja": "厳しい寒さに堪えて作業を続けた。",
+      "example_ko": "혹독한 추위를 견디며 작업을 계속했다.",
+      "source_file": "2898-2917.json",
+      "source_rank_by_generic_frequency": 2902,
+      "frequency_evidence_count": 0,
+      "priority_score": 120,
       "selection_reasons": [
         "verified reading/meaning/example",
         "formal-or-nuanced reading value",
+        "retrieval-friendly predicate/modifier",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 202,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0679",
-      "word": "制約",
-      "reading": "せいやく",
-      "meaning_ko": "제약; 제한 조건",
-      "meaning_ja": "行動・設計・選択などの範囲を狭める条件や制限。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "予算と納期の制約があるため、すべての機能を同時に実装することはできない。",
-      "example_ko": "예산과 납기의 제약이 있어 모든 기능을 동시에 구현할 수는 없다.",
-      "source_file": "0661-0680.json",
-      "source_rank_by_generic_frequency": 678,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 203,
-      "planned_study_date": "2026-10-11",
+      "sequence": 192,
+      "planned_study_date": "2026-10-10",
       "key": "n1-0027",
       "word": "真実",
       "reading": "しんじつ",
@@ -4565,62 +4318,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 204,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0688",
-      "word": "規範",
-      "reading": "きはん",
-      "meaning_ko": "규범; 행동 기준",
-      "meaning_ja": "社会・集団の中で行動や判断の基準として守るべき原則。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "技術者には法律だけでなく、職業上の倫理規範を守る責任もある。",
-      "example_ko": "기술자는 법률뿐 아니라 직업상의 윤리 규범을 지킬 책임도 있다.",
-      "source_file": "0681-0700.json",
-      "source_rank_by_generic_frequency": 687,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 205,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0736",
-      "word": "言論",
-      "reading": "げんろん",
-      "meaning_ko": "언론; 말과 글을 통한 의견 표현",
-      "meaning_ja": "考え・意見・主張を、言葉や文章によって公に表すこと。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "民主社会では言論の自由が重要な権利として保障されている。",
-      "example_ko": "민주사회에서는 언론의 자유가 중요한 권리로 보장되어 있다.",
-      "source_file": "0721-0740.json",
-      "source_rank_by_generic_frequency": 735,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 206,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0737",
-      "word": "論議",
-      "reading": "ろんぎ",
-      "meaning_ko": "논의; 논쟁",
-      "meaning_ja": "ある問題について、複数の人が意見を述べ合い議論すること。",
+      "sequence": 193,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0518",
+      "word": "構想",
+      "reading": "こうそう",
+      "meaning_ko": "구상; 큰 틀의 계획",
+      "meaning_ja": "これから実現しようとする物事について、全体の内容・規模・方法などを組み立てて考えること。また、その考え。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "制度の見直しをめぐって、専門家の間で活発な論議が続いている。",
-      "example_ko": "제도 재검토를 둘러싸고 전문가들 사이에서 활발한 논의가 계속되고 있다.",
-      "source_file": "0721-0740.json",
-      "source_rank_by_generic_frequency": 736,
+      "example_ja": "新しい都市開発の構想には、住宅だけでなく教育施設や公園も含まれている。",
+      "example_ko": "새 도시 개발 구상에는 주택뿐 아니라 교육시설과 공원도 포함되어 있다.",
+      "source_file": "0501-0520.json",
+      "source_rank_by_generic_frequency": 517,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4631,18 +4340,40 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 207,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0744",
-      "word": "主観",
-      "reading": "しゅかん",
-      "meaning_ko": "주관; 주관적 관점",
-      "meaning_ja": "自分自身の立場・感情・考えを基準として物事を見ること。",
+      "sequence": 194,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0529",
+      "word": "立法",
+      "reading": "りっぽう",
+      "meaning_ko": "입법; 법률 제정",
+      "meaning_ja": "国会などの立法機関が法律を制定すること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "技術の進歩が速いため、立法が社会の変化に追いついていないという指摘がある。",
+      "example_ko": "기술 발전이 빨라 입법이 사회 변화에 따라가지 못한다는 지적이 있다.",
+      "source_file": "0521-0540.json",
+      "source_rank_by_generic_frequency": 528,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 195,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0543",
+      "word": "客観",
+      "reading": "きゃっかん",
+      "meaning_ko": "객관; 객관적인 관점",
+      "meaning_ja": "個人的な感情や思い込みを離れ、事実をありのままに捉えようとする立場・見方。",
       "part_of_speech": "普通名詞",
-      "example_ja": "評価には主観が入りやすいため、複数の指標を使う必要がある。",
-      "example_ko": "평가에는 주관이 개입하기 쉬워 여러 지표를 사용할 필요가 있다.",
-      "source_file": "0741-0760.json",
-      "source_rank_by_generic_frequency": 743,
+      "example_ja": "自分の案だけにこだわらず、客観的なデータをもとに判断する必要がある。",
+      "example_ko": "자기 안만 고집하지 말고 객관적인 데이터를 바탕으로 판단할 필요가 있다.",
+      "source_file": "0541-0560.json",
+      "source_rank_by_generic_frequency": 542,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4653,8 +4384,30 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 208,
-      "planned_study_date": "2026-10-11",
+      "sequence": 196,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0544",
+      "word": "提携",
+      "reading": "ていけい",
+      "meaning_ko": "제휴; 협력 관계를 맺음",
+      "meaning_ja": "共通の目的や利益のために、企業・団体などが協力関係を結ぶこと。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "両社は海外市場の開拓を目的に業務提携を結んだ。",
+      "example_ko": "양사는 해외 시장 개척을 목적으로 업무 제휴를 맺었다.",
+      "source_file": "0541-0560.json",
+      "source_rank_by_generic_frequency": 543,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 197,
+      "planned_study_date": "2026-10-10",
       "key": "n1-0073",
       "word": "多様",
       "reading": "たよう",
@@ -4675,18 +4428,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 209,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0774",
-      "word": "制裁",
-      "reading": "せいさい",
-      "meaning_ko": "제재; 처벌 조치",
-      "meaning_ja": "規則違反・不正行為などに対して加えられる処罰・不利益な措置。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "国際社会は合意に違反した国に対して経済制裁を強化した。",
-      "example_ko": "국제사회는 합의를 위반한 국가에 경제 제재를 강화했다.",
-      "source_file": "0761-0780.json",
-      "source_rank_by_generic_frequency": 773,
+      "sequence": 198,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0646",
+      "word": "主権",
+      "reading": "しゅけん",
+      "meaning_ko": "주권",
+      "meaning_ja": "国家の政治や方針を最終的に決定する最高の権力。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "主権を尊重しながら国際協力を進めることが外交の基本原則とされる。",
+      "example_ko": "주권을 존중하면서 국제 협력을 추진하는 것이 외교의 기본 원칙으로 여겨진다.",
+      "source_file": "0641-0660.json",
+      "source_rank_by_generic_frequency": 645,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4697,40 +4450,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 210,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0794",
-      "word": "方策",
-      "reading": "ほうさく",
-      "meaning_ko": "방책; 해결 방안",
-      "meaning_ja": "問題を解決したり目的を達成したりするための方法・手段。",
+      "sequence": 199,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0652",
+      "word": "外観",
+      "reading": "がいかん",
+      "meaning_ko": "외관; 겉모습",
+      "meaning_ja": "建物・物体などを外から見たときの形や様子。",
       "part_of_speech": "普通名詞",
-      "example_ja": "人口減少への有効な方策を自治体と住民が共同で検討している。",
-      "example_ko": "인구 감소에 대한 효과적인 방책을 지자체와 주민이 함께 검토하고 있다.",
-      "source_file": "0781-0800.json",
-      "source_rank_by_generic_frequency": 793,
-      "frequency_evidence_count": 4,
-      "priority_score": 128,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 211,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0884",
-      "word": "概略",
-      "reading": "がいりゃく",
-      "meaning_ko": "개략; 대략적인 내용",
-      "meaning_ja": "物事の主要な部分だけを簡単にまとめた内容。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "まず計画の概略を説明し、その後で各工程の詳細に入ります。",
-      "example_ko": "먼저 계획의 개략을 설명한 뒤 각 공정의 상세 내용으로 들어가겠습니다.",
-      "source_file": "0881-0900.json",
-      "source_rank_by_generic_frequency": 883,
+      "example_ja": "歴史的な外観を残しながら、建物内部だけを現代的に改修した。",
+      "example_ko": "역사적인 외관은 남기면서 건물 내부만 현대적으로 개수했다.",
+      "source_file": "0641-0660.json",
+      "source_rank_by_generic_frequency": 651,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4741,42 +4472,18 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 212,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-2551",
-      "word": "堪らない",
-      "reading": "たまらない",
-      "meaning_ko": "견딜 수 없다; 참을 수 없다; 너무 ~하다",
-      "meaning_ja": "我慢できないほど程度が激しい。また、非常に魅力的でたまらなく感じる。",
-      "part_of_speech": "い形容詞",
-      "example_ja": "真夏の満員電車は暑くて堪らない。",
-      "example_ko": "한여름의 만원 전철은 더워서 견딜 수가 없다.",
-      "note": "現代では通常『たまらない』と仮名で書く。",
-      "source_file": "2538-2557.json",
-      "source_rank_by_generic_frequency": 2550,
-      "frequency_evidence_count": 1,
-      "priority_score": 124,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "retrieval-friendly predicate/modifier",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 213,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-0908",
-      "word": "弁論",
-      "reading": "べんろん",
-      "meaning_ko": "변론; 논리적으로 주장함",
-      "meaning_ja": "自分の立場・意見を論理的に述べること。特に法廷で当事者・弁護人が主張を述べること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "裁判では双方の弁論を聞いたうえで、裁判官が判断を示す。",
-      "example_ko": "재판에서는 양측의 변론을 들은 뒤 판사가 판단을 내린다.",
-      "source_file": "0901-0920.json",
-      "source_rank_by_generic_frequency": 907,
+      "sequence": 200,
+      "planned_study_date": "2026-10-10",
+      "key": "n1-0653",
+      "word": "知性",
+      "reading": "ちせい",
+      "meaning_ko": "지성; 이해·판단 능력",
+      "meaning_ja": "物事を理解し、考え、判断する知的な能力。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "豊富な知識だけでなく、それを適切に使う知性も専門家には求められる。",
+      "example_ko": "풍부한 지식뿐 아니라 그것을 적절히 활용하는 지성도 전문가에게 요구된다.",
+      "source_file": "0641-0660.json",
+      "source_rank_by_generic_frequency": 652,
       "frequency_evidence_count": 4,
       "priority_score": 128,
       "selection_reasons": [
@@ -4787,20 +4494,20 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 214,
+      "sequence": 201,
       "planned_study_date": "2026-10-11",
-      "key": "n1-0988",
-      "word": "証拠",
-      "reading": "しょうこ",
-      "meaning_ko": "증거; 증거물",
-      "meaning_ja": "事実・主張が正しいことを示す根拠・材料。",
-      "part_of_speech": "普通名詞",
-      "example_ja": "判断を下す前に、客観的な証拠が十分にあるか確認する必要がある。",
-      "example_ko": "판단을 내리기 전에 객관적인 증거가 충분한지 확인할 필요가 있다.",
-      "source_file": "0981-1000.json",
-      "source_rank_by_generic_frequency": 985,
-      "frequency_evidence_count": 3,
-      "priority_score": 124,
+      "key": "n1-0655",
+      "word": "正規",
+      "reading": "せいき",
+      "meaning_ko": "정규; 정식",
+      "meaning_ja": "正式な規則・手続き・基準に従っていること。",
+      "part_of_speech": "その他",
+      "example_ja": "正規の手続きを経ずに設定を変更すると、監査で問題になる可能性がある。",
+      "example_ko": "정규 절차를 거치지 않고 설정을 변경하면 감사에서 문제가 될 수 있다.",
+      "source_file": "0641-0660.json",
+      "source_rank_by_generic_frequency": 654,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
         "formal-or-nuanced reading value",
@@ -4809,20 +4516,20 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 215,
+      "sequence": 202,
       "planned_study_date": "2026-10-11",
-      "key": "n1-1019",
-      "word": "拒否",
-      "reading": "きょひ",
-      "meaning_ko": "거부",
-      "meaning_ja": "要求・提案・受け取りなどを受け入れないこと。",
+      "key": "n1-0661",
+      "word": "楽観",
+      "reading": "らっかん",
+      "meaning_ko": "낙관; 긍정적으로 전망함",
+      "meaning_ja": "物事の成り行きを明るく、うまくいくものとして考えること。",
       "part_of_speech": "サ変名詞",
-      "example_ja": "本人には、個人情報の提供を拒否する権利がある。",
-      "example_ko": "본인에게는 개인정보 제공을 거부할 권리가 있다.",
-      "source_file": "1001-1020.json",
-      "source_rank_by_generic_frequency": 1016,
-      "frequency_evidence_count": 3,
-      "priority_score": 124,
+      "example_ja": "売上が一時的に伸びたからといって、今後の市場を楽観しすぎるのは危険だ。",
+      "example_ko": "매출이 일시적으로 늘었다고 해서 앞으로의 시장을 지나치게 낙관하는 것은 위험하다.",
+      "source_file": "0661-0680.json",
+      "source_rank_by_generic_frequency": 660,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
       "selection_reasons": [
         "verified reading/meaning/example",
         "formal-or-nuanced reading value",
@@ -4831,29 +4538,7 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 216,
-      "planned_study_date": "2026-10-11",
-      "key": "n1-1027",
-      "word": "把握",
-      "reading": "はあく",
-      "meaning_ko": "파악; 정확히 이해함",
-      "meaning_ja": "内容・状況・全体像などをしっかり理解すること。",
-      "part_of_speech": "サ変名詞",
-      "example_ja": "障害の影響範囲を正確に把握してから復旧作業を始める。",
-      "example_ko": "장애의 영향 범위를 정확히 파악한 뒤 복구 작업을 시작한다.",
-      "source_file": "1021-1040.json",
-      "source_rank_by_generic_frequency": 1024,
-      "frequency_evidence_count": 3,
-      "priority_score": 124,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 217,
+      "sequence": 203,
       "planned_study_date": "2026-10-11",
       "key": "n1-2639",
       "word": "先天的",
@@ -4876,7 +4561,338 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
+      "sequence": 204,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0665",
+      "word": "規約",
+      "reading": "きやく",
+      "meaning_ko": "규약; 운영 규칙",
+      "meaning_ja": "組織・サービスなどの構成員や利用者が守るべき規則をまとめたもの。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "サービスを利用する前に、個人情報の扱いを定めた規約を確認してください。",
+      "example_ko": "서비스를 이용하기 전에 개인정보 취급을 정한 규약을 확인해 주세요.",
+      "source_file": "0661-0680.json",
+      "source_rank_by_generic_frequency": 664,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 205,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0675",
+      "word": "悲観",
+      "reading": "ひかん",
+      "meaning_ko": "비관; 부정적으로 전망함",
+      "meaning_ja": "物事の成り行きを悪い方向へ進むものとして考えること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "短期的な数字だけを見て将来を悲観する必要はない。",
+      "example_ko": "단기적인 수치만 보고 미래를 비관할 필요는 없다.",
+      "source_file": "0661-0680.json",
+      "source_rank_by_generic_frequency": 674,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 206,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0679",
+      "word": "制約",
+      "reading": "せいやく",
+      "meaning_ko": "제약; 제한 조건",
+      "meaning_ja": "行動・設計・選択などの範囲を狭める条件や制限。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "予算と納期の制約があるため、すべての機能を同時に実装することはできない。",
+      "example_ko": "예산과 납기의 제약이 있어 모든 기능을 동시에 구현할 수는 없다.",
+      "source_file": "0661-0680.json",
+      "source_rank_by_generic_frequency": 678,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 207,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0688",
+      "word": "規範",
+      "reading": "きはん",
+      "meaning_ko": "규범; 행동 기준",
+      "meaning_ja": "社会・集団の中で行動や判断の基準として守るべき原則。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "技術者には法律だけでなく、職業上の倫理規範を守る責任もある。",
+      "example_ko": "기술자는 법률뿐 아니라 직업상의 윤리 규범을 지킬 책임도 있다.",
+      "source_file": "0681-0700.json",
+      "source_rank_by_generic_frequency": 687,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 208,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-2650",
+      "word": "紛らわしい",
+      "reading": "まぎらわしい",
+      "meaning_ko": "헷갈리기 쉽다; 혼동하기 쉽다; 애매하다",
+      "meaning_ja": "似ていて区別しにくく、間違えやすい。",
+      "part_of_speech": "い形容詞",
+      "example_ja": "この二つの名前は紛らわしいので注意が必要だ。",
+      "example_ko": "이 두 이름은 헷갈리기 쉬워 주의가 필요하다.",
+      "source_file": "2638-2657.json",
+      "source_rank_by_generic_frequency": 2649,
+      "frequency_evidence_count": 1,
+      "priority_score": 124,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "retrieval-friendly predicate/modifier",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 209,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0736",
+      "word": "言論",
+      "reading": "げんろん",
+      "meaning_ko": "언론; 말과 글을 통한 의견 표현",
+      "meaning_ja": "考え・意見・主張を、言葉や文章によって公に表すこと。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "民主社会では言論の自由が重要な権利として保障されている。",
+      "example_ko": "민주사회에서는 언론의 자유가 중요한 권리로 보장되어 있다.",
+      "source_file": "0721-0740.json",
+      "source_rank_by_generic_frequency": 735,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 210,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0737",
+      "word": "論議",
+      "reading": "ろんぎ",
+      "meaning_ko": "논의; 논쟁",
+      "meaning_ja": "ある問題について、複数の人が意見を述べ合い議論すること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "制度の見直しをめぐって、専門家の間で活発な論議が続いている。",
+      "example_ko": "제도 재검토를 둘러싸고 전문가들 사이에서 활발한 논의가 계속되고 있다.",
+      "source_file": "0721-0740.json",
+      "source_rank_by_generic_frequency": 736,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 211,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0744",
+      "word": "主観",
+      "reading": "しゅかん",
+      "meaning_ko": "주관; 주관적 관점",
+      "meaning_ja": "自分自身の立場・感情・考えを基準として物事を見ること。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "評価には主観が入りやすいため、複数の指標を使う必要がある。",
+      "example_ko": "평가에는 주관이 개입하기 쉬워 여러 지표를 사용할 필요가 있다.",
+      "source_file": "0741-0760.json",
+      "source_rank_by_generic_frequency": 743,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 212,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0774",
+      "word": "制裁",
+      "reading": "せいさい",
+      "meaning_ko": "제재; 처벌 조치",
+      "meaning_ja": "規則違反・不正行為などに対して加えられる処罰・不利益な措置。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "国際社会は合意に違反した国に対して経済制裁を強化した。",
+      "example_ko": "국제사회는 합의를 위반한 국가에 경제 제재를 강화했다.",
+      "source_file": "0761-0780.json",
+      "source_rank_by_generic_frequency": 773,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 213,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0794",
+      "word": "方策",
+      "reading": "ほうさく",
+      "meaning_ko": "방책; 해결 방안",
+      "meaning_ja": "問題を解決したり目的を達成したりするための方法・手段。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "人口減少への有効な方策を自治体と住民が共同で検討している。",
+      "example_ko": "인구 감소에 대한 효과적인 방책을 지자체와 주민이 함께 검토하고 있다.",
+      "source_file": "0781-0800.json",
+      "source_rank_by_generic_frequency": 793,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 214,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0884",
+      "word": "概略",
+      "reading": "がいりゃく",
+      "meaning_ko": "개략; 대략적인 내용",
+      "meaning_ja": "物事の主要な部分だけを簡単にまとめた内容。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "まず計画の概略を説明し、その後で各工程の詳細に入ります。",
+      "example_ko": "먼저 계획의 개략을 설명한 뒤 각 공정의 상세 내용으로 들어가겠습니다.",
+      "source_file": "0881-0900.json",
+      "source_rank_by_generic_frequency": 883,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "second-pass editorially reviewed contextual value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 215,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0908",
+      "word": "弁論",
+      "reading": "べんろん",
+      "meaning_ko": "변론; 논리적으로 주장함",
+      "meaning_ja": "自分の立場・意見を論理的に述べること。特に法廷で当事者・弁護人が主張を述べること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "裁判では双方の弁論を聞いたうえで、裁判官が判断を示す。",
+      "example_ko": "재판에서는 양측의 변론을 들은 뒤 판사가 판단을 내린다.",
+      "source_file": "0901-0920.json",
+      "source_rank_by_generic_frequency": 907,
+      "frequency_evidence_count": 4,
+      "priority_score": 128,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 216,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-0988",
+      "word": "証拠",
+      "reading": "しょうこ",
+      "meaning_ko": "증거; 증거물",
+      "meaning_ja": "事実・主張が正しいことを示す根拠・材料。",
+      "part_of_speech": "普通名詞",
+      "example_ja": "判断を下す前に、客観的な証拠が十分にあるか確認する必要がある。",
+      "example_ko": "판단을 내리기 전에 객관적인 증거가 충분한지 확인할 필요가 있다.",
+      "source_file": "0981-1000.json",
+      "source_rank_by_generic_frequency": 985,
+      "frequency_evidence_count": 3,
+      "priority_score": 124,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 217,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-1019",
+      "word": "拒否",
+      "reading": "きょひ",
+      "meaning_ko": "거부",
+      "meaning_ja": "要求・提案・受け取りなどを受け入れないこと。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "本人には、個人情報の提供を拒否する権利がある。",
+      "example_ko": "본인에게는 개인정보 제공을 거부할 권리가 있다.",
+      "source_file": "1001-1020.json",
+      "source_rank_by_generic_frequency": 1016,
+      "frequency_evidence_count": 3,
+      "priority_score": 124,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
       "sequence": 218,
+      "planned_study_date": "2026-10-11",
+      "key": "n1-1027",
+      "word": "把握",
+      "reading": "はあく",
+      "meaning_ko": "파악; 정확히 이해함",
+      "meaning_ja": "内容・状況・全体像などをしっかり理解すること。",
+      "part_of_speech": "サ変名詞",
+      "example_ja": "障害の影響範囲を正確に把握してから復旧作業を始める。",
+      "example_ko": "장애의 영향 범위를 정확히 파악한 뒤 복구 작업을 시작한다.",
+      "source_file": "1021-1040.json",
+      "source_rank_by_generic_frequency": 1024,
+      "frequency_evidence_count": 3,
+      "priority_score": 124,
+      "selection_reasons": [
+        "verified reading/meaning/example",
+        "formal-or-nuanced reading value",
+        "not ultra-basic generic rank"
+      ],
+      "review_status": "proposed_for_admin_editorial_review"
+    },
+    {
+      "sequence": 219,
       "planned_study_date": "2026-10-11",
       "key": "n1-1054",
       "word": "世論",
@@ -4899,7 +4915,7 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 219,
+      "sequence": 220,
       "planned_study_date": "2026-10-11",
       "key": "n1-1059",
       "word": "効率",
@@ -4921,8 +4937,8 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 220,
-      "planned_study_date": "2026-10-11",
+      "sequence": 221,
+      "planned_study_date": "2026-10-12",
       "key": "n1-1063",
       "word": "秩序",
       "reading": "ちつじょ",
@@ -4943,7 +4959,7 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 221,
+      "sequence": 222,
       "planned_study_date": "2026-10-12",
       "key": "n1-1114",
       "word": "破損",
@@ -4965,7 +4981,7 @@
       "review_status": "proposed_for_admin_editorial_review"
     },
     {
-      "sequence": 222,
+      "sequence": 223,
       "planned_study_date": "2026-10-12",
       "key": "n1-1162",
       "word": "規格",
@@ -4982,29 +4998,6 @@
       "selection_reasons": [
         "verified reading/meaning/example",
         "second-pass editorially reviewed contextual value",
-        "not ultra-basic generic rank"
-      ],
-      "review_status": "proposed_for_admin_editorial_review"
-    },
-    {
-      "sequence": 223,
-      "planned_study_date": "2026-10-12",
-      "key": "n1-2650",
-      "word": "紛らわしい",
-      "reading": "まぎらわしい",
-      "meaning_ko": "헷갈리기 쉽다; 혼동하기 쉽다; 애매하다",
-      "meaning_ja": "似ていて区別しにくく、間違えやすい。",
-      "part_of_speech": "い形容詞",
-      "example_ja": "この二つの名前は紛らわしいので注意が必要だ。",
-      "example_ko": "이 두 이름은 헷갈리기 쉬워 주의가 필요하다.",
-      "source_file": "2638-2657.json",
-      "source_rank_by_generic_frequency": 2649,
-      "frequency_evidence_count": 1,
-      "priority_score": 124,
-      "selection_reasons": [
-        "verified reading/meaning/example",
-        "formal-or-nuanced reading value",
-        "retrieval-friendly predicate/modifier",
         "not ultra-basic generic rank"
       ],
       "review_status": "proposed_for_admin_editorial_review"
@@ -6275,7 +6268,7 @@
           "options": [
             "かんよ",
             "すいそく",
-            "だきょう",
+            "かんわ",
             "せつりつ"
           ],
           "answer": "せつりつ",
@@ -6287,10 +6280,10 @@
           "wordKey": "n1-0984",
           "prompt": "「及ぶ」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "がっぺい",
-            "かんよ",
+            "どうにゅう",
+            "げんそく",
             "およぶ",
-            "かくめい"
+            "こどく"
           ],
           "answer": "およぶ",
           "explanation_ko": "「及ぶ」는 「およぶ」라고 읽는다. 뜻은 미치다; 이르다; 필적하다이다."
@@ -6304,7 +6297,7 @@
             "とぼしい",
             "きんきゅう",
             "はんけつ",
-            "しょう"
+            "はばむ"
           ],
           "answer": "きんきゅう",
           "explanation_ko": "「緊急」는 「きんきゅう」라고 읽는다. 뜻은 긴급이다."
@@ -6316,9 +6309,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n十分な説明をしないまま計画を変更したとして、会社は利用者から（　）を受けた。",
           "options": [
             "非難",
-            "仕える",
-            "孤独",
-            "免れる"
+            "従来",
+            "単独",
+            "携わる"
           ],
           "answer": "非難",
           "explanation_ko": "문맥상 「非難」가 가장 자연스럽다. 비난라는 의미로 쓰였다."
@@ -6329,8 +6322,8 @@
           "wordKey": "n1-0086",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n報告書には、実験の手順と結果を客観的に（　）する必要がある。",
           "options": [
-            "携わる",
-            "権限",
+            "営む",
+            "促す",
             "慎む",
             "記述"
           ],
@@ -6343,10 +6336,10 @@
           "wordKey": "n1-1037",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n会社全体で業務のデジタル化に取り組んでいる。 （　）に入る語を選びなさい。",
           "options": [
-            "言論",
-            "規格",
+            "悲観",
+            "破損",
             "取り組む",
-            "厳か"
+            "軽率"
           ],
           "answer": "取り組む",
           "explanation_ko": "문맥상 「取り組む」가 가장 자연스럽다. 몰두하다; 적극적으로 임하다라는 의미로 쓰였다."
@@ -6357,10 +6350,10 @@
           "wordKey": "n1-0087",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n事故の原因については情報が錯綜しており、（　）各社も慎重に伝えている。",
           "options": [
-            "効率",
+            "世論",
             "報道",
-            "疎か",
-            "外観"
+            "誤魔化す",
+            "堪える"
           ],
           "answer": "報道",
           "explanation_ko": "문맥상 「報道」가 가장 자연스럽다. 보도라는 의미로 쓰였다."
@@ -6400,7 +6393,7 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n工事の（　）が予定より遅れているため、工程を見直すことになった。",
           "options": [
             "推測",
-            "妥協",
+            "緩和",
             "進行",
             "関与"
           ],
@@ -6413,10 +6406,10 @@
           "wordKey": "n1-1071",
           "prompt": "「建物・土台などを作る。また比喩的に、信頼・地位・関係などを長い時間をかけて作り上げる。」という意味に最も近い語を選びなさい。",
           "options": [
-            "関与",
+            "原則",
             "築く",
-            "革命",
-            "合併"
+            "孤独",
+            "導入"
           ],
           "answer": "築く",
           "explanation_ko": "「築く」의 핵심 의미는 쌓다; 구축하다이다."
@@ -6441,9 +6434,9 @@
           "wordKey": "n1-0093",
           "prompt": "「株式会社における社員としての地位を細分化した単位。また、それを表す権利。」という意味に最も近い語を選びなさい。",
           "options": [
-            "分離",
-            "規制",
-            "踏まえる",
+            "創造",
+            "所属",
+            "措置",
             "株式"
           ],
           "answer": "株式",
@@ -6455,10 +6448,10 @@
           "wordKey": "n1-0094",
           "prompt": "「映画・テレビ・カメラなどによって画面に映し出される像や、その記録。」という意味に最も近い語を選びなさい。",
           "options": [
-            "極端",
-            "確信",
+            "追放",
+            "逸らす",
             "映像",
-            "不当"
+            "促す"
           ],
           "answer": "映像",
           "explanation_ko": "「映像」의 핵심 의미는 영상; 화면에 비친 상이다."
@@ -6469,10 +6462,10 @@
           "wordKey": "n1-1074",
           "prompt": "「責任・義務・負傷・損害などを引き受ける。また、背中に物を載せる。」という意味に最も近い語を選びなさい。",
           "options": [
-            "規格",
+            "破損",
             "負う",
-            "厳か",
-            "言論"
+            "軽率",
+            "悲観"
           ],
           "answer": "負う",
           "explanation_ko": "「負う」의 핵심 의미는 지다; 책임지다; 입다이다."
@@ -6628,9 +6621,9 @@
           "prompt": "「復活」の読み方として最も適切なものを選びなさい。",
           "options": [
             "ふっかつ",
-            "かんわ",
-            "きょぜつ",
-            "してき"
+            "かいにゅう",
+            "きょひ",
+            "けつぼう"
           ],
           "answer": "ふっかつ",
           "explanation_ko": "「復活」는 「ふっかつ」라고 읽는다. 뜻은 부활; 재개; 회복이다."
@@ -6643,7 +6636,7 @@
           "options": [
             "げんそく",
             "せいする",
-            "げんみつ",
+            "すいそく",
             "つかえる"
           ],
           "answer": "つかえる",
@@ -6656,7 +6649,7 @@
           "prompt": "「有力」の読み方として最も適切なものを選びなさい。",
           "options": [
             "こうじょう",
-            "ゆるめる",
+            "じゅんずる",
             "ゆうりょく",
             "こよう"
           ],
@@ -6669,10 +6662,10 @@
           "wordKey": "n1-0102",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n工事を依頼する前に、複数の（　）から見積もりを取ることにした。",
           "options": [
-            "確信",
+            "逸らす",
             "業者",
-            "不当",
-            "極端"
+            "促す",
+            "追放"
           ],
           "answer": "業者",
           "explanation_ko": "문맥상 「業者」가 가장 자연스럽다. 업자; 사업자; 업체라는 의미로 쓰였다."
@@ -6684,9 +6677,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n両国は長期にわたる交渉の末、新たな環境保護（　）に署名した。",
           "options": [
             "条約",
-            "決断",
-            "占領",
-            "膨れる"
+            "無論",
+            "準ずる",
+            "応募"
           ],
           "answer": "条約",
           "explanation_ko": "문맥상 「条約」가 가장 자연스럽다. 조약라는 의미로 쓰였다."
@@ -6697,7 +6690,7 @@
           "wordKey": "n1-1081",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n客観的な根拠を（　）主張は、説得力を持ちにくい。",
           "options": [
-            "効率",
+            "世論",
             "覆面",
             "徴収",
             "欠く"
@@ -6741,8 +6734,8 @@
           "options": [
             "民主",
             "事前",
-            "方策",
-            "用法"
+            "主観",
+            "良識"
           ],
           "answer": "民主",
           "explanation_ko": "문맥상 「民主」가 가장 자연스럽다. 민주; 민주주의적 원리라는 의미로 쓰였다."
@@ -6753,9 +6746,9 @@
           "wordKey": "n1-0106",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n博物館では、発掘された資料を年代順に（　）している。",
           "options": [
-            "緩和",
-            "拒絶",
-            "指摘",
+            "介入",
+            "拒否",
+            "欠乏",
             "展示"
           ],
           "answer": "展示",
@@ -6768,7 +6761,7 @@
           "prompt": "「意見・主義などを強く主張する。また、決まった文句・祈りなどを声に出して言う。」という意味に最も近い語を選びなさい。",
           "options": [
             "制する",
-            "厳密",
+            "推測",
             "唱える",
             "原則"
           ],
@@ -6781,7 +6774,7 @@
           "wordKey": "n1-0244",
           "prompt": "「知識・知性・思考に関係するさま。また、知性を感じさせるさま。」という意味に最も近い語を選びなさい。",
           "options": [
-            "緩める",
+            "準ずる",
             "知的",
             "雇用",
             "向上"
@@ -6796,8 +6789,8 @@
           "prompt": "「規則として内容や条件を定めること。また、その定められた内容。」という意味に最も近い語を選びなさい。",
           "options": [
             "規定",
-            "携わる",
-            "権限",
+            "営む",
+            "促す",
             "慎む"
           ],
           "answer": "規定",
@@ -6809,9 +6802,9 @@
           "wordKey": "n1-0115",
           "prompt": "「努力や競争などを通じて、求めていたものを手に入れること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "顧みる",
+            "領域",
             "緩む",
-            "領土",
+            "脆い",
             "獲得"
           ],
           "answer": "獲得",
@@ -6826,7 +6819,7 @@
             "覆面",
             "徴収",
             "耐える",
-            "効率"
+            "世論"
           ],
           "answer": "耐える",
           "explanation_ko": "「耐える」의 핵심 의미는 견디다; 버티다이다."
@@ -6981,10 +6974,10 @@
           "wordKey": "n1-0121",
           "prompt": "「対処」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "じょうやく",
+            "つかえる",
             "たいしょ",
-            "けつぼう",
-            "はいち"
+            "にんしき",
+            "じょうしょう"
           ],
           "answer": "たいしょ",
           "explanation_ko": "「対処」는 「たいしょ」라고 읽는다. 뜻은 대처; 대응이다."
@@ -6996,9 +6989,9 @@
           "prompt": "「滅ぼす」の読み方として最も適切なものを選びなさい。",
           "options": [
             "ほろぼす",
-            "きょくたん",
-            "ゆるやか",
-            "あえて"
+            "げんしょう",
+            "こうじょう",
+            "ゆうかん"
           ],
           "answer": "ほろぼす",
           "explanation_ko": "「滅ぼす」는 「ほろぼす」라고 읽는다. 뜻은 멸망시키다; 파멸시키다이다."
@@ -7009,9 +7002,9 @@
           "wordKey": "n1-0265",
           "prompt": "「単独」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "いちじるしい",
-            "おうぼ",
-            "きゃっかん",
+            "あえて",
+            "まぎれる",
+            "いろん",
             "たんどく"
           ],
           "answer": "たんどく",
@@ -7024,9 +7017,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n彼は本社（　）を経て、今年から海外支社で働くことになった。",
           "options": [
             "緩む",
-            "領土",
+            "脆い",
             "勤務",
-            "顧みる"
+            "領域"
           ],
           "answer": "勤務",
           "explanation_ko": "문맥상 「勤務」가 가장 자연스럽다. 근무라는 의미로 쓰였다."
@@ -7039,8 +7032,8 @@
           "options": [
             "紛失",
             "業務",
-            "甚だ",
-            "制約"
+            "膨れる",
+            "正規"
           ],
           "answer": "業務",
           "explanation_ko": "문맥상 「業務」가 가장 자연스럽다. 업무라는 의미로 쓰였다."
@@ -7093,10 +7086,10 @@
           "wordKey": "n1-0127",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n意見が対立しても、（　）によって相手を従わせることは許されない。",
           "options": [
-            "仕える",
+            "復活",
             "暴力",
-            "過疎",
-            "設立"
+            "態勢",
+            "運命"
           ],
           "answer": "暴力",
           "explanation_ko": "문맥상 「暴力」가 가장 자연스럽다. 폭력라는 의미로 쓰였다."
@@ -7108,9 +7101,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n管理職への（　）を機に、チーム全体の成果にも責任を持つ立場になった。",
           "options": [
             "昇進",
-            "欠乏",
-            "配置",
-            "条約"
+            "認識",
+            "上昇",
+            "仕える"
           ],
           "answer": "昇進",
           "explanation_ko": "문맥상 「昇進」가 가장 자연스럽다. 승진라는 의미로 쓰였다."
@@ -7121,9 +7114,9 @@
           "wordKey": "n1-1122",
           "prompt": "「人に恩恵を与える。また、処置・加工・装飾・肥料などを加える。」という意味に最も近い語を選びなさい。",
           "options": [
-            "極端",
-            "緩やか",
-            "敢えて",
+            "減少",
+            "向上",
+            "勇敢",
             "施す"
           ],
           "answer": "施す",
@@ -7135,10 +7128,10 @@
           "wordKey": "n1-0336",
           "prompt": "「変化・増減・修正などの程度や範囲が非常に大きいこと。」という意味に最も近い語を選びなさい。",
           "options": [
-            "応募",
-            "客観",
+            "紛れる",
+            "異論",
             "大幅",
-            "著しい"
+            "敢えて"
           ],
           "answer": "大幅",
           "explanation_ko": "「大幅」의 핵심 의미는 대폭; 큰 폭이다."
@@ -7149,10 +7142,10 @@
           "wordKey": "n1-0130",
           "prompt": "「物事の共通する性質をまとめて捉えた、一般的な意味や考え。」という意味に最も近い語を選びなさい。",
           "options": [
-            "膨れる",
+            "応募",
             "概念",
-            "決断",
-            "占領"
+            "無論",
+            "準ずる"
           ],
           "answer": "概念",
           "explanation_ko": "「概念」의 핵심 의미는 개념이다."
@@ -7164,8 +7157,8 @@
           "prompt": "「内閣総理大臣と国務大臣によって構成され、国の行政を担う最高の合議機関。」という意味に最も近い語を選びなさい。",
           "options": [
             "内閣",
-            "甚だ",
-            "制約",
+            "膨れる",
+            "正規",
             "紛失"
           ],
           "answer": "内閣",
@@ -7335,10 +7328,10 @@
           "wordKey": "n1-0137",
           "prompt": "「定義」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "こどく",
-            "まぬかれる",
+            "たんどく",
+            "たずさわる",
             "ていぎ",
-            "つかえる"
+            "じゅうらい"
           ],
           "answer": "ていぎ",
           "explanation_ko": "「定義」는 「ていぎ」라고 읽는다. 뜻은 정의; 정의하다이다."
@@ -7349,10 +7342,10 @@
           "wordKey": "n1-1137",
           "prompt": "「掲げる」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "きゃっかん",
+            "いろん",
             "かかげる",
-            "いちじるしい",
-            "おうぼ"
+            "ふんそう",
+            "しんてん"
           ],
           "answer": "かかげる",
           "explanation_ko": "「掲げる」는 「かかげる」라고 읽는다. 뜻은 내걸다; 내세우다; 제시하다이다."
@@ -7364,9 +7357,9 @@
           "prompt": "「著名」の読み方として最も適切なものを選びなさい。",
           "options": [
             "ちょめい",
-            "こうそう",
-            "きはん",
-            "きかく"
+            "じゅんじる",
+            "ひかん",
+            "はそん"
           ],
           "answer": "ちょめい",
           "explanation_ko": "「著名」는 「ちょめい」라고 읽는다. 뜻은 저명; 유명이다."
@@ -7377,9 +7370,9 @@
           "wordKey": "n1-0138",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n再発を防ぐには、個人の注意だけでなく組織的な確認手順を（　）する必要がある。",
           "options": [
-            "疎か",
-            "外観",
-            "効率",
+            "誤魔化す",
+            "堪える",
+            "世論",
             "確立"
           ],
           "answer": "確立",
@@ -7394,7 +7387,7 @@
             "用法",
             "報道",
             "合併",
-            "証拠"
+            "方策"
           ],
           "answer": "合併",
           "explanation_ko": "문맥상 「合併」가 가장 자연스럽다. 합병라는 의미로 쓰였다."
@@ -7405,10 +7398,10 @@
           "wordKey": "n1-1138",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n祖父はこの町で長年、小さな商店を営んできた。 （　）に入る語を選びなさい。",
           "options": [
-            "処分",
+            "従来",
             "営む",
             "及ぶ",
-            "逸らす"
+            "躊躇う"
           ],
           "answer": "営む",
           "explanation_ko": "문맥상 「営む」가 가장 자연스럽다. 영위하다; 운영하다; 치르다라는 의미로 쓰였다."
@@ -7422,7 +7415,7 @@
             "導入",
             "関与",
             "推測",
-            "妥協"
+            "緩和"
           ],
           "answer": "導入",
           "explanation_ko": "문맥상 「導入」가 가장 자연스럽다. 도입라는 의미로 쓰였다."
@@ -7447,10 +7440,10 @@
           "wordKey": "n1-0142",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nこの建物は、戦後の復興を（　）する存在として長く保存されてきた。",
           "options": [
-            "配置",
-            "条約",
+            "上昇",
+            "仕える",
             "象徴",
-            "欠乏"
+            "認識"
           ],
           "answer": "象徴",
           "explanation_ko": "문맥상 「象徴」가 가장 자연스럽다. 상징라는 의미로 쓰였다."
@@ -7461,10 +7454,10 @@
           "wordKey": "n1-0143",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nその国では、（　）政府と各州政府がそれぞれ異なる権限を持っている。",
           "options": [
-            "踏まえる",
+            "措置",
             "連邦",
-            "分離",
-            "規制"
+            "創造",
+            "所属"
           ],
           "answer": "連邦",
           "explanation_ko": "문맥상 「連邦」가 가장 자연스럽다. 연방라는 의미로 쓰였다."
@@ -7477,8 +7470,8 @@
           "options": [
             "携わる",
             "統制",
-            "妥協",
-            "準じる"
+            "緩和",
+            "堪える"
           ],
           "answer": "携わる",
           "explanation_ko": "「携わる」의 핵심 의미는 종사하다; 관여하다이다."
@@ -7489,9 +7482,9 @@
           "wordKey": "n1-0377",
           "prompt": "「必要がないこと、または役に立たないこと。『心配無用』のように使う。」という意味に最も近い語を選びなさい。",
           "options": [
-            "構想",
-            "規範",
-            "規格",
+            "準じる",
+            "悲観",
+            "破損",
             "無用"
           ],
           "answer": "無用",
@@ -7503,10 +7496,10 @@
           "wordKey": "n1-0145",
           "prompt": "「組織や活動の全体を、役割や分野によって分けた一つの部分。」という意味に最も近い語を選びなさい。",
           "options": [
-            "制約",
+            "正規",
             "紛失",
             "部門",
-            "甚だ"
+            "膨れる"
           ],
           "answer": "部門",
           "explanation_ko": "「部門」의 핵심 의미는 부문; 부서이다."
@@ -7519,7 +7512,7 @@
           "options": [
             "報道",
             "任命",
-            "証拠",
+            "方策",
             "用法"
           ],
           "answer": "任命",
@@ -7689,9 +7682,9 @@
           "wordKey": "n1-0153",
           "prompt": "「司法」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "ふとう",
-            "きょくたん",
-            "かくしん",
+            "うながす",
+            "ついほう",
+            "そらす",
             "しほう"
           ],
           "answer": "しほう",
@@ -7703,10 +7696,10 @@
           "wordKey": "n1-1398",
           "prompt": "「募る」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "げんろん",
-            "きかく",
+            "ひかん",
+            "はそん",
             "つのる",
-            "おごそか"
+            "けいそつ"
           ],
           "answer": "つのる",
           "explanation_ko": "「募る」는 「つのる」라고 읽는다. 뜻은 모집하다; 모으다; 점점 심해지다이다."
@@ -7719,7 +7712,7 @@
           "options": [
             "ちょうしゅう",
             "せいじつ",
-            "こうりつ",
+            "せろん",
             "ふくめん"
           ],
           "answer": "せいじつ",
@@ -7732,7 +7725,7 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n会社が私物の端末利用を（　）することには、情報管理上の問題もある。",
           "options": [
             "強制",
-            "証拠",
+            "方策",
             "用法",
             "報道"
           ],
@@ -7759,10 +7752,10 @@
           "wordKey": "n1-1494",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n冗談のつもりでも、相手を（　）ような発言は避けるべきだ。",
           "options": [
-            "唱える",
-            "昇進",
+            "知的",
+            "大幅",
             "脅かす",
-            "一切"
+            "株式"
           ],
           "answer": "脅かす",
           "explanation_ko": "문맥상 「脅かす」가 가장 자연스럽다. 겁주다; 위협하다라는 의미로 쓰였다."
@@ -7773,10 +7766,10 @@
           "wordKey": "n1-0158",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n社外へのデータ持ち出しは（　）として禁止されている。",
           "options": [
-            "仕える",
+            "復活",
             "原則",
-            "過疎",
-            "設立"
+            "態勢",
+            "運命"
           ],
           "answer": "原則",
           "explanation_ko": "문맥상 「原則」가 가장 자연스럽다. 원칙; 원칙적으로라는 의미로 쓰였다."
@@ -7790,7 +7783,7 @@
             "大胆",
             "司法",
             "踏まえる",
-            "覆す"
+            "顧みる"
           ],
           "answer": "大胆",
           "explanation_ko": "문맥상 「大胆」가 가장 자연스럽다. 대담; 과감라는 의미로 쓰였다."
@@ -7801,9 +7794,9 @@
           "wordKey": "n1-0160",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n年度目標を（　）するには、残り三か月で優先順位を見直す必要がある。",
           "options": [
-            "仕える",
-            "孤独",
-            "免れる",
+            "従来",
+            "単独",
+            "携わる",
             "達成"
           ],
           "answer": "達成",
@@ -7815,10 +7808,10 @@
           "wordKey": "n1-0162",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nこの機能は現在、一部の利用者に（　）して試験的に提供されている。",
           "options": [
-            "権限",
+            "促す",
             "慎む",
             "限定",
-            "携わる"
+            "営む"
           ],
           "answer": "限定",
           "explanation_ko": "문맥상 「限定」가 가장 자연스럽다. 한정; 제한라는 의미로 쓰였다."
@@ -7829,10 +7822,10 @@
           "wordKey": "n1-1808",
           "prompt": "「集団・組織・部下などの先頭に立って統率し、導く。」という意味に最も近い語を選びなさい。",
           "options": [
-            "規格",
+            "破損",
             "率いる",
-            "隔たる",
-            "言論"
+            "理性",
+            "悲観"
           ],
           "answer": "率いる",
           "explanation_ko": "「率いる」의 핵심 의미는 이끌다; 거느리다; 지휘하다이다."
@@ -7844,7 +7837,7 @@
           "prompt": "「法律・契約・投票・設定などに効力や効果がないこと。」という意味に最も近い語を選びなさい。",
           "options": [
             "無効",
-            "効率",
+            "世論",
             "覆面",
             "徴収"
           ],
@@ -7857,7 +7850,7 @@
           "wordKey": "n1-0165",
           "prompt": "「複数の組織・制度・機能・情報などを一つにまとめること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "証拠",
+            "方策",
             "用法",
             "報道",
             "統合"
@@ -7885,10 +7878,10 @@
           "wordKey": "n1-1897",
           "prompt": "「相手に行動するよう働きかける。また、物事の進行・発達・変化を早める。」という意味に最も近い語を選びなさい。",
           "options": [
-            "昇進",
+            "大幅",
             "促す",
-            "一切",
-            "唱える"
+            "株式",
+            "知的"
           ],
           "answer": "促す",
           "explanation_ko": "「促す」의 핵심 의미는 촉구하다; 재촉하다; 촉진하다; 권하다이다."
@@ -8025,11 +8018,11 @@
         "n1-0528",
         "n1-0189",
         "n1-0190",
-        "n1-2012",
+        "n1-2151",
         "n1-2815",
         "n1-0193",
         "n1-0194",
-        "n1-2151",
+        "n1-2179",
         "n1-0195",
         "n1-1089",
         "n1-0196",
@@ -8044,9 +8037,9 @@
           "prompt": "「措置」の読み方として最も適切なものを選びなさい。",
           "options": [
             "そち",
-            "かえりみる",
+            "りょういき",
             "ゆるむ",
-            "りょうど"
+            "もろい"
           ],
           "answer": "そち",
           "explanation_ko": "「措置」는 「そち」라고 읽는다. 뜻은 조치; 대책이다."
@@ -8057,7 +8050,7 @@
           "wordKey": "n1-1914",
           "prompt": "「踏まえる」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "こうりつ",
+            "せろん",
             "ふくめん",
             "ちょうしゅう",
             "ふまえる"
@@ -8102,7 +8095,7 @@
             "対抗",
             "強制",
             "推測",
-            "妥協"
+            "緩和"
           ],
           "answer": "対抗",
           "explanation_ko": "문맥상 「対抗」가 가장 자연스럽다. 대항; 맞서 경쟁함라는 의미로 쓰였다."
@@ -8127,10 +8120,10 @@
           "wordKey": "n1-0183",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n製品に不具合が見つかり、メーカーは対象商品を自主（　）すると発表した。",
           "options": [
-            "配置",
-            "条約",
+            "上昇",
+            "仕える",
             "回収",
-            "欠乏"
+            "認識"
           ],
           "answer": "回収",
           "explanation_ko": "문맥상 「回収」가 가장 자연스럽다. 회수; 수거라는 의미로 쓰였다."
@@ -8141,10 +8134,10 @@
           "wordKey": "n1-0528",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n新しい制度は、（　）現場の負担を本当に減らすことができるのだろうか。",
           "options": [
-            "占領",
+            "機構",
             "果たして",
-            "雇用",
-            "緩やか"
+            "領域",
+            "実質"
           ],
           "answer": "果たして",
           "explanation_ko": "문맥상 「果たして」가 가장 자연스럽다. 과연; 정말; 도대체라는 의미로 쓰였다."
@@ -8156,8 +8149,8 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n住民は突然の計画変更に（　）し、自治体に説明を求めた。",
           "options": [
             "抗議",
-            "携わる",
-            "権限",
+            "営む",
+            "促す",
             "慎む"
           ],
           "answer": "抗議",
@@ -8169,9 +8162,9 @@
           "wordKey": "n1-0190",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n申請内容に誤りがないか、（　）事項を提出前にもう一度確認してください。",
           "options": [
-            "顧みる",
+            "領域",
             "緩む",
-            "領土",
+            "脆い",
             "記載"
           ],
           "answer": "記載",
@@ -8180,16 +8173,16 @@
         {
           "sequence": 11,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2012",
-          "prompt": "「背中に物を載せて持つ。また、責任・負担などを引き受ける。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2151",
+          "prompt": "「進行・実現などを妨げて止める。」という意味に最も近い語を選びなさい。",
           "options": [
             "覆面",
             "徴収",
-            "背負う",
-            "効率"
+            "阻む",
+            "世論"
           ],
-          "answer": "背負う",
-          "explanation_ko": "「背負う」의 핵심 의미는 짊어지다; 등에 메다; 부담을 떠안다이다."
+          "answer": "阻む",
+          "explanation_ko": "「阻む」의 핵심 의미는 가로막다; 방해하다; 저지하다이다."
         },
         {
           "sequence": 12,
@@ -8226,8 +8219,8 @@
           "prompt": "「学習や経験によらず、生物が生まれつき備えている行動の傾向や能力。」という意味に最も近い語を選びなさい。",
           "options": [
             "事前",
-            "方策",
-            "用法",
+            "主観",
+            "良識",
             "本能"
           ],
           "answer": "本能",
@@ -8236,16 +8229,16 @@
         {
           "sequence": 15,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2151",
-          "prompt": "「進行・実現などを妨げて止める。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2179",
+          "prompt": "「それまでの考え・決定・制度などを根本から変える。物をひっくり返す意味でも使う。」という意味に最も近い語を選びなさい。",
           "options": [
-            "合併",
-            "関与",
-            "阻む",
-            "革命"
+            "導入",
+            "原則",
+            "覆す",
+            "孤独"
           ],
-          "answer": "阻む",
-          "explanation_ko": "「阻む」의 핵심 의미는 가로막다; 방해하다; 저지하다이다."
+          "answer": "覆す",
+          "explanation_ko": "「覆す」의 핵심 의미는 뒤집다; 번복하다; 전복하다이다."
         }
       ],
       "grammarLessons": [
@@ -8370,20 +8363,20 @@
       "date": "2026-10-07",
       "newWordKeys": [
         "n1-0199",
-        "n1-2179",
+        "n1-2191",
         "n1-1112",
         "n1-0200",
         "n1-0203",
-        "n1-2191",
+        "n1-2206",
         "n1-0207",
         "n1-1127",
         "n1-0208",
         "n1-0210",
-        "n1-2206",
+        "n1-2213",
         "n1-1244",
         "n1-0211",
         "n1-0213",
-        "n1-2213",
+        "n1-2218",
         "n1-0215",
         "n1-1274",
         "n1-0216",
@@ -8399,8 +8392,8 @@
           "options": [
             "ふんしつ",
             "りょういき",
-            "はなはだ",
-            "せいやく"
+            "ふくれる",
+            "せいき"
           ],
           "answer": "りょういき",
           "explanation_ko": "「領域」는 「りょういき」라고 읽는다. 뜻은 영역; 분야이다."
@@ -8408,16 +8401,16 @@
         {
           "sequence": 2,
           "type": "kanji_reading",
-          "wordKey": "n1-2179",
-          "prompt": "「覆す」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2191",
+          "prompt": "「顧みる」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "くつがえす",
+            "かえりみる",
             "けんりょく",
             "そうさ",
-            "おう"
+            "とげる"
           ],
-          "answer": "くつがえす",
-          "explanation_ko": "「覆す」는 「くつがえす」라고 읽는다. 뜻은 뒤집다; 번복하다; 전복하다이다."
+          "answer": "かえりみる",
+          "explanation_ko": "「顧みる」는 「かえりみる」라고 읽는다. 뜻은 돌아보다; 돌이켜보다; 돌보다이다."
         },
         {
           "sequence": 3,
@@ -8440,7 +8433,7 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n証拠が十分でない段階で、原因を（　）だけで断定するべきではない。",
           "options": [
             "協議",
-            "妥協",
+            "緩和",
             "推測",
             "強制"
           ],
@@ -8453,10 +8446,10 @@
           "wordKey": "n1-0203",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n政府は行政手続のデジタル化をさらに（　）する方針を示した。",
           "options": [
-            "指摘",
+            "欠乏",
             "推進",
-            "緩和",
-            "拒絶"
+            "介入",
+            "拒否"
           ],
           "answer": "推進",
           "explanation_ko": "문맥상 「推進」가 가장 자연스럽다. 추진; 촉진라는 의미로 쓰였다."
@@ -8464,16 +8457,16 @@
         {
           "sequence": 6,
           "type": "context_fill",
-          "wordKey": "n1-2191",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nこれまでの行動を顧みて反省した。 （　）に入る語を選びなさい。",
+          "wordKey": "n1-2206",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n式典では私語を慎んでください。 （　）に入る語を選びなさい。",
           "options": [
-            "顧みる",
-            "原則",
-            "制する",
-            "厳密"
+            "慎む",
+            "誠実",
+            "踏まえる",
+            "領域"
           ],
-          "answer": "顧みる",
-          "explanation_ko": "문맥상 「顧みる」가 가장 자연스럽다. 돌아보다; 돌이켜보다; 돌보다라는 의미로 쓰였다."
+          "answer": "慎む",
+          "explanation_ko": "문맥상 「慎む」가 가장 자연스럽다. 삼가다; 조심하다; 절제하다라는 의미로 쓰였다."
         },
         {
           "sequence": 7,
@@ -8481,9 +8474,9 @@
           "wordKey": "n1-0207",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n募集要項の詳細は、来週公式サイトに（　）される予定だ。",
           "options": [
-            "仕える",
-            "孤独",
-            "免れる",
+            "従来",
+            "単独",
+            "携わる",
             "掲載"
           ],
           "answer": "掲載",
@@ -8495,10 +8488,10 @@
           "wordKey": "n1-1127",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n経験が（　）段階では、判断を急がず周囲に確認した方がよい。",
           "options": [
-            "誤魔化す",
-            "客観",
+            "緩和",
+            "異論",
             "乏しい",
-            "統制"
+            "準ずる"
           ],
           "answer": "乏しい",
           "explanation_ko": "문맥상 「乏しい」가 가장 자연스럽다. 부족하다; 빈약하다라는 의미로 쓰였다."
@@ -8509,9 +8502,9 @@
           "wordKey": "n1-0208",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n生成AIの急速な（　）によって、業務の進め方そのものが変わり始めている。",
           "options": [
-            "領土",
+            "脆い",
             "進化",
-            "顧みる",
+            "領域",
             "緩む"
           ],
           "answer": "進化",
@@ -8524,8 +8517,8 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n外部からの（　）に左右されず、客観的な基準で判断することが求められる。",
           "options": [
             "圧力",
-            "甚だ",
-            "制約",
+            "膨れる",
+            "正規",
             "紛失"
           ],
           "answer": "圧力",
@@ -8534,16 +8527,16 @@
         {
           "sequence": 11,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2206",
-          "prompt": "「言動を控えめにし、注意深く行動する。また、ある行為を控える。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2213",
+          "prompt": "「怖い言葉・態度などで相手に恐怖を与え、従わせようとする。」という意味に最も近い語を選びなさい。",
           "options": [
             "権力",
             "捜査",
             "負う",
-            "慎む"
+            "脅す"
           ],
-          "answer": "慎む",
-          "explanation_ko": "「慎む」의 핵심 의미는 삼가다; 조심하다; 절제하다이다."
+          "answer": "脅す",
+          "explanation_ko": "「脅す」의 핵심 의미는 위협하다; 협박하다; 겁주다이다."
         },
         {
           "sequence": 12,
@@ -8551,8 +8544,8 @@
           "wordKey": "n1-1244",
           "prompt": "「改めて言うまでもなく、当然。」という意味に最も近い語を選びなさい。",
           "options": [
-            "進行",
-            "正当",
+            "一切",
+            "展示",
             "無論",
             "従来"
           ],
@@ -8565,7 +8558,7 @@
           "wordKey": "n1-0211",
           "prompt": "「重要な問題について十分に考えた上で、最終的に方針や行動を決めること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "妥協",
+            "緩和",
             "決断",
             "強制",
             "協議"
@@ -8580,9 +8573,9 @@
           "prompt": "「危険・事故・攻撃などに備えて、周囲の状況に十分注意すること。」という意味に最も近い語を選びなさい。",
           "options": [
             "警戒",
-            "緩和",
-            "拒絶",
-            "指摘"
+            "介入",
+            "拒否",
+            "欠乏"
           ],
           "answer": "警戒",
           "explanation_ko": "「警戒」의 핵심 의미는 경계; 주의이다."
@@ -8590,16 +8583,16 @@
         {
           "sequence": 15,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2213",
-          "prompt": "「怖い言葉・態度などで相手に恐怖を与え、従わせようとする。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2218",
+          "prompt": "「視線・注意・方向などを別のほうへ向ける。」という意味に最も近い語を選びなさい。",
           "options": [
-            "司法",
-            "措置",
-            "協議",
-            "脅す"
+            "誠実",
+            "踏まえる",
+            "領域",
+            "逸らす"
           ],
-          "answer": "脅す",
-          "explanation_ko": "「脅す」의 핵심 의미는 위협하다; 협박하다; 겁주다이다."
+          "answer": "逸らす",
+          "explanation_ko": "「逸らす」의 핵심 의미는 돌리다; 피하다; 비껴가게 하다이다."
         }
       ],
       "grammarLessons": [
@@ -8724,22 +8717,22 @@
       "date": "2026-10-08",
       "newWordKeys": [
         "n1-0252",
-        "n1-2218",
+        "n1-2228",
         "n1-1441",
         "n1-0263",
         "n1-0267",
-        "n1-2228",
+        "n1-2323",
         "n1-0273",
-        "n1-1504",
+        "n1-1906",
         "n1-0295",
         "n1-0296",
-        "n1-2323",
-        "n1-1906",
+        "n1-2324",
+        "n1-1953",
         "n1-0303",
         "n1-0305",
-        "n1-2324",
+        "n1-2494",
         "n1-0306",
-        "n1-1953",
+        "n1-1997",
         "n1-0307",
         "n1-0308",
         "n1-0319"
@@ -8762,16 +8755,16 @@
         {
           "sequence": 2,
           "type": "kanji_reading",
-          "wordKey": "n1-2218",
-          "prompt": "「逸らす」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2228",
+          "prompt": "「躊躇う」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "しょぶん",
-            "そらす",
+            "じゅうらい",
+            "ためらう",
             "およぶ",
-            "おどす"
+            "そらす"
           ],
-          "answer": "そらす",
-          "explanation_ko": "「逸らす」는 「そらす」라고 읽는다. 뜻은 돌리다; 피하다; 비껴가게 하다이다."
+          "answer": "ためらう",
+          "explanation_ko": "「躊躇う」는 「ためらう」라고 읽는다. 뜻은 망설이다; 주저하다이다."
         },
         {
           "sequence": 3,
@@ -8780,9 +8773,9 @@
           "prompt": "「大概」の読み方として最も適切なものを選びなさい。",
           "options": [
             "たいがい",
-            "じょうやく",
-            "ほろぼす",
-            "そうぞう"
+            "せいか",
+            "きんむ",
+            "ていぎ"
           ],
           "answer": "たいがい",
           "explanation_ko": "「大概」는 「たいがい」라고 읽는다. 뜻은 대개; 대부분; 적당한 정도이다."
@@ -8793,9 +8786,9 @@
           "wordKey": "n1-0263",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n（　）の意見であっても、合理的な根拠があれば十分に検討すべきだ。",
           "options": [
-            "過疎",
-            "設立",
-            "仕える",
+            "態勢",
+            "運命",
+            "復活",
             "少数"
           ],
           "answer": "少数",
@@ -8807,10 +8800,10 @@
           "wordKey": "n1-0267",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n離職率が上がった（　）を特定するため、社員への匿名調査を実施した。",
           "options": [
-            "対処",
-            "著名",
+            "運営",
+            "掲げる",
             "要因",
-            "従来"
+            "処分"
           ],
           "answer": "要因",
           "explanation_ko": "문맥상 「要因」가 가장 자연스럽다. 요인; 원인 요소라는 의미로 쓰였다."
@@ -8818,16 +8811,16 @@
         {
           "sequence": 6,
           "type": "context_fill",
-          "wordKey": "n1-2228",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n彼は答えるのを少しためらった。 （　）に入る語を選びなさい。",
+          "wordKey": "n1-2323",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n長く使っているうちに、ねじが少し緩んできた。 （　）に入る語を選びなさい。",
           "options": [
-            "敢えて",
-            "躊躇う",
-            "極端",
-            "緩やか"
+            "勇敢",
+            "緩む",
+            "減少",
+            "向上"
           ],
-          "answer": "躊躇う",
-          "explanation_ko": "문맥상 「躊躇う」가 가장 자연스럽다. 망설이다; 주저하다라는 의미로 쓰였다."
+          "answer": "緩む",
+          "explanation_ko": "문맥상 「緩む」가 가장 자연스럽다. 느슨해지다; 풀리다; 완화되다라는 의미로 쓰였다."
         },
         {
           "sequence": 7,
@@ -8836,9 +8829,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nコストの（　）では有利だが、長期的な安全性については追加検証が必要だ。",
           "options": [
             "観点",
-            "不当",
-            "極端",
-            "確信"
+            "促す",
+            "追放",
+            "逸らす"
           ],
           "answer": "観点",
           "explanation_ko": "문맥상 「観点」가 가장 자연스럽다. 관점; 보는 입장라는 의미로 쓰였다."
@@ -8846,16 +8839,16 @@
         {
           "sequence": 8,
           "type": "context_fill",
-          "wordKey": "n1-1504",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n彼が会議を欠席するとは、よほど重要な事情があったのだろう。 （　）に入る語を選びなさい。",
+          "wordKey": "n1-1906",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n新しい設備を導入してから、生産効率に（　）改善が見られた。",
           "options": [
-            "立法",
-            "言論",
-            "規格",
-            "余程"
+            "理性",
+            "規約",
+            "破損",
+            "著しい"
           ],
-          "answer": "余程",
-          "explanation_ko": "문맥상 「余程」가 가장 자연스럽다. 상당히; 어지간히; 훨씬라는 의미로 쓰였다."
+          "answer": "著しい",
+          "explanation_ko": "문맥상 「著しい」가 가장 자연스럽다. 현저하다; 두드러지다; 눈에 띄게 크다라는 의미로 쓰였다."
         },
         {
           "sequence": 9,
@@ -8863,10 +8856,10 @@
           "wordKey": "n1-0295",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n不正アクセスを（　）するため、異常な通信を自動で遮断する仕組みを導入した。",
           "options": [
-            "外観",
-            "効率",
+            "堪える",
+            "世論",
             "阻止",
-            "疎か"
+            "誤魔化す"
           ],
           "answer": "阻止",
           "explanation_ko": "문맥상 「阻止」가 가장 자연스럽다. 저지; 막음라는 의미로 쓰였다."
@@ -8879,7 +8872,7 @@
           "options": [
             "報道",
             "抑制",
-            "証拠",
+            "方策",
             "用法"
           ],
           "answer": "抑制",
@@ -8888,30 +8881,30 @@
         {
           "sequence": 11,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2323",
-          "prompt": "「締まっていたものがゆるくなる。また、緊張・規律などが弱くなる。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2324",
+          "prompt": "「締まっているものをゆるくする。また、速度・緊張・規制などを弱める。」という意味に最も近い語を選びなさい。",
           "options": [
-            "緩む",
-            "及ぶ",
-            "脅す",
-            "処分"
+            "緩める",
+            "仕える",
+            "記述",
+            "有力"
           ],
-          "answer": "緩む",
-          "explanation_ko": "「緩む」의 핵심 의미는 느슨해지다; 풀리다; 완화되다이다."
+          "answer": "緩める",
+          "explanation_ko": "「緩める」의 핵심 의미는 느슨하게 하다; 늦추다; 완화하다; 풀다이다."
         },
         {
           "sequence": 12,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-1906",
-          "prompt": "「変化・差・進歩などが、誰の目にも分かるほどはっきりしている。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-1953",
+          "prompt": "「困難・反対・必要性の低さなどを承知のうえで、それでも意図的に行うさま。」という意味に最も近い語を選びなさい。",
           "options": [
-            "正当",
-            "業務",
-            "掲げる",
-            "著しい"
+            "成果",
+            "勤務",
+            "定義",
+            "敢えて"
           ],
-          "answer": "著しい",
-          "explanation_ko": "「著しい」의 핵심 의미는 현저하다; 두드러지다; 눈에 띄게 크다이다."
+          "answer": "敢えて",
+          "explanation_ko": "「敢えて」의 핵심 의미는 굳이; 감히; 일부러이다."
         },
         {
           "sequence": 13,
@@ -8919,10 +8912,10 @@
           "wordKey": "n1-0303",
           "prompt": "「国・地域・組織・集団などの間で、利害や主張をめぐって激しく争うこと。」という意味に最も近い語を選びなさい。",
           "options": [
-            "拒絶",
-            "指摘",
+            "拒否",
+            "欠乏",
             "紛争",
-            "緩和"
+            "介入"
           ],
           "answer": "紛争",
           "explanation_ko": "「紛争」의 핵심 의미는 분쟁; 갈등이다."
@@ -8933,10 +8926,10 @@
           "wordKey": "n1-0305",
           "prompt": "「一定の方針や目的に従わせるため、組織・行動・活動などをまとめて制御すること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "条約",
+            "仕える",
             "統制",
-            "欠乏",
-            "配置"
+            "認識",
+            "上昇"
           ],
           "answer": "統制",
           "explanation_ko": "「統制」의 핵심 의미는 통제; 통솔이다."
@@ -8944,16 +8937,16 @@
         {
           "sequence": 15,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2324",
-          "prompt": "「締まっているものをゆるくする。また、速度・緊張・規制などを弱める。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2494",
+          "prompt": "「ある基準・例に従う。また、それに相当する扱いをする。」という意味に最も近い語を選びなさい。",
           "options": [
-            "緩める",
-            "協議",
-            "向上",
-            "占領"
+            "準ずる",
+            "推進",
+            "躊躇う",
+            "事前"
           ],
-          "answer": "緩める",
-          "explanation_ko": "「緩める」의 핵심 의미는 느슨하게 하다; 늦추다; 완화하다; 풀다이다."
+          "answer": "準ずる",
+          "explanation_ko": "「準ずる」의 핵심 의미는 준하다; 기준에 따르다; 그에 상응하다이다."
         }
       ],
       "grammarLessons": [
@@ -9078,25 +9071,25 @@
       "date": "2026-10-09",
       "newWordKeys": [
         "n1-0333",
-        "n1-2494",
-        "n1-1997",
-        "n1-0334",
-        "n1-0356",
         "n1-2534",
-        "n1-0371",
-        "n1-2005",
-        "n1-0385",
-        "n1-0389",
-        "n1-2618",
         "n1-2105",
-        "n1-0399",
-        "n1-0406",
-        "n1-2675",
-        "n1-0427",
+        "n1-0334",
+        "n1-0342",
+        "n1-2618",
+        "n1-0344",
         "n1-2154",
-        "n1-0442",
-        "n1-0454",
-        "n1-0463"
+        "n1-0345",
+        "n1-0348",
+        "n1-2675",
+        "n1-2192",
+        "n1-0356",
+        "n1-0371",
+        "n1-2722",
+        "n1-0385",
+        "n1-2357",
+        "n1-0389",
+        "n1-0399",
+        "n1-0406"
       ],
       "vocabQuestions": [
         {
@@ -9107,7 +9100,7 @@
           "options": [
             "かぶしき",
             "しほう",
-            "こせい",
+            "いきさつ",
             "しゅほう"
           ],
           "answer": "しゅほう",
@@ -9116,30 +9109,30 @@
         {
           "sequence": 2,
           "type": "kanji_reading",
-          "wordKey": "n1-2494",
-          "prompt": "「準ずる」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2534",
+          "prompt": "「慕う」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "こどく",
-            "がっぺい",
-            "じゅんずる",
-            "となえる"
+            "ちてき",
+            "おおはば",
+            "したう",
+            "かぶしき"
           ],
-          "answer": "じゅんずる",
-          "explanation_ko": "「準ずる」는 「じゅんずる」라고 읽는다. 뜻은 준하다; 기준에 따르다; 그에 상응하다이다."
+          "answer": "したう",
+          "explanation_ko": "「慕う」는 「したう」라고 읽는다. 뜻은 사모하다; 흠모하다; 그리워하다; 따르다이다."
         },
         {
           "sequence": 3,
           "type": "kanji_reading",
-          "wordKey": "n1-1997",
-          "prompt": "「勇敢」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2105",
+          "prompt": "「疎か」の読み方として最も適切なものを選びなさい。",
           "options": [
             "かんよ",
-            "ゆうかん",
+            "おろそか",
             "ほろぼす",
             "かくりつ"
           ],
-          "answer": "ゆうかん",
-          "explanation_ko": "「勇敢」는 「ゆうかん」라고 읽는다. 뜻은 용감함; 용감하다이다."
+          "answer": "おろそか",
+          "explanation_ko": "「疎か」는 「おろそか」라고 읽는다. 뜻은 소홀함; 등한함이다."
         },
         {
           "sequence": 4,
@@ -9148,9 +9141,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n役職を私的な（　）のように扱う姿勢は、組織への信頼を損なう。",
           "options": [
             "特権",
-            "従来",
-            "対処",
-            "著名"
+            "処分",
+            "運営",
+            "掲げる"
           ],
           "answer": "特権",
           "explanation_ko": "문맥상 「特権」가 가장 자연스럽다. 특권; 특별한 권리라는 의미로 쓰였다."
@@ -9158,156 +9151,156 @@
         {
           "sequence": 5,
           "type": "context_fill",
-          "wordKey": "n1-0356",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n人手不足を（　）するため、業務の自動化と採用拡大を同時に進めている。",
+          "wordKey": "n1-0342",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nなぜ計画が中止になったのか、その（　）を関係者に詳しく説明してもらった。",
           "options": [
-            "仕える",
-            "孤独",
-            "免れる",
-            "緩和"
+            "創造",
+            "所属",
+            "措置",
+            "経緯"
           ],
-          "answer": "緩和",
-          "explanation_ko": "문맥상 「緩和」가 가장 자연스럽다. 완화; 누그러뜨림라는 의미로 쓰였다."
+          "answer": "経緯",
+          "explanation_ko": "문맥상 「経緯」가 가장 자연스럽다. 경위; 자초지종; 일이 진행된 과정라는 의미로 쓰였다."
         },
         {
           "sequence": 6,
           "type": "context_fill",
-          "wordKey": "n1-2534",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n多くの弟子がその先生を慕って集まった。 （　）に入る語を選びなさい。",
+          "wordKey": "n1-2618",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n質問の核心を誤魔化さずに答えてください。 （　）に入る語を選びなさい。",
           "options": [
-            "妥協",
-            "準じる",
-            "慕う",
+            "緩和",
+            "堪える",
+            "誤魔化す",
             "統制"
           ],
-          "answer": "慕う",
-          "explanation_ko": "문맥상 「慕う」가 가장 자연스럽다. 사모하다; 흠모하다; 그리워하다; 따르다라는 의미로 쓰였다."
+          "answer": "誤魔化す",
+          "explanation_ko": "문맥상 「誤魔化す」가 가장 자연스럽다. 속이다; 얼버무리다; 속여 넘기다라는 의미로 쓰였다."
         },
         {
           "sequence": 7,
           "type": "context_fill",
-          "wordKey": "n1-0371",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n全員を同じ型にはめるより、それぞれの（　）を生かせる環境を作るほうがよい。",
+          "wordKey": "n1-0344",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n政府が市場に過度に（　）すれば、自由な競争が損なわれるという意見もある。",
           "options": [
-            "膨れる",
-            "個性",
-            "決断",
-            "占領"
+            "脆い",
+            "介入",
+            "領域",
+            "緩む"
           ],
-          "answer": "個性",
-          "explanation_ko": "문맥상 「個性」가 가장 자연스럽다. 개성; 고유한 특성라는 의미로 쓰였다."
+          "answer": "介入",
+          "explanation_ko": "문맥상 「介入」가 가장 자연스럽다. 개입; 관여라는 의미로 쓰였다."
         },
         {
           "sequence": 8,
           "type": "context_fill",
-          "wordKey": "n1-2005",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n彼は冗談だと分かっていて、わざと真面目に答えた。 （　）に入る語を選びなさい。",
+          "wordKey": "n1-2154",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nその説明は（　）不十分だ。",
           "options": [
-            "態と",
-            "効率",
+            "甚だ",
+            "世論",
             "覆面",
             "徴収"
           ],
-          "answer": "態と",
-          "explanation_ko": "문맥상 「態と」가 가장 자연스럽다. 일부러; 고의로라는 의미로 쓰였다."
+          "answer": "甚だ",
+          "explanation_ko": "문맥상 「甚だ」가 가장 자연스럽다. 매우; 몹시; 심히라는 의미로 쓰였다."
         },
         {
           "sequence": 9,
           "type": "context_fill",
-          "wordKey": "n1-0385",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n個人情報を適切に扱うため、社内で新しい管理規程を（　）した。",
+          "wordKey": "n1-0345",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n受付では本人確認のため、身分証明書の（　）を求められる。",
           "options": [
-            "証拠",
+            "方策",
             "用法",
             "報道",
-            "制定"
+            "提示"
           ],
-          "answer": "制定",
-          "explanation_ko": "문맥상 「制定」가 가장 자연스럽다. 제정라는 의미로 쓰였다."
+          "answer": "提示",
+          "explanation_ko": "문맥상 「提示」가 가장 자연스럽다. 제시; 보여 줌라는 의미로 쓰였다."
         },
         {
           "sequence": 10,
           "type": "context_fill",
-          "wordKey": "n1-0389",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n海外勤務の社内公募に（　）するには、一定の語学力が必要だ。",
+          "wordKey": "n1-0348",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n交渉は長く停滞していたが、双方が譲歩したことで大きな（　）があった。",
           "options": [
             "革命",
             "限定",
-            "応募",
+            "進展",
             "設立"
           ],
-          "answer": "応募",
-          "explanation_ko": "문맥상 「応募」가 가장 자연스럽다. 응모; 지원라는 의미로 쓰였다."
+          "answer": "進展",
+          "explanation_ko": "문맥상 「進展」가 가장 자연스럽다. 진전; 발전라는 의미로 쓰였다."
         },
         {
           "sequence": 11,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2618",
-          "prompt": "「事実を隠したり、話をそらしたりして相手を欺く。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2675",
+          "prompt": "「他のものに混じって見分けにくくなる。また、別のことに気を取られて気がまぎれる。」という意味に最も近い語を選びなさい。",
           "options": [
-            "昇進",
-            "誤魔化す",
-            "一切",
-            "唱える"
+            "活発",
+            "紛れる",
+            "資格",
+            "防衛"
           ],
-          "answer": "誤魔化す",
-          "explanation_ko": "「誤魔化す」의 핵심 의미는 속이다; 얼버무리다; 속여 넘기다이다."
+          "answer": "紛れる",
+          "explanation_ko": "「紛れる」의 핵심 의미는 뒤섞이다; 구별하기 어려워지다; 다른 데 정신이 팔리다이다."
         },
         {
           "sequence": 12,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2105",
-          "prompt": "「大切に扱わず、注意・努力が十分でないさま。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2192",
+          "prompt": "「壊れやすく丈夫でない。また、精神的に弱い。」という意味に最も近い語を選びなさい。",
           "options": [
-            "疎か",
-            "滅ぼす",
-            "確立",
-            "関与"
+            "脆い",
+            "分離",
+            "正常",
+            "判決"
           ],
-          "answer": "疎か",
-          "explanation_ko": "「疎か」의 핵심 의미는 소홀함; 등한함이다."
+          "answer": "脆い",
+          "explanation_ko": "「脆い」의 핵심 의미는 부서지기 쉽다; 약하다; 여리다이다."
         },
         {
           "sequence": 13,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-0399",
-          "prompt": "「対立する双方が、それぞれ一部を譲って一致できる点を見つけること。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-0356",
+          "prompt": "「厳しさ・緊張・痛み・規制・条件などの程度を弱め、穏やかにすること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "欠乏",
-            "配置",
-            "条約",
-            "妥協"
+            "認識",
+            "上昇",
+            "仕える",
+            "緩和"
           ],
-          "answer": "妥協",
-          "explanation_ko": "「妥協」의 핵심 의미는 타협; 절충이다."
+          "answer": "緩和",
+          "explanation_ko": "「緩和」의 핵심 의미는 완화; 누그러뜨림이다."
         },
         {
           "sequence": 14,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-0406",
-          "prompt": "「表面的な説明や建前ではなく、実際に存在している状態やありさま。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-0371",
+          "prompt": "「他の人や物とは異なる、その人・その物に固有の性質や特徴。」という意味に最も近い語を選びなさい。",
           "options": [
-            "規制",
-            "踏まえる",
-            "実態",
-            "分離"
+            "所属",
+            "措置",
+            "個性",
+            "創造"
           ],
-          "answer": "実態",
-          "explanation_ko": "「実態」의 핵심 의미는 실태; 실제 상태이다."
+          "answer": "個性",
+          "explanation_ko": "「個性」의 핵심 의미는 개성; 고유한 특성이다."
         },
         {
           "sequence": 15,
           "type": "meaning_usage_synonym",
-          "wordKey": "n1-2675",
-          "prompt": "「他のものに混じって見分けにくくなる。また、別のことに気を取られて気がまぎれる。」という意味に最も近い語を選びなさい。",
+          "wordKey": "n1-2722",
+          "prompt": "「体積が増えてふくらむ。また、不満でふくれっ面になる。」という意味に最も近い語を選びなさい。",
           "options": [
-            "客観",
-            "紛れる",
-            "著しい",
-            "応募"
+            "異論",
+            "膨れる",
+            "紛争",
+            "進展"
           ],
-          "answer": "紛れる",
-          "explanation_ko": "「紛れる」의 핵심 의미는 뒤섞이다; 구별하기 어려워지다; 다른 데 정신이 팔리다이다."
+          "answer": "膨れる",
+          "explanation_ko": "「膨れる」의 핵심 의미는 부풀다; 붓다; 토라지다이다."
         }
       ],
       "grammarLessons": [
@@ -9431,237 +9424,237 @@
     {
       "date": "2026-10-10",
       "newWordKeys": [
-        "n1-0487",
-        "n1-2722",
-        "n1-2192",
-        "n1-0517",
-        "n1-0518",
+        "n1-0427",
         "n1-2733",
+        "n1-2366",
+        "n1-0442",
+        "n1-0454",
+        "n1-2895",
+        "n1-0463",
+        "n1-2396",
+        "n1-0487",
+        "n1-0517",
+        "n1-2903",
+        "n1-0027",
+        "n1-0518",
         "n1-0529",
-        "n1-2357",
         "n1-0543",
         "n1-0544",
-        "n1-2895",
-        "n1-2366",
+        "n1-0073",
         "n1-0646",
         "n1-0652",
-        "n1-2903",
-        "n1-0653",
-        "n1-2396",
-        "n1-0655",
-        "n1-0661",
-        "n1-0665"
+        "n1-0653"
       ],
       "vocabQuestions": [
         {
           "sequence": 1,
           "type": "kanji_reading",
-          "wordKey": "n1-0487",
-          "prompt": "「討論」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-0427",
+          "prompt": "「領土」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "とうろん",
-            "きょうせい",
-            "きょうぎ",
-            "おうぼ"
+            "りょうど",
+            "きこう",
+            "しゅかん",
+            "りょうしき"
           ],
-          "answer": "とうろん",
-          "explanation_ko": "「討論」는 「とうろん」라고 읽는다. 뜻은 토론; 논쟁이다."
+          "answer": "りょうど",
+          "explanation_ko": "「領土」는 「りょうど」라고 읽는다. 뜻은 영토이다."
         },
         {
           "sequence": 2,
           "type": "kanji_reading",
-          "wordKey": "n1-2722",
-          "prompt": "「膨れる」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2733",
+          "prompt": "「隔たる」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "がいねん",
-            "むよう",
-            "げんてい",
-            "ふくれる"
+            "こどく",
+            "どうにゅう",
+            "げんそく",
+            "へだたる"
           ],
-          "answer": "ふくれる",
-          "explanation_ko": "「膨れる」는 「ふくれる」라고 읽는다. 뜻은 부풀다; 붓다; 토라지다이다."
+          "answer": "へだたる",
+          "explanation_ko": "「隔たる」는 「へだたる」라고 읽는다. 뜻은 떨어져 있다; 차이가 나다; 동떨어지다이다."
         },
         {
           "sequence": 3,
           "type": "kanji_reading",
-          "wordKey": "n1-2192",
-          "prompt": "「脆い」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2366",
+          "prompt": "「一概に」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "かいしゅう",
+            "せいする",
             "すいそく",
-            "もろい",
-            "げんてい"
+            "いちがいに",
+            "たっせい"
           ],
-          "answer": "もろい",
-          "explanation_ko": "「脆い」는 「もろい」라고 읽는다. 뜻은 부서지기 쉽다; 약하다; 여리다이다."
+          "answer": "いちがいに",
+          "explanation_ko": "「一概に」는 「いちがいに」라고 읽는다. 뜻은 일률적으로; 무조건; 단정적으로이다."
         },
         {
           "sequence": 4,
           "type": "context_fill",
+          "wordKey": "n1-0442",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nこの技術はまだ発展（　）であり、実用化までには多くの課題が残っている。",
+          "options": [
+            "措置",
+            "途上",
+            "創造",
+            "所属"
+          ],
+          "answer": "途上",
+          "explanation_ko": "문맥상 「途上」가 가장 자연스럽다. 도중; 과정 중; 발전 단계라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 5,
+          "type": "context_fill",
+          "wordKey": "n1-0454",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n全体説明の後、希望者には（　）の相談時間を設ける予定だ。",
+          "options": [
+            "個別",
+            "準ずる",
+            "脆い",
+            "異論"
+          ],
+          "answer": "個別",
+          "explanation_ko": "문맥상 「個別」가 가장 자연스럽다. 개별; 각각 따로라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 6,
+          "type": "context_fill",
+          "wordKey": "n1-2895",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n待遇は正社員に（　）。",
+          "options": [
+            "理性",
+            "悲観",
+            "破損",
+            "準じる"
+          ],
+          "answer": "準じる",
+          "explanation_ko": "문맥상 「準じる」가 가장 자연스럽다. 준하다; 따르다; 적용하다라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 7,
+          "type": "context_fill",
+          "wordKey": "n1-0463",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n強い怒りを感じても、（　）を失わず事実を確認してから行動することが大切だ。",
+          "options": [
+            "正規",
+            "紛失",
+            "理性",
+            "膨れる"
+          ],
+          "answer": "理性",
+          "explanation_ko": "문맥상 「理性」가 가장 자연스럽다. 이성; 합리적으로 판단하는 능력라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 8,
+          "type": "context_fill",
+          "wordKey": "n1-2396",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n（　）な発言で相手を傷つけてしまった。",
+          "options": [
+            "忠実",
+            "軽率",
+            "権力",
+            "捜査"
+          ],
+          "answer": "軽率",
+          "explanation_ko": "문맥상 「軽率」가 가장 자연스럽다. 경솔함; 신중하지 못함라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 9,
+          "type": "context_fill",
+          "wordKey": "n1-0487",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n授業では賛成派と反対派に分かれ、エネルギー政策について（　）した。",
+          "options": [
+            "討論",
+            "設立",
+            "革命",
+            "限定"
+          ],
+          "answer": "討論",
+          "explanation_ko": "문맥상 「討論」가 가장 자연스럽다. 토론; 논쟁라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 10,
+          "type": "context_fill",
           "wordKey": "n1-0517",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n方針そのものには（　）はないが、実施時期については再検討が必要だと思う。",
           "options": [
-            "踏まえる",
-            "異論",
-            "分離",
-            "規制"
+            "機構",
+            "主観",
+            "良識",
+            "異論"
           ],
           "answer": "異論",
           "explanation_ko": "문맥상 「異論」가 가장 자연스럽다. 이론; 다른 의견; 이견라는 의미로 쓰였다."
         },
         {
-          "sequence": 5,
-          "type": "context_fill",
-          "wordKey": "n1-0518",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n新しい都市開発の（　）には、住宅だけでなく教育施設や公園も含まれている。",
-          "options": [
-            "構想",
-            "携わる",
-            "権限",
-            "慎む"
-          ],
-          "answer": "構想",
-          "explanation_ko": "문맥상 「構想」가 가장 자연스럽다. 구상; 큰 틀의 계획라는 의미로 쓰였다."
-        },
-        {
-          "sequence": 6,
-          "type": "context_fill",
-          "wordKey": "n1-2733",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n二つの町は山を挟んで大きく隔たっている。 （　）に入る語を選びなさい。",
-          "options": [
-            "厳か",
-            "言論",
-            "規格",
-            "隔たる"
-          ],
-          "answer": "隔たる",
-          "explanation_ko": "문맥상 「隔たる」가 가장 자연스럽다. 떨어져 있다; 차이가 나다; 동떨어지다라는 의미로 쓰였다."
-        },
-        {
-          "sequence": 7,
-          "type": "context_fill",
-          "wordKey": "n1-0529",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n技術の進歩が速いため、（　）が社会の変化に追いついていないという指摘がある。",
-          "options": [
-            "外観",
-            "効率",
-            "立法",
-            "疎か"
-          ],
-          "answer": "立法",
-          "explanation_ko": "문맥상 「立法」가 가장 자연스럽다. 입법; 법률 제정라는 의미로 쓰였다."
-        },
-        {
-          "sequence": 8,
-          "type": "context_fill",
-          "wordKey": "n1-2357",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n式典は（　）な雰囲気の中で行われた。",
-          "options": [
-            "忠実",
-            "厳か",
-            "権力",
-            "捜査"
-          ],
-          "answer": "厳か",
-          "explanation_ko": "문맥상 「厳か」가 가장 자연스럽다. 엄숙하다; 장엄하다; 위엄 있다라는 의미로 쓰였다."
-        },
-        {
-          "sequence": 9,
-          "type": "context_fill",
-          "wordKey": "n1-0543",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n自分の案だけにこだわらず、（　）的なデータをもとに判断する必要がある。",
-          "options": [
-            "客観",
-            "株式",
-            "司法",
-            "特権"
-          ],
-          "answer": "客観",
-          "explanation_ko": "문맥상 「客観」가 가장 자연스럽다. 객관; 객관적인 관점라는 의미로 쓰였다."
-        },
-        {
-          "sequence": 10,
-          "type": "context_fill",
-          "wordKey": "n1-0544",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n両社は海外市場の開拓を目的に業務（　）を結んだ。",
-          "options": [
-            "強制",
-            "協議",
-            "応募",
-            "提携"
-          ],
-          "answer": "提携",
-          "explanation_ko": "문맥상 「提携」가 가장 자연스럽다. 제휴; 협력 관계를 맺음라는 의미로 쓰였다."
-        },
-        {
           "sequence": 11,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-2895",
-          "prompt": "「ある基準・例に従う。また、それと同様に扱う。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "無用",
-            "限定",
-            "準じる",
-            "概念"
-          ],
-          "answer": "準じる",
-          "explanation_ko": "「準じる」의 핵심 의미는 준하다; 따르다; 적용하다이다."
-        },
-        {
-          "sequence": 12,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-2366",
-          "prompt": "「事情の違いを考えず、すべて同じように決めつけるさま。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "覆す",
-            "一概に",
-            "原則",
-            "悪化"
-          ],
-          "answer": "一概に",
-          "explanation_ko": "「一概に」의 핵심 의미는 일률적으로; 무조건; 단정적으로이다."
-        },
-        {
-          "sequence": 13,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-0646",
-          "prompt": "「国家の政治や方針を最終的に決定する最高の権力。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "主権",
-            "分離",
-            "規制",
-            "踏まえる"
-          ],
-          "answer": "主権",
-          "explanation_ko": "「主権」의 핵심 의미는 주권이다."
-        },
-        {
-          "sequence": 14,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-0652",
-          "prompt": "「建物・物体などを外から見たときの形や様子。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "不当",
-            "極端",
-            "確信",
-            "外観"
-          ],
-          "answer": "外観",
-          "explanation_ko": "「外観」의 핵심 의미는 외관; 겉모습이다."
-        },
-        {
-          "sequence": 15,
           "type": "meaning_usage_synonym",
           "wordKey": "n1-2903",
           "prompt": "「苦痛・困難などを我慢して持ちこたえる。また、ある役目に耐え得る。」という意味に最も近い語を選びなさい。",
           "options": [
-            "言論",
-            "規格",
+            "無用",
+            "限定",
             "堪える",
-            "隔たる"
+            "概念"
           ],
           "answer": "堪える",
           "explanation_ko": "「堪える」의 핵심 의미는 견디다; 참다; 감당하다이다."
+        },
+        {
+          "sequence": 12,
+          "type": "meaning_usage_synonym",
+          "wordKey": "n1-0027",
+          "prompt": "「偽りのない本当の事実。」という意味に最も近い語を選びなさい。",
+          "options": [
+            "乏しい",
+            "真実",
+            "判決",
+            "阻む"
+          ],
+          "answer": "真実",
+          "explanation_ko": "「真実」의 핵심 의미는 진실; 사실이다."
+        },
+        {
+          "sequence": 13,
+          "type": "meaning_usage_synonym",
+          "wordKey": "n1-0518",
+          "prompt": "「これから実現しようとする物事について、全体の内容・規模・方法などを組み立てて考えること。また、その考え。」という意味に最も近い語を選びなさい。",
+          "options": [
+            "構想",
+            "従来",
+            "単独",
+            "携わる"
+          ],
+          "answer": "構想",
+          "explanation_ko": "「構想」의 핵심 의미는 구상; 큰 틀의 계획이다."
+        },
+        {
+          "sequence": 14,
+          "type": "meaning_usage_synonym",
+          "wordKey": "n1-0529",
+          "prompt": "「国会などの立法機関が法律を制定すること。」という意味に最も近い語を選びなさい。",
+          "options": [
+            "営む",
+            "促す",
+            "慎む",
+            "立法"
+          ],
+          "answer": "立法",
+          "explanation_ko": "「立法」의 핵심 의미는 입법; 법률 제정이다."
+        },
+        {
+          "sequence": 15,
+          "type": "meaning_usage_synonym",
+          "wordKey": "n1-0543",
+          "prompt": "「個人的な感情や思い込みを離れ、事実をありのままに捉えようとする立場・見方。」という意味に最も近い語を選びなさい。",
+          "options": [
+            "準ずる",
+            "応募",
+            "客観",
+            "無論"
+          ],
+          "answer": "客観",
+          "explanation_ko": "「客観」의 핵심 의미는 객관; 객관적인 관점이다."
         }
       ],
       "grammarLessons": [
@@ -9785,237 +9778,237 @@
     {
       "date": "2026-10-11",
       "newWordKeys": [
+        "n1-0655",
+        "n1-0661",
+        "n1-2639",
+        "n1-0665",
         "n1-0675",
         "n1-0679",
-        "n1-0027",
         "n1-0688",
+        "n1-2650",
         "n1-0736",
         "n1-0737",
         "n1-0744",
-        "n1-0073",
         "n1-0774",
         "n1-0794",
         "n1-0884",
-        "n1-2551",
         "n1-0908",
         "n1-0988",
         "n1-1019",
         "n1-1027",
-        "n1-2639",
         "n1-1054",
-        "n1-1059",
-        "n1-1063"
+        "n1-1059"
       ],
       "vocabQuestions": [
         {
           "sequence": 1,
           "type": "kanji_reading",
-          "wordKey": "n1-0675",
-          "prompt": "「悲観」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-0655",
+          "prompt": "「正規」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "してき",
-            "ひかん",
-            "そくしん",
-            "きょぜつ"
+            "けいたい",
+            "せいき",
+            "かかげる",
+            "にんむ"
           ],
-          "answer": "ひかん",
-          "explanation_ko": "「悲観」는 「ひかん」라고 읽는다. 뜻은 비관; 부정적으로 전망함이다."
+          "answer": "せいき",
+          "explanation_ko": "「正規」는 「せいき」라고 읽는다. 뜻은 정규; 정식이다."
         },
         {
           "sequence": 2,
           "type": "kanji_reading",
-          "wordKey": "n1-0679",
-          "prompt": "「制約」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-0661",
+          "prompt": "「楽観」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "せいやく",
-            "けつぼう",
-            "はいち",
-            "じょうやく"
+            "らっかん",
+            "にんしき",
+            "じょうしょう",
+            "つかえる"
           ],
-          "answer": "せいやく",
-          "explanation_ko": "「制約」는 「せいやく」라고 읽는다. 뜻은 제약; 제한 조건이다."
+          "answer": "らっかん",
+          "explanation_ko": "「楽観」는 「らっかん」라고 읽는다. 뜻은 낙관; 긍정적으로 전망함이다."
         },
         {
           "sequence": 3,
           "type": "kanji_reading",
-          "wordKey": "n1-0027",
-          "prompt": "「真実」の読み方として最も適切なものを選びなさい。",
+          "wordKey": "n1-2639",
+          "prompt": "「先天的」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "すいしん",
-            "そらす",
-            "そくしん",
-            "しんじつ"
+            "こよう",
+            "こうじょう",
+            "じゅんずる",
+            "せんてんてき"
           ],
-          "answer": "しんじつ",
-          "explanation_ko": "「真実」는 「しんじつ」라고 읽는다. 뜻은 진실; 사실이다."
+          "answer": "せんてんてき",
+          "explanation_ko": "「先天的」는 「せんてんてき」라고 읽는다. 뜻은 선천적이다."
         },
         {
           "sequence": 4,
           "type": "context_fill",
+          "wordKey": "n1-0665",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nサービスを利用する前に、個人情報の扱いを定めた（　）を確認してください。",
+          "options": [
+            "追放",
+            "逸らす",
+            "規約",
+            "促す"
+          ],
+          "answer": "規約",
+          "explanation_ko": "문맥상 「規約」가 가장 자연스럽다. 규약; 운영 규칙라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 5,
+          "type": "context_fill",
+          "wordKey": "n1-0675",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n短期的な数字だけを見て将来を（　）する必要はない。",
+          "options": [
+            "脆い",
+            "悲観",
+            "領域",
+            "緩む"
+          ],
+          "answer": "悲観",
+          "explanation_ko": "문맥상 「悲観」가 가장 자연스럽다. 비관; 부정적으로 전망함라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 6,
+          "type": "context_fill",
+          "wordKey": "n1-0679",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n予算と納期の（　）があるため、すべての機能を同時に実装することはできない。",
+          "options": [
+            "制約",
+            "誤魔化す",
+            "堪える",
+            "世論"
+          ],
+          "answer": "制約",
+          "explanation_ko": "문맥상 「制約」가 가장 자연스럽다. 제약; 제한 조건라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 7,
+          "type": "context_fill",
           "wordKey": "n1-0688",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n技術者には法律だけでなく、職業上の倫理（　）を守る責任もある。",
           "options": [
-            "極端",
-            "確信",
-            "規範",
-            "不当"
+            "脅迫",
+            "交渉",
+            "資格",
+            "規範"
           ],
           "answer": "規範",
           "explanation_ko": "문맥상 「規範」가 가장 자연스럽다. 규범; 행동 기준라는 의미로 쓰였다."
         },
         {
-          "sequence": 5,
+          "sequence": 8,
+          "type": "context_fill",
+          "wordKey": "n1-2650",
+          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nこの二つの名前は（　）ので注意が必要だ。",
+          "options": [
+            "負う",
+            "知的",
+            "紛らわしい",
+            "乏しい"
+          ],
+          "answer": "紛らわしい",
+          "explanation_ko": "문맥상 「紛らわしい」가 가장 자연스럽다. 헷갈리기 쉽다; 혼동하기 쉽다; 애매하다라는 의미로 쓰였다."
+        },
+        {
+          "sequence": 9,
           "type": "context_fill",
           "wordKey": "n1-0736",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n民主社会では（　）の自由が重要な権利として保障されている。",
           "options": [
-            "膨れる",
+            "良識",
             "言論",
-            "決断",
-            "占領"
+            "機構",
+            "主観"
           ],
           "answer": "言論",
           "explanation_ko": "문맥상 「言論」가 가장 자연스럽다. 언론; 말과 글을 통한 의견 표현라는 의미로 쓰였다."
         },
         {
-          "sequence": 6,
+          "sequence": 10,
           "type": "context_fill",
           "wordKey": "n1-0737",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n制度の見直しをめぐって、専門家の間で活発な（　）が続いている。",
           "options": [
             "論議",
-            "疎か",
-            "外観",
-            "効率"
+            "促進",
+            "拒否",
+            "欠乏"
           ],
           "answer": "論議",
           "explanation_ko": "문맥상 「論議」가 가장 자연스럽다. 논의; 논쟁라는 의미로 쓰였다."
         },
         {
-          "sequence": 7,
-          "type": "context_fill",
+          "sequence": 11,
+          "type": "meaning_usage_synonym",
           "wordKey": "n1-0744",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n評価には（　）が入りやすいため、複数の指標を使う必要がある。",
+          "prompt": "「自分自身の立場・感情・考えを基準として物事を見ること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "脅迫",
-            "交渉",
-            "資格",
+            "処分",
+            "運営",
+            "掲げる",
             "主観"
           ],
           "answer": "主観",
-          "explanation_ko": "문맥상 「主観」가 가장 자연스럽다. 주관; 주관적 관점라는 의미로 쓰였다."
+          "explanation_ko": "「主観」의 핵심 의미는 주관; 주관적 관점이다."
         },
         {
-          "sequence": 8,
-          "type": "context_fill",
-          "wordKey": "n1-0073",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n（　）な働き方を認める制度が整い、社員が勤務時間を選びやすくなった。",
-          "options": [
-            "協会",
-            "耐える",
-            "多様",
-            "緊急"
-          ],
-          "answer": "多様",
-          "explanation_ko": "문맥상 「多様」가 가장 자연스럽다. 다양함; 여러 가지임라는 의미로 쓰였다."
-        },
-        {
-          "sequence": 9,
-          "type": "context_fill",
+          "sequence": 12,
+          "type": "meaning_usage_synonym",
           "wordKey": "n1-0774",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n国際社会は合意に違反した国に対して経済（　）を強化した。",
+          "prompt": "「規則違反・不正行為などに対して加えられる処罰・不利益な措置。」という意味に最も近い語を選びなさい。",
           "options": [
-            "応募",
+            "単独",
+            "携わる",
             "制裁",
-            "強制",
-            "協議"
+            "従来"
           ],
           "answer": "制裁",
-          "explanation_ko": "문맥상 「制裁」가 가장 자연스럽다. 제재; 처벌 조치라는 의미로 쓰였다."
+          "explanation_ko": "「制裁」의 핵심 의미는 제재; 처벌 조치이다."
         },
         {
-          "sequence": 10,
-          "type": "context_fill",
+          "sequence": 13,
+          "type": "meaning_usage_synonym",
           "wordKey": "n1-0794",
-          "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n人口減少への有効な（　）を自治体と住民が共同で検討している。",
+          "prompt": "「問題を解決したり目的を達成したりするための方法・手段。」という意味に最も近い語を選びなさい。",
           "options": [
+            "逸らす",
             "方策",
-            "過疎",
-            "設立",
-            "仕える"
+            "促す",
+            "追放"
           ],
           "answer": "方策",
-          "explanation_ko": "문맥상 「方策」가 가장 자연스럽다. 방책; 해결 방안라는 의미로 쓰였다."
+          "explanation_ko": "「方策」의 핵심 의미는 방책; 해결 방안이다."
         },
         {
-          "sequence": 11,
+          "sequence": 14,
           "type": "meaning_usage_synonym",
           "wordKey": "n1-0884",
           "prompt": "「物事の主要な部分だけを簡単にまとめた内容。」という意味に最も近い語を選びなさい。",
           "options": [
-            "従来",
-            "対処",
-            "著名",
-            "概略"
+            "概略",
+            "無論",
+            "準ずる",
+            "応募"
           ],
           "answer": "概略",
           "explanation_ko": "「概略」의 핵심 의미는 개략; 대략적인 내용이다."
         },
         {
-          "sequence": 12,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-2551",
-          "prompt": "「我慢できないほど程度が激しい。また、非常に魅力的でたまらなく感じる。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "実質",
-            "敢えて",
-            "堪らない",
-            "領域"
-          ],
-          "answer": "堪らない",
-          "explanation_ko": "「堪らない」의 핵심 의미는 견딜 수 없다; 참을 수 없다; 너무 ~하다이다."
-        },
-        {
-          "sequence": 13,
+          "sequence": 15,
           "type": "meaning_usage_synonym",
           "wordKey": "n1-0908",
           "prompt": "「自分の立場・意見を論理的に述べること。特に法廷で当事者・弁護人が主張を述べること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "慎む",
-            "弁論",
-            "携わる",
-            "権限"
+            "誤魔化す",
+            "堪える",
+            "世論",
+            "弁論"
           ],
           "answer": "弁論",
           "explanation_ko": "「弁論」의 핵심 의미는 변론; 논리적으로 주장함이다."
-        },
-        {
-          "sequence": 14,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-0988",
-          "prompt": "「事実・主張が正しいことを示す根拠・材料。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "証拠",
-            "決断",
-            "占領",
-            "膨れる"
-          ],
-          "answer": "証拠",
-          "explanation_ko": "「証拠」의 핵심 의미는 증거; 증거물이다."
-        },
-        {
-          "sequence": 15,
-          "type": "meaning_usage_synonym",
-          "wordKey": "n1-1019",
-          "prompt": "「要求・提案・受け取りなどを受け入れないこと。」という意味に最も近い語を選びなさい。",
-          "options": [
-            "疎か",
-            "外観",
-            "効率",
-            "拒否"
-          ],
-          "answer": "拒否",
-          "explanation_ko": "「拒否」의 핵심 의미는 거부이다."
         }
       ],
       "grammarLessons": [
@@ -10139,9 +10132,9 @@
     {
       "date": "2026-10-12",
       "newWordKeys": [
+        "n1-1063",
         "n1-1114",
         "n1-1162",
-        "n1-2650",
         "n1-1170",
         "n1-1207",
         "n1-1248",
@@ -10164,44 +10157,44 @@
         {
           "sequence": 1,
           "type": "kanji_reading",
+          "wordKey": "n1-1063",
+          "prompt": "「秩序」の読み方として最も適切なものを選びなさい。",
+          "options": [
+            "うんえい",
+            "かかげる",
+            "ちつじょ",
+            "しょぶん"
+          ],
+          "answer": "ちつじょ",
+          "explanation_ko": "「秩序」는 「ちつじょ」라고 읽는다. 뜻은 질서이다."
+        },
+        {
+          "sequence": 2,
+          "type": "kanji_reading",
           "wordKey": "n1-1114",
           "prompt": "「破損」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "はいち",
-            "じょうやく",
+            "たずさわる",
             "はそん",
-            "けつぼう"
+            "じゅうらい",
+            "たんどく"
           ],
           "answer": "はそん",
           "explanation_ko": "「破損」는 「はそん」라고 읽는다. 뜻은 파손; 망가짐이다."
         },
         {
-          "sequence": 2,
+          "sequence": 3,
           "type": "kanji_reading",
           "wordKey": "n1-1162",
           "prompt": "「規格」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "ふまえる",
             "きかく",
-            "ぶんり",
-            "きせい"
+            "うながす",
+            "ついほう",
+            "そらす"
           ],
           "answer": "きかく",
           "explanation_ko": "「規格」는 「きかく」라고 읽는다. 뜻은 규격; 표준이다."
-        },
-        {
-          "sequence": 3,
-          "type": "kanji_reading",
-          "wordKey": "n1-2650",
-          "prompt": "「紛らわしい」の読み方として最も適切なものを選びなさい。",
-          "options": [
-            "まぎらわしい",
-            "とうせい",
-            "ごまかす",
-            "きゃっかん"
-          ],
-          "answer": "まぎらわしい",
-          "explanation_ko": "「紛らわしい」는 「まぎらわしい」라고 읽는다. 뜻은 헷갈리기 쉽다; 혼동하기 쉽다; 애매하다이다."
         },
         {
           "sequence": 4,
@@ -10209,9 +10202,9 @@
           "wordKey": "n1-1170",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n相手の提案を全面的に（　）する前に、条件を整理して話し合うべきだ。",
           "options": [
-            "顧みる",
+            "領域",
             "緩む",
-            "領土",
+            "脆い",
             "拒絶"
           ],
           "answer": "拒絶",
@@ -10223,10 +10216,10 @@
           "wordKey": "n1-1207",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n電話の（　）を簡潔に伝えてから担当者につないでもらった。",
           "options": [
-            "制約",
+            "正規",
             "紛失",
             "用件",
-            "甚だ"
+            "膨れる"
           ],
           "answer": "用件",
           "explanation_ko": "문맥상 「用件」가 가장 자연스럽다. 용건; 볼일라는 의미로 쓰였다."
@@ -10267,7 +10260,7 @@
           "options": [
             "強制",
             "協議",
-            "応募",
+            "進展",
             "妨害"
           ],
           "answer": "妨害",
@@ -10279,10 +10272,10 @@
           "wordKey": "n1-1272",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n伝統的な（　）を守りながら、生産工程の一部を自動化した。",
           "options": [
-            "設立",
-            "仕える",
+            "運命",
+            "復活",
             "製法",
-            "過疎"
+            "態勢"
           ],
           "answer": "製法",
           "explanation_ko": "문맥상 「製法」가 가장 자연스럽다. 제조법; 만드는 방법라는 의미로 쓰였다."
@@ -10293,10 +10286,10 @@
           "wordKey": "n1-1286",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n証人は（　）で当時の状況を詳しく説明した。",
           "options": [
-            "著名",
+            "掲げる",
             "法廷",
-            "従来",
-            "対処"
+            "処分",
+            "運営"
           ],
           "answer": "法廷",
           "explanation_ko": "문맥상 「法廷」가 가장 자연스럽다. 법정라는 의미로 쓰였다."
@@ -10308,9 +10301,9 @@
           "prompt": "「相手を怖がらせる言葉・行動によって、何かを強制したり害を加えると告げたりすること。」という意味に最も近い語を選びなさい。",
           "options": [
             "脅迫",
-            "仕える",
-            "孤独",
-            "免れる"
+            "従来",
+            "単独",
+            "携わる"
           ],
           "answer": "脅迫",
           "explanation_ko": "「脅迫」의 핵심 의미는 협박; 위협이다."
@@ -10321,8 +10314,8 @@
           "wordKey": "n1-1444",
           "prompt": "「資格・作品・人材などを、広く一般に知らせて募集すること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "携わる",
-            "権限",
+            "営む",
+            "促す",
             "慎む",
             "公募"
           ],
@@ -10336,9 +10329,9 @@
           "prompt": "「土地・建物・社会・生活などが荒れ、機能や活力を失った状態になること。」という意味に最も近い語を選びなさい。",
           "options": [
             "緩む",
-            "領土",
+            "脆い",
             "荒廃",
-            "顧みる"
+            "領域"
           ],
           "answer": "荒廃",
           "explanation_ko": "「荒廃」의 핵심 의미는 황폐; 피폐이다."
@@ -10349,10 +10342,10 @@
           "wordKey": "n1-1514",
           "prompt": "「持っていた物を、どこに置いたか分からなくなり失うこと。」という意味に最も近い語を選びなさい。",
           "options": [
-            "効率",
+            "世論",
             "紛失",
-            "疎か",
-            "外観"
+            "誤魔化す",
+            "堪える"
           ],
           "answer": "紛失",
           "explanation_ko": "「紛失」의 핵심 의미는 분실이다."
@@ -10364,7 +10357,7 @@
           "prompt": "「物事の進展・成長が止まり、同じ状態が続くこと。」という意味に最も近い語を選びなさい。",
           "options": [
             "停滞",
-            "証拠",
+            "方策",
             "用法",
             "報道"
           ],
@@ -10521,9 +10514,9 @@
           "wordKey": "n1-1682",
           "prompt": "「棄権」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "つかえる",
-            "こどく",
-            "まぬかれる",
+            "じゅうらい",
+            "たんどく",
+            "たずさわる",
             "きけん"
           ],
           "answer": "きけん",
@@ -10535,10 +10528,10 @@
           "wordKey": "n1-1695",
           "prompt": "「良識」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "きょくたん",
-            "かくしん",
+            "ついほう",
+            "そらす",
             "りょうしき",
-            "ふとう"
+            "うながす"
           ],
           "answer": "りょうしき",
           "explanation_ko": "「良識」는 「りょうしき」라고 읽는다. 뜻은 양식; 건전한 판단력이다."
@@ -10549,9 +10542,9 @@
           "wordKey": "n1-1712",
           "prompt": "「譲歩」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "りょうど",
+            "もろい",
             "じょうほ",
-            "かえりみる",
+            "りょういき",
             "ゆるむ"
           ],
           "answer": "じょうほ",
@@ -10564,9 +10557,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n監督はチームを見事に（　）した。",
           "options": [
             "統率",
-            "疎か",
-            "外観",
-            "効率"
+            "誤魔化す",
+            "堪える",
+            "世論"
           ],
           "answer": "統率",
           "explanation_ko": "문맥상 「統率」가 가장 자연스럽다. 통솔; 지휘라는 의미로 쓰였다."
@@ -10605,10 +10598,10 @@
           "wordKey": "n1-0029",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n予想を上回る（　）の災害となり、広い地域で停電が続いた。",
           "options": [
-            "良識",
+            "適性",
             "規模",
             "機構",
-            "主観"
+            "言論"
           ],
           "answer": "規模",
           "explanation_ko": "문맥상 「規模」가 가장 자연스럽다. 규모; 범위라는 의미로 쓰였다."
@@ -10620,9 +10613,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nこの（　）は実験結果とも一致しており、多くの研究者に支持されている。",
           "options": [
             "理論",
-            "態勢",
-            "設立",
-            "仕える"
+            "覆面",
+            "運命",
+            "復活"
           ],
           "answer": "理論",
           "explanation_ko": "문맥상 「理論」가 가장 자연스럽다. 이론라는 의미로 쓰였다."
@@ -10633,9 +10626,9 @@
           "wordKey": "n1-0051",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n新（　）は発足直後から物価対策を最優先課題として掲げた。",
           "options": [
-            "従来",
-            "対処",
-            "著名",
+            "処分",
+            "運営",
+            "掲げる",
             "政権"
           ],
           "answer": "政権",
@@ -10647,10 +10640,10 @@
           "wordKey": "n1-0054",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n（　）が一部の人に集中しすぎないよう、制度上の監視が必要だ。",
           "options": [
-            "規制",
-            "踏まえる",
+            "所属",
+            "措置",
             "権力",
-            "分離"
+            "創造"
           ],
           "answer": "権力",
           "explanation_ko": "문맥상 「権力」가 가장 자연스럽다. 권력라는 의미로 쓰였다."
@@ -10663,8 +10656,8 @@
           "options": [
             "慎む",
             "認識",
-            "携わる",
-            "権限"
+            "営む",
+            "促す"
           ],
           "answer": "認識",
           "explanation_ko": "「認識」의 핵심 의미는 인식이다."
@@ -10676,9 +10669,9 @@
           "prompt": "「法律として成立させるために、国会などの立法機関へ提出される案。」という意味に最も近い語を選びなさい。",
           "options": [
             "法案",
-            "決断",
-            "占領",
-            "膨れる"
+            "無論",
+            "準ずる",
+            "応募"
           ],
           "answer": "法案",
           "explanation_ko": "「法案」의 핵심 의미는 법안이다."
@@ -10689,9 +10682,9 @@
           "wordKey": "n1-1904",
           "prompt": "「税金・料金などを、決められた基準に従って取り立てて集めること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "疎か",
-            "外観",
-            "効率",
+            "誤魔化す",
+            "堪える",
+            "世論",
             "徴収"
           ],
           "answer": "徴収",
@@ -10706,7 +10699,7 @@
             "用法",
             "報道",
             "滞納",
-            "証拠"
+            "方策"
           ],
           "answer": "滞納",
           "explanation_ko": "「滞納」의 핵심 의미는 체납; 연체이다."
@@ -10876,9 +10869,9 @@
           "prompt": "「仕様」の読み方として最も適切なものを選びなさい。",
           "options": [
             "しよう",
-            "ふとう",
-            "きょくたん",
-            "かくしん"
+            "うながす",
+            "ついほう",
+            "そらす"
           ],
           "answer": "しよう",
           "explanation_ko": "「仕様」는 「しよう」라고 읽는다. 뜻은 사양; 규격; 방식이다."
@@ -10889,9 +10882,9 @@
           "wordKey": "n1-0020",
           "prompt": "「対応」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "かえりみる",
+            "りょういき",
             "ゆるむ",
-            "りょうど",
+            "もろい",
             "たいおう"
           ],
           "answer": "たいおう",
@@ -10903,10 +10896,10 @@
           "wordKey": "n1-0021",
           "prompt": "「交渉」の読み方として最も適切なものを選びなさい。",
           "options": [
-            "がいかん",
-            "こうりつ",
+            "たえる",
+            "せろん",
             "こうしょう",
-            "おろそか"
+            "ごまかす"
           ],
           "answer": "こうしょう",
           "explanation_ko": "「交渉」는 「こうしょう」라고 읽는다. 뜻은 교섭; 협상이다."
@@ -10919,7 +10912,7 @@
           "options": [
             "報道",
             "確保",
-            "証拠",
+            "方策",
             "用法"
           ],
           "answer": "確保",
@@ -10947,7 +10940,7 @@
           "options": [
             "強制",
             "協議",
-            "応募",
+            "進展",
             "弁護"
           ],
           "answer": "弁護",
@@ -10959,8 +10952,8 @@
           "wordKey": "n1-0044",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n警察は防犯カメラの映像を分析しながら事件の（　）を進めている。",
           "options": [
-            "破損",
-            "発生",
+            "弁論",
+            "滞納",
             "捜査",
             "促進"
           ],
@@ -10973,10 +10966,10 @@
           "wordKey": "n1-0045",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n会社は経営（　）を乗り越えるため、不採算事業の見直しに着手した。",
           "options": [
-            "著名",
+            "掲げる",
             "危機",
-            "従来",
-            "対処"
+            "処分",
+            "運営"
           ],
           "answer": "危機",
           "explanation_ko": "문맥상 「危機」가 가장 자연스럽다. 위기라는 의미로 쓰였다."
@@ -10988,9 +10981,9 @@
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\n行政（　）を進めるには、手続きの簡素化だけでなく組織そのものの見直しも必要だ。",
           "options": [
             "改革",
-            "仕える",
-            "孤独",
-            "免れる"
+            "従来",
+            "単独",
+            "携わる"
           ],
           "answer": "改革",
           "explanation_ko": "문맥상 「改革」가 가장 자연스럽다. 개혁라는 의미로 쓰였다."
@@ -11001,8 +10994,8 @@
           "wordKey": "n1-0048",
           "prompt": "次の文の（　）に入る語として最も適切なものを選びなさい。\nその政策は若い世代から幅広い（　）を集めている。",
           "options": [
-            "携わる",
-            "権限",
+            "営む",
+            "促す",
             "慎む",
             "支持"
           ],
@@ -11016,9 +11009,9 @@
           "prompt": "「会議や公の場などで、自分の意見や考えを言葉にして述べること。また、その内容。」という意味に最も近い語を選びなさい。",
           "options": [
             "緩む",
-            "領土",
+            "脆い",
             "発言",
-            "顧みる"
+            "領域"
           ],
           "answer": "発言",
           "explanation_ko": "「発言」의 핵심 의미는 발언이다."
@@ -11029,10 +11022,10 @@
           "wordKey": "n1-0067",
           "prompt": "「異常や違反などがないか、注意して継続的に見守ること。」という意味に最も近い語を選びなさい。",
           "options": [
-            "効率",
+            "世論",
             "監視",
-            "疎か",
-            "外観"
+            "誤魔化す",
+            "堪える"
           ],
           "answer": "監視",
           "explanation_ko": "「監視」의 핵심 의미는 감시; 주시이다."
@@ -11072,7 +11065,7 @@
           "prompt": "「それまで行われていた制度・規則・事業などをやめてなくすこと。」という意味に最も近い語を選びなさい。",
           "options": [
             "協議",
-            "応募",
+            "進展",
             "廃止",
             "強制"
           ],
