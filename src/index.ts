@@ -92,6 +92,7 @@ import { handleGetPublicCertifications } from './public/certifications';
 import { handleCreatePublicComment, handleListPublicComments } from './public/comments';
 import { handleGetPublicDashboard } from './public/dashboard';
 import { handleGetPublicJapaneseJlptDashboard } from './public/japanese/jlpt';
+import { handleGetPublicJapaneseJlptPractice } from './public/japanese/jlpt-practice';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
 import { handleGetPublicJapaneseTaxonomy } from './public/japanese/taxonomy';
@@ -127,63 +128,37 @@ export default {
 		switch (url.pathname) {
 			case '/favicon.ico':
 				if (request.method !== 'GET' && request.method !== 'HEAD') return methodNotAllowed('GET, HEAD');
-				return new Response(null, {
-					status: 302,
-					headers: {
-						Location: new URL('/assets/logo-song-ym.png', request.url).toString(),
-						'Cache-Control': 'public, max-age=86400',
-					},
-				});
-			case '/message':
-				return new Response('Hello, World!');
-			case '/random':
-				return new Response(crypto.randomUUID());
-			case '/api/public/posts':
-				return request.method === 'GET' ? handleListPublicPosts(request, env) : methodNotAllowed('GET');
-			case '/api/public/posts/detail':
-				return request.method === 'GET' ? handleGetPublicPost(request, env) : methodNotAllowed('GET');
+				return new Response(null, { status: 302, headers: { Location: new URL('/assets/logo-song-ym.png', request.url).toString(), 'Cache-Control': 'public, max-age=86400' } });
+			case '/message': return new Response('Hello, World!');
+			case '/random': return new Response(crypto.randomUUID());
+			case '/api/public/posts': return request.method === 'GET' ? handleListPublicPosts(request, env) : methodNotAllowed('GET');
+			case '/api/public/posts/detail': return request.method === 'GET' ? handleGetPublicPost(request, env) : methodNotAllowed('GET');
 			case '/api/public/comments':
 				if (request.method === 'GET') return handleListPublicComments(request, env);
 				if (request.method === 'POST') return handleCreatePublicComment(request, env);
 				return methodNotAllowed('GET, POST');
-			case '/api/public/dashboard':
-				return request.method === 'GET' ? handleGetPublicDashboard(request, env) : methodNotAllowed('GET');
-			case '/api/public/dashboard/schedules':
-				return request.method === 'GET' ? handleListPublicDashboardSchedules(request, env) : methodNotAllowed('GET');
-			case '/api/public/certifications':
-				return request.method === 'GET' ? handleGetPublicCertifications(request, env) : methodNotAllowed('GET');
-			case '/api/public/skill-sheet':
-				return request.method === 'GET' ? handleGetPublicSkillSheet(request, env) : methodNotAllowed('GET');
-			case '/api/public/protected/status':
-				return request.method === 'GET' ? handleGetProtectedDocumentStatus(request, env) : methodNotAllowed('GET');
-			case '/api/public/japanese/stats':
-				return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
-			case '/api/public/japanese/jlpt/dashboard':
-				return request.method === 'GET' ? handleGetPublicJapaneseJlptDashboard(request, env) : methodNotAllowed('GET');
-			case '/api/public/japanese/taxonomy':
-				return request.method === 'GET' ? handleGetPublicJapaneseTaxonomy(request, env) : methodNotAllowed('GET');
-			case '/api/public/japanese/words':
-				return request.method === 'GET' ? handleListPublicJapaneseWords(request, env) : methodNotAllowed('GET');
-			case '/api/public/japanese/quiz-pool':
-				return request.method === 'GET' ? handleGetPublicJapaneseQuizPool(request, env) : methodNotAllowed('GET');
-			case '/api/protected/auth':
-				return request.method === 'POST' ? handleProtectedAccessLogin(request, env) : methodNotAllowed('POST');
-			case '/api/protected/document':
-				return request.method === 'GET' ? handleGetProtectedDocument(request, env) : methodNotAllowed('GET');
-			case '/api/protected/document/download':
-				return request.method === 'GET' ? handleDownloadProtectedDocument(request, env) : methodNotAllowed('GET');
-			case '/api/admin/auth/login':
-				return request.method === 'POST' ? handleAdminLogin(request, env) : methodNotAllowed('POST');
-			case '/api/admin/auth/logout':
-				return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
-			case '/api/admin/auth/session':
-				return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
+			case '/api/public/dashboard': return request.method === 'GET' ? handleGetPublicDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/public/dashboard/schedules': return request.method === 'GET' ? handleListPublicDashboardSchedules(request, env) : methodNotAllowed('GET');
+			case '/api/public/certifications': return request.method === 'GET' ? handleGetPublicCertifications(request, env) : methodNotAllowed('GET');
+			case '/api/public/skill-sheet': return request.method === 'GET' ? handleGetPublicSkillSheet(request, env) : methodNotAllowed('GET');
+			case '/api/public/protected/status': return request.method === 'GET' ? handleGetProtectedDocumentStatus(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/stats': return request.method === 'GET' ? handleGetPublicJapaneseStats(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/dashboard': return request.method === 'GET' ? handleGetPublicJapaneseJlptDashboard(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/practice': return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/taxonomy': return request.method === 'GET' ? handleGetPublicJapaneseTaxonomy(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/words': return request.method === 'GET' ? handleListPublicJapaneseWords(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/quiz-pool': return request.method === 'GET' ? handleGetPublicJapaneseQuizPool(request, env) : methodNotAllowed('GET');
+			case '/api/protected/auth': return request.method === 'POST' ? handleProtectedAccessLogin(request, env) : methodNotAllowed('POST');
+			case '/api/protected/document': return request.method === 'GET' ? handleGetProtectedDocument(request, env) : methodNotAllowed('GET');
+			case '/api/protected/document/download': return request.method === 'GET' ? handleDownloadProtectedDocument(request, env) : methodNotAllowed('GET');
+			case '/api/admin/auth/login': return request.method === 'POST' ? handleAdminLogin(request, env) : methodNotAllowed('POST');
+			case '/api/admin/auth/logout': return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
+			case '/api/admin/auth/session': return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
 			case '/api/admin/accounts':
 				if (request.method === 'GET') return handleListAdminAccounts(request, env);
 				if (request.method === 'POST') return handleCreateAdminAccount(request, env);
 				return methodNotAllowed('GET, POST');
-			case '/api/admin/accounts/detail':
-				return request.method === 'PATCH' ? handleUpdateAdminAccount(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/accounts/detail': return request.method === 'PATCH' ? handleUpdateAdminAccount(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/dashboard':
 				if (request.method === 'GET') return handleGetAdminDashboard(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminDashboard(request, env);
@@ -196,8 +171,7 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminDashboardSchedule(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminDashboardSchedule(request, env);
 				return methodNotAllowed('PATCH, DELETE');
-			case '/api/admin/comments':
-				return request.method === 'GET' ? handleListAdminComments(request, env) : methodNotAllowed('GET');
+			case '/api/admin/comments': return request.method === 'GET' ? handleListAdminComments(request, env) : methodNotAllowed('GET');
 			case '/api/admin/comments/detail':
 				if (request.method === 'PATCH') return handleUpdateAdminCommentStatus(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminComment(request, env);
@@ -210,8 +184,7 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminCategory(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminCategory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
-			case '/api/admin/categories/reorder':
-				return request.method === 'PATCH' ? handleReorderAdminCategories(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/categories/reorder': return request.method === 'PATCH' ? handleReorderAdminCategories(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/tags':
 				if (request.method === 'GET') return handleListAdminTags(request, env);
 				if (request.method === 'POST') return handleCreateAdminTag(request, env);
@@ -229,20 +202,15 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminPost(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminPost(request, env);
 				return methodNotAllowed('GET, PATCH, DELETE');
-			case '/api/admin/posts/visibility':
-				return request.method === 'PATCH' ? handleUpdateAdminPostVisibility(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/posts/visibility': return request.method === 'PATCH' ? handleUpdateAdminPostVisibility(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/japanese/words':
 				if (request.method === 'GET') return handleListAdminJapaneseWords(request, env);
 				if (request.method === 'POST') return handleCreateAdminJapaneseWordWithHistory(request, env);
 				return methodNotAllowed('GET, POST');
-			case '/api/admin/japanese/words/import':
-				return request.method === 'POST' ? handleImportAdminJapaneseWordsWithHistory(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/words/bulk':
-				return request.method === 'PATCH' ? handleBulkUpdateAdminJapaneseWords(request, env) : methodNotAllowed('PATCH');
-			case '/api/admin/japanese/words/bulk-delete':
-				return request.method === 'POST' ? handleBulkDeleteAdminJapaneseWords(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/words/history':
-				return request.method === 'GET' ? handleGetAdminJapaneseWordHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/words/import': return request.method === 'POST' ? handleImportAdminJapaneseWordsWithHistory(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/words/bulk': return request.method === 'PATCH' ? handleBulkUpdateAdminJapaneseWords(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/words/bulk-delete': return request.method === 'POST' ? handleBulkDeleteAdminJapaneseWords(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/words/history': return request.method === 'GET' ? handleGetAdminJapaneseWordHistory(request, env) : methodNotAllowed('GET');
 			case '/api/admin/japanese/words/detail':
 				if (request.method === 'PATCH') return handleUpdateAdminJapaneseWordWithHistory(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminJapaneseWordWithHistory(request, env);
@@ -263,28 +231,17 @@ export default {
 				if (request.method === 'PATCH') return handleUpdateAdminJapaneseCategory(request, env);
 				if (request.method === 'DELETE') return handleDeleteAdminJapaneseCategory(request, env);
 				return methodNotAllowed('PATCH, DELETE');
-			case '/api/admin/japanese/categories/reorder':
-				return request.method === 'PATCH' ? handleReorderAdminJapaneseCategories(request, env) : methodNotAllowed('PATCH');
-			case '/api/admin/japanese/quiz/complete':
-				return request.method === 'POST' ? handleCompleteAdminJapaneseQuiz(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/quiz/history':
-				return request.method === 'GET' ? handleListAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
-			case '/api/admin/japanese/quiz/history/detail':
-				return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
-			case '/api/admin/japanese/jlpt/today':
-				return request.method === 'GET' ? handleGetAdminJapaneseJlptToday(request, env) : methodNotAllowed('GET');
-			case '/api/admin/japanese/jlpt/today/start':
-				return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/jlpt/word-state':
-				return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH');
-			case '/api/admin/japanese/jlpt/progress':
-				return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');
-			case '/api/admin/japanese/jlpt/curriculum/words':
-				return request.method === 'POST' ? handleEnrollAdminJapaneseJlptWords(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/jlpt/content/import':
-				return request.method === 'POST' ? handleImportAdminJapaneseJlptContent(request, env) : methodNotAllowed('POST');
-			case '/api/admin/japanese/jlpt/content/progress':
-				return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptContent(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/categories/reorder': return request.method === 'PATCH' ? handleReorderAdminJapaneseCategories(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/quiz/complete': return request.method === 'POST' ? handleCompleteAdminJapaneseQuiz(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/quiz/history': return request.method === 'GET' ? handleListAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/quiz/history/detail': return request.method === 'GET' ? handleGetAdminJapaneseQuizHistory(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/jlpt/today': return request.method === 'GET' ? handleGetAdminJapaneseJlptToday(request, env) : methodNotAllowed('GET');
+			case '/api/admin/japanese/jlpt/today/start': return request.method === 'POST' ? handleStartAdminJapaneseJlptToday(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/word-state': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptWordState(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/progress': return request.method === 'PATCH' ? handleUpdateAdminJapaneseJlptProgress(request, env) : methodNotAllowed('PATCH');
+			case '/api/admin/japanese/jlpt/curriculum/words': return request.method === 'POST' ? handleEnrollAdminJapaneseJlptWords(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/content/import': return request.method === 'POST' ? handleImportAdminJapaneseJlptContent(request, env) : methodNotAllowed('POST');
+			case '/api/admin/japanese/jlpt/content/progress': return request.method === 'PATCH' ? handleCompleteAdminJapaneseJlptContent(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/skill-sheet':
 				if (request.method === 'GET') return handleGetAdminSkillSheetSummary(request, env);
 				if (request.method === 'PATCH') return handleUpdateAdminSkillSheetSummary(request, env);
@@ -293,16 +250,13 @@ export default {
 				if (request.method === 'GET') return handleListAdminProtectedDocuments(request, env);
 				if (request.method === 'POST') return handleUploadAdminProtectedDocument(request, env);
 				return methodNotAllowed('GET, POST');
-			case '/api/admin/documents/preview':
-				return request.method === 'GET' ? handleGetAdminProtectedDocumentPreview(request, env) : methodNotAllowed('GET');
+			case '/api/admin/documents/preview': return request.method === 'GET' ? handleGetAdminProtectedDocumentPreview(request, env) : methodNotAllowed('GET');
 			case '/api/admin/access-codes':
 				if (request.method === 'GET') return handleListAdminAccessCodes(request, env);
 				if (request.method === 'POST') return handleIssueAdminAccessCode(request, env);
 				return methodNotAllowed('GET, POST');
-			case '/api/admin/access-codes/revoke':
-				return request.method === 'POST' ? handleRevokeAdminAccessCode(request, env) : methodNotAllowed('POST');
-			default:
-				return new Response('Not Found', { status: 404 });
+			case '/api/admin/access-codes/revoke': return request.method === 'POST' ? handleRevokeAdminAccessCode(request, env) : methodNotAllowed('POST');
+			default: return new Response('Not Found', { status: 404 });
 		}
 	},
 } satisfies ExportedHandler<Env>;
