@@ -4,11 +4,20 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "editorial_review_before_batch_1",
-  "completedBatches": [],
+  "status": "batch_2_vocabulary_questions_checkpoint",
+  "completedBatches": [
+    {
+      "from": "2026-10-01",
+      "to": "2026-10-14",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0099_jlpt_n1_batch_20261001_20261014.sql",
+      "commit": "9230f7a"
+    }
+  ],
   "nextBatch": {
-    "from": "2026-10-01",
-    "to": "2026-10-14",
+    "from": "2026-10-15",
+    "to": "2026-10-28",
     "expectedNewWords": 280
   },
   "selectionPolicy": {
@@ -32,21 +41,19 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2026-10-01",
-      "to": "2026-10-14"
+      "from": "2026-10-15",
+      "to": "2026-10-28"
     },
-    "stage": "bounded_migration_generated_and_locally_validated",
+    "stage": "vocabulary_questions_generated_and_structurally_validated",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
-    "questionsComplete": 294,
-
-    "grammarLessonsComplete": 28,
-    "readingSetsComplete": 14,
-    "migrationReady": true,
-    "migration": "migrations/0099_jlpt_n1_batch_20261001_20261014.sql",
-    "source": "data/jlpt/production/batches/2026-10-01--2026-10-14.content-draft.json",
-    "note": "The content is rebuilt against the priority-refined 280-word proposal. The generator now has a clean-clone fallback to the committed canonical candidate pool, and the first-batch queue excludes explicitly low-priority everyday/broad entries in favor of formal, abstract, institutional, legal, and logical reading vocabulary. All 210 linked vocabulary MCQs, 28 grammar lessons, 42 grammar MCQs, 14 original reading sets, and 42 reading MCQs pass structural, answer, date-link, sentence-blank, and scanned historical exact-reuse checks. The generated migration is limited to this plan and this 14-day date range, has no plan-wide curriculum delete or COUNT scan, and is ready for the user to apply."
+    "questionsComplete": 210,
+    "grammarLessonsComplete": 0,
+    "readingSetsComplete": 0,
+    "migrationReady": false,
+    "source": "data/jlpt/production/batches/2026-10-15--2026-10-28.content-draft.json",
+    "note": "The second-batch queue excludes all first-batch word+reading identities and a reviewed set of elementary, conversational, obsolete-spelling, and low-priority entries. It contains exactly 20 words per day and 15 linked vocabulary MCQs per day. Unique identity, required-field, answer, option, context-blank, date-link, and exact-reuse-against-batch-one checks passed. Grammar, reading, final editorial acceptance, and the bounded migration remain pending."
   },
-  "lastUpdated": "2026-09-10"
+  "lastUpdated": "2026-09-11"
 }

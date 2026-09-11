@@ -3,10 +3,13 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DIR = path.join(ROOT, 'data', 'jlpt', 'production');
-const INPUT = path.join(DIR, 'candidates', 'n1-first-batch-proposals.json');
+const batch = process.argv[2] === 'batch2' ? 'batch2' : 'batch1';
+const isBatch2 = batch === 'batch2';
+const INPUT = path.join(DIR, 'candidates', isBatch2 ? 'n1-second-batch-proposals.json' : 'n1-first-batch-proposals.json');
 const OUTPUT_DIR = path.join(DIR, 'batches');
-const WORD_OUTPUT = path.join(OUTPUT_DIR, '2026-10-01--2026-10-14.word-review.json');
-const OUTPUT = path.join(OUTPUT_DIR, '2026-10-01--2026-10-14.content-draft.json');
+const rangeStem = isBatch2 ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
+const WORD_OUTPUT = path.join(OUTPUT_DIR, `${rangeStem}.word-review.json`);
+const OUTPUT = path.join(OUTPUT_DIR, `${rangeStem}.content-draft.json`);
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/g, ' ').trim();
 const types = ['kanji_reading','kanji_reading','kanji_reading',...Array(7).fill('context_fill'),...Array(5).fill('meaning_usage_synonym')];
 // These examples use a conjugated form in the word card.  Vocabulary MCQs keep
@@ -61,7 +64,13 @@ if (source.words.length !== 280) throw new Error(`Expected 280 selected words, f
 const words = source.words.map((word) => ({ ...word, review_status: 'proposed_for_admin_editorial_review' }));
 const days = Array.from({ length: 14 }, (_, dayIndex) => {
 	const dayWords = words.slice(dayIndex * 20, dayIndex * 20 + 20);
-	return { date: dayWords[0].planned_study_date, newWordKeys: dayWords.map((word) => word.key), vocabQuestions: types.map((type,index) => makeQuestion(words,dayWords[index],type,index + 1,dayIndex)), grammarLessons: [], grammarQuestions: [], readingSets: [] };
+	const readingWords = dayWords.slice(0, 3);
+	const contextWords = dayWords.filter((word) => !readingWords.includes(word) && word.example_ja.includes(word.word)).slice(0, 7);
+	if (contextWords.length !== 7) throw new Error(`${dayWords[0].planned_study_date}: fewer than 7 safe context examples`);
+	const assigned = new Set([...readingWords, ...contextWords].map((word) => word.key));
+	const meaningWords = dayWords.filter((word) => !assigned.has(word.key)).slice(0, 5);
+	const questionWords = [...readingWords, ...contextWords, ...meaningWords];
+	return { date: dayWords[0].planned_study_date, newWordKeys: dayWords.map((word) => word.key), vocabQuestions: types.map((type,index) => makeQuestion(words,questionWords[index],type,index + 1,dayIndex)), grammarLessons: [], grammarQuestions: [], readingSets: [] };
 });
 const signatures = new Set();
 for (const day of days) for (const question of day.vocabQuestions) {
