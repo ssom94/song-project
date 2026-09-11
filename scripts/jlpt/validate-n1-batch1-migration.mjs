@@ -2,10 +2,12 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = process.argv[2] === 'batch2' ? 'batch2' : 'batch1';
-const config = batch === 'batch2'
-  ? { stem: '2026-10-15--2026-10-28', file: '0100_jlpt_n1_batch_20261015_20261028.sql', from: '2026-10-15', to: '2026-10-28' }
-  : { stem: '2026-10-01--2026-10-14', file: '0099_jlpt_n1_batch_20261001_20261014.sql', from: '2026-10-01', to: '2026-10-14' };
+const batch = ['batch2','batch3'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const config = batch === 'batch3'
+  ? { stem: '2026-10-29--2026-11-11', file: '0101_jlpt_n1_batch_20261029_20261111.sql', from: '2026-10-29', to: '2026-11-11' }
+  : batch === 'batch2'
+    ? { stem: '2026-10-15--2026-10-28', file: '0100_jlpt_n1_batch_20261015_20261028.sql', from: '2026-10-15', to: '2026-10-28' }
+    : { stem: '2026-10-01--2026-10-14', file: '0099_jlpt_n1_batch_20261001_20261014.sql', from: '2026-10-01', to: '2026-10-14' };
 const FILE = path.join(ROOT, `migrations/${config.file}`);
 const REPORT = path.join(ROOT, `data/jlpt/production/batches/${config.stem}.migration-validation.json`);
 const sql = await fs.readFile(FILE, 'utf8');

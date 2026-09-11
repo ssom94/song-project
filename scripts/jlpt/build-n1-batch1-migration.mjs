@@ -2,10 +2,12 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = process.argv[2] === 'batch2' ? 'batch2' : 'batch1';
-const config = batch === 'batch2'
-  ? { stem: '2026-10-15--2026-10-28', output: '0100_jlpt_n1_batch_20261015_20261028.sql', from: '2026-10-15', to: '2026-10-28', tag: '0100', temp: '_n1_b2', label: 'batch 2026-10-15..2026-10-28' }
-  : { stem: '2026-10-01--2026-10-14', output: '0099_jlpt_n1_batch_20261001_20261014.sql', from: '2026-10-01', to: '2026-10-14', tag: '0099', temp: '_n1_b1', label: 'batch 2026-10-01..2026-10-14' };
+const batch = ['batch2','batch3'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const config = batch === 'batch3'
+  ? { stem: '2026-10-29--2026-11-11', output: '0101_jlpt_n1_batch_20261029_20261111.sql', from: '2026-10-29', to: '2026-11-11', tag: '0101', temp: '_n1_b3', label: 'batch 2026-10-29..2026-11-11' }
+  : batch === 'batch2'
+    ? { stem: '2026-10-15--2026-10-28', output: '0100_jlpt_n1_batch_20261015_20261028.sql', from: '2026-10-15', to: '2026-10-28', tag: '0100', temp: '_n1_b2', label: 'batch 2026-10-15..2026-10-28' }
+    : { stem: '2026-10-01--2026-10-14', output: '0099_jlpt_n1_batch_20261001_20261014.sql', from: '2026-10-01', to: '2026-10-14', tag: '0099', temp: '_n1_b1', label: 'batch 2026-10-01..2026-10-14' };
 const INPUT = path.join(ROOT, `data/jlpt/production/batches/${config.stem}.content-draft.json`);
 const OUTPUT = path.join(ROOT, `migrations/${config.output}`);
 const PLAN = 'N1_2027_JUL';

@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_3_content_checkpoint",
+  "status": "batch_3_migration_ready",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -21,11 +21,19 @@
       "contentRows": 294,
       "migration": "migrations/0100_jlpt_n1_batch_20261015_20261028.sql",
       "commit": "1ddb07a"
+    },
+    {
+      "from": "2026-10-29",
+      "to": "2026-11-11",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0101_jlpt_n1_batch_20261029_20261111.sql",
+      "commit": "pending"
     }
   ],
   "nextBatch": {
-    "from": "2026-10-29",
-    "to": "2026-11-11",
+    "from": "2026-11-12",
+    "to": "2026-11-25",
     "expectedNewWords": 280
   },
   "selectionPolicy": {
@@ -61,9 +69,9 @@
     "grammarQuestionsComplete": 42,
     "readingSetsComplete": 14,
     "readingQuestionsComplete": 42,
-    "migrationReady": false,
+    "migrationReady": true,
     "source": "data/jlpt/production/batches/2026-10-29--2026-11-11.content-draft.json",
-    "note": "The third-batch queue excludes all 560 earlier word+reading identities and an expanded editorial holdout set covering elementary vocabulary, greetings, obsolete spellings, ambiguous identities, and low-priority loanwords. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. Required fields, unique identities, answer/options, date links, Japanese/Korean script separation, and exact reuse against earlier migrations passed. Final editorial acceptance and the bounded migration remain pending."
+    "note": "The third-batch queue excludes all 560 earlier word+reading identities and an expanded editorial holdout set covering elementary vocabulary, greetings, obsolete spellings, ambiguous identities, and low-priority loanwords. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. Required fields, unique identities, answer/options, date links, Japanese/Korean script separation, and exact reuse against earlier migrations passed. The bounded migration is generated and statically validated; remote D1 application remains user-controlled."
   },
   "lastUpdated": "2026-09-11"
 }
