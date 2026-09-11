@@ -47,6 +47,17 @@
 
 	function captureBaseStatuses(wrap, today) {
 		statusByDate.clear();
+		for (const item of (Array.isArray(window.__SONG_JLPT_CALENDAR_ENTRIES__) ? window.__SONG_JLPT_CALENDAR_ENTRIES__ : [])) {
+			if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(item?.date || '')) continue;
+			statusByDate.set(item.date, {
+				status: item.status || 'not_started',
+				text: item.status === 'completed'
+					? `✅ ${Number(item.progressPercent || 0)}%`
+					: item.status === 'in_progress'
+						? `🟡 ${Number(item.progressPercent || 0)}%`
+						: '',
+			});
+		}
 		for (const cell of wrap.querySelectorAll('.jlpt-calendar-day')) {
 			const mmdd = cell.querySelector('strong')?.textContent?.trim() || '';
 			const date = inferFullDate(mmdd, today);
@@ -105,14 +116,19 @@
 		return nav;
 	}
 
-	function stateFor(saved) {
+	function stateFor(saved, date, today) {
 		if (saved?.status === 'completed') {
 			return { state: 'completed', text: saved.text || t('학습완료', '学習完了') };
 		}
 		if (saved?.status === 'in_progress') {
 			return { state: 'in_progress', text: saved.text || t('학습중', '学習中') };
 		}
-		return { state: 'none', text: saved?.text && saved.text !== '—' ? saved.text : '—' };
+		if (saved) {
+			return date > today
+				? { state: 'upcoming', text: t('학습일 전', '学習日前') }
+				: { state: 'missed', text: t('미학습', '未学習') };
+		}
+		return { state: 'none', text: '—' };
 	}
 
 	function renderCalendar(wrap) {
@@ -120,11 +136,12 @@
 		const [year, month] = calendarMonth.split('-').map(Number);
 		const days = new Date(Date.UTC(year, month, 0)).getUTCDate();
 		const fragment = document.createDocumentFragment();
+		const today = jstToday();
 
 		for (let day = 1; day <= days; day += 1) {
 			const date = `${calendarMonth}-${String(day).padStart(2, '0')}`;
 			const saved = statusByDate.get(date);
-			const resolved = stateFor(saved);
+			const resolved = stateFor(saved, date, today);
 			const cell = document.createElement('div');
 			cell.className = 'jlpt-calendar-day';
 			cell.dataset.status = saved?.status || 'not_started';
@@ -172,6 +189,13 @@
 	function init() {
 		window.setTimeout(tryMount, 0);
 	}
+
+	window.addEventListener('song:jlpt-calendar-data', () => {
+		const wrap = document.getElementById('jlpt-calendar');
+		if (!(wrap instanceof HTMLElement)) return;
+		captureBaseStatuses(wrap, jstToday());
+		if (mounted) renderCalendar(wrap);
+	});
 
 	window.addEventListener('song:jlpt-date-selected', (event) => {
 		const date = event.detail?.date;

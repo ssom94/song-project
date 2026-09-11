@@ -118,6 +118,8 @@
 	}
 
 	function renderCalendar(entries, today) {
+		window.__SONG_JLPT_CALENDAR_ENTRIES__ = Array.isArray(entries) ? entries : [];
+		window.dispatchEvent(new CustomEvent('song:jlpt-calendar-data', { detail: { entries: window.__SONG_JLPT_CALENDAR_ENTRIES__ } }));
 		const wrap = byId('jlpt-calendar');
 		if (!wrap) return;
 		wrap.replaceChildren();
