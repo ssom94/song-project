@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "status": "vocabulary_checkpoint_passed_editorial_review_pending",
+  "dateRange": {
+    "from": "2026-11-12",
+    "to": "2026-11-25"
+  },
+  "checks": {
+    "wordRows": 280,
+    "days": 14,
+    "dailyWords": 20,
+    "vocabularyQuestions": 210,
+    "dailyVocabularyQuestions": 15,
+    "uniqueAcrossFirstFourBatches": 1120,
+    "duplicateWordReadingPairs": 0,
+    "invalidQuestionLinks": 0,
+    "invalidAnswerOptions": 0,
+    "duplicateOptions": 0,
+    "requiredWordFieldsPresent": true
+  },
+  "pending": [
+    "final word-by-word editorial suitability review",
+    "Korean meaning and example naturalness review",
+    "grammar lessons and questions",
+    "reading sets and questions",
+    "exact MCQ reuse comparison across the preceding 90 days",
+    "bounded D1 migration generation and validation"
+  ],
+  "priorityDisclaimer": "The order is an independent Song Project study priority, not official per-word JLPT frequency or probability."
+}

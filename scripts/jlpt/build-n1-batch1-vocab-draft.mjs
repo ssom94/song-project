@@ -3,10 +3,16 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DIR = path.join(ROOT, 'data', 'jlpt', 'production');
-const batch = ['batch2','batch3'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
-const INPUT = path.join(DIR, 'candidates', batch === 'batch3' ? 'n1-third-batch-proposals.json' : batch === 'batch2' ? 'n1-second-batch-proposals.json' : 'n1-first-batch-proposals.json');
+const batch = ['batch2','batch3','batch4'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const batchConfig = {
+	batch1: { proposal: 'n1-first-batch-proposals.json', stem: '2026-10-01--2026-10-14' },
+	batch2: { proposal: 'n1-second-batch-proposals.json', stem: '2026-10-15--2026-10-28' },
+	batch3: { proposal: 'n1-third-batch-proposals.json', stem: '2026-10-29--2026-11-11' },
+	batch4: { proposal: 'n1-fourth-batch-proposals.json', stem: '2026-11-12--2026-11-25' },
+}[batch];
+const INPUT = path.join(DIR, 'candidates', batchConfig.proposal);
 const OUTPUT_DIR = path.join(DIR, 'batches');
-const rangeStem = batch === 'batch3' ? '2026-10-29--2026-11-11' : batch === 'batch2' ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
+const rangeStem = batchConfig.stem;
 const WORD_OUTPUT = path.join(OUTPUT_DIR, `${rangeStem}.word-review.json`);
 const OUTPUT = path.join(OUTPUT_DIR, `${rangeStem}.content-draft.json`);
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/g, ' ').trim();
