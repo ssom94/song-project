@@ -47,17 +47,26 @@
 
 	function captureBaseStatuses(wrap, today) {
 		statusByDate.clear();
-		for (const item of (Array.isArray(window.__SONG_JLPT_CALENDAR_ENTRIES__) ? window.__SONG_JLPT_CALENDAR_ENTRIES__ : [])) {
-			if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(item?.date || '')) continue;
-			statusByDate.set(item.date, {
-				status: item.status || 'not_started',
-				text: item.status === 'completed'
-					? `✅ ${Number(item.progressPercent || 0)}%`
-					: item.status === 'in_progress'
-						? `🟡 ${Number(item.progressPercent || 0)}%`
-						: '',
-			});
+		const apiEntries = window.__SONG_JLPT_CALENDAR_ENTRIES__;
+		if (Array.isArray(apiEntries)) {
+			for (const item of apiEntries) {
+				if (!/^\d{4}-\d{2}-\d{2}$/.test(item?.date || '')) continue;
+				statusByDate.set(item.date, {
+					status: item.status || 'not_started',
+					text: item.status === 'completed'
+						? `✅ ${Number(item.progressPercent || 0)}%`
+						: item.status === 'in_progress'
+							? `🟡 ${Number(item.progressPercent || 0)}%`
+							: '',
+				});
+			}
+			return;
 		}
+
+		// Compatibility fallback for older dashboard bundles that do not expose
+		// API calendar entries. Never run this after the safe calendar has rendered:
+		// its blank month cells are presentation only, not registered study dates.
+		if (wrap.dataset.safeCalendarRendered === 'true') return;
 		for (const cell of wrap.querySelectorAll('.jlpt-calendar-day')) {
 			const mmdd = cell.querySelector('strong')?.textContent?.trim() || '';
 			const date = inferFullDate(mmdd, today);
@@ -160,6 +169,7 @@
 		}
 
 		wrap.replaceChildren(fragment);
+		wrap.dataset.safeCalendarRendered = 'true';
 		const label = document.getElementById('jlpt-calendar-safe-label');
 		if (label) label.textContent = lang() === 'ja' ? `${year}年 ${month}月` : `${year}년 ${month}월`;
 	}
