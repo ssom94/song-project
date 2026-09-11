@@ -3,11 +3,10 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DIR = path.join(ROOT, 'data', 'jlpt', 'production');
-const batch = process.argv[2] === 'batch2' ? 'batch2' : 'batch1';
-const isBatch2 = batch === 'batch2';
-const INPUT = path.join(DIR, 'candidates', isBatch2 ? 'n1-second-batch-proposals.json' : 'n1-first-batch-proposals.json');
+const batch = ['batch2','batch3'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const INPUT = path.join(DIR, 'candidates', batch === 'batch3' ? 'n1-third-batch-proposals.json' : batch === 'batch2' ? 'n1-second-batch-proposals.json' : 'n1-first-batch-proposals.json');
 const OUTPUT_DIR = path.join(DIR, 'batches');
-const rangeStem = isBatch2 ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
+const rangeStem = batch === 'batch3' ? '2026-10-29--2026-11-11' : batch === 'batch2' ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
 const WORD_OUTPUT = path.join(OUTPUT_DIR, `${rangeStem}.word-review.json`);
 const OUTPUT = path.join(OUTPUT_DIR, `${rangeStem}.content-draft.json`);
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/g, ' ').trim();
@@ -64,7 +63,10 @@ if (source.words.length !== 280) throw new Error(`Expected 280 selected words, f
 const words = source.words.map((word) => ({ ...word, review_status: 'proposed_for_admin_editorial_review' }));
 const days = Array.from({ length: 14 }, (_, dayIndex) => {
 	const dayWords = words.slice(dayIndex * 20, dayIndex * 20 + 20);
-	const readingWords = dayWords.slice(0, 3);
+	// Prefer reading questions for entries whose example uses an inflected or
+	// orthographic variant. This preserves literal examples for context blanks.
+	const nonLiteralExamples = dayWords.filter((word) => !word.example_ja.includes(word.word));
+	const readingWords = [...nonLiteralExamples, ...dayWords.filter((word) => !nonLiteralExamples.includes(word))].slice(0, 3);
 	const contextWords = dayWords.filter((word) => !readingWords.includes(word) && word.example_ja.includes(word.word)).slice(0, 7);
 	if (contextWords.length !== 7) throw new Error(`${dayWords[0].planned_study_date}: fewer than 7 safe context examples`);
 	const assigned = new Set([...readingWords, ...contextWords].map((word) => word.key));

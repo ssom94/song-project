@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_2_migration_ready",
+  "status": "batch_3_vocabulary_checkpoint",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -20,12 +20,12 @@
       "words": 280,
       "contentRows": 294,
       "migration": "migrations/0100_jlpt_n1_batch_20261015_20261028.sql",
-      "commit": "pending"
+      "commit": "1ddb07a"
     }
   ],
   "nextBatch": {
-    "from": "2026-10-15",
-    "to": "2026-10-28",
+    "from": "2026-10-29",
+    "to": "2026-11-11",
     "expectedNewWords": 280
   },
   "selectionPolicy": {
@@ -49,21 +49,21 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2026-10-15",
-      "to": "2026-10-28"
+      "from": "2026-10-29",
+      "to": "2026-11-11"
     },
-    "stage": "complete_content_generated_and_structurally_validated",
+    "stage": "words_and_vocabulary_questions_generated",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
-    "questionsComplete": 294,
-    "grammarLessonsComplete": 28,
-    "grammarQuestionsComplete": 42,
-    "readingSetsComplete": 14,
-    "readingQuestionsComplete": 42,
-    "migrationReady": true,
-    "source": "data/jlpt/production/batches/2026-10-15--2026-10-28.content-draft.json",
-    "note": "The second-batch queue excludes all first-batch word+reading identities and a reviewed set of elementary, conversational, obsolete-spelling, and low-priority entries. It contains exactly 20 words per day, 15 linked vocabulary MCQs per day, two grammar lessons and three grammar MCQs per day, plus one original reading set and three reading MCQs per day. Unique identity, required-field, answer, option, context-blank, date-link, and exact-reuse-against-batch-one checks passed. The bounded migration is generated and statically validated; remote D1 application remains user-controlled."
+    "questionsComplete": 210,
+    "grammarLessonsComplete": 0,
+    "grammarQuestionsComplete": 0,
+    "readingSetsComplete": 0,
+    "readingQuestionsComplete": 0,
+    "migrationReady": false,
+    "source": "data/jlpt/production/batches/2026-10-29--2026-11-11.content-draft.json",
+    "note": "The third-batch queue excludes all 560 earlier word+reading identities and an expanded editorial holdout set covering elementary vocabulary, greetings, obsolete spellings, ambiguous identities, and low-priority loanwords. It contains exactly 20 words and 15 linked vocabulary MCQs per day. Required fields, unique identities, answer/options, date links, and exact reuse against the first two batches passed. Grammar, reading, final editorial acceptance, and migration remain pending."
   },
   "lastUpdated": "2026-09-11"
 }
