@@ -8,11 +8,13 @@ type KanjiRow = {
 	onyomi: string | null;
 	kunyomi: string | null;
 	component_forms: string | null;
-	formation_note_ko: string | null;
-	example_words: string | null;
+	components: string | null;
+	composition_note_ko: string | null;
+	memory_tip: string | null;
+	related_words: string | null;
 	foundation_order: number;
 	foundation_group: string | null;
-	learning_state: 'unlearned' | 'mastered' | null;
+	learning_state: 'unlearned' | 'unsure' | 'mastered' | null;
 };
 
 function json(data: unknown, status = 200): Response {
@@ -28,18 +30,19 @@ export async function handleGetBasicKanjiLearning(request: Request, env: Env): P
 	try {
 		const auth = await getAuthenticatedAdminSession(request, env.song_project_db);
 		const adminId = auth?.adminId ?? 0;
+		const requestedKanji = new URL(request.url).searchParams.get('kanji')?.normalize('NFKC').trim() ?? '';
 		const result = await env.song_project_db.prepare(`
 			SELECT k.kanji,k.meaning_ko,k.sound_ko,k.meaning_ja,k.onyomi,k.kunyomi,
-				k.component_forms,k.formation_note_ko,k.example_words,
+				k.variant_forms AS component_forms,k.components,k.composition_note_ko,k.memory_tip,k.related_words,
 				k.foundation_order,k.foundation_group,s.learning_state
-			FROM japanese_kanji_korean_readings k
-			LEFT JOIN japanese_admin_basic_kanji_states s
+			FROM kanji_master k
+			LEFT JOIN japanese_admin_kanji_states s
 				ON s.kanji=k.kanji AND s.admin_id=?1
-			WHERE k.foundation_order IS NOT NULL
-			ORDER BY CASE WHEN COALESCE(s.learning_state,'unlearned')='unlearned' THEN 0 ELSE 1 END,
+			WHERE k.active=1 AND (?2='' OR k.kanji=?2)
+			ORDER BY CASE COALESCE(s.learning_state,'unlearned') WHEN 'unlearned' THEN 0 WHEN 'unsure' THEN 1 ELSE 2 END,
 				k.foundation_order ASC
 			LIMIT 300
-		`).bind(adminId).all<KanjiRow>();
+		`).bind(adminId, requestedKanji).all<KanjiRow>();
 		const kanji = result.results.map((row) => ({
 			kanji: row.kanji,
 			meaningKo: row.meaning_ko,
@@ -48,8 +51,13 @@ export async function handleGetBasicKanjiLearning(request: Request, env: Env): P
 			onyomi: row.onyomi,
 			kunyomi: row.kunyomi,
 			componentForms: (row.component_forms ?? row.kanji).split('|'),
-			formationNoteKo: row.formation_note_ko,
-			exampleWords: (row.example_words ?? '').split('|').filter(Boolean),
+			components: (row.components ?? row.kanji).split('|').filter(Boolean),
+			compositionNoteKo: row.composition_note_ko,
+			memoryTip: row.memory_tip,
+			relatedWords: (row.related_words ?? '').split('|').filter(Boolean).map((entry) => {
+				const match = entry.match(/^(.+?)\(([^()]*)\)$/u);
+				return { word: match?.[1] ?? entry, reading: match?.[2] ?? '' };
+			}),
 			order: row.foundation_order,
 			group: row.foundation_group,
 			state: row.learning_state ?? 'unlearned',
@@ -60,6 +68,7 @@ export async function handleGetBasicKanjiLearning(request: Request, env: Env): P
 			counts: {
 				total: kanji.length,
 				mastered: kanji.filter((item) => item.state === 'mastered').length,
+				unsure: kanji.filter((item) => item.state === 'unsure').length,
 				unlearned: kanji.filter((item) => item.state === 'unlearned').length,
 			},
 			kanji,
@@ -82,20 +91,20 @@ export async function handleUpdateBasicKanjiLearning(request: Request, env: Env)
 		const row = value && typeof value === 'object' ? value as { kanji?: unknown; state?: unknown } : {};
 		return { kanji: String(row.kanji ?? '').normalize('NFKC').trim(), state: row.state };
 	});
-	if (updates.some((row) => Array.from(row.kanji).length !== 1 || !['unlearned', 'mastered'].includes(String(row.state)))) {
+	if (updates.some((row) => Array.from(row.kanji).length !== 1 || !['unlearned', 'unsure', 'mastered'].includes(String(row.state)))) {
 		return json({ ok: false, error: 'INVALID_KANJI_STATE' }, 400);
 	}
 	const unique = [...new Map(updates.map((row) => [row.kanji, row])).values()];
 	try {
 		const placeholders = unique.map((_, index) => `?${index + 1}`).join(',');
 		const existing = await env.song_project_db.prepare(`
-			SELECT kanji FROM japanese_kanji_korean_readings
-			WHERE foundation_order IS NOT NULL AND kanji IN (${placeholders})
+			SELECT kanji FROM kanji_master
+			WHERE active=1 AND kanji IN (${placeholders})
 		`).bind(...unique.map((row) => row.kanji)).all<{ kanji: string }>();
 		if (existing.results.length !== unique.length) return json({ ok: false, error: 'KANJI_NOT_FOUND' }, 404);
 		const now = new Date().toISOString();
 		await env.song_project_db.batch(unique.map((row) => env.song_project_db.prepare(`
-			INSERT INTO japanese_admin_basic_kanji_states(admin_id,kanji,learning_state,updated_at)
+			INSERT INTO japanese_admin_kanji_states(admin_id,kanji,learning_state,updated_at)
 			VALUES (?1,?2,?3,?4)
 			ON CONFLICT(admin_id,kanji) DO UPDATE SET learning_state=excluded.learning_state,updated_at=excluded.updated_at
 		`).bind(auth.adminId, row.kanji, row.state, now)));

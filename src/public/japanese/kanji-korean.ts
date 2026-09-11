@@ -30,8 +30,8 @@ export async function handleGetPublicJapaneseKanjiKorean(request: Request, env: 
 		const placeholders = characters.map((_, index) => `?${index + 1}`).join(', ');
 		const result = await env.song_project_db.prepare(`
 			SELECT kanji, meaning_ko, sound_ko
-			FROM japanese_kanji_korean_readings
-			WHERE kanji IN (${placeholders})
+			FROM kanji_master
+			WHERE active=1 AND kanji IN (${placeholders})
 		`).bind(...characters).all<KanjiReadingRow>();
 		const dictionary = new Map(result.results.map((row) => [row.kanji, row]));
 

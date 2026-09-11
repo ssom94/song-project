@@ -78,6 +78,7 @@
 				color: #274f91;
 				font-size: 25px;
 				font-weight: 900;
+				text-decoration: none;
 			}
 			.jp-word-detail-kanji-info b,
 			.jp-word-detail-kanji-info span { display: block; }
@@ -174,9 +175,11 @@
 			for (const entry of entries) {
 				const item = document.createElement('div');
 				item.className = 'jp-word-detail-kanji-item';
-				const character = document.createElement('strong');
+				const character = document.createElement('a');
 				character.className = 'jp-word-detail-kanji-character';
 				character.textContent = entry.character || '';
+				character.href = `/${language()}/japanese/kanji-basics/?kanji=${encodeURIComponent(entry.character || '')}`;
+				character.setAttribute('aria-label', copy(`${entry.character || ''}の基礎漢字詳細`, `${entry.character || ''} 기초 한자 상세`));
 				const info = document.createElement('div');
 				info.className = 'jp-word-detail-kanji-info';
 				const hunEum = document.createElement('b');
