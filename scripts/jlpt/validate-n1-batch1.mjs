@@ -4,6 +4,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const isBatch2 = process.argv[2] === 'batch2';
 const rangeStem = isBatch2 ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
+const ownMigration = isBatch2 ? '0100_jlpt_n1_batch_20261015_20261028.sql' : '0099_jlpt_n1_batch_20261001_20261014.sql';
 const INPUT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.content-draft.json`);
 const REPORT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.validation.json`);
 const MIGRATIONS = path.join(ROOT, 'migrations');
@@ -52,6 +53,7 @@ function validateVocabMcq(question, where, date, signatures) {
 async function historicalSignatures() {
 	const found = new Map();
 	for (const name of (await fs.readdir(MIGRATIONS)).filter((entry) => entry.endsWith('.sql'))) {
+		if (name === ownMigration) continue;
 		const sql = await fs.readFile(path.join(MIGRATIONS, name), 'utf8');
 		const expression = /SELECT\s+id,'(\d{4}-\d{2}-\d{2})','(?:vocab_question|grammar_question|reading)',\d+,[^,]*,'((?:[^']|'')*)'\s+FROM\s+japanese_jlpt_study_plans/g;
 		for (const match of sql.matchAll(expression)) {

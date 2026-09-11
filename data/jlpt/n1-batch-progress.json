@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_2_vocabulary_questions_checkpoint",
+  "status": "batch_2_migration_ready",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -13,6 +13,14 @@
       "contentRows": 294,
       "migration": "migrations/0099_jlpt_n1_batch_20261001_20261014.sql",
       "commit": "9230f7a"
+    },
+    {
+      "from": "2026-10-15",
+      "to": "2026-10-28",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0100_jlpt_n1_batch_20261015_20261028.sql",
+      "commit": "pending"
     }
   ],
   "nextBatch": {
@@ -53,9 +61,9 @@
     "grammarQuestionsComplete": 42,
     "readingSetsComplete": 14,
     "readingQuestionsComplete": 42,
-    "migrationReady": false,
+    "migrationReady": true,
     "source": "data/jlpt/production/batches/2026-10-15--2026-10-28.content-draft.json",
-    "note": "The second-batch queue excludes all first-batch word+reading identities and a reviewed set of elementary, conversational, obsolete-spelling, and low-priority entries. It contains exactly 20 words per day, 15 linked vocabulary MCQs per day, two grammar lessons and three grammar MCQs per day, plus one original reading set and three reading MCQs per day. Unique identity, required-field, answer, option, context-blank, date-link, and exact-reuse-against-batch-one checks passed. Final editorial acceptance and the bounded migration remain pending."
+    "note": "The second-batch queue excludes all first-batch word+reading identities and a reviewed set of elementary, conversational, obsolete-spelling, and low-priority entries. It contains exactly 20 words per day, 15 linked vocabulary MCQs per day, two grammar lessons and three grammar MCQs per day, plus one original reading set and three reading MCQs per day. Unique identity, required-field, answer, option, context-blank, date-link, and exact-reuse-against-batch-one checks passed. The bounded migration is generated and statically validated; remote D1 application remains user-controlled."
   },
   "lastUpdated": "2026-09-11"
 }

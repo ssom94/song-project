@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "migration": "0100_jlpt_n1_batch_20261015_20261028.sql",
+  "scope": {
+    "planCode": "N1_2027_JUL",
+    "from": "2026-10-15",
+    "to": "2026-10-28"
+  },
+  "counts": {
+    "stagedWords": 280,
+    "sessions": 14,
+    "contentRows": 294,
+    "maxStatementBytes": 2257
+  },
+  "checks": {
+    "noPlanWideCurriculumDelete": true,
+    "noCountScan": true,
+    "boundedDailyDeletes": true
+  },
+  "errors": [],
+  "status": "passed_local_static_validation"
+}
