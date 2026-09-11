@@ -17,6 +17,7 @@ import {
 } from './admin/comments/manage';
 import { handleGetAdminDashboard, handleUpdateAdminDashboard } from './admin/dashboard/manage';
 import { handleAdminDailyMemo } from './admin/daily-memo';
+import { handleAdminDatabaseTable, handleAdminDatabaseTables, handleUpdateAdminDatabaseRow } from './admin/database-browser';
 import {
 	handleCreateAdminDashboardSchedule,
 	handleDeleteAdminDashboardSchedule,
@@ -159,6 +160,9 @@ export default {
 			case '/api/admin/auth/login': return request.method === 'POST' ? handleAdminLogin(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/logout': return request.method === 'POST' ? handleAdminLogout(request, env) : methodNotAllowed('POST');
 			case '/api/admin/auth/session': return request.method === 'GET' ? handleAdminSessionStatus(request, env) : methodNotAllowed('GET');
+			case '/api/admin/database/tables': return request.method === 'GET' ? handleAdminDatabaseTables(request, env) : methodNotAllowed('GET');
+			case '/api/admin/database/table': return request.method === 'GET' ? handleAdminDatabaseTable(request, env) : methodNotAllowed('GET');
+			case '/api/admin/database/row': return request.method === 'PATCH' ? handleUpdateAdminDatabaseRow(request, env) : methodNotAllowed('PATCH');
 			case '/api/admin/accounts':
 				if (request.method === 'GET') return handleListAdminAccounts(request, env);
 				if (request.method === 'POST') return handleCreateAdminAccount(request, env);

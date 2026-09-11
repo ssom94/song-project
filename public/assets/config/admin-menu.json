@@ -10,5 +10,6 @@
   { "key": "japaneseLearning", "href": "/admin/japanese/", "labelJa": "日本語学習", "labelKo": "일본어 학습" },
   { "key": "protectedDocuments", "href": "/admin/documents/", "labelJa": "職務経歴書・資料", "labelKo": "직무경력서·자료" },
   { "key": "accessCodes", "href": "/admin/access-codes/", "labelJa": "アクセスコード", "labelKo": "접근 코드" },
+  { "key": "databaseBrowser", "href": "/admin/database/", "labelJa": "データベース", "labelKo": "데이터베이스" },
   { "key": "adminAccounts", "href": "/admin/accounts/", "labelJa": "管理者アカウント", "labelKo": "관리자 계정" }
 ]

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Database | SONG Admin</title>
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/common.css" />
+	<link rel="stylesheet" href="/assets/css/admin/database.css?v=20260911-1" />
+</head>
+<body class="admin-page">
+	<div id="admin-loading" class="admin-loading">セッションを確認しています…</div>
+	<div id="admin-shell" class="admin-shell" hidden>
+		<header class="admin-global-header"><div class="admin-header-left"><button id="admin-sidebar-toggle" class="admin-sidebar-toggle" type="button" aria-controls="admin-sidebar" aria-expanded="true"><span></span><span></span><span></span></button><a class="admin-global-brand" href="/"><img src="/assets/logo-song-ym.png" alt="Song YM" /><span>SONG Admin</span></a></div><div class="admin-header-actions"><div class="admin-language-switch"><button class="is-active" type="button" data-admin-lang="ja">日本語</button><span class="admin-language-divider">|</span><button type="button" data-admin-lang="ko">한국어</button></div><div class="admin-user-menu-wrap"><button id="admin-user-toggle" class="admin-user-toggle" type="button"><img class="admin-user-icon" src="/assets/icons/user.svg" alt="" /><span id="admin-user" class="admin-user"></span><span class="admin-user-chevron"></span></button><div id="admin-user-menu" class="admin-user-menu" hidden><div class="admin-user-menu-info"><strong id="admin-user-menu-name"></strong><span id="admin-user-menu-email"></span></div><button id="admin-logout" class="admin-logout-button" type="button">ログアウト</button></div></div></div></header>
+		<div class="admin-header-accent"></div>
+		<div class="admin-body">
+			<aside id="admin-sidebar" class="admin-sidebar"><p class="admin-nav-label">管理</p><nav id="admin-nav" class="admin-nav"></nav><div class="admin-sidebar-footer"><a href="/">サイトを表示</a></div></aside>
+			<button id="admin-sidebar-backdrop" class="admin-sidebar-backdrop" type="button" tabindex="-1" hidden></button>
+			<main class="admin-main"><section class="admin-content db-page">
+				<div class="admin-page-heading"><h1 data-db-ko="데이터베이스" data-db-ja="データベース">データベース</h1><p data-db-ko="D1 테이블의 구조와 데이터를 확인하고 기본키 단위로 수정합니다." data-db-ja="D1テーブルの構造とデータを確認し、主キー単位で編集します。">D1テーブルの構造とデータを確認し、主キー単位で編集します。</p></div>
+				<div class="db-layout">
+					<aside class="db-tables"><div class="db-panel-title"><strong data-db-ko="테이블" data-db-ja="テーブル">テーブル</strong><button id="db-refresh" type="button">↻</button></div><input id="db-table-filter" type="search" placeholder="Filter" /><div id="db-table-list" class="db-table-list"></div></aside>
+					<section class="db-workspace"><div class="db-toolbar"><div><strong id="db-current-table">—</strong><span id="db-page-info"></span></div><div><button id="db-prev" type="button">←</button><button id="db-next" type="button">→</button></div></div><div id="db-message" class="db-message" hidden></div><div id="db-schema" class="db-schema"></div><div class="db-grid-wrap"><table class="db-grid"><thead id="db-head"></thead><tbody id="db-body"></tbody></table></div><p class="db-hint" data-db-ko="셀을 눌러 값을 수정하고 행의 저장 버튼을 누르세요. 인증 관련 내부 테이블은 보안을 위해 표시하지 않습니다." data-db-ja="セルを押して値を編集し、行の保存ボタンを押してください。認証関連の内部テーブルは安全のため表示しません。">セルを押して値を編集し、行の保存ボタンを押してください。認証関連の内部テーブルは安全のため表示しません。</p></section>
+				</div>
+			</section></main>
+		</div>
+	</div>
+	<script src="/assets/js/admin/i18n.js"></script><script src="/assets/js/admin/menu.js"></script><script src="/assets/js/admin/layout.js"></script><script src="/assets/js/admin/common.js"></script><script src="/assets/js/admin/database.js?v=20260911-1"></script>
+</body>
+</html>
