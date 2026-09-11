@@ -17,6 +17,9 @@ type KanjiRow = {
 	learning_state: 'unlearned' | 'unsure' | 'mastered' | null;
 };
 
+type LearningState = 'unlearned' | 'unsure' | 'mastered';
+type RadicalStateRow = { radical: string; learning_state: LearningState };
+
 function json(data: unknown, status = 200): Response {
 	return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 }
@@ -43,6 +46,20 @@ export async function handleGetBasicKanjiLearning(request: Request, env: Env): P
 				k.foundation_order ASC
 			LIMIT 300
 		`).bind(adminId, requestedKanji).all<KanjiRow>();
+		let radicalStates: RadicalStateRow[] = [];
+		if (auth) {
+			try {
+				const radicalResult = await env.song_project_db.prepare(`
+					SELECT radical,learning_state
+					FROM japanese_admin_radical_states
+					WHERE admin_id=?1
+					LIMIT 214
+				`).bind(adminId).all<RadicalStateRow>();
+				radicalStates = radicalResult.results;
+			} catch (error) {
+				console.warn('Radical state table is not available yet', error);
+			}
+		}
 		const kanji = result.results.map((row) => ({
 			kanji: row.kanji,
 			meaningKo: row.meaning_ko,
@@ -71,6 +88,7 @@ export async function handleGetBasicKanjiLearning(request: Request, env: Env): P
 				unsure: kanji.filter((item) => item.state === 'unsure').length,
 				unlearned: kanji.filter((item) => item.state === 'unlearned').length,
 			},
+			radicalStates: Object.fromEntries(radicalStates.map((row) => [row.radical, row.learning_state])),
 			kanji,
 		});
 	} catch (error) {
@@ -83,32 +101,50 @@ export async function handleUpdateBasicKanjiLearning(request: Request, env: Env)
 	if (!sameOrigin(request)) return json({ ok: false, error: 'INVALID_ORIGIN' }, 403);
 	const auth = await getAuthenticatedAdminSession(request, env.song_project_db);
 	if (!auth) return json({ ok: false, error: 'UNAUTHORIZED' }, 401);
-	const body = await request.json().catch(() => null) as { updates?: unknown } | null;
-	if (!Array.isArray(body?.updates) || body.updates.length < 1 || body.updates.length > 100) {
+	const body = await request.json().catch(() => null) as { updates?: unknown; radicalUpdates?: unknown } | null;
+	const rawUpdates = Array.isArray(body?.updates) ? body.updates : [];
+	const rawRadicalUpdates = Array.isArray(body?.radicalUpdates) ? body.radicalUpdates : [];
+	if (rawUpdates.length + rawRadicalUpdates.length < 1 || rawUpdates.length + rawRadicalUpdates.length > 100) {
 		return json({ ok: false, error: 'INVALID_UPDATES' }, 400);
 	}
-	const updates = body.updates.map((value) => {
+	const updates = rawUpdates.map((value) => {
 		const row = value && typeof value === 'object' ? value as { kanji?: unknown; state?: unknown } : {};
 		return { kanji: String(row.kanji ?? '').normalize('NFKC').trim(), state: row.state };
 	});
 	if (updates.some((row) => Array.from(row.kanji).length !== 1 || !['unlearned', 'unsure', 'mastered'].includes(String(row.state)))) {
 		return json({ ok: false, error: 'INVALID_KANJI_STATE' }, 400);
 	}
+	const radicalUpdates = rawRadicalUpdates.map((value) => {
+		const row = value && typeof value === 'object' ? value as { radical?: unknown; state?: unknown } : {};
+		return { radical: String(row.radical ?? '').normalize('NFKC').trim(), state: row.state };
+	});
+	if (radicalUpdates.some((row) => Array.from(row.radical).length !== 1 || !['unlearned', 'unsure', 'mastered'].includes(String(row.state)))) {
+		return json({ ok: false, error: 'INVALID_RADICAL_STATE' }, 400);
+	}
 	const unique = [...new Map(updates.map((row) => [row.kanji, row])).values()];
+	const uniqueRadicals = [...new Map(radicalUpdates.map((row) => [row.radical, row])).values()];
 	try {
-		const placeholders = unique.map((_, index) => `?${index + 1}`).join(',');
-		const existing = await env.song_project_db.prepare(`
-			SELECT kanji FROM kanji_master
-			WHERE active=1 AND kanji IN (${placeholders})
-		`).bind(...unique.map((row) => row.kanji)).all<{ kanji: string }>();
-		if (existing.results.length !== unique.length) return json({ ok: false, error: 'KANJI_NOT_FOUND' }, 404);
+		if (unique.length) {
+			const placeholders = unique.map((_, index) => `?${index + 1}`).join(',');
+			const existing = await env.song_project_db.prepare(`
+				SELECT kanji FROM kanji_master
+				WHERE active=1 AND kanji IN (${placeholders})
+			`).bind(...unique.map((row) => row.kanji)).all<{ kanji: string }>();
+			if (existing.results.length !== unique.length) return json({ ok: false, error: 'KANJI_NOT_FOUND' }, 404);
+		}
 		const now = new Date().toISOString();
-		await env.song_project_db.batch(unique.map((row) => env.song_project_db.prepare(`
+		const statements = unique.map((row) => env.song_project_db.prepare(`
 			INSERT INTO japanese_admin_kanji_states(admin_id,kanji,learning_state,updated_at)
 			VALUES (?1,?2,?3,?4)
 			ON CONFLICT(admin_id,kanji) DO UPDATE SET learning_state=excluded.learning_state,updated_at=excluded.updated_at
-		`).bind(auth.adminId, row.kanji, row.state, now)));
-		return json({ ok: true, updated: unique.length });
+		`).bind(auth.adminId, row.kanji, row.state, now));
+		statements.push(...uniqueRadicals.map((row) => env.song_project_db.prepare(`
+			INSERT INTO japanese_admin_radical_states(admin_id,radical,learning_state,updated_at)
+			VALUES (?1,?2,?3,?4)
+			ON CONFLICT(admin_id,radical) DO UPDATE SET learning_state=excluded.learning_state,updated_at=excluded.updated_at
+		`).bind(auth.adminId, row.radical, row.state, now)));
+		await env.song_project_db.batch(statements);
+		return json({ ok: true, updated: unique.length, radicalsUpdated: uniqueRadicals.length });
 	} catch (error) {
 		console.error('Failed to update basic kanji learning', error);
 		return json({ ok: false, error: 'BASIC_KANJI_UPDATE_FAILED' }, 500);
