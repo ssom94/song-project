@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_4_vocabulary_checkpoint_ready",
+  "status": "batch_4_migration_ready",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -29,6 +29,14 @@
       "contentRows": 294,
       "migration": "migrations/0101_jlpt_n1_batch_20261029_20261111.sql",
       "commit": "b9a39b6"
+    },
+    {
+      "from": "2026-11-12",
+      "to": "2026-11-25",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0103_jlpt_n1_batch_20261112_20261125.sql",
+      "commit": "pending"
     }
   ],
   "nextBatch": {
@@ -60,18 +68,18 @@
       "from": "2026-11-12",
       "to": "2026-11-25"
     },
-    "stage": "vocabulary_questions_complete_editorial_review_pending",
+    "stage": "complete_content_generated_and_structurally_validated",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
-    "questionsComplete": 210,
-    "grammarLessonsComplete": 0,
-    "grammarQuestionsComplete": 0,
-    "readingSetsComplete": 0,
-    "readingQuestionsComplete": 0,
-    "migrationReady": false,
+    "questionsComplete": 294,
+    "grammarLessonsComplete": 28,
+    "grammarQuestionsComplete": 42,
+    "readingSetsComplete": 14,
+    "readingQuestionsComplete": 42,
+    "migrationReady": true,
     "source": "data/jlpt/production/batches/2026-11-12--2026-11-25.content-draft.json",
-    "note": "The fourth-batch checkpoint excludes all 840 earlier word+reading identities and expands the editorial holdout set for elementary vocabulary, greetings, dated/nonstandard kanji spellings, and low-priority entries. It contains exactly 20 words and 15 linked vocabulary MCQs per day. Required fields, unique identities, answer/options, and date links passed structural checks. Grammar, reading, final semantic review, 90-day cross-batch MCQ comparison, and bounded migration generation remain pending."
+    "note": "The fourth batch excludes all 840 earlier word+reading identities and expands the editorial holdout set for elementary vocabulary, greetings, dated/nonstandard kanji spellings, incorrect reading/meaning identities, and low-priority loanwords. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. Required fields, unique identities, answer/options, date links, Japanese/Korean script separation, and exact reuse against 902 historical MCQ signatures passed. The bounded migration is generated and statically validated; remote D1 application remains user-controlled."
   },
   "lastUpdated": "2026-09-11"
 }

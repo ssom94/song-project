@@ -2,9 +2,11 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = ['batch2','batch3'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
-const config = batch === 'batch3'
-  ? { stem: '2026-10-29--2026-11-11', output: '0101_jlpt_n1_batch_20261029_20261111.sql', from: '2026-10-29', to: '2026-11-11', tag: '0101', temp: '_n1_b3', label: 'batch 2026-10-29..2026-11-11' }
+const batch = ['batch2','batch3','batch4'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const config = batch === 'batch4'
+  ? { stem: '2026-11-12--2026-11-25', output: '0103_jlpt_n1_batch_20261112_20261125.sql', from: '2026-11-12', to: '2026-11-25', tag: '0103', temp: '_n1_b4', label: 'batch 2026-11-12..2026-11-25' }
+  : batch === 'batch3'
+    ? { stem: '2026-10-29--2026-11-11', output: '0101_jlpt_n1_batch_20261029_20261111.sql', from: '2026-10-29', to: '2026-11-11', tag: '0101', temp: '_n1_b3', label: 'batch 2026-10-29..2026-11-11' }
   : batch === 'batch2'
     ? { stem: '2026-10-15--2026-10-28', output: '0100_jlpt_n1_batch_20261015_20261028.sql', from: '2026-10-15', to: '2026-10-28', tag: '0100', temp: '_n1_b2', label: 'batch 2026-10-15..2026-10-28' }
     : { stem: '2026-10-01--2026-10-14', output: '0099_jlpt_n1_batch_20261001_20261014.sql', from: '2026-10-01', to: '2026-10-14', tag: '0099', temp: '_n1_b1', label: 'batch 2026-10-01..2026-10-14' };
