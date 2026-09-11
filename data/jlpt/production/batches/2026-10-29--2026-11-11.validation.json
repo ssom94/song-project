@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "dateRange": {
+    "from": "2026-10-29",
+    "to": "2026-11-11"
+  },
+  "status": "structural_validation_passed_editorial_review_pending",
+  "counts": {
+    "words": 280,
+    "days": 14,
+    "vocabQuestions": 210,
+    "grammarLessons": 28,
+    "grammarQuestions": 42,
+    "readingSets": 14,
+    "readingQuestions": 42,
+    "historicalMcqSignaturesScanned": 608
+  },
+  "errors": [],
+  "warnings": [
+    "words[28].reading: reading is not all hiragana",
+    "words[38].reading: reading is not all hiragana",
+    "words[72].reading: reading is not all hiragana",
+    "words[73].reading: reading is not all hiragana"
+  ],
+  "manualReviewRemaining": [
+    "N1 suitability and priority ordering for every selected word",
+    "naturalness of all Japanese examples and distractors",
+    "accuracy/naturalness of Korean translations",
+    "semantic correctness beyond structural answer matching"
+  ]
+}

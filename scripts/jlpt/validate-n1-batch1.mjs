@@ -2,9 +2,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const isBatch2 = process.argv[2] === 'batch2';
-const rangeStem = isBatch2 ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
-const ownMigration = isBatch2 ? '0100_jlpt_n1_batch_20261015_20261028.sql' : '0099_jlpt_n1_batch_20261001_20261014.sql';
+const batch = ['batch2','batch3'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const rangeStem = batch === 'batch3' ? '2026-10-29--2026-11-11' : batch === 'batch2' ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
+const ownMigration = batch === 'batch3' ? '0101_jlpt_n1_batch_20261029_20261111.sql' : batch === 'batch2' ? '0100_jlpt_n1_batch_20261015_20261028.sql' : '0099_jlpt_n1_batch_20261001_20261014.sql';
 const INPUT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.content-draft.json`);
 const REPORT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.validation.json`);
 const MIGRATIONS = path.join(ROOT, 'migrations');
@@ -114,7 +114,7 @@ for (const [dayIndex, day] of document.days.entries()) {
 		(set.questions ?? []).forEach((question, index) => validateMcq(question, `${where}.readingSets[${setIndex}].questions[${index}]`, day.date, signatures));
 	}
 }
-const firstDay = isBatch2 ? 15 : 1;
+const firstDay = batch === 'batch3' ? 29 : batch === 'batch2' ? 15 : 1;
 const expectedDates = Array.from({ length: 14 }, (_, index) => new Date(Date.UTC(2026, 9, firstDay + index)).toISOString().slice(0, 10));
 if (expectedDates.some((date) => !dates.has(date))) fail('days', `date range must be exactly ${expectedDates[0]} through ${expectedDates.at(-1)}`);
 const report = {
