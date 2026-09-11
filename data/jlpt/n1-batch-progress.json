@@ -44,16 +44,17 @@
       "from": "2026-10-15",
       "to": "2026-10-28"
     },
-    "stage": "vocabulary_questions_generated_and_structurally_validated",
+    "stage": "vocabulary_and_grammar_generated_and_structurally_validated",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
-    "questionsComplete": 210,
-    "grammarLessonsComplete": 0,
+    "questionsComplete": 252,
+    "grammarLessonsComplete": 28,
+    "grammarQuestionsComplete": 42,
     "readingSetsComplete": 0,
     "migrationReady": false,
     "source": "data/jlpt/production/batches/2026-10-15--2026-10-28.content-draft.json",
-    "note": "The second-batch queue excludes all first-batch word+reading identities and a reviewed set of elementary, conversational, obsolete-spelling, and low-priority entries. It contains exactly 20 words per day and 15 linked vocabulary MCQs per day. Unique identity, required-field, answer, option, context-blank, date-link, and exact-reuse-against-batch-one checks passed. Grammar, reading, final editorial acceptance, and the bounded migration remain pending."
+    "note": "The second-batch queue excludes all first-batch word+reading identities and a reviewed set of elementary, conversational, obsolete-spelling, and low-priority entries. It contains exactly 20 words per day, 15 linked vocabulary MCQs per day, two grammar lessons per day, and three linked grammar MCQs per day. Unique identity, required-field, answer, option, context-blank, date-link, and exact-reuse-against-batch-one checks passed. Reading, final editorial acceptance, and the bounded migration remain pending."
   },
   "lastUpdated": "2026-09-11"
 }
