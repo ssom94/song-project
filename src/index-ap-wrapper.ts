@@ -49,6 +49,7 @@ import { handleGetPublicApConcepts } from './public/ap-concepts';
 import { handleGetPublicApConceptProgress, handlePatchAdminApConceptProgress } from './ap-concept-progress';
 import { handleGetPublicCategoryIcon } from './public/category-icon';
 import { handleGetPublicJapaneseKanjiKorean } from './public/japanese/kanji-korean';
+import { handleGetBasicKanjiLearning, handleUpdateBasicKanjiLearning } from './basic-kanji-learning';
 import { handleGetPublicPostImage } from './public/post-image';
 import { handleGetPublicPostWithAppearance } from './public/posts/appearance-detail';
 import { handleListPublicPostsWithAppearance } from './public/posts/appearance-list';
@@ -85,6 +86,10 @@ export default {
 			case '/api/public/ap/mock-exams': return request.method === 'GET' ? handleListPublicApMockExams(request, env) : methodNotAllowed('GET');
 			case '/api/public/ap/mock-exams/detail': return request.method === 'GET' ? handleGetPublicApMockExam(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/kanji-korean': return request.method === 'GET' ? handleGetPublicJapaneseKanjiKorean(request, env) : methodNotAllowed('GET');
+			case '/api/japanese/basic-kanji':
+				if (request.method === 'GET') return handleGetBasicKanjiLearning(request, env);
+				if (request.method === 'PATCH' || request.method === 'POST') return handleUpdateBasicKanjiLearning(request, env);
+				return methodNotAllowed('GET, PATCH, POST');
 			case '/api/public/japanese/jlpt/practice': return request.method === 'GET' ? handleGetPublicJapaneseJlptPractice(request, env) : methodNotAllowed('GET');
 			case '/api/public/japanese/jlpt/practice/grade': return request.method === 'POST' ? handleGradePublicJapaneseJlptPractice(request, env) : methodNotAllowed('POST');
 			case '/api/public/japanese/examples': return request.method === 'GET' ? handleListJapaneseExamples(request, env) : methodNotAllowed('GET');
