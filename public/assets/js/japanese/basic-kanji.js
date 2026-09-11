@@ -44,7 +44,7 @@
 			const [base,forms,nameKo,nameJa,position,meaning,kanji,words]=row;
 			const variants=forms.split('|').map((form)=>'<span class="kanji-form">'+esc(form)+'</span>').join('');
 			const usedKanji=kanji.split('|').map((item)=>'<span class="kanji-form">'+esc(item)+'</span>').join('');
-			const related=words.split('|').map((item)=>'<span class="kanji-example">'+esc(item)+'</span>').join('');
+			const related=words.split('|').map((item)=>'<a class="kanji-example" href="/'+(ko?'ko':'ja')+'/japanese/words/?q='+encodeURIComponent(item)+'">'+esc(item)+'</a>').join('');
 			return '<article class="radical-card"><div class="radical-symbol"><strong>'+esc(base)+'</strong><span>→ '+variants+'</span></div><div><div class="basic-kanji-top"><h2>'+esc(ko?nameKo:nameJa)+'</h2><span class="kanji-group-tag">'+esc(position)+'</span></div><p class="radical-meaning"><b>'+text('기본 의미','基本意味')+'</b> '+esc(meaning)+'</p><div class="radical-flow"><span>'+esc(base)+'</span><b>→</b><span>'+variants+'</span><b>→</b><span>'+text('한자 속 위치에 맞게 좁아지거나 모양이 변합니다.','漢字内の位置に合わせて形が変わります。')+'</span></div><div class="kanji-examples"><b>'+text('활용 한자','使用漢字')+'</b>'+usedKanji+'</div><div class="kanji-examples"><b>'+text('관련 단어','関連語')+'</b>'+related+'</div></div></article>';
 		}).join('') || '<div class="jp-card basic-kanji-empty">'+text('조건에 맞는 부수가 없습니다.','条件に合う部首がありません。')+'</div>';
 	}
