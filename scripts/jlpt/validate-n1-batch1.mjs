@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const INPUT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', '2026-10-01--2026-10-14.content-draft.json');
-const REPORT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', '2026-10-01--2026-10-14.validation.json');
+const isBatch2 = process.argv[2] === 'batch2';
+const rangeStem = isBatch2 ? '2026-10-15--2026-10-28' : '2026-10-01--2026-10-14';
+const INPUT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.content-draft.json`);
+const REPORT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.validation.json`);
 const MIGRATIONS = path.join(ROOT, 'migrations');
 const HANGUL = /[\u1100-\u11ff\u3130-\u318f\uac00-\ud7a3]/u;
 const HIRAGANA = /^[\u3040-\u309fー・\s]+$/u;
@@ -110,11 +112,12 @@ for (const [dayIndex, day] of document.days.entries()) {
 		(set.questions ?? []).forEach((question, index) => validateMcq(question, `${where}.readingSets[${setIndex}].questions[${index}]`, day.date, signatures));
 	}
 }
-const expectedDates = Array.from({ length: 14 }, (_, index) => new Date(Date.UTC(2026, 9, index + 1)).toISOString().slice(0, 10));
-if (expectedDates.some((date) => !dates.has(date))) fail('days', 'date range must be exactly 2026-10-01 through 2026-10-14');
+const firstDay = isBatch2 ? 15 : 1;
+const expectedDates = Array.from({ length: 14 }, (_, index) => new Date(Date.UTC(2026, 9, firstDay + index)).toISOString().slice(0, 10));
+if (expectedDates.some((date) => !dates.has(date))) fail('days', `date range must be exactly ${expectedDates[0]} through ${expectedDates.at(-1)}`);
 const report = {
 	schemaVersion: 1,
-	dateRange: { from: '2026-10-01', to: '2026-10-14' },
+	dateRange: { from: expectedDates[0], to: expectedDates.at(-1) },
 	status: errors.length ? 'failed' : 'structural_validation_passed_editorial_review_pending',
 	counts: { words: document.words.length, days: document.days.length, vocabQuestions: document.days.reduce((sum, day) => sum + day.vocabQuestions.length, 0), grammarLessons: document.days.reduce((sum, day) => sum + day.grammarLessons.length, 0), grammarQuestions: document.days.reduce((sum, day) => sum + day.grammarQuestions.length, 0), readingSets: document.days.reduce((sum, day) => sum + day.readingSets.length, 0), readingQuestions: document.days.reduce((sum, day) => sum + day.readingSets.reduce((n, set) => n + set.questions.length, 0), 0), historicalMcqSignaturesScanned: historical.size },
 	errors, warnings,
