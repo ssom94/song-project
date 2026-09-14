@@ -48,6 +48,10 @@
 		return text || '—';
 	}
 
+	function radicalsFor(character) {
+		return window.SongKanjiRadicalMap?.forCharacter?.(character) || [];
+	}
+
 	function mountKanjiStyle() {
 		if (document.getElementById('jp-word-detail-kanji-style')) return;
 		const style = document.createElement('style');
@@ -187,6 +191,19 @@
 				const note = document.createElement('span');
 				note.textContent = copy('韓国漢字の意味・音', '한국 한자의 뜻·음');
 				info.append(hunEum, note);
+				const radicals = radicalsFor(entry.character);
+				if (radicals.length) {
+					const radicalLinks = document.createElement('span');
+					radicalLinks.className = 'jp-word-detail-radicals';
+					for (const radical of radicals) {
+						const link = document.createElement('a');
+						link.className = 'jp-word-detail-radical';
+						link.href = `/${language()}/japanese/kanji-basics/?radical=${encodeURIComponent(radical.radical)}`;
+						link.textContent = `${radical.radical} ${language() === 'ko' ? radical.nameKo : radical.nameJa}`;
+						radicalLinks.appendChild(link);
+					}
+					info.appendChild(radicalLinks);
+				}
 				item.append(character, info);
 				grid.appendChild(item);
 			}

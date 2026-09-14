@@ -158,12 +158,15 @@
 	function closeRadicalMemory(){if(!radicalMemoryOverlay)return;radicalMemoryOverlay.hidden=true;document.body.style.overflow='';}
 	async function load() {
 		try {
-			const requestedKanji=new URLSearchParams(window.location.search).get('kanji')?.trim()||'';
+			const pageParams=new URLSearchParams(window.location.search);
+			const requestedKanji=pageParams.get('kanji')?.trim()||'';
+			const requestedRadical=pageParams.get('radical')?.trim()||'';
 			const response = await fetch(`/api/japanese/basic-kanji${requestedKanji?`?kanji=${encodeURIComponent(requestedKanji)}`:''}`, { credentials:'same-origin' });
 			const data = await response.json(); if (!response.ok || !data.ok) throw new Error(data.error || response.status);
 			rows = data.kanji; authenticated = data.authenticated;
 			radicalStates={...radicalStates,...(data.radicalStates||{})}; localStorage.setItem(RADICAL_STATE_KEY,JSON.stringify(radicalStates));
 			if (requestedKanji) { ui.search.value=requestedKanji; document.title=`${requestedKanji} | ${text('기초 한자 학습','基礎漢字学習')} | SONG`; }
+			if (requestedRadical) { viewMode='radicals'; ui.search.value=requestedRadical; document.title=`${requestedRadical} | ${text('부수 학습','部首学習')} | SONG`; }
 			[...new Set(rows.map((row) => row.group).filter(Boolean))].forEach((group) => { const option=document.createElement('option');option.value=group;option.textContent=group;ui.group.appendChild(option); });
 			setSave(authenticated ? text('상태 자동 저장','状態を自動保存') : text('로그인하면 상태가 저장됩니다','ログインすると状態を保存できます'), authenticated ? '' : 'basic-kanji-login-warning');
 			render();

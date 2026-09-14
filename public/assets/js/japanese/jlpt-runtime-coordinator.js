@@ -2,11 +2,12 @@
 	if (!window.location.pathname.includes('/japanese/jlpt/')) return;
 
 	const FEATURES = [
+		['/assets/js/japanese/kanji-radical-map.js?v=20260915-1', 'data-kanji-radical-map'],
 		['/assets/js/japanese/jlpt-visitor-mode.js?v=20260908-5', 'data-jlpt-visitor-mode'],
 		['/assets/js/japanese/jlpt-history-controls.js?v=20260911-2', 'data-jlpt-history-controls'],
 		['/assets/js/japanese/jlpt-pagination-stability.js?v=20260908-1', 'data-jlpt-pagination-stability'],
 		['/assets/js/japanese/jlpt-experience.js?v=20260908-4', 'data-jlpt-experience'],
-		['/assets/js/japanese/jlpt-page-enhancements.js?v=20260908-4', 'data-jlpt-page-enhancements'],
+		['/assets/js/japanese/jlpt-page-enhancements.js?v=20260915-1', 'data-jlpt-page-enhancements'],
 		['/assets/js/japanese/jlpt-memory-practice.js?v=20260910-2', 'data-jlpt-memory-practice'],
 		['/assets/js/japanese/jlpt-date-fixes.js?v=20260911-2', 'data-jlpt-date-fixes'],
 		['/assets/js/japanese/jlpt-calendar-stability.js?v=20260908-4', 'data-jlpt-calendar-stability'],

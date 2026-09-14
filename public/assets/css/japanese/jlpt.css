@@ -485,6 +485,34 @@
 	display: none !important;
 }
 
+.jlpt-radical-links {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 5px;
+	margin-left: 7px;
+}
+
+.jlpt-radical-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	padding: 2px 8px;
+	border: 1px solid #d7e1ee;
+	border-radius: 999px;
+	background: #f5f8fc;
+	color: #3f5f82;
+	font-size: 10px;
+	font-weight: 850;
+	text-decoration: none;
+}
+
+.jlpt-radical-link:hover,
+.jlpt-radical-link:focus-visible {
+	border-color: #91a9c4;
+	background: #eaf1f8;
+}
+
 @media (max-width: 900px) {
 	.jlpt-stat-grid,
 	.jlpt-today-list {

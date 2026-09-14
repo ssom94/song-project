@@ -79,6 +79,33 @@
 	font-weight: 800;
 }
 
+.jp-word-detail-kanji-info .jp-word-detail-radicals {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 7px;
+}
+
+.jp-word-detail-radical {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	padding: 2px 8px;
+	border: 1px solid #d7e1ee;
+	border-radius: 999px;
+	background: #f3f7fb;
+	color: #3f5f82;
+	font-size: 10px;
+	font-weight: 850;
+	text-decoration: none;
+}
+
+.jp-word-detail-radical:hover,
+.jp-word-detail-radical:focus-visible {
+	border-color: #91a9c4;
+	background: #e7eff8;
+}
+
 .jp-word-detail-chip.is-part {
 	border-color: #cfdcf8;
 	background: #f5f8ff;

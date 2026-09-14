@@ -77,6 +77,32 @@
 		return entries.map((entry) => `${entry.character} ${entry.meaningKo} ${entry.soundKo}`).join(' · ');
 	}
 
+	function appendKanjiAndRadicals(line, entries) {
+		line.append(document.createTextNode(formatKanji(entries)));
+		const map = window.SongKanjiRadicalMap;
+		if (!map?.forCharacter) return;
+		const radicals = [];
+		const seen = new Set();
+		for (const entry of entries) {
+			for (const item of map.forCharacter(entry.character)) {
+				if (seen.has(item.radical)) continue;
+				seen.add(item.radical);
+				radicals.push(item);
+			}
+		}
+		if (!radicals.length) return;
+		const links = document.createElement('span');
+		links.className = 'jlpt-radical-links';
+		for (const item of radicals) {
+			const link = document.createElement('a');
+			link.className = 'jlpt-radical-link';
+			link.href = `/${language()}/japanese/kanji-basics/?radical=${encodeURIComponent(item.radical)}`;
+			link.textContent = `${item.radical} ${language() === 'ko' ? item.nameKo : item.nameJa}`;
+			links.appendChild(link);
+		}
+		line.appendChild(links);
+	}
+
 	async function decorateKanji() {
 		const cards = [...document.querySelectorAll('#jlpt-study-detail .jlpt-word-card')]
 			.filter((card) => card instanceof HTMLElement && !card.dataset.kanjiDecorated);
@@ -99,7 +125,8 @@
 				line.className = 'jlpt-kanji-korean';
 				const label = document.createElement('b');
 				label.textContent = t('한자 ', '韓国式漢字 ');
-				line.append(label, formatKanji(entries));
+				line.appendChild(label);
+				appendKanjiAndRadicals(line, entries);
 				card.appendChild(line);
 			}
 		} catch (error) {
