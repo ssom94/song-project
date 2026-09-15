@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_7_supplement_review_queue_ready",
+  "status": "batch_7_supplement_shortlist_ready",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -59,10 +59,13 @@
     "from": "2026-12-24",
     "to": "2027-01-06",
     "expectedNewWords": 280,
-    "stage": "supplement_candidates_pending_editorial_enrichment",
+    "stage": "shortlist_pending_dictionary_and_korean_editorial_enrichment",
     "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json",
     "supplementReviewQueue": "data/jlpt/production/candidates/n1-supplement-review-queue.json",
-    "supplementQueueSize": 500
+    "supplementQueueSize": 500,
+    "supplementShortlist": "data/jlpt/production/candidates/n1-seventh-batch-supplement-shortlist.json",
+    "supplementShortlistSize": 280,
+    "supplementHoldoutSize": 220
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
