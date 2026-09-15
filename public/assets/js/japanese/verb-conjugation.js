@@ -2,6 +2,7 @@
 	'use strict';
 	const ko = document.body.dataset.blogLanguage === 'ko';
 	const t = (koText, jaText) => ko ? koText : jaText;
+	const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 
 	const GODAN = {
 		う: ['わ', 'い', 'え', 'お', 'って', 'った'], く: ['か', 'き', 'け', 'こ', 'いて', 'いた'],
@@ -37,6 +38,13 @@
 	function zuruForms(base) { const stem = base.slice(0, -2); return { type: t('サ변격 동사(ずる형)', 'サ変動詞（ずる型）'), dictionary: base, polite: `${stem}じます`, negative: `${stem}じない`, te: `${stem}じて`, past: `${stem}じた`, potential: `${stem}じられる`, passive: `${stem}じられる`, causative: `${stem}じさせる`, causativePassive: `${stem}じさせられる`, requestPermission: `${stem}じさせてください`, volitional: `${stem}じよう`, imperative: `${stem}じろ`, conditional: `${stem}ずれば` }; }
 	function kuruForms(base) { const prefix = base.endsWith('来る') ? base.slice(0, -2) : ''; return { type: t('カ변격 동사', 'カ変動詞'), dictionary: base, polite: `${prefix}来ます`, negative: `${prefix}来ない`, te: `${prefix}来て`, past: `${prefix}来た`, potential: `${prefix}来られる`, passive: `${prefix}来られる`, causative: `${prefix}来させる`, causativePassive: `${prefix}来させられる`, requestPermission: `${prefix}来させてください`, volitional: `${prefix}来よう`, imperative: `${prefix}来い`, conditional: `${prefix}来れば` }; }
 
+	function usageExample(form, label) {
+		return {
+			ja: `この動詞は「${form}」という形で使います。`,
+			ko: `이 동사는 「${form}」라는 ${label} 형태로 사용합니다.`,
+		};
+	}
+
 	function render(word) {
 		const values = forms(word); if (!values) return;
 		const main = document.querySelector('.jp-word-detail-main'); const example = document.getElementById('jp-word-detail-example')?.closest('.jp-word-detail-section');
@@ -49,8 +57,16 @@
 			['causativePassive', t('사역수동형', '使役受身形'), t('억지로 ~하게 되다', '無理に〜させられる')], ['requestPermission', t('사역 요청', '使役の依頼'), t('제가 ~하게 해주세요', '私に〜させてください')],
 			['volitional', t('의지형', '意向形'), t('~하자·~해야겠다', '〜しよう')], ['imperative', t('명령형', '命令形'), t('~해라', '〜しろ')], ['conditional', t('조건형', '仮定形'), t('~하면', '〜すれば')],
 		];
+		const compact = window.matchMedia?.('(max-width: 640px)').matches;
 		const section = document.createElement('section'); section.className = 'jp-word-detail-section jp-verb-conjugation';
-		section.innerHTML = `<div class="jp-word-detail-section-heading"><h2>${t('동사 활용', '動詞活用')}</h2><span>${values.type}</span></div><p class="jp-verb-note">${t('표준 일본어 활용입니다. 가능형과 수동형이 같은 경우에는 문맥과 조사로 의미를 구분합니다.', '標準的な活用です。可能形と受身形が同形の場合は文脈と助詞で区別します。')}</p><div class="jp-verb-table">${rows.map(([key,label,meaning]) => `<div><b>${label}</b><strong>${values[key]}</strong><span>${meaning}</span></div>`).join('')}</div>`;
+		section.innerHTML = `<div class="jp-word-detail-section-heading"><h2>${t('동사 활용', '動詞活用')}</h2><span>${escapeHtml(values.type)}</span></div><div class="jp-verb-controls"><p class="jp-verb-note">${t('실제 문맥은 위의 단어 예문에서 확인하고, 아래에서는 표준 활용형을 문장과 함께 확인합니다. 가능형과 수동형이 같은 경우에는 문맥과 조사로 구분합니다.', '実際の文脈は上の単語例文で確認し、以下では標準活用を文とともに確認します。可能形と受身形が同形の場合は文脈と助詞で区別します。')}</p><button type="button" data-verb-toggle>${t('예문 전체 펼치기', '例文をすべて開く')}</button></div><div class="jp-verb-table">${rows.map(([key,label,meaning]) => { const example = usageExample(values[key], label); return `<div><b>${escapeHtml(label)}</b><strong>${escapeHtml(values[key])}</strong><span>${escapeHtml(meaning)}</span><details ${compact ? '' : 'open'}><summary>${t('활용 예문·한국어', '活用例・韓国語')}</summary><p lang="ja">${escapeHtml(example.ja)}</p><p lang="ko">${escapeHtml(example.ko)}</p></details></div>`; }).join('')}</div>`;
+		const toggle = section.querySelector('[data-verb-toggle]');
+		toggle?.addEventListener('click', () => {
+			const details = [...section.querySelectorAll('details')];
+			const open = details.some((item) => !item.open);
+			details.forEach((item) => { item.open = open; });
+			toggle.textContent = open ? t('예문 전체 접기', '例文をすべて閉じる') : t('예문 전체 펼치기', '例文をすべて開く');
+		});
 		example.insertAdjacentElement('afterend', section);
 	}
 
