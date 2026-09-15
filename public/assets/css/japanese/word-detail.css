@@ -320,3 +320,5 @@
 		padding: 17px;
 	}
 }
+
+.jp-verb-note{margin:0 0 12px;color:#667386;line-height:1.65}.jp-verb-table{display:grid;gap:7px}.jp-verb-table>div{display:grid;grid-template-columns:112px minmax(150px,1fr) minmax(150px,1fr);align-items:center;gap:10px;padding:10px 12px;border:1px solid #e2e7ee;border-radius:10px;background:#fafbfd}.jp-verb-table b{color:#59677a;font-size:.86rem}.jp-verb-table strong{font-size:1.03rem;color:#1f3149}.jp-verb-table span{color:#667386;font-size:.88rem}@media(max-width:640px){.jp-verb-table>div{grid-template-columns:82px minmax(0,1fr);gap:4px 8px}.jp-verb-table span{grid-column:2}}

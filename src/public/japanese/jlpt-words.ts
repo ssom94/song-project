@@ -9,6 +9,7 @@ interface WordRow {
 	meaning_ko: string | null;
 	introduced_on: string | null;
 	learning_state: 'mastered' | 'uncertain' | 'unlearned';
+	parts_blob: string | null;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -27,6 +28,8 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 		const requestedSize = positiveInteger(url.searchParams.get('pageSize'), 50);
 		const pageSize = Math.min(requestedSize, 200);
 		const includeTotal = url.searchParams.get('includeTotal') !== '0';
+		const requestedGroup = (url.searchParams.get('group') ?? '').trim();
+		const group = ['noun', 'verb', 'adjective-adverb', 'unclassified'].includes(requestedGroup) ? requestedGroup : '';
 		const admin = await resolveLearningAdmin(request, env.song_project_db);
 		if (!admin.adminId) return json({ ok: false, error: 'LEARNING_ADMIN_NOT_FOUND' }, 404);
 
@@ -41,16 +44,33 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 		const offset = (page - 1) * pageSize;
 		const words = await env.song_project_db.prepare(`
 			SELECT c.word_id, w.word, w.reading, w.meaning_ko, c.introduced_on,
-				COALESCE(s.learning_state, 'unlearned') AS learning_state
+				COALESCE(s.learning_state, 'unlearned') AS learning_state,
+				(SELECT GROUP_CONCAT(p.name_ja, CHAR(31))
+				 FROM japanese_word_parts_of_speech wp
+				 JOIN parts_of_speech p ON p.id=wp.part_of_speech_id AND p.deleted_at IS NULL
+				 WHERE wp.word_id=w.id ORDER BY wp.is_primary DESC,p.display_order,p.id) AS parts_blob
 			FROM japanese_jlpt_curriculum_words AS c
 			JOIN japanese_words AS w ON w.id = c.word_id AND w.deleted_at IS NULL
 			LEFT JOIN japanese_admin_word_learning_stats AS s
 				ON s.word_id = c.word_id AND s.admin_id = ?2
-			WHERE c.plan_id = ?1
+			WHERE c.plan_id = ?1 AND (
+				?3 = '' OR
+				(?3 = 'unclassified' AND NOT EXISTS (SELECT 1 FROM japanese_word_parts_of_speech up WHERE up.word_id=w.id)) OR
+				EXISTS (
+					SELECT 1 FROM japanese_word_parts_of_speech fp
+					JOIN parts_of_speech child ON child.id=fp.part_of_speech_id AND child.deleted_at IS NULL
+					LEFT JOIN parts_of_speech parent ON parent.id=child.parent_id AND parent.deleted_at IS NULL
+					WHERE fp.word_id=w.id AND (
+						(?3='noun' AND COALESCE(parent.name_ja,child.name_ja)='名詞') OR
+						(?3='verb' AND COALESCE(parent.name_ja,child.name_ja)='動詞') OR
+						(?3='adjective-adverb' AND COALESCE(parent.name_ja,child.name_ja) IN ('形容詞','副詞'))
+					)
+				)
+			)
 			ORDER BY CASE WHEN c.introduced_on IS NULL THEN 1 ELSE 0 END,
 				c.introduced_on ASC, c.sort_order ASC, c.word_id ASC
-			LIMIT ?3 OFFSET ?4
-		`).bind(plan.id, admin.adminId, pageSize, offset).all<WordRow>();
+			LIMIT ?4 OFFSET ?5
+		`).bind(plan.id, admin.adminId, group, pageSize, offset).all<WordRow>();
 
 		let total: number | null = null;
 		if (includeTotal) {
@@ -58,8 +78,21 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 				SELECT COUNT(*) AS total
 				FROM japanese_jlpt_curriculum_words AS c
 				JOIN japanese_words AS w ON w.id = c.word_id AND w.deleted_at IS NULL
-				WHERE c.plan_id = ?1
-			`).bind(plan.id).first<TotalRow>();
+				WHERE c.plan_id = ?1 AND (
+					?2 = '' OR
+					(?2 = 'unclassified' AND NOT EXISTS (SELECT 1 FROM japanese_word_parts_of_speech up WHERE up.word_id=w.id)) OR
+					EXISTS (
+						SELECT 1 FROM japanese_word_parts_of_speech fp
+						JOIN parts_of_speech child ON child.id=fp.part_of_speech_id AND child.deleted_at IS NULL
+						LEFT JOIN parts_of_speech parent ON parent.id=child.parent_id AND parent.deleted_at IS NULL
+						WHERE fp.word_id=w.id AND (
+							(?2='noun' AND COALESCE(parent.name_ja,child.name_ja)='名詞') OR
+							(?2='verb' AND COALESCE(parent.name_ja,child.name_ja)='動詞') OR
+							(?2='adjective-adverb' AND COALESCE(parent.name_ja,child.name_ja) IN ('形容詞','副詞'))
+						)
+					)
+				)
+			`).bind(plan.id, group).first<TotalRow>();
 			total = Number(row?.total ?? 0);
 		}
 
@@ -68,6 +101,7 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 			plan: { level: plan.jlpt_level_code },
 			page,
 			pageSize,
+			group: group || null,
 			total,
 			canEdit: admin.fromSession,
 			words: words.results.map((row, index) => ({
@@ -78,6 +112,7 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 				meaningKo: row.meaning_ko ?? '',
 				introducedOn: row.introduced_on,
 				learningState: row.learning_state,
+				parts: row.parts_blob ? row.parts_blob.split(String.fromCharCode(31)).filter(Boolean) : [],
 			})),
 		});
 	} catch (error) {

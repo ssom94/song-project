@@ -23,3 +23,6 @@
 	.is-memory-mode .jlpt-catalog-answer{min-height:36px;padding:5px;font-size:.76rem}
 	.is-memory-mode .jlpt-catalog-pen{width:36px;min-height:36px}
 }
+
+.jlpt-catalog-word a{color:inherit;text-decoration:none}
+.jlpt-catalog-word a:hover,.jlpt-catalog-word a:focus-visible{text-decoration:underline}

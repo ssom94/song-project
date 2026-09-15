@@ -10,6 +10,7 @@
 	const next = document.getElementById('jlpt-catalog-next');
 	const sizeSelect = document.getElementById('jlpt-catalog-size');
 	const memoryButton = document.getElementById('jlpt-catalog-memory');
+	const toolbar = root.querySelector('.jlpt-catalog-toolbar');
 	const writer = document.getElementById('jlpt-word-writer');
 	const canvas = document.getElementById('jlpt-word-writer-canvas');
 	const target = document.getElementById('jlpt-word-writer-target');
@@ -18,6 +19,7 @@
 	let total = null;
 	let canEdit = false;
 	let words = [];
+	let group = new URLSearchParams(location.search).get('group') || '';
 	let drawing = false;
 	let context = null;
 
@@ -32,7 +34,7 @@
 		if (!words.length) {
 			list.innerHTML = header() + `<div class="jlpt-catalog-empty">${ko ? '등록된 JLPT 단어가 없습니다.' : '登録されたJLPT単語がありません。'}</div>`;
 		} else {
-			list.innerHTML = header() + words.map((word) => `<div class="jlpt-catalog-row" data-word-id="${word.id}"><div class="jlpt-catalog-cell jlpt-catalog-number">${word.number}</div><div class="jlpt-catalog-cell jlpt-catalog-word" title="${escapeHtml(word.word)}">${escapeHtml(word.word)}</div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.reading)}">${escapeHtml(word.reading)}</div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.meaningKo)}">${escapeHtml(word.meaningKo)}</div><div class="jlpt-catalog-cell jlpt-catalog-date jlpt-catalog-fact">${escapeHtml(word.introducedOn || '—')}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="reading" autocomplete="off" aria-label="${ko ? '히라가나 입력' : '読み入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="meaning" autocomplete="off" aria-label="${ko ? '한글 뜻 입력' : '韓国語の意味入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-check jlpt-catalog-memory-fields"><input type="checkbox" data-mastered ${word.learningState === 'mastered' ? 'checked' : ''} ${canEdit ? '' : 'disabled'} aria-label="${ko ? '암기완료' : '暗記完了'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><button class="jlpt-catalog-pen" type="button" data-write="${escapeHtml(word.word)}" aria-label="${ko ? '쓰기 연습' : '書き取り練習'}">✎</button></div></div>`).join('');
+			list.innerHTML = header() + words.map((word) => `<div class="jlpt-catalog-row" data-word-id="${word.id}"><div class="jlpt-catalog-cell jlpt-catalog-number">${word.number}</div><div class="jlpt-catalog-cell jlpt-catalog-word" title="${escapeHtml(word.word)}"><a href="/${ko ? 'ko' : 'ja'}/japanese/words/detail/?id=${word.id}&word=${encodeURIComponent(word.word)}">${escapeHtml(word.word)}</a></div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.reading)}">${escapeHtml(word.reading)}</div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.meaningKo)}">${escapeHtml(word.meaningKo)}</div><div class="jlpt-catalog-cell jlpt-catalog-date jlpt-catalog-fact">${escapeHtml(word.introducedOn || '—')}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="reading" autocomplete="off" aria-label="${ko ? '히라가나 입력' : '読み入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="meaning" autocomplete="off" aria-label="${ko ? '한글 뜻 입력' : '韓国語の意味入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-check jlpt-catalog-memory-fields"><input type="checkbox" data-mastered ${word.learningState === 'mastered' ? 'checked' : ''} ${canEdit ? '' : 'disabled'} aria-label="${ko ? '암기완료' : '暗記完了'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><button class="jlpt-catalog-pen" type="button" data-write="${escapeHtml(word.word)}" aria-label="${ko ? '쓰기 연습' : '書き取り練習'}">✎</button></div></div>`).join('');
 		}
 		pageLabel.textContent = `${page} / ${totalPages()}`;
 		previous.disabled = page <= 1;
@@ -41,7 +43,7 @@
 	}
 	async function load(includeTotal) {
 		list.innerHTML = `<div class="jlpt-catalog-empty">${ko ? '단어를 불러오는 중입니다.' : '単語を読み込んでいます。'}</div>`;
-		const params = new URLSearchParams({ page: String(page), pageSize: String(pageSize), includeTotal: includeTotal ? '1' : '0' });
+		const params = new URLSearchParams({ page: String(page), pageSize: String(pageSize), includeTotal: includeTotal ? '1' : '0', group });
 		try {
 			const response = await fetch(`/api/public/japanese/jlpt/words?${params}`, { credentials: 'same-origin' });
 			const data = await response.json();
@@ -87,6 +89,18 @@
 	list.addEventListener('change', (event) => { if (event.target.matches('[data-mastered]')) saveMastered(event.target); });
 	list.addEventListener('click', (event) => { const button = event.target.closest('[data-write]'); if (button) openWriter(button.dataset.write); });
 	memoryButton.addEventListener('click', () => { const active = root.classList.toggle('is-memory-mode'); memoryButton.classList.toggle('is-active', active); memoryButton.setAttribute('aria-pressed', String(active)); });
+	const groupSelect = document.createElement('select');
+	groupSelect.id = 'jlpt-catalog-group';
+	groupSelect.setAttribute('aria-label', ko ? '품사 모음 선택' : '品詞コレクション選択');
+	groupSelect.innerHTML = `<option value="">${ko ? '전체 품사' : '全品詞'}</option><option value="noun">${ko ? '명사 모음' : '名詞集'}</option><option value="verb">${ko ? '동사 모음' : '動詞集'}</option><option value="adjective-adverb">${ko ? '형용사·부사' : '形容詞・副詞集'}</option><option value="unclassified">${ko ? '미분류' : '未分類'}</option>`;
+	if (![...groupSelect.options].some((option) => option.value === group)) group = '';
+	groupSelect.value = group;
+	toolbar.insertBefore(groupSelect, toolbar.querySelector('.jlpt-catalog-pager'));
+	groupSelect.addEventListener('change', () => {
+		group = groupSelect.value; page = 1; total = null;
+		const url = new URL(location.href); if (group) url.searchParams.set('group', group); else url.searchParams.delete('group'); history.replaceState(null, '', url);
+		load(true);
+	});
 	previous.addEventListener('click', () => { if (page > 1) { page -= 1; load(false); } });
 	next.addEventListener('click', () => { if (page < totalPages()) { page += 1; load(false); } });
 	sizeSelect.value = String(pageSize);

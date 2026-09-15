@@ -243,6 +243,7 @@
 		byId('jp-word-detail-category-count').textContent = String(categoriesFor(word).length);
 		renderTaxonomy(word);
 		renderExample(word);
+		window.SongVerbConjugation?.render?.(word);
 		renderKanjiKorean(word);
 		syncLinks(word);
 
