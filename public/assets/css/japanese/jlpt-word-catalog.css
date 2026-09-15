@@ -10,8 +10,8 @@
 @media(max-width:700px){
 	.jlpt-catalog-table-wrap{overflow-x:hidden}
 	.jlpt-catalog-table{min-width:0;width:100%}
-	.jlpt-catalog-row{grid-template-columns:30px minmax(0,.9fr) minmax(0,1fr) minmax(0,1.35fr) 62px}
-	.jlpt-catalog-cell{padding:8px 4px;font-size:.76rem;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;word-break:break-word;line-height:1.35}
+	.jlpt-catalog-row{width:100%;grid-template-columns:28px minmax(0,.9fr) minmax(0,1fr) minmax(0,1.25fr) 78px}
+	.jlpt-catalog-cell{padding:8px 3px;font-size:.76rem;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;word-break:break-word;line-height:1.35}
 	.jlpt-catalog-head .jlpt-catalog-cell{font-size:.7rem;word-break:keep-all}
 	.jlpt-catalog-word{font-size:.92rem}
 	.jlpt-catalog-date{font-size:.7rem}
