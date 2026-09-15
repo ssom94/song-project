@@ -10,14 +10,15 @@
 @media(max-width:700px){
 	.jlpt-catalog-table-wrap{overflow-x:hidden}
 	.jlpt-catalog-table{min-width:0;width:100%}
-	.jlpt-catalog-row{width:100%;grid-template-columns:28px minmax(0,.9fr) minmax(0,1fr) minmax(0,1.25fr) 78px}
+	.jlpt-catalog-row{width:100%;grid-template-columns:42px minmax(0,.85fr) minmax(0,.95fr) minmax(0,1.2fr) 78px}
 	.jlpt-catalog-cell{padding:8px 3px;font-size:.76rem;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;word-break:break-word;line-height:1.35}
 	.jlpt-catalog-head .jlpt-catalog-cell{font-size:.7rem;word-break:keep-all}
 	.jlpt-catalog-word{font-size:.92rem}
 	.jlpt-catalog-date{font-size:.7rem}
 	.jlpt-catalog-number,.jlpt-catalog-date{white-space:nowrap;overflow:visible;overflow-wrap:normal;word-break:keep-all}
+	.jlpt-catalog-number{padding-right:7px}
 	.is-memory-mode .jlpt-catalog-table{min-width:0}
-	.is-memory-mode .jlpt-catalog-row{grid-template-columns:30px minmax(66px,.7fr) minmax(92px,1fr) minmax(110px,1.25fr) 48px 42px}
+	.is-memory-mode .jlpt-catalog-row{grid-template-columns:42px minmax(62px,.7fr) minmax(88px,1fr) minmax(104px,1.25fr) 46px 40px}
 	.is-memory-mode .jlpt-catalog-cell{padding:7px 3px}
 	.is-memory-mode .jlpt-catalog-answer{min-height:36px;padding:5px;font-size:.76rem}
 	.is-memory-mode .jlpt-catalog-pen{width:36px;min-height:36px}
