@@ -30,6 +30,10 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 		const includeTotal = url.searchParams.get('includeTotal') !== '0';
 		const requestedGroup = (url.searchParams.get('group') ?? '').trim();
 		const group = ['noun', 'verb', 'adjective-adverb', 'unclassified'].includes(requestedGroup) ? requestedGroup : '';
+		const verbTypes: Record<string, string> = { godan: '五段動詞', ichidan: '一段動詞', suru: 'サ変動詞', kuru: 'カ変動詞' };
+		const requestedVerbType = (url.searchParams.get('verbType') ?? '').trim();
+		const verbType = group === 'verb' && verbTypes[requestedVerbType] ? requestedVerbType : '';
+		const verbPartName = verbType ? verbTypes[verbType] : '';
 		const admin = await resolveLearningAdmin(request, env.song_project_db);
 		if (!admin.adminId) return json({ ok: false, error: 'LEARNING_ADMIN_NOT_FOUND' }, 404);
 
@@ -66,11 +70,15 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 						(?3='adjective-adverb' AND COALESCE(parent.name_ja,child.name_ja) IN ('形容詞','副詞'))
 					)
 				)
-			)
+			) AND (?4 = '' OR EXISTS (
+				SELECT 1 FROM japanese_word_parts_of_speech vp
+				JOIN parts_of_speech vpart ON vpart.id=vp.part_of_speech_id AND vpart.deleted_at IS NULL
+				WHERE vp.word_id=w.id AND vpart.name_ja=?4
+			))
 			ORDER BY CASE WHEN c.introduced_on IS NULL THEN 1 ELSE 0 END,
 				c.introduced_on ASC, c.sort_order ASC, c.word_id ASC
-			LIMIT ?4 OFFSET ?5
-		`).bind(plan.id, admin.adminId, group, pageSize, offset).all<WordRow>();
+			LIMIT ?5 OFFSET ?6
+		`).bind(plan.id, admin.adminId, group, verbPartName, pageSize, offset).all<WordRow>();
 
 		let total: number | null = null;
 		if (includeTotal) {
@@ -91,8 +99,12 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 							(?2='adjective-adverb' AND COALESCE(parent.name_ja,child.name_ja) IN ('形容詞','副詞'))
 						)
 					)
-				)
-			`).bind(plan.id, group).first<TotalRow>();
+				) AND (?3 = '' OR EXISTS (
+					SELECT 1 FROM japanese_word_parts_of_speech vp
+					JOIN parts_of_speech vpart ON vpart.id=vp.part_of_speech_id AND vpart.deleted_at IS NULL
+					WHERE vp.word_id=w.id AND vpart.name_ja=?3
+				))
+			`).bind(plan.id, group, verbPartName).first<TotalRow>();
 			total = Number(row?.total ?? 0);
 		}
 
@@ -102,6 +114,7 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 			page,
 			pageSize,
 			group: group || null,
+			verbType: verbType || null,
 			total,
 			canEdit: admin.fromSession,
 			words: words.results.map((row, index) => ({

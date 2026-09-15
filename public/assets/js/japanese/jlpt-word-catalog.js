@@ -20,6 +20,7 @@
 	let canEdit = false;
 	let words = [];
 	let group = new URLSearchParams(location.search).get('group') || '';
+	let verbType = new URLSearchParams(location.search).get('verbType') || '';
 	let drawing = false;
 	let context = null;
 
@@ -43,7 +44,7 @@
 	}
 	async function load(includeTotal) {
 		list.innerHTML = `<div class="jlpt-catalog-empty">${ko ? '단어를 불러오는 중입니다.' : '単語を読み込んでいます。'}</div>`;
-		const params = new URLSearchParams({ page: String(page), pageSize: String(pageSize), includeTotal: includeTotal ? '1' : '0', group });
+		const params = new URLSearchParams({ page: String(page), pageSize: String(pageSize), includeTotal: includeTotal ? '1' : '0', group, verbType });
 		try {
 			const response = await fetch(`/api/public/japanese/jlpt/words?${params}`, { credentials: 'same-origin' });
 			const data = await response.json();
@@ -96,9 +97,23 @@
 	if (![...groupSelect.options].some((option) => option.value === group)) group = '';
 	groupSelect.value = group;
 	toolbar.insertBefore(groupSelect, toolbar.querySelector('.jlpt-catalog-pager'));
+	const verbTypeSelect = document.createElement('select');
+	verbTypeSelect.id = 'jlpt-catalog-verb-type';
+	verbTypeSelect.setAttribute('aria-label', ko ? '동사 종류 선택' : '動詞の種類を選択');
+	verbTypeSelect.innerHTML = `<option value="">${ko ? '전체 동사' : '全動詞'}</option><option value="godan">${ko ? '5단동사' : '五段動詞'}</option><option value="ichidan">${ko ? '1단동사' : '一段動詞'}</option><option value="suru">${ko ? 'サ변격 동사' : 'サ変動詞'}</option><option value="kuru">${ko ? 'カ변격 동사' : 'カ変動詞'}</option>`;
+	if (![...verbTypeSelect.options].some((option) => option.value === verbType)) verbType = '';
+	verbTypeSelect.value = verbType;
+	verbTypeSelect.hidden = group !== 'verb';
+	toolbar.insertBefore(verbTypeSelect, toolbar.querySelector('.jlpt-catalog-pager'));
 	groupSelect.addEventListener('change', () => {
-		group = groupSelect.value; page = 1; total = null;
-		const url = new URL(location.href); if (group) url.searchParams.set('group', group); else url.searchParams.delete('group'); history.replaceState(null, '', url);
+		group = groupSelect.value; page = 1; total = null; if (group !== 'verb') verbType = '';
+		verbTypeSelect.value = verbType; verbTypeSelect.hidden = group !== 'verb';
+		const url = new URL(location.href); if (group) url.searchParams.set('group', group); else url.searchParams.delete('group'); if (verbType) url.searchParams.set('verbType', verbType); else url.searchParams.delete('verbType'); history.replaceState(null, '', url);
+		load(true);
+	});
+	verbTypeSelect.addEventListener('change', () => {
+		verbType = verbTypeSelect.value; page = 1; total = null;
+		const url = new URL(location.href); if (verbType) url.searchParams.set('verbType', verbType); else url.searchParams.delete('verbType'); history.replaceState(null, '', url);
 		load(true);
 	});
 	previous.addEventListener('click', () => { if (page > 1) { page -= 1; load(false); } });
