@@ -14,6 +14,12 @@ interface WordRow {
 	example_sentence: string | null;
 	example_reading: string | null;
 	example_translation_ko: string | null;
+	verb_transitivity: string | null;
+	verb_particle_pattern_ja: string | null;
+	verb_usage_note_ko: string | null;
+	verb_usage_note_ja: string | null;
+	verb_paired_word: string | null;
+	verb_paired_reading: string | null;
 }
 
 function json(data: unknown, status = 200): Response {
@@ -121,11 +127,18 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 						(
 							SELECT e.translation_ko FROM japanese_word_examples AS e
 							WHERE e.word_id = jw.id AND e.deleted_at IS NULL ORDER BY e.id ASC LIMIT 1
-						) AS example_translation_ko
+						) AS example_translation_ko,
+						vp.transitivity AS verb_transitivity,
+						vp.particle_pattern_ja AS verb_particle_pattern_ja,
+						vp.usage_note_ko AS verb_usage_note_ko,
+						vp.usage_note_ja AS verb_usage_note_ja,
+						vp.paired_word AS verb_paired_word,
+						vp.paired_reading AS verb_paired_reading
 					FROM japanese_words AS jw
 					LEFT JOIN jlpt_levels AS jl ON jl.id = jw.jlpt_level_id
 					LEFT JOIN japanese_word_parts_of_speech AS jwpos ON jwpos.word_id = jw.id AND jwpos.is_primary = 1
 					LEFT JOIN parts_of_speech AS pos ON pos.id = jwpos.part_of_speech_id AND pos.deleted_at IS NULL
+					LEFT JOIN japanese_word_verb_profiles AS vp ON vp.word_id = jw.id
 					${whereSql}
 					ORDER BY COALESCE(jl.display_order, 99) ASC, jw.id DESC
 					LIMIT ?7 OFFSET ?8
@@ -184,6 +197,14 @@ export async function handleListPublicJapaneseWords(request: Request, env: Env):
 				categoriesJa: row.category_names_ja ? row.category_names_ja.split(separator).filter(Boolean) : [],
 				categoriesKo: row.category_names_ko ? row.category_names_ko.split(separator).filter(Boolean) : [],
 				example: row.example_sentence ? { sentence: row.example_sentence, reading: row.example_reading, translationKo: row.example_translation_ko } : null,
+				verbProfile: row.verb_transitivity ? {
+					transitivity: row.verb_transitivity,
+					particlePatternJa: row.verb_particle_pattern_ja,
+					usageNoteKo: row.verb_usage_note_ko,
+					usageNoteJa: row.verb_usage_note_ja,
+					pairedWord: row.verb_paired_word,
+					pairedReading: row.verb_paired_reading,
+				} : null,
 			})),
 		});
 	} catch (error) {

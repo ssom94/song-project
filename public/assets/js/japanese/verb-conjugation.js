@@ -44,6 +44,13 @@
 			ko: `이 동사는 「${form}」라는 ${label} 형태로 사용합니다.`,
 		};
 	}
+	function profileHtml(profile) {
+		if (!profile) return '';
+		const labels = { intransitive: t('자동사', '自動詞'), transitive: t('타동사', '他動詞'), both: t('자동사·타동사', '自他両用') };
+		const note = ko ? profile.usageNoteKo : profile.usageNoteJa;
+		const pair = profile.pairedWord ? `<a href="/${ko ? 'ko' : 'ja'}/japanese/words/detail/?word=${encodeURIComponent(profile.pairedWord)}">${t('짝동사', '対応動詞')} ${escapeHtml(profile.pairedWord)}${profile.pairedReading ? `（${escapeHtml(profile.pairedReading)}）` : ''}</a>` : '';
+		return `<div class="jp-verb-profile"><div><b>${escapeHtml(labels[profile.transitivity] || profile.transitivity)}</b>${profile.particlePatternJa ? `<code lang="ja">${escapeHtml(profile.particlePatternJa)}</code>` : ''}${pair}</div>${note ? `<p>${escapeHtml(note)}</p>` : ''}</div>`;
+	}
 
 	function render(word) {
 		const values = forms(word); if (!values) return;
@@ -61,6 +68,7 @@
 		const section = document.createElement('section'); section.className = 'jp-word-detail-section jp-verb-conjugation';
 		section.innerHTML = `<div class="jp-word-detail-section-heading"><h2>${t('동사 활용', '動詞活用')}</h2><span>${escapeHtml(values.type)}</span></div><div class="jp-verb-controls"><p class="jp-verb-note">${t('실제 문맥은 위의 단어 예문에서 확인하고, 아래에서는 표준 활용형을 문장과 함께 확인합니다. 가능형과 수동형이 같은 경우에는 문맥과 조사로 구분합니다.', '実際の文脈は上の単語例文で確認し、以下では標準活用を文とともに確認します。可能形と受身形が同形の場合は文脈と助詞で区別します。')}</p><button type="button" data-verb-toggle>${t('예문 전체 펼치기', '例文をすべて開く')}</button></div><div class="jp-verb-table">${rows.map(([key,label,meaning]) => { const example = usageExample(values[key], label); return `<div><b>${escapeHtml(label)}</b><strong>${escapeHtml(values[key])}</strong><span>${escapeHtml(meaning)}</span><details ${compact ? '' : 'open'}><summary>${t('활용 예문·한국어', '活用例・韓国語')}</summary><p lang="ja">${escapeHtml(example.ja)}</p><p lang="ko">${escapeHtml(example.ko)}</p></details></div>`; }).join('')}</div>`;
 		const toggle = section.querySelector('[data-verb-toggle]');
+		section.querySelector('.jp-word-detail-section-heading')?.insertAdjacentHTML('afterend', profileHtml(word.verbProfile));
 		toggle?.addEventListener('click', () => {
 			const details = [...section.querySelectorAll('details')];
 			const open = details.some((item) => !item.open);
