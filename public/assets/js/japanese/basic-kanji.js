@@ -16,7 +16,7 @@
 	const viewKanji=document.getElementById('kanji-view-kanji'), viewRadicals=document.getElementById('kanji-view-radicals'), viewOverview=document.getElementById('kanji-view-overview');
 	const RADICAL_STATE_KEY = 'song.basic-kanji.radical-states.v1';
 	const KANGXI_RADICALS=Array.from({length:214},(_,index)=>String.fromCodePoint(0x2f00+index));
-	let radicalMemoryRows=[], radicalMemoryIndex=0, radicalMemoryRevealed=false, radicalMemoryOverlay=null;
+	let radicalMemoryRows=[], radicalMemoryIndex=0, radicalMemoryRevealed=false, radicalMemoryOverlay=null, radicalMemoryMode='meaning', radicalDrawStrokes=[], radicalDrawTrace=false;
 	let radicalStates={};
 	const pendingRadicals=new Map(); let radicalSaveTimer=0;
 	try { radicalStates=JSON.parse(localStorage.getItem(RADICAL_STATE_KEY)||'{}')||{}; } catch { radicalStates={}; }
@@ -101,6 +101,7 @@
 		ui.list.innerHTML='<section class="jp-card radical-overview"><div class="radical-overview-title"><div><p class="jp-eyebrow">RADICAL AT A GLANCE</p><h2>'+text('부수 한눈보기','部首早見表')+'</h2><p>'+text('원래 한자에서 부수 모양으로 어떻게 바뀌는지, 의미와 유래를 한 줄로 비교합니다. 자원에는 여러 학설이 있어 학습하기 쉬운 대표 설명으로 표시합니다.','元の漢字から部首形への変化、意味と由来を一覧で比較します。字源には諸説があるため、学習向けの代表的な説明です。')+'</p></div><b>'+filtered.length+text('개','件')+'</b></div><div class="radical-overview-head" aria-hidden="true"><span>'+text('원래 한자','元の漢字')+'</span><span>'+text('부수·이름','部首・名称')+'</span><span>'+text('의미','意味')+'</span><span>'+text('유래·모양','由来・形')+'</span></div><div class="radical-overview-list">'+rowsHtml+'</div></section>';
 	}
 	function renderRadicals() {
+		const query=ui.search.value.trim().toLocaleLowerCase(), selectedState=ui.state.value;
 		const filtered=filteredRadicals();
 		ui.total.textContent=String(filtered.length); ui.mastered.textContent=RADICALS.filter((row)=>(radicalStates[row[0]]||'unlearned')==='mastered').length+' / '+RADICALS.length;
 		const detailed=filtered.map((row)=>{
@@ -190,10 +191,12 @@
 	function ensureRadicalMemoryOverlay() {
 		if (radicalMemoryOverlay) return radicalMemoryOverlay;
 		radicalMemoryOverlay=document.createElement('div'); radicalMemoryOverlay.className='kanji-memory-overlay'; radicalMemoryOverlay.hidden=true;
-		radicalMemoryOverlay.innerHTML='<section class="kanji-memory-panel" role="dialog" aria-modal="true"><div class="kanji-memory-head"><b data-radical-memory-count></b><button class="kanji-memory-close" type="button">×</button></div><div class="kanji-memory-body"></div></section>';
+		radicalMemoryOverlay.innerHTML='<section class="kanji-memory-panel" role="dialog" aria-modal="true"><div class="kanji-memory-head"><b data-radical-memory-count></b><button class="kanji-memory-close" type="button">×</button></div><div class="kanji-memory-types"><button data-radical-memory-mode="meaning" type="button">'+text('뜻 맞히기','意味')+'</button><button data-radical-memory-mode="draw" type="button">'+text('직접 그리기','書き取り')+'</button><button data-radical-memory-mode="related" type="button">'+text('관련 한자','関連漢字')+'</button></div><div class="kanji-memory-body"></div></section>';
 		document.body.appendChild(radicalMemoryOverlay);
 		radicalMemoryOverlay.addEventListener('click',(event)=>{
 			if(event.target===radicalMemoryOverlay||event.target.closest('.kanji-memory-close')) return closeRadicalMemory();
+			const modeButton=event.target.closest('[data-radical-memory-mode]'); if(modeButton){radicalMemoryMode=modeButton.dataset.radicalMemoryMode;radicalMemoryRevealed=false;radicalDrawStrokes=[];renderRadicalMemory();return;}
+			const drawAction=event.target.closest('[data-radical-draw-action]'); if(drawAction){const action=drawAction.dataset.radicalDrawAction;if(action==='clear')radicalDrawStrokes=[];else if(action==='undo')radicalDrawStrokes.pop();else if(action==='trace')radicalDrawTrace=!radicalDrawTrace;renderRadicalCanvas();return;}
 			if(event.target.closest('.kanji-memory-reveal,.radical-memory-symbol')) { radicalMemoryRevealed=true; renderRadicalMemory(); return; }
 			const nav=event.target.closest('[data-radical-memory-nav]'); if(nav) { moveRadicalMemory(Number(nav.dataset.radicalMemoryNav)); return; }
 			const stateButton=event.target.closest('[data-radical-memory-state]'); if(!stateButton) return;
@@ -201,14 +204,31 @@
 		});
 		return radicalMemoryOverlay;
 	}
+	function renderRadicalCanvas(){
+		const canvas=radicalMemoryOverlay?.querySelector('[data-radical-draw-canvas]');if(!canvas)return;
+		const ratio=Math.max(1,window.devicePixelRatio||1),rect=canvas.getBoundingClientRect(),size=Math.max(220,Math.round(rect.width));canvas.width=size*ratio;canvas.height=size*ratio;
+		const ctx=canvas.getContext('2d');ctx.scale(ratio,ratio);ctx.fillStyle='#fff';ctx.fillRect(0,0,size,size);ctx.strokeStyle='#e1e6ec';ctx.lineWidth=1;ctx.setLineDash([5,5]);ctx.beginPath();ctx.moveTo(size/2,12);ctx.lineTo(size/2,size-12);ctx.moveTo(12,size/2);ctx.lineTo(size-12,size/2);ctx.stroke();ctx.setLineDash([]);
+		if(radicalDrawTrace){const row=radicalMemoryRows[radicalMemoryIndex];ctx.fillStyle='rgba(38,62,94,.14)';ctx.font=`700 ${size*.62}px "Noto Sans JP","Yu Gothic",sans-serif`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(row?.[0]||'',size/2,size*.51);}
+		ctx.strokeStyle='#263e5e';ctx.lineWidth=7;ctx.lineCap='round';ctx.lineJoin='round';radicalDrawStrokes.forEach(stroke=>{if(!stroke.length)return;ctx.beginPath();ctx.moveTo(stroke[0].x*size,stroke[0].y*size);stroke.slice(1).forEach(point=>ctx.lineTo(point.x*size,point.y*size));ctx.stroke();});
+	}
+	function setupRadicalCanvas(){
+		const canvas=radicalMemoryOverlay?.querySelector('[data-radical-draw-canvas]');if(!canvas)return;let drawing=false;
+		const point=(event)=>{const rect=canvas.getBoundingClientRect();return{x:Math.max(0,Math.min(1,(event.clientX-rect.left)/rect.width)),y:Math.max(0,Math.min(1,(event.clientY-rect.top)/rect.height))};};
+		canvas.addEventListener('pointerdown',(event)=>{drawing=true;canvas.setPointerCapture(event.pointerId);radicalDrawStrokes.push([point(event)]);renderRadicalCanvas();});
+		canvas.addEventListener('pointermove',(event)=>{if(!drawing)return;radicalDrawStrokes.at(-1).push(point(event));renderRadicalCanvas();});
+		const finish=()=>{drawing=false;};canvas.addEventListener('pointerup',finish);canvas.addEventListener('pointercancel',finish);renderRadicalCanvas();
+	}
 	function renderRadicalMemory() {
 		const overlay=ensureRadicalMemoryOverlay(),body=overlay.querySelector('.kanji-memory-body'),count=overlay.querySelector('[data-radical-memory-count]');
 		if(!radicalMemoryRows.length){count.textContent='0 / 0';body.innerHTML='<div class="kanji-memory-empty">'+text('현재 조건에 맞는 부수가 없습니다.','現在の条件に合う部首がありません。')+'</div>';return;}
 		const [base,forms,nameKo,nameJa,position,meaning,kanji,words]=radicalMemoryRows[radicalMemoryIndex]; count.textContent=(radicalMemoryIndex+1)+' / '+radicalMemoryRows.length;
-		body.innerHTML='<div class="radical-memory-symbol" role="button" tabindex="0">'+esc(base)+'</div><button class="kanji-memory-reveal" type="button" '+(radicalMemoryRevealed?'hidden':'')+'>'+text('이름·변형 보기','名前・変形を見る')+'</button><div class="kanji-memory-answer" '+(radicalMemoryRevealed?'':'hidden')+'><h2>'+esc(ko?nameKo:nameJa)+'</h2><p class="kanji-memory-clue">'+esc(base)+' → '+esc(forms)+' · '+esc(position)+' · '+esc(meaning)+'</p><div class="kanji-examples">'+kanji.split('|').map((item)=>'<span class="kanji-form">'+esc(item)+'</span>').join('')+'</div><div class="kanji-examples">'+words.split('|').map((item)=>'<span class="kanji-example">'+esc(item)+'</span>').join('')+'</div><div class="kanji-memory-actions"><button class="kanji-memory-unlearned" data-radical-memory-state="unlearned" type="button">'+stateLabel('unlearned')+'</button><button class="kanji-memory-unsure" data-radical-memory-state="unsure" type="button">'+stateLabel('unsure')+'</button><button class="kanji-memory-mastered" data-radical-memory-state="mastered" type="button">'+stateLabel('mastered')+'</button></div></div><div class="kanji-memory-nav"><button data-radical-memory-nav="-1" type="button">← '+text('이전','前へ')+'</button><button data-radical-memory-nav="1" type="button">'+text('다음','次へ')+' →</button></div>';
+		radicalMemoryOverlay.querySelectorAll('[data-radical-memory-mode]').forEach(button=>button.classList.toggle('is-active',button.dataset.radicalMemoryMode===radicalMemoryMode));
+		const prompt=radicalMemoryMode==='draw'?'<p class="kanji-memory-clue">'+text('뜻을 보고 부수를 직접 그려보세요.','意味を見て部首を書いてください。')+'<br><b>'+esc(meaning)+'</b></p><canvas class="radical-draw-canvas" data-radical-draw-canvas aria-label="'+text('부수 쓰기 영역','部首を書く領域')+'"></canvas><div class="radical-draw-tools"><button data-radical-draw-action="trace" class="'+(radicalDrawTrace?'is-active':'')+'" type="button">'+text('따라쓰기','なぞり書き')+'</button><button data-radical-draw-action="undo" type="button">'+text('한 획 취소','一画戻す')+'</button><button data-radical-draw-action="clear" type="button">'+text('전체 지우기','全消去')+'</button></div>':radicalMemoryMode==='related'?'<div class="radical-memory-symbol" role="button" tabindex="0">'+esc(forms.split('|')[0])+'</div><p class="kanji-memory-clue">'+text('이 부수가 들어간 한자를 떠올려보세요.','この部首を使う漢字を思い出してください。')+'</p>':'<div class="radical-memory-symbol" role="button" tabindex="0">'+esc(forms.split('|')[0])+'</div><p class="kanji-memory-clue">'+text('이 부수의 원형과 의미는?','この部首の元の字と意味は？')+'</p>';
+		body.innerHTML=prompt+'<button class="kanji-memory-reveal" type="button" '+(radicalMemoryRevealed?'hidden':'')+'>'+text('정답 보기','答えを見る')+'</button><div class="kanji-memory-answer" '+(radicalMemoryRevealed?'':'hidden')+'><h2>'+esc(base)+' · '+esc(ko?nameKo:nameJa)+'</h2><p class="kanji-memory-clue">'+esc(base)+' → '+esc(forms)+' · '+esc(position)+' · '+esc(meaning)+'</p><p class="kanji-memory-tip">'+esc(radicalOrigin(base,meaning))+'</p><div class="kanji-examples">'+kanji.split('|').map((item)=>'<span class="kanji-form">'+esc(item)+'</span>').join('')+'</div><div class="kanji-examples">'+words.split('|').map((item)=>'<span class="kanji-example">'+esc(item)+'</span>').join('')+'</div><div class="kanji-memory-actions"><button class="kanji-memory-unlearned" data-radical-memory-state="unlearned" type="button">'+stateLabel('unlearned')+'</button><button class="kanji-memory-unsure" data-radical-memory-state="unsure" type="button">'+stateLabel('unsure')+'</button><button class="kanji-memory-mastered" data-radical-memory-state="mastered" type="button">'+stateLabel('mastered')+'</button></div></div><div class="kanji-memory-nav"><button data-radical-memory-nav="-1" type="button">← '+text('이전','前へ')+'</button><button data-radical-memory-nav="1" type="button">'+text('다음','次へ')+' →</button></div>';
+		if(radicalMemoryMode==='draw')setupRadicalCanvas();
 	}
-	function moveRadicalMemory(delta){if(!radicalMemoryRows.length)return;radicalMemoryIndex=(radicalMemoryIndex+delta+radicalMemoryRows.length)%radicalMemoryRows.length;radicalMemoryRevealed=false;renderRadicalMemory();}
-	function openRadicalMemory(){radicalMemoryRows=RADICALS.filter((row)=>!ui.state.value||(radicalStates[row[0]]||'unlearned')===ui.state.value).sort((a,b)=>stateRank[radicalStates[a[0]]||'unlearned']-stateRank[radicalStates[b[0]]||'unlearned']);radicalMemoryIndex=0;radicalMemoryRevealed=false;ensureRadicalMemoryOverlay().hidden=false;document.body.style.overflow='hidden';renderRadicalMemory();}
+	function moveRadicalMemory(delta){if(!radicalMemoryRows.length)return;radicalMemoryIndex=(radicalMemoryIndex+delta+radicalMemoryRows.length)%radicalMemoryRows.length;radicalMemoryRevealed=false;radicalDrawStrokes=[];radicalDrawTrace=false;renderRadicalMemory();}
+	function openRadicalMemory(){radicalMemoryRows=RADICALS.filter((row)=>!ui.state.value||(radicalStates[row[0]]||'unlearned')===ui.state.value).sort((a,b)=>stateRank[radicalStates[a[0]]||'unlearned']-stateRank[radicalStates[b[0]]||'unlearned']);radicalMemoryIndex=0;radicalMemoryRevealed=false;radicalMemoryMode='meaning';radicalDrawStrokes=[];radicalDrawTrace=false;ensureRadicalMemoryOverlay().hidden=false;document.body.style.overflow='hidden';renderRadicalMemory();}
 	function closeRadicalMemory(){if(!radicalMemoryOverlay)return;radicalMemoryOverlay.hidden=true;document.body.style.overflow='';}
 	async function load() {
 		try {
