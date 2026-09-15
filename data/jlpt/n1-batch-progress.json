@@ -66,8 +66,11 @@
     "supplementShortlist": "data/jlpt/production/candidates/n1-seventh-batch-supplement-shortlist.json",
     "supplementShortlistSize": 280,
     "supplementHoldoutSize": 220,
-    "editoriallyEnrichedWords": 40,
-    "editorialEnrichmentCheckpoint": "data/jlpt/production/curation/supplement/batch7-0001-0040.json"
+    "editoriallyEnrichedWords": 80,
+    "editorialEnrichmentCheckpoints": [
+      "data/jlpt/production/curation/supplement/batch7-0001-0040.json",
+      "data/jlpt/production/curation/supplement/batch7-0041-0080.json"
+    ]
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
