@@ -5,6 +5,8 @@
 .is-memory-mode .jlpt-catalog-fact{display:none}
 .is-memory-mode .jlpt-catalog-table{min-width:760px}
 .is-memory-mode .jlpt-catalog-row{grid-template-columns:58px minmax(130px,1fr) minmax(170px,1.2fr) minmax(210px,1.5fr) 82px 54px}
+.is-memory-mode .jlpt-catalog-row:has([data-mastered]:checked){background:#e8f7ef}
+.is-memory-mode .jlpt-catalog-row:has([data-mastered]:checked) .jlpt-catalog-word{color:#176044}
 @media(max-width:700px){
 	.jlpt-catalog-table-wrap{overflow-x:hidden}
 	.jlpt-catalog-table{min-width:0;width:100%}
@@ -13,6 +15,7 @@
 	.jlpt-catalog-head .jlpt-catalog-cell{font-size:.7rem;word-break:keep-all}
 	.jlpt-catalog-word{font-size:.92rem}
 	.jlpt-catalog-date{font-size:.7rem}
+	.jlpt-catalog-number,.jlpt-catalog-date{white-space:nowrap;overflow:visible;overflow-wrap:normal;word-break:keep-all}
 	.is-memory-mode .jlpt-catalog-table{min-width:0}
 	.is-memory-mode .jlpt-catalog-row{grid-template-columns:30px minmax(66px,.7fr) minmax(92px,1fr) minmax(110px,1.25fr) 48px 42px}
 	.is-memory-mode .jlpt-catalog-cell{padding:7px 3px}
