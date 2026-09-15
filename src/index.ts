@@ -97,6 +97,7 @@ import { handleCreatePublicComment, handleListPublicComments } from './public/co
 import { handleGetPublicDashboard } from './public/dashboard';
 import { handleGetPublicJapaneseJlptDashboard } from './public/japanese/jlpt';
 import { handleGetPublicJapaneseJlptPractice } from './public/japanese/jlpt-practice';
+import { handleListPublicJapaneseJlptWords } from './public/japanese/jlpt-words';
 import { handleGradePublicJapaneseJlptPractice } from './public/japanese/jlpt-practice-grade';
 import { handleGetPublicJapaneseQuizPool } from './public/japanese/quiz-pool';
 import { handleGetPublicJapaneseStats } from './public/japanese/stats';
@@ -138,6 +139,7 @@ export default {
 			case '/random': return new Response(crypto.randomUUID());
 			case '/api/public/posts': return request.method === 'GET' ? handleListPublicPosts(request, env) : methodNotAllowed('GET');
 			case '/api/public/posts/detail': return request.method === 'GET' ? handleGetPublicPost(request, env) : methodNotAllowed('GET');
+			case '/api/public/japanese/jlpt/words': return request.method === 'GET' ? handleListPublicJapaneseJlptWords(request, env) : methodNotAllowed('GET');
 			case '/api/public/comments':
 				if (request.method === 'GET') return handleListPublicComments(request, env);
 				if (request.method === 'POST') return handleCreatePublicComment(request, env);

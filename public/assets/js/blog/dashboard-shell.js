@@ -173,7 +173,8 @@
 				children: [
 					{ label: ko ? '학습 홈' : '学習ホーム', href: `${prefix}/japanese/`, active: () => path === `${prefix}/japanese/` },
 					{ label: ko ? '기초 한자 학습' : '基礎漢字学習', href: `${prefix}/japanese/kanji-basics/`, active: () => path.includes('/japanese/kanji-basics/') },
-					{ label: 'JLPT N1', href: `${prefix}/japanese/jlpt/`, active: () => path.includes('/japanese/jlpt/') },
+					{ label: 'JLPT N1', href: `${prefix}/japanese/jlpt/`, active: () => path === `${prefix}/japanese/jlpt/` },
+					{ label: ko ? 'JLPT 전체 단어' : 'JLPT全単語', href: `${prefix}/japanese/jlpt/words/`, active: () => path.includes('/japanese/jlpt/words/') },
 					{ label: ko ? '예문 독해' : '例文読解', href: `${prefix}/japanese/examples/`, active: () => path.includes('/japanese/examples/') },
 					{ label: ko ? '단어 목록' : '単語一覧', href: `${prefix}/japanese/words/`, active: () => path.includes('/japanese/words/') && !korean },
 					{ label: ko ? '랜덤 퀴즈' : 'ランダムクイズ', href: `${prefix}/japanese/quiz/`, active: () => path.includes('/japanese/quiz/') && !path.includes('/result/') && !korean },
