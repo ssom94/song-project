@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_5_migration_ready",
+  "status": "batch_6_vocabulary_ready",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -50,7 +50,8 @@
   "nextBatch": {
     "from": "2026-12-10",
     "to": "2026-12-23",
-    "expectedNewWords": 280
+    "expectedNewWords": 280,
+    "stage": "grammar_reading_and_migration_pending"
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
@@ -73,21 +74,21 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2026-11-26",
-      "to": "2026-12-09"
+      "from": "2026-12-10",
+      "to": "2026-12-23"
     },
-    "stage": "complete_content_generated_and_structurally_validated",
+    "stage": "vocabulary_questions_complete_editorial_review_pending",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
-    "questionsComplete": 294,
-    "grammarLessonsComplete": 28,
-    "grammarQuestionsComplete": 42,
-    "readingSetsComplete": 14,
-    "readingQuestionsComplete": 42,
-    "migrationReady": true,
-    "source": "data/jlpt/production/batches/2026-11-26--2026-12-09.content-draft.json",
-    "note": "The fifth batch excludes all 1,120 earlier word+reading identities and adds an editorial holdout for dated/nonstandard spellings, greetings, elementary vocabulary, and low-value fixed N1 slots. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. Required fields, unique identities, answer/options, date links, Japanese/Korean script separation, and exact reuse against 1,196 historical MCQ signatures passed. The bounded migration is generated and statically validated; remote D1 application remains user-controlled."
+    "questionsComplete": 210,
+    "grammarLessonsComplete": 0,
+    "grammarQuestionsComplete": 0,
+    "readingSetsComplete": 0,
+    "readingQuestionsComplete": 0,
+    "migrationReady": false,
+    "source": "data/jlpt/production/batches/2026-12-10--2026-12-23.content-draft.json",
+    "note": "The sixth batch excludes all 1,400 earlier word+reading identities. Its selection adds a stricter holdout for dated/nonstandard spellings, greetings, elementary counters and body/nature words, and low-value everyday loanwords after the strongest five batches exhausted the top of the original pool. It contains exactly 20 words and 15 linked vocabulary MCQs per day. Required fields, unique identities, answer/options, and date links passed. Grammar, reading, final semantic review, 90-day cross-batch reuse validation, and bounded migration generation remain pending."
   },
   "lastUpdated": "2026-09-11"
 }

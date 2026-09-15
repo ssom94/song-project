@@ -3,13 +3,14 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DIR = path.join(ROOT, 'data', 'jlpt', 'production');
-const batch = ['batch2','batch3','batch4','batch5'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const batch = ['batch2','batch3','batch4','batch5','batch6'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
 const batchConfig = {
 	batch1: { proposal: 'n1-first-batch-proposals.json', stem: '2026-10-01--2026-10-14' },
 	batch2: { proposal: 'n1-second-batch-proposals.json', stem: '2026-10-15--2026-10-28' },
 	batch3: { proposal: 'n1-third-batch-proposals.json', stem: '2026-10-29--2026-11-11' },
 	batch4: { proposal: 'n1-fourth-batch-proposals.json', stem: '2026-11-12--2026-11-25' },
 	batch5: { proposal: 'n1-fifth-batch-proposals.json', stem: '2026-11-26--2026-12-09' },
+	batch6: { proposal: 'n1-sixth-batch-proposals.json', stem: '2026-12-10--2026-12-23' },
 }[batch];
 const INPUT = path.join(DIR, 'candidates', batchConfig.proposal);
 const OUTPUT_DIR = path.join(DIR, 'batches');
