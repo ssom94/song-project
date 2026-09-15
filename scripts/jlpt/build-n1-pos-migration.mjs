@@ -22,38 +22,34 @@ const mapPart = {
 
 const quote = (value) => `'${String(value).replaceAll("'", "''")}'`;
 const rows = [];
+const targetWords = [];
 for (const word of data.words) {
 	const parts = mapPart[word.part_of_speech];
 	if (!parts) throw new Error(`Unmapped part of speech: ${word.part_of_speech} (${word.word})`);
+	targetWords.push(`(${quote(word.word)},${quote(word.reading)})`);
 	parts.forEach((part, index) => rows.push(`(${quote(word.word)},${quote(word.reading)},${quote(part)},${index === 0 ? 1 : 0})`));
 }
 
 const sql = `-- Generated from the reviewed first N1 batch. Scope: 2026-10-01..2026-10-14 only.
 PRAGMA foreign_keys = ON;
 
-CREATE TEMP TABLE _n1_b1_pos_0108 (
-  word TEXT NOT NULL,
-  reading TEXT NOT NULL,
-  part_name_ja TEXT NOT NULL,
-  is_primary INTEGER NOT NULL
-);
-
-INSERT INTO _n1_b1_pos_0108(word,reading,part_name_ja,is_primary) VALUES
-${rows.join(',\n')};
-
+WITH target_words(word,reading) AS (VALUES
+${targetWords.join(',\n')}
+)
 DELETE FROM japanese_word_parts_of_speech
 WHERE word_id IN (
-  SELECT DISTINCT w.id FROM _n1_b1_pos_0108 s
+  SELECT DISTINCT w.id FROM target_words s
   JOIN japanese_words w ON w.word=s.word AND w.reading=s.reading AND w.deleted_at IS NULL
 );
 
+WITH source(word,reading,part_name_ja,is_primary) AS (VALUES
+${rows.join(',\n')}
+)
 INSERT INTO japanese_word_parts_of_speech(word_id,part_of_speech_id,is_primary,created_at)
 SELECT w.id,p.id,s.is_primary,strftime('%Y-%m-%dT%H:%M:%fZ','now')
-FROM _n1_b1_pos_0108 AS s
+FROM source AS s
 JOIN japanese_words AS w ON w.word=s.word AND w.reading=s.reading AND w.deleted_at IS NULL
 JOIN parts_of_speech AS p ON p.name_ja=s.part_name_ja AND p.deleted_at IS NULL;
-
-DROP TABLE _n1_b1_pos_0108;
 `;
 
 fs.writeFileSync(output, sql);
