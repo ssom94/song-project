@@ -59,13 +59,15 @@
     "from": "2026-12-24",
     "to": "2027-01-06",
     "expectedNewWords": 280,
-    "stage": "shortlist_pending_dictionary_and_korean_editorial_enrichment",
+    "stage": "editorial_enrichment_in_progress",
     "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json",
     "supplementReviewQueue": "data/jlpt/production/candidates/n1-supplement-review-queue.json",
     "supplementQueueSize": 500,
     "supplementShortlist": "data/jlpt/production/candidates/n1-seventh-batch-supplement-shortlist.json",
     "supplementShortlistSize": 280,
-    "supplementHoldoutSize": 220
+    "supplementHoldoutSize": 220,
+    "editoriallyEnrichedWords": 40,
+    "editorialEnrichmentCheckpoint": "data/jlpt/production/curation/supplement/batch7-0001-0040.json"
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
