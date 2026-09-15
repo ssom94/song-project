@@ -6,6 +6,10 @@
 	let filter = 'all';
 	const pages = new Map();
 	const PAGE_SIZE = 10;
+	let writingOverlay = null;
+	let writingHost = null;
+	let writingStrokes = [];
+	let writingTrace = false;
 
 	function normalizeBase(value) {
 		return String(value || '').normalize('NFKC').trim().replace(/[\s　]+/g, '').toLowerCase();
@@ -74,6 +78,15 @@
 	function decorateWord(host) {
 		if (!(host instanceof HTMLElement) || host.dataset.memoryInputs === 'true') return;
 		host.dataset.memoryInputs = 'true';
+		const pen = document.createElement('button');
+		pen.type = 'button';
+		pen.className = 'jlpt-writing-open';
+		pen.textContent = '✎';
+		pen.title = t('쓰기 연습', '書き取り練習');
+		pen.setAttribute('aria-label', `${wordText(host)} ${t('쓰기 연습', '書き取り練習')}`);
+		pen.addEventListener('click', (event) => { event.preventDefault(); event.stopPropagation(); openWriting(host); });
+		const head = host.querySelector('.jlpt-word-head');
+		if (head) head.appendChild(pen); else host.appendChild(pen);
 		const fields = document.createElement('div');
 		fields.className = 'jlpt-memory-answer-fields';
 		fields.append(
@@ -82,6 +95,68 @@
 		);
 		host.appendChild(fields);
 	}
+
+	function wordText(host) {
+		if (host.dataset.memorySpelling) return host.dataset.memorySpelling;
+		const title = host.querySelector('.jlpt-word-title strong, :scope > strong');
+		if (!(title instanceof HTMLElement)) return '';
+		const copy = title.cloneNode(true);
+		copy.querySelector?.('.jlpt-word-number')?.remove();
+		return copy.textContent?.trim() || '';
+	}
+
+	function ensureWritingOverlay() {
+		if (writingOverlay) return writingOverlay;
+		writingOverlay = document.createElement('div');
+		writingOverlay.className = 'jlpt-writing-overlay';
+		writingOverlay.hidden = true;
+		writingOverlay.innerHTML = `<section class="jlpt-writing-panel" role="dialog" aria-modal="true" aria-label="${t('단어 쓰기 연습','単語書き取り練習')}">
+			<div class="jlpt-writing-head"><div><small>${t('단어 쓰기 연습','単語書き取り練習')}</small><strong data-writing-word></strong></div><button data-writing-close type="button" aria-label="${t('닫기','閉じる')}">×</button></div>
+			<p data-writing-clue></p><canvas class="jlpt-writing-canvas" data-writing-canvas></canvas>
+			<div class="jlpt-writing-tools"><button data-writing-action="trace" type="button">${t('정답 가이드','お手本')}</button><button data-writing-action="undo" type="button">${t('한 획 취소','一画戻す')}</button><button data-writing-action="clear" type="button">${t('전체 지우기','全消去')}</button></div>
+		</section>`;
+		document.body.appendChild(writingOverlay);
+		writingOverlay.addEventListener('click', (event) => {
+			if (event.target === writingOverlay || event.target.closest('[data-writing-close]')) return closeWriting();
+			const button = event.target.closest('[data-writing-action]'); if (!button) return;
+			if (button.dataset.writingAction === 'trace') writingTrace = !writingTrace;
+			else if (button.dataset.writingAction === 'undo') writingStrokes.pop();
+			else writingStrokes = [];
+			renderWritingCanvas();
+		});
+		return writingOverlay;
+	}
+
+	function renderWritingCanvas() {
+		const canvas = writingOverlay?.querySelector('[data-writing-canvas]'); if (!(canvas instanceof HTMLCanvasElement)) return;
+		const rect = canvas.getBoundingClientRect(), width = Math.max(260, Math.round(rect.width)), height = Math.max(220, Math.round(rect.height));
+		const ratio = Math.max(1, window.devicePixelRatio || 1); canvas.width = width * ratio; canvas.height = height * ratio;
+		const ctx = canvas.getContext('2d'); if (!ctx) return; ctx.scale(ratio, ratio); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, width, height);
+		ctx.strokeStyle = '#e1e6ec'; ctx.lineWidth = 1; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(12, height / 2); ctx.lineTo(width - 12, height / 2); ctx.stroke(); ctx.setLineDash([]);
+		const word = wordText(writingHost || document.body);
+		if (writingTrace && word) { const length = [...word].length; ctx.fillStyle = 'rgba(38,54,78,.14)'; ctx.font = `700 ${Math.min(height * .55, width / Math.max(1.15, length * .92))}px "Noto Sans JP","Yu Gothic",sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(word, width / 2, height * .51); }
+		ctx.strokeStyle = '#26364e'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+		writingStrokes.forEach((stroke) => { if (!stroke.length) return; ctx.beginPath(); ctx.moveTo(stroke[0].x * width, stroke[0].y * height); stroke.slice(1).forEach((point) => ctx.lineTo(point.x * width, point.y * height)); ctx.stroke(); });
+		writingOverlay?.querySelector('[data-writing-action="trace"]')?.classList.toggle('is-active', writingTrace);
+	}
+
+	function bindWritingCanvas() {
+		const canvas = writingOverlay?.querySelector('[data-writing-canvas]'); if (!(canvas instanceof HTMLCanvasElement)) return; let drawing = false;
+		const point = (event) => { const rect = canvas.getBoundingClientRect(); return { x: Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width)), y: Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height)) }; };
+		canvas.onpointerdown = (event) => { drawing = true; canvas.setPointerCapture(event.pointerId); writingStrokes.push([point(event)]); renderWritingCanvas(); };
+		canvas.onpointermove = (event) => { if (!drawing) return; writingStrokes.at(-1).push(point(event)); renderWritingCanvas(); };
+		canvas.onpointerup = canvas.onpointercancel = () => { drawing = false; };
+		renderWritingCanvas();
+	}
+
+	function openWriting(host) {
+		writingHost = host; writingStrokes = []; writingTrace = false; const overlay = ensureWritingOverlay();
+		overlay.querySelector('[data-writing-word]').textContent = wordText(host) || '—';
+		overlay.querySelector('[data-writing-clue]').textContent = `${host.dataset.memoryReading || '—'} · ${host.dataset.memoryMeaningKo || '—'}`;
+		overlay.hidden = false; document.body.classList.add('jlpt-writing-opened'); bindWritingCanvas();
+	}
+
+	function closeWriting() { if (!writingOverlay) return; writingOverlay.hidden = true; writingHost = null; writingStrokes = []; document.body.classList.remove('jlpt-writing-opened'); }
 
 
 	function wordState(host) {

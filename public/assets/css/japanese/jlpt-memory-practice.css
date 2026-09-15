@@ -72,9 +72,15 @@
 .jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > span,
 .jlpt-memory-practice-active [data-memory-word].is-memory-input-complete > small { visibility: visible; }
 .jlpt-memory-filter-hidden { display: none !important; }
+.jlpt-writing-open { display:none; flex:0 0 auto; width:36px; height:36px; padding:0; border:1px solid #cad4e1; border-radius:10px; background:#fff; color:#334861; font-size:21px; line-height:1; cursor:pointer; }
+.jlpt-memory-practice-active .jlpt-writing-open,
+#jlpt-study-detail.is-memory-mode .jlpt-writing-open { display:grid; place-items:center; }
+.jlpt-preview-word[data-memory-word],.jlpt-archive-word[data-memory-word]{position:relative}.jlpt-preview-word>.jlpt-writing-open,.jlpt-archive-word>.jlpt-writing-open{position:absolute;top:8px;right:8px}.jlpt-memory-practice-active .jlpt-preview-word[data-memory-word],.jlpt-memory-practice-active .jlpt-archive-word[data-memory-word]{padding-right:52px}
+.jlpt-writing-overlay{position:fixed;inset:0;z-index:1300;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(17,27,41,.68);backdrop-filter:blur(5px)}.jlpt-writing-overlay[hidden]{display:none}.jlpt-writing-opened{overflow:hidden}.jlpt-writing-panel{width:min(520px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:20px;border-radius:24px;background:#fff;box-shadow:0 28px 70px rgba(0,0,0,.3)}.jlpt-writing-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.jlpt-writing-head>div{display:grid;gap:2px}.jlpt-writing-head small{color:#7a8798;font-weight:750}.jlpt-writing-head strong{font-size:1.45rem;color:#26364e}.jlpt-writing-head>button{width:40px;height:40px;border:0;border-radius:50%;background:#eef1f5;font-size:1.3rem;cursor:pointer}.jlpt-writing-panel>p{margin:10px 0;color:#647287;font-weight:750}.jlpt-writing-canvas{display:block;width:100%;height:min(58dvh,360px);min-height:240px;border:2px solid #cbd6e3;border-radius:18px;background:#fff;touch-action:none;cursor:crosshair}.jlpt-writing-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}.jlpt-writing-tools button{min-height:43px;padding:6px;border:1px solid #d5dee9;border-radius:11px;background:#fff;color:#48586c;font-weight:800;cursor:pointer}.jlpt-writing-tools button.is-active{border-color:#26364e;background:#26364e;color:#fff}
 @media (max-width: 640px) {
 	.jlpt-memory-answer-fields { grid-template-columns: 1fr; }
 	.jlpt-memory-practice-toolbar { align-items: stretch; }
 	.jlpt-memory-practice-toolbar > button { width: 100%; }
 	.jlpt-memory-filter-group { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+	.jlpt-writing-panel{padding:15px;border-radius:19px}.jlpt-writing-canvas{height:min(52dvh,320px);min-height:230px}.jlpt-writing-tools button{font-size:.72rem}.jlpt-writing-head strong{font-size:1.2rem}
 }
