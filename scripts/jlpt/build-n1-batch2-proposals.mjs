@@ -9,13 +9,16 @@ const BATCH1 = path.join(PROD, 'candidates/n1-first-batch-proposals.json');
 const BATCH2 = path.join(PROD, 'candidates/n1-second-batch-proposals.json');
 const BATCH3 = path.join(PROD, 'candidates/n1-third-batch-proposals.json');
 const BATCH4 = path.join(PROD, 'candidates/n1-fourth-batch-proposals.json');
-const batch = ['batch2', 'batch3', 'batch4', 'batch5', 'batch6'].includes(process.argv[2]) ? process.argv[2] : 'batch2';
+const BATCH5 = path.join(PROD, 'candidates/n1-fifth-batch-proposals.json');
+const BATCH6 = path.join(PROD, 'candidates/n1-sixth-batch-proposals.json');
+const batch = ['batch2', 'batch3', 'batch4', 'batch5', 'batch6', 'batch7'].includes(process.argv[2]) ? process.argv[2] : 'batch2';
 const configs = {
 	batch2: { ordinal: 'Second', output: 'n1-second-batch-proposals.json', from: '2026-10-15', to: '2026-10-28', sequence: 281, day: 15, prior: [BATCH1] },
 	batch3: { ordinal: 'Third', output: 'n1-third-batch-proposals.json', from: '2026-10-29', to: '2026-11-11', sequence: 561, day: 29, prior: [BATCH1, BATCH2] },
 	batch4: { ordinal: 'Fourth', output: 'n1-fourth-batch-proposals.json', from: '2026-11-12', to: '2026-11-25', sequence: 841, day: 43, prior: [BATCH1, BATCH2, BATCH3] },
 	batch5: { ordinal: 'Fifth', output: 'n1-fifth-batch-proposals.json', from: '2026-11-26', to: '2026-12-09', sequence: 1121, day: 57, prior: [BATCH1, BATCH2, BATCH3, BATCH4] },
-	batch6: { ordinal: 'Sixth', output: 'n1-sixth-batch-proposals.json', from: '2026-12-10', to: '2026-12-23', sequence: 1401, day: 71, prior: [BATCH1, BATCH2, BATCH3, BATCH4, path.join(PROD, 'candidates/n1-fifth-batch-proposals.json')] },
+	batch6: { ordinal: 'Sixth', output: 'n1-sixth-batch-proposals.json', from: '2026-12-10', to: '2026-12-23', sequence: 1401, day: 71, prior: [BATCH1, BATCH2, BATCH3, BATCH4, BATCH5] },
+	batch7: { ordinal: 'Seventh', output: 'n1-seventh-batch-proposals.json', from: '2026-12-24', to: '2027-01-06', sequence: 1681, day: 85, prior: [BATCH1, BATCH2, BATCH3, BATCH4, BATCH5, BATCH6] },
 };
 const config = configs[batch];
 const OUTPUT = path.join(PROD, 'candidates', config.output);
@@ -54,6 +57,12 @@ if (batch === 'batch6') for (const word of [
 	,'女子','亜爾加里','火燵','位地','加留多','此れ','其れ','所で','かも知れない','凡ゆる','其れに','或る','其れから','其れとも','何故なら','お八つ','お菜','じゃん拳','御負け','お襁褓','辺り','御手洗い','此れ等','而も','然して','始めまして','夜具','一部分','箪笥','面皰','十分','地方','天皇','少女','流行','空間','煙草','身体','金庫','一見','一目','帰京','丈夫','作物','保母','縁側','桟橋','碁盤','分母','縁談','余所見','時刻表','小児科','還暦','朝寝坊','香辛料','十字路','冬眠','伝言','風車','真下','貴女','梅干','籤引','耳鼻科','殿様','歯磨','見舞','目盛','申出','火傷','城下','世辞','気流','立方','出入り口','首飾り','宙返り','合わせ','お願いします','片付け','お祖父さん','お祖母さん','足し算','頬っぺた','坊ちゃん','Gパン','茶の間','体付き','夜更かし','渡り鳥','畏まりました','お巡りさん','目付き','汚れ','明くる','現われ','駆けっこ','錆び','塵取り','遣い','物置き','ローマ字','割引き','同い年','話し合い'
 ]) EXCLUDE.add(word);
 const FORMAL = /政策|制度|法|権|規|議|論|証|審|査|裁|判|統|制|構|概|抽|象|因|果|関|係|経|済|産|業|社|会|国|際|文化|歴史|技術|研究|情報|資|源|労|働|環境|行政|政治|倫理|責任|義務|批判|主張|評価|分析|判断|認め|妨|阻|抑|覆|遂|免|準|掲|携|顧|隔|紛|乏|緩|脆/u;
+const BATCH7_HOLD = new Set([
+	// Reopened candidates that remain unsuitable for an N1-priority slot:
+	// elementary vocabulary, greetings, dated spellings, and narrow daily nouns.
+	'仮令','上がる','訪れる','決まる','返る','集まる','甘い','貧乏','付き合う','歩む','栄える','逃す','潜る','軈て','暫く','隔週','利子','教材','下がる','包む','広まる','誇る','押さえる','整える','背負う','果てる','埋まる','問い合わせる','現われる','指差す','老ける','認める','産む','家計','外来','定年','津波','期末','下痢','役場','利息','学歴','出社','母校','本場','携帯','収集','教習','大空','民宿','見方','特技','特産','漁村','共学','助詞','社宅','休学','仲人','汽船','貝殻','大事','従業員','土産','準急','使用人','目蓋','軍服','三味線','控室','修学','用法','教職','来場','課外','慣れ','大げさ','物好き','受かる','間もなく','間違う','爽やか','済まない','ご苦労様','お蔭様で','久し振り','上手','気楽','盛大','未定','味わい','日の丸','無駄遣い','扱い','遅れ','張り紙','共働き','当たり','受け取り','花びら','お産','割り算','夕焼け','勤め先','振り','お使い','打ち消し','共稼ぎ','お邪魔します','見積り','化石','衣類','観覧','災害','真上','主任','天国','情熱','決勝','教員','探検','正解','再会','当選','推理','気象','預金','地形','沢山','詳細','一寸','畜生','可哀想','未婚','洋風','夜中','明々後日','手配','どうにか','がっちり','てっきり','がっしり','不良','その上','何故','保つ','合唱','生死','動力','楽譜','募金','小銭','月日','満月','保育','電線','陶器','同居','天地','交互','年長','送金','立体','年頃',
+	'吃逆','果ない','散蒔く','転転','纏め','所が','取り引き','然うして','一向','一々','屹度','可成','吃驚','滅茶苦茶','奇麗','愈々','恰度','逆上る','蛋白質','黴菌','膨脹','段々','出鱈目','嗚呼','箇箇'
+]);
 
 const used = new Set();
 for (const priorPath of config.prior) {
@@ -67,12 +76,16 @@ for (const name of (await fs.readdir(CURATION)).filter((name) => name.endsWith('
 const pool = JSON.parse(await fs.readFile(POOL, 'utf8')).candidates;
 const candidates = pool.flatMap((candidate) => {
 	const row = curated.get(identity(candidate));
-	if (!row || used.has(identity(candidate)) || EXCLUDE.has(candidate.word) || !REQUIRED.every((key) => normalize(row[key]))) return [];
+	// Earlier holdouts were intentionally conservative for the first six
+	// priority batches. From batch seven onward, reassess unused canonical
+	// entries by score instead of permanently discarding useful upper-level
+	// words together with dated spellings.
+	if (!row || used.has(identity(candidate)) || (batch !== 'batch7' && EXCLUDE.has(candidate.word)) || (batch === 'batch7' && BATCH7_HOLD.has(candidate.word)) || !REQUIRED.every((key) => normalize(row[key]))) return [];
 	const rank = Number(candidate.source_rank_by_generic_frequency ?? 999999);
 	let priority = (candidate.frequency_evidence_count ?? 0) * 10;
 	if (FORMAL.test(candidate.word) || FORMAL.test(row.meaning_ja)) priority += 45;
 	if (/動詞|形容詞|副詞/u.test(row.part_of_speech)) priority += 12;
-	if (batch === 'batch6') {
+	if (batch === 'batch6' || batch === 'batch7') {
 		// Once the strongest five batches are consumed, generic rank alone starts
 		// promoting elementary loanwords, counters and dictionary headword
 		// spellings. Prefer multi-kanji compounds and written/abstract usage.
@@ -81,6 +94,8 @@ const candidates = pool.flatMap((candidate) => {
 		if (/^[\p{Script=Hiragana}\p{Script=Katakana}ー]+$/u.test(candidate.word)) priority -= 25;
 		if (/^[\p{Script=Han}々ヶ]{2,}$/u.test(candidate.word)) priority += 24;
 		if (/性|化|率|論|観|権|制|策|務|的|上|化|症|感|態|過|難|害|衰|慣|衷|慨|越|屈|配|紡|嗜|類|密|危|軽|信|転|略|激/u.test(candidate.word)) priority += 16;
+		if (/^(?:教え|一部|一日|女子|少女|私|俺|お早う|今日は|今晩は|左様なら|有難う|済みません|お願いします)$/u.test(candidate.word)) priority -= 120;
+		if (/^(?:何|其|此|彼|御|凡|如何|兎|矢|嘗|屡|悉|殆|態|余程)/u.test(candidate.word)) priority -= 55;
 	}
 	if (rank >= 700 && rank <= 3200) priority += 18;
 	else if (rank < 400) priority -= 35;
@@ -88,7 +103,19 @@ const candidates = pool.flatMap((candidate) => {
 	return [{ ...row, source_rank_by_generic_frequency: rank, frequency_evidence_count: candidate.frequency_evidence_count ?? 0, priority_score: priority }];
 }).sort((a,b) => b.priority_score - a.priority_score || a.source_rank_by_generic_frequency - b.source_rank_by_generic_frequency || a.word.localeCompare(b.word, 'ja'));
 
-const selected = candidates.slice(0, 280);
+const qualified = batch === 'batch7' ? candidates.filter((row) => row.priority_score >= 66) : candidates;
+if (batch === 'batch7') {
+	const auditPath = path.join(PROD, 'candidates/n1-seventh-batch-source-audit.json');
+	await fs.writeFile(auditPath, `${JSON.stringify({
+		schemaVersion: 1,
+		dateRange: { from: config.from, to: config.to },
+		status: qualified.length >= 280 ? 'source_ready' : 'candidate_source_expansion_required',
+		counts: { unusedCanonicalCandidates: candidates.length, editorialScoreThreshold: 66, qualifiedCandidates: qualified.length, requiredForBatch: 280, shortage: Math.max(0, 280 - qualified.length) },
+		note: 'The original generic-frequency pool is exhausted at the high-priority tier. Do not fill the schedule with elementary vocabulary, dated spellings, or narrow dictionary headwords. Expand and independently curate the licensed source corpus before generating batch seven.',
+	}, null, 2)}\n`);
+	if (qualified.length < 280) throw new Error(`Batch 7 needs candidate-source expansion: ${qualified.length}/280 editorially qualified`);
+}
+const selected = qualified.slice(0, 280);
 // Each daily vocabulary set needs seven examples where the dictionary-form
 // spelling can be blanked safely. Reorder only within the already selected
 // 280-word priority window so content generation never invents a conjugation.

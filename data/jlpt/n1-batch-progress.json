@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_6_migration_ready",
+  "status": "batch_7_candidate_source_expansion_required",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -58,7 +58,9 @@
   "nextBatch": {
     "from": "2026-12-24",
     "to": "2027-01-06",
-    "expectedNewWords": 280
+    "expectedNewWords": 280,
+    "stage": "candidate_source_expansion_required",
+    "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json"
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
@@ -97,5 +99,5 @@
     "source": "data/jlpt/production/batches/2026-12-10--2026-12-23.content-draft.json",
     "note": "The sixth batch excludes all 1,400 earlier word+reading identities and applies a stricter holdout for dated/nonstandard spellings, greetings, elementary counters, and low-value everyday loanwords. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. Required fields, unique identities, answer/options, date links, and exact reuse against 1,490 historical MCQ signatures passed. The migration is bounded to this plan and date range, contains no COUNT scan, and leaves remote D1 application under user control."
   },
-  "lastUpdated": "2026-09-11"
+  "lastUpdated": "2026-09-15"
 }

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "dateRange": {
+    "from": "2026-12-24",
+    "to": "2027-01-06"
+  },
+  "status": "candidate_source_expansion_required",
+  "counts": {
+    "unusedCanonicalCandidates": 1111,
+    "editorialScoreThreshold": 66,
+    "qualifiedCandidates": 82,
+    "requiredForBatch": 280,
+    "shortage": 198
+  },
+  "note": "The original generic-frequency pool is exhausted at the high-priority tier. Do not fill the schedule with elementary vocabulary, dated spellings, or narrow dictionary headwords. Expand and independently curate the licensed source corpus before generating batch seven."
+}
