@@ -19,6 +19,17 @@
       "notes": "Community classification, not JLPT-official. Never imported blindly; malformed, duplicate, or identity-inconsistent entries are rejected before the final 3,000-word corpus is frozen."
     },
     {
+      "id": "waller-n2-supplement-via-stephenmk",
+      "role": ["N1 preparation prerequisite candidate expansion", "jmdict sequence", "reading cross-check", "English gloss hint"],
+      "project": "stephenmk/yomitan-jlpt-vocab",
+      "path": "original_data/n2.csv",
+      "repositorySnapshot": "data/jlpt/production/upstream/waller-n2.csv",
+      "upstream": "Jonathan Waller JLPT Resources (tanos.co.uk)",
+      "license": "CC-BY 4.0 for original Waller data; redistributed under CC-BY-SA 4.0 by stephenmk",
+      "expectedCandidateCount": 1812,
+      "notes": "Supplemental prerequisite review only. Rows are never represented as official N1 vocabulary and require JMdict identity, Korean gloss, usage, example, and editorial suitability verification before scheduling."
+    },
+    {
       "id": "jmdict-normalized",
       "role": ["canonical dictionary identity", "writing/reading validation", "part-of-speech evidence"],
       "project": "jkindrix/japanese-language-data",
