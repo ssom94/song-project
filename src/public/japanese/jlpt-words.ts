@@ -30,9 +30,11 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 		const includeTotal = url.searchParams.get('includeTotal') !== '0';
 		const requestedGroup = (url.searchParams.get('group') ?? '').trim();
 		const group = ['noun', 'verb', 'adjective-adverb', 'unclassified'].includes(requestedGroup) ? requestedGroup : '';
-		const verbTypes: Record<string, string> = { godan: '五段動詞', ichidan: '一段動詞', suru: 'サ変動詞', kuru: 'カ変動詞' };
+		const verbTypes: Record<string, string> = { general: '__GENERAL__', all: '', godan: '五段動詞', ichidan: '一段動詞', suru: 'サ変動詞', kuru: 'カ変動詞' };
 		const requestedVerbType = (url.searchParams.get('verbType') ?? '').trim();
-		const verbType = group === 'verb' && verbTypes[requestedVerbType] ? requestedVerbType : '';
+		const verbType = group === 'verb' && Object.hasOwn(verbTypes, requestedVerbType)
+			? requestedVerbType
+			: group === 'verb' ? 'general' : '';
 		const verbPartName = verbType ? verbTypes[verbType] : '';
 		const admin = await resolveLearningAdmin(request, env.song_project_db);
 		if (!admin.adminId) return json({ ok: false, error: 'LEARNING_ADMIN_NOT_FOUND' }, 404);
@@ -70,7 +72,11 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 						(?3='adjective-adverb' AND COALESCE(parent.name_ja,child.name_ja) IN ('形容詞','副詞'))
 					)
 				)
-			) AND (?4 = '' OR EXISTS (
+			) AND (?4 = '' OR (?4 = '__GENERAL__' AND NOT EXISTS (
+				SELECT 1 FROM japanese_word_parts_of_speech gp
+				JOIN parts_of_speech gpart ON gpart.id=gp.part_of_speech_id AND gpart.deleted_at IS NULL
+				WHERE gp.word_id=w.id AND gpart.name_ja='サ変動詞'
+			)) OR (?4 NOT IN ('', '__GENERAL__') AND EXISTS (
 				SELECT 1 FROM japanese_word_parts_of_speech vp
 				JOIN parts_of_speech vpart ON vpart.id=vp.part_of_speech_id AND vpart.deleted_at IS NULL
 				WHERE vp.word_id=w.id AND vpart.name_ja=?4
@@ -99,7 +105,11 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 							(?2='adjective-adverb' AND COALESCE(parent.name_ja,child.name_ja) IN ('形容詞','副詞'))
 						)
 					)
-				) AND (?3 = '' OR EXISTS (
+				) AND (?3 = '' OR (?3 = '__GENERAL__' AND NOT EXISTS (
+					SELECT 1 FROM japanese_word_parts_of_speech gp
+					JOIN parts_of_speech gpart ON gpart.id=gp.part_of_speech_id AND gpart.deleted_at IS NULL
+					WHERE gp.word_id=w.id AND gpart.name_ja='サ変動詞'
+				)) OR (?3 NOT IN ('', '__GENERAL__') AND EXISTS (
 					SELECT 1 FROM japanese_word_parts_of_speech vp
 					JOIN parts_of_speech vpart ON vpart.id=vp.part_of_speech_id AND vpart.deleted_at IS NULL
 					WHERE vp.word_id=w.id AND vpart.name_ja=?3

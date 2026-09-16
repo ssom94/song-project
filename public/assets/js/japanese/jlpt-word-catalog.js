@@ -20,7 +20,7 @@
 	let canEdit = false;
 	let words = [];
 	let group = new URLSearchParams(location.search).get('group') || '';
-	let verbType = new URLSearchParams(location.search).get('verbType') || '';
+	let verbType = new URLSearchParams(location.search).get('verbType') || (group === 'verb' ? 'general' : '');
 	let drawing = false;
 	let context = null;
 
@@ -108,13 +108,13 @@
 	const verbTypeSelect = document.createElement('select');
 	verbTypeSelect.id = 'jlpt-catalog-verb-type';
 	verbTypeSelect.setAttribute('aria-label', ko ? '동사 종류 선택' : '動詞の種類を選択');
-	verbTypeSelect.innerHTML = `<option value="">${ko ? '전체 동사' : '全動詞'}</option><option value="godan">${ko ? '5단동사' : '五段動詞'}</option><option value="ichidan">${ko ? '1단동사' : '一段動詞'}</option><option value="suru">${ko ? 'サ변격 동사' : 'サ変動詞'}</option><option value="kuru">${ko ? 'カ변격 동사' : 'カ変動詞'}</option>`;
-	if (![...verbTypeSelect.options].some((option) => option.value === verbType)) verbType = '';
+	verbTypeSelect.innerHTML = `<option value="general">${ko ? '일반 동사' : '一般動詞'}</option><option value="all">${ko ? '전체 동사' : '全動詞'}</option><option value="suru">${ko ? 'する 동사' : 'する動詞'}</option><option value="godan">${ko ? '5단동사' : '五段動詞'}</option><option value="ichidan">${ko ? '1단동사' : '一段動詞'}</option><option value="kuru">${ko ? 'カ변격 동사' : 'カ変動詞'}</option>`;
+	if (![...verbTypeSelect.options].some((option) => option.value === verbType)) verbType = group === 'verb' ? 'general' : '';
 	verbTypeSelect.value = verbType;
 	verbTypeSelect.hidden = group !== 'verb';
 	toolbar.insertBefore(verbTypeSelect, toolbar.querySelector('.jlpt-catalog-pager'));
 	groupSelect.addEventListener('change', () => {
-		group = groupSelect.value; page = 1; total = null; if (group !== 'verb') verbType = '';
+		group = groupSelect.value; page = 1; total = null; verbType = group === 'verb' ? 'general' : '';
 		verbTypeSelect.value = verbType; verbTypeSelect.hidden = group !== 'verb';
 		const url = new URL(location.href); if (group) url.searchParams.set('group', group); else url.searchParams.delete('group'); if (verbType) url.searchParams.set('verbType', verbType); else url.searchParams.delete('verbType'); history.replaceState(null, '', url);
 		load(true);

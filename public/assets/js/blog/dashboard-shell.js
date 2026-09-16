@@ -176,7 +176,7 @@
 					{ label: 'JLPT N1', href: `${prefix}/japanese/jlpt/`, active: () => path === `${prefix}/japanese/jlpt/` },
 					{ label: ko ? 'JLPT 전체 단어' : 'JLPT全単語', href: `${prefix}/japanese/jlpt/words/`, active: () => path.includes('/japanese/jlpt/words/') },
 					{ label: ko ? '　명사 모음집' : '　名詞集', href: `${prefix}/japanese/jlpt/words/?group=noun`, active: () => path.includes('/japanese/jlpt/words/') && new URLSearchParams(location.search).get('group') === 'noun' },
-					{ label: ko ? '　동사 모음집' : '　動詞集', href: `${prefix}/japanese/jlpt/words/?group=verb`, active: () => path.includes('/japanese/jlpt/words/') && new URLSearchParams(location.search).get('group') === 'verb' },
+					{ label: ko ? '　동사 모음집' : '　動詞集', href: `${prefix}/japanese/jlpt/words/?group=verb&verbType=general`, active: () => path.includes('/japanese/jlpt/words/') && new URLSearchParams(location.search).get('group') === 'verb' },
 					{ label: ko ? '　형용사·부사 모음집' : '　形容詞・副詞集', href: `${prefix}/japanese/jlpt/words/?group=adjective-adverb`, active: () => path.includes('/japanese/jlpt/words/') && new URLSearchParams(location.search).get('group') === 'adjective-adverb' },
 					{ label: ko ? '예문 독해' : '例文読解', href: `${prefix}/japanese/examples/`, active: () => path.includes('/japanese/examples/') },
 					{ label: ko ? '단어 목록' : '単語一覧', href: `${prefix}/japanese/words/`, active: () => path.includes('/japanese/words/') && !korean },
