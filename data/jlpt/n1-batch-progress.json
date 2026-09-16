@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_7_editorial_words_complete",
+  "status": "batch_7_vocabulary_questions_complete",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -59,7 +59,7 @@
     "from": "2026-12-24",
     "to": "2027-01-06",
     "expectedNewWords": 280,
-    "stage": "editorial_enrichment_complete_pending_daily_schedule",
+    "stage": "daily_schedule_and_vocabulary_questions_complete",
     "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json",
     "supplementReviewQueue": "data/jlpt/production/candidates/n1-supplement-review-queue.json",
     "supplementQueueSize": 500,
@@ -98,21 +98,21 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2026-12-10",
-      "to": "2026-12-23"
+      "from": "2026-12-24",
+      "to": "2027-01-06"
     },
-    "stage": "complete_content_generated_and_structurally_validated",
+    "stage": "vocabulary_questions_complete_grammar_and_reading_pending",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
-    "questionsComplete": 294,
-    "grammarLessonsComplete": 28,
-    "grammarQuestionsComplete": 42,
-    "readingSetsComplete": 14,
-    "readingQuestionsComplete": 42,
-    "migrationReady": true,
-    "source": "data/jlpt/production/batches/2026-12-10--2026-12-23.content-draft.json",
-    "note": "The sixth batch excludes all 1,400 earlier word+reading identities and applies a stricter holdout for dated/nonstandard spellings, greetings, elementary counters, and low-value everyday loanwords. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. Required fields, unique identities, answer/options, date links, and exact reuse against 1,490 historical MCQ signatures passed. The migration is bounded to this plan and date range, contains no COUNT scan, and leaves remote D1 application under user control."
+    "vocabularyQuestionsComplete": 210,
+    "grammarLessonsComplete": 0,
+    "grammarQuestionsComplete": 0,
+    "readingSetsComplete": 0,
+    "readingQuestionsComplete": 0,
+    "migrationReady": false,
+    "source": "data/jlpt/production/batches/2026-12-24--2027-01-06.content-draft.json",
+    "note": "The seventh batch uses 280 independently enriched supplemental entries and excludes all 1,680 earlier word+reading identities. It now contains exactly 20 words and 15 linked vocabulary MCQs per day. Required fields, unique identities, answer/options, date links, and exact reuse against 1,260 historical vocabulary MCQ signatures passed. Grammar, reading, and the bounded D1 migration remain pending."
   },
-  "lastUpdated": "2026-09-15"
+  "lastUpdated": "2026-09-16"
 }
