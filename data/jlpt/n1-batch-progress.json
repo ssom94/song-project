@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_7_vocabulary_and_grammar_complete",
+  "status": "batch_7_complete_content_validated",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -59,7 +59,7 @@
     "from": "2026-12-24",
     "to": "2027-01-06",
     "expectedNewWords": 280,
-    "stage": "vocabulary_and_grammar_complete_reading_pending",
+    "stage": "complete_content_generated_and_structurally_validated",
     "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json",
     "supplementReviewQueue": "data/jlpt/production/candidates/n1-supplement-review-queue.json",
     "supplementQueueSize": 500,
@@ -101,18 +101,19 @@
       "from": "2026-12-24",
       "to": "2027-01-06"
     },
-    "stage": "vocabulary_and_grammar_complete_reading_pending",
+    "stage": "complete_content_generated_and_structurally_validated",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
     "vocabularyQuestionsComplete": 210,
     "grammarLessonsComplete": 28,
     "grammarQuestionsComplete": 42,
-    "readingSetsComplete": 0,
-    "readingQuestionsComplete": 0,
+    "readingSetsComplete": 14,
+    "readingQuestionsComplete": 42,
+    "questionsComplete": 294,
     "migrationReady": false,
     "source": "data/jlpt/production/batches/2026-12-24--2027-01-06.content-draft.json",
-    "note": "The seventh batch uses 280 independently enriched supplemental entries and excludes all 1,680 earlier word+reading identities. It now contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, and three grammar MCQs per day. Required fields, unique identities, answer/options, date links, exact reuse against 1,260 historical vocabulary MCQ signatures, and overlap against 163 earlier grammar patterns and 252 grammar MCQs passed. Reading and the bounded D1 migration remain pending."
+    "note": "The seventh batch uses 280 independently enriched supplemental entries and excludes all 1,680 earlier word+reading identities. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. The full validator scanned 1,784 historical MCQ signatures and reported zero errors and zero warnings. Only the bounded D1 migration remains pending."
   },
   "lastUpdated": "2026-09-16"
 }
