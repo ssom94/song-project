@@ -80,7 +80,7 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 				SELECT 1 FROM japanese_word_parts_of_speech vp
 				JOIN parts_of_speech vpart ON vpart.id=vp.part_of_speech_id AND vpart.deleted_at IS NULL
 				WHERE vp.word_id=w.id AND vpart.name_ja=?4
-			))
+			)))
 			ORDER BY CASE WHEN c.introduced_on IS NULL THEN 1 ELSE 0 END,
 				c.introduced_on ASC, c.sort_order ASC, c.word_id ASC
 			LIMIT ?5 OFFSET ?6
@@ -113,7 +113,7 @@ export async function handleListPublicJapaneseJlptWords(request: Request, env: E
 					SELECT 1 FROM japanese_word_parts_of_speech vp
 					JOIN parts_of_speech vpart ON vpart.id=vp.part_of_speech_id AND vpart.deleted_at IS NULL
 					WHERE vp.word_id=w.id AND vpart.name_ja=?3
-				))
+				)))
 			`).bind(plan.id, group, verbPartName).first<TotalRow>();
 			total = Number(row?.total ?? 0);
 		}
