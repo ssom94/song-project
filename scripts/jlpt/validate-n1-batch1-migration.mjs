@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = ['batch2','batch3','batch4','batch5','batch6'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
-const config = batch === 'batch6'
+const batch = ['batch2','batch3','batch4','batch5','batch6','batch7'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const config = batch === 'batch7'
+  ? { stem: '2026-12-24--2027-01-06', file: '0122_jlpt_n1_batch_20261224_20270106.sql', from: '2026-12-24', to: '2027-01-06' }
+  : batch === 'batch6'
   ? { stem: '2026-12-10--2026-12-23', file: '0121_jlpt_n1_batch_20261210_20261223.sql', from: '2026-12-10', to: '2026-12-23' }
   : batch === 'batch5'
   ? { stem: '2026-11-26--2026-12-09', file: '0106_jlpt_n1_batch_20261126_20261209.sql', from: '2026-11-26', to: '2026-12-09' }
