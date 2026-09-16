@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_7_vocabulary_questions_complete",
+  "status": "batch_7_vocabulary_and_grammar_complete",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -59,7 +59,7 @@
     "from": "2026-12-24",
     "to": "2027-01-06",
     "expectedNewWords": 280,
-    "stage": "daily_schedule_and_vocabulary_questions_complete",
+    "stage": "vocabulary_and_grammar_complete_reading_pending",
     "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json",
     "supplementReviewQueue": "data/jlpt/production/candidates/n1-supplement-review-queue.json",
     "supplementQueueSize": 500,
@@ -101,18 +101,18 @@
       "from": "2026-12-24",
       "to": "2027-01-06"
     },
-    "stage": "vocabulary_questions_complete_grammar_and_reading_pending",
+    "stage": "vocabulary_and_grammar_complete_reading_pending",
     "wordRows": 280,
     "uniqueWordReadingPairs": 280,
     "requiredContentComplete": 280,
     "vocabularyQuestionsComplete": 210,
-    "grammarLessonsComplete": 0,
-    "grammarQuestionsComplete": 0,
+    "grammarLessonsComplete": 28,
+    "grammarQuestionsComplete": 42,
     "readingSetsComplete": 0,
     "readingQuestionsComplete": 0,
     "migrationReady": false,
     "source": "data/jlpt/production/batches/2026-12-24--2027-01-06.content-draft.json",
-    "note": "The seventh batch uses 280 independently enriched supplemental entries and excludes all 1,680 earlier word+reading identities. It now contains exactly 20 words and 15 linked vocabulary MCQs per day. Required fields, unique identities, answer/options, date links, and exact reuse against 1,260 historical vocabulary MCQ signatures passed. Grammar, reading, and the bounded D1 migration remain pending."
+    "note": "The seventh batch uses 280 independently enriched supplemental entries and excludes all 1,680 earlier word+reading identities. It now contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, and three grammar MCQs per day. Required fields, unique identities, answer/options, date links, exact reuse against 1,260 historical vocabulary MCQ signatures, and overlap against 163 earlier grammar patterns and 252 grammar MCQs passed. Reading and the bounded D1 migration remain pending."
   },
   "lastUpdated": "2026-09-16"
 }
