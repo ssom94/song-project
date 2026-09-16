@@ -66,13 +66,14 @@
     "supplementShortlist": "data/jlpt/production/candidates/n1-seventh-batch-supplement-shortlist.json",
     "supplementShortlistSize": 280,
     "supplementHoldoutSize": 220,
-    "editoriallyEnrichedWords": 200,
+    "editoriallyEnrichedWords": 240,
     "editorialEnrichmentCheckpoints": [
       "data/jlpt/production/curation/supplement/batch7-0001-0040.json",
       "data/jlpt/production/curation/supplement/batch7-0041-0080.json",
       "data/jlpt/production/curation/supplement/batch7-0081-0120.json",
       "data/jlpt/production/curation/supplement/batch7-0121-0160.json",
-      "data/jlpt/production/curation/supplement/batch7-0161-0200.json"
+      "data/jlpt/production/curation/supplement/batch7-0161-0200.json",
+      "data/jlpt/production/curation/supplement/batch7-0201-0240.json"
     ]
   },
   "selectionPolicy": {
