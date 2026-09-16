@@ -28,6 +28,11 @@
 		return String(value == null ? '' : value).replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
 	}
 	function totalPages() { return Math.max(1, Math.ceil((total || 0) / pageSize)); }
+	function catalogForm(word) {
+		const suruVerb = group === 'verb' && Array.isArray(word.parts) && word.parts.includes('サ変動詞');
+		if (!suruVerb || /する$/u.test(word.word)) return { word: word.word, reading: word.reading };
+		return { word: `${word.word}する`, reading: `${word.reading}する` };
+	}
 	function header() {
 		return `<div class="jlpt-catalog-row jlpt-catalog-head"><div class="jlpt-catalog-cell">${ko ? '번호' : '番号'}</div><div class="jlpt-catalog-cell">${ko ? '일본어' : '日本語'}</div><div class="jlpt-catalog-cell jlpt-catalog-fact">${ko ? '히라가나' : '読み'}</div><div class="jlpt-catalog-cell jlpt-catalog-fact">${ko ? '한글 뜻' : '韓国語の意味'}</div><div class="jlpt-catalog-cell jlpt-catalog-fact">${ko ? '등록 날짜' : '登録日'}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields">${ko ? '읽기 입력' : '読み入力'}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields">${ko ? '뜻 입력' : '意味入力'}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields">${ko ? '암기완료' : '暗記完了'}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields">${ko ? '쓰기' : '書く'}</div></div>`;
 	}
@@ -35,7 +40,10 @@
 		if (!words.length) {
 			list.innerHTML = header() + `<div class="jlpt-catalog-empty">${ko ? '등록된 JLPT 단어가 없습니다.' : '登録されたJLPT単語がありません。'}</div>`;
 		} else {
-			list.innerHTML = header() + words.map((word) => `<div class="jlpt-catalog-row" data-word-id="${word.id}"><div class="jlpt-catalog-cell jlpt-catalog-number">${word.number}</div><div class="jlpt-catalog-cell jlpt-catalog-word" title="${escapeHtml(word.word)}"><a href="/${ko ? 'ko' : 'ja'}/japanese/words/detail/?id=${word.id}&word=${encodeURIComponent(word.word)}">${escapeHtml(word.word)}</a></div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.reading)}">${escapeHtml(word.reading)}</div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.meaningKo)}">${escapeHtml(word.meaningKo)}</div><div class="jlpt-catalog-cell jlpt-catalog-date jlpt-catalog-fact">${escapeHtml(word.introducedOn || '—')}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="reading" autocomplete="off" aria-label="${ko ? '히라가나 입력' : '読み入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="meaning" autocomplete="off" aria-label="${ko ? '한글 뜻 입력' : '韓国語の意味入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-check jlpt-catalog-memory-fields"><input type="checkbox" data-mastered ${word.learningState === 'mastered' ? 'checked' : ''} ${canEdit ? '' : 'disabled'} aria-label="${ko ? '암기완료' : '暗記完了'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><button class="jlpt-catalog-pen" type="button" data-write="${escapeHtml(word.word)}" aria-label="${ko ? '쓰기 연습' : '書き取り練習'}">✎</button></div></div>`).join('');
+			list.innerHTML = header() + words.map((word) => {
+				const shown = catalogForm(word);
+				return `<div class="jlpt-catalog-row" data-word-id="${word.id}"><div class="jlpt-catalog-cell jlpt-catalog-number">${word.number}</div><div class="jlpt-catalog-cell jlpt-catalog-word" title="${escapeHtml(shown.word)}"><a href="/${ko ? 'ko' : 'ja'}/japanese/words/detail/?id=${word.id}&word=${encodeURIComponent(word.word)}">${escapeHtml(shown.word)}</a></div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(shown.reading)}">${escapeHtml(shown.reading)}</div><div class="jlpt-catalog-cell jlpt-catalog-fact" title="${escapeHtml(word.meaningKo)}">${escapeHtml(word.meaningKo)}</div><div class="jlpt-catalog-cell jlpt-catalog-date jlpt-catalog-fact">${escapeHtml(word.introducedOn || '—')}</div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="reading" autocomplete="off" aria-label="${ko ? '히라가나 입력' : '読み入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><input class="jlpt-catalog-answer" data-answer="meaning" autocomplete="off" aria-label="${ko ? '한글 뜻 입력' : '韓国語の意味入力'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-check jlpt-catalog-memory-fields"><input type="checkbox" data-mastered ${word.learningState === 'mastered' ? 'checked' : ''} ${canEdit ? '' : 'disabled'} aria-label="${ko ? '암기완료' : '暗記完了'}" /></div><div class="jlpt-catalog-cell jlpt-catalog-memory-fields"><button class="jlpt-catalog-pen" type="button" data-write="${escapeHtml(shown.word)}" aria-label="${ko ? '쓰기 연습' : '書き取り練習'}">✎</button></div></div>`;
+			}).join('');
 		}
 		pageLabel.textContent = `${page} / ${totalPages()}`;
 		previous.disabled = page <= 1;
@@ -62,7 +70,7 @@
 		const row = input.closest('[data-word-id]');
 		const word = words.find((item) => item.id === Number(row.dataset.wordId));
 		if (!word || !input.value.trim()) { input.classList.remove('is-correct', 'is-wrong'); return; }
-		const expected = input.dataset.answer === 'reading' ? word.reading : word.meaningKo;
+		const expected = input.dataset.answer === 'reading' ? catalogForm(word).reading : word.meaningKo;
 		const choices = normalize(expected).split(/[\/;]| 또는 | 혹은 /).map(normalize).filter(Boolean);
 		const correct = choices.some((choice) => normalize(input.value) === choice) || normalize(input.value) === normalize(expected);
 		input.classList.toggle('is-correct', correct); input.classList.toggle('is-wrong', !correct);
