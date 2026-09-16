@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_7_migration_ready",
+  "status": "batch_8_editorial_enrichment_in_progress",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -53,28 +53,29 @@
       "contentRows": 294,
       "migration": "migrations/0121_jlpt_n1_batch_20261210_20261223.sql",
       "commit": "49652af"
+    },
+    {
+      "from": "2026-12-24",
+      "to": "2027-01-06",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0122_jlpt_n1_batch_20261224_20270106.sql",
+      "commit": "85faa30"
     }
   ],
   "nextBatch": {
-    "from": "2026-12-24",
-    "to": "2027-01-06",
+    "from": "2027-01-07",
+    "to": "2027-01-20",
     "expectedNewWords": 280,
-    "stage": "bounded_migration_ready",
-    "audit": "data/jlpt/production/candidates/n1-seventh-batch-source-audit.json",
-    "supplementReviewQueue": "data/jlpt/production/candidates/n1-supplement-review-queue.json",
-    "supplementQueueSize": 500,
-    "supplementShortlist": "data/jlpt/production/candidates/n1-seventh-batch-supplement-shortlist.json",
+    "stage": "editorial_enrichment_in_progress",
+    "supplementReviewQueue": "data/jlpt/production/candidates/n1-eighth-batch-supplement-review-queue.json",
+    "supplementQueueSize": 1000,
+    "supplementShortlist": "data/jlpt/production/candidates/n1-eighth-batch-supplement-shortlist.json",
     "supplementShortlistSize": 280,
-    "supplementHoldoutSize": 220,
-    "editoriallyEnrichedWords": 280,
+    "supplementHoldoutSize": 720,
+    "editoriallyEnrichedWords": 40,
     "editorialEnrichmentCheckpoints": [
-      "data/jlpt/production/curation/supplement/batch7-0001-0040.json",
-      "data/jlpt/production/curation/supplement/batch7-0041-0080.json",
-      "data/jlpt/production/curation/supplement/batch7-0081-0120.json",
-      "data/jlpt/production/curation/supplement/batch7-0121-0160.json",
-      "data/jlpt/production/curation/supplement/batch7-0161-0200.json",
-      "data/jlpt/production/curation/supplement/batch7-0201-0240.json",
-      "data/jlpt/production/curation/supplement/batch7-0241-0280.json"
+      "data/jlpt/production/curation/supplement/batch8-0001-0040.json"
     ]
   },
   "selectionPolicy": {
@@ -98,24 +99,20 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2026-12-24",
-      "to": "2027-01-06"
+      "from": "2027-01-07",
+      "to": "2027-01-20"
     },
-    "stage": "complete_content_and_bounded_migration_validated",
-    "wordRows": 280,
-    "uniqueWordReadingPairs": 280,
-    "requiredContentComplete": 280,
-    "vocabularyQuestionsComplete": 210,
-    "grammarLessonsComplete": 28,
-    "grammarQuestionsComplete": 42,
-    "readingSetsComplete": 14,
-    "readingQuestionsComplete": 42,
-    "questionsComplete": 294,
-    "migrationReady": true,
-    "migration": "migrations/0122_jlpt_n1_batch_20261224_20270106.sql",
-    "migrationValidation": "data/jlpt/production/batches/2026-12-24--2027-01-06.migration-validation.json",
-    "source": "data/jlpt/production/batches/2026-12-24--2027-01-06.content-draft.json",
-    "note": "The seventh batch uses 280 independently enriched supplemental entries and excludes all 1,680 earlier word+reading identities. It contains exactly 20 words, 15 linked vocabulary MCQs, two grammar lessons, three grammar MCQs, and one original three-question reading set per day. The full validator scanned 1,784 historical MCQ signatures and reported zero errors and zero warnings. Its migration is bounded to this plan and date range, contains no COUNT scan or plan-wide curriculum deletion, and leaves remote D1 application under user control."
+    "stage": "first_editorial_checkpoint_validated",
+    "candidateQueueRows": 1000,
+    "preliminaryShortlistRows": 280,
+    "editoriallyEnrichedWords": 40,
+    "uniqueWordReadingPairs": 40,
+    "excludesEarlierMaterializedWords": 1960,
+    "wordRows": 0,
+    "questionsComplete": 0,
+    "migrationReady": false,
+    "source": "data/jlpt/production/curation/supplement/batch8-0001-0040.json",
+    "note": "The first 40 entries have verified readings, Korean/Japanese meanings, parts of speech, and project-authored examples. The automatic 280-row shortlist remains provisional: elementary, household, school, narrow technical, and non-preferred written forms must continue to be replaced during editorial enrichment. No eighth-batch Today Study rows or SQL have been generated."
   },
   "lastUpdated": "2026-09-16"
 }

@@ -4,7 +4,8 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const PROD = path.join(ROOT, 'data/jlpt/production');
 const SOURCE = path.join(PROD, 'upstream/waller-n2.csv');
-const OUTPUT = path.join(PROD, 'candidates/n1-supplement-review-queue.json');
+const batch = process.argv[2] === 'batch8' ? 'batch8' : 'batch7';
+const OUTPUT = path.join(PROD, 'candidates', batch === 'batch8' ? 'n1-eighth-batch-supplement-review-queue.json' : 'n1-supplement-review-queue.json');
 const N1_POOL = path.join(PROD, 'candidates/n1-candidate-pool.json');
 const BATCH_DIR = path.join(PROD, 'batches');
 const normalize = (value = '') => String(value).normalize('NFKC').trim();
@@ -67,15 +68,16 @@ const rows = parseCsv(await fs.readFile(SOURCE, 'utf8')).flatMap((source, source
 const unique = new Map();
 for (const row of rows) if (!unique.has(identity(row.word, row.reading))) unique.set(identity(row.word, row.reading), row);
 const ranked = [...unique.values()].sort((a, b) => b.editorial_score - a.editorial_score || a.source_rank - b.source_rank || a.word.localeCompare(b.word, 'ja'));
-const queue = ranked.slice(0, 500).map((row, index) => ({ review_sequence: index + 1, ...row }));
+const queueSize = batch === 'batch8' ? 1000 : 500;
+const queue = ranked.slice(0, queueSize).map((row, index) => ({ review_sequence: index + 1, ...row }));
 if (queue.length < 280) throw new Error(`Only ${queue.length} supplement candidates; need at least 280.`);
 
 await fs.writeFile(OUTPUT, `${JSON.stringify({
 	schemaVersion: 1,
-	purpose: 'Open-licensed supplemental review queue for N1 preparation after the original Waller N1 pool high-priority tier was exhausted.',
+	purpose: `Open-licensed supplemental review queue for ${batch === 'batch8' ? 'the eighth' : 'the seventh'} N1-preparation batch after the original Waller N1 pool high-priority tier was exhausted.`,
 	disclaimer: 'These rows come from a community N2 classification and are prerequisite/supplement candidates, not official N1 vocabulary or official per-word frequency claims.',
 	source: { project: 'stephenmk/yomitan-jlpt-vocab', path: 'original_data/n2.csv', upstream: 'Jonathan Waller JLPT Resources', license: 'CC-BY 4.0 / redistributed CC-BY-SA 4.0' },
-	checks: { sourceRows: parseCsv(await fs.readFile(SOURCE, 'utf8')).length, excludesOriginalN1Identities: true, excludesSixBatchIdentities: true, uniqueWordReadingPairs: new Set(queue.map((row) => identity(row.word, row.reading))).size === queue.length, reviewQueue: queue.length },
+	checks: { sourceRows: parseCsv(await fs.readFile(SOURCE, 'utf8')).length, excludesOriginalN1Identities: true, excludesAllMaterializedBatchIdentities: true, uniqueWordReadingPairs: new Set(queue.map((row) => identity(row.word, row.reading))).size === queue.length, reviewQueue: queue.length },
 	candidates: queue,
 }, null, 2)}\n`);
 console.log(JSON.stringify({ eligible: ranked.length, reviewQueue: queue.length, first: queue.slice(0, 10).map((row) => `${row.word}(${row.reading})`) }, null, 2));
