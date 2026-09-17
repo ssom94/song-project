@@ -73,11 +73,12 @@
     "supplementShortlist": "data/jlpt/production/candidates/n1-eighth-batch-supplement-shortlist.json",
     "supplementShortlistSize": 280,
     "supplementHoldoutSize": 720,
-    "editoriallyEnrichedWords": 120,
+    "editoriallyEnrichedWords": 160,
     "editorialEnrichmentCheckpoints": [
       "data/jlpt/production/curation/supplement/batch8-0001-0040.json",
       "data/jlpt/production/curation/supplement/batch8-0041-0080.json",
-      "data/jlpt/production/curation/supplement/batch8-0081-0120.json"
+      "data/jlpt/production/curation/supplement/batch8-0081-0120.json",
+      "data/jlpt/production/curation/supplement/batch8-0121-0160.json"
     ]
   },
   "selectionPolicy": {
@@ -104,17 +105,17 @@
       "from": "2027-01-07",
       "to": "2027-01-20"
     },
-    "stage": "third_editorial_checkpoint_validated",
+    "stage": "fourth_editorial_checkpoint_validated",
     "candidateQueueRows": 1000,
     "preliminaryShortlistRows": 280,
-    "editoriallyEnrichedWords": 120,
-    "uniqueWordReadingPairs": 120,
+    "editoriallyEnrichedWords": 160,
+    "uniqueWordReadingPairs": 160,
     "excludesEarlierMaterializedWords": 1960,
     "wordRows": 0,
     "questionsComplete": 0,
     "migrationReady": false,
-    "source": "data/jlpt/production/curation/supplement/batch8-0081-0120.json",
-    "note": "The first 120 entries have verified readings, Korean/Japanese meanings, parts of speech, and project-authored examples. Entries 41-120 deliberately emphasize modern general verbs useful in written comprehension rather than suru-noun padding. The automatic 280-row shortlist remains provisional: elementary, household, school, narrow technical, and non-preferred written forms must continue to be replaced during editorial enrichment. No eighth-batch Today Study rows or SQL have been generated."
+    "source": "data/jlpt/production/curation/supplement/batch8-0121-0160.json",
+    "note": "The first 160 entries have verified readings, Korean/Japanese meanings, parts of speech, and project-authored examples. Entries 41-160 deliberately emphasize modern general verbs useful in written comprehension rather than suru-noun padding. The automatic 280-row shortlist remains provisional: elementary, household, school, narrow technical, and non-preferred written forms must continue to be replaced during editorial enrichment. No eighth-batch Today Study rows or SQL have been generated."
   },
   "lastUpdated": "2026-09-16"
 }
