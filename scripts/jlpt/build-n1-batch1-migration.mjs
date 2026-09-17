@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = ['batch2','batch3','batch4','batch5','batch6','batch7','batch8'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
-const config = batch === 'batch8'
+const batch = ['batch2','batch3','batch4','batch5','batch6','batch7','batch8','batch9'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const config = batch === 'batch9'
+  ? { stem: '2027-01-21--2027-02-03', output: '0124_jlpt_n1_batch_20270121_20270203.sql', from: '2027-01-21', to: '2027-02-03', tag: '0124', temp: '_n1_b9', label: 'batch 2027-01-21..2027-02-03' }
+  : batch === 'batch8'
   ? { stem: '2027-01-07--2027-01-20', output: '0123_jlpt_n1_batch_20270107_20270120.sql', from: '2027-01-07', to: '2027-01-20', tag: '0123', temp: '_n1_b8', label: 'batch 2027-01-07..2027-01-20' }
   : batch === 'batch5'
   ? { stem: '2026-11-26--2026-12-09', output: '0106_jlpt_n1_batch_20261126_20261209.sql', from: '2026-11-26', to: '2026-12-09', tag: '0106', temp: '_n1_b5', label: 'batch 2026-11-26..2026-12-09' }
@@ -73,6 +75,5 @@ for (const day of doc.days) {
 }
 lines.push(`DROP TABLE ${config.temp}_map_${config.tag};`);
 lines.push(`DROP TABLE ${config.temp}_words_${config.tag};`);
-lines.push('');
 await fs.writeFile(OUTPUT, `${lines.join('\n')}\n`);
 console.log(JSON.stringify({ output: path.relative(ROOT, OUTPUT), words: doc.words.length, days: doc.days.length, contentRows: doc.days.length * 21 }, null, 2));
