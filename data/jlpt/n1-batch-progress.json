@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_9_complete_batch_10_pending",
+  "status": "batch_10_complete_final_n1_batch_pending",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -77,15 +77,23 @@
       "contentRows": 294,
       "migration": "migrations/0124_jlpt_n1_batch_20270121_20270203.sql",
       "commit": "f020b09"
+    },
+    {
+      "from": "2027-02-04",
+      "to": "2027-02-17",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0125_jlpt_n1_batch_20270204_20270217.sql",
+      "commit": "d31b326"
     }
   ],
   "nextBatch": {
-    "from": "2027-02-04",
-    "to": "2027-02-17",
+    "from": "2027-02-18",
+    "to": "2027-03-03",
     "expectedNewWords": 280,
     "stage": "candidate_selection_pending",
-    "completedN1Words": 2520,
-    "remainingToMinimumTarget": 480
+    "completedN1Words": 2800,
+    "remainingToMinimumTarget": 200
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
@@ -108,20 +116,20 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2027-02-04",
-      "to": "2027-02-17"
+      "from": "2027-02-18",
+      "to": "2027-03-03"
     },
     "stage": "candidate_selection_pending",
     "candidateQueueRows": 0,
     "preliminaryShortlistRows": 0,
     "editoriallyEnrichedWords": 0,
     "uniqueWordReadingPairs": 0,
-    "excludesEarlierMaterializedWords": 2520,
+    "excludesEarlierMaterializedWords": 2800,
     "wordRows": 0,
     "questionsComplete": 0,
     "migrationReady": false,
     "source": null,
-    "note": "Batch 9 is complete and locally validated with 280 unique words, 14 Today Study days, 294 linked content rows, and a bounded idempotent migration. Batch 10 must begin from a new editorial queue that excludes all 2520 previously scheduled word+reading pairs."
+    "note": "Batch 10 is complete and locally validated with 280 unique words, 14 Today Study days, 294 linked content rows, and a bounded idempotent migration. The final N1 batch must preserve the complete 14-day/20-word schedule, exclude all 2800 prior word+reading pairs, and then run final corpus validation before N2 begins."
   },
   "lastUpdated": "2026-09-17"
 }
