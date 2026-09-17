@@ -4,7 +4,7 @@
   "targetStartDate": "2026-10-01",
   "batchDays": 14,
   "dailyNewWords": 20,
-  "status": "batch_8_editorial_enrichment_in_progress",
+  "status": "batch_8_complete_batch_9_pending",
   "completedBatches": [
     {
       "from": "2026-10-01",
@@ -61,27 +61,23 @@
       "contentRows": 294,
       "migration": "migrations/0122_jlpt_n1_batch_20261224_20270106.sql",
       "commit": "85faa30"
+    },
+    {
+      "from": "2027-01-07",
+      "to": "2027-01-20",
+      "words": 280,
+      "contentRows": 294,
+      "migration": "migrations/0123_jlpt_n1_batch_20270107_20270120.sql",
+      "commit": "pending_checkpoint_commit"
     }
   ],
   "nextBatch": {
-    "from": "2027-01-07",
-    "to": "2027-01-20",
+    "from": "2027-01-21",
+    "to": "2027-02-03",
     "expectedNewWords": 280,
-    "stage": "editorial_enrichment_in_progress",
-    "supplementReviewQueue": "data/jlpt/production/candidates/n1-eighth-batch-supplement-review-queue.json",
-    "supplementQueueSize": 1000,
-    "supplementShortlist": "data/jlpt/production/candidates/n1-eighth-batch-supplement-shortlist.json",
-    "supplementShortlistSize": 280,
-    "supplementHoldoutSize": 720,
-    "editoriallyEnrichedWords": 240,
-    "editorialEnrichmentCheckpoints": [
-      "data/jlpt/production/curation/supplement/batch8-0001-0040.json",
-      "data/jlpt/production/curation/supplement/batch8-0041-0080.json",
-      "data/jlpt/production/curation/supplement/batch8-0081-0120.json",
-      "data/jlpt/production/curation/supplement/batch8-0121-0160.json",
-      "data/jlpt/production/curation/supplement/batch8-0161-0200.json",
-      "data/jlpt/production/curation/supplement/batch8-0201-0240.json"
-    ]
+    "stage": "candidate_selection_pending",
+    "completedN1Words": 2240,
+    "remainingToMinimumTarget": 760
   },
   "selectionPolicy": {
     "primary": "independently curated advanced-Japanese relevance and JLPT N1 item-type suitability",
@@ -104,20 +100,20 @@
   },
   "activeBatchCheckpoint": {
     "dateRange": {
-      "from": "2027-01-07",
-      "to": "2027-01-20"
+      "from": "2027-01-21",
+      "to": "2027-02-03"
     },
-    "stage": "sixth_editorial_checkpoint_validated",
-    "candidateQueueRows": 1000,
-    "preliminaryShortlistRows": 280,
-    "editoriallyEnrichedWords": 240,
-    "uniqueWordReadingPairs": 240,
-    "excludesEarlierMaterializedWords": 1960,
+    "stage": "candidate_selection_pending",
+    "candidateQueueRows": 0,
+    "preliminaryShortlistRows": 0,
+    "editoriallyEnrichedWords": 0,
+    "uniqueWordReadingPairs": 0,
+    "excludesEarlierMaterializedWords": 2240,
     "wordRows": 0,
     "questionsComplete": 0,
     "migrationReady": false,
-    "source": "data/jlpt/production/curation/supplement/batch8-0201-0240.json",
-    "note": "The first 240 entries have verified readings, Korean/Japanese meanings, parts of speech, and project-authored examples. Entries 41-240 deliberately emphasize modern general and compound verbs useful in written comprehension rather than suru-noun padding. The automatic 280-row shortlist remains provisional: elementary, household, school, narrow technical, and non-preferred written forms must continue to be replaced during editorial enrichment. No eighth-batch Today Study rows or SQL have been generated."
+    "source": null,
+    "note": "Batch 8 is complete and locally validated with 280 unique words, 14 Today Study days, 294 linked content rows, and a bounded idempotent migration. Batch 9 must begin from a new editorial queue that excludes all 2240 previously scheduled word+reading pairs."
   },
-  "lastUpdated": "2026-09-16"
+  "lastUpdated": "2026-09-17"
 }

@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = ['batch2','batch3','batch4','batch5','batch6','batch7'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const batch = ['batch2','batch3','batch4','batch5','batch6','batch7','batch8'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
 const configs = {
 	batch1: { stem: '2026-10-01--2026-10-14', migration: '0099_jlpt_n1_batch_20261001_20261014.sql', firstDay: 1 },
 	batch2: { stem: '2026-10-15--2026-10-28', migration: '0100_jlpt_n1_batch_20261015_20261028.sql', firstDay: 15 },
@@ -11,6 +11,7 @@ const configs = {
 	batch5: { stem: '2026-11-26--2026-12-09', migration: '0106_jlpt_n1_batch_20261126_20261209.sql', firstDay: 57 },
 	batch6: { stem: '2026-12-10--2026-12-23', migration: '0121_jlpt_n1_batch_20261210_20261223.sql', firstDay: 71 },
 	batch7: { stem: '2026-12-24--2027-01-06', migration: '0122_jlpt_n1_batch_20261224_20270106.sql', firstDay: 85 },
+	batch8: { stem: '2027-01-07--2027-01-20', migration: '0123_jlpt_n1_batch_20270107_20270120.sql', firstDay: 99 },
 };
 const { stem: rangeStem, migration: ownMigration, firstDay } = configs[batch];
 const INPUT = path.join(ROOT, 'data', 'jlpt', 'production', 'batches', `${rangeStem}.content-draft.json`);

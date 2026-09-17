@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const batch = ['batch2','batch3','batch4','batch5','batch6','batch7'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
-const config = batch === 'batch5'
+const batch = ['batch2','batch3','batch4','batch5','batch6','batch7','batch8'].includes(process.argv[2]) ? process.argv[2] : 'batch1';
+const config = batch === 'batch8'
+  ? { stem: '2027-01-07--2027-01-20', output: '0123_jlpt_n1_batch_20270107_20270120.sql', from: '2027-01-07', to: '2027-01-20', tag: '0123', temp: '_n1_b8', label: 'batch 2027-01-07..2027-01-20' }
+  : batch === 'batch5'
   ? { stem: '2026-11-26--2026-12-09', output: '0106_jlpt_n1_batch_20261126_20261209.sql', from: '2026-11-26', to: '2026-12-09', tag: '0106', temp: '_n1_b5', label: 'batch 2026-11-26..2026-12-09' }
   : batch === 'batch6'
   ? { stem: '2026-12-10--2026-12-23', output: '0121_jlpt_n1_batch_20261210_20261223.sql', from: '2026-12-10', to: '2026-12-23', tag: '0121', temp: '_n1_b6', label: 'batch 2026-12-10..2026-12-23' }
