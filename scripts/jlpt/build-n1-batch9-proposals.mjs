@@ -6,17 +6,23 @@ const PROD = path.join(ROOT, 'data/jlpt/production');
 const CANDIDATES = path.join(PROD, 'candidates');
 const CURATION = path.join(PROD, 'curation/words');
 const isBatch10 = process.argv[2] === 'batch10';
-const OUTPUT = path.join(CANDIDATES, isBatch10 ? 'n1-tenth-batch-proposals.json' : 'n1-ninth-batch-proposals.json');
+const isBatch11 = process.argv[2] === 'batch11';
+const OUTPUT = path.join(CANDIDATES, isBatch11 ? 'n1-eleventh-batch-proposals.json' : isBatch10 ? 'n1-tenth-batch-proposals.json' : 'n1-ninth-batch-proposals.json');
 const PRIOR = [
   'n1-first-batch-proposals.json', 'n1-second-batch-proposals.json',
   'n1-third-batch-proposals.json', 'n1-fourth-batch-proposals.json',
   'n1-fifth-batch-proposals.json', 'n1-sixth-batch-proposals.json',
   'n1-seventh-batch-proposals.json', 'n1-eighth-batch-proposals.json',
 ];
-if (isBatch10) PRIOR.push('n1-ninth-batch-proposals.json');
+if (isBatch10 || isBatch11) PRIOR.push('n1-ninth-batch-proposals.json');
+if (isBatch11) PRIOR.push('n1-tenth-batch-proposals.json');
 const REQUIRED = ['word', 'reading', 'meaning_ko', 'meaning_ja', 'part_of_speech', 'example_ja', 'example_ko'];
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/gu, ' ').trim();
 const identity = (row) => `${normalize(row.word)}\u0000${normalize(row.reading)}`;
+const toHiragana = (value) => [...value].map((character) => {
+  const code = character.codePointAt(0);
+  return code >= 0x30a1 && code <= 0x30f6 ? String.fromCodePoint(code - 0x60) : character;
+}).join('');
 
 const used = new Set();
 for (const name of PRIOR) {
@@ -102,8 +108,18 @@ const BATCH10_WORDS = `
 何と 何も 先に 演ずる その上 如何にも 重んずる 近付く 跨がる 何となく 何とも 吊るす 辿り着く 恋する お洒落 何気ない 傷付く 馬鹿らしい 何だかんだ 縮まる 割合に 指差す 老ける 突っ張る 汚れ
 当て 当たり 借り 受け取り 増し 憧れ 手当て 進み 荷造り 盗み 届け 招き 詫び 売り出し 顔付き 夜更け 見晴らし 勤め先
 `.trim().split(/\s+/u);
+const BATCH11_WORDS = `
+難 カルテ カテゴリー トーン ドリル クレーン デッサン ネガ レクリエーション ミスプリント ストロボ
+画 毎 矢 丈 婿 壇 膳 粥 裾 桐 封 蜜 藁 皺 股 唾 檻 腿 一定 夜中 畜生 短大 セレモニー 襟 織 児 濠 侍 雫 嬢 刺 段々 地方 空間 金庫 土産 一人 二人 木綿 地形 火傷 城下 一日 中指 捕鯨 仲人 汽船
+来る 終わる 面白い 落ちる 直ぐ 落とす 甘い 易い 可愛らしい 痒い 飲み込む 日の丸 準急 余所見 目蓋 朝寝坊 素敵 擦る 上がる 継ぐ 下がる 包む 広まる 誇る 整える この頃 この間 背負う 曲がる 喋る 解く 捲る 織る 大人しい 歪む 生やす 合わせ 片付け
+何れ 答え 取っ手 切り 釣り 控室 昼間 肉体 教科 秘書 原子 各種 何と 何も 先に 演ずる その上 如何にも 重んずる 近付く 跨がる 何となく 何とも 吊るす 辿り着く 恋する お洒落 何気ない 傷付く 馬鹿らしい 何だかんだ 縮まる 割合に 指差す 済まない 老ける 突っ張る 汚れ 同い年
+当て 付き 当たり 掛け 借り 受け取り 増し 憧れ 手当て 進み 荷造り 盗み 届け 招き 詫び ご無沙汰 売り出し 顔付き 夜更け 片思い 見晴らし 出入り口 勤め先 宙返り ひょっと どうにか しょっちゅう がっちり てっきり がっしり 産む 傲る 出合う 振り 夜更かし 打ち消し 目付き 及び 起こす 当たり前 錆び
+教え 作り 動き 過ぎ 持ち 調べ 知り合い 年寄り 仕上げ 話し合い ドライ シック グレー レギュラー ユニーク ナンセンス タイムリー アップ メディア アルミ アクセル アンコール 各 雑 乙 巻 行 印 柱 誠 獣 インターナショナル ロマンチック
+システム コメント ビジネス データ デザイン ファイル ポイント ファン スピード サイズ ホール ベスト メーカー ベース ガイド ショック ルール マーク シート オープン ソース メッセージ コミュニケーション カット レンジ ダウン コーナー スペース ストレス センス タイトル トラブル ブーム コントロール グラフ オンライン タイミング キャッチ シナリオ フォーム コンタクト フロント ゲスト モニター サイクル ポジション ジャンル ラベル セクション ベストセラー パンク インテリ コマーシャル コントラスト ソロ マッサージ スチーム ダンプ タイマー パトカー スプリング
+源 像 実 版 財 通 初 非 編 器 頂 病 節 群 庁 著 和 美 衆 床 角 技 悪 網 福 脳 念 峰 扉 禅 管 碑 判 酸 班 刃 盾 象 柵 票 液 胴 情 崖 膜 肺 腸 エレガント ルーズ チャンネル カンニング ノイローゼ デモンストレーション チームワーク オリエンテーション 荷 世
+`.trim().split(/\s+/u);
 const byWord = new Map(eligible.map((row) => [row.word, row]));
-const editorialWords = isBatch10 ? BATCH10_WORDS : PREFERRED_WORDS;
+const editorialWords = isBatch11 ? BATCH11_WORDS : isBatch10 ? BATCH10_WORDS : PREFERRED_WORDS;
 const missingPreferred = editorialWords.filter((word) => !byWord.has(word));
 if (missingPreferred.length) throw new Error(`Preferred words missing from eligible pool: ${missingPreferred.join(', ')}`);
 if (new Set(editorialWords).size !== editorialWords.length) throw new Error('Duplicate word in editorial preference list');
@@ -123,12 +139,13 @@ for (let day = 0; day < 14; day += 1) {
 
 const words = scheduled.map((row, index) => ({
   ...row,
-  key: `n1-${(isBatch10 ? 3841 : 3561) + index}`,
-  sequence: (isBatch10 ? 2521 : 2241) + index,
-  planned_study_date: new Date(Date.UTC(2027, 0, (isBatch10 ? 35 : 21) + Math.floor(index / 20))).toISOString().slice(0, 10),
+  reading: isBatch11 ? toHiragana(row.reading) : row.reading,
+  key: `n1-${(isBatch11 ? 4121 : isBatch10 ? 3841 : 3561) + index}`,
+  sequence: (isBatch11 ? 2801 : isBatch10 ? 2521 : 2241) + index,
+  planned_study_date: new Date(Date.UTC(2027, 0, (isBatch11 ? 49 : isBatch10 ? 35 : 21) + Math.floor(index / 20))).toISOString().slice(0, 10),
   review_status: 'editorially_selected_from_verified_curation',
   selection_reasons: [
-    `excluded all ${isBatch10 ? 2520 : 2240} prior scheduled word+reading identities`,
+    `excluded all ${isBatch11 ? 2800 : isBatch10 ? 2520 : 2240} prior scheduled word+reading identities`,
     'verified local reading, Korean/Japanese meaning, part of speech, and project-authored example',
     'modern written, abstract, nuanced, or broadly useful N1 study value',
   ],
@@ -137,8 +154,8 @@ if (new Set(words.map(identity)).size !== 280) throw new Error('Duplicate select
 
 await fs.writeFile(OUTPUT, `${JSON.stringify({
   schemaVersion: 1,
-  purpose: `${isBatch10 ? 'Tenth' : 'Ninth'} 14-day N1 editorial batch. Project study priority only; not an official per-word JLPT frequency ranking.`,
-  dateRange: isBatch10 ? { from: '2027-02-04', to: '2027-02-17', dailyWords: 20 } : { from: '2027-01-21', to: '2027-02-03', dailyWords: 20 },
+  purpose: `${isBatch11 ? 'Eleventh' : isBatch10 ? 'Tenth' : 'Ninth'} 14-day N1 editorial batch. Project study priority only; not an official per-word JLPT frequency ranking.`,
+  dateRange: isBatch11 ? { from: '2027-02-18', to: '2027-03-03', dailyWords: 20 } : isBatch10 ? { from: '2027-02-04', to: '2027-02-17', dailyWords: 20 } : { from: '2027-01-21', to: '2027-02-03', dailyWords: 20 },
   checks: {
     candidatePool: eligible.length,
     selected: words.length,

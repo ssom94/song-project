@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scope": {
+    "level": "N1",
+    "from": "2026-10-01",
+    "to": "2027-03-03",
+    "batches": 11
+  },
+  "counts": {
+    "words": 3080,
+    "uniqueWordReadingPairs": 3080,
+    "days": 154,
+    "contentRows": 3234,
+    "mcqRows": 3234
+  },
+  "checks": {
+    "allRequiredEditorialFieldsPresent": true,
+    "uniqueWordReadingPairs": true,
+    "uniqueKeys": true,
+    "contiguousSequences": true,
+    "contiguousDates": true,
+    "twentyWordsPerDay": true,
+    "linkedContentDimensions": true
+  },
+  "errors": [],
+  "status": "passed_final_local_validation"
+}
