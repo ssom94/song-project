@@ -5,13 +5,15 @@ const ROOT = process.cwd();
 const PROD = path.join(ROOT, 'data/jlpt/production');
 const CANDIDATES = path.join(PROD, 'candidates');
 const CURATION = path.join(PROD, 'curation/words');
-const OUTPUT = path.join(CANDIDATES, 'n1-ninth-batch-proposals.json');
+const isBatch10 = process.argv[2] === 'batch10';
+const OUTPUT = path.join(CANDIDATES, isBatch10 ? 'n1-tenth-batch-proposals.json' : 'n1-ninth-batch-proposals.json');
 const PRIOR = [
   'n1-first-batch-proposals.json', 'n1-second-batch-proposals.json',
   'n1-third-batch-proposals.json', 'n1-fourth-batch-proposals.json',
   'n1-fifth-batch-proposals.json', 'n1-sixth-batch-proposals.json',
   'n1-seventh-batch-proposals.json', 'n1-eighth-batch-proposals.json',
 ];
+if (isBatch10) PRIOR.push('n1-ninth-batch-proposals.json');
 const REQUIRED = ['word', 'reading', 'meaning_ko', 'meaning_ja', 'part_of_speech', 'example_ja', 'example_ko'];
 const normalize = (value = '') => String(value).normalize('NFKC').replace(/\s+/gu, ' ').trim();
 const identity = (row) => `${normalize(row.word)}\u0000${normalize(row.reading)}`;
@@ -87,11 +89,25 @@ const PREFERRED_WORDS = `
 背負う 切り替える 果てる 仕立てる 鍛える 追い出す 埋まる 早める 取り寄せる 引き下げる 問い合わせる 弱る 投げ出す 当てはめる 粘る 割り込む 爽やか 扱い 怒り 行い 恐れ 情け 申し込み 締め切り 共働き 夕暮れ
 資金 距離 投資 文書 参照 派遣 同意 設置 反応 内部 手配 固定 戦闘 指示 同士 箇所 現地 燃料 挑戦 後悔 無線 各種 重んずる 跨がる 辿り着く 何気ない 縮まる 及び
 `.trim().split(/\s+/u);
+const BATCH10_WORDS = `
+歯科 公立 登校 入浴 聖書 黄色 相対 上下 体 暇 値 暦 格 渦 災害 癌 脈 宛 上手 明白 慣れ 詳細 短気
+合唱 楽譜 衣類 小銭 利子 月日 満月 年長 年頃 一息 神殿 音色 台本 父母 問屋 連休 晴天 期末 給食 学芸 劇団 喜劇 本館 下痢 定食 役場 利息 現像 星座 母校 本場 主食 女史
+未婚 洋風 大事 流行 一見 一目 作物 風車 元年 日向 道場 悪者 浜辺 旦那 家来 喫茶 家主 裸足 真上 同級 教習 大空 民宿 水洗 雨具 天国
+決勝 正解 受身 修学 用法 教職 課外 観 警部 一敗 主人公 極楽 微笑 冷蔵 年号 特技 横綱 海路 漁村 式場 砂利 共学 蜂蜜 水気 花壇 担架 油絵 短波 大水 熱湯 三日月 貝殻 一部分 蛋白質
+訪れる 決まる 楽しむ 返る 集まる 明るい 役立つ 大げさ 済ます 愚か 任す 鮮やか 突く 潜る 垂れる 殴る 物好き 受かる
+採用 専用 調理 日焼け 値引き 味わい 左利き 後回し 前置き 無駄遣い 使い道 身体 従業員 帰京 使用人 漢語 縁側 桟橋 碁盤 分母 縁談 時刻表 和文 軍服 還暦 三味線 香辛料 十字路 冬眠
+一部 不明 通常 日々 本気 不良 保つ 華やか 遥か 間もなく 名高い 間違う 切り替える 果てる 仕立てる 鍛える 追い出す 埋まる 早める 混む 痛める 平たい 取り寄せる 引き下げる 丸める 問い合わせる 弱る 眩しい 甘える 休める 投げ出す 抜かす 当てはめる 粘る 割り込む 爽やか
+扱い 怒り 遅れ 助け 勧め 行い 結び 恐れ 並み 覚え 写し 情け 申し込み 悩み 驚き 叫び 頼み 救い 身振り 締め切り 張り紙 共働き 夕暮れ
+開発 保護 施設 提供 殺人 現場 選挙 自己 資金 距離 保険 勝利 投資 文書 治療 参照 設定 美術 派遣 同意 公開 地元 設置 反応 古代 購入 開催 内部 予想 登録 伝説 軍事 手配 固定 戦闘 体験 指示 同士 一言 部下 地獄 職員 箇所 貴族 上司 了解 現地 天才 燃料 挑戦 恋愛 出演 後悔 乗客 英雄 読者 天井 無線 肉体 教科 秘書 原子 各種
+何と 何も 先に 演ずる その上 如何にも 重んずる 近付く 跨がる 何となく 何とも 吊るす 辿り着く 恋する お洒落 何気ない 傷付く 馬鹿らしい 何だかんだ 縮まる 割合に 指差す 老ける 突っ張る 汚れ
+当て 当たり 借り 受け取り 増し 憧れ 手当て 進み 荷造り 盗み 届け 招き 詫び 売り出し 顔付き 夜更け 見晴らし 勤め先
+`.trim().split(/\s+/u);
 const byWord = new Map(eligible.map((row) => [row.word, row]));
-const missingPreferred = PREFERRED_WORDS.filter((word) => !byWord.has(word));
+const editorialWords = isBatch10 ? BATCH10_WORDS : PREFERRED_WORDS;
+const missingPreferred = editorialWords.filter((word) => !byWord.has(word));
 if (missingPreferred.length) throw new Error(`Preferred words missing from eligible pool: ${missingPreferred.join(', ')}`);
-if (new Set(PREFERRED_WORDS).size !== PREFERRED_WORDS.length) throw new Error('Duplicate word in editorial preference list');
-const selected = PREFERRED_WORDS.slice(0, 280).map((word) => byWord.get(word));
+if (new Set(editorialWords).size !== editorialWords.length) throw new Error('Duplicate word in editorial preference list');
+const selected = editorialWords.slice(0, 280).map((word) => byWord.get(word));
 if (selected.length < 280) console.log(JSON.stringify({ eligible: eligible.length, words: selected.map((row) => row.word) }, null, 2));
 if (selected.length !== 280) throw new Error(`Expected 280 candidates, found ${selected.length}`);
 
@@ -107,12 +123,12 @@ for (let day = 0; day < 14; day += 1) {
 
 const words = scheduled.map((row, index) => ({
   ...row,
-  key: `n1-${3561 + index}`,
-  sequence: 2241 + index,
-  planned_study_date: new Date(Date.UTC(2027, 0, 21 + Math.floor(index / 20))).toISOString().slice(0, 10),
+  key: `n1-${(isBatch10 ? 3841 : 3561) + index}`,
+  sequence: (isBatch10 ? 2521 : 2241) + index,
+  planned_study_date: new Date(Date.UTC(2027, 0, (isBatch10 ? 35 : 21) + Math.floor(index / 20))).toISOString().slice(0, 10),
   review_status: 'editorially_selected_from_verified_curation',
   selection_reasons: [
-    'excluded all 2240 prior scheduled word+reading identities',
+    `excluded all ${isBatch10 ? 2520 : 2240} prior scheduled word+reading identities`,
     'verified local reading, Korean/Japanese meaning, part of speech, and project-authored example',
     'modern written, abstract, nuanced, or broadly useful N1 study value',
   ],
@@ -121,8 +137,8 @@ if (new Set(words.map(identity)).size !== 280) throw new Error('Duplicate select
 
 await fs.writeFile(OUTPUT, `${JSON.stringify({
   schemaVersion: 1,
-  purpose: 'Ninth 14-day N1 editorial batch. Project study priority only; not an official per-word JLPT frequency ranking.',
-  dateRange: { from: '2027-01-21', to: '2027-02-03', dailyWords: 20 },
+  purpose: `${isBatch10 ? 'Tenth' : 'Ninth'} 14-day N1 editorial batch. Project study priority only; not an official per-word JLPT frequency ranking.`,
+  dateRange: isBatch10 ? { from: '2027-02-04', to: '2027-02-17', dailyWords: 20 } : { from: '2027-01-21', to: '2027-02-03', dailyWords: 20 },
   checks: {
     candidatePool: eligible.length,
     selected: words.length,
